@@ -77,7 +77,9 @@ terminal
     T_TRUE,
     T_TYPEDEF,
     T_WHILE,
-    T_VOID
+    T_VOID,
+    T_NEW,
+    T_DELETE
     ;
 
 terminal String
@@ -123,6 +125,8 @@ non terminal
     ReturnStmt,
     ReadStmt,
     WriteStmt,
+    NewStmt,
+    DeleteStmt,
     WritePairList,
     WritePair,
     ConstExpr,
@@ -368,6 +372,8 @@ Stmt ::=        VarDecl
     |               ReturnStmt
     |               ReadStmt
     |               WriteStmt
+    |				NewStmt
+    |				DeleteStmt
     ;
 
 
@@ -501,7 +507,12 @@ ReadStmt ::=        T_CIN T_ISTREAM Designator T_SEMI
 WriteStmt ::=       T_COUT T_OSTREAM WritePairList T_SEMI
     ;
 
+NewStmt ::=       T_NEW Designator T_SEMI
+    ;
 
+DeleteStmt ::=    T_DELETE Designator T_SEMI
+    ;
+    
 WritePairList ::=   WritePair
     |               WritePairList T_OSTREAM WritePair
     ;

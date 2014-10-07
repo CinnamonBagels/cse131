@@ -57,11 +57,14 @@ class SymbolTable
 
 		for (Enumeration<Scope> e = m_stkScopes.elements(); e.hasMoreElements();)
 		{
-			scope = e.nextElement();
+			stk.push(e.nextElement());
+		}
+
+		while(!stk.isEmpty()) {
+			scope = (Scope) stk.pop();
 			if ((stoReturn = scope.access(strName)) != null)
 				return stoReturn;
 		}
-
 		return null;
 	}
 

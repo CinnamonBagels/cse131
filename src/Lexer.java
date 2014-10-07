@@ -845,6 +845,8 @@ class Lexer
 		m_htKeywords.put ("typedef", new Integer (sym.T_TYPEDEF));
 		m_htKeywords.put ("void", new Integer (sym.T_VOID));
 		m_htKeywords.put ("while", new Integer (sym.T_WHILE));
+		m_htKeywords.put ("new", new Integer (sym.T_NEW));
+		m_htKeywords.put ("delete", new Integer (sym.T_DELETE));
 	}
 
 
