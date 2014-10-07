@@ -512,6 +512,10 @@ NewStmt ::=       T_NEW Designator T_SEMI
 
 DeleteStmt ::=    T_DELETE Designator T_SEMI
     ;
+
+UnarySign ::= 	  T_PLUS
+	|			  T_MINUS
+	;
     
 WritePairList ::=   WritePair
     |               WritePairList T_OSTREAM WritePair
@@ -769,11 +773,11 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_INT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1);
+                        RESULT = new ConstSTO (_1, IntegerType);
                     :}
     |               T_FLOAT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1);
+                        RESULT = new ConstSTO (_1, FloatType);
                     :}
     |               T_STR_LITERAL:_1
                     {:
