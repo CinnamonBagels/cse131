@@ -3,7 +3,15 @@
 //---------------------------------------------------------------------
 
 import java_cup.runtime.*;
+
 import java.util.Vector;
+
+import STO.ConstSTO;
+import STO.ErrorSTO;
+import STO.FuncSTO;
+import STO.STO;
+import STO.TypedefSTO;
+import STO.VarSTO;
 
 class MyParser extends parser
 {

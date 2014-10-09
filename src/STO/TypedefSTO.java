@@ -1,30 +1,30 @@
+package STO;
+import Types.*;
+
 //---------------------------------------------------------------------
-//
+// For typedefs like: typedef int myInteger1, myInteger2;
+// Also can hold the structdefs
 //---------------------------------------------------------------------
 
-class VarSTO extends STO
+class TypedefSTO extends STO
 {
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	public VarSTO(String strName)
+	public TypedefSTO(String strName)
 	{
 		super(strName);
-		// You may want to change the isModifiable and isAddressable 
-		// fields as necessary
 	}
 
-	public VarSTO(String strName, Type typ)
+	public TypedefSTO(String strName, Type typ)
 	{
 		super(strName, typ);
-		// You may want to change the isModifiable and isAddressable 
-		// fields as necessary
 	}
 
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	public boolean isVar() 
+	public boolean isTypedef()
 	{
 		return true;
 	}

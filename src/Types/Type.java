@@ -7,7 +7,7 @@ package Types;
 // types, such as IntType, FloatType, ArrayType, etc.
 //---------------------------------------------------------------------
 
-abstract class Type
+public abstract class Type
 {
 	// Name of the Type (e.g., int, bool, or some typedef
 	private String m_typeName;

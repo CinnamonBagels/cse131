@@ -3,6 +3,9 @@
 //---------------------------------------------------------------------
 import java.util.*;
 
+import STO.FuncSTO;
+import STO.STO;
+
 class SymbolTable
 {
 	private Stack<Scope> m_stkScopes;
