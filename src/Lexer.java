@@ -154,8 +154,6 @@ class Lexer {
 		final int S_EXPONENT = 7;
 		final int S_OCTAL = 8;
 		final int S_HEX = 9;
-		final int S_INT = 10;
-		final int S_FLOAT = 11;
 
 		if (cFirst == '0') {
 			nState = S_ZEROES;
@@ -169,9 +167,9 @@ class Lexer {
 
 		while (token == null) {
 			c = getChar();
-			bAddChar = true;
+			bAddChar = true;	// what is this?
 
-			boolean switchThisChar = true;
+			boolean switchThisChar = true; // what is this?
 
 			if (nState == S_ZEROES) {
 				switchThisChar = false;

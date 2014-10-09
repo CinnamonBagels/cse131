@@ -1,3 +1,6 @@
+package STO;
+import Types.*;
+
 //---------------------------------------------------------------------
 //
 //---------------------------------------------------------------------
@@ -120,10 +123,10 @@ abstract class STO
 	//	will allow more flexibility (ErrorSTO is an example of the
 	//	flexibility needed).
 	//----------------------------------------------------------------
-	public boolean isVar() { return false; }
-	public boolean isConst() { return false; }
-	public boolean isExpr() { return false; }
-	public boolean isFunc() { return false; }
-	public boolean isTypedef() { return false; }
-	public boolean isError() { return false; }
+	public boolean isVar() { return this instanceof VarSTO; }
+	public boolean isConst() { return this instanceof ConstSTO; }
+	public boolean isExpr() { return this instanceof ExprSTO; }
+	public boolean isFunc() { return this instanceof FuncSTO; }
+	public boolean isTypedef() { return this instanceof TypedefSTO; }
+	public boolean isError() { return this instanceof ErrorSTO; }
 }
