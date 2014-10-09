@@ -773,11 +773,11 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_INT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1, IntegerType);
+                        RESULT = new ConstSTO (_1);
                     :}
     |               T_FLOAT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1, FloatType);
+                        RESULT = new ConstSTO (_1);
                     :}
     |               T_STR_LITERAL:_1
                     {:

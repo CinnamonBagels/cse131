@@ -230,6 +230,7 @@ class Lexer {
 						nState = S_HEX;
 					} else {
 						ungetChar(c);
+						//HEXADECIMAL IS base 16
 						token = new Token(sym.T_INT_LITERAL, new String(buffer));
 					}
 					break;
@@ -240,6 +241,7 @@ class Lexer {
 						nState = S_OCTAL;
 					} else {
 						ungetChar(c);
+						//octal is base 8
 						token = new Token(sym.T_INT_LITERAL, new String(buffer));
 					}
 					break;
