@@ -5,7 +5,7 @@ import Types.*;
 //
 //---------------------------------------------------------------------
 
-class ConstSTO extends STO
+public class ConstSTO extends STO
 {
     //----------------------------------------------------------------
     //	Constants have a value, so you should store them here.
@@ -23,23 +23,18 @@ class ConstSTO extends STO
 	public ConstSTO(String strName)
 	{
 		super(strName);
-		m_value = null; // fix this
-                // You may want to change the isModifiable and isAddressable
-                // fields as necessary
+		setValue((double) 0); 
 	}
 
 	public ConstSTO(String strName, Type typ)
 	{
 		super(strName, typ);
-		m_value = null; // fix this
-                // You may want to change the isModifiable and isAddressable
-                // fields as necessary
 		if (typ instanceof FloatType){
-			
-		}
-		
-		if (typ instanceof IntegerType){
-			
+			setValue(Double.parseDouble(strName));
+		} else if (typ instanceof IntegerType){
+			setValue((double) Integer.decode(strName));
+		} else {
+			setValue(strName.equals("true") ? (double) 1 : (double) 0);
 		}
 	}
 

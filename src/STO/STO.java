@@ -5,7 +5,7 @@ import Types.*;
 //
 //---------------------------------------------------------------------
 
-abstract class STO
+public abstract class STO
 {
 	private String m_strName;
 	private Type m_type;

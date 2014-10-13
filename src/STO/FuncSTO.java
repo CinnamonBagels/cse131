@@ -5,7 +5,7 @@ import Types.*;
 //
 //---------------------------------------------------------------------
 
-class FuncSTO extends STO
+public class FuncSTO extends STO
 {
 	private Type m_returnType;
 

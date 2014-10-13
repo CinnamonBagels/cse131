@@ -6,7 +6,7 @@ import Types.*;
 // Also can hold the structdefs
 //---------------------------------------------------------------------
 
-class TypedefSTO extends STO
+public class TypedefSTO extends STO
 {
 	//----------------------------------------------------------------
 	//
