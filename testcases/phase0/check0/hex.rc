@@ -1,0 +1,6 @@
+function : int main() {
+	int[1] arr;
+	arr[0x42] = 5;
+	int x = 043;
+	return 0;
+}
