@@ -71,7 +71,7 @@ class ErrorMsg
 
     // Check 4 //
     public static final String error4_Test   =
-      "bool or int required for conditional test, %T found.";
+      "bool required for conditional test, %T found.";
 
     // Check 5 //
     public static final String error5n_Call  =
