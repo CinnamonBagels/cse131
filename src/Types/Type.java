@@ -87,7 +87,7 @@ public abstract class Type
 	
 	public boolean isAssignableTo(Type t) { return false; }
 	public boolean isEquivalentTo(Type t) { return false; }
-	public boolean isNumberic() { return this instanceof NumericType; }
+	public boolean isNumeric() { return false; }
 	public boolean isFloat() { return this instanceof FloatType; }
 	public boolean isInt() { return this instanceof IntegerType; }
 	public boolean isArray() { return this instanceof ArrayType; }

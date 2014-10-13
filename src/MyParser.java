@@ -386,14 +386,30 @@ class MyParser extends parser
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	STO DoDesignator3_ID(String strID)
+	STO DoDesignator3_ID(String strID, boolean isGlobal)
 	{
-		STO sto;
-
-		if ((sto = m_symtab.access(strID)) == null)
+		STO sto = null;
+		String errorMessage = null;
+		
+		//check if global scope, else access it like a regular variable
+		if(isGlobal) {
+			sto = m_symtab.accessGlobal(strID);
+			errorMessage = ErrorMsg.error0g_Scope;
+		} else {
+			if(sto == null) {
+				sto = m_symtab.access(strID);
+			}
+			
+			//prepare error message for undecleared ID
+			errorMessage = ErrorMsg.undeclared_id;
+		}
+		
+		//the check if sto is STILL null, the variable does not exist anywhere.
+		if (sto == null)
 		{
 			m_nNumErrors++;
-		 	m_errors.print(Formatter.toString(ErrorMsg.undeclared_id, strID));
+			//push our error message through
+		 	m_errors.print(Formatter.toString(errorMessage, strID));
 			sto = new ErrorSTO(strID);
 		}
 

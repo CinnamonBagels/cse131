@@ -4,4 +4,8 @@ public class FloatType extends Type{
 	public FloatType(String strName, int size){
 		super(strName, size);
 	}
+	
+	public boolean isNumeric() {
+		return true;
+	}
 }
