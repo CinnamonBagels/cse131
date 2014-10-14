@@ -1,6 +1,6 @@
 
 import java_cup.runtime.*;
-import java.util.Vector;
+import java.util.*;
 import STO.*;
 import Types.*;
 import Operator.*;
@@ -177,11 +177,14 @@ non terminal Type
 non terminal Vector
     IdList,
     IdListUpper,
-    IdListWOptInit,
     IdListWInit,
     OptParamList,
     ParamList
     ;
+    
+non terminal Hashtable
+	IdListWOptInit
+	;
 
 non terminal BinaryOp
 	AddOp,
@@ -228,9 +231,9 @@ ExternDecl ::= T_EXTERN UndecoratedType IdList:_3 T_SEMI
                     :}
     ;
 
-VarDecl ::=     OptStatic UndecoratedType IdListWOptInit:_3 T_SEMI
+VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
                     {:
-                         ((MyParser) parser).DoVarDecl (_3);
+                         ((MyParser) parser).DoVarDecl (_3,_2);
                     :}
     ;
 
@@ -431,15 +434,16 @@ IdListUpper ::=     T_ID_U:_1
     ;
 
 
-IdListWOptInit ::=  OptModifierList OptArrayDef T_ID:_1 OptInit
+IdListWOptInit ::=  OptModifierList OptArrayDef T_ID:_1 OptInit:_2
                     {:
-                        RESULT = new Vector ();
-                        RESULT.addElement (_1);
+                        RESULT = new Hashtable ();
+                        RESULT.put (_1,_2);
                     :}
-    |               IdListWOptInit:_1 T_COMMA OptModifierList OptArrayDef T_ID:_3 OptInit
+    |               IdListWOptInit:_1 T_COMMA OptModifierList OptArrayDef T_ID:_3 OptInit:_4
                     {:
-                        RESULT = _1;
-                        RESULT.addElement (_3);
+                    	Hashtable h = (Hashtable) _1;
+                    	h.put(_3,_4);
+                        RESULT = h;
                     :}
     ;
 

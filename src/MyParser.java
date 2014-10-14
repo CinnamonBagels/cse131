@@ -4,16 +4,11 @@
 
 import java_cup.runtime.*;
 
-import java.util.Vector;
+import java.util.*;
 
-import Operator.BinaryOp;
-import Operator.UnaryOp;
-import STO.ConstSTO;
-import STO.ErrorSTO;
-import STO.FuncSTO;
-import STO.STO;
-import STO.TypedefSTO;
-import STO.VarSTO;
+import Operator.*;
+import STO.*;
+import Types.*;
 
 class MyParser extends parser
 {
@@ -172,11 +167,14 @@ class MyParser extends parser
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	void DoVarDecl(Vector<String> lstIDs)
+	void DoVarDecl(Hashtable lstIDs, Type t)
 	{
-		for (int i = 0; i < lstIDs.size(); i++)
+		Enumeration<String> e = lstIDs.keys();
+		
+		//for (int i = 0; i < lstIDs.size(); i++)
+		while(e.hasMoreElements())
 		{
-			String id = lstIDs.elementAt(i);
+			String id = e.nextElement();
 		
 			if (m_symtab.accessLocal(id) != null)
 			{
@@ -184,7 +182,7 @@ class MyParser extends parser
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 			}
 
-			VarSTO sto = new VarSTO(id);
+			VarSTO sto = new VarSTO(id, t);
 			m_symtab.insert(sto);
 		}
 	}
