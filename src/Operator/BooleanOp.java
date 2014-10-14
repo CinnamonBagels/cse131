@@ -1,6 +1,10 @@
 package Operator;
 
+import STO.ErrorSTO;
+import STO.ExprSTO;
 import STO.STO;
+import Types.BooleanType;
+import Types.Type;
 
 public class BooleanOp extends BinaryOp {
 
@@ -11,8 +15,16 @@ public class BooleanOp extends BinaryOp {
 
 	@Override
 	public STO validateOperand(STO leftOperand, STO rightOperand) {
-		// TODO Auto-generated method stub
-		return null;
+		Type a = leftOperand.getType();
+		Type b = rightOperand.getType();
+		
+		if(a.isBool() && b.isBool()) {
+			return new ExprSTO("Validating BooleanOp" + a.getName() + " and " + b.getName() + " as a BooleanType for operator: " + this.getName() + "...\n", new BooleanType());
+		} else if(!a.isBool()){
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, a.getName(), this.getName(), "bool"));
+		} else if(!b.isBool()) {
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, b.getName(), this.getName(), "bool"));
+		} else return leftOperand; //stub.
 	}
 
 	@Override

@@ -23,15 +23,14 @@ public class ArithmeticOp extends BinaryOp {
 		
 		
 		if(a.isInt() && b.isInt()) {
-			return new ExprSTO("Validating " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
+			return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
 		} else {
-			return new ExprSTO("Validating " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
+			return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
 		}
 	}
 	
 	@Override
 	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 	
