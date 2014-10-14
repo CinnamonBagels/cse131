@@ -1,6 +1,9 @@
 
 import java_cup.runtime.*;
 import java.util.Vector;
+import STO.*;
+import Types.*;
+import Operator.*;
 
 //--------------------------------------------------------------------
 //
@@ -776,11 +779,11 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_INT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1, new IntegerType(Integer.valueOf(_1)));
+                        RESULT = new ConstSTO (_1, new IntegerType());
                     :}
     |               T_FLOAT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1, new FloatType(Float.valueOf(_1)));
+                        RESULT = new ConstSTO (_1, new FloatType());
                     :}
     |               T_STR_LITERAL:_1
                     {:
@@ -788,11 +791,11 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_TRUE
                     {:
-                        RESULT = new ConstSTO ("true", new BooleanType());
+                        RESULT = new ConstSTO ("true", new BooleanType("true"));
                     :}
     |               T_FALSE
                     {:
-                        RESULT = new ConstSTO ("false", new BooleanType());
+                        RESULT = new ConstSTO ("false", new BooleanType("false"));
                     :}
     |               T_NULLPTR
                     {:
