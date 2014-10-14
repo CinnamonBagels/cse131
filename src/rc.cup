@@ -178,13 +178,13 @@ non terminal Type
 non terminal Vector
     IdList,
     IdListUpper,
-    IdListWInit,
     OptParamList,
     ParamList
     ;
     
 non terminal Hashtable
-	IdListWOptInit
+	IdListWOptInit,
+	IdListWInit
 	;
 
 non terminal BinaryOp
@@ -238,9 +238,9 @@ VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
                     :}
     ;
 
-ConstDecl ::=  OptStatic T_CONST UndecoratedType IdListWInit:_3 T_SEMI
+ConstDecl ::=  OptStatic T_CONST UndecoratedType:_2 IdListWInit:_3 T_SEMI
                     {:
-                        ((MyParser) parser).DoConstDecl (_3);
+                        ((MyParser) parser).DoConstDecl (_3,_2);
                     :}
     ;
 
@@ -466,16 +466,17 @@ IdListWOptInit ::=  OptModifierList OptArrayDef T_ID:_1 OptInit:_2
                     :}
     ;
 
-IdListWInit ::=     OptModifierList OptArrayDef T_ID:_1 T_ASSIGN ConstExpr
+IdListWInit ::=     OptModifierList OptArrayDef T_ID:_1 T_ASSIGN ConstExpr:_2
                     {:
-			RESULT = new Vector ();
-			RESULT.addElement (_1);
+			RESULT = new Hashtable ();
+			RESULT.put (_1,_2);
                     :}
   //|       Do not need an extra rule since we are not doing constant arrays
-    |               IdListWInit:_1 T_COMMA OptModifierList OptArrayDef T_ID:_3 T_ASSIGN ConstExpr
+    |               IdListWInit:_1 T_COMMA OptModifierList OptArrayDef T_ID:_3 T_ASSIGN ConstExpr:_4
                     {:
-			RESULT = _1;
-			RESULT.addElement (_3);
+			Hashtable h = (Hashtable) _1;
+			h.put(_3,_4);
+			RESULT = h;
 		    :}
     ;
 
@@ -565,7 +566,10 @@ WritePair ::=    Expr
     ;
 
 
-ConstExpr ::=    Expr
+ConstExpr ::=    Expr:_1
+					{:
+			RESULT = _1;
+					:}
     ;
 
 
