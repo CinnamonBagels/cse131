@@ -141,9 +141,7 @@ non terminal
     OptArrayDef
     ;
 
-non terminal String    
-    AddOp,
-    MulOp,
+non terminal String
     IncDecOp,
     ParamDecl,
     IterationVarDecl
@@ -183,6 +181,11 @@ non terminal Vector
     ParamList
     ;
 
+non terminal BinaryOp
+	AddOp,
+	MulOp
+	;
+	
 //--------------------------------------------------------------------
 //
 //--------------------------------------------------------------------
@@ -552,9 +555,9 @@ Expr ::=         Designator:_1 T_ASSIGN Expr
     ;
 
 
-Expr0 ::=        Expr0:_1 T_OR Expr1
+Expr0 ::=        Expr0:_1 T_OR Expr1:_2
                     {:
-			RESULT = _1;
+			RESULT = ((MyParser) parser).DoBinaryOp (_1, new OrOp(), _2);
                     :}
     |               Expr1:_1
                     {:
@@ -665,26 +668,26 @@ Relation ::=     T_LT
 
 AddOp ::=       T_PLUS
                     {:
-                        RESULT = "+";
+                        RESULT = new AddOp();
                     :}
     |               T_MINUS
                     {:
-                        RESULT = "-";
+                        RESULT = new MinusOp();
                     :}
     ;
 
 
 MulOp ::=       T_STAR
                     {:
-                        RESULT = "*";
+                        RESULT = new MulOp();
                     :}
     |               T_SLASH
                     {:
-                        RESULT = "/";
+                        RESULT = new DivOp();
                     :}
     |               T_MOD
                     {:
-                        RESULT = "%";
+                        RESULT = new ModOp();
                     :}
     ;
 

@@ -1,0 +1,10 @@
+package Operator;
+
+public class LessThanOrEqualOp extends ComparisonOp {
+
+	public LessThanOrEqualOp(String opName) {
+		super(opName);
+		// TODO Auto-generated constructor stub
+	}
+
+}
