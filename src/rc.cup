@@ -465,7 +465,7 @@ OptInit ::=         T_ASSIGN Expr:_1
 					{:
 			RESULT = _1;
 					:}
-    |               /* empty */
+    |               RESULT = "";
     ;
 
 IfStmt ::=          T_IF Expr CodeBlock OptElse
