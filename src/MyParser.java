@@ -241,7 +241,7 @@ class MyParser extends parser
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 			}
 		
-			ConstSTO sto = new ConstSTO(id, t);
+			ConstSTO sto = new ConstSTO(id, t, (double)lstIDs.get(id));
 			m_symtab.insert(sto);
 		}
 	}

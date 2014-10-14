@@ -22,13 +22,13 @@ public class ConstSTO extends STO
 	//----------------------------------------------------------------
 	public ConstSTO(String strName)
 	{
-		super(strName);
+		super(strName, null, true, false);
 		setValue((double) 0); 
 	}
 
 	public ConstSTO(String strName, Type typ)
 	{
-		super(strName, typ);
+		super(strName, typ, true, false);
 		if (typ instanceof FloatType){
 			setValue(Double.parseDouble(strName));
 		} else if (typ instanceof IntegerType){
@@ -36,6 +36,15 @@ public class ConstSTO extends STO
 		} else {
 			setValue(strName.equals("true") ? (double) 1 : (double) 0);
 		}
+	}
+	
+	public ConstSTO(String strName, Type typ, boolean isAddressible, boolean isModifiable){
+		super(strName, typ, isAddressible, isModifiable);
+	}
+	
+	public ConstSTO(String strName, Type typ, double value){
+		super(strName,typ,true,false);
+		setValue(value);
 	}
 
 	//----------------------------------------------------------------

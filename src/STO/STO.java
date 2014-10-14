@@ -30,6 +30,17 @@ public abstract class STO
 		setIsAddressable(false);
 		setIsModifiable(false);
 	}
+	
+	//----------------------------------------------------------------
+	//
+	//----------------------------------------------------------------
+	public STO(String strName, Type typ, boolean isAddressible, boolean isModifiable)
+		{
+			setName(strName);
+			setType(typ);
+			setIsAddressable(isAddressible);
+			setIsModifiable(isModifiable);
+		}
 
 	//----------------------------------------------------------------
 	//
