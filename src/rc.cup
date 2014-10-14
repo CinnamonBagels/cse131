@@ -1,6 +1,9 @@
 
 import java_cup.runtime.*;
 import java.util.Vector;
+import STO.*;
+import Types.*;
+import Operator.*;
 
 //--------------------------------------------------------------------
 //
@@ -142,7 +145,6 @@ non terminal
     ;
 
 non terminal String
-    IncDecOp,
     ParamDecl,
     IterationVarDecl
     ;
@@ -183,7 +185,8 @@ non terminal Vector
 
 non terminal BinaryOp
 	AddOp,
-	MulOp
+	MulOp,
+	IncDecOp
 	;
 	
 //--------------------------------------------------------------------
@@ -568,7 +571,7 @@ Expr0 ::=        Expr0:_1 T_OR Expr1:_2
 
 Expr1 ::=        Expr1:_1 T_AND Expr2
                     {:
-			RESULT = _1;
+			RESULT = ((MyParser) parser).DoBinaryOp (_1, new AndOp(), _2);
                     :}
     |               Expr2:_1
                     {:
@@ -634,7 +637,7 @@ Expr6 ::=           Expr6:_1 Relation Expr7
 
 Expr7 ::=           Expr7:_1 AddOp:_2 Expr8:_3
                     {:
-                        RESULT = _1;
+                        RESULT = ((MyParser) parser).DoBinaryOp(_1,_2,_3);
                     :}
     |               Expr8:_1
                     {:
@@ -645,7 +648,7 @@ Expr7 ::=           Expr7:_1 AddOp:_2 Expr8:_3
 
 Expr8 ::=        Expr8:_1 MulOp:_2 Designator:_3
                     {:
-                        RESULT = _1;
+                        RESULT = ((MyParser) parser).DoBinaryOp(_1,_2,_3);
                     :}
     |               Designator:_1
                     {:
@@ -694,11 +697,11 @@ MulOp ::=       T_STAR
 
 IncDecOp ::=        T_PLUSPLUS
                     {:
-                        RESULT = "++";
+                        RESULT = new IncOp();
                     :}
     |               T_MINUSMINUS
                     {:
-                        RESULT = "--";
+                        RESULT = new DecOp();
                     :}
     ;
 
@@ -731,9 +734,9 @@ Designator ::= T_STAR Designator:_1
                     {:
 			RESULT = _2;
                     :}
-    |               IncDecOp Designator:_2
+    |               IncDecOp:_1 Designator:_2
                     {:
-			RESULT = _2;
+			RESULT = ((MyParser) parser).DoUnaryOp(_1,_2,"pre");
                     :}
     |               Designator2:_1 
                     {:
@@ -754,9 +757,9 @@ Designator2 ::=     Designator2:_1 T_DOT T_ID:_3
                     {:
                         RESULT = _1;
                     :}
-    |               Designator2:_1 IncDecOp
+    |               Designator2:_1 IncDecOp:_2
                     {:
-                        RESULT = _1;
+                        RESULT = ((MyParser) parser).DoUnaryOp(_2,_1,"post");
                     :}
     |               Designator2:_1 T_LPAREN OptExprList T_RPAREN
                     {:
@@ -776,11 +779,11 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_INT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1);
+                        RESULT = new ConstSTO (_1, new IntegerType());
                     :}
     |               T_FLOAT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1);
+                        RESULT = new ConstSTO (_1, new FloatType());
                     :}
     |               T_STR_LITERAL:_1
                     {:
@@ -788,11 +791,11 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_TRUE
                     {:
-                        RESULT = new ConstSTO ("true");
+                        RESULT = new ConstSTO ("true", new BooleanType("true"));
                     :}
     |               T_FALSE
                     {:
-                        RESULT = new ConstSTO ("false");
+                        RESULT = new ConstSTO ("false", new BooleanType("false"));
                     :}
     |               T_NULLPTR
                     {:
