@@ -457,10 +457,7 @@ IdListWInit ::=     OptModifierList OptArrayDef T_ID:_1 T_ASSIGN ConstExpr
     ;
 
 
-OptInit ::=         T_ASSIGN Expr:_1
-					{:
-			RESULT = _1;
-					:}
+OptInit ::=         T_ASSIGN Expr
     |               /* empty */
     ;
 
@@ -586,9 +583,9 @@ Expr1 ::=        Expr1:_1 T_AND Expr2:_2
     ;
 
 
-Expr2 ::=        Expr2:_1 T_BAR Expr3:_2
+Expr2 ::=        Expr2:_1 T_BAR Expr3
                     {:
-			RESULT = ((MyParser) parser).DoBinaryOp (_1, new BwOrOp("|"), _2);
+			RESULT = _1;
                     :}
     |               Expr3:_1
                     {:
@@ -597,9 +594,9 @@ Expr2 ::=        Expr2:_1 T_BAR Expr3:_2
     ;
 
 
-Expr3 ::=        Expr3:_1 T_CARET Expr4:_2
+Expr3 ::=        Expr3:_1 T_CARET Expr4
                     {:
-			RESULT = ((MyParser) parser).DoBinaryOp (_1, new BwXorOp("^"), _2);
+			RESULT = _1;
                     :}
     |               Expr4:_1
                     {:
@@ -608,9 +605,9 @@ Expr3 ::=        Expr3:_1 T_CARET Expr4:_2
     ;
 
 
-Expr4 ::=        Expr4:_1 T_AMPERSAND Expr5:_2
+Expr4 ::=        Expr4:_1 T_AMPERSAND Expr5
                     {:
-			RESULT = ((MyParser) parser).DoBinaryOp (_1, new BwAndOp("&"), _2);
+			RESULT = _1;
                     :}
     |               Expr5:_1
                     {:
