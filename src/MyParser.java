@@ -340,13 +340,13 @@ class MyParser extends parser
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	STO DoAssignExpr(STO stoDes)
+	STO DoAssignExpr(STO stoDes, STO _2)
 	{
 		if (!stoDes.isModLValue())
 		{
 			// Good place to do the assign checks
 		}
-		
+		stoDes = _2;
 		return stoDes;
 	}
 
