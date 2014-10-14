@@ -185,7 +185,10 @@ non terminal Vector
 
 non terminal BinaryOp
 	AddOp,
-	MulOp,
+	MulOp
+	;
+	
+non terminal UnaryOp
 	IncDecOp
 	;
 	
@@ -560,7 +563,7 @@ Expr ::=         Designator:_1 T_ASSIGN Expr
 
 Expr0 ::=        Expr0:_1 T_OR Expr1:_2
                     {:
-			RESULT = ((MyParser) parser).DoBinaryOp (_1, new OrOp(), _2);
+			RESULT = ((MyParser) parser).DoBinaryOp (_1, new OrOp("||"), _2);
                     :}
     |               Expr1:_1
                     {:
@@ -569,9 +572,9 @@ Expr0 ::=        Expr0:_1 T_OR Expr1:_2
     ;
 
 
-Expr1 ::=        Expr1:_1 T_AND Expr2
+Expr1 ::=        Expr1:_1 T_AND Expr2:_2
                     {:
-			RESULT = ((MyParser) parser).DoBinaryOp (_1, new AndOp(), _2);
+			RESULT = ((MyParser) parser).DoBinaryOp (_1, new AndOp("&&"), _2);
                     :}
     |               Expr2:_1
                     {:
@@ -671,37 +674,37 @@ Relation ::=     T_LT
 
 AddOp ::=       T_PLUS
                     {:
-                        RESULT = new AddOp();
+                        RESULT = new AddOp("+");
                     :}
     |               T_MINUS
                     {:
-                        RESULT = new MinusOp();
+                        RESULT = new MinusOp("-");
                     :}
     ;
 
 
 MulOp ::=       T_STAR
                     {:
-                        RESULT = new MulOp();
+                        RESULT = new MulOp("*");
                     :}
     |               T_SLASH
                     {:
-                        RESULT = new DivOp();
+                        RESULT = new DivOp("/");
                     :}
     |               T_MOD
                     {:
-                        RESULT = new ModOp();
+                        RESULT = new ModOp("%");
                     :}
     ;
 
 
 IncDecOp ::=        T_PLUSPLUS
                     {:
-                        RESULT = new IncOp();
+                        RESULT = new IncOp("++");
                     :}
     |               T_MINUSMINUS
                     {:
-                        RESULT = new DecOp();
+                        RESULT = new DecOp("--");
                     :}
     ;
 

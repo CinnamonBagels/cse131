@@ -6,6 +6,8 @@ import java_cup.runtime.*;
 
 import java.util.Vector;
 
+import Operator.BinaryOp;
+import Operator.UnaryOp;
 import STO.ConstSTO;
 import STO.ErrorSTO;
 import STO.FuncSTO;
@@ -438,5 +440,15 @@ class MyParser extends parser
 		}
 
 		return sto;
+	}
+
+	public STO DoUnaryOp(UnaryOp _2, STO _1, String string) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public STO DoBinaryOp(STO _1, BinaryOp _2, STO _3) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
