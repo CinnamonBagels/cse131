@@ -226,11 +226,14 @@ class MyParser extends parser
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	void DoConstDecl(Vector<String> lstIDs)
+	void DoConstDecl(Hashtable lstIDs, Type t)
 	{
-		for (int i = 0; i < lstIDs.size(); i++)
+		Enumeration<String> e = lstIDs.keys();
+		
+		//for (int i = 0; i < lstIDs.size(); i++)
+		while(e.hasMoreElements())
 		{
-			String id = lstIDs.elementAt(i);
+			String id = e.nextElement();
 
 			if (m_symtab.accessLocal(id) != null)
 			{
@@ -238,7 +241,7 @@ class MyParser extends parser
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 			}
 		
-			ConstSTO sto = new ConstSTO(id);
+			ConstSTO sto = new ConstSTO(id, t);
 			m_symtab.insert(sto);
 		}
 	}
