@@ -15,9 +15,9 @@ public class BitwiseOp extends BinaryOp {
 		Type a = leftOperand.getType();
 		Type b = rightOperand.getType();
 
-		if(!(a instanceof NumericType)) {
+		if(!(a.isNumeric())) {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, a.getName(), this.getName()));
-		} else if(!(b instanceof NumericType)) {
+		} else if(!(b.isNumeric())) {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, b.getName(), this.getName()));
 		}
 		

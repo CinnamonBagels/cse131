@@ -448,7 +448,20 @@ class MyParser extends parser
 	}
 
 	public STO DoBinaryOp(STO _1, BinaryOp _2, STO _3) {
-		// TODO Auto-generated method stub
-		return null;
+		if(_1.isError()) {
+			return _1;
+		}
+		
+		if(_3.isError()) {
+			return _3;
+		}
+		
+		STO sto = _2.validateOperand(_1, _3);
+		
+		if(sto.isError()) {
+			m_nNumErrors++;
+			m_errors.print(sto.getName());
+		}
+		return sto;
 	}
 }
