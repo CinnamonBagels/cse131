@@ -3,41 +3,40 @@ package Operator;
 import STO.*;
 import Types.*;
 
-public abstract class ArithmeticOp extends BinaryOp {
+public class ArithmeticOp extends BinaryOp {
 
 	public ArithmeticOp(String opName) {
 		super(opName);
 		// TODO Auto-generated constructor stub
 	}
 	
-	public STO checkOperandTypes(STO leftOperand, STO rightOperand) {
-		Type leftType = leftOperand.getType();
-		Type rightType = rightOperand.getType();
+	public STO validateOperand(STO leftOperand, STO rightOperand) {
+		Type a = leftOperand.getType();
+		Type b = rightOperand.getType();
 		
-		if(leftType.isNumeric()) {
-			if(rightType.isNumeric()) {
-				//both are numeric
-				if(leftOperand.isConst() && rightOperand.isConst()) {
-					Type resultType = null;
-					if(leftType.isFloat() && rightType.isFloat()) {
-						resultType = new FloatType();
-					} else {
-						resultType = new IntegerType();
-					}
-					
-					return new ConstSTO(leftOperand.getName() + " " + rightOperand.getName(), resultType);
-				}
-			}
+		//numeric checks
+		if(!(a instanceof NumericType)) {
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, a.getName(), this.getName()));
+		} else if(!(b instanceof NumericType)) {
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, b.getName(), this.getName()));
 		}
 		
-		return null;
+		
+		if(a.isInt() && b.isInt()) {
+			return new ExprSTO("Validating " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
+		} else {
+			return new ExprSTO("Validating " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
+		}
 	}
 	
-	public abstract void evaluate();
+	@Override
+	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	
 	//overrides operator.java
 	public boolean isArithmeticOp() {
 		return true;
 	}
-
 }

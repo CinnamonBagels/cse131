@@ -6,5 +6,8 @@ public class GreaterThanOrEqualOp extends ComparisonOp {
 		super(opName);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public String getOperator() {
+		return ">=";
+	}
 }

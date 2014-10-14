@@ -6,5 +6,8 @@ public class MulOp extends ArithmeticOp {
 		super(opName);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public String getOperation() {
+		return "*";
+	}
 }

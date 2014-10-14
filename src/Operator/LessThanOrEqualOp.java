@@ -1,4 +1,4 @@
-package Operator;
+package Operator;	
 
 public class LessThanOrEqualOp extends ComparisonOp {
 
@@ -6,5 +6,8 @@ public class LessThanOrEqualOp extends ComparisonOp {
 		super(opName);
 		// TODO Auto-generated constructor stub
 	}
-
+	
+	public String getOperator() {
+		return "<=";
+	}
 }

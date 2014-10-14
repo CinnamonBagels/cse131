@@ -7,4 +7,7 @@ public class MinusOp extends ArithmeticOp {
 		// TODO Auto-generated constructor stub
 	}
 
+	public String getOperation() {
+		return "-";
+	}
 }
