@@ -171,6 +171,7 @@ class MyParser extends parser
 	{
 		Enumeration<String> e = lstIDs.keys();
 		
+		
 		//for (int i = 0; i < lstIDs.size(); i++)
 		while(e.hasMoreElements())
 		{
@@ -439,13 +440,43 @@ class MyParser extends parser
 
 		return sto;
 	}
-
+	
+	//string is "pre" or "post"
 	public STO DoUnaryOp(UnaryOp _2, STO _1, String string) {
-		// TODO Auto-generated method stub
-		return null;
+		STO sto = null;
+		if(_1.isError()) {
+			return _1;
+		}
+		
+		if(string.equals("pre")) {
+			sto = _2.validateOperand(_1, string);
+		} else {
+			//post
+			sto = _2.validateOperand(_1, string);
+		}
+		
+		return sto;
 	}
 
 	public STO DoBinaryOp(STO _1, BinaryOp _2, STO _3) {
+		if(_1.isError()) {
+			return _1;
+		}
+		
+		if(_3.isError()) {
+			return _3;
+		}
+		
+		STO sto = _2.validateOperand(_1, _3);
+		
+		if(sto.isError()) {
+			m_nNumErrors++;
+			m_errors.print(sto.getName());
+		}
+		return sto;
+	}
+	
+	public STO DoComparisonOp(STO _1, ComparisonOp _2, STO _3) {
 		if(_1.isError()) {
 			return _1;
 		}

@@ -18,13 +18,15 @@ public class BooleanOp extends BinaryOp {
 		Type a = leftOperand.getType();
 		Type b = rightOperand.getType();
 		
-		if(a.isBool() && b.isBool()) {
-			return new ExprSTO("Validating BooleanOp" + a.getName() + " and " + b.getName() + " as a BooleanType for operator: " + this.getName() + "...\n", new BooleanType());
-		} else if(!a.isBool()){
+		if(a.isBool()) {
+			if(b.isBool()) {
+				return new ExprSTO("Validating BooleanOp" + a.getName() + " and " + b.getName() + " as a BooleanType for operator: " + this.getName() + "...\n", new BooleanType());
+			} else {
+				return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, b.getName(), this.getName(), "bool"));
+			}
+		} else {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, a.getName(), this.getName(), "bool"));
-		} else if(!b.isBool()) {
-			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, b.getName(), this.getName(), "bool"));
-		} else return leftOperand; //stub.
+		}
 	}
 
 	@Override

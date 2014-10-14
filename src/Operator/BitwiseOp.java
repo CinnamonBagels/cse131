@@ -15,20 +15,20 @@ public class BitwiseOp extends BinaryOp {
 		Type a = leftOperand.getType();
 		Type b = rightOperand.getType();
 
-		if(!(a.isNumeric())) {
-			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, a.getName(), this.getName()));
-		} else if(!(b.isNumeric())) {
-			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, b.getName(), this.getName()));
-		}
+//		if(!(a.isNumeric())) {
+//			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, a.getName(), this.getName()));
+//		} else if(!(b.isNumeric())) {
+//			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, b.getName(), this.getName()));
+//		}
 		
-		if(a.isInt() && b.isInt()) {
-			return new ExprSTO("Validating BitwiseOp " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
-		} else if(!a.isInt()) {
-			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, a.getName(), this.getName(), "int"));
-		} else if(!b.isInt()) {
-			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, b.getName(), this.getName(), "int"));
+		if(a.isInt()) {
+			if(b.isInt()) {
+				return new ExprSTO("Validating BitwiseOp " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
+			} else {
+				return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, b.getName(), this.getName(), "int"));
+			}
 		} else {
-			return leftOperand; //stub.
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, a.getName(), this.getName(), "int"));
 		}
 	} 
 

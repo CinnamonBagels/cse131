@@ -64,7 +64,7 @@ class Lexer {
 	}
 
 	// ----------------------------------------------------------------
-	//
+	//	
 	// ----------------------------------------------------------------
 	private Token getAToken() {
 		Token token = null;
@@ -659,6 +659,7 @@ class Lexer {
 		m_htKeywords.put("while", new Integer(sym.T_WHILE));
 		m_htKeywords.put("new", new Integer(sym.T_NEW));
 		m_htKeywords.put("delete", new Integer(sym.T_DELETE));
+		m_htKeywords.put("auto", new Integer(sym.T_AUTO));
 	}
 
 	// ----------------------------------------------------------------

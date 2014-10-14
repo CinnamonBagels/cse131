@@ -21,9 +21,12 @@ public class ArithmeticOp extends BinaryOp {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, b.getName(), this.getName()));
 		}
 		
-		
-		if(a.isInt() && b.isInt()) {
-			return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
+		if(a.isInt()) {
+			if(b.isInt()) {
+				return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
+			} else {
+				return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
+			}
 		} else {
 			return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
 		}

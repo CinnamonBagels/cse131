@@ -1,0 +1,5 @@
+function: void foo(){
+const int x = 1;
+int y = x++;
+y = ++x;
+}

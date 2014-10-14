@@ -82,7 +82,8 @@ terminal
     T_WHILE,
     T_VOID,
     T_NEW,
-    T_DELETE
+    T_DELETE,
+    T_AUTO
     ;
 
 terminal String
@@ -232,7 +233,7 @@ ExternDecl ::= T_EXTERN UndecoratedType IdList:_3 T_SEMI
     ;
 
 VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
-                    {:
+                    {: 
                          ((MyParser) parser).DoVarDecl (_3,_2);
                     :}
     ;
@@ -310,17 +311,35 @@ Type ::=         SubType OptModifierList OptArrayDef
     |               T_FUNCPTR T_COLON ReturnType OptRef T_LPAREN OptParamList:_3 T_RPAREN
     ;
 
-UndecoratedType ::= SubType
+UndecoratedType ::= SubType:_1 
+					{:
+						RESULT = _1;
+					:}
     |               T_FUNCPTR T_COLON ReturnType OptRef T_LPAREN OptParamList:_3 T_RPAREN
     ;
 
-SubType ::=         QualIdent
-    |               BasicType
+SubType ::=         QualIdent:_1
+					{:
+						RESULT = _1.getType();
+					:}
+    |               BasicType:_1
+    				{:
+						RESULT = _1;
+					:}
     ;
 
-BasicType ::=       T_INT 
-    |               T_FLOAT
-    |               T_BOOL
+BasicType ::=       T_INT:_1
+					{:
+						RESULT = new IntegerType();
+					:}
+    |               T_FLOAT:_1
+    				{:
+    					RESULT = new FloatType();
+    				:}
+    |               T_BOOL:_1
+    				{:
+    					RESULT = new BooleanType();
+    				:}
     ;
 
 
@@ -437,7 +456,7 @@ IdListUpper ::=     T_ID_U:_1
 IdListWOptInit ::=  OptModifierList OptArrayDef T_ID:_1 OptInit:_2
                     {:
                         RESULT = new Hashtable ();
-                        RESULT.put (_1,_2);
+                        RESULT.put (_1, _2 == null ? "" : _2);
                     :}
     |               IdListWOptInit:_1 T_COMMA OptModifierList OptArrayDef T_ID:_3 OptInit:_4
                     {:
@@ -465,7 +484,7 @@ OptInit ::=         T_ASSIGN Expr:_1
 					{:
 			RESULT = _1;
 					:}
-    |               RESULT = "";
+    |               /* empty */
     ;
 
 IfStmt ::=          T_IF Expr CodeBlock OptElse
@@ -623,9 +642,9 @@ Expr4 ::=        Expr4:_1 T_AMPERSAND Expr5:_2
     ;
 
 
-Expr5 ::=           Expr5:_1 Equality Expr6
+Expr5 ::=           Expr5:_1 Equality:_2 Expr6:_3
                     {:
-                        RESULT = _1;
+                        RESULT = ((MyParser) parser).DoComparisonOp(_1, (ComparisonOp)_2, _3);
                     :}
     |               Expr6:_1
                     {:
@@ -634,9 +653,9 @@ Expr5 ::=           Expr5:_1 Equality Expr6
     ;
 
 
-Expr6 ::=           Expr6:_1 Relation Expr7
+Expr6 ::=           Expr6:_1 Relation:_2 Expr7:_3
                     {:
-                        RESULT = _1;
+                        RESULT = ((MyParser) parser).DoComparisonOp(_1, (ComparisonOp)_2, _3);
                     :}
     |               Expr7:_1
                     {:
@@ -668,14 +687,32 @@ Expr8 ::=        Expr8:_1 MulOp:_2 Designator:_3
 
 
 Equality ::=     T_EQU
+				{:
+					RESULT = new EqualOp("==");
+				:}
     |               T_NEQ
+    			{:
+					RESULT = new NotEqualOp("!=");
+				:}
     ;
 
 
 Relation ::=     T_LT
+				{:
+					RESULT = new LessThanOp("<");
+				:}
     |               T_GT
+    			{:
+					RESULT = new GreaterThanOp(">");
+				:}
     |               T_LTE
+    			{:
+					RESULT = new LessThanOrEqualOp("<=");
+				:}
     |               T_GTE
+   				 {:
+					RESULT = new GreaterThanOrEqualOp(">=");
+				:}
     ;
 
 

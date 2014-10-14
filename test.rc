@@ -1,0 +1,4 @@
+function: void foo() {
+int x = 1;
+int z = x + 1;
+}
