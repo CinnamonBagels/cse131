@@ -1,9 +1,4 @@
 function: void foo(){
-boolean x = true;
-int y = 1;
-if(x) {
-}
-
-if(y) {
-}
+int x = 5;
+int y = 5++;
 }

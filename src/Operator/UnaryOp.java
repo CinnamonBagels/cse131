@@ -12,7 +12,7 @@ public class UnaryOp extends Operator {
 	
 	public STO validateOperand(STO operand, String string) {
 		Type oType = operand.getType();
-		
+	
 		if(this.getName().equals("!")) {
 			if(operand.getType().isBool()) {
 				return new ExprSTO("Validating UnaryOp " + operand.getName() + " as a BooleanType for operator: " + this.getName() + "...\n", new BooleanType());

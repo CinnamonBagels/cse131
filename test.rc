@@ -1,4 +1,6 @@
-function: void foo() {
-int x = 1;
-int z = x + 1;
+function: void foo(){
+if(true) {
+}
+while(1) {
+}
 }

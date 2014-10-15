@@ -240,8 +240,9 @@ class MyParser extends parser
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 			}
-		
-			ConstSTO sto = new ConstSTO(id, t, (double)lstIDs.get(id));
+			
+			
+			ConstSTO sto = new ConstSTO(id, t, ((ConstSTO) lstIDs.get(id)).getValue());
 			m_symtab.insert(sto);
 		}
 	}
@@ -310,6 +311,23 @@ class MyParser extends parser
 	
 	//expression, codeblock, else
 	STO DoIfStmt(STO _1, STO _2, STO _3) {
+		if(_1.isError()) {
+			return _1;
+		}
+		
+		if(!(_1.getType().isBool())) {
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error4_Test, _1.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error4_Test, _1.getType().getName()));
+		} else {
+			//evaluate	
+		}
+		
+		return _1;
+	}
+	
+	//expression, codeblock
+	STO DoWhileStmt(STO _1, STO _2) {
 		if(_1.isError()) {
 			return _1;
 		}
@@ -487,6 +505,10 @@ class MyParser extends parser
 			sto = _2.validateOperand(_1, string);
 		}
 		
+		if(sto.isError()) {
+			m_nNumErrors++;
+			m_errors.print(sto.getName());
+		}
 		return sto;
 	}
 

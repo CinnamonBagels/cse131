@@ -409,7 +409,9 @@ Stmt ::=        VarDecl
 
 
 OptParamList ::=    ParamList:_1
-    |               /* empty */
+    |               {:
+    					RESULT = new Vector<STO>(); 
+    				:}
     ;
 
 
@@ -500,7 +502,10 @@ OptElse ::=         T_ELSE CodeBlock
     ;
 
 
-WhileStmt ::=       T_WHILE Expr CodeBlock
+WhileStmt ::=       T_WHILE Expr:_1 CodeBlock:_2
+					{:
+						((MyParser) parser).DoWhileStmt(_1, (STO)_2);
+					:}
     ;
 
 

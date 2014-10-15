@@ -96,7 +96,7 @@ public abstract class STO
 	//----------------------------------------------------------------
 	// You shouldn't need to use these two routines directly
 	//----------------------------------------------------------------
-	private boolean getIsModifiable()
+	public boolean getIsModifiable()
 	{
 		return m_isModifiable;
 	}
