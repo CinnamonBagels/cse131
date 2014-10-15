@@ -307,6 +307,23 @@ class MyParser extends parser
 		m_symtab.closeScope();
 		m_symtab.setFunc(null);
 	}
+	
+	//expression, codeblock, else
+	STO DoIfStmt(STO _1, STO _2, STO _3) {
+		if(_1.isError()) {
+			return _1;
+		}
+		
+		if(!(_1.getType().isBool())) {
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error4_Test, _1.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error4_Test, _1.getType().getName()));
+		} else {
+			//evaluate	
+		}
+		
+		return _1;
+	}
 
 	//----------------------------------------------------------------
 	//
@@ -344,9 +361,21 @@ class MyParser extends parser
 	//----------------------------------------------------------------
 	STO DoAssignExpr(STO stoDes, STO _2)
 	{
+		System.out.println(stoDes.getName());
+		System.out.println(stoDes.isModLValue());
 		if (!stoDes.isModLValue())
 		{
 			// Good place to do the assign checks
+			m_nNumErrors++;
+			m_errors.print(ErrorMsg.error3a_Assign);
+			return new ErrorSTO(ErrorMsg.error3a_Assign);
+		}
+		
+		// type conflict check.
+		if(!stoDes.getType().getName().equals(_2.getType().getName())) {
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error3b_Assign, _2.getType().getName(), stoDes.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error3b_Assign, _2.getType().getName(), stoDes.getType().getName()));
 		}
 		stoDes = _2;
 		return stoDes;

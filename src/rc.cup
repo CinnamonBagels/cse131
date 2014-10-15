@@ -488,7 +488,10 @@ OptInit ::=         T_ASSIGN Expr:_1
     |               /* empty */
     ;
 
-IfStmt ::=          T_IF Expr CodeBlock OptElse
+IfStmt ::=          T_IF Expr:_1 CodeBlock:_2 OptElse:_3
+					{:
+						((MyParser) parser).DoIfStmt(_1, (STO)_2, (STO)_3);
+					:}
     ;
 
 
