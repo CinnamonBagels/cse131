@@ -542,4 +542,23 @@ class MyParser extends parser {
 		}
 		return sto;
 	}
+	
+	public STO DoReturnCheck(STO expr){
+		FuncSTO func = m_symtab.getFunc();
+		STO returnSTO = expr;
+		
+		if(expr == null){
+			//if function type is not void, error
+			if(!func.getReturnType().isVoid()){
+				m_nNumErrors++;
+				m_errors.print(ErrorMsg.error6a_Return_expr);
+				
+				return new ErrorSTO("Illegal return statement: no return value.");
+			}else{
+				returnSTO = new ExprSTO(func.getName() + "returns void.", new VoidType());
+			}		
+		}
+		
+		return returnSTO;
+	}
 }

@@ -4,4 +4,8 @@ public class VoidType extends Type{
 	public VoidType(String strName, int size){
 		super(strName, size);
 	}
+	
+	public VoidType() {
+		super("void", 0);
+	}
 }
