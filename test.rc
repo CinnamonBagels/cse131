@@ -1,5 +1,7 @@
-function: int foo(int x, int y) {
+function: int foo( int &x, int &y) {
 	return 0;
 }
 
-int z = foo("one", "two");
+int x;
+int *y = &x;
+int z = foo(x, y);

@@ -321,26 +321,27 @@ class MyParser extends parser {
 		// only one variable function in SymbolTable.java. is there a list of
 		// functions somewhere?
 		// idk
-		System.out.println("here");
+		//System.out.println("here");
 		FuncSTO func = m_symtab.getFunc();
-		System.out.println("here");
+		//System.out.println("here");
 		if (func == null) {
 			m_nNumErrors++;
 			m_errors.print(""
 					+ "!");
 		} else {
-			System.out.println("here set params");
+			//System.out.println("here set params");
 
 			if (params != null) {
-				System.out.println(params.get(0).getType());
+				//System.out.println(params.get(0).getType());
 				func.setParameters(params);
-				System.out.println("here");
+				//System.out.println("here");
 				// add parameters to the function's local scope...
 				for (int i = 0; i < params.size(); i++) {
 					m_symtab.insert(params.get(i));
+					System.out.println(params.get(i).getIsReference());
 				}
-				System.out
-						.println("there are " + params.size() + " parameters");
+				//System.out
+					//	.println("there are " + params.size() + " parameters");
 			}
 		}
 
@@ -366,8 +367,8 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	STO DoAssignExpr(STO stoDes, STO _2) {
-		System.out.println(stoDes.getName());
-		System.out.println(stoDes.isModLValue());
+		//System.out.println(stoDes.getName());
+		//System.out.println(stoDes.isModLValue());
 		if (!stoDes.isModLValue()) {
 			// Good place to do the assign checks
 			m_nNumErrors++;
@@ -405,8 +406,8 @@ class MyParser extends parser {
 		// casting is gets too complicated, just set a variable.
 		FuncSTO funcSTOCast = (FuncSTO) sto;
 
-		System.out.println(funcSTOCast.getParameters().get(0).getType());
-		System.out.println(arguments.size());
+//		System.out.println(funcSTOCast.getParameters().get(0).getType());
+//		System.out.println(arguments.size());
 
 		if (funcSTOCast.getParameters().size() != arguments.size()) {
 			m_nNumErrors++;
@@ -418,44 +419,58 @@ class MyParser extends parser {
 		
 		Vector<VarSTO> funcParams = funcSTOCast.getParameters();
 		Vector<STO> args = arguments;
-		boolean error = false;
+		boolean typeError = false;
+		boolean referenceError = false;
 		
 		for(int i = 0; i < funcParams.size(); i++) {
 			
-			String paramName = funcParams.get(i).getType().getName();
-			String argName;
+			String paramType = funcParams.get(i).getType().getName();
+			String argType;
+			VarSTO param = funcParams.get(i);
+			VarSTO arg;
 			
 			if(args.get(i).isVar()) {
-				argName  = args.get(i).getType().getName();
+				arg = (VarSTO) args.get(i);
+				argType  = arg.getType().getName();
 			} else {
-				
-				//TODO arguments DO NOT HAVE TYPES
-				VarSTO arg = new VarSTO(args.get(i).getName(), args.get(i).getType());
-				argName = arg.getType().getName();
+				//TODO arguments DO NOT HAVE TYPES LOL JK I WAS PASSING IN A STRING
+				arg = new VarSTO(args.get(i).getName(), args.get(i).getType());
+				argType = arg.getType().getName();
 			}
 			
-			System.out.println(funcParams.get(i).getType() instanceof IntegerType);
-			System.out.println(paramName);
-			System.out.println(argName);
+//			System.out.println(funcParams.get(i).getType() instanceof IntegerType);
+//			System.out.println(paramName);
+//			System.out.println(argName);
 	
-			if(!paramName.equals(argName)) {
-				if(!(paramName.equals(argName))) {
-					if(!(paramName.equals(argName))) {
+			if(!paramType.equals(argType)) {
+				if(!(paramType.equals("float") && argType.equals("int"))) {
+					if(!(paramType.equals("pointer") && argType.equals("array"))) {
 						//error
 						m_nNumErrors++;
-						m_errors.print(Formatter.toString(ErrorMsg.error5a_Call, argName, funcParams.get(i).getName(), paramName
+						m_errors.print(Formatter.toString(ErrorMsg.error5a_Call, argType, param.getName(), paramType
 								));
-						error = true;
+						typeError = true;
 					}
 					//	setting array to pointer, valid.
 				}
 				// setting int to float, valid.
 			} 
-			// type = type 
+			// type = type
+			System.out.println(arg.getIsReference());
+			if(!(param.getIsReference() && arg.getIsReference())) {
+				m_nNumErrors++;
+				m_errors.print(Formatter.toString(ErrorMsg.error5r_Call, argType, param.getName(), paramType));
+				referenceError = true;
+			}
 		}
 		
-		if(error) {
+		if(typeError && referenceError) {
+			return new ErrorSTO("Both Function Parameter Types and Pass-by-reference invalid");
+		} else if(typeError) {
 			return new ErrorSTO("Function Parameter Types invalid");
+		}
+		else if(referenceError) {
+			return new ErrorSTO("Function Pass-by-reference invalid");
 		}
 
 		return sto;
@@ -590,7 +605,7 @@ class MyParser extends parser {
 	
 	public STO DoReturnCheck(STO expr){
 		FuncSTO func = m_symtab.getFunc();
-		System.out.println("" + func.getReturnType().isVoid() == null);
+		//System.out.println("" + func.getReturnType().isVoid() == null);
 		STO returnSTO = expr;
 		
 		if(expr == null){
