@@ -259,9 +259,10 @@ class MyParser extends parser {
 		}
 
 		FuncSTO sto = new FuncSTO(id);
-		m_symtab.insert(sto);
+		
 		sto.setReturnType(t);
 		sto.setIsReturnRefernece(isReturnReference);
+		m_symtab.insert(sto);
 
 		m_symtab.openScope();
 		m_symtab.setFunc(sto);
@@ -545,6 +546,7 @@ class MyParser extends parser {
 	
 	public STO DoReturnCheck(STO expr){
 		FuncSTO func = m_symtab.getFunc();
+		System.out.println("" + func.getReturnType().isVoid() == null);
 		STO returnSTO = expr;
 		
 		if(expr == null){

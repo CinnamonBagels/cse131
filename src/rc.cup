@@ -370,12 +370,20 @@ OptArrayDef ::=     T_LBRACKET ConstExpr T_RBRACKET
     ;
 
 
-ReturnType ::=      SubType OptModifierList
+ReturnType ::=      SubType:_1 OptModifierList:_2
                     {:
                         // You should determine the type and return it here
-                        RESULT = null;
+                        if(_2 == null){
+                        	RESULT = _1;
+                        }
+                        else {
+                        	RESULT = (Type)_2;
+                        }
                     :}
     |               T_VOID
+    				{:
+    					RESULT = new VoidType();
+    				:}
     ;
 
 
