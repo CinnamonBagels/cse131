@@ -7,6 +7,8 @@ import Types.*;
 
 public class VarSTO extends STO
 {
+	
+	private boolean isReference;
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
@@ -15,6 +17,7 @@ public class VarSTO extends STO
 		super(strName);
 		setIsModifiable(true);
 		setIsAddressable(true);
+		setIsReference(false);
 		// You may want to change the isModifiable and isAddressable 
 		// fields as necessary
 	}
@@ -24,10 +27,25 @@ public class VarSTO extends STO
 		super(strName, typ);
 		setIsModifiable(true);
 		setIsAddressable(true);
+		setIsReference(false);
 		// You may want to change the isModifiable and isAddressable 
 		// fields as necessary
 	}
+	
+	public VarSTO(String strName, Type typ, boolean isReference) {
+		super(strName, typ);
+		setIsModifiable(true);
+		setIsAddressable(true);
+		setIsReference(isReference);
+	}
 
+	private void setIsReference(boolean isReference) {
+		this.isReference = isReference;
+	}
+	
+	public boolean getIsReference()	{
+		return this.isReference;
+	}
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------

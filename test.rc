@@ -1,6 +1,5 @@
-function: void foo(){
-if(true) {
+function: void foo(int x, int y, int z){
+
 }
-while(1) {
-}
-}
+
+int x = foo(5, 4);

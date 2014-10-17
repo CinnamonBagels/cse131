@@ -1,4 +1,6 @@
 package STO;
+import java.util.Vector;
+
 import Types.*;
 
 //---------------------------------------------------------------------
@@ -8,6 +10,8 @@ import Types.*;
 public class FuncSTO extends STO
 {
 	private Type m_returnType;
+	private boolean isReturnReference;
+	private Vector<VarSTO> params;
 
 	//----------------------------------------------------------------
 	//
@@ -45,5 +49,21 @@ public class FuncSTO extends STO
 	public Type getReturnType ()
 	{
 		return m_returnType;
+	}
+	
+	public void setIsReturnRefernece(boolean isReturnReference) {
+		this.isReturnReference = isReturnReference;
+	}
+	
+	public boolean getIsReturnRefernece() {
+		return this.isReturnReference;
+	}
+	
+	public void setParameters(Vector<VarSTO> params) {
+		this.params = params;
+	}
+	
+	public Vector<VarSTO> getParameters() {
+		return this.params;
 	}
 }
