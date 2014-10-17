@@ -326,11 +326,13 @@ class MyParser extends parser {
 		System.out.println("here");
 		if (func == null) {
 			m_nNumErrors++;
-			m_errors.print("internal: DoFormalParams says no proc!");
+			m_errors.print(""
+					+ "!");
 		} else {
-			System.out.println("here");
+			System.out.println("here set params");
 
 			if (params != null) {
+				System.out.println(params.get(0).getType());
 				func.setParameters(params);
 				System.out.println("here");
 				// add parameters to the function's local scope...
@@ -388,7 +390,7 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	STO DoFuncCall(STO sto, Vector<VarSTO> params) {
+	STO DoFuncCall(STO sto, Vector<STO> arguments) {
 		if (sto.isError()) {
 			return sto;
 		}
@@ -403,15 +405,57 @@ class MyParser extends parser {
 		// casting is gets too complicated, just set a variable.
 		FuncSTO funcSTOCast = (FuncSTO) sto;
 
-		System.out.println(funcSTOCast.getParameters().size());
-		System.out.println(params.size());
+		System.out.println(funcSTOCast.getParameters().get(0).getType());
+		System.out.println(arguments.size());
 
-		if (funcSTOCast.getParameters().size() != params.size()) {
+		if (funcSTOCast.getParameters().size() != arguments.size()) {
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.error5n_Call,
-					params.size(), funcSTOCast.getParameters().size()));
+					arguments.size(), funcSTOCast.getParameters().size()));
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error5n_Call,
-					params.size(), funcSTOCast.getParameters().size()));
+					arguments.size(), funcSTOCast.getParameters().size()));
+		}
+		
+		Vector<VarSTO> funcParams = funcSTOCast.getParameters();
+		Vector<STO> args = arguments;
+		boolean error = false;
+		
+		for(int i = 0; i < funcParams.size(); i++) {
+			
+			String paramName = funcParams.get(i).getType().getName();
+			String argName;
+			
+			if(args.get(i).isVar()) {
+				argName  = args.get(i).getType().getName();
+			} else {
+				
+				//TODO arguments DO NOT HAVE TYPES
+				VarSTO arg = new VarSTO(args.get(i).getName(), args.get(i).getType());
+				argName = arg.getType().getName();
+			}
+			
+			System.out.println(funcParams.get(i).getType() instanceof IntegerType);
+			System.out.println(paramName);
+			System.out.println(argName);
+	
+			if(!paramName.equals(argName)) {
+				if(!(paramName.equals(argName))) {
+					if(!(paramName.equals(argName))) {
+						//error
+						m_nNumErrors++;
+						m_errors.print(Formatter.toString(ErrorMsg.error5a_Call, argName, funcParams.get(i).getName(), paramName
+								));
+						error = true;
+					}
+					//	setting array to pointer, valid.
+				}
+				// setting int to float, valid.
+			} 
+			// type = type 
+		}
+		
+		if(error) {
+			return new ErrorSTO("Function Parameter Types invalid");
 		}
 
 		return sto;
