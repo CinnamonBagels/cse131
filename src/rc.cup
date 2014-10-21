@@ -573,7 +573,10 @@ ContinueStmt ::=    T_CONTINUE T_SEMI
     ;
 
 
-ExitStmt ::=        T_EXIT T_LPAREN Expr T_RPAREN T_SEMI
+ExitStmt ::=        T_EXIT T_LPAREN Expr:_1 T_RPAREN T_SEMI
+					{:
+						((MyParser) parser).DoExitStmt(_1);
+					:}
     ;
 
 
@@ -827,7 +830,7 @@ Designator ::= T_STAR Designator:_1
                     :}
     |               T_AMPERSAND Designator:_1
                     {:
-			RESULT = _1;
+					RESULT = _1;
                     :}
     |               UnarySign Designator:_1
                     {:

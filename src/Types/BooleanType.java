@@ -8,4 +8,12 @@ public class BooleanType extends Type{
 	public BooleanType() {
 		super("bool", 4);
 	}
+	
+	public boolean isAssignableTo(Type t) {
+		return t instanceof BooleanType;
+	}
+	
+	public boolean isEquivalentTo(Type t) {
+		return t instanceof BooleanType;
+	}
 }

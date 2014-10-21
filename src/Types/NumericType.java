@@ -8,4 +8,12 @@ public abstract class NumericType extends Type{
 	public boolean isNumeric() {
 		return true;
 	}
+	
+	public boolean isAssignableTo(Type t) {
+		return t instanceof NumericType;
+	}
+	
+	public boolean isEquivalentTo(Type t) {
+		return t instanceof NumericType;
+	}
 }

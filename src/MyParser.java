@@ -211,11 +211,10 @@ class MyParser extends parser {
 			if (m_symtab.accessLocal(id) != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
+			} else {
+				ConstSTO sto = new ConstSTO(id, t, ((ConstSTO) lstIDs.get(id)).getValue());
+				m_symtab.insert(sto);
 			}
-
-			ConstSTO sto = new ConstSTO(id, t,
-					((ConstSTO) lstIDs.get(id)).getValue());
-			m_symtab.insert(sto);
 		}
 	}
 
@@ -421,33 +420,44 @@ class MyParser extends parser {
 		Vector<STO> args = arguments;
 		boolean typeError = false;
 		boolean referenceError = false;
+		boolean lValueError = false;
 		
 		for(int i = 0; i < funcParams.size(); i++) {
 			
-			String paramType = funcParams.get(i).getType().getName();
-			String argType;
+			String paramTypeName = funcParams.get(i).getType().getName();
+			String argTypeName;
 			VarSTO param = funcParams.get(i);
 			VarSTO arg;
+			STO arglModCheck = args.get(i);
+			
+			if(param.getIsReference() && !arglModCheck.isModLValue()) {
+				//error
+				m_nNumErrors++;
+				m_errors.print(Formatter.toString(ErrorMsg.error5c_Call, param.getName(), paramTypeName));
+			}
 			
 			if(args.get(i).isVar()) {
 				arg = (VarSTO) args.get(i);
-				argType  = arg.getType().getName();
+				argTypeName  = arg.getType().getName();
 			} else {
 				//TODO arguments DO NOT HAVE TYPES LOL JK I WAS PASSING IN A STRING
 				arg = new VarSTO(args.get(i).getName(), args.get(i).getType());
-				argType = arg.getType().getName();
+				argTypeName = arg.getType().getName();
 			}
 			
 //			System.out.println(funcParams.get(i).getType() instanceof IntegerType);
 //			System.out.println(paramName);
 //			System.out.println(argName);
+			System.out.println(arg.getIsModifiable());
+			System.out.println(arg.getIsAddressable());
+			
 	
-			if(!paramType.equals(argType)) {
-				if(!(paramType.equals("float") && argType.equals("int"))) {
-					if(!(paramType.equals("pointer") && argType.equals("array"))) {
+			if(!paramTypeName.equals(argTypeName)) {
+				if(!(paramTypeName.equals("float") && argTypeName.equals("int"))) {
+					if(!(paramTypeName.equals("pointer") && argTypeName.equals("array"))) {
 						//error
 						m_nNumErrors++;
-						m_errors.print(Formatter.toString(ErrorMsg.error5a_Call, argType, param.getName(), paramType
+						m_errors.print(Formatter.toString(ErrorMsg.error5a_Call, argTypeName, param.getName(), paramTypeName
 								));
 						typeError = true;
 					}
@@ -456,14 +466,15 @@ class MyParser extends parser {
 				// setting int to float, valid.
 			} 
 			// type = type
-			System.out.println(arg.getIsReference());
-			if(!(param.getIsReference() && arg.getIsReference())) {
+			//System.out.println(arg.getIsReference());
+			if(param.getIsReference() && !arg.getIsReference()) {
 				m_nNumErrors++;
-				m_errors.print(Formatter.toString(ErrorMsg.error5r_Call, argType, param.getName(), paramType));
+				m_errors.print(Formatter.toString(ErrorMsg.error5r_Call, argTypeName, param.getName(), paramTypeName));
 				referenceError = true;
 			}
 		}
 		
+		//might want to add another error check for lValueError. too lazy to change now.
 		if(typeError && referenceError) {
 			return new ErrorSTO("Both Function Parameter Types and Pass-by-reference invalid");
 		} else if(typeError) {
@@ -607,7 +618,8 @@ class MyParser extends parser {
 		FuncSTO func = m_symtab.getFunc();
 		//System.out.println("" + func.getReturnType().isVoid() == null);
 		STO returnSTO = expr;
-		
+		System.out.println(func.getReturnType());
+		System.out.println(expr.getType());
 		if(expr == null){
 			//if function type is not void, error
 			if(!func.getReturnType().isVoid()){
@@ -616,10 +628,44 @@ class MyParser extends parser {
 				
 				return new ErrorSTO("Illegal return statement: no return value.");
 			}else{
-				returnSTO = new ExprSTO(func.getName() + "returns void.", new VoidType());
+				m_nNumErrors++;
+				m_errors.print(ErrorMsg.error6c_Return_missing);
+				return new ErrorSTO(ErrorMsg.error6c_Return_missing);
 			}		
+		} 
+		
+		//i THINK this is correct?
+		if(func.getIsReturnRefernece()) {
+			if(!func.getReturnType().equals(expr.getType())) {
+				m_nNumErrors++;
+				m_errors.print(Formatter.toString(ErrorMsg.error6b_Return_equiv, expr.getType().getName(), func.getReturnType().getName()));
+				return new ErrorSTO(Formatter.toString(ErrorMsg.error6b_Return_equiv, expr.getType().getName(), func.getReturnType().getName()));
+			} else if(!expr.isModLValue()) {
+				m_nNumErrors++;
+				m_errors.print(ErrorMsg.error6b_Return_modlval);
+				return new ErrorSTO(ErrorMsg.error6b_Return_modlval);
+			}
+		} else {
+			//we really need to refactor this to have each type include isEquivalent or isAssignable.
+			if(!(func.getReturnType().getName() == expr.getType().getName())) {
+				if((func.getReturnType().getName().equals("float") && !expr.getType().getName().equals("int"))) {
+					m_nNumErrors++;
+					m_errors.print(Formatter.toString(ErrorMsg.error6a_Return_type, expr.getType().getName(), func.getReturnType().getName()));
+					return new ErrorSTO(Formatter.toString(ErrorMsg.error6a_Return_type, expr.getType().getName(), func.getReturnType().getName()));
+				} 
+			} 
 		}
 		
 		return returnSTO;
+	}
+	
+	public STO DoExitStmt(STO expr) {
+		if(!(expr.getType().getName() == "int")) {
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error7_Exit, expr.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error7_Exit, expr.getType().getName()));
+		}
+		
+		return expr;
 	}
 }
