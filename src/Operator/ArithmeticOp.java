@@ -23,8 +23,14 @@ public class ArithmeticOp extends BinaryOp {
 		
 		if(a.isInt()) {
 			if(b.isInt()) {
+				if(((ConstSTO) rightOperand).getValue() == 0) {
+					return new ErrorSTO(ErrorMsg.error8_Arithmetic);
+				}
 				return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
 			} else {
+				if(((ConstSTO) rightOperand).getValue() == 0.0) {
+					return new ErrorSTO(ErrorMsg.error8_Arithmetic);
+				}
 				return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
 			}
 		} else {

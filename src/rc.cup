@@ -428,11 +428,14 @@ Stmt ::=        VarDecl
     ;
 
 
+
 OptParamList ::=    ParamList:_1
 					{:
 						RESULT = _1;
 					:}
-  		      |      /* empty */
+  		      |      {:
+  		      			RESULT = new Vector<VarSTO>();
+  		      		:}
     ;
 
 
@@ -629,7 +632,9 @@ OptExprList ::=     ExprList:_1
 					{:
 						RESULT = (Vector<STO>)_1;
 					:}
-    |               /* empty */
+    |               {:
+    					RESULT = new Vector<STO>();
+    				:}
     ;
 
 

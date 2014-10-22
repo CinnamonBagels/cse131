@@ -17,6 +17,8 @@ class MyParser extends parser {
 	private String m_strLastLexeme;
 	private boolean m_bSyntaxError = true;
 	private int m_nSavedLineNum;
+	private boolean m_returnMissingFlag;
+	private int blockLevel;
 
 	private SymbolTable m_symtab;
 
@@ -204,7 +206,7 @@ class MyParser extends parser {
 	void DoConstDecl(Hashtable lstIDs, Type t) {
 		Enumeration<String> e = lstIDs.keys();
 
-		// for (int i = 0; i < lstIDs.size(); i++)
+		// for (int i = 0; i < lstIDs.size(); i++)				
 		while (e.hasMoreElements()) {
 			String id = e.nextElement();
 
@@ -212,8 +214,21 @@ class MyParser extends parser {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 			} else {
-				ConstSTO sto = new ConstSTO(id, t, ((ConstSTO) lstIDs.get(id)).getValue());
-				m_symtab.insert(sto);
+				STO var = (STO) lstIDs.get(id);
+				
+				if(var.isConst()) {
+					if(!var.getType().isAssignableTo(t)) {
+						m_nNumErrors++;
+						m_errors.print(Formatter.toString(ErrorMsg.error8_Assign, var.getType().getName(), t.getName()));
+					} else {
+						ConstSTO sto = new ConstSTO(id, t, ((ConstSTO) lstIDs.get(id)).getValue());
+						m_symtab.insert(sto);
+					}
+					
+				} else {
+					m_nNumErrors++;
+					m_errors.print(Formatter.toString(ErrorMsg.error8_CompileTime, var.getName()));
+				}
 			}
 		}
 	}
@@ -252,6 +267,7 @@ class MyParser extends parser {
 	// id is func name, type is return type, isReturnReference self explan/
 	// ----------------------------------------------------------------
 	void DoFuncDecl_1(String id, Type t, boolean isReturnReference) {
+		m_returnMissingFlag = true;
 		if (m_symtab.accessLocal(id) != null) {
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
@@ -261,16 +277,31 @@ class MyParser extends parser {
 		
 		sto.setReturnType(t);
 		sto.setIsReturnRefernece(isReturnReference);
+		System.out.println(sto.getType());
 		m_symtab.insert(sto);
-
 		m_symtab.openScope();
 		m_symtab.setFunc(sto);
+		//get level  AFTER you open scope.
+		blockLevel = m_symtab.getLevel();
 	}
 
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
 	void DoFuncDecl_2() {
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func.isError()) {
+			System.out.println("error here");
+		}
+		
+		if(m_returnMissingFlag) {
+			//if function type is not void, error
+			System.out.println(func.getReturnType().isVoid());
+			m_nNumErrors++;
+			m_errors.print(ErrorMsg.error6c_Return_missing);	
+		}
+		
 		m_symtab.closeScope();
 		m_symtab.setFunc(null);
 	}
@@ -320,26 +351,26 @@ class MyParser extends parser {
 		// only one variable function in SymbolTable.java. is there a list of
 		// functions somewhere?
 		// idk
-		//System.out.println("here");
+		////system.out.println("here");
 		FuncSTO func = m_symtab.getFunc();
-		//System.out.println("here");
+		////system.out.println("here");
 		if (func == null) {
 			m_nNumErrors++;
 			m_errors.print(""
 					+ "!");
 		} else {
-			//System.out.println("here set params");
+			////system.out.println("here set params");
 
 			if (params != null) {
-				//System.out.println(params.get(0).getType());
+				////system.out.println(params.get(0).getType());
 				func.setParameters(params);
-				//System.out.println("here");
+				////system.out.println("here");
 				// add parameters to the function's local scope...
 				for (int i = 0; i < params.size(); i++) {
 					m_symtab.insert(params.get(i));
-					System.out.println(params.get(i).getIsReference());
+					//system.out.println(params.get(i).getIsReference());
 				}
-				//System.out
+				////system.out
 					//	.println("there are " + params.size() + " parameters");
 			}
 		}
@@ -366,8 +397,8 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	STO DoAssignExpr(STO stoDes, STO _2) {
-		//System.out.println(stoDes.getName());
-		//System.out.println(stoDes.isModLValue());
+		////system.out.println(stoDes.getName());
+		////system.out.println(stoDes.isModLValue());
 		if (!stoDes.isModLValue()) {
 			// Good place to do the assign checks
 			m_nNumErrors++;
@@ -383,6 +414,7 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error3b_Assign, _2
 					.getType().getName(), stoDes.getType().getName()));
 		}
+		
 		stoDes = _2;
 		return stoDes;
 	}
@@ -392,7 +424,9 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	STO DoFuncCall(STO sto, Vector<STO> arguments) {
 		if (sto.isError()) {
+			m_returnMissingFlag = false;
 			return sto;
+			
 		}
 
 		if (!sto.isFunc()) {
@@ -405,8 +439,8 @@ class MyParser extends parser {
 		// casting is gets too complicated, just set a variable.
 		FuncSTO funcSTOCast = (FuncSTO) sto;
 
-//		System.out.println(funcSTOCast.getParameters().get(0).getType());
-//		System.out.println(arguments.size());
+//		//system.out.println(funcSTOCast.getParameters().get(0).getType());
+//		//system.out.println(arguments.size());
 
 		if (funcSTOCast.getParameters().size() != arguments.size()) {
 			m_nNumErrors++;
@@ -445,11 +479,11 @@ class MyParser extends parser {
 				argTypeName = arg.getType().getName();
 			}
 			
-//			System.out.println(funcParams.get(i).getType() instanceof IntegerType);
-//			System.out.println(paramName);
-//			System.out.println(argName);
-			System.out.println(arg.getIsModifiable());
-			System.out.println(arg.getIsAddressable());
+//			//system.out.println(funcParams.get(i).getType() instanceof IntegerType);
+//			//system.out.println(paramName);
+//			//system.out.println(argName);
+			//system.out.println(arg.getIsModifiable());
+			//system.out.println(arg.getIsAddressable());
 			
 	
 			if(!paramTypeName.equals(argTypeName)) {
@@ -466,7 +500,7 @@ class MyParser extends parser {
 				// setting int to float, valid.
 			} 
 			// type = type
-			//System.out.println(arg.getIsReference());
+			////system.out.println(arg.getIsReference());
 			if(param.getIsReference() && !arg.getIsReference()) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.error5r_Call, argTypeName, param.getName(), paramTypeName));
@@ -616,46 +650,65 @@ class MyParser extends parser {
 	
 	public STO DoReturnCheck(STO expr){
 		FuncSTO func = m_symtab.getFunc();
-		//System.out.println("" + func.getReturnType().isVoid() == null);
+		////system.out.println("" + func.getReturnType().isVoid() == null);
 		STO returnSTO = expr;
-		System.out.println(func.getReturnType());
-		System.out.println(expr.getType());
-		if(expr == null){
-			//if function type is not void, error
-			if(!func.getReturnType().isVoid()){
+		//system.out.println(func.getReturnType());
+		//system.out.println(expr.getType());
+		
+		if(expr == null) {
+			if(!func.getReturnType().isVoid()) {
 				m_nNumErrors++;
 				m_errors.print(ErrorMsg.error6a_Return_expr);
-				
-				return new ErrorSTO("Illegal return statement: no return value.");
-			}else{
+				m_returnMissingFlag = false;
+				return new ErrorSTO(ErrorMsg.error6a_Return_expr);
+			} else {
+				m_returnMissingFlag = false; 
+				return expr;//this should be fine since 
+					//a return; on a void is FINE.
+			}
+			
+		} else {
+			if(func.getReturnType().isVoid()) {
 				m_nNumErrors++;
-				m_errors.print(ErrorMsg.error6c_Return_missing);
-				return new ErrorSTO(ErrorMsg.error6c_Return_missing);
-			}		
-		} 
+				m_errors.print(Formatter.toString(ErrorMsg.error6a_Return_type, expr.getType().getName(), func.getReturnType().getName()));
+				m_returnMissingFlag = false;
+				return new ErrorSTO(Formatter.toString(ErrorMsg.error6a_Return_type, expr.getType().getName(), func.getReturnType().getName()));
+			}
+		}
 		
 		//i THINK this is correct?
 		if(func.getIsReturnRefernece()) {
 			if(!func.getReturnType().equals(expr.getType())) {
+				//return exists
+				m_returnMissingFlag = false;
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.error6b_Return_equiv, expr.getType().getName(), func.getReturnType().getName()));
 				return new ErrorSTO(Formatter.toString(ErrorMsg.error6b_Return_equiv, expr.getType().getName(), func.getReturnType().getName()));
 			} else if(!expr.isModLValue()) {
+				m_returnMissingFlag = false;
 				m_nNumErrors++;
 				m_errors.print(ErrorMsg.error6b_Return_modlval);
 				return new ErrorSTO(ErrorMsg.error6b_Return_modlval);
 			}
+			m_returnMissingFlag = false;
 		} else {
 			//we really need to refactor this to have each type include isEquivalent or isAssignable.
 			if(!(func.getReturnType().getName() == expr.getType().getName())) {
 				if((func.getReturnType().getName().equals("float") && !expr.getType().getName().equals("int"))) {
+					m_returnMissingFlag = false;
 					m_nNumErrors++;
 					m_errors.print(Formatter.toString(ErrorMsg.error6a_Return_type, expr.getType().getName(), func.getReturnType().getName()));
 					return new ErrorSTO(Formatter.toString(ErrorMsg.error6a_Return_type, expr.getType().getName(), func.getReturnType().getName()));
 				} 
-			} 
+				m_returnMissingFlag = false;
+			}
 		}
-		
+		System.out.println(blockLevel);
+		System.out.println(m_symtab.getLevel());
+		//handles if no else cases.
+		if(blockLevel == m_symtab.getLevel()) {
+			m_returnMissingFlag = false;
+		}
 		return returnSTO;
 	}
 	

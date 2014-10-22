@@ -51,6 +51,10 @@ public class FuncSTO extends STO
 		return m_returnType;
 	}
 	
+	public Type getType() {
+		return this.getReturnType();
+	}
+	
 	public void setIsReturnRefernece(boolean isReturnReference) {
 		this.isReturnReference = isReturnReference;
 	}
