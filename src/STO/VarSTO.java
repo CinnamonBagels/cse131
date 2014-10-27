@@ -46,6 +46,7 @@ public class VarSTO extends STO
 	public boolean getIsReference()	{
 		return this.isReference;
 	}
+	
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------

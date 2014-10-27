@@ -42,7 +42,7 @@ public class ComparisonOp extends BinaryOp {
 			}			
 		}
 	}
-	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand) {
+	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
 		return null;
 	}
 }

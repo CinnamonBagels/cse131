@@ -10,4 +10,8 @@ public class DivOp extends ArithmeticOp {
 	public String getOperation() {
 		return "/";
 	}
+	
+	public boolean isDivOp() {
+		return true;
+	}
 }

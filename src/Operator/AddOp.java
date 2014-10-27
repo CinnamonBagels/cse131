@@ -10,4 +10,8 @@ public class AddOp extends ArithmeticOp {
 	public String getOperation() {
 		return "+";
 	}
+	
+	public boolean isAddOp() {
+		return true;
+	}
 }

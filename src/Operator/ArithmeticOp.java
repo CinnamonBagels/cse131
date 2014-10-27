@@ -21,26 +21,52 @@ public class ArithmeticOp extends BinaryOp {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error1n_Expr, b.getName(), this.getName()));
 		}
 		
+//		if(this.getName() == "/") {
+//			if(((ConstSTO) rightOperand).getValue() == 0 || ((ConstSTO) rightOperand).getValue() == 0.0) {
+//				return new ErrorSTO(ErrorMsg.error8_Arithmetic);
+//			}	
+//		}
+		
 		if(a.isInt()) {
 			if(b.isInt()) {
-				if(((ConstSTO) rightOperand).getValue() == 0) {
-					return new ErrorSTO(ErrorMsg.error8_Arithmetic);
-				}
-				return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
+				return new ExprSTO(a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName(), new IntegerType());
 			} else {
-				if(((ConstSTO) rightOperand).getValue() == 0.0) {
-					return new ErrorSTO(ErrorMsg.error8_Arithmetic);
-				}
-				return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
+				return new ExprSTO(a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName(), new FloatType());
 			}
 		} else {
-			return new ExprSTO("Validating ArithmeticOp " + a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName() + "...\n", new FloatType());
+			return new ExprSTO(a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName(), new FloatType());
 		}
 	}
 	
-	@Override
-	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand) {
-		return null;
+	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
+		Type newType;
+		double value = 0;
+		//maybe we should pass in constSTO's instead.
+		ConstSTO left = (ConstSTO) leftOperand;
+		ConstSTO right = (ConstSTO) rightOperand;
+		if(t.isFloat()) {
+			newType = new FloatType();
+		} else {
+			newType = new IntegerType();
+		}
+		
+		if(o.isAddOp()) {
+			value = left.getValue() + right.getValue();
+		} else if(o.isMinusOp()) {
+			value = left.getValue() - right.getValue();
+		} else if(o.isMulOp()) {
+			value = left.getValue() * right.getValue();
+		} else if(o.isDivOp()) {
+			if(left.getValue() == 0 || right.getValue() == 0.0) {
+				return new ErrorSTO(ErrorMsg.error8_Arithmetic);
+			} else {
+				value = left.getValue() / right.getValue();
+			}
+		} else if(o.isModOp()) {
+			value = left.getIntValue() % right.getIntValue();
+		}
+		
+		return new ConstSTO("Evaluation Result", newType, value);
 	}
 	
 	//overrides operator.java

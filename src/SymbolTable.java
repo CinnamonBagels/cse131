@@ -2,6 +2,7 @@
 //
 //---------------------------------------------------------------------
 import java.util.*;
+import STO.Scope;
 
 import STO.FuncSTO;
 import STO.STO;
@@ -101,6 +102,10 @@ class SymbolTable
 	public int getLevel()
 	{
 		return m_nLevel;
+	}
+	
+	public Scope scopePeek() {
+		return this.m_stkScopes.peek();
 	}
 
 

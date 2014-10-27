@@ -10,4 +10,8 @@ public class MinusOp extends ArithmeticOp {
 	public String getOperation() {
 		return "-";
 	}
+	
+	public boolean isMinusOp() {
+		return true;
+	}
 }

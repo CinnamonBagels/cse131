@@ -10,4 +10,8 @@ public class MulOp extends ArithmeticOp {
 	public String getOperation() {
 		return "*";
 	}
+	
+	public boolean isMulOp() {
+		return true;
+	}
 }

@@ -12,7 +12,8 @@ public class FuncSTO extends STO
 	private Type m_returnType;
 	private boolean isReturnReference;
 	private Vector<VarSTO> params;
-
+	
+	
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
@@ -22,6 +23,15 @@ public class FuncSTO extends STO
 		setReturnType(null);
                 // You may want to change the isModifiable and isAddressable                      
                 // fields as necessary
+	}
+	
+	public FuncSTO(String strName, Type typ) {
+		super(strName, typ);
+		setReturnType(null);
+	}
+	
+	private FunctionPointerType getFunctionPointerType() {
+		return (FunctionPointerType) this.getType();
 	}
 
 	//----------------------------------------------------------------
@@ -40,7 +50,9 @@ public class FuncSTO extends STO
 	//----------------------------------------------------------------
 	public void setReturnType(Type typ)
 	{
-		m_returnType = typ;
+		//System.out.println("EIUHRUEIHUIRJISEjr");
+		//System.out.println(typ);
+		getFunctionPointerType().m_returnType = typ;
 	}
 
 	//----------------------------------------------------------------
@@ -48,26 +60,27 @@ public class FuncSTO extends STO
 	//----------------------------------------------------------------
 	public Type getReturnType ()
 	{
-		return m_returnType;
+		//System.out.println(getFunctionPointerType().m_returnType);
+		return getFunctionPointerType().m_returnType;
 	}
 	
 	public Type getType() {
-		return this.getReturnType();
+		return super.getType();
 	}
 	
 	public void setIsReturnRefernece(boolean isReturnReference) {
-		this.isReturnReference = isReturnReference;
+		this.getFunctionPointerType().isReturnReference = isReturnReference;
 	}
 	
 	public boolean getIsReturnRefernece() {
-		return this.isReturnReference;
+		return this.getFunctionPointerType().isReturnReference;
 	}
 	
 	public void setParameters(Vector<VarSTO> params) {
-		this.params = params;
+		this.getFunctionPointerType().params = params;
 	}
 	
 	public Vector<VarSTO> getParameters() {
-		return this.params;
+		return this.getFunctionPointerType().params;
 	}
 }

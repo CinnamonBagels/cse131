@@ -33,7 +33,7 @@ public class BitwiseOp extends BinaryOp {
 	} 
 
 	@Override
-	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand) {
+	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
 		// TODO Auto-generated method stub
 		return null;
 	}

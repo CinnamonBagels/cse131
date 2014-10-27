@@ -14,11 +14,15 @@ public class TypedefSTO extends STO
 	public TypedefSTO(String strName)
 	{
 		super(strName);
+		this.setIsModifiable(true);
+		this.setIsAddressable(true);
 	}
 
 	public TypedefSTO(String strName, Type typ)
 	{
 		super(strName, typ);
+		this.setIsModifiable(true);
+		this.setIsAddressable(true);
 	}
 
 	//----------------------------------------------------------------

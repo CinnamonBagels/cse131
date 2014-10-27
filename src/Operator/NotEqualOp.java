@@ -1,6 +1,7 @@
 package Operator;
 
-import STO.STO;
+import STO.*;
+import Types.*;
 
 public class NotEqualOp extends ComparisonOp {
 
@@ -15,8 +16,7 @@ public class NotEqualOp extends ComparisonOp {
 		return null;
 	}
 
-	@Override
-	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand) {
+	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
 		// TODO Auto-generated method stub
 		return null;
 	}

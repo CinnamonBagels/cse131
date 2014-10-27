@@ -1,5 +1,6 @@
 package Operator;
 
+import Types.*;
 import STO.*;
 
 public abstract class BinaryOp extends Operator {
@@ -10,7 +11,7 @@ public abstract class BinaryOp extends Operator {
 	}
 	
 	public abstract STO validateOperand(STO leftOperand, STO rightOperand);
-	public abstract STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand);
+	public abstract STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t);
 	
 	//overrides Operator's isBinaryOp, will return true instead of FALSE. :D
 	public boolean isBinaryOp() {

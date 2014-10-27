@@ -36,4 +36,8 @@ public class ModOp extends ArithmeticOp {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error1w_Expr, a.getName(), this.getName(), "int"));
 		}
 	}
+	
+	public boolean isModOp() {
+		return true;
+	}
 }
