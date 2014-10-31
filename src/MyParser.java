@@ -161,6 +161,7 @@ class MyParser extends parser {
 		// for (int i = 0; i < lstIDs.size(); i++)
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
+			//System.out.println(lstIDs.get(e));
 			System.out.println(sto.getName());
 			
 			if(sto.isError()) {
@@ -328,10 +329,12 @@ class MyParser extends parser {
 	}
 
 	STO DoCreateDeclaration(String id, STO sto, Type pointerType, Type arrayType) {
-		
+		System.out.println("here" + id);
 		if(sto != null) {
 			if(sto.isConst()) {
 				return sto;
+			} else {
+				return new VarSTO(id);
 			}
 		} else {
 			VarSTO sto1 = new VarSTO(id);
@@ -347,7 +350,6 @@ class MyParser extends parser {
 			}
 			return sto1;
 		}
-		return sto;
 	}
 
 	Type DoArrayDecl(STO index) {
@@ -425,8 +427,8 @@ class MyParser extends parser {
 		if (func.isError()) {
 			////system.out.println("error here");
 		}
-		System.out.println(func.getName());
-		System.out.println(((FunctionPointerType)func.getType()).getReturnType());
+		//System.out.println(func.getName());
+		//System.out.println(((FunctionPointerType)func.getType()).getReturnType());
 		
 		//TODO LOLOLOLL NEED TO FIX LOLO FUCK IT SHIP IT
 		if(((FunctionPointerType)func.getType()).getReturnType() == null) {
