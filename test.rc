@@ -1,12 +1,8 @@
-structdef MYS {
-int x, y;
-int z;
-function : void foo() {
-this.x = 8;
-this.z = this.y;
-this.foo(); // recursive call - legal
-}
-function : void bar() {
-this.foo(); // calling other struct function - legal
-}
-};
+structdef MY {
+function: int foo() {
+return 4;}
+};
+
+MY s;
+int x = s.foo();
+int y = s.foo();

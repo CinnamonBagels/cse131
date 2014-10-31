@@ -10,7 +10,7 @@ public class FloatType extends NumericType{
 	
 	public boolean isAssignableTo(Type t) {
 		//could do numeric type. not sure if goin tob reak it though.
-		return t instanceof FloatType || t instanceof IntegerType;
+		return t instanceof FloatType;
 	}
 	
 	public boolean isEquivalentTo(Type t) {

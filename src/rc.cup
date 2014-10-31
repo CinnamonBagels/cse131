@@ -244,6 +244,7 @@ VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
 
 ConstDecl ::=  OptStatic T_CONST UndecoratedType:_2 IdListWInit:_3 T_SEMI
                     {:
+                    System.out.println("hereh");
                         ((MyParser) parser).DoConstDecl (_3,_2);
                     :}
     ;
@@ -299,11 +300,7 @@ FieldList ::=     UndecoratedType:_1 IdList:_2 T_SEMI
 FuncDef ::=    T_FUNCTION T_COLON ReturnType:_1 OptRef:_4 T_ID:_2
                     {:
                         ((MyParser) parser).SaveLineNum ();
-                        if(!((Boolean) _4)) {
-                              ((MyParser) parser).DoFuncDecl_1(_2, _1, false);
-                        } else {
-                              ((MyParser) parser).DoFuncDecl_1(_2, _1, true);
-                        }
+                        ((MyParser) parser).DoFuncDecl_1(_2, _1, (Boolean)_4);
                         
                     :}
                     T_LPAREN OptParamList:_3 T_RPAREN
@@ -342,14 +339,20 @@ Type ::=         SubType:_1 OptModifierList:_3 OptArrayDef:_2
 					}
 					 
 				:}
-    |               T_FUNCPTR T_COLON ReturnType OptRef T_LPAREN OptParamList:_3 T_RPAREN
+    |               T_FUNCPTR T_COLON ReturnType:_1 OptRef:_2 T_LPAREN OptParamList:_3 T_RPAREN
+    				{:
+    					RESULT = ((MyParser) parser).DoFuncPointer(_1, _3, (Boolean)_2);
+    				:}
     ;
 
 UndecoratedType ::= SubType:_1 
 					{:
 						RESULT = _1;
 					:}
-    |               T_FUNCPTR T_COLON ReturnType OptRef T_LPAREN OptParamList:_3 T_RPAREN
+    |               T_FUNCPTR T_COLON ReturnType:_1 OptRef:_2 T_LPAREN OptParamList:_3 T_RPAREN
+    				{:
+    					RESULT = ((MyParser) parser).DoFuncPointer(_1, _3, (Boolean)_2);
+    				:}
     ;
 
 SubType ::=         QualIdent:_1
@@ -377,13 +380,23 @@ BasicType ::=       T_INT:_1
     ;
 
 
-OptModifierList ::= ModifierList
+OptModifierList ::= ModifierList:_1
+					{:
+						RESULT = _1;
+					:}
     |               /* empty */
     ;
 
 
-ModifierList ::=    Modifier
-    |               ModifierList Modifier
+ModifierList ::=    Modifier:_1
+					{:
+						RESULT = _1;
+					:}
+    |               ModifierList:_2 Modifier:_3
+    				{:
+    					RESULT = (PointerType) _3;
+    					((PointerType) RESULT).setContainingType((PointerType) _2);
+    				:}
     ;
 
 
@@ -410,6 +423,7 @@ ReturnType ::=      SubType:_1 OptModifierList:_2
                         }
                         else {
                         	RESULT = (Type)_2;
+                        	((PointerType) RESULT).setContainingType(_1);
                         }
                     :}
     |               T_VOID
@@ -502,14 +516,14 @@ IdList ::=          OptModifierList:_3 OptArrayDef:_4 T_ID:_1
                     {:
                     	Hashtable h = new Hashtable();
                         
-                        VarSTO sto = (VarSTO) ((MyParser) parser).DoCreateDeclaration(_1, (Type) _3, (Type) _4);
+                        STO sto = (STO) ((MyParser) parser).DoCreateDeclaration(_1, null,  (Type) _3, (Type) _4);
                         h.put(sto, _1);
                         RESULT = h;
                     :}
     |               IdList:_1 T_COMMA OptModifierList:_5 OptArrayDef:_6 T_ID:_3
                     {:
                         Hashtable h = (Hashtable) _1;
-                        VarSTO sto = (VarSTO) ((MyParser) parser).DoCreateDeclaration(_3, (Type) _5, (Type) _6);
+                        STO sto = (STO) ((MyParser) parser).DoCreateDeclaration(_3, null, (Type) _5, (Type) _6);
                         h.put (sto, _3);
                         RESULT = h;
                     :}
@@ -534,30 +548,33 @@ IdListWOptInit ::=  OptModifierList:_3 OptArrayDef:_4 T_ID:_1 OptInit:_2
                     
                         RESULT = new Hashtable ();
                         
-                        VarSTO sto = (VarSTO)((MyParser) parser).DoCreateDeclaration(_1, (Type)_3, (Type)_4);
+                        STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_1, (STO)_2,  (Type)_3, (Type)_4);
                         RESULT.put (sto, _2 == null ? "" : _2);
                     :}
     |               IdListWOptInit:_1 T_COMMA OptModifierList:_5 OptArrayDef:_6 T_ID:_3 OptInit:_4
                     {:
                     	Hashtable h = (Hashtable) _1;
-                    	VarSTO sto = (VarSTO)((MyParser) parser).DoCreateDeclaration(_3, (Type) _5, (Type) _6);
+                    	STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_3, null, (Type) _5, (Type) _6);
                     	h.put(sto,_4 == null ? "" : _4);
                         RESULT = h;
                     :}
     ;
 
-IdListWInit ::=     OptModifierList OptArrayDef T_ID:_1 T_ASSIGN ConstExpr:_2
+IdListWInit ::=     OptModifierList:_3 OptArrayDef:_4 T_ID:_1 T_ASSIGN ConstExpr:_2
                     {:
-						RESULT = new Hashtable ();
-						RESULT.put (_1,_2);
+                    
+                        RESULT = new Hashtable ();
+                        
+                        STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_1, (STO)_2, (Type)_3, (Type)_4);
+                        RESULT.put (sto, _2 == null ? "" : _2);
                     :}
-  //|       Do not need an extra rule since we are not doing constant arrays
-    |               IdListWInit:_1 T_COMMA OptModifierList OptArrayDef T_ID:_3 T_ASSIGN ConstExpr:_4
+    |               IdListWOptInit:_1 T_COMMA OptModifierList:_5 OptArrayDef:_6 T_ID:_3 OptInit:_4
                     {:
-			Hashtable h = (Hashtable) _1;
-			h.put(_3,_4);
-			RESULT = h;
-		    :}
+                    	Hashtable h = (Hashtable) _1;
+                    	STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_3, null, (Type) _5, (Type) _6);
+                    	h.put(sto,_4 == null ? "" : _4);
+                        RESULT = h;
+                    :}
     ;
 
 
@@ -589,11 +606,7 @@ WhileStmt ::=       T_WHILE Expr:_1 CodeBlock:_2
 
 IterationVarDecl ::= Type:_3 OptRef:_2 T_ID:_1
                     {:
-                    	if(_2 == null) {
-                        	RESULT = new VarSTO(_1, _3, false);
-                        } else {
-                        	RESULT = new VarSTO(_1, _3, true);
-                        }
+                        RESULT = new VarSTO(_1, _3, (Boolean) _2);
                     :}
     ;
  
@@ -879,7 +892,7 @@ IncDecOp ::=        T_PLUSPLUS
 
 Designator ::= T_STAR Designator:_1
                     {:
-			RESULT = _1;
+						RESULT = ((MyParser) parser).DoStarDereference(_1);
                     :}
     |               T_AMPERSAND Designator:_1
                     {:
@@ -924,9 +937,9 @@ Designator2 ::=     Designator2:_1 T_DOT T_ID:_3
                     {:
                         RESULT = ((MyParser) parser).DoDesignator2_Array (_1, (STO) _5);
                     :}
-    |               Designator2:_1 T_ARROW T_ID
+    |               Designator2:_1 T_ARROW T_ID:_2
                     {:
-                        RESULT = _1;
+                        RESULT = ((MyParser) parser).DoArrowDereference(_1, _2);
                     :}
     |               Designator2:_1 IncDecOp:_2
                     {:

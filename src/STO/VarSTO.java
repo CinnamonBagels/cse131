@@ -21,7 +21,7 @@ public class VarSTO extends STO
 		// You may want to change the isModifiable and isAddressable 
 		// fields as necessary
 	}
-
+	
 	public VarSTO(String strName, Type typ)
 	{
 		super(strName, typ);

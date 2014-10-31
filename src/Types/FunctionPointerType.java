@@ -15,6 +15,13 @@ public class FunctionPointerType extends Type {
 		this.params = new Vector<VarSTO>();
 	}
 	
+	public FunctionPointerType(String strName, Type t, boolean isReturnReference, Vector<VarSTO> params) {
+		super(strName, 0);
+		this.params = params;
+		this.isReturnReference = isReturnReference;
+		this.m_returnType = t;
+	}
+	
 	public FunctionPointerType(String strName) {
 		super(strName, 4);
 		this.params = new Vector<VarSTO>();

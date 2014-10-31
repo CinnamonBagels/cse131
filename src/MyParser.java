@@ -156,11 +156,16 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	void DoVarDecl(Hashtable lstIDs, Type t) {
-		Enumeration<VarSTO> e = lstIDs.keys();
+		Enumeration<STO> e = lstIDs.keys();
 
 		// for (int i = 0; i < lstIDs.size(); i++)
 		while (e.hasMoreElements()) {
-			VarSTO sto = e.nextElement();
+			STO sto = e.nextElement();
+			System.out.println(sto.getName());
+			
+			if(sto.isError()) {
+				continue;
+			}
 			////system.out.println(sto.getName());
 			
 			if(sto.getType() == null || sto.getType().isVoid()) {
@@ -174,7 +179,8 @@ class MyParser extends parser {
 
 			String idName = sto.getName();
 
-			if (m_symtab.accessLocal(idName) != null && currentStruct == null) {
+			if (m_symtab.accessLocal(idName) != null) {
+				System.out.println("wthwahthet");
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,sto.getName()));
 			} else if(m_symtab.accessLocal(idName) != null && currentStruct != null) { //else if(m_symtab.accessLocal(idName) != null && currentStruct != null)
@@ -184,6 +190,8 @@ class MyParser extends parser {
 			
 			m_symtab.insert(sto);
 		}
+		
+		
 	}
 
 	// ----------------------------------------------------------------
@@ -221,12 +229,11 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	void DoConstDecl(Hashtable lstIDs, Type t) {
 		Enumeration<STO> e = lstIDs.keys();
-
 		// for (int i = 0; i < lstIDs.size(); i++)
 		// ////system.out.println("wut");
 		while (e.hasMoreElements()) {
 			STO id = e.nextElement();
-			// ////system.out.println("wut");
+			System.out.println(id.isConst());
 			if (m_symtab.accessLocal(id.getName()) != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,
@@ -315,24 +322,31 @@ class MyParser extends parser {
 				m_errors.print(Formatter.toString(ErrorMsg.error13b_Struct, x.getType().getName()));
 			}
 		}
+		currentStruct = null;
 		
 //		////system.out.println(currentStruct.get)
 	}
 
-	STO DoCreateDeclaration(String id, Type pointerType, Type arrayType) {
+	STO DoCreateDeclaration(String id, STO sto, Type pointerType, Type arrayType) {
+		
+		if(sto != null) {
+			if(sto.isConst()) {
+				return sto;
+			}
+		} else {
+			VarSTO sto1 = new VarSTO(id);
+			////system.out.println("I am here");
+			if (pointerType != null) {
+				sto1 = new VarSTO(id, pointerType);
+			}
 
-		VarSTO sto = new VarSTO(id);
-		////system.out.println("I am here");
-		if (pointerType != null) {
-			sto = new VarSTO(id, pointerType);
+			// array overwrites pointer
+			if (arrayType != null) {
+				sto1 = new VarSTO(id, arrayType);
+				////system.out.println("I am herew");
+			}
+			return sto1;
 		}
-
-		// array overwrites pointer
-		if (arrayType != null) {
-			sto = new VarSTO(id, arrayType);
-			////system.out.println("I am herew");
-		}
-
 		return sto;
 	}
 
@@ -384,6 +398,7 @@ class MyParser extends parser {
 		
 		m_returnMissingFlag = true;
 		if (m_symtab.accessLocal(id) != null) {
+			System.out.println("wthwahthet");
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 		}
@@ -446,6 +461,11 @@ class MyParser extends parser {
 
 		return _1;
 	}
+	
+	Type DoFuncPointer(Type t, Vector<VarSTO> params, boolean isReference) {
+		return new FunctionPointerType("function pointer", t, isReference, params);
+		
+	}
 
 	// expression, codeblock
 	STO DoWhileStmt(STO _1, STO _2) {
@@ -486,13 +506,16 @@ class MyParser extends parser {
 		////system.out.println(arr.isInnerTypeAssignableTo((id.getType())));
 		if(id.isVar()) {
 			if(((VarSTO) id).getIsReference()) {
+				System.out.println(arr.getContainingType());
+				System.out.println(id.getType());
 				if(!arr.isInnerTypeEquivalentTo((id.getType()))) {
 					m_nNumErrors++;
 					m_errors.print(Formatter.toString(ErrorMsg.error12r_Foreach, arr.getContainingType().getName(), id.getName(), id.getType().getName()));
 				}
 			}
 		}
-
+		
+		//i dont htink i finished this.
 		ArrayType arrayType = (ArrayType) list.getType();
 		return null;
 	}
@@ -714,6 +737,44 @@ class MyParser extends parser {
 
 		return sto;
 	}
+	
+	STO DoStarDereference(STO pointer) {
+		if(pointer.isError()) {
+			return pointer;
+		}
+		if(!(pointer.getType() instanceof PointerType)) {
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error15_Receiver, pointer.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error15_Receiver, pointer.getType().getName()));
+		}
+		
+		Type dereferenceType = ((PointerType) pointer.getType()).dereference();
+		//not sure if this check is needed...
+		if(dereferenceType == null) {
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error15_Receiver, pointer.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error15_Receiver, pointer.getType().getName()));
+		}  else {
+			return new VarSTO("*" + pointer.getName(), dereferenceType);
+		}
+	}
+	
+	STO DoArrowDereference(STO pointer, String id) {
+		if(pointer.isError()) {
+			return pointer;
+		}
+		
+		if(pointer.getType() instanceof PointerType) {
+			if(((PointerType) pointer.getType()).getContainingType() instanceof StructType) {
+				Type dereferenceType = ((PointerType)pointer.getType()).dereference();
+				return DoDesignator2_Dot(new VarSTO(pointer.getName(), dereferenceType), id);
+			}
+		}
+		//not pointer, or struct.
+		m_nNumErrors++;
+		m_errors.print(Formatter.toString(ErrorMsg.error15_ReceiverArrow, pointer.getType().getName()));
+		return new ErrorSTO(Formatter.toString(ErrorMsg.error15_ReceiverArrow, pointer.getType().getName()));
+	}
 
 	// ----------------------------------------------------------------
 	//
@@ -922,7 +983,7 @@ class MyParser extends parser {
 					if (result.isConst()) {
 						// need to cast as const
 						ConstSTO constResult = (ConstSTO) result;
-						////system.out.println(constResult.getValue());
+						System.out.println("const");
 
 						if (constResult.getType().isInt()) {
 							return new ConstSTO("Arithmetic Result Value",

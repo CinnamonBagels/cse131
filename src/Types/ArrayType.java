@@ -31,10 +31,13 @@ public class ArrayType extends Type {
 	
 	public boolean isInnerTypeAssignableTo(Type t) {
 		if(t instanceof IntegerType) {
+			System.out.println("wtfhere");
+			System.out.println(this.containingType);
 			return this.containingType instanceof IntegerType;
 		} else if(t instanceof FloatType) {
 			return this.containingType instanceof IntegerType || this.containingType instanceof FloatType;
 		} else {
+			System.out.println("wtf");
 			return this.containingType == t;
 		}
 	}
