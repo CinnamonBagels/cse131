@@ -27,7 +27,18 @@ public class ComparisonOp extends BinaryOp {
 				} else {
 					return new ErrorSTO(Formatter.toString(ErrorMsg.error1b_Expr, a.getName(), this.getName(), b.getName()));
 				}
-			} else {
+			} //else if(a.isPointer() || b.isPointer()){
+//				if(!a.isPointer() || !b.isPointer()){
+//					return new ErrorSTO(Formatter.toString(ErrorMsg.error17_Expr, this.getName(), a.getName(), b.getName()));
+//				}
+//				
+//				Type x = ((PointerType)a).getContainingType();
+//				Type y = ((PointerType)b).getContainingType();
+//				
+//				boolean eq = x.isEquivalentTo(y);
+//				boolean aptr = a instanceof 
+//			}
+			else {
 				return new ErrorSTO(Formatter.toString(ErrorMsg.error1b_Expr, a.getName(), this.getName(), b.getName()));
 			}
 		} else {

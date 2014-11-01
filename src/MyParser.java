@@ -162,13 +162,12 @@ class MyParser extends parser {
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
 			//System.out.println(lstIDs.get(e));
-			System.out.println(sto.getName());
+			System.out.println(sto.getName() + " is a " + sto.getType().getName() + " type.");
 			
 			if(sto.isError()) {
 				continue;
 			}
 			////system.out.println(sto.getName());
-			
 			if(sto.getType() == null || sto.getType().isVoid()) {
 				//
 				sto.setType(t);
@@ -188,7 +187,7 @@ class MyParser extends parser {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.error13a_Struct,sto.getName()));
 			}
-			
+						
 			m_symtab.insert(sto);
 		}
 		
@@ -750,6 +749,7 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error15_Receiver, pointer.getType().getName()));
 		}
 		
+		System.out.println(((PointerType) pointer.getType()).dereference());
 		Type dereferenceType = ((PointerType) pointer.getType()).dereference();
 		//not sure if this check is needed...
 		if(dereferenceType == null) {
@@ -765,6 +765,7 @@ class MyParser extends parser {
 		if(pointer.isError()) {
 			return pointer;
 		}
+		
 		
 		if(pointer.getType() instanceof PointerType) {
 			if(((PointerType) pointer.getType()).getContainingType() instanceof StructType) {
@@ -913,6 +914,35 @@ class MyParser extends parser {
 		}
 
 		return sto;
+	}
+	
+	STO doNew(STO s){
+		if(!s.isModLValue()){
+			m_nNumErrors++;
+			m_errors.print(ErrorMsg.error16_New_var);
+			return new ErrorSTO(ErrorMsg.error16_New_var);
+		}
+		
+		if(!(s.getType() instanceof PointerType)){
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error16_New, s.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error16_New, s.getType().getName()));
+		}
+		return s;
+	}
+	
+	STO doDelete(STO s){
+		if(s.isModLValue() == false){
+			m_nNumErrors++;
+			m_errors.print(ErrorMsg.error16_Delete_var);	
+			return new ErrorSTO(ErrorMsg.error16_Delete_var);
+		}
+		if(s.getType() instanceof PointerType == false){
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error16_Delete, s.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error16_Delete, s.getType().getName()));
+		}
+		return s;
 	}
 
 	// ----------------------------------------------------------------
