@@ -36,14 +36,14 @@ public class ComparisonOp extends BinaryOp {
 				Type y = ((PointerType)b).getContainingType();
 				
 				boolean eq = x.isEquivalentTo(y);
-				boolean aptr = a instanceof NullPointerType && !(b instanceof NullPointerType);
-				boolean bptr = b instanceof NullPointerType && !(a instanceof NullPointerType);
+				boolean xptr = x instanceof NullPointerType && !(y instanceof NullPointerType);
+				boolean yptr = y instanceof NullPointerType && !(x instanceof NullPointerType);
 				
-				if (eq || aptr || bptr){
-					return new ExprSTO(a.getName() + this.getName() + b.getName(), new BooleanType());
+				if (eq || xptr || yptr){
+					return new ExprSTO(x.getName() + this.getName() + y.getName(), new BooleanType());
 				}
 				else{
-					return new ErrorSTO(Formatter.toString(ErrorMsg.error17_Expr, this.getName(), a.getName(), b.getName()));
+					return new ErrorSTO(Formatter.toString(ErrorMsg.error17_Expr, this.getName(), x.getName(), y.getName()));
 				}
 			}
 			else {
@@ -61,6 +61,7 @@ public class ComparisonOp extends BinaryOp {
 			}			
 		}
 	}
+	
 	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
 		return null;
 	}

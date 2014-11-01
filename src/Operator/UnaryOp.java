@@ -25,7 +25,10 @@ public class UnaryOp extends Operator {
 					return new ExprSTO("Validating UnaryOp " + operand.getName() + " as a IntegerType for operator: " + this.getName() + "...\n", new IntegerType());
 				} else if(oType.isFloat()) {
 					return new ExprSTO("Validating UnaryOp " + operand.getName() + " as a FloatType for operator: " + this.getName() + "...\n", new FloatType());
-				} else {
+				} else if(oType.isPointer()) {
+					return new ExprSTO("Validating UnaryOp " + operand.getName() + " as a PointerType for operator: " + this.getName() + "...\n", new PointerType());
+				}
+				else {
 					return new ErrorSTO(Formatter.toString(ErrorMsg.error2_Type, oType.getName(), this.getName()));
 				}
 			} else {
