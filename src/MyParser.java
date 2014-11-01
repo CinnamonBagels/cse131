@@ -162,7 +162,7 @@ class MyParser extends parser {
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
 			//System.out.println(lstIDs.get(e));
-			System.out.println(sto.getName() + " is a " + sto.getType().getName() + " type.");
+			//System.out.println(sto.getName() + " is a " + sto.getType().getName() + " type.");
 			
 			if(sto.isError()) {
 				continue;
@@ -464,8 +464,7 @@ class MyParser extends parser {
 	}
 	
 	Type DoFuncPointer(Type t, Vector<VarSTO> params, boolean isReference) {
-		return new FunctionPointerType("function pointer", t, isReference, params);
-		
+		return new FunctionPointerType("function pointer", t, isReference, params);		
 	}
 
 	// expression, codeblock
@@ -1148,6 +1147,33 @@ class MyParser extends parser {
 
 		return expr;
 	}
+	
+	public STO DoSizeOf(STO sto){
+		if(sto == null || !sto.getIsAddressable()){
+			m_nNumErrors++;
+			m_errors.print(ErrorMsg.error19_Sizeof);
+			return new ErrorSTO(ErrorMsg.error19_Sizeof);
+		}
+		
+		if(sto.getType() == null){
+			return new ErrorSTO(ErrorMsg.error19_Sizeof);
+		}
+		
+		//System.out.println(sto.getType().getSize());
+		return new ConstSTO("" + sto.getType().getSize(), new IntegerType());
+	}
+	
+	public STO DoSizeOf(Type t){
+		if(t == null){
+			m_nNumErrors++;
+            m_errors.print(ErrorMsg.error19_Sizeof);
+            return new ErrorSTO(ErrorMsg.error19_Sizeof);
+		}
+		
+		//System.out.println(t.getSize());
+		return new ConstSTO("" + t.getSize(), new IntegerType());
+	}
+	
 
 	public STO DoReferenceOP(STO sto) {
 		return null;
