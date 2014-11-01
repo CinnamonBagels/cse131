@@ -8,4 +8,8 @@ public class NullPointerType extends Type{
 	public NullPointerType() {
 		super("", 0);
 	}
+	
+	public boolean isAssignableTo(Type t){
+		return t instanceof NullPointerType || t instanceof PointerType;
+	}
 }
