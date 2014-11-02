@@ -1,4 +1,54 @@
-function:void main() {
-float[10] i;
-float a = i;
+int ma = 7;
+float ji = 6;
+bool bim;
+
+function : void test(bool & bi, bool lo, int si, float fl) {
+    int x = 1, y = 5;
+    const bool u = false, l = true;
+    float m = 6.1;
+    float b = 7;
+
+    if (++y) {} //error
+    if (123) {} //error
+    if (54.5) {} //error
+    if (true) {}
+    if (false) {}
+    if (x) {} //error
+    if (y) {} //error
+    if (::bim) {}
+    if (bim) {}
+    if (ma) {} //error
+    if (::ma) {} //error
+    if (ji) {} //error
+    if (::ji) {} //error
+    if (m) {} //error
+    if (b) {} //error
+    if (u) {}
+    if (l) {}
+    if (fl) {} //error
+    if (bi) {}
+    if (lo) {}
+    if (si) {} //error
+
+    while (++y) {} //error
+    while (123) {} //error
+    while (54.5) {} //error
+    while (true) {}
+    while (false) {}
+    while (x) {} //error
+    while (y) {} //error
+    while (::bim) {}
+    while (bim) {}
+    while (ma) {} //error
+    while (::ma) {} //error
+    while (ji) {} //error
+    while (::ji) {} //error
+    while (m) {} //error
+    while (b) {} //error
+    while (u) {}
+    while (l) {}
+    while (fl) {} //error
+    while (bi) {}
+    while (lo) {}
+    while (si) {} //error
 }

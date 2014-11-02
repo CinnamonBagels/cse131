@@ -637,8 +637,8 @@ class MyParser extends parser {
 			return new ErrorSTO(ErrorMsg.error3a_Assign);
 		}
 		
-		System.out.println(stoDes.getType());
-		System.out.println(_2.getType());
+		//System.out.println(stoDes.getType());
+		//System.out.println(_2.getType());
 		// type conflict check.
 		if (!_2.getType().isAssignableTo(stoDes.getType())) {
 			m_nNumErrors++;
