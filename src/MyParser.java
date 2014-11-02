@@ -728,13 +728,6 @@ class MyParser extends parser {
 				argTypeName = arg.getType().getName();
 			}
 
-			// ////////system.out.println(funcParams.get(i).getType() instanceof
-			// IntegerType);
-			// ////////system.out.println(paramName);
-			// ////////system.out.println(argName);
-			// //////system.out.println(arg.getIsModifiable());
-			// //////system.out.println(arg.getIsAddressable());
-
 			if (!arg.getType().isAssignableTo(param.getType())) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(
@@ -764,7 +757,18 @@ class MyParser extends parser {
 			return new ErrorSTO("Function Pass-by-reference invalid");
 		}
 
-		return sto;
+		VarSTO returnSTO = null;
+		
+		if(funcSTOCast.getIsReturnRefernece()) {
+			returnSTO = new VarSTO(sto.getName() + "()", funcSTOCast.getReturnType());
+			returnSTO.setIsModLValue(true);
+		} else {
+			returnSTO = new VarSTO(sto.getName() + "()", funcSTOCast.getReturnType());
+			returnSTO.setIsModLValue(false);
+		}
+		
+		return returnSTO;
+		
 	}
 
 	STO DoStarDereference(STO pointer) {
@@ -1127,11 +1131,8 @@ class MyParser extends parser {
 	public STO DoReturnCheck(STO expr) {
 		// //////system.out.println("here");
 		FuncSTO func = m_symtab.getFunc();
-		// ////////system.out.println("" + func.getReturnType().isVoid() ==
-		// null);
+		
 		STO returnSTO = expr;
-		// //////system.out.println(func.getReturnType());
-		// //////system.out.println(expr.getType());
 
 		if (expr == null) {
 			if (!func.getReturnType().isVoid()) {
@@ -1202,6 +1203,8 @@ class MyParser extends parser {
 		if (blockLevel == m_symtab.getLevel()) {
 			m_returnMissingFlag = false;
 		}
+		
+		System.out.println("HAUEHUEHAUEHU" + returnSTO.getIsModifiable());
 		return returnSTO;
 	}
 
