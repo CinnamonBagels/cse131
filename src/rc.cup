@@ -517,14 +517,14 @@ IdList ::=          OptModifierList:_3 OptArrayDef:_4 T_ID:_1
                     	Hashtable h = new Hashtable();
                         
                         STO sto = (STO) ((MyParser) parser).DoCreateDeclaration(_1, null,  (Type) _3, (Type) _4);
-                        h.put(sto, null);
+                        h.put(sto, new VarSTO(_1));
                         RESULT = h;
                     :}
     |               IdList:_1 T_COMMA OptModifierList:_5 OptArrayDef:_6 T_ID:_3
                     {:
                         Hashtable h = (Hashtable) _1;
                         STO sto = (STO) ((MyParser) parser).DoCreateDeclaration(_3, null, (Type) _5, (Type) _6);
-                        h.put (sto, null);
+                        h.put (sto, new VarSTO(_3));
                         RESULT = h;
                     :}
     ;

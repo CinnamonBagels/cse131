@@ -24,7 +24,7 @@ public class ArrayType extends CompositeType {
 	}
 	
 	public boolean isAssignableTo(Type t) {
-		System.out.println("here");
+		//System.out.println("here");
 		return t instanceof ArrayType || t instanceof PointerType;
 	}
 	
@@ -35,7 +35,7 @@ public class ArrayType extends CompositeType {
 	public boolean isInnerTypeAssignableTo(Type t) {
 		//System.out.println("here");
 		if(t instanceof IntegerType) {
-			System.out.println(this.containingType);
+			//System.out.println(this.containingType);
 			return this.containingType instanceof IntegerType;
 		} else if(t instanceof FloatType) {
 			return this.containingType instanceof IntegerType || this.containingType instanceof FloatType;
@@ -58,7 +58,7 @@ public class ArrayType extends CompositeType {
 	}
 	
 	public void setContainingType(Type t) {
-		System.out.println("This array is a " + t.getName() + " type.");
+		//System.out.println("This array is a " + t.getName() + " type.");
 		this.containingType = t;
 	}
 	
