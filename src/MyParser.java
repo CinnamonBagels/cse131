@@ -652,8 +652,6 @@ class MyParser extends parser {
 					.getType().getName(), stoDes.getType().getName()));
 		}
 		// System.out.println("here");
-		//System.out.println(stoDes);
-		stoDes = _2;
 		return stoDes;
 	}
 

@@ -57,7 +57,7 @@ class SymbolTable
 	{
 		Stack stk = new Stack();
 		Scope scope;
-		STO stoReturn = null;	
+		STO stoReturn = null;
 
 		for (Enumeration<Scope> e = m_stkScopes.elements(); e.hasMoreElements();)
 		{
@@ -79,7 +79,7 @@ class SymbolTable
 	{
 		Scope scope = new Scope();
 
-		// The first scope created will be the global scope.
+		// The first scope created will be the global scope. 
 		if (m_scopeGlobal == null)
 			m_scopeGlobal = scope;
 
