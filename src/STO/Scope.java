@@ -37,11 +37,12 @@ public class Scope
 	public STO accessLocal(String strName)
 	{
 		STO sto = null;
+		//System.out.println(strName);
 
 		for (int i = 0; i < m_lstLocals.size(); i++)
 		{
 			sto = m_lstLocals.elementAt(i);
-
+			//System.out.println(sto.getName());
 			if (sto.getName().equals(strName))
 				return sto;
 		}
@@ -54,6 +55,7 @@ public class Scope
 	//----------------------------------------------------------------
 	public void InsertLocal(STO sto)
 	{
+		System.out.println(sto.getName());
 		m_lstLocals.addElement(sto);
 	}
 }

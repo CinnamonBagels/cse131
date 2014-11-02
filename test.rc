@@ -1,8 +1,1 @@
-structdef MY {
-function: int foo() {
-return 4;}
-};
-
-MY s;
-int x = s.foo();
-int y = s.foo();
+const int x = 0 + 3 * 0 + 2;
