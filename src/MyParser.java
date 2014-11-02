@@ -269,7 +269,7 @@ class MyParser extends parser {
 								ErrorMsg.error8_Assign, id.getType().getName(),
 								t.getName()));
 					} else {
-						ConstSTO sto = new ConstSTO(csto.getName(), csto.getType(),
+						ConstSTO sto = new ConstSTO(id.getName(), csto.getType(),
 								((ConstSTO) csto).getValue());
 						m_symtab.insert(sto);
 					}
@@ -979,6 +979,7 @@ class MyParser extends parser {
 		if (sto == null) {
 			m_nNumErrors++;
 			// push our error message through
+			System.out.println("here");
 			m_errors.print(Formatter.toString(errorMessage, strID));
 			sto = new ErrorSTO(strID);
 		}
