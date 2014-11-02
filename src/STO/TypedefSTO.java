@@ -21,6 +21,8 @@ public class TypedefSTO extends STO
 	public TypedefSTO(String strName, Type typ)
 	{
 		super(strName, typ);
+		typ.setName(strName);
+		typ.setTypeDef(true);
 		this.setIsModifiable(true);
 		this.setIsAddressable(true);
 	}

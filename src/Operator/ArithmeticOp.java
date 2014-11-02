@@ -57,12 +57,15 @@ public class ArithmeticOp extends BinaryOp {
 		} else if(o.isMulOp()) {
 			value = left.getValue() * right.getValue();
 		} else if(o.isDivOp()) {
-			if(left.getValue() == 0 || right.getValue() == 0.0) {
+			if(right.getFloatValue() == 0.0) {
 				return new ErrorSTO(ErrorMsg.error8_Arithmetic);
 			} else {
 				value = left.getValue() / right.getValue();
 			}
 		} else if(o.isModOp()) {
+			if(right.getIntValue() == 0) {
+				return new ErrorSTO(ErrorMsg.error8_Arithmetic);
+			}
 			value = left.getIntValue() % right.getIntValue();
 		}
 		//System.out.println(value);

@@ -2,7 +2,7 @@ package Types;
 
 public class ArrayType extends CompositeType {
 	
-	private Type containingType;
+	private Type containingType = null;
 	private int arraySize;
 	
 	public ArrayType(String strName, int size){
@@ -11,7 +11,7 @@ public class ArrayType extends CompositeType {
 	}
 	
 	public ArrayType(int size) {
-		super("new array", 4 * size);
+		super("array", 4 * size);
 		this.setArraySize(size);
 	}
 	
@@ -19,26 +19,34 @@ public class ArrayType extends CompositeType {
 		return true;
 	}
 	
-	public void setArrayName() {
-		super.setName(containingType.getName() + "[" + arraySize + "]");
+	public void setArrayName(String str) {
+		super.setName(str + "[" + arraySize + "]");
 	}
 	
 	public boolean isAssignableTo(Type t) {
-		//System.out.println("here");
-		return t instanceof ArrayType || t instanceof PointerType;
+		if(t instanceof ArrayType) {
+			return ((ArrayType) t).containingType.isEquivalentTo(this.containingType);
+		} else if(t instanceof PointerType) {
+			return ((PointerType) t).getContainingType().isEquivalentTo(this.containingType);
+		} else {
+			return false;
+		}
 	}
 	
 	public boolean isEquivalentTo(Type t) {
-		return t instanceof ArrayType;
+		if(t instanceof ArrayType) {
+			if( ((ArrayType) t).getContainingType().isEquivalentTo(this.getContainingType())) {
+				return true;
+			}
+		} 
+			return false;
 	}
 	
 	public boolean isInnerTypeAssignableTo(Type t) {
-		//System.out.println("here");
-		if(t instanceof IntegerType) {
+		//System.out.println("here"); //DELETE THIS
+		if(t instanceof IntegerType || t instanceof FloatType) {
 			//System.out.println(this.containingType);
 			return this.containingType instanceof IntegerType;
-		} else if(t instanceof FloatType) {
-			return this.containingType instanceof IntegerType || this.containingType instanceof FloatType;
 		} else {
 			return this.containingType == t;
 		}

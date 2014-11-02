@@ -14,6 +14,15 @@ public abstract class Type
 	private int m_size;
 	private boolean m_isAddressable;
 	private boolean m_isModifiable;
+	private boolean isTypeDef = false;
+
+	public boolean isTypeDef() {
+		return isTypeDef;
+	}
+
+	public void setTypeDef(boolean isTypeDef) {
+		this.isTypeDef = isTypeDef;
+	}
 
 	//----------------------------------------------------------------
 	//

@@ -17,7 +17,7 @@ public class UnaryOp extends Operator {
 			if(operand.getType().isBool()) {
 				return new ExprSTO("Validating UnaryOp " + operand.getName() + " as a BooleanType for operator: " + this.getName() + "...\n", new BooleanType());
 			} else {
-				return new ErrorSTO(Formatter.toString(ErrorMsg.error1u_Expr, "bool"));
+				return new ErrorSTO(Formatter.toString(ErrorMsg.error1u_Expr, operand.getType().getName(), this.getName(), "bool"));
 			}
 		} else if(this.getName().equals("++") || this.getName().equals("--")) {
 			if(operand.isModLValue()) {
@@ -52,7 +52,10 @@ public class UnaryOp extends Operator {
 			value = 1.0 - o.getValue();
 		}
 		
-		return new ConstSTO("" + value, this.getName().equals("!") ? new BooleanType() : o.getType().isFloat() ? new FloatType() : new IntegerType());
+		if(this.getName().equals("++") || this.getName().equals("--")){
+			return new ConstSTO("" + value, o.getType().isFloat() ? new FloatType() : new IntegerType());
+		}
+		return new ConstSTO((value == 1.0 ? "true" : "false"), new BooleanType());
 	}
 	
 	public boolean isUnaryOp(){
