@@ -184,17 +184,17 @@ class MyParser extends parser {
 				DoSetSubType(t, sto.getType());
 			}
 			
-			//is assignable?
-			if(!((STO) lstIDs.get(sto)).getType().isAssignableTo(sto.getType())){
-				m_nNumErrors++;
-				m_errors.print(Formatter.toString(ErrorMsg.error8_Assign,
-							((STO) lstIDs.get(sto)).getType().getName(),
-							sto.getType().getName()));
-				return new ErrorSTO(ErrorMsg.error8_Assign);
+			if((lstIDs.get(sto) instanceof STO)) {
+				if(!((STO)lstIDs.get(sto)).getType().isAssignableTo(sto.getType())) {
+					m_nNumErrors++;
+					m_errors.print(Formatter.toString(ErrorMsg.error8_Assign,
+								((STO) lstIDs.get(sto)).getType().getName(),
+								sto.getType().getName()));
+					return new ErrorSTO(ErrorMsg.error8_Assign);
+				}
 			}
 			
-
-			 else if(m_symtab.accessLocal(idName) != null && currentStruct != null) {
+			if(m_symtab.accessLocal(idName) != null && currentStruct != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.error13a_Struct,sto.getName()));
 				
