@@ -122,7 +122,7 @@ public abstract class STO
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	private void setIsModLValue(boolean m)
+	public void setIsModLValue(boolean m)
 	{
 		setIsModifiable(m);
 		setIsAddressable(m);

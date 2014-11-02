@@ -1149,21 +1149,25 @@ class MyParser extends parser {
 	}
 	
 	public STO DoSizeOf(STO sto){
+		//is sto target valid for checking size?
 		if(sto == null || !sto.getIsAddressable()){
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error19_Sizeof);
 			return new ErrorSTO(ErrorMsg.error19_Sizeof);
 		}
 		
+		//is the sto a nulltype?
 		if(sto.getType() == null){
 			return new ErrorSTO(ErrorMsg.error19_Sizeof);
 		}
 		
 		//System.out.println(sto.getType().getSize());
-		return new ConstSTO("" + sto.getType().getSize(), new IntegerType());
+		//functions don't have size (?)
+		return new ConstSTO((sto instanceof FuncSTO) ? "0" : ("" + sto.getType().getSize()), new IntegerType());
 	}
 	
 	public STO DoSizeOf(Type t){
+		//no type?
 		if(t == null){
 			m_nNumErrors++;
             m_errors.print(ErrorMsg.error19_Sizeof);
@@ -1172,6 +1176,47 @@ class MyParser extends parser {
 		
 		//System.out.println(t.getSize());
 		return new ConstSTO("" + t.getSize(), new IntegerType());
+	}
+	
+	public STO DoTypeCast(Type t, STO sto){
+		if(sto.isError()){
+			return sto;
+		}
+		
+		STO rsto = sto;
+		//target is okay to cast on
+		if(sto.getType() instanceof BasicType || sto.getType() instanceof PointerType){
+			//cast type is okay
+			if(t instanceof BasicType || t instanceof PointerType){
+				//const
+				if(sto.isConst()){
+					ConstSTO csto = new ConstSTO(sto.getName(), t);
+					//casting float as int?
+					if(t instanceof IntegerType && sto.getType() instanceof FloatType){
+						csto.setValue(((ConstSTO)sto).getIntValue());
+					}
+					//no truncation cast
+					else{
+						csto.setValue(((ConstSTO)sto).getValue());
+					}
+					return csto;
+				}
+				//alias
+				else {
+					rsto = new ExprSTO(sto.getName(), t);
+					//result of cast is r value
+					rsto.setIsModLValue(false);
+					return rsto;
+				}
+			}
+			
+		}
+		
+		//invalid cast
+		m_nNumErrors++;
+		m_errors.print(Formatter.toString(ErrorMsg.error20_Cast, sto.getType().getName(), t.getName()));
+		
+		return sto;
 	}
 	
 
