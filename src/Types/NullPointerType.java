@@ -1,6 +1,6 @@
 package Types;
 
-public class NullPointerType extends Type{
+public class NullPointerType extends PointerType{
 	public NullPointerType(String strName, int size){
 		super(strName, size);
 	}

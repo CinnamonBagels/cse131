@@ -1,6 +1,6 @@
 package Types;
 
-public class PointerType extends Type{
+public class PointerType extends PointerGroupType{
 	
 	private Type containingType;
 	
