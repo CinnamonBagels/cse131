@@ -63,6 +63,28 @@ public class ComparisonOp extends BinaryOp {
 	}
 	
 	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
-		return null;
+		float left = ((ConstSTO) leftOperand).getFloatValue();
+		float right = ((ConstSTO) rightOperand).getFloatValue();
+		boolean value = false;
+		
+		if(o.isLessThanOp()){
+			value = left < right;
+		} else if (o.isGtrThanOp()){
+			value = left > right;
+		} else if (o.isLessThanEqOp()){
+			value = left <= right;
+		} else if (o.isGtrThanEqOp()){
+			value = left >= right;
+		} else if (o.isEqualToOp()){
+			value = left == right;
+		} else if (o.isNotEqualToOp()){
+			value = left != right;
+		}
+		
+		return new ConstSTO("" + value, new BooleanType());
+	}
+	
+	public boolean isComparisonOp(){
+		return true;
 	}
 }

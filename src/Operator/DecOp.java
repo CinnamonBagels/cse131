@@ -7,4 +7,7 @@ public class DecOp extends UnaryOp {
 		// TODO Auto-generated constructor stub
 	}
 
+	public boolean isDecOp(){
+		return true;
+	}
 }

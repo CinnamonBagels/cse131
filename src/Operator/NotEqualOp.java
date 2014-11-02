@@ -14,5 +14,9 @@ public class NotEqualOp extends ComparisonOp {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+	public boolean isNotEqualOp(){
+		return true;
+	}
 
 }

@@ -10,4 +10,8 @@ public class EqualOp extends ComparisonOp {
 	public String getOperator() {
 		return "==";
 	}
+	
+	public boolean isEqualOp(){
+		return true;
+	}
 }

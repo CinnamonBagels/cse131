@@ -49,5 +49,9 @@ public class BitwiseOp extends BinaryOp {
 		
 		return new ConstSTO("bw result", new IntegerType(), value);
 	}
+	
+	public boolean isBitwiseOp(){
+		return true;
+	}
 
 }

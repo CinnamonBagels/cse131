@@ -7,4 +7,7 @@ public class IncOp extends UnaryOp {
 		// TODO Auto-generated constructor stub
 	}
 
+	public boolean isIncOp(){
+		return true;
+	}
 }
