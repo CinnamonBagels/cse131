@@ -155,41 +155,55 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	void DoVarDecl(Hashtable lstIDs, Type t) {
+	public STO DoVarDecl(Hashtable lstIDs, Type t) {
+		if (t == null){
+			return new ErrorSTO("Missing type in delcaration.");
+		}
+		
 		Enumeration<STO> e = lstIDs.keys();
-
-		// for (int i = 0; i < lstIDs.size(); i++)
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
-			
-			if(sto.isError()) {
-				continue;
-			}
-			//////system.out.println(sto.getName());
-			if	(sto.getType() == null || sto.getType().isVoid()) {
-				//
-				sto.setType(t);
-			}
-			
-			if(sto.getType().isArray() || sto.getType().isPointer()) {
-				DoSetSubType(t, sto.getType());
-			}
-
 			String idName = sto.getName();
-
+			
 			if (m_symtab.accessLocal(idName) != null) {
 				//system.out.println("wthwahthet");
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,sto.getName()));
-			} else if(m_symtab.accessLocal(idName) != null && currentStruct != null) { //else if(m_symtab.accessLocal(idName) != null && currentStruct != null)
+				return new ErrorSTO(ErrorMsg.redeclared_id);
+			}		
+			
+			if(sto.isError()) {
+				return sto;
+			}
+			
+			//setting types
+			if	(sto.getType() == null || sto.getType().isVoid()) {
+				sto.setType(t);
+			}			
+			if(sto.getType().isArray() || sto.getType().isPointer()) {				
+				DoSetSubType(t, sto.getType());
+			}
+			
+			//is assignable?
+			if(!((STO) lstIDs.get(sto)).getType().isAssignableTo(sto.getType())){
+				m_nNumErrors++;
+				m_errors.print(Formatter.toString(ErrorMsg.error8_Assign,
+							((STO) lstIDs.get(sto)).getType().getName(),
+							sto.getType().getName()));
+				return new ErrorSTO(ErrorMsg.error8_Assign);
+			}
+			
+
+			 else if(m_symtab.accessLocal(idName) != null && currentStruct != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.error13a_Struct,sto.getName()));
+				
 			}
 						
 			m_symtab.insert(sto);
 		}
 		
-		
+		return null;
 	}
 
 	// ----------------------------------------------------------------
@@ -847,25 +861,41 @@ class MyParser extends parser {
 
 		// do we care if we know if pointer or array?
 		// also, probably cant use isAssignableTo
+		//System.out.println("" + sto.getName() + " " + (sto.getType().isArray() ? "is" : "is not") + " an array.");
 		if (sto.getType().isArray() || sto.getType().isPointer()) {
+			//System.out.println("" + index.getName() + " " + (index.getType().isInt() ? "is" : "is not") + " an int.");
 			if (index.getType().isInt()) {
-				if (index.isConst()) {
-					ConstSTO constIndex = (ConstSTO) index;
-					if(sto.getType().isArray()) {
+				//System.out.println("" + index.getName() + " " + (index.isConst() ? "is" : "is not") + " a const.");
+				
+				if(sto.getType().isArray()) {
+					if (index.isConst()) {					
+						ConstSTO constIndex = (ConstSTO) index;
+						
 						//work on pointer types?
 						if (constIndex.getIntValue() < ((ArrayType)sto.getType()).getArraySize()) {
 							//
 						} else {
 							m_nNumErrors++;
 							m_errors.print(Formatter.toString(
-									ErrorMsg.error11b_ArrExp, constIndex
-											.getIntValue(), ((ArrayType)sto.getType()).getArraySize()));
+									ErrorMsg.error11b_ArrExp, 
+									constIndex.getIntValue(), 
+									((ArrayType)sto.getType()).getArraySize()));
 							return new ErrorSTO(
 									Formatter.toString(ErrorMsg.error11b_ArrExp,
-											constIndex.getIntValue(), ((ArrayType)sto.getType()).getArraySize()));
+									constIndex.getIntValue(), 
+									((ArrayType)sto.getType()).getArraySize()));
 						}
 					}
 					
+					ArrayType atyp = (ArrayType) sto.getType();
+					STO ret = new ExprSTO(sto.getName() + "[" + index.getName() + "]", atyp.getContainingType());
+					ret.setIsModLValue(true);
+					return ret;
+				} else {
+					PointerType ptyp = (PointerType) sto.getType();
+					STO ret = new ExprSTO(sto.getName() + "[" + index.getName() + "]", ptyp.getContainingType());
+					ret.setIsModLValue(true);
+					return ret;
 				}
 			} else {
 				m_nNumErrors++;
@@ -876,13 +906,11 @@ class MyParser extends parser {
 			}
 		} else {
 			m_nNumErrors++;
-			m_errors.print(Formatter.toString(ErrorMsg.error11t_ArrExp, sto
-					.getType().getName()));
+			m_errors.print(Formatter.toString(ErrorMsg.error11t_ArrExp, 
+					sto.getType().getName()));
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error11t_ArrExp,
 					sto.getType().getName()));
 		}
-
-		return sto;
 	}
 
 	// ----------------------------------------------------------------
