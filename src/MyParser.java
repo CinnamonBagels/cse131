@@ -193,6 +193,9 @@ class MyParser extends parser {
 				}
 			}
 
+			if(type instanceof ArrayType) {
+				sto.setIsModLValue(false);
+			}
 			if (m_symtab.accessLocal(idName) != null && currentStruct != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.error13a_Struct,
@@ -428,6 +431,7 @@ class MyParser extends parser {
 			return outerType;
 		} else if(outerType != null && outerType.isPointer()) {
 			((PointerType) outerType).setContainingType(innerType);
+			return outerType;
 		}
 
 		return innerType;
@@ -964,7 +968,7 @@ class MyParser extends parser {
 					
 					
 					ArrayType atyp = (ArrayType) sto.getType();
-					System.out.println("In DoDesignator2_Array, the array " + sto.getName() + "'s inner type is " + atyp.getContainingType());
+					//System.out.println("In DoDesignator2_Array, the array " + sto.getName() + "'s inner type is " + atyp.getContainingType());
 					STO ret = new ExprSTO(sto.getName() + "[" + index.getName()
 							+ "]", atyp.getContainingType());
 					ret.setIsModLValue(true);
@@ -1203,13 +1207,14 @@ class MyParser extends parser {
 						ErrorMsg.error6a_Return_type, expr.getType().getName(),
 						func.getReturnType().getName()));
 			}
+			
 		}
 
 		// i THINK this is correct?
 		if (func.getIsReturnRefernece()) {
+			System.out.println(expr.isModLValue());
 			if (!func.getReturnType().isEquivalentTo(expr.getType())) {
 				// return exists
-				m_returnMissingFlag = false;
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(
 						ErrorMsg.error6b_Return_equiv,

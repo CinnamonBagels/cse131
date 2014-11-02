@@ -332,8 +332,10 @@ FuncDecl ::=   T_EXTERN T_FUNCTION T_COLON ReturnType:_1 T_ID:_2
 Type ::=         SubType:_1 OptModifierList:_3 OptArrayDef:_2
 				{:
 				//we set the innertype of the array here tansen.
-					if(_2 != null) {
-						RESULT = ((MyParser) parser).DoSetSubType(_1, (Type)_2);
+					if(_3 != null) {
+						RESULT = ((MyParser) parser).DoSetSubType(_1, (Type)_3);
+					} else if(_2 != null) {
+						RESULT = ((MyParser) parser).DoSetSubType(_1, (Type) _2);
 					} else {
 						RESULT = _1;
 					}
@@ -484,10 +486,17 @@ OptParamList ::=    ParamList:_1
 ParamList ::=       ParamDecl:_1
 					{:
 						RESULT = new Vector<VarSTO>();
+						if(((STO)_1).getType().isArray()) {
+							((STO)_1).setIsModLValue(false);
+						}
 						RESULT.add(_1);
 					:}
     |               ParamList:_1 T_COMMA ParamDecl:_2
     				{:
+    					if(((STO)_2).getType().isArray()) {
+							((STO)_2
+							).setIsModLValue(false);
+						}
     					_1.add(_2);
     					RESULT = _1;
     				:}

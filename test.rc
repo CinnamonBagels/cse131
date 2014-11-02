@@ -1,54 +1,106 @@
-typedef float[10000] TOO;
-typedef bool[-11] TAR; //error, index not greater than 0
-typedef int[0] BB; //error, index not greater than 0
+typedef int[5] INTFIVE;
+typedef INTFIVE[5] FIVEFIVE;
+typedef float[5] FLOATFIVE;
+typedef int INT;
+typedef float FLOAT;
 
-const int far = 0;
-typedef float[far] BOO; //error, index not greater than 0
+function : int & foo(int * i5) {
+    INTFIVE x;
+    x = i5; //error, x is not a mod lval
+    i5 = x;
+    return 5; //error, not a mod lval
+}
 
-float meb = 1.33;
-typedef int[meb] JIT; //error, index not equiv to int
+INTFIVE i5;
 
-bool barr = false;
-typedef bool[barr] TARF; //error, index not equiv to int
+function : int foo2(INTFIVE i5) {
+    INTFIVE x;
+    i5 = x; //error, i5 is not a mod lval
+    x = i5; //error, x is not a mod lval
+    return 5;
+}
 
-const bool hig = true;
-typedef float[hig] GHI; //error, index not equiv to int
+function : void something() {
+    foo(i5) = 3;
+    foo2(i5) = 3; //error since foo2 doesn't return by reference
+    foo(i5) = foo2(i5);
+    foo2(i5) = foo(i5); //same error as above
+}
 
-typedef float JIM;
-typedef JIM[-1] HH; //error, index not greater than 0
-typedef JIM[far] HK; //error, index not greater than 0
-typedef JIM[barr] HLL; //error, index not equiv to int
-typedef JIM[hig] SDAF; //error, index not equiv to int
+function : void check() {
+    int i;
+    i[3] = 3; //error, not an array
+    bool b;
+    b[0] = true; //error, not array
+    float f;
+    f[1] = 1.0; //error, not array
 
-const float fff = 1;
-const int fay = 10;
-int ui = 0;
-typedef JIM[fff] GSD; //error, index not equiv to int
+    INTFIVE x;
+    x[0] = 1;
+    x[-1] = 1; //error, -1 out of bounds
+    x[5] = 1; //error, 5 out of bounds
+    x[+1] = 1;
+    x[4] = 1;
+    x[+6] = 1; //error, 6 out of bounds
+    x[-0x1A]; //error, -26 out of bounds
+    x[+012]; //error, 10 out of bounds
 
-int[0] as; //error, index not greater than 0
-int[-1] am; //error, index not greater than 0
-int[1] ab;
-int[fff] asdf; //error, index not equiv to int
-int[fay] jaur;
-int[ui] uqq; //error, index not known
+    x[i] = 6;
+    x[b] = 4; //error, index not int
+    x[f] = 2; //error, index not int
 
-float[0] ar; //error, index not greater than 0
-float[-1] az; //error, index not greater than 0
-float[1] aq;
-float[fff] gggsd; //error, index not equiv to int
-float[fay] sadfz;
-float[ui] hji; //error, index not known
+    INT in;
+    FLOAT flo;
+    x[in];
+    x[flo]; //error, index not int
 
-bool[0] att; //error, index not greater than 0
-bool[-1] azr; //error, index not greater than 0
-bool[1] aqy;
-bool[fff] yyw; //error, index not equiv to int
-bool[fay] bbn;
-bool[ui] bmaa; //error, index not known
+    x[in + i - 5] = 1;
+    x[in + i - flo] = 2; //error, index not int
+    x[foo2(x)] = 6;
+    x[foo2(x)] = true; //error, type mismatch
 
-TOO[100000] tami;
-TOO[far] tahi; //error, index not greater than 0
-TOO[hig] ghit; //error, index not equiv to int
-TOO[-1] gsdg; //error, index not greater than 0
-int gut = 1;
-TOO[gut] hhhu; //error, index not known
+    const int con = 3;
+    x[con + 1] = 2.01; //error, type
+    x[con - 1] = false; //error, type
+    x[con + 2] = 1; //error, out of bounds
+    x[con] = x; //error, type
+    x[con - con * 2 / 4 - 2 * 2] = 1; //error, -2
+
+    FIVEFIVE ff;
+    ff[0] = ff[1];
+    ff[2] = x;
+    ff[2][1] = f; //error, type mismatch
+    ff[0][0] = i;
+    ff[0][-1] = 1; //error, out of bounds
+    ff[-1][0] = 1; //error, out of bounds
+    x[2] = ff[3][3];
+
+    FLOATFIVE flo5;
+    flo5[0] = flo5[1];
+
+    const float constflo = flo5[0]; //error, not known at compile time
+    ff[0] = flo5; //error, type mismatch
+    int[5] int5;
+    ff[0] = int5;
+    int[4] int4;
+    ff[4] = int4; //error, type mismatch
+    ff[3][2] = int4[3];
+
+    const int cc = 1;
+
+    typedef int[10] ARR;
+
+    int[10] a;
+
+    ARR b2;
+
+    ARR[2] c;
+
+    float * d;
+
+    c[1][9] = a[2];
+
+    b2[b2[b2[b2[2] - cc] + cc] - 1] = c[1][9];
+
+    d[2] = a[0];
+}
