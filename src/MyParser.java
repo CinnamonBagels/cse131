@@ -735,29 +735,21 @@ class MyParser extends parser {
 			// //////system.out.println(arg.getIsModifiable());
 			// //////system.out.println(arg.getIsAddressable());
 
-			if (!paramTypeName.equals(argTypeName)) {
-				if (!(paramTypeName.equals("float") && argTypeName
-						.equals("int"))) {
-					if (!(paramTypeName.equals("pointer") && argTypeName
-							.equals("array"))) {
-						// error
-						m_nNumErrors++;
-						m_errors.print(Formatter.toString(
-								ErrorMsg.error5a_Call, argTypeName,
-								param.getName(), paramTypeName));
-						typeError = true;
-					}
-					// setting array to pointer, valid.
-				}
+			if (!arg.getType().isAssignableTo(param.getType())) {
+				m_nNumErrors++;
+				m_errors.print(Formatter.toString(
+						ErrorMsg.error5a_Call, argTypeName,
+						param.getName(), paramTypeName));
+				typeError = true;
 				// setting int to float, valid.
 			}
-			// type = type
-			// ////////system.out.println(arg.getIsReference());
-			if (param.getIsReference() && !arg.getIsReference()) {
-				m_nNumErrors++;
-				m_errors.print(Formatter.toString(ErrorMsg.error5r_Call,
-						argTypeName, param.getName(), paramTypeName));
-				referenceError = true;
+			if(param.getIsReference()) {
+				if(!arg.getIsReference() || !arg.getType().isEquivalentTo(param.getType())) {
+					m_nNumErrors++;
+					m_errors.print(Formatter.toString(ErrorMsg.error5r_Call,
+							argTypeName, param.getName(), paramTypeName));
+					referenceError = true;
+				}
 			}
 		}
 
