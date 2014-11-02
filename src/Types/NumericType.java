@@ -1,6 +1,6 @@
 package Types;
 
-public abstract class NumericType extends Type{
+public abstract class NumericType extends BasicType{
 	public NumericType(String strName, int size){
 		super(strName, size);
 	}

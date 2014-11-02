@@ -161,11 +161,6 @@ class MyParser extends parser {
 		// for (int i = 0; i < lstIDs.size(); i++)
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
-			////system.out.println(lstIDs.get(e));
-			////system.out.println(sto.getName() + " is a " + sto.getType().getName() + " type.");
-			//System.out.println(((STO)lstIDs.get(sto)).getName());
-			System.out.println(sto.getName());
-			System.out.println(((STO)lstIDs.get(sto)).getName());
 			
 			if(sto.isError()) {
 				continue;
@@ -351,6 +346,17 @@ class MyParser extends parser {
 		//system.out.println("here" + id);
 		return new VarSTO(id);
 	}
+	
+	STO DoCreateConstDeclaration(String id, STO sto) {
+		if(sto == null) {
+			return new ConstSTO(id);
+		}
+		
+		if(sto.isError()) {
+			return sto;
+		}
+		return new ConstSTO(id, sto.getType(), ((ConstSTO) sto).getValue());
+	}
 
 	Type DoArrayDecl(STO index) {
 		if (!index.getType().isInt()) {
@@ -465,8 +471,7 @@ class MyParser extends parser {
 	}
 	
 	Type DoFuncPointer(Type t, Vector<VarSTO> params, boolean isReference) {
-		return new FunctionPointerType("function pointer", t, isReference, params);
-		
+		return new FunctionPointerType("function pointer", t, isReference, params);		
 	}
 
 	// expression, codeblock
@@ -1151,6 +1156,78 @@ class MyParser extends parser {
 
 		return expr;
 	}
+	
+	public STO DoSizeOf(STO sto){
+		//is sto target valid for checking size?
+		if(sto == null || !sto.getIsAddressable()){
+			m_nNumErrors++;
+			m_errors.print(ErrorMsg.error19_Sizeof);
+			return new ErrorSTO(ErrorMsg.error19_Sizeof);
+		}
+		
+		//is the sto a nulltype?
+		if(sto.getType() == null){
+			return new ErrorSTO(ErrorMsg.error19_Sizeof);
+		}
+		
+		//System.out.println(sto.getType().getSize());
+		//functions don't have size (?)
+		return new ConstSTO((sto instanceof FuncSTO) ? "0" : ("" + sto.getType().getSize()), new IntegerType());
+	}
+	
+	public STO DoSizeOf(Type t){
+		//no type?
+		if(t == null){
+			m_nNumErrors++;
+            m_errors.print(ErrorMsg.error19_Sizeof);
+            return new ErrorSTO(ErrorMsg.error19_Sizeof);
+		}
+		
+		//System.out.println(t.getSize());
+		return new ConstSTO("" + t.getSize(), new IntegerType());
+	}
+	
+	public STO DoTypeCast(Type t, STO sto){
+		if(sto.isError()){
+			return sto;
+		}
+		
+		STO rsto = sto;
+		//target is okay to cast on
+		if(sto.getType() instanceof BasicType || sto.getType() instanceof PointerType){
+			//cast type is okay
+			if(t instanceof BasicType || t instanceof PointerType){
+				//const
+				if(sto.isConst()){
+					ConstSTO csto = new ConstSTO(sto.getName(), t);
+					//casting float as int?
+					if(t instanceof IntegerType && sto.getType() instanceof FloatType){
+						csto.setValue(((ConstSTO)sto).getIntValue());
+					}
+					//no truncation cast
+					else{
+						csto.setValue(((ConstSTO)sto).getValue());
+					}
+					return csto;
+				}
+				//alias
+				else {
+					rsto = new ExprSTO(sto.getName(), t);
+					//result of cast is r value
+					rsto.setIsModLValue(false);
+					return rsto;
+				}
+			}
+			
+		}
+		
+		//invalid cast
+		m_nNumErrors++;
+		m_errors.print(Formatter.toString(ErrorMsg.error20_Cast, sto.getType().getName(), t.getName()));
+		
+		return sto;
+	}
+	
 
 	public STO DoReferenceOP(STO sto) {
 		return null;

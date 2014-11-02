@@ -6,13 +6,13 @@ public class ArrayType extends Type {
 	private int arraySize;
 	
 	public ArrayType(String strName, Type t, int size){
-		super(strName, 4);
+		super(strName, t.getSize() * size);
 		this.setContainingType(t);
 		this.setArraySize(size);
 	}
 	
 	public ArrayType(Type t, int size) {
-		super("new array", 4);
+		super("new array", t.getSize() * size);
 		this.setContainingType(t);
 		this.setArraySize(size);
 	}

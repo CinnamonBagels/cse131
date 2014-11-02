@@ -58,7 +58,7 @@ public class ConstSTO extends STO
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	private void setValue(double val) 
+	public void setValue(double val) 
 	{
 		m_value = new Double(val);
 	}
