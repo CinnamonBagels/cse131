@@ -901,31 +901,31 @@ Designator ::= T_STAR Designator:_1
                     :}
     |               T_AMPERSAND Designator:_1
                     {:
-					RESULT = _1;
+						RESULT = ((MyParser) parser).DoAddressOf(_1);
                     :}
     |               UnarySign Designator:_1
                     {:
-			RESULT = _1;
+						RESULT = _1;
                     :}
     |               T_NOT Designator:_1
                     {:
-			RESULT = _1;
+						RESULT = _1;
                     :}
     |               T_SIZEOF T_LPAREN Designator:_2 T_RPAREN
                     {:
-			RESULT = ((MyParser) parser).DoSizeOf(_2);
+						RESULT = ((MyParser) parser).DoSizeOf(_2);
                     :}
     |               T_SIZEOF T_LPAREN Type:_2 T_RPAREN
                     {:
-			RESULT = ((MyParser) parser).DoSizeOf(_2);
+						RESULT = ((MyParser) parser).DoSizeOf(_2);
                     :}
     |               T_LPAREN Type:_1 T_RPAREN Designator:_2
                     {:
-			RESULT = ((MyParser) parser).DoTypeCast(_1,_2);
+						RESULT = ((MyParser) parser).DoTypeCast(_1,_2);
                     :}
     |               IncDecOp:_1 Designator:_2
                     {:
-			RESULT = ((MyParser) parser).DoUnaryOp(_1,_2,"pre");
+						RESULT = ((MyParser) parser).DoUnaryOp(_1,_2,"pre");
                     :}
     |               Designator2:_1 
                     {:

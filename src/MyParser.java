@@ -1221,6 +1221,25 @@ class MyParser extends parser {
 		return sto;
 	}
 	
+	public STO DoAddressOf(STO sto){
+		//is the target sto even addressable?
+		if(sto.getIsAddressable()){
+			//returned sto is a pointertype sto to the target sto's type
+			Type t = (sto.getType() instanceof ArrayType) ? 
+						((ArrayType)sto.getType()).getContainingType() : 
+						sto.getType();
+						
+			PointerType ptr = new PointerType();
+			ptr.setContainingType(t);
+			return new ExprSTO("&" + sto.getName(), ptr);
+		} //not addressible
+		else {
+			m_nNumErrors++;
+			m_errors.print(Formatter.toString(ErrorMsg.error21_AddressOf, sto.getType().getName()));
+			return new ErrorSTO(Formatter.toString(ErrorMsg.error21_AddressOf, sto.getType().getName()));
+		}
+	}
+	
 
 	public STO DoReferenceOP(STO sto) {
 		return null;

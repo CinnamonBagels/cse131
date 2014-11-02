@@ -1,6 +1,6 @@
 package Types;
 
-public class ArrayType extends Type {
+public class ArrayType extends CompositeType {
 	
 	private Type containingType;
 	private int arraySize;

@@ -4,7 +4,7 @@ import java.util.Vector;
 
 import STO.*;
 
-public class StructType extends Type{
+public class StructType extends CompositeType{
 	
 	private Scope scope;
 	

@@ -4,7 +4,7 @@ import java.util.Vector;
 
 import STO.VarSTO;
 
-public class FunctionPointerType extends Type {
+public class FunctionPointerType extends PointerGroupType {
 	
 	public Type m_returnType;
 	public boolean isReturnReference;
