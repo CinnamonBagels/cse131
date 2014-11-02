@@ -649,7 +649,8 @@ class MyParser extends parser {
 		}
 		// System.out.println("here");
 
-		stoDes = _2;
+		System.out.println(stoDes.getName() + " is " + (stoDes == null ? "null." : "not null."));
+		//stoDes = _2
 		return stoDes;
 	}
 
