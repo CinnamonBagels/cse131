@@ -155,41 +155,55 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	void DoVarDecl(Hashtable lstIDs, Type t) {
+	public STO DoVarDecl(Hashtable lstIDs, Type t) {
+		if (t == null){
+			return new ErrorSTO("Missing type in delcaration.");
+		}
+		
 		Enumeration<STO> e = lstIDs.keys();
-
-		// for (int i = 0; i < lstIDs.size(); i++)
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
-			
-			if(sto.isError()) {
-				continue;
-			}
-			//////system.out.println(sto.getName());
-			if	(sto.getType() == null || sto.getType().isVoid()) {
-				//
-				sto.setType(t);
-			}
-			
-			if(sto.getType().isArray() || sto.getType().isPointer()) {
-				DoSetSubType(t, sto.getType());
-			}
-
 			String idName = sto.getName();
-
+			
 			if (m_symtab.accessLocal(idName) != null) {
 				//system.out.println("wthwahthet");
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,sto.getName()));
-			} else if(m_symtab.accessLocal(idName) != null && currentStruct != null) { //else if(m_symtab.accessLocal(idName) != null && currentStruct != null)
+				return new ErrorSTO(ErrorMsg.redeclared_id);
+			}		
+			
+			if(sto.isError()) {
+				return sto;
+			}
+			
+			//setting types
+			if	(sto.getType() == null || sto.getType().isVoid()) {
+				sto.setType(t);
+			}			
+			if(sto.getType().isArray() || sto.getType().isPointer()) {				
+				DoSetSubType(t, sto.getType());
+			}
+			
+			//is assignable?
+			if(!((STO) lstIDs.get(sto)).getType().isAssignableTo(sto.getType())){
+				m_nNumErrors++;
+				m_errors.print(Formatter.toString(ErrorMsg.error8_Assign,
+							((STO) lstIDs.get(sto)).getType().getName(),
+							sto.getType().getName()));
+				return new ErrorSTO(ErrorMsg.error8_Assign);
+			}
+			
+
+			 else if(m_symtab.accessLocal(idName) != null && currentStruct != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.error13a_Struct,sto.getName()));
+				
 			}
 						
 			m_symtab.insert(sto);
 		}
 		
-		
+		return null;
 	}
 
 	// ----------------------------------------------------------------
