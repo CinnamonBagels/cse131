@@ -54,6 +54,7 @@ public class ArrayType extends CompositeType {
 	}
 	
 	public void setContainingType(Type t) {
+		System.out.println("This array is a " + t.getName() + " type.");
 		this.containingType = t;
 	}
 	

@@ -845,25 +845,41 @@ class MyParser extends parser {
 
 		// do we care if we know if pointer or array?
 		// also, probably cant use isAssignableTo
+		//System.out.println("" + sto.getName() + " " + (sto.getType().isArray() ? "is" : "is not") + " an array.");
 		if (sto.getType().isArray() || sto.getType().isPointer()) {
+			//System.out.println("" + index.getName() + " " + (index.getType().isInt() ? "is" : "is not") + " an int.");
 			if (index.getType().isInt()) {
-				if (index.isConst()) {
-					ConstSTO constIndex = (ConstSTO) index;
-					if(sto.getType().isArray()) {
+				//System.out.println("" + index.getName() + " " + (index.isConst() ? "is" : "is not") + " a const.");
+				
+				if(sto.getType().isArray()) {
+					if (index.isConst()) {					
+						ConstSTO constIndex = (ConstSTO) index;
+						
 						//work on pointer types?
 						if (constIndex.getIntValue() < ((ArrayType)sto.getType()).getArraySize()) {
 							//
 						} else {
 							m_nNumErrors++;
 							m_errors.print(Formatter.toString(
-									ErrorMsg.error11b_ArrExp, constIndex
-											.getIntValue(), ((ArrayType)sto.getType()).getArraySize()));
+									ErrorMsg.error11b_ArrExp, 
+									constIndex.getIntValue(), 
+									((ArrayType)sto.getType()).getArraySize()));
 							return new ErrorSTO(
 									Formatter.toString(ErrorMsg.error11b_ArrExp,
-											constIndex.getIntValue(), ((ArrayType)sto.getType()).getArraySize()));
+									constIndex.getIntValue(), 
+									((ArrayType)sto.getType()).getArraySize()));
 						}
 					}
 					
+					ArrayType atyp = (ArrayType) sto.getType();
+					STO ret = new ExprSTO(sto.getName() + "[" + index.getName() + "]", atyp.getContainingType());
+					ret.setIsModLValue(true);
+					return ret;
+				} else {
+					PointerType ptyp = (PointerType) sto.getType();
+					STO ret = new ExprSTO(sto.getName() + "[" + index.getName() + "]", ptyp.getContainingType());
+					ret.setIsModLValue(true);
+					return ret;
 				}
 			} else {
 				m_nNumErrors++;
@@ -874,13 +890,11 @@ class MyParser extends parser {
 			}
 		} else {
 			m_nNumErrors++;
-			m_errors.print(Formatter.toString(ErrorMsg.error11t_ArrExp, sto
-					.getType().getName()));
+			m_errors.print(Formatter.toString(ErrorMsg.error11t_ArrExp, 
+					sto.getType().getName()));
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error11t_ArrExp,
 					sto.getType().getName()));
 		}
-
-		return sto;
 	}
 
 	// ----------------------------------------------------------------
