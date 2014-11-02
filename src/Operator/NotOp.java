@@ -7,4 +7,7 @@ public class NotOp extends UnaryOp {
 		// TODO Auto-generated constructor stub
 	}
 
+	public boolean isNotOp(){
+		return true;
+	}
 }

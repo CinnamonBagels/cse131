@@ -6,5 +6,9 @@ public class AndOp extends BooleanOp {
 		super(opName);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public boolean isAndOp() {
+		return true;
+	}
 
 }

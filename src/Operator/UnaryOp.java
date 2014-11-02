@@ -41,7 +41,22 @@ public class UnaryOp extends Operator {
 	}
 	
 	public STO evaluateOperand(STO operand) {
-		return null;
+		double value = 0.0;
+		ConstSTO o = (ConstSTO) operand;
+		
+		if(this.getName().equals("++")){
+			value = o.getValue() + 1;
+		} else if(this.getName().equals("--")){
+			value = o.getValue() - 1;
+		} else if(this.getName().equals("!")){
+			value = 1.0 - o.getValue();
+		}
+		
+		return new ConstSTO("" + value, this.getName().equals("!") ? new BooleanType() : o.getType().isFloat() ? new FloatType() : new IntegerType());
+	}
+	
+	public boolean isUnaryOp(){
+		return true;
 	}
 
 }

@@ -7,4 +7,7 @@ public class OrOp extends BooleanOp {
 		// TODO Auto-generated constructor stub
 	}
 
+	public boolean isOrOp() {
+		return true;
+	}
 }

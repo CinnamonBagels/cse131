@@ -10,4 +10,8 @@ public class GreaterThanOrEqualOp extends ComparisonOp {
 	public String getOperator() {
 		return ">=";
 	}
+	
+	public boolean isGreaterThanOrEqualOp(){
+		return true;
+	}
 }

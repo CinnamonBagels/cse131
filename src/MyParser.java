@@ -256,9 +256,9 @@ class MyParser extends parser {
 				if (id.isError()) {
 					continue;
 				}
-				System.out.println("ehuhweuth");
+				//System.out.println("ehuhweuth");
 				if (id.isConst()) {
-					System.out.println("ehrhere");
+					//System.out.println("ehrhere");
 					if (!id.getType().isAssignableTo(t)) {
 						m_nNumErrors++;
 						m_errors.print(Formatter.toString(
@@ -621,13 +621,22 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	STO DoAssignExpr(STO stoDes, STO _2) {
+	STO DoAssignExpr(STO stoDes, STO _2) {		
+		if(stoDes.isError()) {
+			return stoDes;
+		}
+		
+		if(_2.isError()) {
+			return _2;
+		}
+		
 		if (!stoDes.isModLValue()) {
 			// Good place to do the assign checks
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error3a_Assign);
 			return new ErrorSTO(ErrorMsg.error3a_Assign);
 		}
+		
 		System.out.println(stoDes.getType());
 		System.out.println(_2.getType());
 		// type conflict check.

@@ -1,5 +1,6 @@
 package Operator;
 
+import STO.ConstSTO;
 import STO.ErrorSTO;
 import STO.ExprSTO;
 import STO.STO;
@@ -32,7 +33,20 @@ public class BooleanOp extends BinaryOp {
 	@Override
 	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
 		// TODO Auto-generated method stub
-		return null;
+		ConstSTO left = (ConstSTO) leftOperand;
+		ConstSTO right = (ConstSTO) rightOperand;
+		
+		boolean leftVal = left.getIntValue() == 1 ? true : false;
+		boolean rightVal = right.getIntValue() == 1 ? true : false;
+		
+		boolean value = false;
+		if(o.isAndOp()) {
+			value = leftVal && rightVal;
+		} else if(o.isOrOp()) {
+			value = leftVal || rightVal;
+		}
+		
+		return new ConstSTO("" + value, new BooleanType());
 	}
 
 }

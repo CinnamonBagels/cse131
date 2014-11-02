@@ -85,7 +85,7 @@ public abstract class Operator {
 		return false;
 	}
 
-	public boolean isOr() {
+	public boolean isOrOp() {
 		return false;
 	}
 

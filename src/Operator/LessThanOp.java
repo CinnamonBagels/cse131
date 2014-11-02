@@ -10,4 +10,8 @@ public class LessThanOp extends ComparisonOp {
 	public String getOperator() {
 		return "<";
 	}
+	
+	public boolean isLessThanOp(){
+		return true;
+	}
 }
