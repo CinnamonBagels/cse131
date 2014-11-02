@@ -55,7 +55,7 @@ public class Scope
 	//----------------------------------------------------------------
 	public void InsertLocal(STO sto)
 	{
-		System.out.println(sto.getName());
+		//System.out.println(sto.getName());
 		m_lstLocals.addElement(sto);
 	}
 }

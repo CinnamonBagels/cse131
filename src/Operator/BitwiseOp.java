@@ -34,8 +34,20 @@ public class BitwiseOp extends BinaryOp {
 
 	@Override
 	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
-		// TODO Auto-generated method stub
-		return null;
+		ConstSTO left = (ConstSTO) leftOperand;
+		ConstSTO right = (ConstSTO) rightOperand;
+		int value = 0;
+		
+		if(o.isBwAndOp()) {
+			value = left.getIntValue() & right.getIntValue();
+		} else if(o.isBwOrOp()) {
+			value = left.getIntValue() | right.getIntValue();
+		} else if(o.isBwXorOp()) {
+			value = left.getIntValue() ^ right.getIntValue();
+		} 
+		//System.out.println(value);
+		
+		return new ConstSTO("bw result", new IntegerType(), value);
 	}
 
 }

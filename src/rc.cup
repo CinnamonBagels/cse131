@@ -244,7 +244,7 @@ VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
 
 ConstDecl ::=  OptStatic T_CONST UndecoratedType:_2 IdListWInit:_3 T_SEMI
                     {:
-                    System.out.println("hereh");
+                    //System.out.println("hereh");
                         ((MyParser) parser).DoConstDecl (_3,_2);
                     :}
     ;

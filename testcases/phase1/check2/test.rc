@@ -1,4 +1,0 @@
-function: void foo(){
-int x = 5;
-int y = 5++;
-}

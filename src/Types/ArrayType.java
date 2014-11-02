@@ -5,15 +5,13 @@ public class ArrayType extends Type {
 	private Type containingType;
 	private int arraySize;
 	
-	public ArrayType(String strName, Type t, int size){
-		super(strName, t.getSize() * size);
-		this.setContainingType(t);
+	public ArrayType(String strName, int size){
+		super(strName, 4 * size);
 		this.setArraySize(size);
 	}
 	
-	public ArrayType(Type t, int size) {
-		super("new array", t.getSize() * size);
-		this.setContainingType(t);
+	public ArrayType(int size) {
+		super("new array", 4 * size);
 		this.setArraySize(size);
 	}
 	
@@ -22,6 +20,7 @@ public class ArrayType extends Type {
 	}
 	
 	public boolean isAssignableTo(Type t) {
+		System.out.println("here");
 		return t instanceof ArrayType || t instanceof PointerType;
 	}
 	
@@ -30,14 +29,13 @@ public class ArrayType extends Type {
 	}
 	
 	public boolean isInnerTypeAssignableTo(Type t) {
+		//System.out.println("here");
 		if(t instanceof IntegerType) {
-			System.out.println("wtfhere");
 			System.out.println(this.containingType);
 			return this.containingType instanceof IntegerType;
 		} else if(t instanceof FloatType) {
 			return this.containingType instanceof IntegerType || this.containingType instanceof FloatType;
 		} else {
-			System.out.println("wtf");
 			return this.containingType == t;
 		}
 	}

@@ -65,7 +65,7 @@ public class ArithmeticOp extends BinaryOp {
 		} else if(o.isModOp()) {
 			value = left.getIntValue() % right.getIntValue();
 		}
-		System.out.println(value);
+		//System.out.println(value);
 		
 		return new ConstSTO("Evaluation Result", newType, value);
 	}

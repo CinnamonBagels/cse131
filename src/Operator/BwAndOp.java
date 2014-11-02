@@ -6,5 +6,9 @@ public class BwAndOp extends BitwiseOp {
 		super(opName);
 		// TODO Auto-generated constructor stub
 	}
+	
+	public boolean isBwAndOp() {
+		return true;
+	}
 
 }

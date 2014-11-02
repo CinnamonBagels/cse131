@@ -1,4 +1,0 @@
-function: void foo() {
-int x = 4 % 4;
-bool y = (float)4.0 == true;
-}

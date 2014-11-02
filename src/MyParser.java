@@ -227,33 +227,27 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	void DoConstDecl(Hashtable lstIDs, Type t) {
 		Enumeration<STO> e = lstIDs.keys();
-		// for (int i = 0; i < lstIDs.size(); i++)
-		// //////system.out.println("wut");
+		
 		while (e.hasMoreElements()) {
 			STO id = e.nextElement();
-			//system.out.println(id.isConst());
 			if (m_symtab.accessLocal(id.getName()) != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,
 						id.getName()));
 			} else {
-				// //////system.out.println(id);
 
 				if (id.isError()) {
-					// //////system.out.println("wut");
 					continue;
 				}
+				System.out.println("ehuhweuth");
 				if (id.isConst()) {
-					// //////system.out.println("wut");
+					System.out.println("ehrhere");
 					if (!id.getType().isAssignableTo(t)) {
 						m_nNumErrors++;
 						m_errors.print(Formatter.toString(
 								ErrorMsg.error8_Assign, id.getType().getName(),
 								t.getName()));
 					} else {
-						// //////system.out.println("here");
-						// //////system.out.println(((ConstSTO)
-						// lstIDs.get(id)).getValue());
 						ConstSTO sto = new ConstSTO(id.getName(), id.getType(),
 								((ConstSTO) id).getValue());
 						m_symtab.insert(sto);
@@ -601,8 +595,6 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	STO DoAssignExpr(STO stoDes, STO _2) {
-		// ////////system.out.println(stoDes.getName());
-		// ////////system.out.println(stoDes.isModLValue());
 		if (!stoDes.isModLValue()) {
 			// Good place to do the assign checks
 			m_nNumErrors++;
@@ -611,13 +603,14 @@ class MyParser extends parser {
 		}
 
 		// type conflict check.
-		if (!stoDes.getType().getName().equals(_2.getType().getName())) {
+		if (!_2.getType().isAssignableTo(stoDes.getType())) {
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.error3b_Assign, _2
 					.getType().getName(), stoDes.getType().getName()));
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error3b_Assign, _2
 					.getType().getName(), stoDes.getType().getName()));
 		}
+		System.out.println("here");
 
 		stoDes = _2;
 		return stoDes;
