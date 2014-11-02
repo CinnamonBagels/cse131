@@ -252,28 +252,32 @@ class MyParser extends parser {
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,
 						id.getName()));
 			} else {
-
-				if (id.isError()) {
+				
+				if(id.isError()) {
 					continue;
 				}
-				//System.out.println("ehuhweuth");
-				if (id.isConst()) {
-					//System.out.println("ehrhere");
-					if (!id.getType().isAssignableTo(t)) {
+				
+				ConstSTO csto = (ConstSTO) lstIDs.get(id);
+				
+				if (csto.isError()) {
+					continue;
+				}
+				if (csto.isConst()) {
+					if (!csto.getType().isAssignableTo(t)) {
 						m_nNumErrors++;
 						m_errors.print(Formatter.toString(
 								ErrorMsg.error8_Assign, id.getType().getName(),
 								t.getName()));
 					} else {
-						ConstSTO sto = new ConstSTO(id.getName(), id.getType(),
-								((ConstSTO) id).getValue());
+						ConstSTO sto = new ConstSTO(csto.getName(), csto.getType(),
+								((ConstSTO) csto).getValue());
 						m_symtab.insert(sto);
 					}
 
 				} else {
 					m_nNumErrors++;
 					m_errors.print(Formatter.toString(
-							ErrorMsg.error8_CompileTime, id.getName()));
+							ErrorMsg.error8_CompileTime, csto.getName()));
 				}
 			}
 		}
@@ -648,7 +652,7 @@ class MyParser extends parser {
 					.getType().getName(), stoDes.getType().getName()));
 		}
 		// System.out.println("here");
-
+		//System.out.println(stoDes);
 		stoDes = _2;
 		return stoDes;
 	}
