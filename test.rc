@@ -1,74 +1,54 @@
-function : int toomany(int a, float b, bool c) {
-  return 2;
-}
-int a = toomany(4, 3.14); // error
-int b = toomany(1); //error
-int c = toomany(); //error
-int d = toomany(4.5, 4.5, true); // error 
-int e = toomany(3, 4.5, true, false); // error
-int f = toomany(3, 4.5, true);
-int g = toomany(true, false, 3); // 3 errors
-function : int foo(float x, bool y, int z){
-  return 1;
-}
+typedef float[10000] TOO;
+typedef bool[-11] TAR; //error, index not greater than 0
+typedef int[0] BB; //error, index not greater than 0
 
-function : void ints(int x, int & y) {}
-function : void floats(float x, float & y) {}
-function : void bools(bool x, bool & y) {}
+const int far = 0;
+typedef float[far] BOO; //error, index not greater than 0
 
-function : void main() {
-    foo(5.5,true, 1);
-    foo(5.5,false, +0xB2);
-    foo(5.5, true, -06);
+float meb = 1.33;
+typedef int[meb] JIT; //error, index not equiv to int
 
-    //unassignable
-    foo(true, true, true); // bool-float / bool-int
-    foo(1, 1, 1); //int-bool
-    foo(1.1, 1.1, 1.1); //float-bool / float-int
-    foo(true, 1, 2.0); //bool-float, int-bool, float-int
+bool barr = false;
+typedef bool[barr] TARF; //error, index not equiv to int
 
+const bool hig = true;
+typedef float[hig] GHI; //error, index not equiv to int
 
-    //pass-by-ref not mod-lval
-    int i;
-    bool b;
-    float f;
+typedef float JIM;
+typedef JIM[-1] HH; //error, index not greater than 0
+typedef JIM[far] HK; //error, index not greater than 0
+typedef JIM[barr] HLL; //error, index not equiv to int
+typedef JIM[hig] SDAF; //error, index not equiv to int
 
-    ints(5, 5); // error, not mod-lval
-    ints(5, i);
-    floats(5.5, 5.5); //error, not mod-lval
-    floats(5.5, f);
-    bools(true, false); //error, not mod-lval
-    bools(true, b);
+const float fff = 1;
+const int fay = 10;
+int ui = 0;
+typedef JIM[fff] GSD; //error, index not equiv to int
 
-    //pass-by-ref equivalence
-    ints(5, f); //error, float not equivalent to int
-    ints(5, b);//error, bool not equivalent to int
-    floats(1.0, i); //error, int not equivalent to float 
-    floats(1.0, b); //error, bool not equivalent to float
-    bools(true, i); //error, int not equivalent to bool
-    bools(true, f); //error, float not equivalent to bool
-}
+int[0] as; //error, index not greater than 0
+int[-1] am; //error, index not greater than 0
+int[1] ab;
+int[fff] asdf; //error, index not equiv to int
+int[fay] jaur;
+int[ui] uqq; //error, index not known
 
-function : bool & ref() {
-    bool x;
-    return x;
-}
+float[0] ar; //error, index not greater than 0
+float[-1] az; //error, index not greater than 0
+float[1] aq;
+float[fff] gggsd; //error, index not equiv to int
+float[fay] sadfz;
+float[ui] hji; //error, index not known
 
-function : void main2() {
-    //check return type
-    int i = foo(1.0, true, 1);
-    i = 1 + foo(1.0, true, 1) % 5;
-    bool b = 1 <= foo(1.0, true, 1);
-    float f =  foo(1.0, true, 1);
+bool[0] att; //error, index not greater than 0
+bool[-1] azr; //error, index not greater than 0
+bool[1] aqy;
+bool[fff] yyw; //error, index not equiv to int
+bool[fay] bbn;
+bool[ui] bmaa; //error, index not known
 
-    foo(1.0, true, 1) = 1; //error, can't assign rval
-
-    b = ref();
-    i = 1 + ref() % 5; //error, found bool expect int
-    b = 1 <= ref(); //error, bool to <=
-    b =  ref();
-
-    ref() = 1; //error, can't assign int to bool
-    ref() = false;
-    ref() = 1.0; //error, can't assign float to bool
-}
+TOO[100000] tami;
+TOO[far] tahi; //error, index not greater than 0
+TOO[hig] ghit; //error, index not equiv to int
+TOO[-1] gsdg; //error, index not greater than 0
+int gut = 1;
+TOO[gut] hhhu; //error, index not known

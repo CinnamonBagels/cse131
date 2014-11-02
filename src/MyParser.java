@@ -164,6 +164,7 @@ class MyParser extends parser {
 			STO sto = e.nextElement();
 			String idName = sto.getName();
 
+			Type type = DoSetSubType(t, sto.getType());
 			if (m_symtab.accessLocal(idName) != null) {
 				// system.out.println("wthwahthet"); //DELETE THIS
 				m_nNumErrors++;
@@ -171,7 +172,7 @@ class MyParser extends parser {
 						sto.getName()));
 				return new ErrorSTO(ErrorMsg.redeclared_id);
 			}
-
+			//System.out.println(sto.getName()); //DELETE THIS
 			if (sto.isError()) {
 				System.out.println("In DoVarDecl, created var is illegal.");
 				return sto;
@@ -181,23 +182,13 @@ class MyParser extends parser {
 			if (sto.getType() == null || sto.getType().isVoid()) {
 				sto.setType(t);
 			}
-			
-			if(sto.getType().isArray()) {
-				//System.out.println("In DoVarDecl, we are declaring an array " + sto.getName() + " whose inner type is " + (sto.getType() == null ? "null" : "something.")); //DELETE THIS
-				//System.out.println("It should be " + t.getName());
-				//((ArrayType)sto.getType()).setContainingType(t);
-				DoSetSubType(t, sto.getType());
-				//System.out.println("It is now " + ((ArrayType)sto.getType()).getContainingType());
-				
-			}
 
 			if ((lstIDs.get(sto) instanceof STO)) {
 				if (!((STO) lstIDs.get(sto)).getType().isAssignableTo(
-						sto.getType())) {
+						type)) {
 					m_nNumErrors++;
 					m_errors.print(Formatter.toString(ErrorMsg.error8_Assign,
-							((STO) lstIDs.get(sto)).getType().getName(), sto
-									.getType().getName()));
+							((STO) lstIDs.get(sto)).getType().getName(), type.getName()));
 					return new ErrorSTO(ErrorMsg.error8_Assign);
 				}
 			}
@@ -209,7 +200,7 @@ class MyParser extends parser {
 
 			}
 
-			System.out.println("In DoVarDecl, creating " + sto.getName()); //DELETE THIS
+			//System.out.println("In DoVarDecl, creating " + sto.getName()); //DELETE THIS
 			m_symtab.insert(sto);
 		}
 
@@ -303,6 +294,9 @@ class MyParser extends parser {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 			}
+			//System.out.println(id); //DELETE THIS
+			//System.out.println(t.getName()); //DELETE THIS
+			
 			TypedefSTO sto = new TypedefSTO(id, t);
 			m_symtab.insert(sto);
 		}
@@ -395,49 +389,48 @@ class MyParser extends parser {
 	Type DoArrayDecl(STO index) {
 		//System.out.println(index);
 		//System.out.println(index);
-		if(!(index.isConst())) {
+		if (!index.getType().isInt()) {
+		m_nNumErrors++;
+		m_errors.print(Formatter.toString(ErrorMsg.error10i_Array, index
+				.getType().getName()));
+		index = new ErrorSTO(Formatter.toString(ErrorMsg.error10i_Array,
+				index.getType().getName()));
+		} else if(!(index.isConst())) {
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error10c_Array);
 			index = new ErrorSTO(ErrorMsg.error10c_Array);
-		} else {
-			if (!index.getType().isInt()) {
+		} else if (((ConstSTO) index).getIntValue() <= 0) {
 			m_nNumErrors++;
-			m_errors.print(Formatter.toString(ErrorMsg.error10i_Array, index
+			m_errors.print(Formatter.toString(ErrorMsg.error10z_Array, index
 					.getType().getName()));
-			index = new ErrorSTO(Formatter.toString(ErrorMsg.error10i_Array,
+			index = new ErrorSTO(Formatter.toString(ErrorMsg.error10z_Array,
 					index.getType().getName()));
-			} else if (((ConstSTO) index).getIntValue() <= 0) {
-				m_nNumErrors++;
-				m_errors.print(Formatter.toString(ErrorMsg.error10z_Array, index
-						.getType().getName()));
-				index = new ErrorSTO(Formatter.toString(ErrorMsg.error10z_Array,
-						index.getType().getName()));
-			} else {
-				// //////system.out.println(((ConstSTO) index).getIntValue());
-				return new ArrayType(((ConstSTO) index).getIntValue());
-			}
-	
-			// if code gets here, that means it errored somewhere up in the block of
-			// code ^
+		} else {
+			// //////system.out.println(((ConstSTO) index).getIntValue());
+			return new ArrayType(((ConstSTO) index).getIntValue());
 		}
+
+		// if code gets here, that means it errored somewhere up in the block of
+		// code ^
 		return new ArrayType("Error", 0);
 		
 	}
 
 	// inner type, containing type, can be only arraytype or pointer type
 	Type DoSetSubType(Type innerType, Type outerType) {
-		System.out.println(innerType);
+		//System.out.println(innerType); //DELETE THIS
 		// ////system.out.println(innerType);
 		// ////system.out.println(innerType.getName());
-		if (outerType.isArray()) {
+		if (outerType != null && outerType.isArray()) {
 			//System.out.println("here");
 			((ArrayType) outerType).setContainingType(innerType);
 			((ArrayType) outerType).setArrayName(innerType.getName());
-		} else {
+			return outerType;
+		} else if(outerType != null && outerType.isPointer()) {
 			((PointerType) outerType).setContainingType(innerType);
 		}
 
-		return outerType;
+		return innerType;
 	}
 
 	// ----------------------------------------------------------------
@@ -665,9 +658,9 @@ class MyParser extends parser {
 		//System.out.println(stoDes.getType()); //DELETE THIS
 		//System.out.println(_2.getType());
 		// type conflict check
-		System.out.println("In assignexpr, stoDes is " + stoDes.getName() + " of type " + stoDes.getType().getName() + ". " + (stoDes.getType().isArray() ? " Its containing type is " + ((ArrayType)stoDes.getType()).getContainingType() + "." : ""));
-		System.out.println("In assignexpr, _2 is " + _2.getName() + " and" + (_2 == null ? " null." : " not null."));
-		System.out.println("In assignexpr, _2.getType() is" + (_2.getType() == null ? " null." : " not null."));
+		//System.out.println("In assignexpr, stoDes is " + stoDes.getName() + " of type " + stoDes.getType().getName() + ". " + (stoDes.getType().isArray() ? " Its containing type is " + ((ArrayType)stoDes.getType()).getContainingType() + "." : "")); //DELETE THIS
+		//System.out.println("In assignexpr, _2 is " + _2.getName() + " and" + (_2 == null ? " null." : " not null.")); //DELETE THIS
+		//System.out.println("In assignexpr, _2.getType() is" + (_2.getType() == null ? " null." : " not null.")); //DELETE THIS
 		if (!_2.getType().isAssignableTo(stoDes.getType())) {
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.error3b_Assign, _2
