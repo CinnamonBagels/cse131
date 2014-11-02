@@ -19,6 +19,10 @@ public class ArrayType extends CompositeType {
 		return true;
 	}
 	
+	public void setArrayName() {
+		super.setName(containingType.getName() + "[" + arraySize + "]");
+	}
+	
 	public boolean isAssignableTo(Type t) {
 		System.out.println("here");
 		return t instanceof ArrayType || t instanceof PointerType;

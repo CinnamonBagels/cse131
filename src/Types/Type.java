@@ -35,7 +35,7 @@ public abstract class Type
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	private void setName(String str)
+	public void setName(String str)
 	{
 		m_typeName = str;
 	}

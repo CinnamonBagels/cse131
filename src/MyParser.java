@@ -371,12 +371,12 @@ class MyParser extends parser {
 					index.getType().getName()));
 		} else {
 			// //////system.out.println(((ConstSTO) index).getIntValue());
-			return new ArrayType(null, ((ConstSTO) index).getIntValue());
+			return new ArrayType("huheuahe", ((ConstSTO) index).getIntValue());
 		}
 
 		// if code gets here, that means it errored somewhere up in the block of
 		// code ^.
-		return new ArrayType(null, 0);
+		return new ArrayType("heuahieu", 0);
 	}
 	
 	//inner type, containing type, can be only arraytype or pointer type
@@ -386,6 +386,7 @@ class MyParser extends parser {
 		//////system.out.println(innerType.getName());
 		if(outerType.isArray()) {
 			((ArrayType) outerType).setContainingType(innerType);
+			((ArrayType) outerType).setArrayName();
 		} else {
 			((PointerType) outerType).setContainingType(innerType);
 		}
@@ -601,7 +602,8 @@ class MyParser extends parser {
 			m_errors.print(ErrorMsg.error3a_Assign);
 			return new ErrorSTO(ErrorMsg.error3a_Assign);
 		}
-
+		System.out.println(stoDes.getType());
+		System.out.println(_2.getType());
 		// type conflict check.
 		if (!_2.getType().isAssignableTo(stoDes.getType())) {
 			m_nNumErrors++;
@@ -610,7 +612,7 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error3b_Assign, _2
 					.getType().getName(), stoDes.getType().getName()));
 		}
-		System.out.println("here");
+		//System.out.println("here");
 
 		stoDes = _2;
 		return stoDes;
