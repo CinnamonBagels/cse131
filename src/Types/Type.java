@@ -23,6 +23,8 @@ public abstract class Type
 	public void setTypeDef(boolean isTypeDef) {
 		this.isTypeDef = isTypeDef;
 	}
+	
+	public abstract Type clone();
 
 	//----------------------------------------------------------------
 	//

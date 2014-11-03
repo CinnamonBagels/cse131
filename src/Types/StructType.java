@@ -42,11 +42,25 @@ public class StructType extends CompositeType{
 	}
 	
 	public boolean isAssignableTo(Type t) {
-		//structs are different, not sure if we can use instanceof
-		return this.getName() == t.getName();
+		return this.isEquivalentTo(t);
 	}
 	
 	public boolean isEquivalentTo(Type t) {
-		return this.getName() == t.getName();
+		//structs are different, not sure if we can use instanceof
+				if(t.getName().equals(this.getName())) {
+					return true;
+				} else if(t instanceof StructType) {
+					return this.getAllMembers().equals(((StructType) t).getAllMembers());
+				}
+//				return this.getName() == t.getName();
+				return false;
+	}
+
+	@Override
+	public Type clone() {
+		// TODO Auto-generated method stub
+		StructType struct = new StructType(this.getName());
+		struct.setScope(this.scope);
+		return struct;
 	}
 }

@@ -16,4 +16,10 @@ public class BooleanType extends Type{
 	public boolean isEquivalentTo(Type t) {
 		return t instanceof BooleanType;
 	}
+
+	@Override
+	public Type clone() {
+		// TODO Auto-generated method stub
+		return new BooleanType(super.getName());
+	}
 }

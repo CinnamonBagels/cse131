@@ -1,106 +1,27 @@
-typedef int[5] INTFIVE;
-typedef INTFIVE[5] FIVEFIVE;
-typedef float[5] FLOATFIVE;
-typedef int INT;
-typedef float FLOAT;
+function : void main() {
+  int* x;
+  bool* y;
+  float* z;
 
-function : int & foo(int * i5) {
-    INTFIVE x;
-    x = i5; //error, x is not a mod lval
-    i5 = x;
-    return 5; //error, not a mod lval
-}
+  int**** t1;
 
-INTFIVE i5;
+  delete x;
+  delete y;
+  delete z;
+  delete t1;
 
-function : int foo2(INTFIVE i5) {
-    INTFIVE x;
-    i5 = x; //error, i5 is not a mod lval
-    x = i5; //error, x is not a mod lval
-    return 5;
-}
+  delete x;
+  delete y;
+  delete z;
+  delete t1;
 
-function : void something() {
-    foo(i5) = 3;
-    foo2(i5) = 3; //error since foo2 doesn't return by reference
-    foo(i5) = foo2(i5);
-    foo2(i5) = foo(i5); //same error as above
-}
+  int a;
+  bool b;
+  float c;
 
-function : void check() {
-    int i;
-    i[3] = 3; //error, not an array
-    bool b;
-    b[0] = true; //error, not array
-    float f;
-    f[1] = 1.0; //error, not array
+  delete a; //error, can't delete a non-pointer
+  delete b; //error, can't delete a non-pointer
+  delete c; //error, can't delete a non-pointer
 
-    INTFIVE x;
-    x[0] = 1;
-    x[-1] = 1; //error, -1 out of bounds
-    x[5] = 1; //error, 5 out of bounds
-    x[+1] = 1;
-    x[4] = 1;
-    x[+6] = 1; //error, 6 out of bounds
-    x[-0x1A]; //error, -26 out of bounds
-    x[+012]; //error, 10 out of bounds
-
-    x[i] = 6;
-    x[b] = 4; //error, index not int
-    x[f] = 2; //error, index not int
-
-    INT in;
-    FLOAT flo;
-    x[in];
-    x[flo]; //error, index not int
-
-    x[in + i - 5] = 1;
-    x[in + i - flo] = 2; //error, index not int
-    x[foo2(x)] = 6;
-    x[foo2(x)] = true; //error, type mismatch
-
-    const int con = 3;
-    x[con + 1] = 2.01; //error, type
-    x[con - 1] = false; //error, type
-    x[con + 2] = 1; //error, out of bounds
-    x[con] = x; //error, type
-    x[con - con * 2 / 4 - 2 * 2] = 1; //error, -2
-
-    FIVEFIVE ff;
-    ff[0] = ff[1];
-    ff[2] = x;
-    ff[2][1] = f; //error, type mismatch
-    ff[0][0] = i;
-    ff[0][-1] = 1; //error, out of bounds
-    ff[-1][0] = 1; //error, out of bounds
-    x[2] = ff[3][3];
-
-    FLOATFIVE flo5;
-    flo5[0] = flo5[1];
-
-    const float constflo = flo5[0]; //error, not known at compile time
-    ff[0] = flo5; //error, type mismatch
-    int[5] int5;
-    ff[0] = int5;
-    int[4] int4;
-    ff[4] = int4; //error, type mismatch
-    ff[3][2] = int4[3];
-
-    const int cc = 1;
-
-    typedef int[10] ARR;
-
-    int[10] a;
-
-    ARR b2;
-
-    ARR[2] c;
-
-    float * d;
-
-    c[1][9] = a[2];
-
-    b2[b2[b2[b2[2] - cc] + cc] - 1] = c[1][9];
-
-    d[2] = a[0];
+  delete 5; //error can't delete a non-pointer
 }

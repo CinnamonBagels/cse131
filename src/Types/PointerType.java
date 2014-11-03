@@ -12,6 +12,18 @@ public class PointerType extends PointerGroupType{
 		super(strName, size);
 	}
 	
+	public PointerType(String str) {
+		super(str, 4);
+	}
+	
+	public String getName() {
+		if(this.containingType == null || this.isTypeDef()) {
+			return super.getName();
+		} else {
+			return this.getContainingType().getName() + super.getName();
+		}
+	}
+	
 	public void setContainingType(Type t) {
 		if(this.containingType == null || !(this.containingType instanceof PointerType)) {
 			this.containingType = t;
@@ -41,26 +53,43 @@ public class PointerType extends PointerGroupType{
 	}
 	
 	public boolean isAssignableTo(Type t) {
-		return t instanceof PointerType;
+		return this.isEquivalentTo(t);
 	}
 	
 	public boolean isEquivalentTo(Type t) {
-		return t instanceof PointerType;
+		if(t instanceof PointerType) {
+			return ((PointerType) t).dereference().isEquivalentTo(this.containingType);
+		} else if(t instanceof ArrayType) {
+			return ((ArrayType) t).getContainingType().isEquivalentTo(this.containingType);
+		}
+		return false;
 	}
 	
 	public boolean isInnerTypeAssignableTo(Type t) {
-		if(this.containingType instanceof PointerType) {
-			return ((PointerType) this.containingType).isInnerTypeAssignableTo(t);
-		} else {
-			return this.containingType.isAssignableTo(t);
-		}
+		return this.isEquivalentTo(t);
 	}
 	
 	public boolean isInnerTypeEquivalentTo(Type t) {
-		if(this.containingType instanceof PointerType) {
+		if(this.containingType instanceof PointerType && !(t instanceof NullPointerType)) {
 			return ((PointerType) this.containingType).isInnerTypeEquivalentTo(t);
 		} else {
 			return this.containingType.isEquivalentTo(t);
+		}
+	}
+	@Override
+	public Type clone() {
+		// TODO Auto-generated method stub
+		PointerType pointer =  new PointerType(super.getName());
+		pointer.setContainingType(this.containingType);
+		return pointer;
+	}
+	
+	public void SetBaseType(Type t){
+		if(this.containingType == null){
+			this.containingType = t;
+		}
+		else{
+			((PointerType)this.containingType).SetBaseType(t);
 		}
 	}
 }

@@ -9,11 +9,6 @@ public class NotEqualOp extends ComparisonOp {
 		super(opName);
 		// TODO Auto-generated constructor stub
 	}
-
-	public STO evaluateOperand(STO leftOperand, Operator o, STO rightOperand, Type t) {
-		// TODO Auto-generated method stub
-		return null;
-	}
 	
 	public boolean isNotEqualOp(){
 		return true;

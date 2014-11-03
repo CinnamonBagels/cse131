@@ -30,6 +30,7 @@ public class FuncSTO extends STO
 		setReturnType(null);
 	}
 	
+	
 	private FunctionPointerType getFunctionPointerType() {
 		return (FunctionPointerType) this.getType();
 	}

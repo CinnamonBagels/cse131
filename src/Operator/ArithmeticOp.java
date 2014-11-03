@@ -60,7 +60,12 @@ public class ArithmeticOp extends BinaryOp {
 			if(right.getFloatValue() == 0.0) {
 				return new ErrorSTO(ErrorMsg.error8_Arithmetic);
 			} else {
-				value = left.getValue() / right.getValue();
+				if(newType.isInt()) {
+					value = Math.floor(left.getIntValue() / right.getIntValue());
+				} else {
+					value = left.getValue() / right.getValue();
+				}
+				
 			}
 		} else if(o.isModOp()) {
 			if(right.getIntValue() == 0) {
@@ -69,7 +74,6 @@ public class ArithmeticOp extends BinaryOp {
 			value = left.getIntValue() % right.getIntValue();
 		}
 		//System.out.println(value);
-		
 		return new ConstSTO("Evaluation Result", newType, value);
 	}
 	

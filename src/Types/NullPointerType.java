@@ -12,4 +12,8 @@ public class NullPointerType extends PointerType{
 	public boolean isAssignableTo(Type t){
 		return t instanceof NullPointerType || t instanceof PointerType;
 	}
+	
+	public boolean isEquivalentTo(Type t) {
+		return t instanceof NullPointerType;
+	}
 }

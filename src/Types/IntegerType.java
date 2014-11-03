@@ -9,6 +9,9 @@ public class IntegerType extends NumericType{
 		super("int", 4);
 	}
 	
+	public IntegerType(String str) {
+		super(str, 4);
+	}
 	public boolean isAssignableTo(Type t) {
 		return t instanceof IntegerType || t instanceof FloatType;
 	}
@@ -16,4 +19,11 @@ public class IntegerType extends NumericType{
 	public boolean isEquivalentTo(Type t) {
 		return t instanceof IntegerType;
 	}
+
+	@Override
+	public Type clone() {
+		// TODO Auto-generated method stub
+		return new IntegerType(super.getName());
+	}
+	
 }

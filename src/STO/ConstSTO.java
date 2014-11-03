@@ -29,9 +29,12 @@ public class ConstSTO extends STO
 	public ConstSTO(String strName, Type typ)
 	{
 		super(strName, typ, true, false);
+		//System.out.println(strName);
 		if (typ instanceof FloatType){
 			setValue(Double.parseDouble(strName));
 		} else if (typ instanceof IntegerType){
+			double value = (double)Integer.decode(strName);
+			//System.out.println(value);
 			setValue((double) Integer.decode(strName));
 		} else {
 			setValue(strName.equals("true") ? (double) 1 : (double) 0);

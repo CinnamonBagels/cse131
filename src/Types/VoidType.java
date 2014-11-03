@@ -8,4 +8,11 @@ public class VoidType extends Type{
 	public VoidType() {
 		super("void", 0);
 	}
+
+	@Override
+	public Type clone() {
+		// TODO Auto-generated method stub
+		//not sure
+		return new VoidType();
+	}
 }

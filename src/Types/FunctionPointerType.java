@@ -75,4 +75,10 @@ public class FunctionPointerType extends PointerGroupType {
 	public boolean isFunctionPointerType()	 {
 		return true;
 	}
+
+	@Override
+	public Type clone() {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

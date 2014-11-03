@@ -25,11 +25,15 @@ public class ArrayType extends CompositeType {
 	
 	public boolean isAssignableTo(Type t) {
 
+		
 		if(t instanceof ArrayType) {
+			//System.out.println("Inside ArrayType, name: " + ((ArrayType)t).getName() + ", containing type: " + this.containingType);
 			return ((ArrayType) t).containingType.isEquivalentTo(this.containingType) && ((ArrayType) t).getArraySize() == this.getArraySize();
 		} else if(t instanceof PointerType) {
+			//System.out.println("It's a pointer.");
 			return ((PointerType) t).getContainingType().isEquivalentTo(this.containingType);
 		} else {
+			//System.out.println("Bad");
 			return false;
 		}
 	}
@@ -74,4 +78,15 @@ public class ArrayType extends CompositeType {
 	public Type getContainingType() {
 		return this.containingType;
 	}
+	
+	public Type clone(){
+		ArrayType arr = new ArrayType(this.arraySize);
+		arr.setContainingType(this.containingType);
+		return arr;
+	}
+	
+	public void SetBaseType(Type t){
+		this.containingType = t;
+	}
+
 }

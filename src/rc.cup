@@ -237,7 +237,7 @@ ExternDecl ::= T_EXTERN UndecoratedType IdList:_3 T_SEMI
 
 VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
                     {: 
-                         ((MyParser) parser).DoVarDecl (_3,_2);
+                         RESULT = ((MyParser) parser).DoVarDecl (_3,_2);
                     :}
     ;
 
@@ -332,13 +332,7 @@ FuncDecl ::=   T_EXTERN T_FUNCTION T_COLON ReturnType:_1 T_ID:_2
 Type ::=         SubType:_1 OptModifierList:_3 OptArrayDef:_2
 				{:
 				//we set the innertype of the array here tansen.
-					if(_3 != null) {
-						RESULT = ((MyParser) parser).DoSetSubType(_1, (Type)_3);
-					} else if(_2 != null) {
-						RESULT = ((MyParser) parser).DoSetSubType(_1, (Type) _2);
-					} else {
-						RESULT = _1;
-					}
+					RESULT = ((MyParser) parser).DoSetSubType(_1, (PointerType)_3, (ArrayType)_2);
 					 
 				:}
     |               T_FUNCPTR T_COLON ReturnType:_1 OptRef:_2 T_LPAREN OptParamList:_3 T_RPAREN
@@ -396,8 +390,9 @@ ModifierList ::=    Modifier:_1
 					:}
     |               ModifierList:_2 Modifier:_3
     				{:
-    					RESULT = (PointerType) _3;
-    					((PointerType) RESULT).setContainingType((PointerType) _2);
+    					PointerType pointer = (PointerType) _3;
+    					pointer.setContainingType((PointerType) _2);
+    					RESULT = pointer;
     				:}
     ;
 
@@ -558,13 +553,13 @@ IdListWOptInit ::=  OptModifierList:_3 OptArrayDef:_4 T_ID:_1 OptInit:_2
                         RESULT = new Hashtable ();
                         STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_1, (STO)_2,  (Type)_3, (Type)_4);
                         
-                        RESULT.put (sto, _2 == null ? "" : _2);
+                        RESULT.put (sto, _2 == null ? new VarSTO("Placeholder") : _2);
                     :}
     |               IdListWOptInit:_1 T_COMMA OptModifierList:_5 OptArrayDef:_6 T_ID:_3 OptInit:_4
                     {:
                     	Hashtable h = (Hashtable) _1;
                     	STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_3, null, (Type) _5, (Type) _6);
-                    	h.put(sto,_4 == null ? "" : _4);
+                    	h.put(sto,_4 == null ? new VarSTO("Placeholder") : _4);
                         RESULT = h;
                     :}
     ;
@@ -611,6 +606,7 @@ OptElse ::=         T_ELSE CodeBlock
 WhileStmt ::=       T_WHILE Expr:_1 CodeBlock:_2
 					{:
 						((MyParser) parser).DoWhileStmt(_1, (STO)_2);
+						((MyParser) parser).DoCloseLoop();
 					:}
     ;
 
@@ -629,6 +625,7 @@ ForeachStmt ::=     T_FOREACH T_LPAREN IterationVarDecl:_1 T_COLON Expr:_2 T_RPA
                     :}
                     CodeBlock
                     {:
+                		((MyParser) parser).DoCloseLoop();
                         ((MyParser) parser).DoBlockClose();
                     :}
     ;
@@ -926,8 +923,10 @@ Designator ::= T_STAR Designator:_1
 						if(_1 instanceof ConstSTO && _2 == "-") {
 							ConstSTO newConst = (ConstSTO) _1;
 							newConst.setValue(newConst.getValue() * -1);
+							RESULT = newConst;
+						} else {												
+							RESULT = _1;
 						}
-						RESULT = _1;
                     :}
     |               T_NOT Designator:_2
                     {:
