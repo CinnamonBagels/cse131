@@ -27,13 +27,13 @@ public class ArrayType extends CompositeType {
 
 		
 		if(t instanceof ArrayType) {
-			//System.out.println("Inside ArrayType, name: " + ((ArrayType)t).getName() + ", containing type: " + this.containingType);
+			////system.out.println("Inside ArrayType, name: " + ((ArrayType)t).getName() + ", containing type: " + this.containingType);
 			return ((ArrayType) t).containingType.isEquivalentTo(this.containingType) && ((ArrayType) t).getArraySize() == this.getArraySize();
 		} else if(t instanceof PointerType) {
-			//System.out.println("It's a pointer.");
+			////system.out.println("It's a pointer.");
 			return ((PointerType) t).getContainingType().isEquivalentTo(this.containingType);
 		} else {
-			//System.out.println("Bad");
+			////system.out.println("Bad");
 			return false;
 		}
 	}
@@ -48,9 +48,9 @@ public class ArrayType extends CompositeType {
 	}
 	
 	public boolean isInnerTypeAssignableTo(Type t) {
-		//System.out.println("here"); //DELETE THIS
+		////system.out.println("here"); //DELETE THIS
 		if(t instanceof IntegerType || t instanceof FloatType) {
-			//System.out.println(this.containingType);
+			////system.out.println(this.containingType);
 			return this.containingType instanceof IntegerType;
 		} else {
 			return this.containingType == t;
@@ -71,7 +71,7 @@ public class ArrayType extends CompositeType {
 	}
 	
 	public void setContainingType(Type t) {
-		//System.out.println("This array is a " + t.getName() + " type.");
+		////system.out.println("This array is a " + t.getName() + " type.");
 		this.containingType = t;
 	}
 	

@@ -14,6 +14,15 @@ public class ComparisonOp extends BinaryOp {
 		Type a = leftOperand.getType();
 		Type b = rightOperand.getType();
 		
+		if(leftOperand.isError()){
+			return leftOperand;
+		}
+		if(rightOperand.isError()){
+			return rightOperand;
+		}
+		
+		//System.out.println("leftOperand type: " + leftOperand.getType());
+		//System.out.println("rightOperand type: " + rightOperand.getType());
 		if(this.getName().equals("==") || this.getName().equals("!=")) {
 			if(a.isBool()) {
 				if(b.isBool()) {
@@ -27,13 +36,27 @@ public class ComparisonOp extends BinaryOp {
 				} else {
 					return new ErrorSTO(Formatter.toString(ErrorMsg.error1b_Expr, a.getName(), this.getName(), b.getName()));
 				}
-			} else if(a.isPointer() || b.isPointer()){
+			} else if((a.isPointer() || b.isPointer())){
+				
+				
+								
 				if(!a.isPointer() || !b.isPointer()){
 					return new ErrorSTO(Formatter.toString(ErrorMsg.error17_Expr, this.getName(), a.getName(), b.getName()));
 				}
 				
-				Type x = ((PointerType)a).getContainingType();
-				Type y = ((PointerType)b).getContainingType();
+				Type x;
+				Type y;
+				if(a.isNullPointer()){
+					x = new NullPointerType();
+				} else {
+					x = ((PointerType)a).getContainingType();
+				}
+				if(b.isNullPointer()){
+					y = new NullPointerType();
+				} else {
+					y = ((PointerType)b).getContainingType();
+				}			
+				
 				
 				boolean eq = x.isEquivalentTo(y);
 				boolean xptr = x instanceof NullPointerType && !(y instanceof NullPointerType);

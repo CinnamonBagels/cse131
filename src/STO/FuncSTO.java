@@ -51,8 +51,8 @@ public class FuncSTO extends STO
 	//----------------------------------------------------------------
 	public void setReturnType(Type typ)
 	{
-		//System.out.println("EIUHRUEIHUIRJISEjr");
-		//System.out.println(typ);
+		////system.out.println("EIUHRUEIHUIRJISEjr");
+		////system.out.println(typ);
 		getFunctionPointerType().m_returnType = typ;
 	}
 
@@ -61,7 +61,7 @@ public class FuncSTO extends STO
 	//----------------------------------------------------------------
 	public Type getReturnType ()
 	{
-		//System.out.println(getFunctionPointerType().m_returnType);
+		////system.out.println(getFunctionPointerType().m_returnType);
 		return getFunctionPointerType().m_returnType;
 	}
 	
