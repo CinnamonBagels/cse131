@@ -43,10 +43,24 @@ public class ConstSTO extends STO
 	
 	public ConstSTO(String strName, Type typ, boolean isAddressible, boolean isModifiable){
 		super(strName, typ, isAddressible, isModifiable);
+		if (typ instanceof FloatType){
+			setValue(Double.parseDouble(strName));
+		} else if (typ instanceof IntegerType){
+			double value = (double)Integer.decode(strName);
+			//System.out.println(value);
+			setValue((double) Integer.decode(strName));
+		} else {
+			setValue(strName.equals("true") ? (double) 1 : (double) 0);
+		}
 	}
 	
 	public ConstSTO(String strName, Type typ, double value){
 		super(strName,typ,true,false);
+		setValue(value);
+	}
+	
+	public ConstSTO(String strName, Type typ, double value, boolean isAddressible, boolean isModifiable) {
+		super(strName, typ, true, false);
 		setValue(value);
 	}
 

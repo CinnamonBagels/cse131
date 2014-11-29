@@ -6,13 +6,21 @@ public class ArrayType extends CompositeType {
 	private int arraySize;
 	
 	public ArrayType(String strName, int size){
-		super(strName, 4 * size);
-		this.setArraySize(size);
+		super(strName, size);
+		this.arraySize = size;
+		super.setIsAddressable(true);
+		super.setIsModifiable(false);
 	}
 	
 	public ArrayType(int size) {
-		super("array", 4 * size);
-		this.setArraySize(size);
+		super("array", size);
+		this.arraySize = size;
+		super.setIsAddressable(true);
+		super.setIsModifiable(false);
+	}
+	
+	public void setFinalSize(int typeSize) {
+		super.setSize(arraySize * typeSize);
 	}
 	
 	public boolean isArrayType() {
@@ -82,6 +90,8 @@ public class ArrayType extends CompositeType {
 	public Type clone(){
 		ArrayType arr = new ArrayType(this.arraySize);
 		arr.setContainingType(this.containingType);
+		arr.setArraySize(this.arraySize);
+		arr.setSize(super.getSize());
 		return arr;
 	}
 	

@@ -23,7 +23,7 @@ public class FunctionPointerType extends PointerGroupType {
 	}
 	
 	public FunctionPointerType(String strName) {
-		super(strName, 4);
+		super(strName, 0);
 		this.params = new Vector<VarSTO>();
 	}
 	
@@ -78,7 +78,10 @@ public class FunctionPointerType extends PointerGroupType {
 
 	@Override
 	public Type clone() {
-		// TODO Auto-generated method stub
-		return null;
+		FunctionPointerType type = new FunctionPointerType(this.getName());
+		type.setIsReturnRefernece(this.isReturnReference);
+		type.setParameters(this.params);
+		type.setReturnType(this.m_returnType);
+		return type;
 	}
 }

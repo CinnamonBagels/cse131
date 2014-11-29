@@ -243,7 +243,6 @@ VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
 
 ConstDecl ::=  OptStatic T_CONST UndecoratedType:_2 IdListWInit:_3 T_SEMI
                     {:
-                    //System.out.println("hereh");
                         ((MyParser) parser).DoConstDecl (_3,_2);
                     :}
     ;
@@ -256,7 +255,6 @@ OptStatic ::=   T_STATIC
 
 TypedefDecl ::=     T_TYPEDEF Type:_1 IdListUpper:_2 T_SEMI
                     {:
-                    	//System.out.println(_1.getName());
                         ((MyParser) parser).DoTypedefDecl (_2, _1);
                     :}
     |               T_STRUCTDEF T_ID_U:_1 T_LBRACE
@@ -288,7 +286,7 @@ FieldsList ::=   FieldList:_1
 
 FieldList ::=     UndecoratedType:_1 IdList:_2 T_SEMI
 					{:
-						((MyParser) parser).DoVarDecl(_2, _1);
+						RESULT = ((MyParser) parser).DoVarDecl(_2, _1);
 					:}
     |               FuncDef:_1
     				{:
@@ -406,6 +404,7 @@ Modifier ::=        T_STAR
 
 OptArrayDef ::=     T_LBRACKET ConstExpr:_1 T_RBRACKET
 					{:
+						
 						RESULT = ((MyParser) parser).DoArrayDecl((STO)_1);
 					:}
     |               /* empty */
@@ -482,15 +481,16 @@ ParamList ::=       ParamDecl:_1
 					{:
 						RESULT = new Vector<VarSTO>();
 						if(((STO)_1).getType().isArray()) {
-							((STO)_1).setIsModLValue(false);
+							((STO)_1).setIsAddressable(true);
+							((STO)_1).setIsModifiable(false);
 						}
 						RESULT.add(_1);
 					:}
     |               ParamList:_1 T_COMMA ParamDecl:_2
     				{:
     					if(((STO)_2).getType().isArray()) {
-							((STO)_2
-							).setIsModLValue(false);
+							((STO)_2).setIsAddressable(true);
+							((STO)_2).setIsModifiable(false);
 						}
     					_1.add(_2);
     					RESULT = _1;
@@ -507,7 +507,6 @@ ParamDecl ::=       Type:_1 OptRef:_2 T_ID:_3
 
 OptRef ::=          T_AMPERSAND
 					{:
-						//System.out.println("here");
 						RESULT = true;
 					:}
     |               {:
@@ -519,8 +518,8 @@ OptRef ::=          T_AMPERSAND
 IdList ::=          OptModifierList:_3 OptArrayDef:_4 T_ID:_1
                     {:
                     	Hashtable h = new Hashtable();
-                        
                         STO sto = (STO) ((MyParser) parser).DoCreateDeclaration(_1, null,  (Type) _3, (Type) _4);
+                        if(_4 != null)
                         h.put(sto, new VarSTO("Placeholder"));
                         RESULT = h;
                     :}
@@ -550,15 +549,15 @@ IdListUpper ::=     T_ID_U:_1
 IdListWOptInit ::=  OptModifierList:_3 OptArrayDef:_4 T_ID:_1 OptInit:_2
                     {:
                     
-                        RESULT = new Hashtable ();
+                        Hashtable h = new Hashtable ();
                         STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_1, (STO)_2,  (Type)_3, (Type)_4);
-                        
-                        RESULT.put (sto, _2 == null ? new VarSTO("Placeholder") : _2);
+                        h.put (sto, _2 == null ? new VarSTO("Placeholder") : _2);
+                        RESULT = h;
                     :}
     |               IdListWOptInit:_1 T_COMMA OptModifierList:_5 OptArrayDef:_6 T_ID:_3 OptInit:_4
                     {:
                     	Hashtable h = (Hashtable) _1;
-                    	STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_3, null, (Type) _5, (Type) _6);
+                    	STO sto = (STO)((MyParser) parser).DoCreateDeclaration(_3, (STO)_4, (Type) _5, (Type) _6);
                     	h.put(sto,_4 == null ? new VarSTO("Placeholder") : _4);
                         RESULT = h;
                     :}
@@ -576,8 +575,6 @@ IdListWInit ::=     OptModifierList:_3 OptArrayDef:_4 T_ID:_1 T_ASSIGN ConstExpr
                     {:
                     	Hashtable h = (Hashtable) _1;
                     	STO sto = (STO)((MyParser) parser).DoCreateConstDeclaration(_3, (STO)_4);
-                    	//System.out.println(sto.getName());
-                    	//System.out.println(sto.isConst());
                     	h.put(sto, _4 == null ? "" : _4);
                         RESULT = h;
                     :}
@@ -938,7 +935,7 @@ Designator ::= T_STAR Designator:_1
                     :}
     |               T_SIZEOF T_LPAREN Type:_2 T_RPAREN
                     {:
-						RESULT = ((MyParser) parser).DoSizeOf(_2);
+						RESULT = ((MyParser) parser).DoSizeOf(new VarSTO("", _2));
                     :}
     |               T_LPAREN Type:_1 T_RPAREN Designator:_2
                     {:
@@ -988,11 +985,11 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_INT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1, new IntegerType());
+                    	RESULT = new ConstSTO(_1, new IntegerType(), false, false);
                     :}
     |               T_FLOAT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1, new FloatType());
+                        RESULT = new ConstSTO (_1, new FloatType(), false, false);
                     :}
     |               T_STR_LITERAL:_1
                     {:
@@ -1000,15 +997,15 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_TRUE
                     {:
-                        RESULT = new ConstSTO ("true", new BooleanType("bool"));
+                        RESULT = new ConstSTO ("true", new BooleanType("bool"), false, false);
                     :}
     |               T_FALSE
                     {:
-                        RESULT = new ConstSTO ("false", new BooleanType("bool"));
+                        RESULT = new ConstSTO ("false", new BooleanType("bool"), false, false);
                     :}
     |               T_NULLPTR
                     {:
-                        RESULT = new ConstSTO ("nullptr", new NullPointerType());
+                        RESULT = new ConstSTO ("nullptr", new NullPointerType(), false, false);
                     :}
     |               T_THIS
                     {:

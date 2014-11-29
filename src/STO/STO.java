@@ -88,7 +88,7 @@ public abstract class STO
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	protected void setIsAddressable(boolean addressable)
+	public void setIsAddressable(boolean addressable)
 	{
 		m_isAddressable = addressable;
 	}
@@ -104,7 +104,7 @@ public abstract class STO
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
-	protected void setIsModifiable(boolean modifiable)
+	public void setIsModifiable(boolean modifiable)
 	{
 		m_isModifiable = modifiable;
 	}

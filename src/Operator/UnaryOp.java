@@ -53,9 +53,9 @@ public class UnaryOp extends Operator {
 		}
 		
 		if(this.getName().equals("++") || this.getName().equals("--")){
-			return new ConstSTO("" + value, o.getType().isFloat() ? new FloatType() : new IntegerType());
+			return new ConstSTO("" + value, o.getType().isFloat() ? new FloatType() : new IntegerType(), false, false);
 		}
-		return new ConstSTO((value == 1.0 ? "true" : "false"), new BooleanType());
+		return new ConstSTO((value == 1.0 ? "true" : "false"), new BooleanType(), false, false);
 	}
 	
 	public boolean isUnaryOp(){

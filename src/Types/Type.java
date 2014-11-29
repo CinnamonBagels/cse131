@@ -71,7 +71,7 @@ public abstract class Type
 		return m_isAddressable;
 	}
 	
-	private void setIsAddressable(boolean addressable) {
+	public void setIsAddressable(boolean addressable) {
 		m_isAddressable = addressable;
 	}
 	
@@ -79,7 +79,7 @@ public abstract class Type
 		return m_isModifiable;
 	}
 	
-	private void setIsModifiable(boolean modifiable) {
+	public void setIsModifiable(boolean modifiable) {
 		m_isModifiable = modifiable;
 	}
 

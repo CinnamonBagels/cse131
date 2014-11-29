@@ -74,7 +74,7 @@ public class ArithmeticOp extends BinaryOp {
 			value = left.getIntValue() % right.getIntValue();
 		}
 		//System.out.println(value);
-		return new ConstSTO("Evaluation Result", newType, value);
+		return new ConstSTO("Arithmetic Op", newType, value, false, false);
 	}
 	
 	//overrides operator.java

@@ -6,7 +6,7 @@ public class NullPointerType extends PointerType{
 	}
 	
 	public NullPointerType() {
-		super("", 0);
+		super("nullptr", 0);
 	}
 	
 	public boolean isAssignableTo(Type t){

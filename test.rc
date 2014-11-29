@@ -1,27 +1,43 @@
-function : void main() {
-  int* x;
-  bool* y;
-  float* z;
+typedef bool TAM;
+typedef funcptr : void () FUN;
 
-  int**** t1;
+structdef MYS {
+    int x, y, z;
+    float** u;
+    funcptr : void () min;
+    function : int herro (bool& tar) {
+        return 1;
+    }
+};
 
-  delete x;
-  delete y;
-  delete z;
-  delete t1;
+function : void test(bool & hi, int** tarf) {
 
-  delete x;
-  delete y;
-  delete z;
-  delete t1;
+    int y;
 
-  int a;
-  bool b;
-  float c;
+    int* yu = &y;
+    float* si = &y;
+    &test; //error, non addressable
 
-  delete a; //error, can't delete a non-pointer
-  delete b; //error, can't delete a non-pointer
-  delete c; //error, can't delete a non-pointer
+    int*** asd;
+    int*** fff = &asd; //error, int**** not assignable to int***
+    int**** fafs = &asd;
 
-  delete 5; //error can't delete a non-pointer
+    TAM ta;
+    float* ba = &ta; //error, TAM* not assignable to float*
+    bool* bab = &ta;
+    bool** babs = &bab;
+    TAM** babe = &bab;
+
+    &(&ta); //error, non addressable
+
+    MYS mys;
+    MYS* myt = &mys;
+    int* b1 = &mys.x;
+    float*** b2 = &mys.u;
+    &mys.herro; //error, non addressable
+    funcptr : void () * b3 = &mys.min;
+    FUN* b4 = &mys.min;
+
+    TAM* tad = &hi;
+    asd = &tarf;
 }

@@ -61,6 +61,7 @@ public class StructType extends CompositeType{
 		// TODO Auto-generated method stub
 		StructType struct = new StructType(this.getName());
 		struct.setScope(this.scope);
+		struct.setSize(this.getSize());
 		return struct;
 	}
 }

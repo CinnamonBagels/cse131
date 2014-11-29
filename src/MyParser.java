@@ -21,6 +21,7 @@ class MyParser extends parser {
 	private int blockLevel;
 	private StructType currentStruct;
 	private int inLoop = 0;
+	public static AssemblyGenerator generator = new AssemblyGenerator("rc.s");
 
 	private SymbolTable m_symtab;
 
@@ -159,6 +160,7 @@ class MyParser extends parser {
 		if (t == null) {
 			return new ErrorSTO("Missing type in delcaration.");
 		}
+		
 		boolean isError = false;
 		
 		
@@ -169,11 +171,8 @@ class MyParser extends parser {
 			
 			
 			if (sto.isError()) {
-				////system.out.println("In DoVarDecl, created var is illegal.");
 				continue;
 			}
-			
-			////system.out.println(sto.getType());
 			if(currentStruct != null) {	
 				if (sto.getName() == currentStruct.getName()) {
 					m_nNumErrors++;
@@ -181,6 +180,7 @@ class MyParser extends parser {
 							.getName()));
 				}
 			}
+			
 			
 			Type type;
 			if(sto.getType() == null){
@@ -190,7 +190,8 @@ class MyParser extends parser {
 				type = DoSetSubType(t, sto.getType().isPointer() ? sto.getType() : null, sto.getType().isArray() ? sto.getType() : null);
 			}
 			
-			////system.out.println(((PointerType)((ArrayType)sto.getType()).getContainingType()).getContainingType());
+
+			
 			if (m_symtab.accessLocal(idName) != null && currentStruct != null) {
 				
 				m_nNumErrors++;
@@ -205,16 +206,10 @@ class MyParser extends parser {
 				isError = true;
 				continue;
 			}
-			////system.out.println(sto.getName());
-			//.out.println(currentStruct == null);
-			
-			
-			////system.out.println(sto.getName()); //DELETE THIS
-			
 			
 			// setting types
 			if (sto.getType() == null || sto.getType().isVoid()) {
-				sto.setType(t);
+				sto.setType(type);
 			}
 			
 			if(((STO) lstIDs.get(sto)).getName().equals("Placeholder")) {
@@ -230,11 +225,14 @@ class MyParser extends parser {
 			}
 
 			if(type instanceof ArrayType) {
-				sto.setIsModLValue(false);
+				sto.setIsAddressable(true);
+				sto.setIsModifiable(false);
 			}
 
-			////system.out.println("In DoVarDecl, creating " + sto.getName()); //DELETE THIS
 			m_symtab.insert(sto);
+			if(currentStruct != null && m_symtab.getFunc() == null) {
+				currentStruct.setStructMembers(sto);
+			}
 			
 			
 		}
@@ -284,7 +282,6 @@ class MyParser extends parser {
 
 		while (e.hasMoreElements()) {
 			STO id = e.nextElement();
-			////system.out.println(id.getName());
 			if (m_symtab.accessLocal(id.getName()) != null) {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,
@@ -311,7 +308,6 @@ class MyParser extends parser {
 						ConstSTO sto = new ConstSTO(id.getName(), t,
 								((ConstSTO) csto).getValue());
 						m_symtab.insert(sto);
-						////system.out.println(sto.getType());
 					}
 
 				} else {
@@ -333,9 +329,6 @@ class MyParser extends parser {
 				m_nNumErrors++;
 				m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 			}
-			////system.out.println(id); //DELETE THIS
-			////system.out.println(t.getName()); //DELETE THIS
-			
 			TypedefSTO sto = new TypedefSTO(id, t.clone());
 			m_symtab.insert(sto);
 		}
@@ -367,28 +360,22 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	void DoStructdefDecl(String id) {
-		// //////system.out.println(currentStruct.getName());
-		// Tansen, this does a check so that recursive structs cannot be within
-		// the struct itself.
-		// However, recursive Struct POINTERS ARE VALID. the check should go
-		// HERE.
 		currentStruct = null;
-
 	}
 
 	// name, init expr, opt pointer, opt array
 	STO DoCreateDeclaration(String id, STO sto, Type pointerType, Type arrayType) {		
-		
 		VarSTO sto1 = new VarSTO(id);
-
-		if(arrayType != null) {
-			sto1.setType(arrayType);
-			if(pointerType != null) {
-				((ArrayType) sto1.getType()).setContainingType(pointerType);
-			}
-		} else if (pointerType != null){
-			sto1.setType(pointerType);
+		Type type = null;
+		if(pointerType != null) {
+			type = pointerType;
 		}
+		
+		if(arrayType != null) {
+			((ArrayType) arrayType).setContainingType(type);
+			type = arrayType;
+		}
+		sto1.setType(type);
 							
 		return sto1;
 	}
@@ -411,7 +398,7 @@ class MyParser extends parser {
 	}
 
 	Type DoArrayDecl(STO index) {
-
+		
 		if (!index.getType().isInt()) {
 		m_nNumErrors++;
 		m_errors.print(Formatter.toString(ErrorMsg.error10i_Array, index
@@ -429,7 +416,6 @@ class MyParser extends parser {
 			index = new ErrorSTO(Formatter.toString(ErrorMsg.error10z_Array,
 					index.getType().getName()));
 		} else {
-			// ////////system.out.println(((ConstSTO) index).getIntValue());
 			return new ArrayType(((ConstSTO) index).getIntValue());
 		}
 
@@ -441,25 +427,6 @@ class MyParser extends parser {
 
 	// inner type, containing type, can be only arraytype or pointer type
 	Type DoSetSubType(Type innerType, Type pointer, Type array) {
-		/*if (array != null && array.isArray()) {
-			if(((ArrayType) array).getContainingType() instanceof PointerType) {
-				PointerType ptr = (PointerType) ((ArrayType) array).getContainingType();
-				ptr.setContainingType(innerType);
-				((ArrayType) array).setArrayName(innerType + ptr.getName());
-			} else {
-				((ArrayType) array).setContainingType(innerType);
-				((ArrayType) array).setArrayName(innerType.getName());
-			}
-			
-			type = array;
-		}
-		if(pointer != null && pointer.isPointer()) {
-			////system.out.println("here");	
-			((PointerType) pointer).setContainingType(innerType);
-			type = pointer;
-		}
-
-		return type;*/
 		
 		Type type = innerType;
 	
@@ -467,10 +434,17 @@ class MyParser extends parser {
 			//the rest of the times
 			((PointerType)pointer).SetBaseType(type);
 			type = pointer;
-		} else
+		}
 		// pointer is null
 		if(array != null){
-			((ArrayType)array).SetBaseType(type);
+			if(((ArrayType) array).getContainingType() != null && ((ArrayType) array).getContainingType().isPointer()) {
+				PointerType pType = (PointerType) ((ArrayType) array).getContainingType();
+				pType.SetBaseType(type);
+				((ArrayType) array).setFinalSize(pType.getSize());
+			} else {
+				((ArrayType)array).SetBaseType(type);
+				((ArrayType) array).setFinalSize(type.getSize());
+			}
 			type = array;
 		}
 		
@@ -483,17 +457,15 @@ class MyParser extends parser {
 	void DoFuncDecl_1(String id, Type t, boolean isReturnReference) {
 		m_returnMissingFlag = true;
 		if (m_symtab.accessLocal(id) != null) {
-			// //system.out.println("wthwahthet");
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 		}
 
-		FuncSTO sto = new FuncSTO(id, new FunctionPointerType("id"));
-		// //system.out.println(id);
+		FuncSTO sto = new FuncSTO(id, new FunctionPointerType("funcptr"));
 
 		sto.setReturnType(t);
 		sto.setIsReturnRefernece(isReturnReference);
-		// ////////system.out.println(sto.getType());
+
 		m_symtab.insert(sto);
 		m_symtab.openScope();
 		m_symtab.setFunc(sto);
@@ -508,10 +480,8 @@ class MyParser extends parser {
 		FuncSTO func = m_symtab.getFunc();
 		
 		if (func.isError()) {
-			// //////system.out.println("error here");
 		}
-		// ////system.out.println(func.getName());
-		// ////system.out.println(((FunctionPointerType)func.getType()).getReturnType());
+
 
 		// TODO LOLOLOLL NEED TO FIX LOLO FUCK IT SHIP IT
 		if (((FunctionPointerType) func.getType()).getReturnType() == null) {
@@ -519,7 +489,6 @@ class MyParser extends parser {
 		}
 		if (m_returnMissingFlag && !func.getReturnType().isVoid()) {
 			// if function type is not void, error
-			// ////////system.out.println(func.getReturnType().isVoid());
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error6c_Return_missing);
 		}
@@ -557,7 +526,7 @@ class MyParser extends parser {
 			return _1;
 		}
 		inLoop++;
-		////system.out.println("Opening While: " + inLoop);
+
 
 		if (!(_1.getType().isBool())) {
 			m_nNumErrors++;
@@ -573,16 +542,12 @@ class MyParser extends parser {
 	}
 
 	STO DoForeachStmt(STO id, STO list) {
-		// ////////system.out.println(id.getType());
-		// ////////system.out.println(list.getType());
 		if(id.isError()) {
 			return id;
 		}
 		
 		inLoop++;
 		
-		//system.out.println(list.getType());
-		////system.out.println("Opening Freahc: " + inLoop);
 		if (!list.getType().isArray()) {
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error12a_Foreach);
@@ -611,10 +576,7 @@ class MyParser extends parser {
 					return new ErrorSTO("Error Foreach: assignableTo error.");
 				}
 			}
-		}
-		
-		// //////system.out.println(arr.isInnerTypeAssignableTo((id.getType())));
-		
+		}	
 
 		// i dont htink i finished this.
 		ArrayType arrayType = (ArrayType) list.getType();
@@ -622,7 +584,6 @@ class MyParser extends parser {
 	}
 
 	public void DoBreakStmt() {
-		////system.out.println("breaking: " + inLoop);
 		// probably have to do a breakstatementFlag
 		if (inLoop == 0) {
 			m_nNumErrors++;
@@ -632,7 +593,6 @@ class MyParser extends parser {
 
 	public void DoContinueStmt() {
 		// continueStatmementFlag
-		////system.out.println("Continue: " + inLoop);
 		if (inLoop == 0) {
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error12_Continue);
@@ -640,7 +600,6 @@ class MyParser extends parser {
 	}
 	
 	public void DoCloseLoop()	 {
-		////system.out.println("Closing: " + inLoop);
 		inLoop--;
 	}
 
@@ -651,26 +610,18 @@ class MyParser extends parser {
 		// only one variable function in SymbolTable.java. is there a list of
 		// functions somewhere?
 		// idk
-		// //////////system.out.println("here");
 		FuncSTO func = m_symtab.getFunc();
-		// //////////system.out.println("here");
 		if (func == null) {
 			m_nNumErrors++;
 			m_errors.print("internal: DoFormalParams says no proc" + "!");
 		} else {
-			// //////////system.out.println("here set params");
 
 			if (params != null) {
-				// //////////system.out.println(params.get(0).getType());
 				func.setParameters(params);
-				// //////////system.out.println("here");
 				// add parameters to the function's local scope...
 				for (int i = 0; i < params.size(); i++) {
 					m_symtab.insert(params.get(i));
-					// ////////system.out.println(params.get(i).getIsReference());
 				}
-				// //////////system.out
-				// .println("there are " + params.size() + " parameters");
 			}
 
 			if (currentStruct != null) {
@@ -701,7 +652,6 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	STO DoAssignExpr(STO stoDes, STO _2) {	
-		////system.out.println(stoDes.getName());
 		if(stoDes.isError()) {
 			return stoDes;
 		}
@@ -737,17 +687,10 @@ class MyParser extends parser {
 			return sto;
 		}
 
-		// //system.out.println(((FunctionPointerType)sto.getType()).getReturnType());
 
 		if (sto.isVar() && sto.getType() instanceof FunctionPointerType) {
-			////system.out.println("here!");
 			sto = new FuncSTO(sto.getName(), sto.getType());
-			// ////system.out.println(((FunctionPointerType)sto.getType()).getReturnType());
 		}
-		
-		////system.out.println(((FunctionPointerType)sto.getType()).getReturnType());
-
-		// //////system.out.println(sto.getClass());
 
 		if (!sto.isFunc()) {
 			m_nNumErrors++;
@@ -758,11 +701,6 @@ class MyParser extends parser {
 
 		// casting is gets too complicated, just set a variable.
 		FuncSTO funcSTOCast = (FuncSTO) sto;
-
-		// //system.out.println(funcSTOCast.getParameters().size());
-
-		// //////////system.out.println(funcSTOCast.getParameters().get(0).getType());
-		// //////////system.out.println(arguments.size());
 
 		if (funcSTOCast.getParameters().size() != arguments.size()) {
 			m_nNumErrors++;
@@ -790,7 +728,6 @@ class MyParser extends parser {
 				ArrayType ptr = (ArrayType)((ArrayType)param.getType()).clone();
 				ptr.setContainingType(((ArrayType)argVal.getType()).getContainingType());
 				
-				////system.out.println("In DoFuncCall, the parameter " + param.getName() + " " + (param.getType().isTypeDef() ? "is" : "is not") + " a TypeDef.");
 				if(param.getType().isTypeDef()){
 					ptr.setName(argVal.getType().getName());
 					ptr.setTypeDef(true);
@@ -801,7 +738,6 @@ class MyParser extends parser {
 				argVal = newVal;
 			}
 			if (param.getIsReference()){
-				////system.out.println("Doing typecheck");//DELETE THIS
 				if(!(argVal.getType().isEquivalentTo(param.getType()))){
 					m_nNumErrors++;
 					m_errors.print(Formatter.toString(ErrorMsg.error5r_Call, argVal.getType().getName(), param.getName(), param.getType().getName()));
@@ -885,7 +821,6 @@ class MyParser extends parser {
 					pointer.getType().getName()));
 		}
 
-		// //system.out.println(((PointerType) pointer.getType()).dereference());
 		Type dereferenceType = ((PointerType) pointer.getType()).dereference();
 		// not sure if this check is needed...
 		if (dereferenceType == null) {
@@ -927,7 +862,6 @@ class MyParser extends parser {
 		if (sto.isError()) {
 			return sto;
 		}
-		////system.out.println(sto.getType().getName());
 		if (!sto.getType().isStruct()) {
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.error14t_StructExp,
@@ -985,19 +919,13 @@ class MyParser extends parser {
 
 		// do we care if we know if pointer or array?
 		// also, probably cant use isAssignableTo
-		// //system.out.println("" + sto.getName() + " " +
-		// (sto.getType().isArray() ? "is" : "is not") + " an array.");
+
 		if (sto.getType().isArray() || sto.getType().isPointer()) {
-			// //system.out.println("" + index.getName() + " " +
-			// (index.getType().isInt() ? "is" : "is not") + " an int.");
 			if (index.getType().isInt()) {
-				// //system.out.println("" + index.getName() + " " +
-				// (index.isConst() ? "is" : "is not") + " a const.");
 
 				if (sto.getType().isArray()) {
 					if (index.isConst()) {
 						ConstSTO constIndex = (ConstSTO) index;
-						////system.out.println(constIndex.getIntValue());
 
 						// work on pointer types?
 						if (constIndex.getIntValue() < ((ArrayType) sto
@@ -1018,7 +946,6 @@ class MyParser extends parser {
 					
 					
 					ArrayType atyp = (ArrayType) sto.getType();
-					////system.out.println("In DoDesignator2_Array, the array " + sto.getName() + "'s inner type is " + atyp.getContainingType());
 					STO ret = new ExprSTO(sto.getName() + "[" + index.getName()
 							+ "]", atyp.getContainingType());
 					ret.setIsModLValue(true);
@@ -1052,16 +979,13 @@ class MyParser extends parser {
 	STO DoDesignator3_ID(String strID, boolean isGlobal) {
 		STO sto = null;
 		String errorMessage = null;
-		// //////system.out.println(strID);
 
 		// check if global scope, else access it like a regular variable
 		if (isGlobal) {
 			sto = m_symtab.accessGlobal(strID);
 			errorMessage = ErrorMsg.error0g_Scope;
 		} else {
-				// //system.out.println(strID);
 				sto = m_symtab.access(strID);
-				// //system.out.println(sto);
 
 			// prepare error message for undecleared ID
 			errorMessage = ErrorMsg.undeclared_id;
@@ -1071,7 +995,6 @@ class MyParser extends parser {
 		if (sto == null) {
 			m_nNumErrors++;
 			// push our error message through
-			////system.out.println("here");
 			m_errors.print(Formatter.toString(errorMessage, strID));
 			sto = new ErrorSTO(strID);
 		}
@@ -1139,20 +1062,24 @@ class MyParser extends parser {
 			return _1;
 		}
 
-		//if (string.equals("pre")) {
-		////system.out.println(_1.getType().getName() + ":" + _1.getName());
 		STO sto = _2.validateOperand(_1, string);
-//		} else if (string.equals("post")){
-//			// post
-//			sto = _2.validateOperand(_1, string);
-//		} else {
-//			sto = _2.validateOperand(_1, string);
-//		}
 
 		if (sto.isError()) {
 			m_nNumErrors++;
 			m_errors.print(sto.getName());
 			return sto;
+		}
+		
+		if(_1.isConst()) {
+			ConstSTO expr = (ConstSTO) _1;
+			STO result = _2.evaluateOperand(expr);
+			
+			if(result.isError()) {
+				m_nNumErrors++;
+				m_errors.print(result.getName());
+			}
+			
+			return result;
 		}
 		return sto;
 	}
@@ -1180,28 +1107,15 @@ class MyParser extends parser {
 				STO result = _2.evaluateOperand(leftOperand, _2, rightOperand,
 						sto.getType());
 
-				if (!result.isError()) {
-					if (result.isConst()) {
-						// need to cast as const
-						ConstSTO constResult = (ConstSTO) result;
-						// //system.out.println("const");
-
-						if (constResult.getType().isInt()) {
-							return new ConstSTO("Arithmetic Result Value",
-									new IntegerType(), constResult.getValue());
-						} else {
-							return new ConstSTO("Arithmetic Result Value",
-									new FloatType(), constResult.getValue());
-						}
-					} else {
-						return result;
-					}
-				} else {
+				if (result.isError()) {
 					// error
 					m_nNumErrors++;
 					m_errors.print(result.getName());
-					return result;
-				}
+				} 
+				result.setIsAddressable(false);
+				result.setIsModifiable(false);
+				return result;
+				
 			}
 		}
 		return sto;
@@ -1227,7 +1141,6 @@ class MyParser extends parser {
 	}
 
 	public STO DoReturnCheck(STO expr) {
-		// ////////system.out.println("here");
 		FuncSTO func = m_symtab.getFunc();
 		
 		STO returnSTO = expr;
@@ -1260,7 +1173,6 @@ class MyParser extends parser {
 
 		// i THINK this is correct?
 		if (func.getIsReturnRefernece()) {
-			////system.out.println(expr.isModLValue());
 			if (!func.getReturnType().isEquivalentTo(expr.getType())) {
 				// return exists
 				m_nNumErrors++;
@@ -1282,8 +1194,6 @@ class MyParser extends parser {
 		} else {
 			// we really need to refactor this to have each type include
 			// isEquivalent or isAssignable.
-			////system.out.println(expr.getType().getName());
-			////system.out.println(func.getReturnType().getName());
 			if (!expr.getType().isAssignableTo(func.getReturnType())) {
 				m_returnMissingFlag = false;
 				m_nNumErrors++;
@@ -1296,19 +1206,14 @@ class MyParser extends parser {
 			}
 			m_returnMissingFlag = false;
 		}
-		// ////////system.out.println(blockLevel);
-		// ////////system.out.println(m_symtab.getLevel());
+
 		// handles if no else cases.
-		////system.out.println(blockLevel);
-		
-		////system.out.println(m_symtab.getLevel());
 		if (blockLevel == m_symtab.getLevel()) {
 			m_returnMissingFlag = false;
 		} else {
 			m_returnMissingFlag = true;
 		}
 		
-		////system.out.println("HAUEHUEHAUEHU" + returnSTO.getIsModifiable());
 		return returnSTO;
 	}
 
@@ -1340,10 +1245,9 @@ class MyParser extends parser {
 			return new ErrorSTO(ErrorMsg.error19_Sizeof);
 		}
 
-		// //system.out.println(sto.getType().getSize());
 		// functions don't have size (?)
 		return new ConstSTO((sto instanceof FuncSTO) ? "0" : ("" + sto
-				.getType().getSize()), new IntegerType());
+				.getType().getSize()), new IntegerType(), false, false);
 	}
 
 	public STO DoSizeOf(Type t) {
@@ -1354,7 +1258,6 @@ class MyParser extends parser {
 			return new ErrorSTO(ErrorMsg.error19_Sizeof);
 		}
 
-		// //system.out.println(t.getSize());
 		return new ConstSTO("" + t.getSize(), new IntegerType());
 	}
 
