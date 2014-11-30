@@ -10,7 +10,7 @@ public class Strings {
 	
 	public static final String section = "%24s" + tab + " %s\n";
     public static final String label = "%s:\n";
-    public static final String interc = "%-12s" + tab + "%-12s %-12s\n";
+    public static final String init = "%-12s" + tab + "%-12s %-12s\n";
     public static final String one_param = "%-4s" + tab + "%s\n";
     public static final String two_param = "%-8s" + tab + "%s, %s\n";
     public static final String three_param = "%-8s" + tab + "%s, %s, %s\n";
