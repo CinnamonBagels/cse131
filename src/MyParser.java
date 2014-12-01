@@ -234,7 +234,7 @@ class MyParser extends parser {
 				currentStruct.setStructMembers(sto);
 			}
 			
-			
+			//Assembly here
 		}
 
 		if(isError) {
@@ -255,6 +255,8 @@ class MyParser extends parser {
 		}
 
 		m_symtab.insert(sto);
+		
+		//assembly here?
 	}
 
 	// ----------------------------------------------------------------
@@ -271,6 +273,8 @@ class MyParser extends parser {
 
 			VarSTO sto = new VarSTO(id);
 			m_symtab.insert(sto);
+			
+			//assembly here?
 		}
 	}
 
@@ -315,7 +319,10 @@ class MyParser extends parser {
 					m_errors.print(Formatter.toString(
 							ErrorMsg.error8_CompileTime, csto.getName()));
 				}
+				//assembly here
 			}
+			
+			
 		}
 	}
 
@@ -331,6 +338,9 @@ class MyParser extends parser {
 			}
 			TypedefSTO sto = new TypedefSTO(id, t.clone());
 			m_symtab.insert(sto);
+			//assembly here
+			//however we might have to save space here and do assembly later
+			//because stack stuff.
 		}
 	}
 
@@ -347,6 +357,7 @@ class MyParser extends parser {
 		m_symtab.insert(sto);
 
 		this.currentStruct = (StructType) sto.getType();
+		//assembly here
 		return sto;
 	}
 
@@ -465,7 +476,8 @@ class MyParser extends parser {
 
 		sto.setReturnType(t);
 		sto.setIsReturnRefernece(isReturnReference);
-
+		
+		//assembly here
 		m_symtab.insert(sto);
 		m_symtab.openScope();
 		m_symtab.setFunc(sto);
@@ -510,7 +522,7 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error4_Test, _1
 					.getType().getName()));
 		} else {
-			// evaluate
+			//assembly here?
 		}
 
 		return _1;
@@ -535,7 +547,7 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error4_Test, _1
 					.getType().getName()));
 		} else {
-			// evaluate
+			//assembly here?
 		}
 
 		return _1;
