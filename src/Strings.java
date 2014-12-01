@@ -1,5 +1,5 @@
 public class Strings {
-	public static final String FILE_HEADER = 
+	public static final String file_header = 
 			"/*\n" + 
 			" * Generated %s\n" + 
 			" */\n\n";

@@ -151,6 +151,7 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	void DoProgramEnd() {
 		m_symtab.closeScope();
+		generator.end();
 	}
 
 	// ----------------------------------------------------------------

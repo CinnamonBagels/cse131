@@ -7,6 +7,7 @@ import Types.*;
 public class AssemblyGenerator {
 	//output writer
 	private FileWriter fileWriter;
+	private int indentLevel = 0;
 	public static List<String> gVars = new Vector<String>();
 	public static List<String> sVars = new Vector<String>();
 	public boolean inGlobalScope = true;
@@ -153,10 +154,31 @@ public class AssemblyGenerator {
 		}
 	}
 	
+	public void end(){
+		try{
+			//TODO flush data
+			write("\n");
+			//flush text
+			flushText();
+			fileWriter.close();
+		}catch(IOException e){
+			System.out.println("can't close for some reason");
+			System.exit(1);
+		}
+	}
+	
 	public String assembleString(String temp, String ... args){
 		StringBuilder str = new StringBuilder();
 		str.append(String.format(temp, (Object[])args));
 		return str.toString();
+	}
+	
+	public void increaseIndent(){
+		++indentLevel;
+	}
+	
+	public void decreaseIndent(){
+		--indentLevel;
 	}
 
 }
