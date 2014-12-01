@@ -19,7 +19,6 @@ public class AssemblyGenerator {
 	public AssemblyGenerator(String fileName) {
 		try {
 			fileWriter = new FileWriter(fileName);
-			internalConstants();
 		} catch(IOException e) {
 			System.out.println("nope.");
 			e.printStackTrace();
@@ -45,6 +44,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void beginData(){
+		write("! --globals--\n");
 		write(assembleString(Strings.section, ".section", "\".data\""));
 		write(assembleString(Strings.falign, Strings.align, "4"));
 	}
@@ -99,7 +99,30 @@ public class AssemblyGenerator {
 	}
 	
 	public void flushData(){
-		//TODO fuck
+		if(dQueue.size() > 0){
+			beginData();
+		}else{
+			return;
+		}
+		
+		if(gVars.size() > 0){
+			String vars = "";
+			for(String s : gVars){
+				if(vars.length() == 0){
+					vars = s;
+				}else{
+					vars = vars + "," + s;
+				}
+			}
+			
+			write(assembleString(Strings.section, ".global", vars));
+		}
+		
+		for(String str : dQueue){
+			write(str);
+		}
+		
+		dQueue.clear();
 	}
 	
 	public void doConstInt(String str){
@@ -159,8 +182,11 @@ public class AssemblyGenerator {
 	
 	public void end(){
 		try{
-			//TODO flush data
+			if(dQueue.size() > 0){
+				flushData();
+			}			
 			write("\n");
+			internalConstants();
 			//flush text
 			flushText();
 			fileWriter.close();

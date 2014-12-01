@@ -182,8 +182,13 @@ class MyParser extends parser {
 				}
 			}
 			
+			if(m_symtab.getLevel()==1){
+				sto.isGlobal = true;
+			}
+			
 			if(isStatic){
 				sto.isStatic = true;
+				sto.isGlobal = false;
 			}
 			
 			Type type;
@@ -241,8 +246,11 @@ class MyParser extends parser {
 			}
 					
 			//Assembly here
-			if(m_symtab.getFunc() == null || !sto.isStatic){
-				if(sto.isInitialized){
+			if(m_symtab.getFunc() == null || sto.isStatic){
+				sto.base = "%g0";
+				sto.offset = (m_symtab.getFunc() != null ? m_symtab.getFunc().getName()+"_" : "") + sto.getName();
+				
+				if(sto.isInitialized && !sto.isStatic){
 					generator.doData(sto, (STO)lstIDs.get(sto));
 				}else{
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
@@ -402,10 +410,6 @@ class MyParser extends parser {
 			type = arrayType;
 		}
 		sto1.setType(type);
-		
-		if(m_symtab.getLevel()==1){
-			sto1.isGlobal = true;
-		}
 							
 		return sto1;
 	}
