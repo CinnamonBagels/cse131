@@ -145,8 +145,41 @@ public class AssemblyGenerator {
 		//TODO not sure
 	}
 	
+	public void beginFunction(FuncSTO fsto){
+		String fname = fsto.getName();
+		generateASM(Strings.section, ".section", "\".text\"");
+		generateASM(Strings.falign, Strings.align);
+		generateASM(Strings.section, ".global ", fname);		
+		generateASM(Strings.label, fname);
+		generateASM(Strings.tab + Strings.two_param, "set", "SAVE." + fname, "%g1");
+		generateASM(Strings.tab + Strings.three_param, "save", "%sp", "%g1", "%sp");
+	}
+	
+	public void endFunction(FuncSTO fsto){
+		String fname = fsto.getName();
+		generateASM(Strings.tab + Strings.ret, "ret");
+		generateASM(Strings.tab + Strings.restore, "restore");
+		generateASM("\n");
+		//assembleString(Strings.save, fname, String.valueOf(fsto.stackSize); ??
+		inGlobalScope = true;
+	}
+	
 	public void doMove(String r1, String r2){
 		generateASM(Strings.two_param, Instructions.move, r1, r2);
+	}
+	
+	public void storeConstant(STO sto, ConstSTO csto){
+		generateASM(Strings.tab + "! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
+		//generateASM(Strings.tab + Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		//generateASM(Strings.tab + Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		if(!sto.getType().isFloat()){
+			generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
+			generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+		}else{
+			generateASM(Strings.tab + Strings.two_param, Instructions.set, csto.offset, Registers.l1);
+			generateASM(Strings.tab + Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f1);
+			generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
+		}
 	}
 	
 	public void generateASM(String temp, String ... args){

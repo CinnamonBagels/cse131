@@ -255,8 +255,15 @@ class MyParser extends parser {
 				}else{
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
 				}
-			}else{
 				
+				//TODO static stuff
+			}else{
+				sto.base = "%fp";
+				if(sto.isInitialized){
+					//generator.
+				}else{
+					generator.storeConstant(sto, new ConstSTO("0", new IntegerType(), 0.0));
+				}
 			}
 		}
 
@@ -489,6 +496,8 @@ class MyParser extends parser {
 	// id is func name, type is return type, isReturnReference self explan/
 	// ----------------------------------------------------------------
 	void DoFuncDecl_1(String id, Type t, boolean isReturnReference) {
+		generator.inGlobalScope = false;
+		
 		m_returnMissingFlag = true;
 		if (m_symtab.accessLocal(id) != null) {
 			m_nNumErrors++;
@@ -506,6 +515,8 @@ class MyParser extends parser {
 		m_symtab.setFunc(sto);
 		// get level AFTER you open scope.
 		blockLevel = m_symtab.getLevel();
+		
+		generator.beginFunction(sto);
 	}
 
 	// ----------------------------------------------------------------
@@ -530,6 +541,8 @@ class MyParser extends parser {
 
 		m_symtab.closeScope();
 		m_symtab.setFunc(null);
+		
+		generator.endFunction(func);
 	}
 
 	// expression, codeblock, else
