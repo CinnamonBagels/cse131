@@ -235,9 +235,9 @@ ExternDecl ::= T_EXTERN UndecoratedType IdList:_3 T_SEMI
                     :}
     ;
 
-VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
+VarDecl ::=     OptStatic:_1 UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
                     {: 
-                         RESULT = ((MyParser) parser).DoVarDecl (_3,_2);
+                         RESULT = ((MyParser) parser).DoVarDecl (_3,_2,_1);
                     :}
     ;
 
@@ -286,7 +286,7 @@ FieldsList ::=   FieldList:_1
 
 FieldList ::=     UndecoratedType:_1 IdList:_2 T_SEMI
 					{:
-						RESULT = ((MyParser) parser).DoVarDecl(_2, _1);
+						RESULT = ((MyParser) parser).DoVarDecl(_2, _1, false);
 					:}
     |               FuncDef:_1
     				{:

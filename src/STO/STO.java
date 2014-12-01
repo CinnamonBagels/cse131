@@ -15,7 +15,7 @@ public abstract class STO
 	public String offset;
 	public boolean isGlobal;
 	public boolean isStatic = false;
-	public boolean initialized = false;
+	public boolean isInitialized = false;
 
 	//----------------------------------------------------------------
 	//

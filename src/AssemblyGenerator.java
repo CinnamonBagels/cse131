@@ -77,6 +77,8 @@ public class AssemblyGenerator {
 				str = assembleString(Strings.init, lhs.offset + ":", ".word", "0");
 			}
 			//TODO do the store
+			//x
+			//x .word 0
 		}
 		dQueue.add(str);
 	}

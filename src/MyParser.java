@@ -157,7 +157,7 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	public STO DoVarDecl(Hashtable lstIDs, Type t) {
+	public STO DoVarDecl(Hashtable lstIDs, Type t, boolean isStatic) {
 		if (t == null) {
 			return new ErrorSTO("Missing type in delcaration.");
 		}
@@ -182,6 +182,9 @@ class MyParser extends parser {
 				}
 			}
 			
+			if(isStatic){
+				sto.isStatic = true;
+			}
 			
 			Type type;
 			if(sto.getType() == null){
@@ -216,6 +219,8 @@ class MyParser extends parser {
 			if(((STO) lstIDs.get(sto)).getName().equals("Placeholder")) {
 				
 			} else if ((lstIDs.get(sto) instanceof STO)) {
+				sto.isInitialized = true;
+				
 				if (!((STO) lstIDs.get(sto)).getType().isAssignableTo(type)) {
 					m_nNumErrors++;
 					m_errors.print(Formatter.toString(ErrorMsg.error8_Assign,
@@ -234,8 +239,17 @@ class MyParser extends parser {
 			if(currentStruct != null && m_symtab.getFunc() == null) {
 				currentStruct.setStructMembers(sto);
 			}
-			
+					
 			//Assembly here
+			if(m_symtab.getFunc() == null || !sto.isStatic){
+				if(sto.isInitialized){
+					generator.doData(sto, (STO)lstIDs.get(sto));
+				}else{
+					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
+				}
+			}else{
+				
+			}
 		}
 
 		if(isError) {
@@ -388,6 +402,10 @@ class MyParser extends parser {
 			type = arrayType;
 		}
 		sto1.setType(type);
+		
+		if(m_symtab.getLevel()==1){
+			sto1.isGlobal = true;
+		}
 							
 		return sto1;
 	}
