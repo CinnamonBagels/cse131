@@ -11,6 +11,11 @@ public abstract class STO
 	private Type m_type;
 	private boolean m_isAddressable;
 	private boolean m_isModifiable;
+	public String base;
+	public String offset;
+	public boolean isGlobal;
+	public boolean isStatic = false;
+	public boolean initialized = false;
 
 	//----------------------------------------------------------------
 	//
