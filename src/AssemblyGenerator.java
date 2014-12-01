@@ -17,8 +17,8 @@ public class AssemblyGenerator {
 	
 	public AssemblyGenerator(String fileName) {
 		try {
-			internalConstants();
 			fileWriter = new FileWriter(fileName);
+			internalConstants();
 		} catch(IOException e) {
 			System.out.println("nope.");
 			e.printStackTrace();
@@ -145,6 +145,7 @@ public class AssemblyGenerator {
 	
 	public void write(String str){
 		try{
+			System.out.println(str);
 			fileWriter.write(str);
 		}
 		catch(IOException e){
