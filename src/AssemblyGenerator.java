@@ -125,7 +125,7 @@ public class AssemblyGenerator {
 		dQueue.clear();
 	}
 	
-	public void doConstInt(String str){
+	public void doPrintConstInt(String str){
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, str, Registers.o1);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
@@ -133,7 +133,7 @@ public class AssemblyGenerator {
 		generateASM("\n");
 	}
 	
-	public void doConstBool(String str){
+	public void doPrintConstBool(String str){
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, str.equals("true") ? Strings.boolt : Strings.boolf, Registers.o1);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
@@ -141,7 +141,7 @@ public class AssemblyGenerator {
 		generateASM("\n");
 	}
 	
-	public void doConstFloat(String str){
+	public void doPrintConstFloat(String str){
 		//TODO not sure
 	}
 	
