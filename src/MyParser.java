@@ -157,7 +157,7 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	public STO DoVarDecl(Hashtable lstIDs, Type t) {
+	public STO DoVarDecl(Hashtable lstIDs, Type t, boolean isStatic) {
 		if (t == null) {
 			return new ErrorSTO("Missing type in delcaration.");
 		}
@@ -182,6 +182,14 @@ class MyParser extends parser {
 				}
 			}
 			
+			if(m_symtab.getLevel()==1){
+				sto.isGlobal = true;
+			}
+			
+			if(isStatic){
+				sto.isStatic = true;
+				sto.isGlobal = false;
+			}
 			
 			Type type;
 			if(sto.getType() == null){
@@ -216,6 +224,8 @@ class MyParser extends parser {
 			if(((STO) lstIDs.get(sto)).getName().equals("Placeholder")) {
 				
 			} else if ((lstIDs.get(sto) instanceof STO)) {
+				sto.isInitialized = true;
+				
 				if (!((STO) lstIDs.get(sto)).getType().isAssignableTo(type)) {
 					m_nNumErrors++;
 					m_errors.print(Formatter.toString(ErrorMsg.error8_Assign,
@@ -234,8 +244,27 @@ class MyParser extends parser {
 			if(currentStruct != null && m_symtab.getFunc() == null) {
 				currentStruct.setStructMembers(sto);
 			}
-			
+					
 			//Assembly here
+			if(m_symtab.getFunc() == null || sto.isStatic){
+				sto.base = "%g0";
+				sto.offset = (m_symtab.getFunc() != null ? m_symtab.getFunc().getName()+"_" : "") + sto.getName();
+				
+				if(sto.isInitialized && !sto.isStatic){
+					generator.doData(sto, (STO)lstIDs.get(sto));
+				}else{
+					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
+				}
+				
+				//TODO static stuff
+			}else{
+				sto.base = "%fp";
+				if(sto.isInitialized){
+					//generator.
+				}else{
+					generator.storeConstant(sto, new ConstSTO("0", new IntegerType(), 0.0));
+				}
+			}
 		}
 
 		if(isError) {
@@ -467,6 +496,8 @@ class MyParser extends parser {
 	// id is func name, type is return type, isReturnReference self explan/
 	// ----------------------------------------------------------------
 	void DoFuncDecl_1(String id, Type t, boolean isReturnReference) {
+		generator.inGlobalScope = false;
+		
 		m_returnMissingFlag = true;
 		if (m_symtab.accessLocal(id) != null) {
 			m_nNumErrors++;
@@ -484,6 +515,8 @@ class MyParser extends parser {
 		m_symtab.setFunc(sto);
 		// get level AFTER you open scope.
 		blockLevel = m_symtab.getLevel();
+		
+		generator.beginFunction(sto);
 	}
 
 	// ----------------------------------------------------------------
@@ -508,6 +541,8 @@ class MyParser extends parser {
 
 		m_symtab.closeScope();
 		m_symtab.setFunc(null);
+		
+		generator.endFunction(func);
 	}
 
 	// expression, codeblock, else

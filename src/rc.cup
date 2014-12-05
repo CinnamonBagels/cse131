@@ -109,7 +109,6 @@ non terminal
     ExternDecl,
     VarDecl,
     ConstDecl,
-    OptStatic,
     TypedefDecl,
     OptRef,
     FieldsList,
@@ -145,6 +144,10 @@ non terminal
 
 non terminal String
     ;
+    
+non terminal Boolean
+	OptStatic
+	;
 
 non terminal STO
     Expr,
@@ -235,9 +238,9 @@ ExternDecl ::= T_EXTERN UndecoratedType IdList:_3 T_SEMI
                     :}
     ;
 
-VarDecl ::=     OptStatic UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
+VarDecl ::=     OptStatic:_1 UndecoratedType:_2 IdListWOptInit:_3 T_SEMI
                     {: 
-                         RESULT = ((MyParser) parser).DoVarDecl (_3,_2);
+                         RESULT = ((MyParser) parser).DoVarDecl (_3,_2,(Boolean)_1);
                     :}
     ;
 
@@ -249,7 +252,13 @@ ConstDecl ::=  OptStatic T_CONST UndecoratedType:_2 IdListWInit:_3 T_SEMI
 
 
 OptStatic ::=   T_STATIC
-    |               /* empty */	
+					{:
+						RESULT = true;
+					:}
+    |               /* empty */
+    				{:
+    					RESULT = false;
+    				:}	
     ;
 
 
@@ -286,7 +295,7 @@ FieldsList ::=   FieldList:_1
 
 FieldList ::=     UndecoratedType:_1 IdList:_2 T_SEMI
 					{:
-						RESULT = ((MyParser) parser).DoVarDecl(_2, _1);
+						RESULT = ((MyParser) parser).DoVarDecl(_2, _1, false);
 					:}
     |               FuncDef:_1
     				{:

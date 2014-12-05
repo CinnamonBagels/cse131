@@ -19,7 +19,6 @@ public class AssemblyGenerator {
 	public AssemblyGenerator(String fileName) {
 		try {
 			fileWriter = new FileWriter(fileName);
-			internalConstants();
 		} catch(IOException e) {
 			System.out.println("nope.");
 			e.printStackTrace();
@@ -45,6 +44,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void beginData(){
+		write("! --globals--\n");
 		write(assembleString(Strings.section, ".section", "\".data\""));
 		write(assembleString(Strings.falign, Strings.align, "4"));
 	}
@@ -77,6 +77,8 @@ public class AssemblyGenerator {
 				str = assembleString(Strings.init, lhs.offset + ":", ".word", "0");
 			}
 			//TODO do the store
+			//x
+			//x .word 0
 		}
 		dQueue.add(str);
 	}
@@ -97,10 +99,33 @@ public class AssemblyGenerator {
 	}
 	
 	public void flushData(){
-		//TODO fuck
+		if(dQueue.size() > 0){
+			beginData();
+		}else{
+			return;
+		}
+		
+		if(gVars.size() > 0){
+			String vars = "";
+			for(String s : gVars){
+				if(vars.length() == 0){
+					vars = s;
+				}else{
+					vars = vars + "," + s;
+				}
+			}
+			
+			write(assembleString(Strings.section, ".global", vars));
+		}
+		
+		for(String str : dQueue){
+			write(str);
+		}
+		
+		dQueue.clear();
 	}
 	
-	public void doConstInt(String str){
+	public void doPrintConstInt(String str){
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, str, Registers.o1);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
@@ -108,7 +133,7 @@ public class AssemblyGenerator {
 		generateASM("\n");
 	}
 	
-	public void doConstBool(String str){
+	public void doPrintConstBool(String str){
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, str.equals("true") ? Strings.boolt : Strings.boolf, Registers.o1);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
@@ -116,12 +141,45 @@ public class AssemblyGenerator {
 		generateASM("\n");
 	}
 	
-	public void doConstFloat(String str){
+	public void doPrintConstFloat(String str){
 		//TODO not sure
+	}
+	
+	public void beginFunction(FuncSTO fsto){
+		String fname = fsto.getName();
+		generateASM(Strings.section, ".section", "\".text\"");
+		generateASM(Strings.falign, Strings.align);
+		generateASM(Strings.section, ".global ", fname);		
+		generateASM(Strings.label, fname);
+		generateASM(Strings.tab + Strings.two_param, "set", "SAVE." + fname, "%g1");
+		generateASM(Strings.tab + Strings.three_param, "save", "%sp", "%g1", "%sp");
+	}
+	
+	public void endFunction(FuncSTO fsto){
+		String fname = fsto.getName();
+		generateASM(Strings.tab + Strings.ret, "ret");
+		generateASM(Strings.tab + Strings.restore, "restore");
+		generateASM("\n");
+		//assembleString(Strings.save, fname, String.valueOf(fsto.stackSize); ??
+		inGlobalScope = true;
 	}
 	
 	public void doMove(String r1, String r2){
 		generateASM(Strings.two_param, Instructions.move, r1, r2);
+	}
+	
+	public void storeConstant(STO sto, ConstSTO csto){
+		generateASM(Strings.tab + "! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
+		//generateASM(Strings.tab + Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		//generateASM(Strings.tab + Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		if(!sto.getType().isFloat()){
+			generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
+			generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+		}else{
+			generateASM(Strings.tab + Strings.two_param, Instructions.set, csto.offset, Registers.l1);
+			generateASM(Strings.tab + Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f1);
+			generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
+		}
 	}
 	
 	public void generateASM(String temp, String ... args){
@@ -157,8 +215,11 @@ public class AssemblyGenerator {
 	
 	public void end(){
 		try{
-			//TODO flush data
+			if(dQueue.size() > 0){
+				flushData();
+			}			
 			write("\n");
+			internalConstants();
 			//flush text
 			flushText();
 			fileWriter.close();
