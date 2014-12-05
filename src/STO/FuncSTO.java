@@ -12,6 +12,7 @@ public class FuncSTO extends STO
 	private Type m_returnType;
 	private boolean isReturnReference;
 	private Vector<VarSTO> params;
+	private int stackSize;
 	
 	
 	//----------------------------------------------------------------
@@ -21,6 +22,7 @@ public class FuncSTO extends STO
 	{
 		super (strName);
 		setReturnType(null);
+		this.stackSize = 0;
                 // You may want to change the isModifiable and isAddressable                      
                 // fields as necessary
 	}
@@ -28,6 +30,7 @@ public class FuncSTO extends STO
 	public FuncSTO(String strName, Type typ) {
 		super(strName, typ);
 		setReturnType(null);
+		this.stackSize = 0;
 	}
 	
 	
@@ -83,5 +86,9 @@ public class FuncSTO extends STO
 	
 	public Vector<VarSTO> getParameters() {
 		return this.getFunctionPointerType().params;
+	}
+	
+	public int getStackSize() {
+		return this.stackSize;
 	}
 }
