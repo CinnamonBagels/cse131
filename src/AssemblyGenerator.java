@@ -13,6 +13,7 @@ public class AssemblyGenerator {
 	public boolean inGlobalScope = true;
 	public List<String> tQueue = new Vector<String>();
 	public List<String> dQueue = new Vector<String>();
+	public int stringLits = 0;
 	
 	private List<String> executeBuffer = new Vector<String>();
 	
@@ -31,6 +32,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.section,".section","\".rodata\""));
 		write(assembleString(Strings.init, Strings.endl + ":", ".asciz", "\"\\n\""));
 		write(assembleString(Strings.init, Strings.intfmt + ":", ".asciz", "\"%d\""));
+		write(assembleString(Strings.init, Strings.strfmt + ":", ".asciz", "\"%s\""));
 		write(assembleString(Strings.init, Strings.boolt + ":", ".asciz", "\"true\""));
 		write(assembleString(Strings.init, Strings.boolf + ":", ".asciz", "\"false\""));
 		
@@ -262,7 +264,7 @@ public class AssemblyGenerator {
 		if(left.getType().isFloat() && right.getType().isInt()) {
 			//stuff here
 		} else {
-			generateComment("init var here");
+			generateComment("setting " + left.getName() + " = " + ((ConstSTO) right).getName());
 			generateASM(Strings.tab + Strings.two_param, Instructions.set, left.offset, Registers.l0);
 			generateASM(Strings.tab + Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
 			
@@ -338,5 +340,30 @@ public class AssemblyGenerator {
 			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
 		}
+	}
+
+	public void doCoutEndl() {
+		// TODO Auto-generated method stub
+		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.endl, Registers.o0);
+		generateASM(Strings.tab + Strings.call_op, Strings.printf);
+		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.newline);
+	}
+	
+	//whoops, assemblestring is already here.
+	public String generateString(String fmt, String ... args) {
+		StringBuilder str = new StringBuilder();
+		str.append(String.format(fmt, (Object[])args));
+		return str.toString();
+		
+	}
+	
+	public void printString(String s) {
+		write(assembleString(Strings.init, "str_" + ++stringLits + ":", ".asciz", "\"" + s + "\""));
+		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
+		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.string + stringLits, Registers.o1);
+		generateASM(Strings.tab + Strings.call_op, Strings.printf);
+		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.newline);
 	}
 }

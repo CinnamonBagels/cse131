@@ -1402,11 +1402,25 @@ class MyParser extends parser {
 		}
 	}
 
-	public STO DoReferenceOP(STO sto) {
-		return null;
+	public void doCout(STO sto) {
+		if(sto != null || !sto.isError()) {
+			if(sto.isConst()) {
+				if(sto.getType() == null) {
+					generator.printString(sto.getName());
+				} else {
+					if(sto.getType().isInt()) {
+						generator.doPrintConstInt("" + ((ConstSTO) sto).getIntValue());
+					} else if(sto.getType().isFloat()) {
+						generator.doPrintConstInt("" + ((ConstSTO) sto).getValue());
+					} else if(sto.getType().isBool()) {
+						generator.doPrintConstInt("" + ((ConstSTO) sto).getBoolValue());
+					}
+				}
+			}
+		}
 	}
-
-	public Type DoDereferenceOp(STO sto) {
-		return null;
+	
+	public void doCoutEndl() {
+		generator.doCoutEndl();
 	}
 }

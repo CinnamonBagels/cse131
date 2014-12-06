@@ -673,7 +673,12 @@ ReadStmt ::=        T_CIN T_ISTREAM Designator T_SEMI
     ;
 
 
-WriteStmt ::=       T_COUT T_OSTREAM WritePairList T_SEMI
+WriteStmt ::=       T_COUT T_OSTREAM WritePairList:_1 T_SEMI
+					{:
+						//cout can be int or string, cannot precast.
+						//((MyParser) parser).doCout(_1);
+						//we'll just do it in writepairlist lol.
+					:}
     ;
 
 NewStmt ::=       T_NEW Designator:_1 T_SEMI
@@ -698,13 +703,26 @@ UnarySign ::= 	  T_PLUS
 					:}
 	;
     
-WritePairList ::=   WritePair
-    |               WritePairList T_OSTREAM WritePair
+WritePairList ::=   WritePair:_1
+					{:
+						RESULT = _1;
+					:}
+    |               WritePairList:_1 T_OSTREAM WritePair
+    				{:
+    					RESULT = _1;
+    				:}
     ;
 
 
-WritePair ::=    Expr
+WritePair ::=    Expr:_1
+				{:
+					//we'll do it anyways since sto.
+					((MyParser) parser).doCout((STO)_1);
+				:}
     |               T_ENDL
+    			{:
+    				((MyParser) parser).doCoutEndl();
+    			:}
     ;
 
 
