@@ -1,11 +1,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     y,a,b,c
+                 .global     y,a
 y:              .word        0           
 a:              .word        0           
-b:              .word        0           
-c:              .word        0           
 z:              .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -21,10 +19,17 @@ _boolF:         .asciz       "false"
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         -4, %l0
-    add         %fp, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
     ret 
     restore
 SAVE.main = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo
+foo:
+    set         SAVE.foo, %g1
+    save        %sp, %g1, %sp
+    ret 
+    restore
+SAVE.foo = -(92 + 0) & -8

@@ -1,8 +1,10 @@
-int y;
-int a;
-int b;
-int c;
-static int z;
+bool y;
+bool a;
+static bool z;
 function : void main() {
-    int x = 0;
+    bool x = false;
+}
+
+function : void foo() {
+    
 }

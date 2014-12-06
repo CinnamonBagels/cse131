@@ -202,7 +202,19 @@ public class AssemblyGenerator {
 		}else{
 			executeBuffer.add(str.toString());
 		}
-	}	
+	}
+	
+	public void generateComment(String s) {
+		StringBuilder str = new StringBuilder();
+		str.append("/* ");
+		str.append(s);
+		str.append(" */\n");
+		if(!inGlobalScope) {
+			tQueue.add(str.toString());
+		} else {
+			executeBuffer.add(str.toString());
+		}
+	}
 	
 	public void write(String str){
 		try{
@@ -248,17 +260,19 @@ public class AssemblyGenerator {
 	public void localVarInit(STO left, STO right) {
 		//checking for automatic int -> float casting
 		if(left.getType().isFloat() && right.getType().isInt()) {
-			
+			//stuff here
 		} else {
-			generateASM(Strings.tab + Strings.two_param, Instructions.set, left.offset, Registers.l0);
-			generateASM(Strings.tab + Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
-			
 			if(right.isConst()) {
 				if(right.getType().isInt() || right.getType().isBool()) {
 					generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l1);
 					generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 				} else if(right.getType().isFloat()) {
-					generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getValue()));
+					generateComment("setting float");
+					generateASM(Strings.tab + Strings.two_param, Instructions.set, left.offset, Registers.l1);
+					//l1 f0, l0
+					generateASM(Strings.tab + Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
+					generateASM(Strings.tab + Strings.two_param, Instructions.set, Registers.f0, "[" + Registers.l0 + "]");
+					
 				}
 			}
 		}
