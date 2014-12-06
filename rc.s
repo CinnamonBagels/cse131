@@ -12,6 +12,8 @@ _boolF:         .asciz       "false"
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
+    set         0, %l1
+    st          %l1, [%l0]
     ret 
     restore
 SAVE.main = -(92 + 4) & -8

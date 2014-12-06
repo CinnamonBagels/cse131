@@ -1,4 +1,4 @@
 
 function : void main() {
-    bool x;
+    bool  x = false;
 }
