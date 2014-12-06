@@ -260,10 +260,9 @@ class MyParser extends parser {
 			}else{
 				
 				FuncSTO func = m_symtab.getFunc();
-				
 				func.addToStack(sto.getType().getSize());
 				sto.base = Registers.fp;
-				sto.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
+				sto.offset = String.valueOf(-(func.getStackSize()));
 				
 //				if(currentStruct == null) {
 //					sto.base = Registers.fp;

@@ -249,6 +249,18 @@ public class AssemblyGenerator {
 		//checking for automatic int -> float casting
 		if(left.getType().isFloat() && right.getType().isInt()) {
 			
+		} else {
+			generateASM(Strings.tab + Strings.two_param, Instructions.set, left.offset, Registers.l0);
+			generateASM(Strings.tab + Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
+			
+			if(right.isConst()) {
+				if(right.getType().isInt() || right.getType().isBool()) {
+					generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l1);
+					generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+				} else if(right.getType().isFloat()) {
+					generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getValue()));
+				}
+			}
 		}
 	}
 	
