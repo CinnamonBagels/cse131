@@ -24,12 +24,3 @@ main:
     ret 
     restore
 SAVE.main = -(92 + 4) & -8
-                .section     ".text"
-                .align 4
-                .global      foo
-foo:
-    set         SAVE.foo, %g1
-    save        %sp, %g1, %sp
-    ret 
-    restore
-SAVE.foo = -(92 + 0) & -8

@@ -4,7 +4,3 @@ static bool z;
 function : void main() {
     bool x = false;
 }
-
-function : void foo() {
-    
-}
