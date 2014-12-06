@@ -1,6 +1,4 @@
-bool y;
-bool a;
-static bool z;
+
 function : void main() {
-    bool x = false;
+    bool x;
 }

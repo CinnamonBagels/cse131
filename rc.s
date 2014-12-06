@@ -1,10 +1,3 @@
-! --globals--
-                .section     ".data"
-                .align 4
-                 .global     y,a
-y:              .word        0           
-a:              .word        0           
-z:              .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -19,8 +12,6 @@ _boolF:         .asciz       "false"
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         0, %l1
-    st          %l1, [%l0]
     ret 
     restore
 SAVE.main = -(92 + 4) & -8
