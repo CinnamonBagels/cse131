@@ -1,4 +1,5 @@
 
 function : void main() {
-    cout << "hi" << endl;
+	int x = 0;
+    cout << x << endl;
 }
