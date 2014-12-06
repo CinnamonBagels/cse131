@@ -33,7 +33,6 @@ public class FuncSTO extends STO
 		this.stackSize = 0;
 	}
 	
-	
 	private FunctionPointerType getFunctionPointerType() {
 		return (FunctionPointerType) this.getType();
 	}
@@ -90,5 +89,9 @@ public class FuncSTO extends STO
 	
 	public int getStackSize() {
 		return this.stackSize;
+	}
+	
+	public void addToStack(int size) {
+		this.stackSize += size;
 	}
 }

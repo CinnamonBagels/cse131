@@ -247,7 +247,7 @@ class MyParser extends parser {
 					
 			//Assembly here
 			if(m_symtab.getFunc() == null || sto.isStatic){
-				sto.base = "%g0";
+				sto.base = Registers.g0;
 				sto.offset = (m_symtab.getFunc() != null ? m_symtab.getFunc().getName()+"_" : "") + sto.getName();
 				
 				if(sto.isInitialized && !sto.isStatic){
@@ -258,11 +258,23 @@ class MyParser extends parser {
 				
 				//TODO static stuff
 			}else{
-				sto.base = "%fp";
-				if(sto.isInitialized){
-					//generator.
+				
+				FuncSTO func = m_symtab.getFunc();
+				
+				func.addToStack(sto.getType().getSize());
+				sto.base = Registers.fp;
+				sto.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
+				
+//				if(currentStruct == null) {
+//					sto.base = Registers.fp;
+//					//sto.offset = 
+//				}
+				
+				if(sto.isInitialized) {
+					generator.localVarInit(sto, (STO)lstIDs.get(sto));
 				}else{
-					generator.storeConstant(sto, new ConstSTO("0", new IntegerType(), 0.0));
+					//we dont initialize if inside function.
+					//generator.storeConstant(sto, new ConstSTO("0", new IntegerType(), 0.0));
 				}
 			}
 		}
@@ -498,25 +510,43 @@ class MyParser extends parser {
 	void DoFuncDecl_1(String id, Type t, boolean isReturnReference) {
 		generator.inGlobalScope = false;
 		
-		m_returnMissingFlag = true;
 		if (m_symtab.accessLocal(id) != null) {
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.redeclared_id, id));
 		}
-
-		FuncSTO sto = new FuncSTO(id, new FunctionPointerType("funcptr"));
-
-		sto.setReturnType(t);
-		sto.setIsReturnRefernece(isReturnReference);
+		FuncSTO funcSTO = null;
+		m_returnMissingFlag = true;
+		
+		if(currentStruct != null) {
+			if(currentStruct.getScope().access(id) != null) {
+				m_nNumErrors++;
+				m_errors.print("function already defined in " + currentStruct.getName());
+			}
+			
+			funcSTO = new FuncSTO(id, new FunctionPointerType(id));
+			funcSTO.setReturnType(t);
+			funcSTO.setIsReturnRefernece(isReturnReference);
+		} else {
+			if(id.equals("main")) {
+				funcSTO = new FuncSTO(id, new FunctionPointerType("main"));
+			} else {
+				funcSTO = new FuncSTO(id, new FunctionPointerType(id));
+			}
+			
+			funcSTO.setReturnType(t);
+			funcSTO.setIsReturnRefernece(isReturnReference);
+		}
 		
 		//assembly here
-		m_symtab.insert(sto);
+		m_symtab.insert(funcSTO);
 		m_symtab.openScope();
-		m_symtab.setFunc(sto);
+		m_symtab.setFunc(funcSTO);
 		// get level AFTER you open scope.
 		blockLevel = m_symtab.getLevel();
+		funcSTO.offset = funcSTO.getName();
+		funcSTO.base = Registers.g0;
 		
-		generator.beginFunction(sto);
+		generator.beginFunction(funcSTO);
 	}
 
 	// ----------------------------------------------------------------

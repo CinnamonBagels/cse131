@@ -243,4 +243,68 @@ public class AssemblyGenerator {
 		--indentLevel;
 	}
 
+	public void localVarInit(STO left, STO right) {
+		//checking for automatic int -> float casting
+		if(left.getType().isFloat() && right.getType().isInt()) {
+			
+		}
+	}
+	
+	public String promoteCastIntToFloat(STO left, STO right) {
+		STO tmp = new ExprSTO("promoteCasting", new FloatType());
+		tmp.base = Registers.fp;
+		tmp.offset = "" + tmp.getType().getSize();
+		
+		if(right.isConst()) {
+			storeVariable(tmp, right);
+			loadVariable(Registers.f1, tmp);
+		} else {
+			loadVariable(Registers.f1, right);
+		}
+		
+		generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+		
+		return Registers.f1;
+	}
+	
+	public void storeVariable(STO dest, STO value) {
+		String dest_register = "";
+		
+		if(value.getType().isFloat()) {
+			dest_register += Registers.f1;
+		} else {
+			dest_register += Registers.l1;
+		}
+		
+		if(value.isConst() && !value.getType().isFloat()) {
+			generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) value).getIntValue(), dest_register);
+		} else {
+			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l0);
+			generateASM(Strings.three_param, Instructions.add, value.base, Registers.l0, Registers.l0);
+			//???
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", dest_register);
+		}
+		
+		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l0, Registers.l0);
+		generateASM(Strings.two_param, Instructions.load, dest_register, "[" + Registers.l0 + "]");
+		
+	}
+
+	public void loadVariable(String register, STO sto) {
+		if(sto.isConst()) {
+			Type type = ((ConstSTO) sto).getType();
+			
+			if(type.isInt() || type.isBool()) {
+				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getIntValue(), register);
+			} else if(type.isFloat()) {
+				//i think we can leave it as a getvalue for now.
+				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getValue(), register);
+			}
+		} else {
+			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
+		}
+	}
 }
