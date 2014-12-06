@@ -12,6 +12,9 @@ _boolF:         .asciz       "false"
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
+/* init var here */
+    set         -4, %l0
+    add         %fp, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
     ret 

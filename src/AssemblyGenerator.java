@@ -262,6 +262,10 @@ public class AssemblyGenerator {
 		if(left.getType().isFloat() && right.getType().isInt()) {
 			//stuff here
 		} else {
+			generateComment("init var here");
+			generateASM(Strings.tab + Strings.two_param, Instructions.set, left.offset, Registers.l0);
+			generateASM(Strings.tab + Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
+			
 			if(right.isConst()) {
 				if(right.getType().isInt() || right.getType().isBool()) {
 					generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l1);
@@ -278,7 +282,7 @@ public class AssemblyGenerator {
 		}
 	}
 	
-	public String promoteCastIntToFloat(STO left, STO right) {
+	public String promoteIntToFloat(STO left, STO right) {
 		STO tmp = new ExprSTO("promoteCasting", new FloatType());
 		tmp.base = Registers.fp;
 		tmp.offset = "" + tmp.getType().getSize();
