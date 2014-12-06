@@ -23,4 +23,4 @@ main:
     save        %sp, %g1, %sp
     ret 
     restore
-
+SAVE.main = -(92 + 4) & -8

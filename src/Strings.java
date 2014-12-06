@@ -40,4 +40,5 @@ public class Strings {
     
     public static final String falign = "%24s\n";
     public static final String align = ".align 4";
+    public static final String newline = "\n";
 }

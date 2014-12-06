@@ -159,7 +159,9 @@ public class AssemblyGenerator {
 		String fname = fsto.getName();
 		generateASM(Strings.tab + Strings.ret, "ret");
 		generateASM(Strings.tab + Strings.restore, "restore");
-		generateASM("\n");
+		
+		generateASM("SAVE." + fname + " = " + "-(92 + " + fsto.getStackSize() + ") & -8");
+		generateASM(Strings.newline);
 		//assembleString(Strings.save, fname, String.valueOf(fsto.stackSize); ??
 		inGlobalScope = true;
 	}
