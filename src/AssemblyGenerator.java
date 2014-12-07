@@ -70,7 +70,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.ret, "ret"));
 		write(assembleString(Strings.restore, "restore"));
 		
-		write("SAVE.printFLoat = -(92 + 8) & -8");
+		write("SAVE.printFloat = -(92 + 8) & -8");
 		write(Strings.newline);
 	}
 	

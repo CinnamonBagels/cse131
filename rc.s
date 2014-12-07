@@ -32,7 +32,7 @@ printFloat:
 
     ret 
     restore
-SAVE.printFLoat = -(92 + 8) & -8
+SAVE.printFloat = -(92 + 8) & -8
                 .section     ".text"
                 .align 4
                 .global      main
