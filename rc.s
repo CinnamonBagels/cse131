@@ -62,6 +62,7 @@ main:
     set         float_2, %l0
     ld          [%l0], %f0
     call    printFloat
+    nop
 
 /* printing string */
     set         _strFmt, %o0

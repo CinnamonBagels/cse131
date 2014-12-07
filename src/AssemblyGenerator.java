@@ -184,7 +184,9 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, Strings.assignFloat + stringLits, Registers.l0);
 		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.f0);
 		generateASM(Strings.call_op, Strings.printfloat);
+		generateASM(Strings.nop);
 		dQueue.add(assembleString(Strings.init, Strings.assignFloat + stringLits++ + ":", Strings.single, "0r" + str));
+		
 		generateASM(Strings.newline);
 	}
 	
@@ -421,7 +423,6 @@ public class AssemblyGenerator {
 	public void printInt(STO sto) {
 		generateComment("Printing int");
 		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
-		loadVariable(Registers.o1, sto);
 		generateASM(Strings.call_op, Strings.printf);
 		generateASM(Strings.nop);
 		generateComment("Done printing int.");
