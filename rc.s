@@ -51,7 +51,7 @@ main:
     set         0, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
-    set _intFmt %o0
+    set _intFmt, %o0
     set %l0, %o1
     call printf
     nop
