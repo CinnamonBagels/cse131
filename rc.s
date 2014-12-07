@@ -1,7 +1,9 @@
+str_3:          .asciz       "\n"        
 ! --globals--
                 .section     ".data"
                 .align 4
-float_0:        .single      0r430.35    
+float_0:        .single      0r420.25    
+float_1:        .single      0r662.5     
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -37,6 +39,36 @@ SAVE.printFloat = -(92 + 8) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
+/* printf on int */
+    set         _intFmt, %o0
+    set         420, %o1
+    call    printf
+    nop
+
+    set         _endl, %o0
+    call    printf
+    nop
+/* printf on int */
+    set         _intFmt, %o0
+    set         214, %o1
+    call    printf
+    nop
+
+    set         _endl, %o0
+    call    printf
+    nop
+/* printf on int */
+    set         _intFmt, %o0
+    set         1082.75, %o1
+    call    printf
+    nop
+
+/* printing string */
+    set         _strFmt, %o0
+    set         str_3, %o1
+    call    printf
+    nop
+/* Done printing string. */
 /* printf on int */
     set         _intFmt, %o0
     set         4, %o1
