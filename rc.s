@@ -13,25 +13,9 @@ _boolF:         .asciz       "false"
 foo:
         set         SAVE.foo, %g1
         save        %sp, %g1, %sp
-/* setting y = 0 */
-        set         0, %l0
-        add         %fp, %l0, %l0
-        set         0, %l1
-        st          %l1, [%l0]
-/* Done. */
-/* Printing int */
-        set         _intFmt, %o0
-/* Loading Variable */
-    set         0, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %o1
-/* Done loading variable. */
-        call    printf
-        nop
-/* Done printing int. */
         ret 
         restore
-SAVE.foo = -(92 + 4) & -8
+SAVE.foo = -(92 + 0) & -8
                 .section     ".text"
                 .align 4
                 .global      main
@@ -44,17 +28,11 @@ main:
         set         0, %l1
         st          %l1, [%l0]
 /* Done. */
-    call    foo
-    nop
 /* Printing bool */
 /* Loading Variable */
     set         0, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
-    set _intFmt, %o0
-    mov %l0, %o1
-    call printf
-    nop
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
