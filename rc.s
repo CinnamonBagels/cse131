@@ -15,26 +15,6 @@ _boolT:         .asciz       "true"
 _boolF:         .asciz       "false"     
 rfmt:           .asciz       "%.21f"     
 
-/* AUTOMATICALLY GENERATED FLOAT PRINTER */
-                .section     ".text"
-            .align 4
-            .global    printFloat
-printFloat:
-    set         SAVE.printFloat, %g1
-    save        %sp, %g1, %sp
-
-    fstod       %f0, %f0
-    std         %f0, [%fp-8]
-
-    set         rfmt, %o0
-    ld          [%fp-8], %o1
-    ld          [%fp-4], %o2
-    call    printf
-    nop
-
-    ret 
-    restore
-SAVE.printFloat = -(92 + 8) & -8
                 .section     ".text"
                 .align 4
                 .global      main

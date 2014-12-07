@@ -38,41 +38,8 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.boolf + ":", ".asciz", "\"false\""));
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
 		write(assembleString("\n"));
-		
-		this.createPrintFloat();
-		
 	}
 	
-	public void createPrintFloat() {
-		//oh god please tabs why
-		write("/* AUTOMATICALLY GENERATED FLOAT PRINTER */\n");
-		write(assembleString(Strings.section, ".section", Sections.text));
-		write(Strings.tab + Strings.tab + Strings.tab + Strings.align);
-		write(Strings.newline);
-		
-		write(Strings.tab + Strings.tab + Strings.global + Strings.tab + Strings.printfloat);
-		write(Strings.newline);
-		write(Strings.printfloat + ":\n");
-		write(assembleString(Strings.two_param, Instructions.set, "SAVE." + Strings.printfloat, Registers.g1));
-		write(assembleString(Strings.three_param, "save", Registers.sp, Registers.g1, Registers.sp));
-		write(Strings.newline);
-		
-		write(assembleString(Strings.two_param, Instructions.fstod, Registers.f0, Registers.f0));
-		write(assembleString(Strings.two_param, Instructions.std, Registers.f0, "[" + Registers.fp + "-8]"));
-		write(Strings.newline);
-		write(assembleString(Strings.two_param, Instructions.set, Strings.rfmt, Registers.o0));
-		write(assembleString(Strings.two_param, Instructions.load, "[" + Registers.fp + "-8]", Registers.o1));
-		write(assembleString(Strings.two_param, Instructions.load, "[" + Registers.fp + "-4]", Registers.o2));
-		write(assembleString(Strings.call_op, Strings.printf));
-		write(Strings.nop);
-		write(Strings.newline);
-		
-		write(assembleString(Strings.ret, "ret"));
-		write(assembleString(Strings.restore, "restore"));
-		
-		write("SAVE.printFloat = -(92 + 8) & -8");
-		write(Strings.newline);
-	}
 	
 	public void beginText(){
 		// from slides
