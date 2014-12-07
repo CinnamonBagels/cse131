@@ -28,6 +28,12 @@ main:
         set         0, %l1
         st          %l1, [%l0]
 /* Done. */
+/* printf on int */
+        set         _intFmt, %o0
+        set         5, %o1
+        call    printf
+        nop
+
 /* Printing bool */
 /* Loading Variable */
     set         0, %l0

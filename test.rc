@@ -1,8 +1,9 @@
 
-function : void foo() {
+function : int foo() {
+	return 5;
 }
 
 function : void main() {
 	bool x = false;
-	cout << x << endl;
+	cout << 5 << x << endl;
 }
