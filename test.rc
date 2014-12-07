@@ -1,4 +1,5 @@
 
 function : void main() {
 	int x = 0;
+	cout << x;
 }

@@ -376,7 +376,7 @@ public class AssemblyGenerator {
 	public void printInt(STO sto) {
 		generateComment("Printing int");
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
-		loadVariable(Registers.o0, sto);
+		loadVariable(Registers.o1, sto);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
 		generateASM(Strings.tab + Strings.nop);
 		generateComment("Done printing int.");
