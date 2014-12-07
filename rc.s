@@ -1,10 +1,10 @@
-str_4:          .asciz       "\n"        
 ! --globals--
                 .section     ".data"
                 .align 4
 float_0:        .single      0r420.25    
 float_1:        .single      0r662.5     
 float_2:        .single      0r1082.75   
+str_3:          .asciz       "\n"        
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -15,7 +15,8 @@ _boolT:         .asciz       "true"
 _boolF:         .asciz       "false"     
 rfmt:           .asciz       "%.21f"     
 
-/* AUTOMATICALLY GENERATED FLOAT PRINTER */                .section     ".text"
+/* AUTOMATICALLY GENERATED FLOAT PRINTER */
+                .section     ".text"
             .align 4
             .global    printFloat
 printFloat:
@@ -64,7 +65,7 @@ main:
 
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* Done printing string. */

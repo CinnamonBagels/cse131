@@ -45,7 +45,7 @@ public class AssemblyGenerator {
 	
 	public void createPrintFloat() {
 		//oh god please tabs why
-		write("/* AUTOMATICALLY GENERATED FLOAT PRINTER */");
+		write("/* AUTOMATICALLY GENERATED FLOAT PRINTER */\n");
 		write(assembleString(Strings.section, ".section", Sections.text));
 		write(Strings.tab + Strings.tab + Strings.tab + Strings.align);
 		write(Strings.newline);
@@ -410,9 +410,9 @@ public class AssemblyGenerator {
 	
 	public void printString(String s) {
 		generateComment("printing string");
-		write(assembleString(Strings.init, "str_" + ++stringLits + ":", ".asciz", "\"" + s + "\""));
+		dQueue.add(assembleString(Strings.init, "str_" + stringLits + ":", ".asciz", "\"" + s + "\""));
 		generateASM(Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
-		generateASM(Strings.two_param, Instructions.set, Strings.string + stringLits, Registers.o1);
+		generateASM(Strings.two_param, Instructions.set, Strings.string + stringLits++, Registers.o1);
 		generateASM(Strings.call_op, Strings.printf);
 		generateASM(Strings.nop);
 		generateComment("Done printing string.");
