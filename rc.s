@@ -39,6 +39,11 @@ main:
     set         0, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+
+    mov %l0, %o0
+    call printf
+    nop
+
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
