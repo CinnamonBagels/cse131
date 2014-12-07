@@ -1,9 +1,6 @@
-
-function : int foo() {
-	return 5;
-}
+float x;
 
 function : void main() {
-	bool x = false;
-	cout << 5 << x << endl;
+	::x = 1.0;
+	cout << ::x << endl;
 }

@@ -49,4 +49,6 @@ public class Strings {
     public static final String TRUE = "true";
     public static final String FALSE = "false";
     public static final String branchEnd = "branchEnd_";
+    public static final String assignFloat = "float_";
+    public static final String single = ".single";
 }

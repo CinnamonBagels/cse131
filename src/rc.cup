@@ -1016,7 +1016,9 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
                     :}
     |               T_FLOAT_LITERAL:_1
                     {:
-                        RESULT = new ConstSTO (_1, new FloatType(), false, false);
+                        ConstSTO sto = new ConstSTO (_1, new FloatType(), false, false);
+                        ((MyParser) parser).assignFloat(sto);
+                        RESULT = sto;
                     :}
     |               T_STR_LITERAL:_1
                     {:

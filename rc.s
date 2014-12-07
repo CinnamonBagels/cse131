@@ -1,3 +1,9 @@
+! --globals--
+                .section     ".data"
+                .align 4
+                 .global     x
+x:              .single      0r0.0       
+float_0:        .single      0r1.0       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -9,54 +15,28 @@ _boolF:         .asciz       "false"
 
                 .section     ".text"
                 .align 4
-                .global      foo
-foo:
-        set         SAVE.foo, %g1
-        save        %sp, %g1, %sp
-        ret 
-        restore
-SAVE.foo = -(92 + 0) & -8
-                .section     ".text"
-                .align 4
                 .global      main
 main:
-        set         SAVE.main, %g1
-        save        %sp, %g1, %sp
-/* setting x = false */
-        set         -4, %l0
-        add         %fp, %l0, %l0
-        set         0, %l1
-        st          %l1, [%l0]
-/* Done. */
-/* printf on int */
-        set         _intFmt, %o0
-        set         5, %o1
-        call    printf
-        nop
-
-/* Printing bool */
+    set         SAVE.main, %g1
+    save        %sp, %g1, %sp
+! --storing constant x with value 1.0
+    set         x, %l0
+    add         %g0, %l0, %l0
+    set         float_0, %l1
+    ld          [%l1], %f1
+    st          %f1, [%l0]
+/* printing float */
 /* Loading Variable */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
 /* Done loading variable. */
-    set         _strFmt, %o0
-    cmp         %l0, %g0
-    be      printFalse_0
+    call    printFloat
     nop
-printTrue_0:
-    set         _boolT, %o1
-    ba      branchEnd_0
-    nop
-printFalse_0:
-    set         _boolF, %o1
-branchEnd_0:
+/* Done printing float. */
+    set         _endl, %o0
     call    printf
     nop
-/* Done printing bool. */
-        set         _endl, %o0
-        call    printf
-        nop
-        ret 
-        restore
-SAVE.main = -(92 + 4) & -8
+    ret 
+    restore
+SAVE.main = -(92 + 0) & -8

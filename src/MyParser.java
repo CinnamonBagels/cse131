@@ -755,6 +755,12 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error3b_Assign, _2
 					.getType().getName(), stoDes.getType().getName()));
 		}
+		
+		if(_2.isConst()) {
+			generator.storeConstant(stoDes, (ConstSTO)_2);
+		} else {
+			generator.storeVariable(stoDes, _2);
+		}
 
 		return stoDes;
 	}
@@ -1471,5 +1477,13 @@ class MyParser extends parser {
 	
 	public void doCoutEndl() {
 		generator.doCoutEndl();
+	}
+	
+	//discussion 
+	public void assignFloat(ConstSTO sto) {
+		sto.offset = Strings.assignFloat + generator.stringLits;
+		sto.base = Registers.g0;
+		//second level, assembly stuff should go in assemblygenerator
+		generator.assignFloat(sto);
 	}
 }

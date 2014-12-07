@@ -130,18 +130,18 @@ public class AssemblyGenerator {
 	
 	public void doPrintConstInt(String str){
 		generateComment("printf on int");
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, str, Registers.o1);
-		generateASM(Strings.tab + Strings.call_op, Strings.printf);
-		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, str, Registers.o1);
+		generateASM(Strings.call_op, Strings.printf);
+		generateASM(Strings.nop);
 		generateASM("\n");
 	}
 	
 	public void doPrintConstBool(String str){
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, str.equals("true") ? Strings.boolt : Strings.boolf, Registers.o1);
-		generateASM(Strings.tab + Strings.call_op, Strings.printf);
-		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, str.equals("true") ? Strings.boolt : Strings.boolf, Registers.o1);
+		generateASM(Strings.call_op, Strings.printf);
+		generateASM(Strings.nop);
 		generateASM("\n");
 	}
 	
@@ -155,14 +155,14 @@ public class AssemblyGenerator {
 		generateASM(Strings.falign, Strings.align);
 		generateASM(Strings.section, ".global ", fname);		
 		generateASM(Strings.label, fname);
-		generateASM(Strings.tab + Strings.two_param, "set", "SAVE." + fname, "%g1");
-		generateASM(Strings.tab + Strings.three_param, "save", "%sp", "%g1", "%sp");
+		generateASM(Strings.two_param, "set", "SAVE." + fname, "%g1");
+		generateASM(Strings.three_param, "save", "%sp", "%g1", "%sp");
 	}
 	
 	public void endFunction(FuncSTO fsto){
 		String fname = fsto.getName();
-		generateASM(Strings.tab + Strings.ret, "ret");
-		generateASM(Strings.tab + Strings.restore, "restore");
+		generateASM(Strings.ret, "ret");
+		generateASM(Strings.restore, "restore");
 		
 		generateASM("SAVE." + fname + " = " + "-(92 + " + fsto.getStackSize() + ") & -8");
 		generateASM(Strings.newline);
@@ -175,16 +175,22 @@ public class AssemblyGenerator {
 	}
 	
 	public void storeConstant(STO sto, ConstSTO csto){
-		generateASM(Strings.tab + "! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
+		generateASM("! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
 		//generateASM(Strings.tab + Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 		//generateASM(Strings.tab + Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		
+		//we'll have to check if in struct later
+		//should make a new method for this.
+		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		
 		if(!sto.getType().isFloat()){
-			generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
-			generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
+			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
-			generateASM(Strings.tab + Strings.two_param, Instructions.set, csto.offset, Registers.l1);
-			generateASM(Strings.tab + Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f1);
-			generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
+			generateASM(Strings.two_param, Instructions.set, csto.offset, Registers.l1);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f1);
+			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
 		}
 	}
 	
@@ -267,19 +273,19 @@ public class AssemblyGenerator {
 			//stuff here
 		} else {
 			generateComment("setting " + left.getName() + " = " + ((ConstSTO) right).getName());
-			generateASM(Strings.tab + Strings.two_param, Instructions.set, left.offset, Registers.l0);
-			generateASM(Strings.tab + Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
+			generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l0);
+			generateASM(Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
 			
 			if(right.isConst()) {
 				if(right.getType().isInt() || right.getType().isBool()) {
-					generateASM(Strings.tab + Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l1);
-					generateASM(Strings.tab + Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l1);
+					generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 				} else if(right.getType().isFloat()) {
 					generateComment("setting float");
-					generateASM(Strings.tab + Strings.two_param, Instructions.set, left.offset, Registers.l1);
+					generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l1);
 					//l1 f0, l0
-					generateASM(Strings.tab + Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
-					generateASM(Strings.tab + Strings.two_param, Instructions.set, Registers.f0, "[" + Registers.l0 + "]");
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
+					generateASM(Strings.two_param, Instructions.set, Registers.f0, "[" + Registers.l0 + "]");
 					
 				}
 			}
@@ -350,9 +356,9 @@ public class AssemblyGenerator {
 
 	public void doCoutEndl() {
 		// TODO Auto-generated method stub
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.endl, Registers.o0);
-		generateASM(Strings.tab + Strings.call_op, Strings.printf);
-		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.two_param, Instructions.set, Strings.endl, Registers.o0);
+		generateASM(Strings.call_op, Strings.printf);
+		generateASM(Strings.nop);
 	}
 	
 	//whoops, assemblestring is already here.
@@ -366,19 +372,19 @@ public class AssemblyGenerator {
 	public void printString(String s) {
 		generateComment("printing string");
 		write(assembleString(Strings.init, "str_" + ++stringLits + ":", ".asciz", "\"" + s + "\""));
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.string + stringLits, Registers.o1);
-		generateASM(Strings.tab + Strings.call_op, Strings.printf);
-		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, Strings.string + stringLits, Registers.o1);
+		generateASM(Strings.call_op, Strings.printf);
+		generateASM(Strings.nop);
 		generateComment("Done printing string.");
 	}
 	
 	public void printInt(STO sto) {
 		generateComment("Printing int");
-		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		loadVariable(Registers.o1, sto);
-		generateASM(Strings.tab + Strings.call_op, Strings.printf);
-		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.call_op, Strings.printf);
+		generateASM(Strings.nop);
 		generateComment("Done printing int.");
 		
 	}
@@ -386,8 +392,8 @@ public class AssemblyGenerator {
 	public void printFloat(STO sto) {
 		generateComment("printing float");
 		this.loadVariable(Registers.f0, sto);
-		generateASM(Strings.tab + Strings.call_op, Strings.printfloat);
-		generateASM(Strings.tab + Strings.nop);
+		generateASM(Strings.call_op, Strings.printfloat);
+		generateASM(Strings.nop);
 		generateComment("Done printing float.");
 	}
 	
@@ -452,5 +458,9 @@ public class AssemblyGenerator {
 		} else {
 			generateASM(Strings.two_param, Instructions.store, Registers.o0, storeString);
 		}
+	}
+
+	public void assignFloat(ConstSTO sto) {
+		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + sto.getFloatValue()));
 	}
 }
