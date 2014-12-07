@@ -418,4 +418,39 @@ public class AssemblyGenerator {
 		generateComment("Done printing bool.");
 		
 	}
+
+	public void prepareArguments(STO argument, VarSTO parameter, int argCounter) {
+		// TODO Auto-generated method stub
+		if(parameter.getIsReference()) {
+			//do reference stuff here.
+		} else {
+			if(argument.getType().isFloat()) {
+				this.loadVariable("%f" + argCounter, argument);
+			} else {
+				this.loadVariable("%o" + argCounter, argument);
+			}
+		}
+	}
+
+	public void executeFunction(STO functionBeingExecuted) {
+		// TODO Auto-generated method stub
+		if(functionBeingExecuted.isFunc()) {
+			generateASM(Strings.call_op, functionBeingExecuted.offset);
+		} else {
+			//function pointer, dereference?
+			loadVariable(Registers.l0, functionBeingExecuted);
+			generateASM(Strings.call_op, Registers.l0);
+		}
+		generateASM(Strings.nop);
+	}
+
+	public void saveReturn(STO returnSTO) {
+		// TODO Auto-generated method stub
+		String storeString = "[" + returnSTO.base + "+" + returnSTO.offset + "]";
+		if(returnSTO.getType().isFloat()) {
+			generateASM(Strings.two_param, Instructions.store, Registers.f0, storeString);
+		} else {
+			generateASM(Strings.two_param, Instructions.store, Registers.o0, storeString);
+		}
+	}
 }

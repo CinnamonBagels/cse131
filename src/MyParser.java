@@ -22,6 +22,7 @@ class MyParser extends parser {
 	private StructType currentStruct;
 	private int inLoop = 0;
 	public static AssemblyGenerator generator = new AssemblyGenerator("rc.s");
+	public FuncSTO main = null;
 
 	private SymbolTable m_symtab;
 
@@ -530,6 +531,7 @@ class MyParser extends parser {
 		} else {
 			if(id.equals("main")) {
 				funcSTO = new FuncSTO(id, new FunctionPointerType("main"));
+				main = funcSTO;
 			} else {
 				funcSTO = new FuncSTO(id, new FunctionPointerType(id));
 			}
@@ -883,8 +885,39 @@ class MyParser extends parser {
 			returnSTO = new VarSTO(sto.getName() + "()", funcSTOCast.getReturnType());
 			returnSTO.setIsModLValue(false);
 		}
+		FuncSTO func = m_symtab.getFunc();
+		//fck need to have reference to main.
+		if(m_symtab.getFunc() == null) {
+			executeFunction(func, sto, returnSTO, arguments);
+		} else {
+			executeFunction(this.main, sto, returnSTO, arguments);
+		}
 		
 		return returnSTO;
+	}
+	
+	public void executeFunction(FuncSTO function, STO functionBeingExecuted, STO returnSTO, Vector<STO> arguments) {
+		
+		FunctionPointerType funcExecuted = (FunctionPointerType) functionBeingExecuted.getType();
+		
+		Vector<VarSTO> parameters = function.getParameters();
+		
+		int argCounter = 0;
+		for(int i = 0; i < parameters.size(); i++) {
+			generator.prepareArguments(arguments.get(i), parameters.get(i), argCounter++);
+		}
+		
+		//fuck need counter
+		generator.executeFunction(functionBeingExecuted);
+		returnSTO.offset = String.valueOf(-(function.getStackSize() + returnSTO.getType().getSize()));
+		returnSTO.base = Registers.fp;
+		//save the stack
+		function.addToStack(returnSTO.getType().getSize());
+		
+		if(!function.getReturnType().isVoid()) {
+			generator.saveReturn(returnSTO);
+		}
+		
 		
 	}
 
