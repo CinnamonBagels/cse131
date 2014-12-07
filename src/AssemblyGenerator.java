@@ -335,15 +335,15 @@ public class AssemblyGenerator {
 			Type type = ((ConstSTO) sto).getType();
 			
 			if(type.isInt() || type.isBool()) {
-				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getIntValue(), register);
+				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getIntValue(), Registers.l1);
 			} else if(type.isFloat()) {
 				//i think we can leave it as a getvalue for now.
-				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getValue(), register);
+				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getValue(), Registers.l1);
 			}
 		} else {
-			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
-			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
+			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
+			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
 		}
 		generateComment("Done loading variable.");
 	}

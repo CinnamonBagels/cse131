@@ -36,9 +36,9 @@ main:
 
 /* Printing bool */
 /* Loading Variable */
-    set         0, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
+    set         0, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
