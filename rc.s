@@ -23,7 +23,7 @@ main:
         set         SAVE.main, %g1
         save        %sp, %g1, %sp
 /* setting x = false */
-        set         0, %l0
+        set         -4, %l0
         add         %fp, %l0, %l0
         set         0, %l1
         st          %l1, [%l0]
@@ -36,14 +36,9 @@ main:
 
 /* Printing bool */
 /* Loading Variable */
-    set         0, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set _intFmt, %o0
-    mov %l0, %o1
-    call printf
-    nop
-
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
