@@ -19,16 +19,6 @@ main:
         set         0, %l1
         st          %l1, [%l0]
 /* Done. */
-/* Printing int */
-        set         _intFmt, %o0
-/* Loading Variable */
-    set         0, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %o0
-/* Done loading variable. */
-        call    printf
-        nop
-/* Done printing int. */
         ret 
         restore
 SAVE.main = -(92 + 4) & -8
