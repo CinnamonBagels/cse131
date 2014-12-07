@@ -1,10 +1,40 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-float_0:        .single      0r420.25    
-float_1:        .single      0r662.5     
-float_2:        .single      0r1082.75   
-str_3:          .asciz       "\n"        
+                 .global     x1,x2,y1,y2,z1,z2,x7,x8
+x1:             .word        3           
+x2:             .word        0           
+x4:             .word        0           
+x5:             .word        0           
+y1:             .single      0r3.0       
+y2:             .single      0r0.0       
+float_0:        .single      0r4.45      
+float_1:        .single      0r0.34      
+y4:             .single      0r0.0       
+y5:             .single      0r0.0       
+float_2:        .single      0r6.66      
+z1:             .word        1           
+z2:             .word        0           
+z4:             .word        0           
+z5:             .word        0           
+x7:             .word        0           
+x8:             .word        0           
+str_3:          .asciz       "Hello"     
+str_4:          .asciz       "World"     
+float_5:        .single      0r4.34      
+float_6:        .single      0r4.34      
+float_7:        .single      0r4.45      
+float_8:        .single      0r-6.66     
+float_9:        .single      0r100.001   
+float_10:       .single      0r1.2       
+main_cx3:       .word        0           
+main_cx6:       .word        0           
+main_cy3:       .single      0r0.0       
+main_cy6:       .single      0r0.0       
+float_11:       .single      0r4.45      
+float_12:       .single      0r4.45      
+main_cz3:       .word        0           
+main_cz6:       .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -21,44 +51,698 @@ rfmt:           .asciz       "%.21f"
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-/* printf on int */
+/* setting x1 = 5 */
+    set         -4, %l0
+    add         %fp, %l0, %l0
+    set         5, %l1
+    st          %l1, [%l0]
+/* Done. */
+/* Printing int */
     set         _intFmt, %o0
-    set         420, %o1
     call    printf
     nop
-
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
-/* printf on int */
-    set         _intFmt, %o0
-    set         214, %o1
-    call    printf
-    nop
-
-    set         _endl, %o0
-    call    printf
-    nop
-    set         float_2, %l0
-    ld          [%l0], %f0
-    call    printFloat
-    nop
-
 /* printing string */
     set         _strFmt, %o0
     set         str_3, %o1
     call    printf
     nop
 /* Done printing string. */
+/* printing string */
+    set         _strFmt, %o0
+    set         str_4, %o1
+    call    printf
+    nop
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
 /* printf on int */
     set         _intFmt, %o0
     set         4, %o1
     call    printf
     nop
 
+    set         float_6, %l0
+    ld          [%l0], %f0
+    call    printFloat
+    nop
+
+/* printf on int */
+    set         _intFmt, %o0
+    set         true, %o1
+    call    printf
+    nop
+
+/* printf on int */
+    set         _intFmt, %o0
+    set         false, %o1
+    call    printf
+    nop
+
+    set         _endl, %o0
+    call    printf
+    nop
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* setting x2 = 4 */
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    set         4, %l1
+    st          %l1, [%l0]
+/* Done. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+    set         _endl, %o0
+    call    printf
+    nop
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         4, %o1
+    call    printf
+    nop
+
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         6, %o1
+    call    printf
+    nop
+
+    set         _endl, %o0
+    call    printf
+    nop
+/* printing float */
+/* Loading Variable */
+    set         y1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+/* printing float */
+/* Loading Variable */
+    set         y2, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+    set         float_7, %l0
+    ld          [%l0], %f0
+    call    printFloat
+    nop
+
+/* printing float */
+/* Loading Variable */
+    set         y4, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+/* printing float */
+/* Loading Variable */
+    set         y5, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+    set         float_8, %l0
+    ld          [%l0], %f0
+    call    printFloat
+    nop
+
+    set         _endl, %o0
+    call    printf
+    nop
+/* Printing bool */
+/* Loading Variable */
+    set         z1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+/* Printing bool */
+/* Loading Variable */
+    set         z2, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         false, %o1
+    call    printf
+    nop
+
+/* Printing bool */
+/* Loading Variable */
+    set         z4, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+/* Printing bool */
+/* Loading Variable */
+    set         z5, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         true, %o1
+    call    printf
+    nop
+
+    set         _endl, %o0
+    call    printf
+    nop
+/* setting x0 = 2000111 */
+    set         -24, %l0
+    add         %fp, %l0, %l0
+    set         2000111, %l1
+    st          %l1, [%l0]
+/* Done. */
+/* setting y0 = 100.001 */
+    set         -28, %l0
+    add         %fp, %l0, %l0
+/* setting float */
+    set         -28, %l1
+    ld          [%l1], %f0
+    set         %f0, [%l0]
+/* Done. */
+/* setting z0 = true */
+    set         -32, %l0
+    add         %fp, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+/* Done. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printing float */
+/* Loading Variable */
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+/* Printing bool */
+/* Loading Variable */
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+    set         -4, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l1
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    ld          %l1, [%l0]
+    set         y2, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f1
+    set         y4, %l0
+    add         %g0, %l0, %l0
+    ld          %f1, [%l0]
+    set         y4, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f1
+    set         y2, %l0
+    add         %g0, %l0, %l0
+    ld          %f1, [%l0]
+    set         y2, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f1
+    set         y1, %l0
+    add         %g0, %l0, %l0
+    ld          %f1, [%l0]
+! --storing constant z2 with value 0.0
+    set         z2, %l0
+    add         %g0, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printing float */
+/* Loading Variable */
+    set         y1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+/* Printing bool */
+/* Loading Variable */
+    set         z2, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+! --storing constant x1 with value 1.0
+    set         -4, %l0
+    add         %fp, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+! --storing constant y1 with value 1.2
+    set         y1, %l0
+    add         %g0, %l0, %l0
+    set         float_10, %l1
+    ld          [%l1], %f1
+    st          %f1, [%l0]
+! --storing constant z1 with value 1.0
+    set         z1, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printing float */
+/* Loading Variable */
+    set         y1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+/* Printing bool */
+/* Loading Variable */
+    set         z1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* setting cx1 = x3 */
+    set         -36, %l0
+    add         %fp, %l0, %l0
+    set         4, %l1
+    st          %l1, [%l0]
+/* Done. */
+/* setting cx5 = x1 */
+    set         -40, %l0
+    add         %fp, %l0, %l0
+/* Done. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         4, %o1
+    call    printf
+    nop
+
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         4, %o1
+    call    printf
+    nop
+
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* setting cy1 = y3 */
+    set         -44, %l0
+    add         %fp, %l0, %l0
+/* setting float */
+    set         -44, %l1
+    ld          [%l1], %f0
+    set         %f0, [%l0]
+/* Done. */
+/* setting cy5 = y1 */
+    set         -48, %l0
+    add         %fp, %l0, %l0
+/* Done. */
+/* printing float */
+/* Loading Variable */
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+    set         float_11, %l0
+    ld          [%l0], %f0
+    call    printFloat
+    nop
+
+/* printing float */
+/* Loading Variable */
+    set         main_cy3, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+    set         float_12, %l0
+    ld          [%l0], %f0
+    call    printFloat
+    nop
+
+/* printing float */
+/* Loading Variable */
+    set         -48, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+/* printing float */
+/* Loading Variable */
+    set         main_cy6, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* setting cz1 = z3 */
+    set         -52, %l0
+    add         %fp, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
+/* Done. */
+/* setting cz5 = z1 */
+    set         -56, %l0
+    add         %fp, %l0, %l0
+/* Done. */
+/* Printing bool */
+/* Loading Variable */
+    set         -52, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         false, %o1
+    call    printf
+    nop
+
+/* Printing bool */
+/* Loading Variable */
+    set         main_cz3, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+/* printf on int */
+    set         _intFmt, %o0
+    set         false, %o1
+    call    printf
+    nop
+
+/* Printing bool */
+/* Loading Variable */
+    set         -56, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+/* Printing bool */
+/* Loading Variable */
+    set         main_cz6, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l1
+    set         -4, %l0
+    add         %fp, %l0, %l0
+    ld          %l1, [%l0]
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
     ret 
     restore
-SAVE.main = -(92 + 0) & -8
+SAVE.main = -(92 + 56) & -8

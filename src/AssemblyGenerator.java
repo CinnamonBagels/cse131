@@ -280,7 +280,7 @@ public class AssemblyGenerator {
 		if(left.getType().isFloat() && right.getType().isInt()) {
 			//stuff here
 		} else {
-			generateComment("setting " + left.getName() + " = " + ((ConstSTO) right).getName());
+			generateComment("setting " + left.getName() + " = " + right.getName());
 			generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l0);
 			generateASM(Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
 			

@@ -1042,6 +1042,7 @@ class MyParser extends parser {
 			if (index.getType().isInt()) {
 
 				if (sto.getType().isArray()) {
+					//array
 					if (index.isConst()) {
 						ConstSTO constIndex = (ConstSTO) index;
 
@@ -1069,6 +1070,7 @@ class MyParser extends parser {
 					ret.setIsModLValue(true);
 					return ret;
 				} else {
+					//pointer stuff
 					PointerType ptyp = (PointerType) sto.getType();
 					STO ret = new ExprSTO(sto.getName() + "[" + index.getName()
 							+ "]", ptyp.getContainingType());
@@ -1451,7 +1453,6 @@ class MyParser extends parser {
 					
 					generator.printString(sto.getName());
 				} else {
-					System.out.println(sto.getType());
 					if(sto.getType().isInt()) {
 						generator.doPrintConstInt("" + ((ConstSTO) sto).getIntValue());
 					} else if(sto.getType().isFloat()) {
@@ -1461,7 +1462,6 @@ class MyParser extends parser {
 					}
 				}
 			} else {
-				System.out.println("I dont think its a const");
 				if(sto.getType().isInt()) {
 					generator.printInt(sto);
 				} else if(sto.getType().isFloat()) {
