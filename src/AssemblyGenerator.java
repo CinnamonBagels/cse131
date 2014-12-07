@@ -293,7 +293,7 @@ public class AssemblyGenerator {
 					generateASM(Strings.two_param, Instructions.set, right.offset, Registers.l1);
 					//l1 f0, l0
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
-					generateASM(Strings.two_param, Instructions.set, Registers.f0, "[" + Registers.l0 + "]");
+					generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
 					
 				}
 			}

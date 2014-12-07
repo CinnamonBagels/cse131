@@ -354,7 +354,7 @@ branchEnd_3:
 /* setting float */
     set         float_9, %l1
     ld          [%l1], %f0
-    set         %f0, [%l0]
+    st          %f0, [%l0]
 /* Done. */
 /* setting z0 = true */
     set         -32, %l0
@@ -569,7 +569,7 @@ branchEnd_6:
 /* setting float */
     set         null, %l1
     ld          [%l1], %f0
-    set         %f0, [%l0]
+    st          %f0, [%l0]
 /* Done. */
 /* setting cy5 = y1 */
     set         -48, %l0
