@@ -424,7 +424,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, Strings.boolf, Registers.o1);
 		
 		//printing the damn thing.
-		generateASM(Strings.label, Strings.branchEnd + branches);
+		generateASM(Strings.label, Strings.branchEnd + branches++);
 		generateASM(Strings.call_op, Strings.printf);
 		generateASM(Strings.nop);
 		

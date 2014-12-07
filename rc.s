@@ -275,15 +275,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_1
     nop
-printTrue_0:
+printTrue_1:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_1
     nop
-printFalse_0:
+printFalse_1:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_1:
     call    printf
     nop
 /* Done printing bool. */
@@ -301,15 +301,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_2
     nop
-printTrue_0:
+printTrue_2:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_2
     nop
-printFalse_0:
+printFalse_2:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_2:
     call    printf
     nop
 /* Done printing bool. */
@@ -321,15 +321,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_3
     nop
-printTrue_0:
+printTrue_3:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_3
     nop
-printFalse_0:
+printFalse_3:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_3:
     call    printf
     nop
 /* Done printing bool. */
@@ -384,15 +384,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_4
     nop
-printTrue_0:
+printTrue_4:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_4
     nop
-printFalse_0:
+printFalse_4:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_4:
     call    printf
     nop
 /* Done printing bool. */
@@ -450,15 +450,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_5
     nop
-printTrue_0:
+printTrue_5:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_5
     nop
-printFalse_0:
+printFalse_5:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_5:
     call    printf
     nop
 /* Done printing bool. */
@@ -503,15 +503,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_6
     nop
-printTrue_0:
+printTrue_6:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_6
     nop
-printFalse_0:
+printFalse_6:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_6:
     call    printf
     nop
 /* Done printing bool. */
@@ -642,15 +642,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_7
     nop
-printTrue_0:
+printTrue_7:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_7
     nop
-printFalse_0:
+printFalse_7:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_7:
     call    printf
     nop
 /* Done printing bool. */
@@ -668,15 +668,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_8
     nop
-printTrue_0:
+printTrue_8:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_8
     nop
-printFalse_0:
+printFalse_8:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_8:
     call    printf
     nop
 /* Done printing bool. */
@@ -694,15 +694,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_9
     nop
-printTrue_0:
+printTrue_9:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_9
     nop
-printFalse_0:
+printFalse_9:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_9:
     call    printf
     nop
 /* Done printing bool. */
@@ -714,15 +714,15 @@ branchEnd_0:
 /* Done loading variable. */
     set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      printFalse_10
     nop
-printTrue_0:
+printTrue_10:
     set         _boolT, %o1
-    ba      branchEnd_0
+    ba      branchEnd_10
     nop
-printFalse_0:
+printFalse_10:
     set         _boolF, %o1
-branchEnd_0:
+branchEnd_10:
     call    printf
     nop
 /* Done printing bool. */
