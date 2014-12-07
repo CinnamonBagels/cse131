@@ -404,25 +404,25 @@ branchEnd_4:
     ld          [%l0], %l1
     set         -8, %l0
     add         %fp, %l0, %l0
-    ld          %l1, [%l0]
+    ld          [%l0], %l1
     set         y2, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
     set         y4, %l0
     add         %g0, %l0, %l0
-    ld          %f1, [%l0]
+    ld          [%l0], %f1
     set         y4, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
     set         y2, %l0
     add         %g0, %l0, %l0
-    ld          %f1, [%l0]
+    ld          [%l0], %f1
     set         y2, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
     set         y1, %l0
     add         %g0, %l0, %l0
-    ld          %f1, [%l0]
+    ld          [%l0], %f1
 ! --storing constant z2 with value 0.0
     set         z2, %l0
     add         %g0, %l0, %l0
@@ -734,7 +734,7 @@ branchEnd_10:
     ld          [%l0], %l1
     set         -4, %l0
     add         %fp, %l0, %l0
-    ld          %l1, [%l0]
+    ld          [%l0], %l1
 /* Printing int */
     set         _intFmt, %o0
     call    printf
