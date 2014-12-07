@@ -352,7 +352,7 @@ branchEnd_3:
     set         -28, %l0
     add         %fp, %l0, %l0
 /* setting float */
-    set         -28, %l1
+    set         float_9, %l1
     ld          [%l1], %f0
     set         %f0, [%l0]
 /* Done. */
@@ -567,7 +567,7 @@ branchEnd_6:
     set         -44, %l0
     add         %fp, %l0, %l0
 /* setting float */
-    set         -44, %l1
+    set         null, %l1
     ld          [%l1], %f0
     set         %f0, [%l0]
 /* Done. */
