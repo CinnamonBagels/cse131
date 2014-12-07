@@ -1,4 +1,7 @@
-str_1:          .asciz       "end"       
+! --globals--
+                .section     ".data"
+                .align 4
+float_0:        .single      0r430.35    
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -9,7 +12,7 @@ _boolT:         .asciz       "true"
 _boolF:         .asciz       "false"     
 rfmt:           .asciz       "%.21f"     
 
-                .section     ".text"
+/* AUTOMATICALLY GENERATED FLOAT PRINTER */                .section     ".text"
             .align 4
             .global    printFloat
 printFloat:
@@ -36,16 +39,13 @@ main:
     save        %sp, %g1, %sp
 /* printf on int */
     set         _intFmt, %o0
-    set         11, %o1
+    set         4, %o1
     call    printf
     nop
 
-/* printing string */
-    set         _strFmt, %o0
-    set         str_1, %o1
+    set         _endl, %o0
     call    printf
     nop
-/* Done printing string. */
     ret 
     restore
 SAVE.main = -(92 + 0) & -8

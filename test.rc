@@ -1,5 +1,4 @@
 function : void main() {
-	const int c1 = 2;
-	const int c2 = 4;
-	cout << c1 + c2 + 5 << end;
+	const float r1 = 430.35;
+	cout << sizeof(r1) << endl;
 }

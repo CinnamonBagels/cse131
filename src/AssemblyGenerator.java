@@ -45,7 +45,7 @@ public class AssemblyGenerator {
 	
 	public void createPrintFloat() {
 		//oh god please tabs why
-		
+		write("/* AUTOMATICALLY GENERATED FLOAT PRINTER */");
 		write(assembleString(Strings.section, ".section", Sections.text));
 		write(Strings.tab + Strings.tab + Strings.tab + Strings.align);
 		write(Strings.newline);
