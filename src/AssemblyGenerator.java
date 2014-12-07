@@ -402,13 +402,13 @@ public class AssemblyGenerator {
 		//debugging purposes.
 		//printing true
 		generateASM(Strings.label, Strings.printTrue + branches);
-		generateASM(Strings.two_param, Instructions.set, Strings.TRUE, Registers.o1);
+		generateASM(Strings.two_param, Instructions.set, Strings.boolt, Registers.o1);
 		generateASM(Strings.one_param, Instructions.ba, Strings.branchEnd + branches);
 		generateASM(Strings.nop);
 		
 		//false
 		generateASM(Strings.label, Strings.printFalse + branches);
-		generateASM(Strings.two_param, Instructions.set, Strings.FALSE, Registers.o1);
+		generateASM(Strings.two_param, Instructions.set, Strings.boolf, Registers.o1);
 		
 		//printing the damn thing.
 		generateASM(Strings.label, Strings.branchEnd + branches);

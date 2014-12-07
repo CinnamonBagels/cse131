@@ -30,11 +30,11 @@ main:
     be      printFalse_0
     nop
 printTrue_0:
-    set         true, %o1
+    set         _boolT, %o1
     ba      branchEnd_0
     nop
 printFalse_0:
-    set         false, %o1
+    set         _boolF, %o1
 branchEnd_0:
     call    printf
     nop
