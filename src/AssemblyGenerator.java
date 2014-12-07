@@ -14,6 +14,7 @@ public class AssemblyGenerator {
 	public List<String> tQueue = new Vector<String>();
 	public List<String> dQueue = new Vector<String>();
 	public int stringLits = 0;
+	public int branches = 0;
 	
 	private List<String> executeBuffer = new Vector<String>();
 	
@@ -128,6 +129,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void doPrintConstInt(String str){
+		generateComment("printf on int");
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, str, Registers.o1);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
@@ -281,6 +283,8 @@ public class AssemblyGenerator {
 					
 				}
 			}
+			
+			generateComment("Done.");
 		}
 	}
 	
@@ -326,6 +330,7 @@ public class AssemblyGenerator {
 	}
 
 	public void loadVariable(String register, STO sto) {
+		generateComment("Loading Variable");
 		if(sto.isConst()) {
 			Type type = ((ConstSTO) sto).getType();
 			
@@ -340,6 +345,7 @@ public class AssemblyGenerator {
 			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
 		}
+		generateComment("Done loading variable.");
 	}
 
 	public void doCoutEndl() {
@@ -347,7 +353,6 @@ public class AssemblyGenerator {
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.endl, Registers.o0);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
 		generateASM(Strings.tab + Strings.nop);
-		generateASM(Strings.newline);
 	}
 	
 	//whoops, assemblestring is already here.
@@ -359,11 +364,58 @@ public class AssemblyGenerator {
 	}
 	
 	public void printString(String s) {
+		generateComment("printing string");
 		write(assembleString(Strings.init, "str_" + ++stringLits + ":", ".asciz", "\"" + s + "\""));
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
 		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.string + stringLits, Registers.o1);
 		generateASM(Strings.tab + Strings.call_op, Strings.printf);
 		generateASM(Strings.tab + Strings.nop);
-		generateASM(Strings.newline);
+		generateComment("Done printing string.");
+	}
+	
+	public void printInt(STO sto) {
+		generateComment("Printing int");
+		generateASM(Strings.tab + Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
+		loadVariable(Registers.o0, sto);
+		generateASM(Strings.tab + Strings.call_op, Strings.printf);
+		generateASM(Strings.tab + Strings.nop);
+		generateComment("Done printing int.");
+		
+	}
+	
+	public void printFloat(STO sto) {
+		generateComment("printing float");
+		this.loadVariable(Registers.f0, sto);
+		generateASM(Strings.tab + Strings.call_op, Strings.printfloat);
+		generateASM(Strings.tab + Strings.nop);
+		generateComment("Done printing float.");
+	}
+	
+	public void printBool(STO sto) {
+		generateComment("Printing bool");
+		this.loadVariable(Registers.l0, sto);
+		//comparing
+		generateASM(Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+		generateASM(Strings.two_param, Instructions.be, Strings.printFalse + branches);
+		generateASM(Strings.nop);
+		//debugging purposes.
+		//printing true
+		generateASM(Strings.label, Strings.printTrue + branches);
+		generateASM(Strings.two_param, Instructions.set, Strings.TRUE, Registers.o1);
+		generateASM(Strings.one_param, Instructions.ba, Strings.branchEnd + branches);
+		generateASM(Strings.nop);
+		
+		//false
+		generateASM(Strings.label, Strings.printFalse + branches);
+		generateASM(Strings.two_param, Instructions.set, Strings.FALSE, Registers.o1);
+		
+		//printing the damn thing.
+		generateASM(Strings.label, Strings.branchEnd + branches);
+		generateASM(Strings.call_op, Strings.printf);
+		generateASM(Strings.nop);
+		
+		generateComment("Done printing bool.");
+		
 	}
 }

@@ -1406,8 +1406,11 @@ class MyParser extends parser {
 		if(sto != null || !sto.isError()) {
 			if(sto.isConst()) {
 				if(sto.getType() == null) {
+					//string literal, though im not sure if this is the correct way to do it
+					
 					generator.printString(sto.getName());
 				} else {
+					System.out.println(sto.getType());
 					if(sto.getType().isInt()) {
 						generator.doPrintConstInt("" + ((ConstSTO) sto).getIntValue());
 					} else if(sto.getType().isFloat()) {
@@ -1415,6 +1418,17 @@ class MyParser extends parser {
 					} else if(sto.getType().isBool()) {
 						generator.doPrintConstInt("" + ((ConstSTO) sto).getBoolValue());
 					}
+				}
+			} else {
+				System.out.println("I dont think its a const");
+				if(sto.getType().isInt()) {
+					generator.printInt(sto);
+				} else if(sto.getType().isFloat()) {
+					generator.printFloat(sto);
+				} else if(sto.getType().isBool()) {
+					generator.printBool(sto);
+				} else {
+					//uh oh.
 				}
 			}
 		}
