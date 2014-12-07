@@ -51,4 +51,8 @@ public class Strings {
     public static final String branchEnd = "branchEnd_";
     public static final String assignFloat = "float_";
     public static final String single = ".single";
+    public static final String rfmt = "rfmt";
+    public static final String asciz = ".asciz";
+    public static final String floatFormat = "\"%.21f\"";
+    public static final String global = tab + ".global";
 }
