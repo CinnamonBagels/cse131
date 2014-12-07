@@ -13,22 +13,32 @@ _boolF:         .asciz       "false"
 main:
         set         SAVE.main, %g1
         save        %sp, %g1, %sp
-/* setting x = 0 */
+/* setting x = false */
         set         0, %l0
         add         %fp, %l0, %l0
         set         0, %l1
         st          %l1, [%l0]
 /* Done. */
-/* Printing int */
-        set         _intFmt, %o0
+/* Printing bool */
 /* Loading Variable */
     set         0, %l0
     add         %fp, %l0, %l0
-    ld          [%l0], %o1
+    ld          [%l0], %l0
 /* Done loading variable. */
-        call    printf
-        nop
-/* Done printing int. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         true, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         false, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* Done printing bool. */
         ret 
         restore
 SAVE.main = -(92 + 4) & -8

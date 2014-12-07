@@ -397,7 +397,7 @@ public class AssemblyGenerator {
 		//comparing
 		generateASM(Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
 		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
-		generateASM(Strings.two_param, Instructions.be, Strings.printFalse + branches);
+		generateASM(Strings.one_param, Instructions.be, Strings.printFalse + branches);
 		generateASM(Strings.nop);
 		//debugging purposes.
 		//printing true
