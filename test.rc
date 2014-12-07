@@ -1,6 +1,5 @@
-float x;
-
 function : void main() {
-	::x = 1.0;
-	cout << ::x << endl;
+	const int c1 = 2;
+	const int c2 = 4;
+	cout << c1 + c2 + 5 << end;
 }

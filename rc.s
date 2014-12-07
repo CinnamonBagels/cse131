@@ -1,9 +1,4 @@
-! --globals--
-                .section     ".data"
-                .align 4
-                 .global     x
-x:              .single      0r0.0       
-float_0:        .single      0r1.0       
+str_1:          .asciz       "end"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -39,24 +34,18 @@ SAVE.printFloat = -(92 + 8) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-! --storing constant x with value 1.0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    set         float_0, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
-/* printing float */
-/* Loading Variable */
-    set         x, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-/* Done loading variable. */
-    call    printFloat
-    nop
-/* Done printing float. */
-    set         _endl, %o0
+/* printf on int */
+    set         _intFmt, %o0
+    set         11, %o1
     call    printf
     nop
+
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
+    call    printf
+    nop
+/* Done printing string. */
     ret 
     restore
 SAVE.main = -(92 + 0) & -8
