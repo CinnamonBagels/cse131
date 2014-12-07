@@ -1455,7 +1455,7 @@ class MyParser extends parser {
 					if(sto.getType().isInt()) {
 						generator.doPrintConstInt("" + ((ConstSTO) sto).getIntValue());
 					} else if(sto.getType().isFloat()) {
-						generator.doPrintConstInt("" + ((ConstSTO) sto).getValue());
+						generator.doPrintConstFloat("" + ((ConstSTO) sto).getValue());
 					} else if(sto.getType().isBool()) {
 						generator.doPrintConstInt("" + ((ConstSTO) sto).getBoolValue());
 					}

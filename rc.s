@@ -1,9 +1,10 @@
-str_3:          .asciz       "\n"        
+str_4:          .asciz       "\n"        
 ! --globals--
                 .section     ".data"
                 .align 4
 float_0:        .single      0r420.25    
 float_1:        .single      0r662.5     
+float_2:        .single      0r1082.75   
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -57,15 +58,13 @@ main:
     set         _endl, %o0
     call    printf
     nop
-/* printf on int */
-    set         _intFmt, %o0
-    set         1082.75, %o1
-    call    printf
-    nop
+    set         float_2, %l0
+    ld          [%l0], %f0
+    call    printFloat
 
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* Done printing string. */

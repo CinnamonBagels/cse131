@@ -181,6 +181,11 @@ public class AssemblyGenerator {
 	
 	public void doPrintConstFloat(String str){
 		//TODO not sure
+		generateASM(Strings.two_param, Instructions.set, Strings.assignFloat + stringLits, Registers.l0);
+		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.f0);
+		generateASM(Strings.call_op, Strings.printfloat);
+		dQueue.add(assembleString(Strings.init, Strings.assignFloat + stringLits++ + ":", Strings.single, "0r" + str));
+		generateASM(Strings.newline);
 	}
 	
 	public void beginFunction(FuncSTO fsto){
