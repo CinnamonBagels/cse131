@@ -341,19 +341,21 @@ public class AssemblyGenerator {
 			dest_register += Registers.l1;
 		}
 		
+		generateComment("Storing " + value.getName() + " into " + dest.getName());
+		//setting destination
+		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l0, Registers.l0);
+		
 		if(value.isConst() && !value.getType().isFloat()) {
 			generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) value).getIntValue(), dest_register);
 		} else {
-			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l0);
-			generateASM(Strings.three_param, Instructions.add, value.base, Registers.l0, Registers.l0);
-			//???
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", dest_register);
+			//setting value.
+			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l2);
+			generateASM(Strings.three_param, Instructions.add, value.base, Registers.l2, Registers.l2);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", dest_register);
 		}
 		
-		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l0);
-		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l0, Registers.l0);
-		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", dest_register) ;
-		
+		generateASM(Strings.two_param, Instructions.store, dest_register, "[" + Registers.l0 + "]");
 	}
 
 	public void loadVariable(String register, STO sto) {

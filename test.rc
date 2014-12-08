@@ -35,6 +35,10 @@ function : void main() {
 
   cout << x2 << y1 << z2 << endl;
 
+  x1 = 1;
+  y1 = 1.2;
+  z1 = true;
+
   cout << x1 << y1 << z1 << endl;
 
   int cx1 = x3;

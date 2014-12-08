@@ -20,12 +20,13 @@ z5:             .word        0
 x7:             .word        0           
 x8:             .word        0           
 float_3:        .single      0r100.001   
+float_4:        .single      0r1.2       
 main_cx3:       .word        0           
 main_cx6:       .word        0           
 main_cy3:       .single      0r0.0       
 main_cy6:       .single      0r0.0       
-float_4:        .single      0r4.45      
 float_5:        .single      0r4.45      
+float_6:        .single      0r4.45      
 main_cz3:       .word        0           
 main_cz6:       .word        0           
 
@@ -101,30 +102,34 @@ branchEnd_0:
     set         _endl, %o0
     call    printf
     nop
-    set         x1, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l1
+/* Storing x1 into x2 */
     set         x2, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l1
-    set         y2, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+    set         x1, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %l1
+    st          %l1, [%l0]
+/* Storing y2 into y4 */
     set         y4, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %f1
-    set         y4, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+    set         y2, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+/* Storing y4 into y2 */
     set         y2, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %f1
-    set         y2, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+    set         y4, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+/* Storing y2 into y1 */
     set         y1, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %f1
+    set         y2, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
 ! --storing constant z2 with value 0.0
     set         z2, %l0
     add         %g0, %l0, %l0
@@ -167,6 +172,22 @@ branchEnd_1:
     set         _endl, %o0
     call    printf
     nop
+! --storing constant x1 with value 1.0
+    set         x1, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+! --storing constant y1 with value 1.2
+    set         y1, %l0
+    add         %g0, %l0, %l0
+    set         float_4, %l1
+    ld          [%l1], %f1
+    st          %f1, [%l0]
+! --storing constant z1 with value 1.0
+    set         z1, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
 /* Printing int */
     set         _intFmt, %o0
     call    printf
@@ -278,7 +299,7 @@ branchEnd_2:
     call    printFloat
     nop
 /* Done printing float. */
-    set         float_4, %l0
+    set         float_5, %l0
     ld          [%l0], %f0
     call    printFloat
     nop
@@ -292,7 +313,7 @@ branchEnd_2:
     call    printFloat
     nop
 /* Done printing float. */
-    set         float_5, %l0
+    set         float_6, %l0
     ld          [%l0], %f0
     call    printFloat
     nop
@@ -425,12 +446,13 @@ branchEnd_6:
     set         _endl, %o0
     call    printf
     nop
-    set         x2, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l1
+/* Storing x2 into x1 */
     set         x1, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l1
+    set         x2, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %l1
+    st          %l1, [%l0]
 /* Printing int */
     set         _intFmt, %o0
     call    printf
