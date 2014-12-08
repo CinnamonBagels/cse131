@@ -47,4 +47,26 @@ function : void main() {
   static const int cx4 = x3;
   int cx5 = x1;
   static int cx6 = x1;
+
+  cout << cx1 << cx2 << cx3 << cx4 << cx5 << cx6 << endl;
+
+  float cy1 = y3;
+  const float cy2 = y3;
+  static float cy3 = y3;
+  static const float cy4 = y3;
+  float cy5 = y1;
+  static float cy6 = y1;
+
+  cout << cy1 << cy2 << cy3 << cy4 << cy5 << cy6 << endl;
+
+  bool cz1 = z3;
+  const bool cz2 = z3;
+  static bool cz3 = z3;
+  static const bool cz4 = z3;
+  bool cz5 = z1;
+  static bool cz6 = z1;
+
+  cout << cz1 << cz2 << cz3 << cz4 << cz5 << cz6 << endl;
+
+  cout << x1 = x2 << endl;
 }
