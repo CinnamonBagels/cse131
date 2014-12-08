@@ -22,7 +22,6 @@ x8:             .word        0
 float_3:        .single      0r100.001   
 float_4:        .single      0r1.2       
 main_cx3:       .word        0           
-main_cx6:       .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
