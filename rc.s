@@ -21,6 +21,8 @@ x7:             .word        0
 x8:             .word        0           
 float_3:        .single      0r100.001   
 float_4:        .single      0r1.2       
+main_cx3:       .word        0           
+main_cx6:       .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -180,6 +182,57 @@ branchEnd_1:
     add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
+/* Printing int */
+    set         _intFmt, %o0
+    call    printf
+    nop
+/* Done printing int. */
+/* printing float */
+/* Loading Variable */
+    set         y1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* Done loading variable. */
+    call    printFloat
+    nop
+/* Done printing float. */
+/* Printing bool */
+/* Loading Variable */
+    set         z1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+/* Done loading variable. */
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_2
+    nop
+printTrue_2:
+    set         _boolT, %o1
+    ba      branchEnd_2
+    nop
+printFalse_2:
+    set         _boolF, %o1
+branchEnd_2:
+    call    printf
+    nop
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* setting cx1 = x3 */
+    set         -16, %l0
+    add         %fp, %l0, %l0
+    set         4, %l1
+    st          %l1, [%l0]
+/* Done. */
+/* setting cx5 = x1 */
+    set         -20, %l0
+    add         %fp, %l0, %l0
+    mov         x1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    st          %l0, [%l0]
+/* Done. */
     ret 
     restore
-SAVE.main = -(92 + 12) & -8
+SAVE.main = -(92 + 20) & -8
