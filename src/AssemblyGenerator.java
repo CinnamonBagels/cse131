@@ -298,7 +298,6 @@ public class AssemblyGenerator {
 	public void localVarInit(STO left, STO right) {
 		//checking for automatic int -> float casting
 		if(left.getType().isFloat() && right.getType().isInt()) {
-			
 		} else {
 			generateComment("setting " + left.getName() + " = " + right.getName());
 			generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l0);
@@ -432,15 +431,15 @@ public class AssemblyGenerator {
 	}
 	
 	public void printFloat(STO sto) {
-		generateComment("printing float");
-		this.loadVariable(Registers.f1, sto);
+		generateComment("printing float " + sto.getName());
+		this.loadVariable(Registers.f0, sto);
 		generateASM(Strings.call_op, Strings.printfloat);
 		generateASM(Strings.nop);
 		generateComment("Done printing float.");
 	}
 	
 	public void printBool(STO sto) {
-		generateComment("Printing bool");
+		generateComment("Printing bool " + sto.getName());
 		this.loadVariable(Registers.l0, sto);
 		//comparing
 		generateASM(Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);

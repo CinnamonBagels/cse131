@@ -374,20 +374,20 @@ staticGuardLabel_z5:
     set         _endl, %o0
     call    printf
     nop
-/* printing float */
+/* printing float y1 */
 /* Loading Variable */
     set         y1, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
 /* Done printing float. */
-/* printing float */
+/* printing float y2 */
 /* Loading Variable */
     set         y2, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
@@ -397,20 +397,20 @@ staticGuardLabel_z5:
     call    printFloat
     nop
 
-/* printing float */
+/* printing float y4 */
 /* Loading Variable */
     set         y4, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
 /* Done printing float. */
-/* printing float */
+/* printing float y5 */
 /* Loading Variable */
     set         y5, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
@@ -423,7 +423,7 @@ staticGuardLabel_z5:
     set         _endl, %o0
     call    printf
     nop
-/* Printing bool */
+/* Printing bool z1 */
 /* Loading Variable */
     set         z1, %l1
     add         %g0, %l1, %l1
@@ -443,7 +443,7 @@ branchEnd_0:
     call    printf
     nop
 /* Done printing bool. */
-/* Printing bool */
+/* Printing bool z2 */
 /* Loading Variable */
     set         z2, %l1
     add         %g0, %l1, %l1
@@ -468,7 +468,7 @@ branchEnd_1:
     call    printf
     nop
 
-/* Printing bool */
+/* Printing bool z4 */
 /* Loading Variable */
     set         z4, %l1
     add         %g0, %l1, %l1
@@ -488,7 +488,7 @@ branchEnd_2:
     call    printf
     nop
 /* Done printing bool. */
-/* Printing bool */
+/* Printing bool z5 */
 /* Loading Variable */
     set         z5, %l1
     add         %g0, %l1, %l1
@@ -546,16 +546,16 @@ branchEnd_3:
     call    printf
     nop
 /* Done printing int. */
-/* printing float */
+/* printing float y0 */
 /* Loading Variable */
     set         -28, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
 /* Done printing float. */
-/* Printing bool */
+/* Printing bool z0 */
 /* Loading Variable */
     set         -32, %l1
     add         %fp, %l1, %l1
@@ -621,16 +621,16 @@ branchEnd_4:
     call    printf
     nop
 /* Done printing int. */
-/* printing float */
+/* printing float y1 */
 /* Loading Variable */
     set         y1, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
 /* Done printing float. */
-/* Printing bool */
+/* Printing bool z2 */
 /* Loading Variable */
     set         z2, %l1
     add         %g0, %l1, %l1
@@ -679,16 +679,16 @@ branchEnd_5:
     call    printf
     nop
 /* Done printing int. */
-/* printing float */
+/* printing float y1 */
 /* Loading Variable */
     set         y1, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
 /* Done printing float. */
-/* Printing bool */
+/* Printing bool z1 */
 /* Loading Variable */
     set         z1, %l1
     add         %g0, %l1, %l1
@@ -857,11 +857,11 @@ staticGuardLabel_main_cy3:
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_main_cy6:
-/* printing float */
+/* printing float cy1 */
 /* Loading Variable */
     set         -44, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
@@ -871,11 +871,11 @@ staticGuardLabel_main_cy6:
     call    printFloat
     nop
 
-/* printing float */
+/* printing float cy3 */
 /* Loading Variable */
     set         main_cy3, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
@@ -885,20 +885,20 @@ staticGuardLabel_main_cy6:
     call    printFloat
     nop
 
-/* printing float */
+/* printing float cy5 */
 /* Loading Variable */
     set         -48, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
 /* Done printing float. */
-/* printing float */
+/* printing float cy6 */
 /* Loading Variable */
     set         main_cy6, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
+    ld          [%l1], %f0
 /* Done loading variable. */
     call    printFloat
     nop
@@ -950,7 +950,7 @@ staticGuardLabel_main_cz3:
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_main_cz6:
-/* Printing bool */
+/* Printing bool cz1 */
 /* Loading Variable */
     set         -52, %l1
     add         %fp, %l1, %l1
@@ -975,7 +975,7 @@ branchEnd_7:
     call    printf
     nop
 
-/* Printing bool */
+/* Printing bool cz3 */
 /* Loading Variable */
     set         main_cz3, %l1
     add         %g0, %l1, %l1
@@ -1000,7 +1000,7 @@ branchEnd_8:
     call    printf
     nop
 
-/* Printing bool */
+/* Printing bool cz5 */
 /* Loading Variable */
     set         -56, %l1
     add         %fp, %l1, %l1
@@ -1020,7 +1020,7 @@ branchEnd_9:
     call    printf
     nop
 /* Done printing bool. */
-/* Printing bool */
+/* Printing bool cz6 */
 /* Loading Variable */
     set         main_cz6, %l1
     add         %g0, %l1, %l1
