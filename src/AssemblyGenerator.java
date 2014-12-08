@@ -540,11 +540,12 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.store, String.valueOf(((ConstSTO) result).getValue()), "[" + Registers.l0 + "]");
 	}
 
-	public void evaluateOperand(STO left, STO right, BinaryOp op, STO sto) {
+	public void evaluateBinary(STO left, STO right, BinaryOp op, STO sto) {
 		// TODO Auto-generated method stub
 		boolean leftFloat = left.getType().isFloat();
 		boolean rightFloat = right.getType().isFloat();
 		String register = "";
+		generateComment("Prepping Arithmetic Calculations by loading");
 		if(!leftFloat) {
 			this.loadVariable(Registers.l0, left);
 		}

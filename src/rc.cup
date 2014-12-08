@@ -948,7 +948,8 @@ Designator ::= T_STAR Designator:_1
 							ConstSTO newConst = (ConstSTO) _1;
 							newConst.setValue(newConst.getValue() * -1);
 							RESULT = newConst;
-						} else {												
+						} else {
+							System.out.println("was here");												
 							RESULT = _1;
 						}
                     :}

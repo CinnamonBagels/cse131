@@ -38,6 +38,7 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 /* Done. */
+/* Prepping Arithmetic Calculations by loading */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -57,6 +58,7 @@ main:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
+/* Prepping Arithmetic Calculations by loading */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -76,6 +78,7 @@ main:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
+/* Prepping Arithmetic Calculations by loading */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -87,6 +90,7 @@ main:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* Prepping Arithmetic Calculations by loading */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -109,108 +113,6 @@ main:
     set         _endl, %o0
     call    printf
     nop
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* Subtracting */
-    sub         %l0, %l1, %l3
-    set         -36, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* Multiplying */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    .mul
-    nop
-    mov         %o0, %l0
-    set         -40, %l4
-    add         %fp, %l4, %l4
-    st          %l0, [%l4]
-    set         -40, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* Dividing */
-    set         -40, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    .div
-    nop
-    mov         %o0, %l0
-    set         -44, %l4
-    add         %fp, %l4, %l4
-    st          %l0, [%l4]
-    set         -36, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -44, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* Adding */
-    add         %l0, %l1, %l3
-    set         -48, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-/* Printing int int + int */
-    set         _intFmt, %o0
-    set         -48, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* Modding */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    .rem
-    nop
-    mov         %o0, %l0
-    set         -52, %l4
-    add         %fp, %l4, %l4
-    st          %l0, [%l4]
-/* Printing int Validating int and int as an IntegerType for operator: %...
- */
-    set         _intFmt, %o0
-    set         -52, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
     ret 
     restore
-SAVE.main = -(92 + 52) & -8
+SAVE.main = -(92 + 32) & -8

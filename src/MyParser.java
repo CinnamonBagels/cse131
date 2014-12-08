@@ -1221,7 +1221,8 @@ class MyParser extends parser {
 			}
 			
 			return result;
-		}
+		} 
+		
 		return sto;
 	}
 
@@ -1266,7 +1267,7 @@ class MyParser extends parser {
 					m_symtab.getFunc().addToStack(sto.getType().getSize());
 				}
 				
-				generator.evaluateOperand(_1, _3, _2, sto);
+				generator.evaluateBinary(_1, _3, _2, sto);
 			}
 		}
 		return sto;
