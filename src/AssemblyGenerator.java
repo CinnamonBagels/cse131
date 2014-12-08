@@ -83,6 +83,7 @@ public class AssemblyGenerator {
 			//TODO do the store
 			//x
 			//x .word 0
+			storeVariable(lhs, rhs);
 		}
 		dQueue.add(str);
 	}
