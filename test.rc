@@ -4,6 +4,5 @@ function : void main() {
   int trois = 3;
   int deux = 2;
   int un = 1;
-
-  cout << -trois * huit / +deux + deux - un << endl;
+  cout << -trois << endl;
 }
