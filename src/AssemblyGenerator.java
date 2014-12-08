@@ -16,6 +16,7 @@ public class AssemblyGenerator {
 	public int stringLits = 0;
 	public int branches = 0;
 	public boolean globalVarsInit = false;
+	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
 	public int mainCounter = 0;
 	
@@ -111,6 +112,13 @@ public class AssemblyGenerator {
 				}
 				globalVarsInit = true;
 			}
+			
+			//this wont work
+			//if(!this.staticVarsInit && this.mainCounter > 5) {
+//				for(int i = 0; i < this.sVars.size(); ++i) {
+//					
+//				}
+//			}
 		}
 	}
 	
@@ -511,17 +519,18 @@ public class AssemblyGenerator {
 	
 	//do static guard, forgot that we needed this.
 	public void staticerino(STO sto) {
-		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		dQueue.add(assembleString(Strings.init, Strings.staticGuard + sto.offset + ":", Strings.word, "0"));
+		generateASM(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l0);
 		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l1);
 		generateASM(Strings.two_param, Instructions.cmp, Registers.g0, Registers.l1);
-		generateASM(Strings.one_param, Instructions.bne, "static_" + sto.offset);
+		generateASM(Strings.one_param, Instructions.bne, Strings.staticGuard + sto.offset);
 		generateASM(Strings.nop);
 	}
 	
 	public void staticerino_end(STO sto) {
-		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l2);
+		generateASM(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l2);
 		generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
 		generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l2 + "]");
-		generateASM(Strings.label, "static_" + sto.offset);
+		generateASM(Strings.label, Strings.staticGuard + sto.offset);
 	}
 }

@@ -55,4 +55,6 @@ public class Strings {
     public static final String asciz = ".asciz";
     public static final String floatFormat = "\"%.21f\"";
     public static final String global = tab + ".global";
+    public static final String staticGuard = "staticGuard_";
+    public static final String word = ".word";
 }

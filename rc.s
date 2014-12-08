@@ -5,18 +5,24 @@
 x1:             .word        3           
 x2:             .word        0           
 x4:             .word        0           
+staticGuard_x4:    .word        0           
 x5:             .word        0           
+staticGuard_x5:    .word        0           
 y1:             .single      0r3.0       
 y2:             .single      0r0.0       
 float_0:        .single      0r4.45      
 float_1:        .single      0r0.34      
 y4:             .single      0r0.0       
+staticGuard_y4:    .word        0           
 y5:             .single      0r0.0       
+staticGuard_y5:    .word        0           
 float_2:        .single      0r6.66      
 z1:             .word        1           
 z2:             .word        0           
 z4:             .word        0           
+staticGuard_z4:    .word        0           
 z5:             .word        0           
+staticGuard_z5:    .word        0           
 x7:             .word        0           
 x8:             .word        0           
 str_3:          .asciz       "Hello"     
@@ -28,13 +34,19 @@ float_8:        .single      0r-6.66
 float_9:        .single      0r100.001   
 float_10:       .single      0r1.2       
 main_cx3:       .word        0           
+staticGuard_main_cx3:    .word        0           
 main_cx6:       .word        0           
+staticGuard_main_cx6:    .word        0           
 main_cy3:       .single      0r0.0       
+staticGuard_main_cy3:    .word        0           
 main_cy6:       .single      0r0.0       
+staticGuard_main_cy6:    .word        0           
 float_11:       .single      0r4.45      
 float_12:       .single      0r4.45      
 main_cz3:       .word        0           
+staticGuard_main_cz3:    .word        0           
 main_cz6:       .word        0           
+staticGuard_main_cz6:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -51,33 +63,33 @@ rfmt:           .asciz       "%.21f"
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         x4, %l0
+    set         staticGuard_x4, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_x4
+    bne     staticGuard_x4
     nop
 ! --storing constant x4 with value -5.0
     set         x4, %l0
     add         %g0, %l0, %l0
     set         -5, %l1
     st          %l1, [%l0]
-    set         x4, %l2
+    set         staticGuard_x4, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_x4:
-    set         x5, %l0
+staticGuard_x4:
+    set         staticGuard_x5, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_x5
+    bne     staticGuard_x5
     nop
-    set         x5, %l2
+    set         staticGuard_x5, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_x5:
-    set         y4, %l0
+staticGuard_x5:
+    set         staticGuard_y4, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_y4
+    bne     staticGuard_y4
     nop
 ! --storing constant y4 with value 0.34
     set         y4, %l0
@@ -85,42 +97,42 @@ static_x5:
     set         float_1, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]
-    set         y4, %l2
+    set         staticGuard_y4, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_y4:
-    set         y5, %l0
+staticGuard_y4:
+    set         staticGuard_y5, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_y5
+    bne     staticGuard_y5
     nop
-    set         y5, %l2
+    set         staticGuard_y5, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_y5:
-    set         z4, %l0
+staticGuard_y5:
+    set         staticGuard_z4, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_z4
+    bne     staticGuard_z4
     nop
 ! --storing constant z4 with value 0.0
     set         z4, %l0
     add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
-    set         z4, %l2
+    set         staticGuard_z4, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_z4:
-    set         z5, %l0
+staticGuard_z4:
+    set         staticGuard_z5, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_z5
+    bne     staticGuard_z5
     nop
-    set         z5, %l2
+    set         staticGuard_z5, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_z5:
+staticGuard_z5:
 /* Storing x1 into x7 */
     set         x7, %l0
     add         %g0, %l0, %l0
@@ -705,20 +717,20 @@ branchEnd_6:
     set         4, %l1
     st          %l1, [%l0]
 /* Done. */
-    set         main_cx3, %l0
+    set         staticGuard_main_cx3, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_main_cx3
+    bne     staticGuard_main_cx3
     nop
 ! --storing constant cx3 with value 4.0
     set         main_cx3, %l0
     add         %g0, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
-    set         main_cx3, %l2
+    set         staticGuard_main_cx3, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_main_cx3:
+staticGuard_main_cx3:
 /* setting cx5 = x1 */
     set         -40, %l0
     add         %fp, %l0, %l0
@@ -727,10 +739,10 @@ static_main_cx3:
     ld          [%l1], %l2
     st          %l2, [%l0]
 /* Done. */
-    set         main_cx6, %l0
+    set         staticGuard_main_cx6, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_main_cx6
+    bne     staticGuard_main_cx6
     nop
 /* Storing x1 into cx6 */
     set         main_cx6, %l0
@@ -739,10 +751,10 @@ static_main_cx3:
     add         %fp, %l2, %l2
     ld          [%l2], %l1
     st          %l1, [%l0]
-    set         main_cx6, %l2
+    set         staticGuard_main_cx6, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_main_cx6:
+staticGuard_main_cx6:
 /* Printing int cx1 */
     set         _intFmt, %o0
 /* Loading Variable */
@@ -806,10 +818,10 @@ static_main_cx6:
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* Done. */
-    set         main_cy3, %l0
+    set         staticGuard_main_cy3, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_main_cy3
+    bne     staticGuard_main_cy3
     nop
 ! --storing constant cy3 with value 4.45
     set         main_cy3, %l0
@@ -817,10 +829,10 @@ static_main_cx6:
     set         float_0, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]
-    set         main_cy3, %l2
+    set         staticGuard_main_cy3, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_main_cy3:
+staticGuard_main_cy3:
 /* setting cy5 = y1 */
     set         -48, %l0
     add         %fp, %l0, %l0
@@ -829,10 +841,10 @@ static_main_cy3:
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* Done. */
-    set         main_cy6, %l0
+    set         staticGuard_main_cy6, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_main_cy6
+    bne     staticGuard_main_cy6
     nop
 /* Storing y1 into cy6 */
     set         main_cy6, %l0
@@ -841,10 +853,10 @@ static_main_cy3:
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
-    set         main_cy6, %l2
+    set         staticGuard_main_cy6, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_main_cy6:
+staticGuard_main_cy6:
 /* printing float */
 /* Loading Variable */
     set         -44, %l1
@@ -900,20 +912,20 @@ static_main_cy6:
     set         0, %l1
     st          %l1, [%l0]
 /* Done. */
-    set         main_cz3, %l0
+    set         staticGuard_main_cz3, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_main_cz3
+    bne     staticGuard_main_cz3
     nop
 ! --storing constant cz3 with value 0.0
     set         main_cz3, %l0
     add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
-    set         main_cz3, %l2
+    set         staticGuard_main_cz3, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_main_cz3:
+staticGuard_main_cz3:
 /* setting cz5 = z1 */
     set         -56, %l0
     add         %fp, %l0, %l0
@@ -922,10 +934,10 @@ static_main_cz3:
     ld          [%l1], %l2
     st          %l2, [%l0]
 /* Done. */
-    set         main_cz6, %l0
+    set         staticGuard_main_cz6, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
-    bne     static_main_cz6
+    bne     staticGuard_main_cz6
     nop
 /* Storing z1 into cz6 */
     set         main_cz6, %l0
@@ -934,10 +946,10 @@ static_main_cz3:
     add         %g0, %l2, %l2
     ld          [%l2], %l1
     st          %l1, [%l0]
-    set         main_cz6, %l2
+    set         staticGuard_main_cz6, %l2
     set         1, %l3
     st          %l3, [%l2]
-static_main_cz6:
+staticGuard_main_cz6:
 /* Printing bool */
 /* Loading Variable */
     set         -52, %l1
