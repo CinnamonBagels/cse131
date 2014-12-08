@@ -363,7 +363,6 @@ class MyParser extends parser {
 					m_errors.print(Formatter.toString(
 							ErrorMsg.error8_CompileTime, csto.getName()));
 				}
-				System.out.println(id.getName());
 				sto.base = Registers.g0;
 				sto.offset = ((STO)lstIDs.get(id)).offset;
 				

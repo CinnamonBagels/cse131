@@ -23,6 +23,30 @@ int x7 = x1;
 int x8 = x2 = x2 = 0;
 
 function : void main() {
+  int x1 = 5;
+
+  cout << x7 << x8 << endl;
+
+  cout << "Hello" << "World" << endl;
+
+  cout << 4 << 4.34 << true << false << endl;
+
+  cout << x1 << ::x1 << x2 << ::x2;
+
+  int x2 = 4;
+
+  cout << x1 << ::x1 << x2 << ::x2;
+
+  cout << endl << endl;
+
+  int x;
+  float y;
+  bool z;
+
+  cout << x1 << x2 << x3 << x4 << x5 << x6 << endl;
+  cout << y1 << y2 << y3 << y4 << y5 << y6 << endl;
+  cout << z1 << z2 << z3 << z4 << z5 << z6 << endl;
+
   int x0 = 2000111;
   float y0 = 100.001;
   bool z0 = true;
