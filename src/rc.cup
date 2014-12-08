@@ -948,9 +948,9 @@ Designator ::= T_STAR Designator:_1
 							ConstSTO newConst = (ConstSTO) _1;
 							newConst.setValue(newConst.getValue() * -1);
 							RESULT = newConst;
-						} else {
-							System.out.println("was here");												
-							RESULT = _1;
+						} else {											
+							ConstSTO newConst = new ConstSTO("-1", new IntegerType());
+							RESULT = ((MyParser) parser).DoBinaryOp(_1, new MulOp("*"), newConst);
 						}
                     :}
     |               T_NOT Designator:_2
