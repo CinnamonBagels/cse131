@@ -43,4 +43,5 @@ function : void main() {
 
   int cx1 = x3;
   const int cx2 = x3;
+  int cx5 = x1;
 }

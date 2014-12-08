@@ -306,8 +306,8 @@ public class AssemblyGenerator {
 					generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
 				} else {
 					//l1 l0 l0
-					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l0);
-					generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l0 + "]");
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l2);
+					generateASM(Strings.two_param, Instructions.store, Registers.l2, "[" + Registers.l0 + "]");
 				}
 			}
 			

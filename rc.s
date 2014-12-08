@@ -238,6 +238,14 @@ branchEnd_2:
     set         4, %l1
     st          %l1, [%l0]
 /* Done. */
+/* setting cx5 = x1 */
+    set         -20, %l0
+    add         %fp, %l0, %l0
+    set         x1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* Done. */
     ret 
     restore
-SAVE.main = -(92 + 16) & -8
+SAVE.main = -(92 + 20) & -8
