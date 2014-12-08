@@ -695,7 +695,7 @@ DeleteStmt ::=    T_DELETE Designator:_1 T_SEMI
 
 UnarySign ::= 	  T_PLUS
 				{:
-					//not sure if we need this?
+					RESULT = "+";
 				:}
 	|			  T_MINUS
 					{:
@@ -944,14 +944,18 @@ Designator ::= T_STAR Designator:_1
                     :}
     |               UnarySign:_2 Designator:_1
                     {:
-						if(_1 instanceof ConstSTO && _2 == "-") {
-							ConstSTO newConst = (ConstSTO) _1;
-							newConst.setValue(newConst.getValue() * -1);
-							RESULT = newConst;
-						} else {				
-							//can also do neg reg, reg							
-							ConstSTO newConst = new ConstSTO("-1", new IntegerType());
-							RESULT = ((MyParser) parser).DoBinaryOp(_1, new MulOp("*"), newConst);
+                    	if(_2 == "-") {
+							if(_1 instanceof ConstSTO) {
+								ConstSTO newConst = (ConstSTO) _1;
+								newConst.setValue(newConst.getValue() * -1);
+								RESULT = newConst;
+							} else {				
+								//can also do neg reg, reg							
+								ConstSTO newConst = new ConstSTO("-1", new IntegerType());
+								RESULT = ((MyParser) parser).DoBinaryOp(_1, new MulOp("*"), newConst);
+							}
+						} else {
+							RESULT = _1;
 						}
                     :}
     |               T_NOT Designator:_2
