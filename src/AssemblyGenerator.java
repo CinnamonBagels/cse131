@@ -523,7 +523,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l0);
 		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l1);
 		generateASM(Strings.two_param, Instructions.cmp, Registers.g0, Registers.l1);
-		generateASM(Strings.one_param, Instructions.bne, Strings.staticGuard + sto.offset);
+		generateASM(Strings.one_param, Instructions.bne, Strings.staticGuardLabel + sto.offset);
 		generateASM(Strings.nop);
 	}
 	
@@ -531,6 +531,6 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l2);
 		generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
 		generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l2 + "]");
-		generateASM(Strings.label, Strings.staticGuard + sto.offset);
+		generateASM(Strings.label, Strings.staticGuardLabel + sto.offset);
 	}
 }
