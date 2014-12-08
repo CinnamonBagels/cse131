@@ -246,35 +246,6 @@ branchEnd_2:
     ld          [%l1], %l0
     st          %l0, [%l0]
 /* Done. */
-/* Printing int */
-    set         _intFmt, %o0
-/* Loading Variable */
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* Done loading variable. */
-    call    printf
-    nop
-/* Done printing int. */
-/* printf on int */
-    set         _intFmt, %o0
-    set         4, %o1
-    call    printf
-    nop
-
-/* Printing int */
-    set         _intFmt, %o0
-/* Loading Variable */
-    set         -20, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* Done loading variable. */
-    call    printf
-    nop
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
     ret 
     restore
 SAVE.main = -(92 + 20) & -8
