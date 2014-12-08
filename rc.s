@@ -59,6 +59,11 @@ main:
 /* Done. */
 /* Printing int */
     set         _intFmt, %o0
+/* Loading Variable */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
@@ -66,7 +71,7 @@ main:
 /* Loading Variable */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %f1
 /* Done loading variable. */
     call    printFloat
     nop
@@ -129,6 +134,11 @@ branchEnd_0:
     st          %l1, [%l0]
 /* Printing int */
     set         _intFmt, %o0
+/* Loading Variable */
+    set         x2, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
@@ -136,7 +146,7 @@ branchEnd_0:
 /* Loading Variable */
     set         y1, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %f1
 /* Done loading variable. */
     call    printFloat
     nop
@@ -182,6 +192,11 @@ branchEnd_1:
     st          %l1, [%l0]
 /* Printing int */
     set         _intFmt, %o0
+/* Loading Variable */
+    set         x1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
@@ -189,7 +204,7 @@ branchEnd_1:
 /* Loading Variable */
     set         y1, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %f1
 /* Done loading variable. */
     call    printFloat
     nop
@@ -233,6 +248,11 @@ branchEnd_2:
 /* Done. */
 /* Printing int */
     set         _intFmt, %o0
+/* Loading Variable */
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
@@ -244,6 +264,11 @@ branchEnd_2:
 
 /* Printing int */
     set         _intFmt, %o0
+/* Loading Variable */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */

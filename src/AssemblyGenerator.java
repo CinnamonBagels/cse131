@@ -405,6 +405,7 @@ public class AssemblyGenerator {
 	public void printInt(STO sto) {
 		generateComment("Printing int");
 		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
+		this.loadVariable(Registers.l1, sto);
 		generateASM(Strings.call_op, Strings.printf);
 		generateASM(Strings.nop);
 		generateComment("Done printing int.");
@@ -413,7 +414,7 @@ public class AssemblyGenerator {
 	
 	public void printFloat(STO sto) {
 		generateComment("printing float");
-		this.loadVariable(Registers.f0, sto);
+		this.loadVariable(Registers.f1, sto);
 		generateASM(Strings.call_op, Strings.printfloat);
 		generateASM(Strings.nop);
 		generateComment("Done printing float.");
