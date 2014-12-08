@@ -45,4 +45,6 @@ function : void main() {
   const int cx2 = x3;
   static int cx3 = x3;
   static const int cx4 = x3;
+  int cx5 = x1;
+  static int cx6 = x1;
 }

@@ -297,7 +297,7 @@ public class AssemblyGenerator {
 					
 				}
 			} else {
-				generateASM(Strings.two_param, Instructions.move, right.offset, Registers.l1);
+				generateASM(Strings.two_param, Instructions.set, right.offset, Registers.l1);
 				generateASM(Strings.three_param, Instructions.add, right.base, Registers.l1, Registers.l1);
 				
 				if(right.getType().isFloat()) {

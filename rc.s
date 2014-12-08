@@ -22,6 +22,7 @@ x8:             .word        0
 float_3:        .single      0r100.001   
 float_4:        .single      0r1.2       
 main_cx3:       .word        0           
+main_cx6:       .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -224,6 +225,14 @@ branchEnd_2:
     set         4, %l1
     st          %l1, [%l0]
 /* Done. */
+/* setting cx5 = x1 */
+    set         -20, %l0
+    add         %fp, %l0, %l0
+    set         x1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    st          %l0, [%l0]
+/* Done. */
     ret 
     restore
-SAVE.main = -(92 + 16) & -8
+SAVE.main = -(92 + 20) & -8
