@@ -104,7 +104,7 @@ public class AssemblyGenerator {
 			//just write the code as is
 			
 			write(t);
-			
+			//hacky way of initing the global vars 
 			if(!this.globalVarsInit && ++this.mainCounter > 5) {
 				for(int i = 0; i < this.executeBuffer.size(); ++i) {
 					write(executeBuffer.get(i));
@@ -507,5 +507,21 @@ public class AssemblyGenerator {
 	public void assignFloat(STO des, STO value) {
 		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + ((ConstSTO) value).getFloatValue()));
 		
+	}
+	
+	//do static guard, forgot that we needed this.
+	public void staticerino(STO sto) {
+		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l1);
+		generateASM(Strings.two_param, Instructions.cmp, Registers.g0, Registers.l1);
+		generateASM(Strings.one_param, Instructions.bne, "static_" + sto.offset);
+		generateASM(Strings.nop);
+	}
+	
+	public void staticerino_end(STO sto) {
+		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l2);
+		generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+		generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l2 + "]");
+		generateASM(Strings.label, "static_" + sto.offset);
 	}
 }

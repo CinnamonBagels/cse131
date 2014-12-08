@@ -199,6 +199,7 @@ class MyParser extends parser {
 				type = t;
 			}
 			else {
+				//oh god wtf does this do tansen.
 				type = DoSetSubType(t, sto.getType().isPointer() ? sto.getType() : null, sto.getType().isArray() ? sto.getType() : null);
 			}
 			
@@ -256,11 +257,26 @@ class MyParser extends parser {
 				if(sto.isInitialized && !sto.isStatic){
 					System.out.println(((STO)lstIDs.get(sto)).isConst());
 					generator.doData(sto, (STO)lstIDs.get(sto));
-				}else{
+				} else {
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
-				}
+				} 
 				
 				//TODO static stuff
+				
+				if(sto.isStatic) {
+					//have to set up static
+					generator.staticerino(sto);
+					if(sto.isInitialized) {
+						//initialize it
+						if(((STO)lstIDs.get(sto)).isConst()) {
+							generator.storeConstant(sto, (ConstSTO)lstIDs.get(sto));
+						} else {
+							generator.storeVariable(sto, (STO)lstIDs.get(sto));
+						}
+					}
+					
+					generator.staticerino_end(sto);
+				}
 			}else{
 				
 				FuncSTO func = m_symtab.getFunc();
