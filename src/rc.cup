@@ -948,7 +948,8 @@ Designator ::= T_STAR Designator:_1
 							ConstSTO newConst = (ConstSTO) _1;
 							newConst.setValue(newConst.getValue() * -1);
 							RESULT = newConst;
-						} else {											
+						} else {				
+							//can also do neg reg, reg							
 							ConstSTO newConst = new ConstSTO("-1", new IntegerType());
 							RESULT = ((MyParser) parser).DoBinaryOp(_1, new MulOp("*"), newConst);
 						}

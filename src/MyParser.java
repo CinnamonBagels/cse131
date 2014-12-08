@@ -1530,4 +1530,10 @@ class MyParser extends parser {
 		des.base = Registers.g0;
 		generator.assignFloat(des, value);
 	}
+	
+	//yeah. later
+	
+	public STO doNegate(STO sto) {
+		return sto;
+	}
 }
