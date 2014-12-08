@@ -68,9 +68,39 @@ main:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
-/* Printing int int * int */
-    set         _intFmt, %o0
+/* Prepping Arithmetic Calculations by loading */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -1, %l1
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
+    nop
+    mov         %o0, %l0
+    set         -28, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* Prepping Arithmetic Calculations by loading */
     set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* Dividing */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .div
+    nop
+    mov         %o0, %l0
+    set         -32, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* Printing int int / int */
+    set         _intFmt, %o0
+    set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -81,4 +111,4 @@ main:
     nop
     ret 
     restore
-SAVE.main = -(92 + 24) & -8
+SAVE.main = -(92 + 32) & -8
