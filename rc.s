@@ -44,10 +44,8 @@ main:
     ld          [%l1], %l0
     set         -1, %l1
 /* Multiplying */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-    set         -1, %l1
+    mov         %l0, %o0
+    mov         %l1, %o1
     call    .mul
     nop
     mov         %o0, %l0
@@ -62,12 +60,8 @@ main:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* Multiplying */
-    set         -20, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    mov         %l0, %o0
+    mov         %l1, %o1
     call    .mul
     nop
     mov         %o0, %l0
@@ -80,10 +74,8 @@ main:
     ld          [%l1], %l0
     set         -1, %l1
 /* Multiplying */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-    set         -1, %l1
+    mov         %l0, %o0
+    mov         %l1, %o1
     call    .mul
     nop
     mov         %o0, %l0
@@ -98,12 +90,8 @@ main:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* Dividing */
-    set         -24, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-    set         -28, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    mov         %l0, %o0
+    mov         %l1, %o1
     call    .div
     nop
     mov         %o0, %l0

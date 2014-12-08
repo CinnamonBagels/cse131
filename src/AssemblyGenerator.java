@@ -632,8 +632,8 @@ public class AssemblyGenerator {
 		} else if(op.getName().equals("/")) {
 			generateComment("Dividing");
 			if(!leftFloat && !rightFloat) {
-				loadVariable(Registers.o0, left);
-				loadVariable(Registers.o1, right);
+				this.doMove(Registers.l0, Registers.o0);
+				this.doMove(Registers.l1, Registers.o1);
 				
 				generateASM(Strings.call_op, Instructions.div);
 				generateASM(Strings.nop);
@@ -675,8 +675,8 @@ public class AssemblyGenerator {
 		} else if(op.getName().equals("*")) {
 			generateComment("Multiplying");
 			if(!leftFloat && !rightFloat) {
-				loadVariable(Registers.o0, left);
-				loadVariable(Registers.o1, right);
+				this.doMove(Registers.l0, Registers.o0);
+				this.doMove(Registers.l1, Registers.o1);
 				
 				generateASM(Strings.call_op, Instructions.mul);
 				generateASM(Strings.nop);
@@ -717,8 +717,8 @@ public class AssemblyGenerator {
 			}
 		} else if(op.getName().equals("%")) {
 			generateComment("Modding");
-			loadVariable(Registers.o0, left);
-			loadVariable(Registers.o1, right);
+			this.doMove(Registers.l0, Registers.o0);
+			this.doMove(Registers.l1, Registers.o1);
 			generateASM(Strings.call_op, Instructions.mod);
 			generateASM(Strings.nop);
 			generateASM(Strings.two_param, Instructions.move, Registers.o0, Registers.l0);
