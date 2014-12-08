@@ -403,9 +403,9 @@ public class AssemblyGenerator {
 	}
 	
 	public void printInt(STO sto) {
-		generateComment("Printing int");
+		generateComment("Printing int " + sto.getName());
 		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
-		this.loadVariable(Registers.l1, sto);
+		this.loadVariable(Registers.o1, sto);
 		generateASM(Strings.call_op, Strings.printf);
 		generateASM(Strings.nop);
 		generateComment("Done printing int.");

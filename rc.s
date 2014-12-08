@@ -65,12 +65,12 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 /* Done. */
-/* Printing int */
+/* Printing int x0 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         -4, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
@@ -140,12 +140,12 @@ branchEnd_0:
     add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
-/* Printing int */
+/* Printing int x2 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         x2, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
@@ -198,12 +198,12 @@ branchEnd_1:
     add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
-/* Printing int */
+/* Printing int x1 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         x1, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
@@ -254,12 +254,12 @@ branchEnd_2:
     ld          [%l1], %l2
     st          %l2, [%l0]
 /* Done. */
-/* Printing int */
+/* Printing int cx1 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         -16, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
@@ -270,12 +270,12 @@ branchEnd_2:
     call    printf
     nop
 
-/* Printing int */
+/* Printing int cx3 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         main_cx3, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
@@ -286,22 +286,22 @@ branchEnd_2:
     call    printf
     nop
 
-/* Printing int */
+/* Printing int cx5 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         -20, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
-/* Printing int */
+/* Printing int cx6 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         main_cx6, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
@@ -488,12 +488,12 @@ branchEnd_6:
     add         %g0, %l2, %l2
     ld          [%l2], %l1
     st          %l1, [%l0]
-/* Printing int */
+/* Printing int x1 */
     set         _intFmt, %o0
 /* Loading Variable */
     set         x1, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
+    ld          [%l1], %o1
 /* Done loading variable. */
     call    printf
     nop
