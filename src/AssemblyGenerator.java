@@ -139,7 +139,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void doPrintConstBool(String str){
-		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
 		generateASM(Strings.two_param, Instructions.set, str.equals("true") ? Strings.boolt : Strings.boolf, Registers.o1);
 		generateASM(Strings.call_op, Strings.printf);
 		generateASM(Strings.nop);

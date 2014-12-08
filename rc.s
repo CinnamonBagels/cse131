@@ -106,12 +106,12 @@ main:
     call    printFloat
     nop
 
-    set         _intFmt, %o0
+    set         _strFmt, %o0
     set         _boolT, %o1
     call    printf
     nop
 
-    set         _intFmt, %o0
+    set         _strFmt, %o0
     set         _boolF, %o1
     call    printf
     nop
@@ -355,7 +355,7 @@ branchEnd_1:
     call    printf
     nop
 /* Done printing bool. */
-    set         _intFmt, %o0
+    set         _strFmt, %o0
     set         _boolF, %o1
     call    printf
     nop
@@ -400,7 +400,7 @@ branchEnd_3:
     call    printf
     nop
 /* Done printing bool. */
-    set         _intFmt, %o0
+    set         _strFmt, %o0
     set         _boolT, %o1
     call    printf
     nop
@@ -771,7 +771,7 @@ branchEnd_7:
     call    printf
     nop
 /* Done printing bool. */
-    set         _intFmt, %o0
+    set         _strFmt, %o0
     set         _boolF, %o1
     call    printf
     nop
@@ -796,7 +796,7 @@ branchEnd_8:
     call    printf
     nop
 /* Done printing bool. */
-    set         _intFmt, %o0
+    set         _strFmt, %o0
     set         _boolF, %o1
     call    printf
     nop
