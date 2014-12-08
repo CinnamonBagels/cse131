@@ -278,7 +278,7 @@ public class AssemblyGenerator {
 	public void localVarInit(STO left, STO right) {
 		//checking for automatic int -> float casting
 		if(left.getType().isFloat() && right.getType().isInt()) {
-			//stuff here
+			
 		} else {
 			generateComment("setting " + left.getName() + " = " + right.getName());
 			generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l0);
@@ -295,6 +295,19 @@ public class AssemblyGenerator {
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
 					generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
 					
+				}
+			} else {
+				generateASM(Strings.two_param, Instructions.move, right.offset, Registers.l1);
+				generateASM(Strings.three_param, Instructions.add, right.base, Registers.l1, Registers.l1);
+				
+				if(right.getType().isFloat()) {
+					//l1 f0 l0
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
+					generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
+				} else {
+					//l1 l0 l0
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l0);
+					generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l0 + "]");
 				}
 			}
 			
@@ -467,7 +480,18 @@ public class AssemblyGenerator {
 		}
 	}
 
-	public void assignFloat(ConstSTO sto) {
+	public ConstSTO assignFloat(ConstSTO sto) {
 		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + sto.getFloatValue()));
+		return sto;
+	}
+
+	public void constantInit(STO id, STO sto) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void assignFloat(STO des, STO value) {
+		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + ((ConstSTO) value).getFloatValue()));
+		
 	}
 }

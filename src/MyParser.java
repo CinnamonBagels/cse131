@@ -171,7 +171,6 @@ class MyParser extends parser {
 			STO sto = e.nextElement();
 			String idName = sto.getName();
 			
-			
 			if (sto.isError()) {
 				continue;
 			}
@@ -182,6 +181,7 @@ class MyParser extends parser {
 							.getName()));
 				}
 			}
+			STO r = ((STO)lstIDs.get(sto));
 			
 			if(m_symtab.getLevel()==1){
 				sto.isGlobal = true;
@@ -345,7 +345,7 @@ class MyParser extends parser {
 				if (csto.isError()) {
 					continue;
 				}
-				
+				ConstSTO sto = null;
 				if (csto.isConst()) {
 					if (!csto.getType().isAssignableTo(t)) {
 						m_nNumErrors++;
@@ -353,7 +353,7 @@ class MyParser extends parser {
 								ErrorMsg.error8_Assign, id.getType().getName(),
 								t.getName()));
 					} else {
-						ConstSTO sto = new ConstSTO(id.getName(), t,
+						 sto = new ConstSTO(id.getName(), t,
 								((ConstSTO) csto).getValue());
 						m_symtab.insert(sto);
 					}
@@ -363,7 +363,10 @@ class MyParser extends parser {
 					m_errors.print(Formatter.toString(
 							ErrorMsg.error8_CompileTime, csto.getName()));
 				}
-				//assembly here
+				System.out.println(id.getName());
+				sto.base = Registers.g0;
+				sto.offset = ((STO)lstIDs.get(id)).offset;
+				
 			}
 			
 			
@@ -1458,7 +1461,7 @@ class MyParser extends parser {
 					} else if(sto.getType().isFloat()) {
 						generator.doPrintConstFloat("" + ((ConstSTO) sto).getValue());
 					} else if(sto.getType().isBool()) {
-						generator.doPrintConstInt("" + ((ConstSTO) sto).getBoolValue());
+						generator.doPrintConstBool("" + ((ConstSTO) sto).getBoolValue());
 					}
 				}
 			} else {
@@ -1480,10 +1483,22 @@ class MyParser extends parser {
 	}
 	
 	//discussion 
-	public void assignFloat(ConstSTO sto) {
+	public ConstSTO assignFloat(ConstSTO sto) {
+
 		sto.offset = Strings.assignFloat + generator.stringLits;
 		sto.base = Registers.g0;
 		//second level, assembly stuff should go in assemblygenerator
-		generator.assignFloat(sto);
+		return generator.assignFloat(sto);
+	}
+	
+	//not sure we need this.
+	//this is a rehash of doData
+	public void assignFloat(STO des, STO value) {
+
+		value.offset = Strings.assignFloat + generator.stringLits;
+		value.base = Registers.g0;
+		des.offset = Strings.assignFloat + generator.stringLits;
+		des.base = Registers.g0;
+		generator.assignFloat(des, value);
 	}
 }
