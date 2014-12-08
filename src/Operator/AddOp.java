@@ -1,5 +1,7 @@
 package Operator;
 
+import STO.STO;
+
 public class AddOp extends ArithmeticOp {
 
 	public AddOp(String opName) {

@@ -1,6 +1,7 @@
 import java.util.*;
 import java.io.*;
 
+import Operator.BinaryOp;
 import STO.*;
 import Types.*;
 
@@ -531,5 +532,197 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
 		generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l2 + "]");
 		generateASM(Strings.label, Strings.staticGuardLabel + sto.offset);
+	}
+
+	public void doBinaryOp(STO result) {
+		// TODO Auto-generated method stub
+		generateComment("Doing binary expression");
+		generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, result.base, Registers.l0, Registers.l0);
+		generateASM(Strings.two_param, Instructions.store, String.valueOf(((ConstSTO) result).getValue()), "[" + Registers.l0 + "]");
+	}
+
+	public void evaluateOperand(STO left, STO right, BinaryOp op, STO sto) {
+		// TODO Auto-generated method stub
+		boolean leftFloat = left.getType().isFloat();
+		boolean rightFloat = right.getType().isFloat();
+		String register = "";
+		if(!leftFloat) {
+			this.loadVariable(Registers.l0, left);
+		}
+		
+		boolean isBothInt = !leftFloat && !rightFloat;
+		if(!rightFloat) {
+			this.loadVariable(Registers.l1,  right);
+		}
+		//this is pretty bad
+		if(op.getName().equals("+")) {
+			//both are ints, just add them. fck floats.
+			if(isBothInt) {
+				this.generateASM(Strings.three_param, Instructions.add, Registers.l0, Registers.l1, Registers.l3);
+			} else {
+				STO temp = new ExprSTO("", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, temp);
+				} else {
+					this.loadVariable(Registers.f0, left);
+				}
+				
+				if(right.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, temp);
+				} else {
+					this.loadVariable(Registers.f1, right);
+				}
+				
+				//left int right float
+				if(leftFloat && !rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				//left flat right int
+				if(!leftFloat && rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				}
+				
+				generateASM(Strings.three_param, Instructions.fadd, Registers.f0, Registers.f1, Registers.f3);
+				register = Registers.f3;
+			}
+		} else if(op.getName().equals("-")) {
+			//both are ints, just add them. fck floats.
+			if(isBothInt) {
+				this.generateASM(Strings.three_param, Instructions.sub, Registers.l0, Registers.l1, Registers.l3);
+			} else {
+				STO temp = new ExprSTO("", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, temp);
+				} else {
+					this.loadVariable(Registers.f0, left);
+				}
+				
+				if(right.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, temp);
+				} else {
+					this.loadVariable(Registers.f1, right);
+				}
+				
+				//left int right float
+				if(leftFloat && !rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				//left flat right int
+				if(!leftFloat && rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				}
+				
+				generateASM(Strings.three_param, Instructions.fsub, Registers.f0, Registers.f1, Registers.f3);
+				register = Registers.f3;
+			}
+		} else if(op.getName().equals("/")) {
+			if(!leftFloat && !rightFloat) {
+				loadVariable(Registers.o0, left);
+				loadVariable(Registers.o1, right);
+				
+				generateASM(Strings.call_op, Instructions.div);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.move, Registers.o0, Registers.l0);
+				register = Registers.l0;
+			} else {
+				STO temp = new ExprSTO("", new FloatType());
+				
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, temp);
+				} else {
+					this.loadVariable(Registers.f0, left);
+				}
+				
+				if(right.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, temp);
+				} else {
+					this.loadVariable(Registers.f1, right);
+				}
+				
+				//left int right float
+				if(leftFloat && !rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				//left flat right int
+				if(!leftFloat && rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				}
+				
+				generateASM(Strings.three_param, Instructions.fdiv, Registers.f0, Registers.f1, Registers.f3);
+				register = Registers.f3;
+			}
+		} else if(op.getName().equals("*")) {
+			if(!leftFloat && !rightFloat) {
+				loadVariable(Registers.o0, left);
+				loadVariable(Registers.o1, right);
+				
+				generateASM(Strings.call_op, Instructions.mul);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.move, Registers.o0, Registers.l0);
+				register = Registers.l0;
+			} else {
+				STO temp = new ExprSTO("", new FloatType());
+				
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, temp);
+				} else {
+					this.loadVariable(Registers.f0, left);
+				}
+				
+				if(right.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, temp);
+				} else {
+					this.loadVariable(Registers.f1, right);
+				}
+				
+				//left int right float
+				if(leftFloat && !rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				//left flat right int
+				if(!leftFloat && rightFloat) {
+					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				}
+				
+				generateASM(Strings.three_param, Instructions.fmul, Registers.f0, Registers.f1, Registers.f3);
+				register = Registers.f3;
+			}
+		} else if(op.getName().equals("%")) {
+			loadVariable(Registers.o0, left);
+			loadVariable(Registers.o1, right);
+			generateASM(Strings.call_op, Instructions.mod);
+			generateASM(Strings.nop);
+			generateASM(Strings.two_param, Instructions.move, Registers.o0, Registers.l0);
+			register = Registers.l0;
+		} else {
+			generateComment("Whoops, Executing Binary Op broke on " + left.getName() + " " + op.getName() + " " + right.getName());
+		}
+		
+		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l4);
+		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l4, Registers.l4);
+		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l4 + "]");
 	}
 }

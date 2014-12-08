@@ -29,12 +29,12 @@ public class ArithmeticOp extends BinaryOp {
 		
 		if(a.isInt()) {
 			if(b.isInt()) {
-				return new ExprSTO(a.getName() + " and " + b.getName() + " as an IntegerType for operator: " + this.getName(), new IntegerType());
+				return new ExprSTO(a.getName() + " " + this.getName() + " " + b.getName(), new IntegerType());
 			} else {
-				return new ExprSTO(a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName(), new FloatType());
+				return new ExprSTO(a.getName() + " " + this.getName() + " " + b.getName(), new FloatType());
 			}
 		} else {
-			return new ExprSTO(a.getName() + " and " + b.getName() + " as an FloatType for operator: " + this.getName(), new FloatType());
+			return new ExprSTO(a.getName() + " " + this.getName() + " " + b.getName(), new FloatType());
 		}
 	}
 	

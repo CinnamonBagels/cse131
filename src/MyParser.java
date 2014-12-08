@@ -1256,7 +1256,17 @@ class MyParser extends parser {
 				result.setIsAddressable(false);
 				result.setIsModifiable(false);
 				return result;
+			} else {
+				sto.base = Registers.fp;
+				if(m_symtab.getFunc() == null) {
+					sto.offset = String.valueOf(-(main.getStackSize() + sto.getType().getSize()));
+					main.addToStack(sto.getType().getSize());
+				} else {
+					sto.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + sto.getType().getSize()));
+					m_symtab.getFunc().addToStack(sto.getType().getSize());
+				}
 				
+				generator.evaluateOperand(_1, _3, _2, sto);
 			}
 		}
 		return sto;
