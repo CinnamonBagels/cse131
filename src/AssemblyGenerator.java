@@ -378,7 +378,6 @@ public class AssemblyGenerator {
 	}
 
 	public void loadVariable(String register, STO sto) {
-		generateComment("Loading Variable");
 		if(sto.isConst()) {
 			Type type = ((ConstSTO) sto).getType();
 			
@@ -393,7 +392,6 @@ public class AssemblyGenerator {
 			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
 		}
-		generateComment("Done loading variable.");
 	}
 
 	public void doCoutEndl() {
@@ -557,9 +555,11 @@ public class AssemblyGenerator {
 		}
 		//this is pretty bad
 		if(op.getName().equals("+")) {
+			generateComment("Adding");
 			//both are ints, just add them. fck floats.
 			if(isBothInt) {
 				this.generateASM(Strings.three_param, Instructions.add, Registers.l0, Registers.l1, Registers.l3);
+				register = Registers.l3;
 			} else {
 				STO temp = new ExprSTO("", new FloatType());
 				temp.offset = "4";
@@ -592,9 +592,11 @@ public class AssemblyGenerator {
 				register = Registers.f3;
 			}
 		} else if(op.getName().equals("-")) {
+			generateComment("Subtracting");
 			//both are ints, just add them. fck floats.
 			if(isBothInt) {
 				this.generateASM(Strings.three_param, Instructions.sub, Registers.l0, Registers.l1, Registers.l3);
+				register = Registers.l3;
 			} else {
 				STO temp = new ExprSTO("", new FloatType());
 				temp.offset = "4";
@@ -627,6 +629,7 @@ public class AssemblyGenerator {
 				register = Registers.f3;
 			}
 		} else if(op.getName().equals("/")) {
+			generateComment("Dividing");
 			if(!leftFloat && !rightFloat) {
 				loadVariable(Registers.o0, left);
 				loadVariable(Registers.o1, right);
@@ -669,6 +672,7 @@ public class AssemblyGenerator {
 				register = Registers.f3;
 			}
 		} else if(op.getName().equals("*")) {
+			generateComment("Multiplying");
 			if(!leftFloat && !rightFloat) {
 				loadVariable(Registers.o0, left);
 				loadVariable(Registers.o1, right);
@@ -711,6 +715,7 @@ public class AssemblyGenerator {
 				register = Registers.f3;
 			}
 		} else if(op.getName().equals("%")) {
+			generateComment("Modding");
 			loadVariable(Registers.o0, left);
 			loadVariable(Registers.o1, right);
 			generateASM(Strings.call_op, Instructions.mod);

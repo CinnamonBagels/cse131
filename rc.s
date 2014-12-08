@@ -38,212 +38,161 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 /* Done. */
-/* Loading Variable */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
-/* Loading Variable */
+/* Multiplying */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
-/* Done loading variable. */
-/* Loading Variable */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    .mul
     nop
     mov         %o0, %l0
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
-/* Loading Variable */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
-/* Loading Variable */
+/* Dividing */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
-/* Done loading variable. */
-/* Loading Variable */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    .div
     nop
     mov         %o0, %l0
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
-/* Loading Variable */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
+/* Adding */
     add         %l0, %l1, %l3
     set         -28, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
-/* Loading Variable */
+    st          %l3, [%l4]
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
+/* Subtracting */
     sub         %l0, %l1, %l3
     set         -32, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
 /* Printing int int - int */
     set         _intFmt, %o0
-/* Loading Variable */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
-/* Loading Variable */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
+/* Subtracting */
     sub         %l0, %l1, %l3
     set         -36, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
-/* Loading Variable */
+    st          %l3, [%l4]
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
-/* Loading Variable */
+/* Multiplying */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
-/* Done loading variable. */
-/* Loading Variable */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    .mul
     nop
     mov         %o0, %l0
     set         -40, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
-/* Loading Variable */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
-/* Loading Variable */
+/* Dividing */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
-/* Done loading variable. */
-/* Loading Variable */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    .div
     nop
     mov         %o0, %l0
     set         -44, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
-/* Loading Variable */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
+/* Adding */
     add         %l0, %l1, %l3
     set         -48, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
 /* Printing int int + int */
     set         _intFmt, %o0
-/* Loading Variable */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
-/* Loading Variable */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* Done loading variable. */
-/* Loading Variable */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-/* Done loading variable. */
-/* Loading Variable */
+/* Modding */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
-/* Done loading variable. */
-/* Loading Variable */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    .rem
     nop
     mov         %o0, %l0
@@ -253,11 +202,9 @@ main:
 /* Printing int Validating int and int as an IntegerType for operator: %...
  */
     set         _intFmt, %o0
-/* Loading Variable */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
-/* Done loading variable. */
     call    printf
     nop
 /* Done printing int. */
