@@ -21,8 +21,6 @@ x7:             .word        0
 x8:             .word        0           
 float_3:        .single      0r100.001   
 float_4:        .single      0r1.2       
-main_cx3:       .word        0           
-main_cx6:       .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -244,22 +242,6 @@ branchEnd_2:
     call    printf
     nop
 
-/* Printing int */
-    set         _intFmt, %o0
-    call    printf
-    nop
-/* Done printing int. */
-/* printf on int */
-    set         _intFmt, %o0
-    set         4, %o1
-    call    printf
-    nop
-
-/* Printing int */
-    set         _intFmt, %o0
-    call    printf
-    nop
-/* Done printing int. */
 /* Printing int */
     set         _intFmt, %o0
     call    printf
