@@ -51,6 +51,32 @@ rfmt:           .asciz       "%.21f"
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
+/* Storing x1 into x7 */
+    set         x7, %l0
+    add         %g0, %l0, %l0
+    set         x1, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %l1
+    st          %l1, [%l0]
+! --storing constant x2 with value 0.0
+    set         x2, %l0
+    add         %g0, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
+/* Storing x2 into x2 */
+    set         x2, %l0
+    add         %g0, %l0, %l0
+    set         x2, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %l1
+    st          %l1, [%l0]
+/* Storing x2 into x8 */
+    set         x8, %l0
+    add         %g0, %l0, %l0
+    set         x2, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %l1
+    st          %l1, [%l0]
 /* setting x1 = 5 */
     set         -4, %l0
     add         %fp, %l0, %l0

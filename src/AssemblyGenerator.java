@@ -15,6 +15,9 @@ public class AssemblyGenerator {
 	public List<String> dQueue = new Vector<String>();
 	public int stringLits = 0;
 	public int branches = 0;
+	public boolean globalVarsInit = false;
+	public static final int mainGuard = 5;
+	public int mainCounter = 0;
 	
 	private List<String> executeBuffer = new Vector<String>();
 	
@@ -64,7 +67,6 @@ public class AssemblyGenerator {
 		}else{
 			sVars.add(lhs.offset);
 		}
-		
 		String str = "";
 		if(rhs.isConst()){
 			ConstSTO csto = (ConstSTO)rhs;
@@ -97,9 +99,18 @@ public class AssemblyGenerator {
 	}
 	
 	public void flushText(){
+		
 		for(String t : tQueue){
 			//just write the code as is
+			
 			write(t);
+			
+			if(!this.globalVarsInit && ++this.mainCounter > 5) {
+				for(int i = 0; i < this.executeBuffer.size(); ++i) {
+					write(executeBuffer.get(i));
+				}
+				globalVarsInit = true;
+			}
 		}
 	}
 	
@@ -341,7 +352,6 @@ public class AssemblyGenerator {
 		} else {
 			dest_register += Registers.l1;
 		}
-		
 		generateComment("Storing " + value.getName() + " into " + dest.getName());
 		//setting destination
 		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l0);
