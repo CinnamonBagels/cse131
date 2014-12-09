@@ -1,9 +1,10 @@
+function: void main() {
+	const int c1 = 210;
+const int c2 = sizeof(c1) + c1;
+cout << c1 + 210 << endl; // outputs 420
+cout << c2 << endl; // outputs 214
+const float r1 = 420.25;
+cout << r1 + 662.50 << "\n"; // outputs 1082.75
+cout << sizeof(r1) << endl; // outputs 4
 
-function : void main() {
-  int huit = 8;
-  int trois = 3;
-  int deux = 2;
-  int un = 1;
-
-  cout << -trois * huit / +deux + deux - un << endl;
 }
