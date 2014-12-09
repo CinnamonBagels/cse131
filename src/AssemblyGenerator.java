@@ -215,12 +215,11 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 		
-		//have to load again cuz array.
 		if(sto.isReference) {
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		
-		if(!sto.getType().isFloat()){
+		if(sto.getType().isInt()){
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{

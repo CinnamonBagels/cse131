@@ -1,5 +1,4 @@
 function: void main() {
 	int[1] x;	//x should point at 4.
 	x[0] = 4; //should point at 40
-	cout << x[0];
 }
