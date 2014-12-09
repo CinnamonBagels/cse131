@@ -1,5 +1,10 @@
 function: void main() {
-	int[1] x;	//x should point at 4.
+	int[4] x;	//x should point at 4.
+	int y = 6;
 	x[0] = 4; //should point at 40
-	cout << x[0] << endl;
+	x[1] = 3;
+	x[2] = 5;
+	x[3] = y;
+
+	cout << x[0] << x[1] << x[2] << x[3] << endl;
 }
