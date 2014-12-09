@@ -371,6 +371,10 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l0);
 		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l0, Registers.l0);
 		
+		if(dest.isReference) {
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+		}
+		
 		if(value.isConst() && !value.getType().isFloat()) {
 			generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) value).getIntValue(), dest_register);
 		} else {
