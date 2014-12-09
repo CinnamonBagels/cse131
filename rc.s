@@ -7,7 +7,7 @@ _strFmt:        .asciz       "%s"
 _boolT:         .asciz       "true"      
 _boolF:         .asciz       "false"     
 rfmt:           .asciz       "%.21f"     
-arrayOutOfBounds:    .asciz       "Index value of %D is outside legal range [0,%D)."
+arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
                 .section     ".text"
                 .align 4
