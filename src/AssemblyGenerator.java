@@ -752,7 +752,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		generateASM(Strings.label, Strings.arrayInBounds + arrayDecl);
-		generateASM(Strings.three_param, Instructions.add, "1", Registers.l0, Registers.l0);
+		//generateASM(Strings.three_param, Instructions.add, "1", Registers.l0, Registers.l0);
 		this.doMove(Registers.l0, Registers.o0);
 		
 		generateASM(Strings.two_param, Instructions.set, Integer.toString(((ArrayType) array.getType()).getContainingType().getSize()), Registers.o1);
