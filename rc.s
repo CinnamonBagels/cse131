@@ -50,8 +50,16 @@ arrayEnd_0:
     add         %fp, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
+/* setting y = 10 */
+    set         -44, %l0
+    add         %fp, %l0, %l0
+    set         10, %l1
+    st          %l1, [%l0]
+/* Done. */
 /* Starting array access */
-    set         9, %l0
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
     set         -40, %l1
     add         %fp, %l1, %l1
     cmp         %l0, %g0
@@ -66,7 +74,7 @@ arrayInBounds_1:
     nop
     mov         %o0, %l2
     add         %l0, %l2, %l4
-    set         -44, %l5
+    set         -48, %l5
     add         %fp, %l5, %l5
     st          %l4, [%l5]
     ba      arrayEnd_1
@@ -81,9 +89,9 @@ arrayOutBounds_1:
     call    printf
     nop
 arrayEnd_1:
-/* Printing int x[9] */
+/* Printing int x[y] */
     set         _intFmt, %o0
-    set         -44, %l1
+    set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -94,4 +102,4 @@ arrayEnd_1:
     nop
     ret 
     restore
-SAVE.main = -(92 + 40) & -8
+SAVE.main = -(92 + 44) & -8
