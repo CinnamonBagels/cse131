@@ -50,6 +50,48 @@ arrayEnd_0:
     add         %fp, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
+/* Starting array access */
+    set         9, %l0
+    set         -40, %l1
+    add         %fp, %l1, %l1
+    cmp         %l0, %g0
+    bl,a    arrayOutBounds_1
+    cmp         %l0, 10
+    bge,a    arrayOutBounds_1
+arrayInBounds_1:
+    add         1, %l0, %l0
+    mov         %l0, %o0
+    set         4, %o1
+    call    .mul
+    nop
+    mov         %o0, %l2
+    add         %l0, %l2, %l4
+    set         -44, %l5
+    add         %fp, %l5, %l5
+    st          %l4, [%l5]
+    ba      arrayEnd_1
+arrayOutBounds_1:
+    set         1, %o0
+    call    exit
+
+    nop
+    set         "Index value of %D is outside legal range [0,%D).", %o0
+    mov         %l0, %o1
+    set         40, %o2
+    call    printf
+    nop
+arrayEnd_1:
+/* Printing int x[9] */
+    set         _intFmt, %o0
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
     ret 
     restore
 SAVE.main = -(92 + 40) & -8
