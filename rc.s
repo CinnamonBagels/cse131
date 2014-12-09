@@ -40,7 +40,7 @@ arrayOutBounds_0:
 
     nop
     set         "Index value of %D is outside legal range [0,%D).", %o0
-    set         %l0, %o1
+    mov         %l0, %o1
     set         40, %o2
     call    printf
     nop

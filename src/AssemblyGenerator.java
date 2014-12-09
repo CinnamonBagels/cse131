@@ -771,7 +771,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		generateASM(Strings.two_param, Instructions.set, "\"" + ErrorMsg.error11b_ArrExp + "\"", Registers.o0);
-		generateASM(Strings.two_param, Instructions.set, Registers.l0, Registers.o1);
+		generateASM(Strings.two_param, Instructions.move, Registers.l0, Registers.o1);
 		generateASM(Strings.two_param, Instructions.set, Integer.toString(array.getType().getSize()), Registers.o2);
 		generateASM(Strings.call_op,Strings.printf);
 		generateASM(Strings.nop);
