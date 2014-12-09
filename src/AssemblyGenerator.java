@@ -43,6 +43,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.boolt + ":", ".asciz", "\"true\""));
 		write(assembleString(Strings.init, Strings.boolf + ":", ".asciz", "\"false\""));
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
+		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + ErrorMsg.error11b_ArrExp + "\""));
 		write(assembleString("\n"));
 	}
 	
@@ -771,9 +772,9 @@ public class AssemblyGenerator {
 		generateASM(Strings.call_op, Strings.exit);
 		generateASM(Strings.nop);
 		
-		generateASM(Strings.two_param, Instructions.set, "\"" + ErrorMsg.error11b_ArrExp + "\"", Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, "arrayOutOfBounds" , Registers.o0);
 		generateASM(Strings.two_param, Instructions.move, Registers.l0, Registers.o1);
-		generateASM(Strings.two_param, Instructions.set, Integer.toString(array.getType().getSize()), Registers.o2);
+		generateASM(Strings.two_param, Instructions.set, Integer.toString(((ArrayType) array.getType()).getArraySize()), Registers.o2);
 		generateASM(Strings.call_op,Strings.printf);
 		generateASM(Strings.nop);
 		
