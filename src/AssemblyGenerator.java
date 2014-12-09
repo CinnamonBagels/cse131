@@ -743,11 +743,12 @@ public class AssemblyGenerator {
 		
 		//trying out annuled branch. not sure.
 		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
-		generateASM(Strings.one_param, Instructions.bl + ",a", Strings.arrayOutBounds + arrayDecl);
-		//generateASM(Strings.nop);
+		generateASM(Strings.one_param, Instructions.bl, Strings.arrayOutBounds + arrayDecl);
+		generateASM(Strings.nop);
 		
 		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Integer.toString(((ArrayType) array.getType()).getArraySize()));
-		generateASM(Strings.one_param, Instructions.bge + ",a", Strings.arrayOutBounds + arrayDecl);
+		generateASM(Strings.one_param, Instructions.bge, Strings.arrayOutBounds + arrayDecl);
+		generateASM(Strings.nop);
 		
 		generateASM(Strings.label, Strings.arrayInBounds + arrayDecl);
 		generateASM(Strings.three_param, Instructions.add, "1", Registers.l0, Registers.l0);

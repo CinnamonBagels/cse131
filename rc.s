@@ -19,9 +19,11 @@ main:
     set         -40, %l1
     add         %fp, %l1, %l1
     cmp         %l0, %g0
-    bl,a    arrayOutBounds_0
+    bl      arrayOutBounds_0
+    nop
     cmp         %l0, 10
-    bge,a    arrayOutBounds_0
+    bge     arrayOutBounds_0
+    nop
 arrayInBounds_0:
     add         1, %l0, %l0
     mov         %l0, %o0
@@ -63,9 +65,11 @@ arrayEnd_0:
     set         -40, %l1
     add         %fp, %l1, %l1
     cmp         %l0, %g0
-    bl,a    arrayOutBounds_1
+    bl      arrayOutBounds_1
+    nop
     cmp         %l0, 10
-    bge,a    arrayOutBounds_1
+    bge     arrayOutBounds_1
+    nop
 arrayInBounds_1:
     add         1, %l0, %l0
     mov         %l0, %o0
