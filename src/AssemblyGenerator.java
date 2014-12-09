@@ -765,7 +765,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		this.doMove(Registers.o0, Registers.l2);
-		generateASM(Strings.three_param, Instructions.add, Registers.l0, Registers.l2, Registers.l4);
+		generateASM(Strings.three_param, Instructions.add, Registers.l1, Registers.l2, Registers.l4);
 		generateASM(Strings.two_param, Instructions.set, accessSTO.offset, Registers.l5);
 		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l6);
 		generateASM(Strings.two_param, Instructions.store, Registers.l4, "[" + Registers.l6 + "]");
