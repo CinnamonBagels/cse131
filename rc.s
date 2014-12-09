@@ -16,7 +16,7 @@ main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
 /* Starting array access */
-    set         9, %l0
+    set         8, %l0
     set         -40, %l1
     add         %fp, %l1, %l1
     cmp         %l0, %g0
@@ -49,15 +49,15 @@ arrayOutBounds_0:
 
     nop
 arrayEnd_0:
-! --storing constant x[9] with value 4.0
+! --storing constant x[8] with value 4.0
     set         -44, %l0
     add         %fp, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
-/* setting y = 1 */
+/* setting y = 8 */
     set         -44, %l0
     add         %fp, %l0, %l0
-    set         -1, %l1
+    set         8, %l1
     st          %l1, [%l0]
 /* Done. */
 /* Starting array access */
