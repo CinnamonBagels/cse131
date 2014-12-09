@@ -1,109 +1,170 @@
-
-! DEFINING INTERNAL CONSTANTS --
+! DEFAULT STRING FORMATTERS -------------
                 .section     ".rodata"
 _endl:          .asciz       "\n"        
 _intFmt:        .asciz       "%d"        
 _strFmt:        .asciz       "%s"        
 _boolT:         .asciz       "true"      
 _boolF:         .asciz       "false"     
-rfmt:           .asciz       "%.21f"     
+arrOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d).\n"
+nullptrException:    .asciz       "Attempt to dereference NULL pointer.\n"
+
+                .section     ".data"
+                .align 4
+C_FLOAT1:       .single      0r1.0       
+.glb_init:      .word        0           
 
                 .section     ".text"
-                .align 4
                 .global      main
+                .align 4
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-/* Starting array access */
-    set         9, %l0
-    set         -40, %l1
-    add         %fp, %l1, %l1
-    cmp         %l0, %g0
-    bl      arrayOutBounds_0
-    nop
-    cmp         %l0, 10
-    bge     arrayOutBounds_0
-    nop
-arrayInBounds_0:
-    add         1, %l0, %l0
-    mov         %l0, %o0
-    set         4, %o1
-    call    .mul
-    nop
-    mov         %o0, %l2
-    add         %l0, %l2, %l4
-    set         -44, %l5
-    add         %fp, %l5, %l5
-    st          %l4, [%l5]
-    ba      arrayEnd_0
-arrayOutBounds_0:
-    set         1, %o0
-    call    exit
+set         .glb_init, %l0
+ld          [%l0], %l1
+cmp         %l1, %g0
+bne     .glb_init_done
+nop
+set         .glb_init, %l1
+set         1, %l0
+st          %l0, [%l1]
+.glb_init_done:
+!Doing array designator on x
+!Loading final x-STO.VarSTO@edf389
+set         -44, %l3
+add         %fp, %l3, %l3
+! -- loading variable 9 into reg %o0
+set         9, %o0
+!checking for out of bounds
+cmp         %o0, %g0
+bge     array0
+nop
+set         1, %o0
+call    exit
 
-    nop
-    set         "Index value of %D is outside legal range [0,%D).", %o0
-    mov         %l0, %o1
-    set         40, %o2
-    call    printf
-    nop
-arrayEnd_0:
-! --storing constant x[9] with value 4.0
-    set         -44, %l0
-    add         %fp, %l0, %l0
-    set         4, %l1
-    st          %l1, [%l0]
-/* setting y = 10 */
-    set         -44, %l0
-    add         %fp, %l0, %l0
+nop
+set         arrOutOfBounds, %o0
+! -- loading variable 9 into reg %o1
+set         9, %o1
+set         10, %o2
+call    printf
+nop
+array0:
+set         10, %l6
+cmp         %o0, %l6
+bl      array1
+nop
+set         arrOutOfBounds, %o0
+! -- loading variable 9 into reg %o1
+set         9, %o1
+set         10, %o2
+call    printf
+nop
+set         1, %o0
+call    exit
+
+nop
+array1:
+!checking for out of bounds
+set         4, %o1
+call    .mul
+nop
+mov         %o0, %l4
+add         %l3, %l4, %l3
+!Storing address result onto stack
+set         -48, %l0
+add         %fp, %l0, %l0
+st          %l3, [%l0]
+!Storing constant 4.0 int to x[9]
+!Loading final x[9]-STO.VarSTO@fced4
+set         -48, %l0
+add         %fp, %l0, %l0
+!reloading because this is a reference
+ld          [%l0], %l0
+set         4, %l1
+st          %l1, [%l0]
+!setting value to y = 10
+!Loading final y-STO.VarSTO@6355dc
+set         -52, %l0
+add         %fp, %l0, %l0
     set         10, %l1
     st          %l1, [%l0]
-/* Done. */
-/* Starting array access */
-    set         -44, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -40, %l1
-    add         %fp, %l1, %l1
-    cmp         %l0, %g0
-    bl      arrayOutBounds_1
-    nop
-    cmp         %l0, 10
-    bge     arrayOutBounds_1
-    nop
-arrayInBounds_1:
-    add         1, %l0, %l0
-    mov         %l0, %o0
-    set         4, %o1
-    call    .mul
-    nop
-    mov         %o0, %l2
-    add         %l0, %l2, %l4
-    set         -48, %l5
-    add         %fp, %l5, %l5
-    st          %l4, [%l5]
-    ba      arrayEnd_1
-arrayOutBounds_1:
-    set         1, %o0
-    call    exit
 
-    nop
-    set         "Index value of %D is outside legal range [0,%D).", %o0
-    mov         %l0, %o1
-    set         40, %o2
-    call    printf
-    nop
-arrayEnd_1:
-/* Printing int x[y] */
+!Doing array designator on x
+!Loading final x-STO.VarSTO@edf389
+set         -44, %l3
+add         %fp, %l3, %l3
+! -- loading variable y into reg %o0
+!Loading final y-STO.VarSTO@6355dc
+set         -52, %l0
+add         %fp, %l0, %l0
+ld          [%l0], %o0
+
+!checking for out of bounds
+cmp         %o0, %g0
+bge     array2
+nop
+set         1, %o0
+call    exit
+
+nop
+set         arrOutOfBounds, %o0
+! -- loading variable y into reg %o1
+!Loading final y-STO.VarSTO@6355dc
+set         -52, %l0
+add         %fp, %l0, %l0
+ld          [%l0], %o1
+
+set         10, %o2
+call    printf
+nop
+array2:
+set         10, %l6
+cmp         %o0, %l6
+bl      array3
+nop
+set         arrOutOfBounds, %o0
+! -- loading variable y into reg %o1
+!Loading final y-STO.VarSTO@6355dc
+set         -52, %l0
+add         %fp, %l0, %l0
+ld          [%l0], %o1
+
+set         10, %o2
+call    printf
+nop
+set         1, %o0
+call    exit
+
+nop
+array3:
+!checking for out of bounds
+set         4, %o1
+call    .mul
+nop
+mov         %o0, %l4
+add         %l3, %l4, %l3
+!Storing address result onto stack
+set         -56, %l0
+add         %fp, %l0, %l0
+st          %l3, [%l0]
+! -- loading variable x[y] into reg %o1
+!Loading final x[y]-STO.VarSTO@21e554
+set         -56, %l0
+add         %fp, %l0, %l0
+!reloading because this is a reference
+ld          [%l0], %l0
+ld          [%l0], %o1
+
     set         _intFmt, %o0
-    set         -48, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
     call    printf
     nop
-/* Done printing int. */
+
     set         _endl, %o0
     call    printf
     nop
+
+mainend:
     ret 
     restore
-SAVE.main = -(92 + 44) & -8
+
+SAVE.main = -(92+56) & -8
