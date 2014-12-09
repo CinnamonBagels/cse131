@@ -1101,6 +1101,7 @@ class MyParser extends parser {
 						ret.base = Registers.fp;
 					}
 					generator.doArrayDesignator(sto, index, ret);
+					ret.isReference = true;
 					return ret;
 				} else {
 					//pointer stuff

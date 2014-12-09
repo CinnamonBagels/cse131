@@ -16,6 +16,7 @@ public abstract class STO
 	public boolean isGlobal;
 	public boolean isStatic = false;
 	public boolean isInitialized = false;
+	public boolean isReference = false;
 
 	//----------------------------------------------------------------
 	//

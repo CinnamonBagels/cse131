@@ -33,8 +33,8 @@ arrayInBounds_0:
     mov         %o0, %l2
     add         %l0, %l2, %l4
     set         -44, %l5
-    add         %fp, %l5, %l5
-    st          %l4, [%l5]
+    add         %fp, %l5, %l6
+    st          %l4, [%l6]
     ba      arrayEnd_0
     nop
 arrayOutBounds_0:
@@ -51,6 +51,7 @@ arrayEnd_0:
 ! --storing constant x[8] with value 4.0
     set         -44, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         4, %l1
     st          %l1, [%l0]
 /* setting y = 8 */
@@ -79,8 +80,8 @@ arrayInBounds_1:
     mov         %o0, %l2
     add         %l0, %l2, %l4
     set         -48, %l5
-    add         %fp, %l5, %l5
-    st          %l4, [%l5]
+    add         %fp, %l5, %l6
+    st          %l4, [%l6]
     ba      arrayEnd_1
     nop
 arrayOutBounds_1:

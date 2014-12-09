@@ -215,6 +215,11 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 		
+		//have to load again cuz array.
+		if(sto.isReference) {
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+		}
+		
 		if(!sto.getType().isFloat()){
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
@@ -762,8 +767,8 @@ public class AssemblyGenerator {
 		this.doMove(Registers.o0, Registers.l2);
 		generateASM(Strings.three_param, Instructions.add, Registers.l0, Registers.l2, Registers.l4);
 		generateASM(Strings.two_param, Instructions.set, accessSTO.offset, Registers.l5);
-		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l5);
-		generateASM(Strings.two_param, Instructions.store, Registers.l4, "[" + Registers.l5 + "]");
+		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l6);
+		generateASM(Strings.two_param, Instructions.store, Registers.l4, "[" + Registers.l6 + "]");
 		generateASM(Strings.one_param, Instructions.ba, Strings.arrayEnd + this.arrayDecl);
 		generateASM(Strings.nop);
 		
