@@ -38,14 +38,14 @@ arrayInBounds_0:
     st          %l4, [%l5]
     ba      arrayEnd_0
 arrayOutBounds_0:
-    set         1, %o0
-    call    exit
-
-    nop
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         10, %o2
     call    printf
+    nop
+    set         1, %o0
+    call    exit
+
     nop
 arrayEnd_0:
 ! --storing constant x[9] with value 4.0
@@ -84,14 +84,14 @@ arrayInBounds_1:
     st          %l4, [%l5]
     ba      arrayEnd_1
 arrayOutBounds_1:
-    set         1, %o0
-    call    exit
-
-    nop
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         10, %o2
     call    printf
+    nop
+    set         1, %o0
+    call    exit
+
     nop
 arrayEnd_1:
 /* Printing int x[y] */

@@ -768,14 +768,15 @@ public class AssemblyGenerator {
 		
 		//if array index out of bounds, exit with error status
 		generateASM(Strings.label, Strings.arrayOutBounds + arrayDecl);
-		generateASM(Strings.two_param, Instructions.set, "1", Registers.o0);
-		generateASM(Strings.call_op, Strings.exit);
-		generateASM(Strings.nop);
 		
 		generateASM(Strings.two_param, Instructions.set, "arrayOutOfBounds" , Registers.o0);
 		generateASM(Strings.two_param, Instructions.move, Registers.l0, Registers.o1);
 		generateASM(Strings.two_param, Instructions.set, Integer.toString(((ArrayType) array.getType()).getArraySize()), Registers.o2);
 		generateASM(Strings.call_op,Strings.printf);
+		generateASM(Strings.nop);
+		
+		generateASM(Strings.two_param, Instructions.set, "1", Registers.o0);
+		generateASM(Strings.call_op, Strings.exit);
 		generateASM(Strings.nop);
 		
 		generateASM(Strings.label, Strings.arrayEnd + arrayDecl++);
