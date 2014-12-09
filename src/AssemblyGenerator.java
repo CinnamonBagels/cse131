@@ -396,7 +396,13 @@ public class AssemblyGenerator {
 		} else {
 			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
 			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
+			
+			if(sto.isReference) {
+				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
+			} else {
+				generateASM(Strings.two_param, Instructions.move, Registers.l1, register);
+			}
 		}
 	}
 
