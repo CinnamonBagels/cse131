@@ -1088,6 +1088,8 @@ class MyParser extends parser {
 					ArrayType atyp = (ArrayType) sto.getType();
 					STO ret = new ExprSTO(sto.getName() + "[" + index.getName()
 							+ "]", atyp.getContainingType());
+					//uhh assembly array access here?
+					
 					ret.setIsModLValue(true);
 					return ret;
 				} else {
