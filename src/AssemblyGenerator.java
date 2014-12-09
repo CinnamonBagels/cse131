@@ -765,6 +765,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l5);
 		generateASM(Strings.two_param, Instructions.store, Registers.l4, "[" + Registers.l5 + "]");
 		generateASM(Strings.one_param, Instructions.ba, Strings.arrayEnd + this.arrayDecl);
+		generateASM(Strings.nop);
 		
 		//if array index out of bounds, exit with error status
 		generateASM(Strings.label, Strings.arrayOutBounds + arrayDecl);

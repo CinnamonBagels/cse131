@@ -37,6 +37,7 @@ arrayInBounds_0:
     add         %fp, %l5, %l5
     st          %l4, [%l5]
     ba      arrayEnd_0
+    nop
 arrayOutBounds_0:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
@@ -83,6 +84,7 @@ arrayInBounds_1:
     add         %fp, %l5, %l5
     st          %l4, [%l5]
     ba      arrayEnd_1
+    nop
 arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
