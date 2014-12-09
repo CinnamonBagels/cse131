@@ -1091,6 +1091,16 @@ class MyParser extends parser {
 					//uhh assembly array access here?
 					
 					ret.setIsModLValue(true);
+	
+					ret.base = Registers.fp;
+					if(m_symtab.getFunc() == null) {
+						ret.offset = String.valueOf(-(main.getStackSize() + ret.getType().getSize()));
+						ret.base = Registers.fp;
+					} else {
+						ret.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + ret.getType().getSize()));
+						ret.base = Registers.fp;
+					}
+					generator.doArrayDesignator(sto, index, ret);
 					return ret;
 				} else {
 					//pointer stuff

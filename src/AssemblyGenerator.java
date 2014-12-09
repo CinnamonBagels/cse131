@@ -16,6 +16,7 @@ public class AssemblyGenerator {
 	public List<String> dQueue = new Vector<String>();
 	public int stringLits = 0;
 	public int branches = 0;
+	public int arrayDecl = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -382,10 +383,10 @@ public class AssemblyGenerator {
 			Type type = ((ConstSTO) sto).getType();
 			
 			if(type.isInt() || type.isBool()) {
-				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getIntValue(), Registers.l1);
+				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getIntValue(), register);
 			} else if(type.isFloat()) {
 				//i think we can leave it as a getvalue for now.
-				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getValue(), Registers.l1);
+				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getValue(), register);
 			}
 		} else {
 			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
@@ -730,5 +731,51 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l4);
 		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l4, Registers.l4);
 		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l4 + "]");
+	}
+
+	public void doArrayDesignator(STO array, STO index, STO accessSTO) {
+		// TODO Auto-generated method stub
+		generateComment("Starting array access");
+		loadVariable(Registers.l0, index);
+		
+		generateASM(Strings.two_param, Instructions.set, array.offset, Registers.l1);
+		generateASM(Strings.three_param, Instructions.add, array.base, Registers.l1, Registers.l1);
+		
+		//trying out annuled branch. not sure.
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+		generateASM(Strings.one_param, Instructions.bl + ",a", Strings.arrayOutBounds + arrayDecl);
+		//generateASM(Strings.nop);
+		
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Integer.toString(((ArrayType) array.getType()).getArraySize()));
+		generateASM(Strings.one_param, Instructions.bge + ",a", Strings.arrayOutBounds + arrayDecl);
+		
+		generateASM(Strings.label, Strings.arrayInBounds + arrayDecl);
+		generateASM(Strings.three_param, Instructions.add, "1", Registers.l0, Registers.l0);
+		this.doMove(Registers.l0, Registers.o0);
+		
+		generateASM(Strings.two_param, Instructions.set, Integer.toString(((ArrayType) array.getType()).getContainingType().getSize()), Registers.o1);
+		generateASM(Strings.call_op, Instructions.mul);
+		generateASM(Strings.nop);
+		
+		this.doMove(Registers.o0, Registers.l2);
+		generateASM(Strings.three_param, Instructions.add, Registers.l0, Registers.l2, Registers.l4);
+		generateASM(Strings.two_param, Instructions.set, accessSTO.offset, Registers.l5);
+		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l5);
+		generateASM(Strings.two_param, Instructions.store, Registers.l4, "[" + Registers.l5 + "]");
+		generateASM(Strings.one_param, Instructions.ba, Strings.arrayEnd + this.arrayDecl);
+		
+		//if array index out of bounds, exit with error status
+		generateASM(Strings.label, Strings.arrayOutBounds + arrayDecl);
+		generateASM(Strings.two_param, Instructions.set, "1", Registers.o0);
+		generateASM(Strings.call_op, Strings.exit);
+		generateASM(Strings.nop);
+		
+		generateASM(Strings.two_param, Instructions.set, ErrorMsg.error11b_ArrExp, Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, Registers.l0, Registers.o1);
+		generateASM(Strings.two_param, Instructions.set, Integer.toString(array.getType().getSize()), Registers.o2);
+		generateASM(Strings.call_op,Strings.printf);
+		generateASM(Strings.nop);
+		
+		generateASM(Strings.label, Strings.arrayEnd + arrayDecl++);
 	}
 }

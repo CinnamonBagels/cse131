@@ -1,4 +1,4 @@
 function: void main() {
-	int[10] x;
-	cout << x << endl;
+	int[10] x;	//x should point at 4.
+	x[9] = 4; //should point at 40
 }

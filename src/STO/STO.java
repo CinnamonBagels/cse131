@@ -132,6 +132,15 @@ public abstract class STO
 		setIsModifiable(m);
 		setIsAddressable(m);
 	}
+	
+	public int getUndecoratedOffsetValue() {
+		int something = Integer.parseInt(this.offset);
+		if(something < 0) {
+			return something * -1;
+		} else {
+			return something;
+		}
+	}
 
 	//----------------------------------------------------------------
 	//	It will be helpful to ask a STO what specific STO it is.

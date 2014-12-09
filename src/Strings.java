@@ -58,4 +58,7 @@ public class Strings {
     public static final String staticGuard = "staticGuard_";
     public static final String staticGuardLabel = "staticGuardLabel_";
     public static final String word = ".word";
+    public static final String arrayInBounds = "arrayInBounds_";
+    public static final String arrayOutBounds = "arrayOutBounds_";
+    public static final String arrayEnd = "arrayEnd_";
 }
