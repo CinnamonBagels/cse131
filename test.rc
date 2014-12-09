@@ -1,6 +1,6 @@
 function: void main() {
 	int[10] x;	//x should point at 4.
 	x[9] = 4; //should point at 40
-	int y = 10;
+	int y = -1;
 	cout << x[y] << endl;
 }

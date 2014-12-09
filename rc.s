@@ -53,10 +53,10 @@ arrayEnd_0:
     add         %fp, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
-/* setting y = 10 */
+/* setting y = 1 */
     set         -44, %l0
     add         %fp, %l0, %l0
-    set         10, %l1
+    set         -1, %l1
     st          %l1, [%l0]
 /* Done. */
 /* Starting array access */
