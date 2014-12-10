@@ -923,7 +923,7 @@ class MyParser extends parser {
 		}
 		FuncSTO func = m_symtab.getFunc();
 		//fck need to have reference to main.
-		if(m_symtab.getFunc() == null) {
+		if(m_symtab.getFunc() != null) {
 			executeFunction(func, sto, returnSTO, arguments);
 		} else {
 			executeFunction(this.main, sto, returnSTO, arguments);
