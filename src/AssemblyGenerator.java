@@ -401,8 +401,12 @@ public class AssemblyGenerator {
 			if(type.isInt() || type.isBool()) {
 				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getIntValue(), register);
 			} else if(type.isFloat()) {
-				//i think we can leave it as a getvalue for now.
-				generateASM(Strings.two_param, Instructions.set, "" + sto.offset, register);
+				//i think we can leave it as a getvalue for now. WRONG
+				//generateASM(Strings.two_param, Instructions.set, "" + sto.offset, register);
+				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+				generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+				
+				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
 			}
 		} else {
 			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);

@@ -278,7 +278,9 @@ class MyParser extends parser {
 					generator.staticerino_end(sto);
 				}
 			}else{
-				
+				//Why is there an extra 4 bytes on stack at beginnign?
+				//have to put it there because need to load floats, cant set them
+				//the 4 bytes are the float buffer thingy.
 				FuncSTO func = m_symtab.getFunc();
 				sto.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
 				sto.base = Registers.fp;

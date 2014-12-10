@@ -22,7 +22,7 @@ public class FuncSTO extends STO
 	{
 		super (strName);
 		setReturnType(null);
-		this.stackSize = 0;
+		this.stackSize = 4;
                 // You may want to change the isModifiable and isAddressable                      
                 // fields as necessary
 	}
@@ -30,7 +30,7 @@ public class FuncSTO extends STO
 	public FuncSTO(String strName, Type typ) {
 		super(strName, typ);
 		setReturnType(null);
-		this.stackSize = 0;
+		this.stackSize = 4;
 	}
 	
 	private FunctionPointerType getFunctionPointerType() {
