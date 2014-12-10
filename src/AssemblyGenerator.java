@@ -958,7 +958,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l4 + "]");
 	}
 
-	public void doUnaryOp(UnaryOp op, STO result, String data) {
+	public void doUnaryOp(UnaryOp op, STO origin, STO result, String data) {
 		// TODO Auto-generated method stub
 		String register = "";
 		boolean isFloat = result.getType().isFloat();
@@ -971,8 +971,8 @@ public class AssemblyGenerator {
 				
 				register = Registers.l0;
 				
-				generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l2);
-				generateASM(Strings.three_param, Instructions.add, result.base, Registers.l2, Registers.l2);
+				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
+				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
 				
 				if(result.isReference) {
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
@@ -989,14 +989,14 @@ public class AssemblyGenerator {
 		} else if(op.getName().equals("++")) {
 			generateComment("Incrementing");
 			if(!isFloat) {
-				loadVariable(Registers.l0, result);
+				loadVariable(Registers.l0, origin);
 				
 				generateASM(Strings.one_param, Instructions.inc, Registers.l0);
 				
 				register = Registers.l0;
 				
-				generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l2);
-				generateASM(Strings.three_param, Instructions.add, result.base, Registers.l2, Registers.l2);
+				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
+				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
 				
 				if(result.isReference) {
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
@@ -1012,7 +1012,7 @@ public class AssemblyGenerator {
 			}
 		} else if(op.getName().equals("!")) {
 			generateComment("Negating");
-			loadVariable(Registers.l0, result);
+			loadVariable(Registers.l0, origin);
 			
 			generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
 			generateASM(Strings.one_param, Instructions.be, Strings.increment + numNots);
@@ -1030,6 +1030,10 @@ public class AssemblyGenerator {
 		} else {
 			generateComment("Unary Op broken on " + op.getName() + " " + result.getName());
 		}	
+		
+		generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l1);
+		generateASM(Strings.three_param, Instructions.add, result.base, Registers.l1, Registers.l1);
+		generateASM(Strings.two_param, Instructions.load, Registers.l1, "[" + Registers.l1 + "]");
 	}
 	
 	public void doReturn(STO returnSTO, FuncSTO func) {

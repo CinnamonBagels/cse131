@@ -3,13 +3,9 @@
 function : void main() {
   static int x = 0;
   ++x;
-  cout << "REC: " << x << endl;
 
   if (x < 5) {
     main();
     return;
   }
-
-
-  cout << "BAD" << endl;
 }

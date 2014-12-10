@@ -255,7 +255,6 @@ class MyParser extends parser {
 				sto.offset = (m_symtab.getFunc() != null ? m_symtab.getFunc().getName()+"_" : "") + sto.getName();
 				
 				if(sto.isInitialized && !sto.isStatic){
-					System.out.println(((STO)lstIDs.get(sto)).isConst());
 					generator.doData(sto, (STO)lstIDs.get(sto));
 				} else {
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
@@ -1258,7 +1257,7 @@ class MyParser extends parser {
 		
 		func.addToStack(sto.getType().getSize());
 		
-		generator.doUnaryOp(_2, sto, string);
+		generator.doUnaryOp(_2, _1, sto, string);
 		return sto;
 	}
 

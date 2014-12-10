@@ -3,8 +3,6 @@
                 .align 4
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
-str_0:          .asciz       "REC: "     
-str_1:          .asciz       "BAD"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -37,30 +35,16 @@ main:
     st          %l3, [%l2]
 staticGuardLabel_main_x:
 /* Incrementing */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    inc     %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    st          %l0, [%l2]
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* Done printing string. */
-/* Printing int x */
-    set         _intFmt, %o0
     set         main_x, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
+    ld          [%l1], %l0
+    inc     %l0
+    set         main_x, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          %l1, [%l1]
 /* Prepping Comparison Calculations by loading */
     set         main_x, %l1
     add         %g0, %l1, %l1
@@ -93,15 +77,6 @@ if_0:
     nop
 else_0:
 endIf_1:
-/* printing string */
-    set         _strFmt, %o0
-    set         str_1, %o1
-    call    printf
-    nop
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
 main_end:
     ret 
     restore
