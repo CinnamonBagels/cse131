@@ -185,20 +185,20 @@ fooG:
     call    printf
     nop
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -4, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     dec     %l0
 /* Returning value from fooG */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %i0
+    ld          [%l1], %i0
     ba      fooG_end
     nop
 fooG_end:
@@ -235,7 +235,7 @@ bar:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -253,7 +253,7 @@ bar:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %f0
+    ld          [%l1], %f0
     call    printFloat
     nop
 /* Done printing float. */
@@ -271,7 +271,7 @@ bar:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
     be      printFalse_0
@@ -303,7 +303,7 @@ branchEnd_0:
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %f0
+    ld          [%l1], %f0
     call    printFloat
     nop
 /* Done printing float. */
@@ -321,7 +321,7 @@ branchEnd_0:
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
     be      printFalse_1
@@ -351,7 +351,7 @@ branchEnd_1:
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -372,7 +372,7 @@ branchEnd_1:
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
     be      printFalse_2
@@ -402,7 +402,7 @@ branchEnd_2:
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -420,7 +420,7 @@ branchEnd_2:
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %f0
+    ld          [%l1], %f0
     call    printFloat
     nop
 /* Done printing float. */
@@ -431,10 +431,10 @@ branchEnd_2:
     nop
 /* Printing int g */
     set         _intFmt, %o0
-    set         -4, %l1
-    add         %fp, %l1, %l1
+    set         g, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -450,7 +450,7 @@ branchEnd_2:
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -459,10 +459,10 @@ branchEnd_2:
     nop
 /* Printing int g */
     set         _intFmt, %o0
-    set         -4, %l1
-    add         %fp, %l1, %l1
+    set         g, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -511,7 +511,7 @@ foo:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -526,7 +526,7 @@ foo:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -540,21 +540,21 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -12, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -565,21 +565,21 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -16, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp y as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -594,10 +594,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -12, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -609,10 +609,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -16, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -626,22 +626,22 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -20, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -20, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     dec     %l0
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -20, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -652,22 +652,22 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -24, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -24, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     dec     %l0
 /* Printing int Validating UnaryOp y as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -24, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -682,10 +682,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -20, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -697,10 +697,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -24, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -714,21 +714,21 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -28, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -28, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -28, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -739,22 +739,22 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -32, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     dec     %l0
 /* Printing int Validating UnaryOp y as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -769,10 +769,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -28, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -784,10 +784,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -32, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -801,22 +801,22 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -36, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -36, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     dec     %l0
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -36, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -827,21 +827,21 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -40, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -40, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp y as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -40, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -856,10 +856,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -36, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -871,10 +871,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -40, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -888,21 +888,21 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -44, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -44, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -44, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -913,21 +913,21 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -48, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -48, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp y as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -48, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -942,10 +942,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -44, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -957,10 +957,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -48, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -974,22 +974,22 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -52, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -52, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     inc     %l0
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -52, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1000,22 +1000,22 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -56, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -56, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     inc     %l0
 /* Printing int Validating UnaryOp y as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -56, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1030,10 +1030,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -52, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1045,10 +1045,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -56, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1062,21 +1062,21 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -60, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -60, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -60, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1087,22 +1087,22 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -64, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -64, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     inc     %l0
 /* Printing int Validating UnaryOp y as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -64, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1117,10 +1117,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -60, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1132,10 +1132,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -64, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1149,22 +1149,22 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -68, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -68, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     inc     %l0
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -68, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1175,21 +1175,21 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -72, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -72, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp y as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -72, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1204,10 +1204,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -68, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1219,10 +1219,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -72, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1236,21 +1236,21 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -76, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -76, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -76, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1261,21 +1261,21 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -80, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -80, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp y as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -80, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1290,10 +1290,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -76, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1305,10 +1305,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -80, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1322,22 +1322,22 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -84, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -84, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     dec     %l0
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -84, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1348,22 +1348,22 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -88, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -88, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     inc     %l0
 /* Printing int Validating UnaryOp y as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -88, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1378,10 +1378,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -84, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1393,10 +1393,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -88, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1410,21 +1410,21 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -92, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -92, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -92, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1435,22 +1435,22 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -96, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -96, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     dec     %l0
 /* Printing int Validating UnaryOp y as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -96, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1465,10 +1465,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -92, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1480,10 +1480,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -96, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1497,22 +1497,22 @@ foo:
     nop
 /* Done printing string. */
 /* Decrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -100, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     dec     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -100, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
     inc     %l0
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -100, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1523,21 +1523,21 @@ foo:
     nop
 /* Done printing string. */
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -104, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -104, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* Printing int Validating UnaryOp y as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -104, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1552,10 +1552,10 @@ foo:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -100, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1567,10 +1567,10 @@ foo:
 /* Done printing string. */
 /* Printing int y */
     set         _intFmt, %o0
-    set         -104, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1613,13 +1613,13 @@ rec:
     st          %l3, [%l2]
 staticGuardLabel_rec_x:
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -4, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* printing string */
     set         _strFmt, %o0
@@ -1629,10 +1629,10 @@ staticGuardLabel_rec_x:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -4, %l1
-    add         %fp, %l1, %l1
+    set         rec_x, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1640,10 +1640,10 @@ staticGuardLabel_rec_x:
     call    printf
     nop
 /* Prepping Comparison Calculations by loading */
-    set         -4, %l1
-    add         %fp, %l1, %l1
+    set         rec_x, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     set         5, %l1
 /* Starting Less than */
     cmp         %l0, %l1
@@ -1662,7 +1662,7 @@ lessEnd_0:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     cmp         %l0, %g0
     be      else_0
     nop
@@ -1707,13 +1707,13 @@ main:
     st          %l3, [%l2]
 staticGuardLabel_main_x:
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -4, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* printing string */
     set         _strFmt, %o0
@@ -1723,10 +1723,10 @@ staticGuardLabel_main_x:
 /* Done printing string. */
 /* Printing int x */
     set         _intFmt, %o0
-    set         -4, %l1
-    add         %fp, %l1, %l1
+    set         main_x, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %o1
+    ld          [%l1], %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1734,10 +1734,10 @@ staticGuardLabel_main_x:
     call    printf
     nop
 /* Prepping Comparison Calculations by loading */
-    set         -4, %l1
-    add         %fp, %l1, %l1
+    set         main_x, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     set         5, %l1
 /* Starting Less than */
     cmp         %l0, %l1
@@ -1756,7 +1756,7 @@ lessEnd_1:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1, %l0
+    ld          [%l1], %l0
     cmp         %l0, %g0
     be      else_2
     nop

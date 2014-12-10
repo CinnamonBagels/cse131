@@ -1251,8 +1251,8 @@ class MyParser extends parser {
 			func = main;
 		}
 		
-		_1.base = Registers.fp;
-		_1.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
+		sto.base = Registers.fp;
+		sto.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
 		
 		func.addToStack(sto.getType().getSize());
 		
