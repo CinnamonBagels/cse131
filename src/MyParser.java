@@ -600,7 +600,7 @@ class MyParser extends parser {
 	}
 
 	// expression, codeblock, else
-	STO DoIfStmt(STO _1, STO _2, STO _3) {
+	STO DoIfStmt(STO _1) {
 		if (_1.isError()) {
 			return _1;
 		}
@@ -612,10 +612,19 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error4_Test, _1
 					.getType().getName()));
 		} else {
-			//assembly here?
+			generator.doIfStmt(_1);
 		}
 
 		return _1;
+	}
+	
+	//uhh
+	void EnterIfStmt() {
+		generator.enterIf();
+	}
+	
+	void EnterElseStmt() {
+		generator.enterElse();
 	}
 
 	Type DoFuncPointer(Type t, Vector<VarSTO> params, boolean isReference) {
@@ -1302,6 +1311,17 @@ class MyParser extends parser {
 			m_errors.print(sto.getName());
 			return sto;
 		}
+		FuncSTO func = null;
+		if(m_symtab.getFunc() == null) {
+			func = main;
+		} else {
+			func = m_symtab.getFunc();
+		}
+		
+		sto.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
+		sto.base = Registers.fp;
+		
+		generator.evaluateComparison(_1, _2, _3, sto);
 		return sto;
 	}
 

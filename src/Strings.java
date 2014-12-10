@@ -61,4 +61,17 @@ public class Strings {
     public static final String arrayInBounds = "arrayInBounds_";
     public static final String arrayOutBounds = "arrayOutBounds_";
     public static final String arrayEnd = "arrayEnd_";
+    public static final String ifStmt = "if_";
+    public static final String elseStmt = "else_";
+    public static final String endIf = "endIf_";
+    public static final String lessThan = "less_";
+    public static final String greaterThan = "greater_";
+    public static final String nEqual = "nEqual_";
+    public static final String lessEqual = "lessEqual_";
+    public static final String greaterEqual = "greaterEqual_";
+    public static final String lessThanEnd = "lessEnd_";
+    public static final String greaterThanEnd = "greaterEnd_";
+    public static final String nEqualEnd = "nEqualEnd_";
+    public static final String lessEqualEnd = "lessEqualEnd_";
+    public static final String greaterEqualEnd = "greaterEqualEnd_";
 }

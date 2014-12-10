@@ -2,6 +2,7 @@ import java.util.*;
 import java.io.*;
 
 import Operator.BinaryOp;
+import Operator.ComparisonOp;
 import STO.*;
 import Types.*;
 
@@ -14,9 +15,12 @@ public class AssemblyGenerator {
 	public boolean inGlobalScope = true;
 	public List<String> tQueue = new Vector<String>();
 	public List<String> dQueue = new Vector<String>();
+	public Stack<Integer> ifElseStack = new Stack<Integer>();
 	public int stringLits = 0;
 	public int branches = 0;
 	public int arrayDecl = 0;
+	public int ifElseStmts = 0;
+	public int comparisons = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -795,5 +799,135 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		generateASM(Strings.label, Strings.arrayEnd + arrayDecl++);
+	}
+
+	public void doIfStmt(STO expression) {
+		this.loadVariable(Registers.l0, expression);
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+		generateASM(Strings.one_param, Instructions.be, Strings.elseStmt + this.ifElseStmts);
+		generateASM(Strings.nop);
+		generateASM(Strings.label, Strings.ifStmt + this.ifElseStmts);
+		//THERE CAN BE NESTED IF STATEMENTS
+		//you have to make sure with a stack, or something. i think
+		//stack is the best
+		
+		this.ifElseStack.push(ifElseStmts++);
+	}
+
+	public void enterIf() {
+		// TODO Auto-generated method stub
+		generateASM(Strings.one_param, Instructions.ba, Strings.endIf + this.ifElseStmts);
+		generateASM(Strings.nop);
+		generateASM(Strings.label, Strings.elseStmt + this.ifElseStack.pop());
+		//push again 
+		this.ifElseStack.push(this.ifElseStmts++);
+	}
+
+	public void enterElse() {
+		// TODO Auto-generated method stub
+		generateASM(Strings.label, Strings.endIf + this.ifElseStack.pop());
+	}
+
+	public void evaluateComparison(STO left, ComparisonOp op, STO right, STO result) {
+		// TODO Auto-generated method stub
+		boolean leftFloat = left.getType().isFloat();
+		boolean rightFloat = right.getType().isFloat();
+		String register = "";
+		generateComment("Prepping Comparison Calculations by loading");
+		if(!leftFloat) {
+			this.loadVariable(Registers.l0, left);
+		}
+		
+		boolean isBothInt = !leftFloat && !rightFloat;
+		if(!rightFloat) {
+			this.loadVariable(Registers.l1,  right);
+		}
+		
+		if(op.equals("<")) {
+			generateComment("Starting Less than");
+			if(isBothInt) {
+				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
+				generateASM(Strings.one_param, Instructions.bl, Strings.lessThan + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.lessThanEnd + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.lessThan + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.lessThanEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
+			} else {
+				//handle floats
+			}
+		} else if(op.equals("<=")) {
+			generateComment("Starting Less than Equal");
+			if(isBothInt) {
+				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
+				generateASM(Strings.one_param, Instructions.ble, Strings.lessEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.lessEqualEnd + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.lessEqual + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.lessEqualEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
+			} else {
+				//handle floats
+			}
+		} else if(op.equals(">")) {
+			generateComment("Starting greater than");
+			if(isBothInt) {
+				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
+				generateASM(Strings.one_param, Instructions.bg, Strings.greaterThan + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.greaterThanEnd + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.greaterThan + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.greaterThanEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
+			} else {
+				//handle floats
+			}
+		} else if(op.equals(">=")) {
+			generateComment("Starting greater than equal");
+			if(isBothInt) {
+				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
+				generateASM(Strings.one_param, Instructions.bge, Strings.greaterEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.greaterEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.greaterEqual + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.greaterEqualEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
+			} else {
+				//handle floats
+			}
+		} else if(op.equals("!=")) {
+			generateComment("Starting not equal");
+			if(isBothInt) {
+				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
+				generateASM(Strings.one_param, Instructions.bne, Strings.nEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.nEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.nEqual + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.nEqualEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
+			} else {
+				//handle floats
+			}
+		}
 	}
 }
