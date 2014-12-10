@@ -74,4 +74,8 @@ public class Strings {
     public static final String nEqualEnd = "nEqualEnd_";
     public static final String lessEqualEnd = "lessEqualEnd_";
     public static final String greaterEqualEnd = "greaterEqualEnd_";
+    public static final String increment = "increment_";
+    public static final String decrement = "decrement_";
+    public static final String negEnd = "negEnd_";
+    public static final String functionEnd = "_end";
 }

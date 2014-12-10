@@ -41,4 +41,7 @@ public class Instructions {
 	public static final String fstoi = "fstoi";
 	public static final String fstod = "fstod";
 	public static final String std = "std";
+	
+	public static final String dec = "dec";
+	public static final String inc = "inc";
 }

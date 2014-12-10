@@ -1256,6 +1256,7 @@ class MyParser extends parser {
 		
 		func.addToStack(sto.getType().getSize());
 		
+		generator.doUnaryOp(_2, sto, string);
 		return sto;
 	}
 
@@ -1338,7 +1339,9 @@ class MyParser extends parser {
 
 	public STO DoReturnCheck(STO expr) {
 		FuncSTO func = m_symtab.getFunc();
-		
+		if(m_symtab.getFunc() == null) {
+			func = main;
+		}
 		STO returnSTO = expr;
 
 		if (expr == null) {
@@ -1409,7 +1412,7 @@ class MyParser extends parser {
 		} else {
 			m_returnMissingFlag = true;
 		}
-		
+		generator.doReturn(returnSTO, func);
 		return returnSTO;
 	}
 
