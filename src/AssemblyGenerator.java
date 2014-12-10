@@ -1033,7 +1033,7 @@ public class AssemblyGenerator {
 		
 		generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l1);
 		generateASM(Strings.three_param, Instructions.add, result.base, Registers.l1, Registers.l1);
-		generateASM(Strings.two_param, Instructions.load, Registers.l1, "[" + Registers.l1 + "]");
+		generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l1 + "]");
 	}
 	
 	public void doReturn(STO returnSTO, FuncSTO func) {
