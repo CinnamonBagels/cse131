@@ -3,8 +3,9 @@
                 .align 4
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
-str_0:          .asciz       "REC: "     
-str_1:          .asciz       "BAD"       
+str_0:          .asciz       "woah"      
+str_1:          .asciz       "REC: "     
+str_2:          .asciz       "BAD"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -36,6 +37,15 @@ main:
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_main_x:
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
+    call    printf
+    nop
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
 /* Incrementing */
     set         -8, %l1
     add         %fp, %l1, %l1
@@ -47,7 +57,7 @@ staticGuardLabel_main_x:
     st          %l0, [%l2]
 /* printing string */
     set         _strFmt, %o0
-    set         str_0, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -99,7 +109,7 @@ else_0:
 endIf_1:
 /* printing string */
     set         _strFmt, %o0
-    set         str_1, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* Done printing string. */

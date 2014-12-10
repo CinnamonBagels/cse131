@@ -2,7 +2,7 @@
 
 function : void main() {
   static int x = 0;
-
+  cout << "woah" << endl;
   ++x;
 
   cout << "REC: " << x << endl;
