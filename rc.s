@@ -131,6 +131,7 @@ main:
     call    .mul
     nop
     mov         %o0, %l0
+/* Storing result of Binary Op */
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
@@ -149,6 +150,7 @@ main:
     call    .mul
     nop
     mov         %o0, %l0
+/* Storing result of Binary Op */
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
@@ -167,6 +169,7 @@ main:
     call    .div
     nop
     mov         %o0, %l0
+/* Storing result of Binary Op */
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
@@ -181,6 +184,7 @@ main:
     mov         %l1, %l1
 /* Adding */
     add         %l0, %l1, %l3
+/* Storing result of Binary Op */
     set         -32, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
@@ -195,6 +199,7 @@ main:
     mov         %l1, %l1
 /* Subtracting */
     sub         %l0, %l1, %l3
+/* Storing result of Binary Op */
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
@@ -222,6 +227,7 @@ main:
     call    .mul
     nop
     mov         %o0, %l0
+/* Storing result of Binary Op */
     set         -40, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
@@ -236,6 +242,7 @@ main:
     mov         %l1, %l1
 /* Subtracting */
     sub         %l0, %l1, %l3
+/* Storing result of Binary Op */
     set         -44, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
@@ -254,6 +261,7 @@ main:
     call    .mul
     nop
     mov         %o0, %l0
+/* Storing result of Binary Op */
     set         -48, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
@@ -272,6 +280,7 @@ main:
     call    .div
     nop
     mov         %o0, %l0
+/* Storing result of Binary Op */
     set         -52, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
@@ -286,6 +295,7 @@ main:
     mov         %l1, %l1
 /* Adding */
     add         %l0, %l1, %l3
+/* Storing result of Binary Op */
     set         -56, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
@@ -316,6 +326,7 @@ main:
     call    .rem
     nop
     mov         %o0, %l0
+/* Storing result of Binary Op */
     set         -60, %l4
     add         %fp, %l4, %l4
     st          %l0, [%l4]
@@ -365,10 +376,12 @@ main:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
-/* Whoops, Executing Binary Op broke on cinqcenttrentetrois & vingtetun */
+/* Anding */
+    and         %l0, %l1, %l2
+/* Storing result of Binary Op */
     set         -80, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l2, [%l4]
 /* Prepping Arithmetic Calculations by loading */
     set         -72, %l1
     add         %fp, %l1, %l1
@@ -378,10 +391,12 @@ main:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
-/* Whoops, Executing Binary Op broke on milledeuxcenttrentequatre ^ deuxcenttrentecinq */
+/* Xoring */
+    xor         %l0, %l1, %l2
+/* Storing result of Binary Op */
     set         -84, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l2, [%l4]
 /* Prepping Arithmetic Calculations by loading */
     set         -80, %l1
     add         %fp, %l1, %l1
@@ -391,12 +406,12 @@ main:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
-/* Whoops, Executing Binary Op broke on Validating BitwiseOp int and int as an IntegerType for operator: &...
- | Validating BitwiseOp int and int as an IntegerType for operator: ^...
- */
+/* Oring */
+    or          %l0, %l1, %l2
+/* Storing result of Binary Op */
     set         -88, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l2, [%l4]
 /* Printing int Validating BitwiseOp int and int as an IntegerType for operator: |...
  */
     set         _intFmt, %o0
@@ -413,6 +428,20 @@ main:
 /* Prepping Comparison Calculations by loading */
     set         300, %l0
     set         200, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_0
+    nop
+    set         0, %l3
+    ba      greaterEnd_0
+    nop
+greater_0:
+    set         1, %l3
+greaterEnd_0:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -437,6 +466,20 @@ endIf_1:
 /* Prepping Comparison Calculations by loading */
     set         210, %l0
     set         210, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_1
+    nop
+    set         0, %l3
+    ba      greaterEnd_1
+    nop
+greater_1:
+    set         1, %l3
+greaterEnd_1:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -467,6 +510,20 @@ endIf_3:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_2
+    nop
+    set         0, %l3
+    ba      greaterEnd_2
+    nop
+greater_2:
+    set         1, %l3
+greaterEnd_2:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -497,6 +554,20 @@ endIf_5:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_3
+    nop
+    set         0, %l3
+    ba      greaterEnd_3
+    nop
+greater_3:
+    set         1, %l3
+greaterEnd_3:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -527,6 +598,20 @@ endIf_7:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_4
+    nop
+    set         0, %l3
+    ba      greaterEnd_4
+    nop
+greater_4:
+    set         1, %l3
+greaterEnd_4:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -544,6 +629,20 @@ if_8:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_5
+    nop
+    set         0, %l3
+    ba      greaterEnd_5
+    nop
+greater_5:
+    set         1, %l3
+greaterEnd_5:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -574,6 +673,20 @@ endIf_10:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_6
+    nop
+    set         0, %l3
+    ba      greaterEnd_6
+    nop
+greater_6:
+    set         1, %l3
+greaterEnd_6:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -608,6 +721,20 @@ endIf_13:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_7
+    nop
+    set         0, %l3
+    ba      greaterEnd_7
+    nop
+greater_7:
+    set         1, %l3
+greaterEnd_7:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -625,6 +752,20 @@ if_14:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_8
+    nop
+    set         0, %l3
+    ba      greaterEnd_8
+    nop
+greater_8:
+    set         1, %l3
+greaterEnd_8:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -655,6 +796,20 @@ endIf_16:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l1
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_9
+    nop
+    set         0, %l3
+    ba      greaterEnd_9
+    nop
+greater_9:
+    set         1, %l3
+greaterEnd_9:
+/* Storing result of Comparison Op */
+    set         -92, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

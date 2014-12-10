@@ -743,10 +743,24 @@ public class AssemblyGenerator {
 			generateASM(Strings.nop);
 			generateASM(Strings.two_param, Instructions.move, Registers.o0, Registers.l0);
 			register = Registers.l0;
+		} else if(op.getName().equals("&")) {
+			generateComment("Anding");
+			generateASM(Strings.three_param, Instructions.and, Registers.l0, Registers.l1, Registers.l2);
+			register = Registers.l2;
+		} else if(op.getName().equals("|")) {
+			generateComment("Oring");
+			generateASM(Strings.three_param, Instructions.or, Registers.l0, Registers.l1, Registers.l2);
+			register = Registers.l2;
+		} else if(op.getName().equals("^")) {
+			generateComment("Xoring");
+			generateASM(Strings.three_param, Instructions.xor, Registers.l0, Registers.l1, Registers.l2);
+			register = Registers.l2;
 		} else {
 			generateComment("Whoops, Executing Binary Op broke on " + left.getName() + " " + op.getName() + " " + right.getName());
 		}
 		
+		
+		generateComment("Storing result of Binary Op");
 		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l4);
 		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l4, Registers.l4);
 		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l4 + "]");
@@ -843,7 +857,7 @@ public class AssemblyGenerator {
 			this.loadVariable(Registers.l1,  right);
 		}
 		
-		if(op.equals("<")) {
+		if(op.getName().equals("<")) {
 			generateComment("Starting Less than");
 			if(isBothInt) {
 				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
@@ -860,7 +874,7 @@ public class AssemblyGenerator {
 			} else {
 				//handle floats
 			}
-		} else if(op.equals("<=")) {
+		} else if(op.getName().equals("<=")) {
 			generateComment("Starting Less than Equal");
 			if(isBothInt) {
 				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
@@ -877,7 +891,7 @@ public class AssemblyGenerator {
 			} else {
 				//handle floats
 			}
-		} else if(op.equals(">")) {
+		} else if(op.getName().equals(">")) {
 			generateComment("Starting greater than");
 			if(isBothInt) {
 				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
@@ -894,7 +908,7 @@ public class AssemblyGenerator {
 			} else {
 				//handle floats
 			}
-		} else if(op.equals(">=")) {
+		} else if(op.getName().equals(">=")) {
 			generateComment("Starting greater than equal");
 			if(isBothInt) {
 				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
@@ -911,7 +925,7 @@ public class AssemblyGenerator {
 			} else {
 				//handle floats
 			}
-		} else if(op.equals("!=")) {
+		} else if(op.getName().equals("!=")) {
 			generateComment("Starting not equal");
 			if(isBothInt) {
 				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
@@ -928,6 +942,13 @@ public class AssemblyGenerator {
 			} else {
 				//handle floats
 			}
+		} else {
+			generateComment("whoops, Comparison Operator broke on " + left.getName() + " " + op.getName() + " " + right.getName());
 		}
+		
+		generateComment("Storing result of Comparison Op");
+		generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l4);
+		generateASM(Strings.three_param, Instructions.add, result.base, Registers.l4, Registers.l4);
+		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l4 + "]");
 	}
 }
