@@ -1,7 +1,7 @@
-function: void main() {
-	cout << foo() << endl;
-}
-
 function: int foo() {
 	return 5;
+}
+
+function: void main() {
+	cout << foo() << endl;
 }

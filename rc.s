@@ -1,7 +1,3 @@
-! --globals--
-                .section     ".data"
-                .align 4
-str_0:          .asciz       "foo"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -13,25 +9,6 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
-                .section     ".text"
-                .align 4
-                .global      main
-main:
-    set         SAVE.main, %g1
-    save        %sp, %g1, %sp
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-main_end:
-    ret 
-    restore
-SAVE.main = -(92 + 0) & -8
                 .section     ".text"
                 .align 4
                 .global      foo
@@ -46,3 +23,27 @@ foo_end:
     ret 
     restore
 SAVE.foo = -(92 + 0) & -8
+                .section     ".text"
+                .align 4
+                .global      main
+main:
+    set         SAVE.main, %g1
+    save        %sp, %g1, %sp
+    call    foo
+    nop
+/* Printing int foo() */
+    set         _intFmt, %o0
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    mov         %l1, %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+main_end:
+    ret 
+    restore
+SAVE.main = -(92 + 4) & -8
