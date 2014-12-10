@@ -1245,6 +1245,17 @@ class MyParser extends parser {
 			return result;
 		} 
 		
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func == null) {
+			func = main;
+		}
+		
+		_1.base = Registers.fp;
+		_1.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
+		
+		func.addToStack(sto.getType().getSize());
+		
 		return sto;
 	}
 
@@ -1320,7 +1331,7 @@ class MyParser extends parser {
 		
 		sto.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
 		sto.base = Registers.fp;
-		
+		func.addToStack(sto.getType().getSize());
 		generator.evaluateComparison(_1, _2, _3, sto);
 		return sto;
 	}

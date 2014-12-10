@@ -477,10 +477,10 @@ greater_1:
     set         1, %l3
 greaterEnd_1:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -96, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -96, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -521,10 +521,10 @@ greater_2:
     set         1, %l3
 greaterEnd_2:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -100, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -565,10 +565,10 @@ greater_3:
     set         1, %l3
 greaterEnd_3:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -104, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -609,10 +609,10 @@ greater_4:
     set         1, %l3
 greaterEnd_4:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -108, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -108, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -640,10 +640,10 @@ greater_5:
     set         1, %l3
 greaterEnd_5:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -112, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -112, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -684,10 +684,10 @@ greater_6:
     set         1, %l3
 greaterEnd_6:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -116, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -116, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -732,10 +732,10 @@ greater_7:
     set         1, %l3
 greaterEnd_7:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -120, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -120, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -763,10 +763,10 @@ greater_8:
     set         1, %l3
 greaterEnd_8:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -124, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -124, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -807,10 +807,10 @@ greater_9:
     set         1, %l3
 greaterEnd_9:
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -128, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -92, %l1
+    set         -128, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     mov         %l1, %l0
@@ -837,4 +837,4 @@ else_14:
 endIf_19:
     ret 
     restore
-SAVE.main = -(92 + 88) & -8
+SAVE.main = -(92 + 128) & -8
