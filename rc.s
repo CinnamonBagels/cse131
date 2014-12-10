@@ -123,7 +123,7 @@ fooF:
     nop
 /* Done printing string. */
 /* Returning value from fooF */
-    set         3.14, %f0
+    set         float_2, %f0
     ba      fooF_end
     nop
 fooF_end:

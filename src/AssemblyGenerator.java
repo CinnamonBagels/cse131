@@ -402,7 +402,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getIntValue(), register);
 			} else if(type.isFloat()) {
 				//i think we can leave it as a getvalue for now.
-				generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) sto).getValue(), register);
+				generateASM(Strings.two_param, Instructions.set, "" + sto.offset, register);
 			}
 		} else {
 			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);

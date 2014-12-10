@@ -1560,7 +1560,7 @@ class MyParser extends parser {
 	
 	//discussion 
 	public ConstSTO assignFloat(ConstSTO sto) {
-
+		
 		sto.offset = Strings.assignFloat + generator.stringLits;
 		sto.base = Registers.g0;
 		//second level, assembly stuff should go in assemblygenerator
