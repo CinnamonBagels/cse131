@@ -1,17 +1,4 @@
-function : void rec() {
-  static int x = 0;
 
-  ++x;
-
-  cout << "REC: " << x << endl;
-
-  if (x < 5) {
-    rec();
-    return;
-  }
-
-  cout << "AFTER" << endl;
-}
 
 function : void main() {
   static int x = 0;
@@ -25,7 +12,6 @@ function : void main() {
     return;
   }
 
-  rec();
 
   cout << "BAD" << endl;
 }
