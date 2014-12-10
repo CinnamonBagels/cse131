@@ -3,9 +3,8 @@
                 .align 4
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
-str_0:          .asciz       "woah"      
-str_1:          .asciz       "REC: "     
-str_2:          .asciz       "BAD"       
+str_0:          .asciz       "REC: "     
+str_1:          .asciz       "BAD"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -37,19 +36,9 @@ main:
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_main_x:
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
 /* Incrementing */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     ld          [%l1], %l0
     inc     %l0
     set         -8, %l2
@@ -57,7 +46,7 @@ staticGuardLabel_main_x:
     st          %l0, [%l2]
 /* printing string */
     set         _strFmt, %o0
-    set         str_1, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -65,7 +54,6 @@ staticGuardLabel_main_x:
     set         _intFmt, %o0
     set         main_x, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -76,7 +64,6 @@ staticGuardLabel_main_x:
 /* Prepping Comparison Calculations by loading */
     set         main_x, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     ld          [%l1], %l0
     set         5, %l1
 /* Starting Less than */
@@ -95,7 +82,6 @@ lessEnd_0:
     st          %l3, [%l4]
     set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     ld          [%l1], %l0
     cmp         %l0, %g0
     be      else_0
@@ -109,7 +95,7 @@ else_0:
 endIf_1:
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* Done printing string. */
