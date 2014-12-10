@@ -31,6 +31,8 @@ main:
     save        %sp, %g1, %sp
     call    foo
     nop
+/* Saving return value */
+    st          %o0, [%fp+-4]
 /* Printing int foo() */
     set         _intFmt, %o0
     set         -4, %l1

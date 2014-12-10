@@ -950,7 +950,7 @@ class MyParser extends parser {
 		//save the stack
 		function.addToStack(returnSTO.getType().getSize());
 		
-		if(!function.getReturnType().isVoid()) {
+		if(!funcExecuted.getReturnType().isVoid()) {
 			generator.saveReturn(returnSTO);
 		}
 		

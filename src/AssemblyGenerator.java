@@ -515,6 +515,7 @@ public class AssemblyGenerator {
 
 	public void saveReturn(STO returnSTO) {
 		// TODO Auto-generated method stub
+		generateComment("Saving return value");
 		String storeString = "[" + returnSTO.base + "+" + returnSTO.offset + "]";
 		if(returnSTO.getType().isFloat()) {
 			generateASM(Strings.two_param, Instructions.store, Registers.f0, storeString);
