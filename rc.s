@@ -188,7 +188,7 @@ fooG:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -198,7 +198,7 @@ fooG:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %i0
+    ld          [%l1, %i0
     ba      fooG_end
     nop
 fooG_end:
@@ -235,7 +235,7 @@ bar:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -253,7 +253,7 @@ bar:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %f0
+    ld          [%l1, %f0
     call    printFloat
     nop
 /* Done printing float. */
@@ -271,7 +271,7 @@ bar:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
     be      printFalse_0
@@ -303,7 +303,7 @@ branchEnd_0:
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %f0
+    ld          [%l1, %f0
     call    printFloat
     nop
 /* Done printing float. */
@@ -321,7 +321,7 @@ branchEnd_0:
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
     be      printFalse_1
@@ -351,7 +351,7 @@ branchEnd_1:
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -372,7 +372,7 @@ branchEnd_1:
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
     be      printFalse_2
@@ -402,7 +402,7 @@ branchEnd_2:
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -420,7 +420,7 @@ branchEnd_2:
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %f0
+    ld          [%l1, %f0
     call    printFloat
     nop
 /* Done printing float. */
@@ -434,7 +434,7 @@ branchEnd_2:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -450,7 +450,7 @@ branchEnd_2:
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -462,7 +462,7 @@ branchEnd_2:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -511,7 +511,7 @@ foo:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -526,7 +526,7 @@ foo:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -543,7 +543,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -554,7 +554,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -568,7 +568,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -579,7 +579,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -597,7 +597,7 @@ foo:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -612,7 +612,7 @@ foo:
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -629,7 +629,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -641,7 +641,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -655,7 +655,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -667,7 +667,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -685,7 +685,7 @@ foo:
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -700,7 +700,7 @@ foo:
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -717,7 +717,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -728,7 +728,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -742,7 +742,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -754,7 +754,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -772,7 +772,7 @@ foo:
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -787,7 +787,7 @@ foo:
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -804,7 +804,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -816,7 +816,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -830,7 +830,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -841,7 +841,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -859,7 +859,7 @@ foo:
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -874,7 +874,7 @@ foo:
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -891,7 +891,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -902,7 +902,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -916,7 +916,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -927,7 +927,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -945,7 +945,7 @@ foo:
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -960,7 +960,7 @@ foo:
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -977,7 +977,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -989,7 +989,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1003,7 +1003,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1015,7 +1015,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1033,7 +1033,7 @@ foo:
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1048,7 +1048,7 @@ foo:
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1065,7 +1065,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1076,7 +1076,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1090,7 +1090,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1102,7 +1102,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1120,7 +1120,7 @@ foo:
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1135,7 +1135,7 @@ foo:
     set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1152,7 +1152,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1164,7 +1164,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1178,7 +1178,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1189,7 +1189,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1207,7 +1207,7 @@ foo:
     set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1222,7 +1222,7 @@ foo:
     set         -72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1239,7 +1239,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1250,7 +1250,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1264,7 +1264,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1275,7 +1275,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1293,7 +1293,7 @@ foo:
     set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1308,7 +1308,7 @@ foo:
     set         -80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1325,7 +1325,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1337,7 +1337,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1351,7 +1351,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1363,7 +1363,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1381,7 +1381,7 @@ foo:
     set         -84, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1396,7 +1396,7 @@ foo:
     set         -88, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1413,7 +1413,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1424,7 +1424,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1438,7 +1438,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1450,7 +1450,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1468,7 +1468,7 @@ foo:
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1483,7 +1483,7 @@ foo:
     set         -96, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1500,7 +1500,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     dec     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1512,7 +1512,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1526,7 +1526,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1537,7 +1537,7 @@ foo:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1555,7 +1555,7 @@ foo:
     set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1570,7 +1570,7 @@ foo:
     set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1616,7 +1616,7 @@ staticGuardLabel_rec_x:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1632,7 +1632,7 @@ staticGuardLabel_rec_x:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1643,7 +1643,7 @@ staticGuardLabel_rec_x:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     set         5, %l1
 /* Starting Less than */
     cmp         %l0, %l1
@@ -1662,7 +1662,7 @@ lessEnd_0:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     cmp         %l0, %g0
     be      else_0
     nop
@@ -1710,7 +1710,7 @@ staticGuardLabel_main_x:
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     inc     %l0
     set         null, %l2
     add         null, %l2, %l2
@@ -1726,7 +1726,7 @@ staticGuardLabel_main_x:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %o1
+    ld          [%l1, %o1
     call    printf
     nop
 /* Done printing int. */
@@ -1737,7 +1737,7 @@ staticGuardLabel_main_x:
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     set         5, %l1
 /* Starting Less than */
     cmp         %l0, %l1
@@ -1756,7 +1756,7 @@ lessEnd_1:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    mov         %l1, %l0
+    ld          [%l1, %l0
     cmp         %l0, %g0
     be      else_2
     nop
