@@ -73,7 +73,7 @@ rec_x:          .word        0
 staticGuard_rec_x:    .word        0           
 str_68:         .asciz       "REC: "     
 str_69:         .asciz       "AFTER"     
-globalInit_     .word        0           
+globalInit_:    .word        0           
 str_70:         .asciz       "here"      
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
