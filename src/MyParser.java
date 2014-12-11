@@ -23,6 +23,7 @@ class MyParser extends parser {
 	private int inLoop = 0;
 	public static AssemblyGenerator generator = new AssemblyGenerator("rc.s");
 	public FuncSTO main = null;
+	public boolean globalInit = false;
 
 	private SymbolTable m_symtab;
 
@@ -255,7 +256,11 @@ class MyParser extends parser {
 			if(currentStruct != null && m_symtab.getFunc() == null) {
 				currentStruct.setStructMembers(sto);
 			}
-					
+			FuncSTO func = m_symtab.getFunc();
+			if(func == null) {
+				func = main;
+			}
+			
 			//Assembly here
 			// getFunc() == null means global scope
 			if(m_symtab.getFunc() == null || sto.isStatic){
@@ -291,7 +296,6 @@ class MyParser extends parser {
 				//Why is there an extra 4 bytes on stack at beginnign?
 				//have to put it there because need to load floats, cant set them
 				//the 4 bytes are the float buffer thingy.
-				FuncSTO func = m_symtab.getFunc();
 				sto.offset = String.valueOf(-(func.getStackSize() + sto.getType().getSize()));
 				sto.base = Registers.fp;
 				func.addToStack(sto.getType().getSize());
@@ -585,6 +589,10 @@ class MyParser extends parser {
 		funcSTO.base = Registers.g0;
 		
 		generator.beginFunction(funcSTO);
+		if(funcSTO.getName().equals("main") && !this.globalInit) {
+			generator.doGlobalInit();
+			globalInit = true;
+		}
 	}
 
 	// ----------------------------------------------------------------

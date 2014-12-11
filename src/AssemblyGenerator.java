@@ -1151,4 +1151,19 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 	}
+
+	public void doGlobalInit() {
+		// TODO Auto-generated method stub
+		dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
+		generateASM(Strings.two_param, Instructions.set, Strings.globalInit, Registers.l0);
+		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+		generateASM(Strings.one_param, Instructions.bne, Strings.globalInit + "end");
+		generateASM(Strings.nop);
+
+		generateASM(Strings.two_param, Instructions.set, Strings.globalInit, Registers.l0);
+		generateASM(Strings.two_param, Instructions.set, "1", Registers.l1);
+		generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+		generateASM(Strings.label, Strings.globalInit + "end");
+	}
 }
