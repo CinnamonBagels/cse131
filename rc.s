@@ -200,6 +200,11 @@ fooG:
     set         _endl, %o0
     call    printf
     nop
+/* line number 31*/
+/* Returning value from fooG */
+    set         5, %i0
+    ba      fooG_end
+    nop
 fooG_end:
     ret 
     restore

@@ -27,7 +27,7 @@ function : void fooV() {
 function : int fooG() {
   cout << "fooG()" << endl;
 
- // return g++;
+  return 5;
 }
 
 function : void bar() {
