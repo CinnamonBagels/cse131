@@ -38,9 +38,9 @@ function : void bar() {
   cout << "F2: " << fooB() << " " << fooI() << " " << fooF() << endl;
   fooV();
 
-  cout << g << endl;
+  //cout << g << endl;
   cout << fooG() << endl;
-  cout << g << endl;
+  //cout << g << endl;
 }
 
 function : void foo() {
@@ -104,6 +104,7 @@ function : void rec() {
 }
 
 function : void main() {
+	cout << "here" << endl;
   static int x = 0;
 
   ++x;
