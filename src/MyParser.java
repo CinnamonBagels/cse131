@@ -164,7 +164,6 @@ class MyParser extends parser {
 			return new ErrorSTO("Missing type in delcaration.");
 		}
 		
-		
 		boolean isError = false;
 		
 		
@@ -263,8 +262,9 @@ class MyParser extends parser {
 			
 			//Assembly here
 			// getFunc() == null means global scope
+			
+			
 			if(m_symtab.getFunc() == null || sto.isStatic){
-				
 				sto.base = Registers.g0;
 				sto.offset = (m_symtab.getFunc() != null ? m_symtab.getFunc().getName()+"_" : "") + sto.getName();
 				
@@ -292,7 +292,6 @@ class MyParser extends parser {
 					generator.staticerino_end(sto);
 				}
 			}else{ // we're in local now (not static) 
-				
 				//Why is there an extra 4 bytes on stack at beginnign?
 				//have to put it there because need to load floats, cant set them
 				//the 4 bytes are the float buffer thingy.
@@ -784,7 +783,7 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	STO DoAssignExpr(STO stoDes, STO _2) {	
+	STO DoAssignExpr(STO stoDes, STO _2) {
 		if(stoDes.isError()) {
 			return stoDes;
 		}
@@ -811,7 +810,12 @@ class MyParser extends parser {
 		if(_2.isConst()) {
 			generator.storeConstant(stoDes, (ConstSTO)_2);
 		} else {
-			generator.storeVariable(stoDes, _2);
+			if(stoDes.getType().getName().equals(_2.getType().getName())){
+				generator.storeVariable(stoDes, _2);
+			}else{
+				
+				generator.storeConvertedVar(stoDes, _2);
+			}
 		}
 
 		return stoDes;

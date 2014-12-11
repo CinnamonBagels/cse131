@@ -322,8 +322,9 @@ public class AssemblyGenerator {
 	}
 
 	public void localVarInit(STO left, STO right) {
-		//checking for automatic int -> float casting
+		//checking for automatic int -> float casting		
 		if(left.getType().isFloat() && right.getType().isInt()) {
+			storeConvertedVar(left,right);
 		} else if (!left.getType().isPointer()){
 			generateComment("setting " + left.getName() + " = " + right.getName());	
 			
@@ -442,6 +443,27 @@ public class AssemblyGenerator {
 		}
 		
 		generateASM(Strings.two_param, Instructions.store, dest_register, "[" + Registers.l0 + "]");
+	}
+	
+	public void storeConvertedVar(STO dest, STO source){
+		String register = "";
+		System.out.println("localVarInit: " + "source is: " + source.getType().getName() + " " + source.getName() + ", dest is " + dest.getType().getName() + " " + dest.getName());
+		
+		if(source.getType() instanceof IntegerType){
+			generateComment("Converting int " + source.getName() + " to float.");
+			register = promoteIntToFloat(dest,source);
+		}
+//		else{
+//			generateComment("Converting float " + source.getName() + " to int.");
+//		}
+		
+		generateComment("Assigning converted " + source.getName() + " to " + dest.getName());
+		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l2);
+		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l2, Registers.l2);
+		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l3);
+		
+		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l3 + "]");
+		
 	}
 
 	public void loadVariable(String register, STO sto) {
@@ -597,16 +619,16 @@ public class AssemblyGenerator {
 		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + sto.getFloatValue()));
 		return sto;
 	}
-
-	public void constantInit(STO id, STO sto) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public void assignFloat(STO des, STO value) {
 		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + ((ConstSTO) value).getFloatValue()));
 		
 	}
+
+	public void constantInit(STO id, STO sto) {
+		// TODO Auto-generated method stub
+		
+	}	
 	
 	//do static guard, forgot that we needed this.
 	public void staticerino(STO sto) {
