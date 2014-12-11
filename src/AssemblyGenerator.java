@@ -27,6 +27,7 @@ public class AssemblyGenerator {
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
 	public int mainCounter = 0;
+	public int lineNumber = 0;
 	
 	private List<String> executeBuffer = new Vector<String>();
 	
@@ -39,6 +40,9 @@ public class AssemblyGenerator {
 		}
 	}
 	
+	public void setLineNumber(int line) {
+		this.lineNumber = line;
+	}
 	public void internalConstants(){
 		// from slides
 		write("! DEFINING INTERNAL CONSTANTS --\n");
@@ -51,6 +55,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
 		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\""));
 		write(assembleString("\n"));
+		dQueue.add(assembleString(Strings.init, Strings.globalInit, Strings.word, "0"));
 	}
 	
 	
@@ -160,6 +165,7 @@ public class AssemblyGenerator {
 	
 	public void doPrintConstInt(String str){
 		generateComment("printf on int");
+		
 		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		generateASM(Strings.two_param, Instructions.set, str, Registers.o1);
 		generateASM(Strings.call_op, Strings.printf);
@@ -260,12 +266,15 @@ public class AssemblyGenerator {
 	
 	public void generateComment(String s) {
 		StringBuilder str = new StringBuilder();
+		
 		str.append("/* ");
 		str.append(s);
 		str.append(" */\n");
 		if(!inGlobalScope) {
+			tQueue.add("/* line number " + this.lineNumber + "*/\n");
 			tQueue.add(str.toString());
 		} else {
+			executeBuffer.add("/* line number " + this.lineNumber + "*/\n");
 			executeBuffer.add(str.toString());
 		}
 	}
@@ -1020,7 +1029,7 @@ public class AssemblyGenerator {
 		if(op.getName().equals("--")) {
 			generateComment("Decrementing");
 			if(!isFloat) {
-				loadVariable(Registers.l0, result);
+				loadVariable(Registers.l0, origin);
 				
 				generateASM(Strings.one_param, Instructions.dec, Registers.l0);
 				
@@ -1029,7 +1038,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
 				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
 				
-				if(result.isReference) {
+				if(origin.isReference) {
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
 				}
 				
@@ -1037,7 +1046,8 @@ public class AssemblyGenerator {
 				
 				//increment after, so we return l0 to original value.
 				//hacky. might want to change.
-				if(data == "post") {
+				if(data.equals("post")) {
+					generateComment("Post decrement");
 					generateASM(Strings.one_param, Instructions.inc, register);
 				}
 			}
@@ -1053,7 +1063,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
 				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
 				
-				if(result.isReference) {
+				if(origin.isReference) {
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
 				}
 				
@@ -1061,7 +1071,8 @@ public class AssemblyGenerator {
 				
 				//increment after, so we return l0 to original value.
 				//hacky. might want to change.
-				if(data == "post") {
+				if(data.equals("post")) {
+					generateComment("Post Increment");
 					generateASM(Strings.one_param, Instructions.dec, register);
 				}
 			}
@@ -1088,7 +1099,7 @@ public class AssemblyGenerator {
 		
 		generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l1);
 		generateASM(Strings.three_param, Instructions.add, result.base, Registers.l1, Registers.l1);
-		generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l1 + "]");
+		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l1 + "]");
 	}
 	
 	public void doReturn(STO returnSTO, FuncSTO func) {
@@ -1123,5 +1134,19 @@ public class AssemblyGenerator {
 		
 		generateASM(Strings.one_param, Instructions.ba, func.offset + Strings.functionEnd);
 		generateASM(Strings.nop);
+	}
+
+	public void DoExitStmt(STO expr) {
+		// TODO Auto-generated method stub
+		loadVariable(Registers.o0, expr);
+		
+		generateASM(Strings.call_op, Strings.exit);
+		generateASM(Strings.nop);
+	}
+
+	public void doVoidReturn(FuncSTO func) {
+		generateASM(Strings.one_param, Instructions.ba, func.getName() + Strings.functionEnd);
+		generateASM(Strings.nop);
+		
 	}
 }

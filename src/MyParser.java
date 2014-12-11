@@ -53,7 +53,7 @@ class MyParser extends parser {
 		// Sometimes, the token is lost reading for the next
 		// token which can be null.
 		m_strLastLexeme = t.GetLexeme();
-
+		generator.setLineNumber(this.GetLineNum());
 		switch (t.GetCode()) {
 		case sym.T_ID:
 		case sym.T_ID_U:
@@ -1379,6 +1379,7 @@ class MyParser extends parser {
 				return new ErrorSTO(ErrorMsg.error6a_Return_expr);
 			} else {
 				m_returnMissingFlag = false;
+				generator.doVoidReturn(func);
 				return expr;// this should be fine since
 				// a return; on a void is FINE.
 			}
@@ -1454,7 +1455,8 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error7_Exit, expr
 					.getType().getName()));
 		}
-
+		
+		generator.DoExitStmt(expr);
 		return expr;
 	}
 
