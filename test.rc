@@ -81,7 +81,7 @@ function : void foo() {
 
   cout << "ST12: " << x << " " << y << endl;
 
-  //bar();
+  bar();
 
   exit(5);
   cout << "BAD" << endl;

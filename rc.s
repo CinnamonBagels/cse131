@@ -1849,6 +1849,8 @@ foo:
     set         _endl, %o0
     call    printf
     nop
+    call    bar
+    nop
     set         5, %o0
     call    exit
 
