@@ -36,26 +36,7 @@ globalInit_end:
 ! --storing constant *a with value 1.0
     set         1, %l1
     st          %l1, [%l0]
-/* line number 5*/
-/* Dereferencing a */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-/* line number 5*/
-/* Printing int *a */
-    set         _intFmt, %o0
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 5*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 16) & -8
+SAVE.main = -(92 + 12) & -8
