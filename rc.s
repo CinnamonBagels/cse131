@@ -60,17 +60,15 @@ str_53:         .asciz       "ST09: "
 str_54:         .asciz       " "         
 str_55:         .asciz       "OP09: "    
 str_56:         .asciz       " "         
-str_57:         .asciz       "ST10: "    
-str_58:         .asciz       " "         
-str_59:         .asciz       "BAD"       
+str_57:         .asciz       "BAD"       
 rec_x:          .word        0           
 staticGuard_rec_x:    .word        0           
-str_60:         .asciz       "REC: "     
-str_61:         .asciz       "AFTER"     
+str_58:         .asciz       "REC: "     
+str_59:         .asciz       "AFTER"     
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
-str_62:         .asciz       "REC: "     
-str_63:         .asciz       "BAD"       
+str_60:         .asciz       "REC: "     
+str_61:         .asciz       "BAD"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -1364,37 +1362,6 @@ foo:
     set         _endl, %o0
     call    printf
     nop
-/* printing string */
-    set         _strFmt, %o0
-    set         str_57, %o1
-    call    printf
-    nop
-/* Done printing string. */
-/* Printing int x */
-    set         _intFmt, %o0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* Done printing int. */
-/* printing string */
-    set         _strFmt, %o0
-    set         str_58, %o1
-    call    printf
-    nop
-/* Done printing string. */
-/* Printing int y */
-    set         _intFmt, %o0
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
     call    bar
     nop
     set         5, %o0
@@ -1403,7 +1370,7 @@ foo:
     nop
 /* printing string */
     set         _strFmt, %o0
-    set         str_59, %o1
+    set         str_57, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1447,7 +1414,7 @@ staticGuardLabel_rec_x:
     st          %l0, [%l1]
 /* printing string */
     set         _strFmt, %o0
-    set         str_60, %o1
+    set         str_58, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1496,7 +1463,7 @@ else_0:
 endIf_1:
 /* printing string */
     set         _strFmt, %o0
-    set         str_61, %o1
+    set         str_59, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1540,7 +1507,7 @@ staticGuardLabel_main_x:
     st          %l0, [%l1]
 /* printing string */
     set         _strFmt, %o0
-    set         str_62, %o1
+    set         str_60, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1593,7 +1560,7 @@ endIf_3:
     nop
 /* printing string */
     set         _strFmt, %o0
-    set         str_63, %o1
+    set         str_61, %o1
     call    printf
     nop
 /* Done printing string. */
