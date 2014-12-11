@@ -45,6 +45,13 @@ function : void bar() {
 }
 
 function : void foo() {
+
+
+  bar();
+
+  exit(5);
+  cout << "BAD" << endl;
+  return;
 }
 
 function : void rec() {

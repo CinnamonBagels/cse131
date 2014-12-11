@@ -19,14 +19,15 @@ str_12:         .asciz       " "
 str_13:         .asciz       "F2: "      
 str_14:         .asciz       " "         
 str_15:         .asciz       " "         
+str_16:         .asciz       "BAD"       
 rec_x:          .word        0           
 staticGuard_rec_x:    .word        0           
-str_16:         .asciz       "REC: "     
-str_17:         .asciz       "AFTER"     
+str_17:         .asciz       "REC: "     
+str_18:         .asciz       "AFTER"     
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
-str_18:         .asciz       "REC: "     
-str_19:         .asciz       "BAD"       
+str_19:         .asciz       "REC: "     
+str_20:         .asciz       "BAD"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -419,6 +420,21 @@ SAVE.bar = -(92 + 44) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+    call    bar
+    nop
+    set         5, %o0
+    call    exit
+
+    nop
+/* printing string */
+    set         _strFmt, %o0
+    set         str_16, %o1
+    call    printf
+    nop
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
 foo_end:
     ret 
     restore
@@ -456,7 +472,7 @@ staticGuardLabel_rec_x:
     st          %l0, [%l1]
 /* printing string */
     set         _strFmt, %o0
-    set         str_16, %o1
+    set         str_17, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -505,7 +521,7 @@ else_0:
 endIf_1:
 /* printing string */
     set         _strFmt, %o0
-    set         str_17, %o1
+    set         str_18, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -549,7 +565,7 @@ staticGuardLabel_main_x:
     st          %l0, [%l1]
 /* printing string */
     set         _strFmt, %o0
-    set         str_18, %o1
+    set         str_19, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -602,7 +618,7 @@ endIf_3:
     nop
 /* printing string */
     set         _strFmt, %o0
-    set         str_19, %o1
+    set         str_20, %o1
     call    printf
     nop
 /* Done printing string. */
