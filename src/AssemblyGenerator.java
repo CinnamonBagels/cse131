@@ -1079,4 +1079,10 @@ public class AssemblyGenerator {
 		generateASM(Strings.call_op, Strings.exit);
 		generateASM(Strings.nop);
 	}
+
+	public void doVoidReturn(FuncSTO func) {
+		generateASM(Strings.one_param, Instructions.ba, func.getName() + Strings.functionEnd);
+		generateASM(Strings.nop);
+		
+	}
 }

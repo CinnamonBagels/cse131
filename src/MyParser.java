@@ -1353,6 +1353,7 @@ class MyParser extends parser {
 				return new ErrorSTO(ErrorMsg.error6a_Return_expr);
 			} else {
 				m_returnMissingFlag = false;
+				generator.doVoidReturn(func);
 				return expr;// this should be fine since
 				// a return; on a void is FINE.
 			}
