@@ -1,10 +1,33 @@
+function : int fooI() {
+  cout << "fooI():";
 
-int g = 1;
+  return 42;
+}
+
+function : float fooF() {
+  cout << "fooF():";
+
+  return 3.14;
+}
+
+function : bool fooB() {
+  cout << "fooB():";
+
+  return true;
+}
+
+function : void fooV() {
+  cout << "fooV()" << endl;
+
+  return;
+}
+
+//int g = 1;
 
 function : int fooG() {
   cout << "fooG()" << endl;
 
-  return g++;
+ // return g++;
 }
 
 function : void bar() {
