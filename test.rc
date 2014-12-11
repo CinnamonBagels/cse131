@@ -22,12 +22,12 @@ function : void fooV() {
   return;
 }
 
-//int g = 1;
+int g = 1;
 
 function : int fooG() {
   cout << "fooG()" << endl;
 
-  return 5;
+  return g++;
 }
 
 function : void bar() {
@@ -38,9 +38,9 @@ function : void bar() {
   cout << "F2: " << fooB() << " " << fooI() << " " << fooF() << endl;
   fooV();
 
-  //cout << g << endl;
+  cout << g << endl;
   cout << fooG() << endl;
-  //cout << g << endl;
+  cout << g << endl;
 }
 
 function : void foo() {

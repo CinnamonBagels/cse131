@@ -1,11 +1,13 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+                 .global     g
 str_0:          .asciz       "fooI():"   
 str_1:          .asciz       "fooF():"   
 float_2:        .single      0r3.14      
 str_3:          .asciz       "fooB():"   
 str_4:          .asciz       "fooV()"    
+g:              .word        1           
 str_5:          .asciz       "fooG()"    
 str_6:          .asciz       "bar()"     
 str_7:          .asciz       "F0: "      
@@ -201,15 +203,32 @@ fooG:
     set         _endl, %o0
     call    printf
     nop
+/* line number 30*/
+/* Incrementing */
+    set         g, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         g, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+/* line number 30*/
+/* Post Increment */
+    dec     %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
 /* line number 31*/
 /* Returning value from fooG */
-    set         5, %i0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %i0
     ba      fooG_end
     nop
 fooG_end:
     ret 
     restore
-SAVE.fooG = -(92 + 4) & -8
+SAVE.fooG = -(92 + 8) & -8
                 .section     ".text"
                 .align 4
                 .global      bar
@@ -472,6 +491,19 @@ branchEnd_2:
     nop
     call    fooV
     nop
+/* line number 41*/
+/* Printing int g */
+    set         _intFmt, %o0
+    set         g, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 41*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
     call    fooG
     nop
 /* line number 42*/
@@ -486,6 +518,19 @@ branchEnd_2:
     call    printf
     nop
 /* line number 42*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 43*/
+/* Printing int g */
+    set         _intFmt, %o0
+    set         g, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 43*/
 /* Done printing int. */
     set         _endl, %o0
     call    printf
