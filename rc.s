@@ -44,7 +44,7 @@ staticGuardLabel_main_x:
     st          %l0, [%l2]
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          %l1, [%l1]
+    st          %l1, [%l1]
 /* Prepping Comparison Calculations by loading */
     set         main_x, %l1
     add         %g0, %l1, %l1
