@@ -54,15 +54,23 @@ str_47:         .asciz       "OP07: "
 str_48:         .asciz       " "         
 str_49:         .asciz       "ST08: "    
 str_50:         .asciz       " "         
-str_51:         .asciz       "BAD"       
+str_51:         .asciz       "OP08: "    
+str_52:         .asciz       " "         
+str_53:         .asciz       "ST09: "    
+str_54:         .asciz       " "         
+str_55:         .asciz       "OP09: "    
+str_56:         .asciz       " "         
+str_57:         .asciz       "ST10: "    
+str_58:         .asciz       " "         
+str_59:         .asciz       "BAD"       
 rec_x:          .word        0           
 staticGuard_rec_x:    .word        0           
-str_52:         .asciz       "REC: "     
-str_53:         .asciz       "AFTER"     
+str_60:         .asciz       "REC: "     
+str_61:         .asciz       "AFTER"     
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
-str_54:         .asciz       "REC: "     
-str_55:         .asciz       "BAD"       
+str_62:         .asciz       "REC: "     
+str_63:         .asciz       "BAD"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -1211,6 +1219,182 @@ foo:
     set         _endl, %o0
     call    printf
     nop
+/* printing string */
+    set         _strFmt, %o0
+    set         str_51, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Incrementing */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         -8, %l2
+    add         %fp, %l2, %l2
+    st          %l0, [%l2]
+    set         -80, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
+ */
+    set         _intFmt, %o0
+    set         -80, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+/* printing string */
+    set         _strFmt, %o0
+    set         str_52, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Decrementing */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    dec     %l0
+    set         -12, %l2
+    add         %fp, %l2, %l2
+    st          %l0, [%l2]
+    set         -84, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* Printing int Validating UnaryOp y as a IntegerType for operator: --...
+ */
+    set         _intFmt, %o0
+    set         -84, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* printing string */
+    set         _strFmt, %o0
+    set         str_53, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Printing int x */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+/* printing string */
+    set         _strFmt, %o0
+    set         str_54, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Printing int y */
+    set         _intFmt, %o0
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* printing string */
+    set         _strFmt, %o0
+    set         str_55, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Incrementing */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         -8, %l2
+    add         %fp, %l2, %l2
+    st          %l0, [%l2]
+/* Post Increment */
+    dec     %l0
+    set         -88, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
+ */
+    set         _intFmt, %o0
+    set         -88, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+/* printing string */
+    set         _strFmt, %o0
+    set         str_56, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Decrementing */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    dec     %l0
+    set         -12, %l2
+    add         %fp, %l2, %l2
+    st          %l0, [%l2]
+/* Post decrement */
+    inc     %l0
+    set         -92, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* Printing int Validating UnaryOp y as a IntegerType for operator: --...
+ */
+    set         _intFmt, %o0
+    set         -92, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* printing string */
+    set         _strFmt, %o0
+    set         str_57, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Printing int x */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+/* printing string */
+    set         _strFmt, %o0
+    set         str_58, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Printing int y */
+    set         _intFmt, %o0
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
     call    bar
     nop
     set         5, %o0
@@ -1219,7 +1403,7 @@ foo:
     nop
 /* printing string */
     set         _strFmt, %o0
-    set         str_51, %o1
+    set         str_59, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1229,7 +1413,7 @@ foo:
 foo_end:
     ret 
     restore
-SAVE.foo = -(92 + 76) & -8
+SAVE.foo = -(92 + 92) & -8
                 .section     ".text"
                 .align 4
                 .global      rec
@@ -1263,7 +1447,7 @@ staticGuardLabel_rec_x:
     st          %l0, [%l1]
 /* printing string */
     set         _strFmt, %o0
-    set         str_52, %o1
+    set         str_60, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1312,7 +1496,7 @@ else_0:
 endIf_1:
 /* printing string */
     set         _strFmt, %o0
-    set         str_53, %o1
+    set         str_61, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1356,7 +1540,7 @@ staticGuardLabel_main_x:
     st          %l0, [%l1]
 /* printing string */
     set         _strFmt, %o0
-    set         str_54, %o1
+    set         str_62, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -1409,7 +1593,7 @@ endIf_3:
     nop
 /* printing string */
     set         _strFmt, %o0
-    set         str_55, %o1
+    set         str_63, %o1
     call    printf
     nop
 /* Done printing string. */
