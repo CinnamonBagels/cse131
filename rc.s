@@ -200,15 +200,13 @@ globalInit_end:
 ! --storing constant b1 with value 1.0
     set         b1, %l0
     add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         1, %l1
+    st          %l1, [%l0]
 ! --storing constant b2 with value 0.0
     set         b2, %l0
     add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         0, %l1
+    st          %l1, [%l0]
 /* line number 31*/
 /* Storing b2 into b3 */
     set         b3, %l0

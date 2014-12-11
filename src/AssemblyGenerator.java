@@ -235,7 +235,7 @@ public class AssemblyGenerator {
 			//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		
-		if(sto.getType().isInt()){
+		if(sto.getType().isInt() || sto.getType().isBool()){
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
