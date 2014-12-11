@@ -1,0 +1,6 @@
+rc.s:
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 21: error: location counter not on word boundary
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 24: error: location counter not on word boundary
+cc: fbe failed for rc.s
+../input.c:
+../output.s:

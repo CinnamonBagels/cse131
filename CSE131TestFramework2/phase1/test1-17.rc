@@ -1,0 +1,9 @@
+//multi assignment
+
+function: void main() {
+	
+	int i = 1, j = 10;
+
+	cout << i << " " << j << endl; 	// 1 -10
+
+}

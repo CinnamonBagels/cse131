@@ -1,0 +1,28 @@
+int naked = 2222;
+int *vampire = &naked;
+int **juice = &vampire;
+
+int **kiwi;
+
+function : void something(int **** &p){
+   ****p = 22;
+   *p = &kiwi;
+}
+
+function : void main()
+{	
+	int ***apple = &juice;
+	int ****orange = &apple;
+	
+	int pear = 132;
+	int *plum = &pear;
+	kiwi = &plum;
+		
+	cout << "orange's value is: " << ****orange << endl; //2222
+	
+	something(orange);
+	
+	cout << "naked's value is: " << naked << endl; //22
+	cout << "orange's value is now: " << ****orange << endl; //132
+
+}

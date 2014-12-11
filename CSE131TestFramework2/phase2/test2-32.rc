@@ -1,0 +1,16 @@
+// basic global/local float array access
+
+float[100] gfarr;
+
+function: void main() {
+	
+	float[20] lfarr;
+	
+	gfarr[4] = 55.66;
+	lfarr[6] = gfarr[4];
+	
+	lfarr[4] = 0.26;
+	gfarr[6] = lfarr[4];
+	
+	cout << gfarr[4] << " " << lfarr[6] << " " << lfarr[4] << " " << gfarr[6] << endl; //false true true
+}

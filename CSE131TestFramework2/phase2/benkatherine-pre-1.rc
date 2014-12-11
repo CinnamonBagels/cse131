@@ -1,0 +1,19 @@
+int a = 5;
+int b = ++a;
+
+function : void main()
+{
+   int c = 4;
+   int d = ++c;
+
+   cout << ++a << endl; //7
+
+   cout << b << endl; // 6
+   cout << ++b << endl; // 7
+
+   cout << c << endl; // 5
+   cout << ++c << endl; // 6
+
+   cout << c - ++a << endl; // -2
+   cout << ++a - c << endl; // 3
+}

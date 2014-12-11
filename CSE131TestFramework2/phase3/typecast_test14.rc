@@ -1,0 +1,8 @@
+function : void main()
+{
+    float b = 0.11;
+    float *a = &b;
+    int *c = (int *)a;
+    
+    cout << *c << endl; //false
+}

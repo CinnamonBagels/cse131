@@ -1,0 +1,22 @@
+// check for correct offset for local variables when mixed with arrays
+
+float[100] gfarr;
+int[100] giarr;
+
+function: void main() {
+	
+	int i = 10;
+	int[20] liarr;
+	int j = 40;
+	float[20] lfarr;
+	float f;
+	
+	liarr[0] = 54321;
+	liarr[1] = 65432;
+	lfarr[0] = 9876.54;
+	lfarr[1] = 1029.00;
+	
+	f = i = j = 59;
+	
+	cout << i << " " << liarr[0] << " " << liarr[1] << " " << j << " " << lfarr[0] << " " << lfarr[1] << " " << f << endl;
+}

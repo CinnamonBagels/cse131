@@ -1,0 +1,29 @@
+//not operator 
+
+function: void main() {
+
+	int i = 5, j = 6;
+	bool f = false;
+	bool t = !f;
+
+	cout << t << " != " << f << " ? ";
+	
+	
+	if (!false) {
+		cout << "go";
+		if (!f) {
+			cout << "od";
+			if (!(5 > 6)) {
+				cout << " n";
+				if (!(i > j)) {
+					cout << "'";
+					if (!true) {
+						cout << "bad!!";
+					}
+				}
+			}
+		}	
+	}
+
+	cout << " done" << endl;
+}

@@ -1,0 +1,10 @@
+//multi assignment in global scope
+
+int k;
+int j = k = 3;
+
+function: void main() {
+
+	cout << j << k << endl; 	// 33 = 33
+
+}

@@ -1,0 +1,8 @@
+bool a,b,c,d,e;
+int f,g,h,i,j;
+float k,l,m,n;
+
+function : void main() {
+
+	cout << "main" << c << " " << h << " " << m << "end" <<endl;
+}

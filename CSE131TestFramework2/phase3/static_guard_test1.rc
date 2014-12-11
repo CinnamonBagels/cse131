@@ -1,0 +1,16 @@
+int c = 0;
+function : void main() {
+    if (c < 5) {
+	    int y = 4;
+		static float z = y;
+		y++;
+		z++;
+		cout << y << endl; //should be 5 everytime
+		cout << z << endl; //should start at 5.00 and go to 9.00
+		c++;
+		main();
+	} else {
+	  return;
+	}
+}
+

@@ -1,0 +1,13 @@
+// global array to local var assignment
+
+float[100] gfarr;
+
+function: void main() {
+	
+	int i = 10;
+	float f;
+	
+	f = gfarr[i] = 45; //test local -> global assignments
+	
+	cout << gfarr[i] << " " << f << endl;
+}
