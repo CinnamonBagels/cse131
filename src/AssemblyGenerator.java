@@ -27,6 +27,7 @@ public class AssemblyGenerator {
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
 	public int mainCounter = 0;
+	public int lineNumber = 0;
 	
 	private List<String> executeBuffer = new Vector<String>();
 	
@@ -39,6 +40,9 @@ public class AssemblyGenerator {
 		}
 	}
 	
+	public void setLineNumber(int line) {
+		this.lineNumber = line;
+	}
 	public void internalConstants(){
 		// from slides
 		write("! DEFINING INTERNAL CONSTANTS --\n");
@@ -160,6 +164,7 @@ public class AssemblyGenerator {
 	
 	public void doPrintConstInt(String str){
 		generateComment("printf on int");
+		
 		generateASM(Strings.two_param, Instructions.set, Strings.intfmt, Registers.o0);
 		generateASM(Strings.two_param, Instructions.set, str, Registers.o1);
 		generateASM(Strings.call_op, Strings.printf);
@@ -258,12 +263,15 @@ public class AssemblyGenerator {
 	
 	public void generateComment(String s) {
 		StringBuilder str = new StringBuilder();
+		
 		str.append("/* ");
 		str.append(s);
 		str.append(" */\n");
 		if(!inGlobalScope) {
+			tQueue.add("/* line number " + this.lineNumber + "*/\n");
 			tQueue.add(str.toString());
 		} else {
+			executeBuffer.add("/* line number " + this.lineNumber + "*/\n");
 			executeBuffer.add(str.toString());
 		}
 	}

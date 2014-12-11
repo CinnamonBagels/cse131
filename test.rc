@@ -76,8 +76,12 @@ function : void foo() {
   cout << "OP09: " << x++ << " " << y-- << endl;
   cout << "ST10: " << x << " " << y << endl;
   cout << "OP10: " << --x << " " << y++ << endl;
+  cout << "ST11: " << x << " " << y << endl;
+  cout << "OP11: " << x-- << " " << ++y << endl;
 
-  bar();
+  cout << "ST12: " << x << " " << y << endl;
+
+  //bar();
 
   exit(5);
   cout << "BAD" << endl;

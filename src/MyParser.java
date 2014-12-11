@@ -53,7 +53,7 @@ class MyParser extends parser {
 		// Sometimes, the token is lost reading for the next
 		// token which can be null.
 		m_strLastLexeme = t.GetLexeme();
-
+		generator.setLineNumber(this.GetLineNum());
 		switch (t.GetCode()) {
 		case sym.T_ID:
 		case sym.T_ID_U:
