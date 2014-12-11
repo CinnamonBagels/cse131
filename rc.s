@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+<<<<<<< HEAD
                  .global     g
 str_0:          .asciz       "fooI():"   
 str_1:          .asciz       "fooF():"   
@@ -75,12 +76,9 @@ rec_x:          .word        0
 staticGuard_rec_x:    .word        0           
 str_68:         .asciz       "REC: "     
 str_69:         .asciz       "AFTER"     
+=======
+>>>>>>> cee9182cd7fc8e3e92efa5d9a89d4dcc0fb090c7
 globalInit_:    .word        0           
-str_70:         .asciz       "here"      
-main_x:         .word        0           
-staticGuard_main_x:    .word        0           
-str_71:         .asciz       "REC: "     
-str_72:         .asciz       "BAD"       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -94,6 +92,7 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 
                 .section     ".text"
                 .align 4
+<<<<<<< HEAD
                 .global      fooI
 fooI:
     set         SAVE.fooI, %g1
@@ -2021,6 +2020,8 @@ rec_end:
 SAVE.rec = -(92 + 12) & -8
                 .section     ".text"
                 .align 4
+=======
+>>>>>>> cee9182cd7fc8e3e92efa5d9a89d4dcc0fb090c7
                 .global      main
 main:
     set         SAVE.main, %g1
@@ -2034,116 +2035,14 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 107*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_70, %o1
-    call    printf
-    nop
-/* line number 107*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    set         staticGuard_main_x, %l0
-    ld          [%l0], %l1
-    cmp         %g0, %l1
-    bne     staticGuardLabel_main_x
-    nop
-! --storing constant x with value 0.0
-    set         main_x, %l0
-    add         %g0, %l0, %l0
-    set         0, %l1
-    st          %l1, [%l0]
-    set         staticGuard_main_x, %l2
-    set         1, %l3
-    st          %l3, [%l2]
-staticGuardLabel_main_x:
-/* line number 110*/
-/* Incrementing */
-    set         main_x, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    inc     %l0
-    set         main_x, %l2
-    add         %g0, %l2, %l2
-    st          %l0, [%l2]
+/* line number 4*/
+/* Dereferencing a */
     set         -8, %l1
     add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 112*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_71, %o1
-    call    printf
-    nop
-/* line number 112*/
-/* Done printing string. */
-/* line number 112*/
-/* Printing int x */
-    set         _intFmt, %o0
-    set         main_x, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 112*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 114*/
-/* Prepping Comparison Calculations by loading */
-    set         main_x, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         5, %l1
-/* line number 114*/
-/* Starting Less than */
-    cmp         %l0, %l1
-    bl      less_1
-    nop
-    set         0, %l3
-    ba      lessEnd_1
-    nop
-less_1:
-    set         1, %l3
-lessEnd_1:
-/* line number 114*/
-/* Storing result of Comparison Op */
-    set         -12, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_2
-    nop
-if_2:
-    call    main
-    nop
-    ba      main_end
-    nop
-    ba      endIf_3
-    nop
-else_2:
-endIf_3:
-    call    rec
-    nop
-    call    foo
-    nop
-/* line number 122*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_72, %o1
-    call    printf
-    nop
-/* line number 122*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
+! --storing constant *a with value 1.0
+    set         1, %l1
+    st          %l1, [%l0]
 main_end:
     ret 
     restore
