@@ -3,7 +3,7 @@
 function : void main() {
   static int x = 0;
   ++x;
-
+  cout << x << endl;
   if (x < 5) {
     main();
     return;
