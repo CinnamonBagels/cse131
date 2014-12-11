@@ -1,9 +1,13 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+rec_x:          .word        0           
+staticGuard_rec_x:    .word        0           
+str_0:          .asciz       "REC: "     
+str_1:          .asciz       "AFTER"     
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
-str_0:          .asciz       "REC: "     
+str_2:          .asciz       "REC: "     
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -15,6 +19,99 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
+                .section     ".text"
+                .align 4
+                .global      rec
+rec:
+    set         SAVE.rec, %g1
+    save        %sp, %g1, %sp
+    set         staticGuard_rec_x, %l0
+    ld          [%l0], %l1
+    cmp         %g0, %l1
+    bne     staticGuardLabel_rec_x
+    nop
+! --storing constant x with value 0.0
+    set         rec_x, %l0
+    add         %g0, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
+    set         staticGuard_rec_x, %l2
+    set         1, %l3
+    st          %l3, [%l2]
+staticGuardLabel_rec_x:
+/* Incrementing */
+    set         rec_x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         rec_x, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %l1, [%l1]
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
+    call    printf
+    nop
+/* Done printing string. */
+/* Printing int x */
+    set         _intFmt, %o0
+    set         rec_x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* Prepping Comparison Calculations by loading */
+    set         rec_x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         5, %l1
+/* Starting Less than */
+    cmp         %l0, %l1
+    bl      less_0
+    nop
+    set         0, %l3
+    ba      lessEnd_0
+    nop
+less_0:
+    set         1, %l3
+lessEnd_0:
+/* Storing result of Comparison Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_0
+    nop
+if_0:
+    call    rec
+    nop
+    ba      endIf_1
+    nop
+else_0:
+endIf_1:
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
+    call    printf
+    nop
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
+rec_end:
+    ret 
+    restore
+SAVE.rec = -(92 + 12) & -8
                 .section     ".text"
                 .align 4
                 .global      main
@@ -48,7 +145,7 @@ staticGuardLabel_main_x:
     st          %l1, [%l1]
 /* printing string */
     set         _strFmt, %o0
-    set         str_0, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* Done printing string. */
@@ -70,14 +167,14 @@ staticGuardLabel_main_x:
     set         5, %l1
 /* Starting Less than */
     cmp         %l0, %l1
-    bl      less_0
+    bl      less_1
     nop
     set         0, %l3
-    ba      lessEnd_0
+    ba      lessEnd_1
     nop
-less_0:
+less_1:
     set         1, %l3
-lessEnd_0:
+lessEnd_1:
 /* Storing result of Comparison Op */
     set         -12, %l4
     add         %fp, %l4, %l4
@@ -86,15 +183,17 @@ lessEnd_0:
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     cmp         %l0, %g0
-    be      else_0
+    be      else_2
     nop
-if_0:
+if_2:
     call    main
     nop
-    ba      endIf_1
+    ba      endIf_3
     nop
-else_0:
-endIf_1:
+else_2:
+endIf_3:
+    call    rec
+    nop
 main_end:
     ret 
     restore
