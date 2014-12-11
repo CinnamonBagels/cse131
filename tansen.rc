@@ -1,5 +1,7 @@
 function : void main() {
-    
-    int *a;
-    *a = 1;
+int i;
+int * ptr;
+
+*ptr = 5000;
+i = *ptr;
 }
