@@ -45,13 +45,36 @@ function : void bar() {
 }
 
 function : void foo() {
-  bar();
+}
 
-  exit(5);
-  return;
+function : void rec() {
+  static int x = 0;
+
+  ++x;
+
+  cout << "REC: " << x << endl;
+
+  if (x < 5) {
+    rec();
+    return;
+  }
+
+  cout << "AFTER" << endl;
 }
 
 function : void main() {
+  static int x = 0;
+
+  ++x;
+
+  cout << "REC: " << x << endl;
+
+  if (x < 5) {
+    main();
+    return;
+  }
+
+  rec();
 
   foo();
   cout << "BAD" << endl;
