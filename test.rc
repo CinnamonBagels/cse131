@@ -1,7 +1,6 @@
 
 
 function : void foo() {
-  cout << "foo()" << endl;
 
   int x = 4;
   int y = 3;
@@ -22,33 +21,7 @@ function : void foo() {
   return;
 }
 
-function : void rec() {
-  static int x = 0;
-
-  ++x;
-
-  cout << "REC: " << x << endl;
-
-  if (x < 5) {
-    rec();
-    return;
-  }
-
-  cout << "AFTER" << endl;
-}
-
 function : void main() {
-  static int x = 0;
-
-  ++x;
-
-  cout << "REC: " << x << endl;
-
-  if (x < 5) {
-    main();
-    return;
-  }
-
   foo();
   cout << "BAD" << endl;
 }
