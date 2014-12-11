@@ -49,7 +49,6 @@ function : void foo() {
   int x = 4;
   int y = 3;
 
-  cout << "ST00: " << x << " " << y << endl;
 
   cout << "OP00: " << ++x << " " << ++y << endl;
   cout << "ST01: " << x << " " << y << endl;
