@@ -72,7 +72,6 @@ function : void foo() {
   cout << "ST08: " << x << " " << y << endl;
 
   cout << "OP08: " << ++x << " " << --y << endl;
-  cout << "ST09: " << x << " " << y << endl;
   cout << "OP09: " << x++ << " " << y-- << endl;
 
   bar();
