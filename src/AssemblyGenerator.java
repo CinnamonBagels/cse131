@@ -225,16 +225,19 @@ public class AssemblyGenerator {
 		
 		//we'll have to check if in struct later
 		//should make a new method for this.
+		if(!sto.isReference && !sto.isDereferenced){
 		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		}
 		
 		
 		if(sto.isReference || sto.isDereferenced) {
-			//System.out.println("this is happening");			
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+			System.out.println("this is happening");			
+			//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		
 		if(sto.getType().isInt()){
+			System.out.println(sto.getName());
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
@@ -476,11 +479,10 @@ public class AssemblyGenerator {
 	
 	public void doDereference(STO sto, STO dereferencedSTO){
 		generateComment("Dereferencing " + sto.getName());
-		loadVariable(Registers.l0, sto);
-		
-		generateASM(Strings.two_param, Instructions.set, dereferencedSTO.offset, Registers.l1);
-		generateASM(Strings.three_param, Instructions.add, dereferencedSTO.base, Registers.l1, Registers.l1);
-		generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l1 + "]");
+		loadVariable(Registers.l0, sto);		
+		//generateASM(Strings.two_param, Instructions.set, dereferencedSTO.offset, Registers.l1);
+		//generateASM(Strings.three_param, Instructions.add, dereferencedSTO.base, Registers.l1, Registers.l1);
+		//generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l1 + "]");
 	}
 
 	public void doCoutEndl() {
