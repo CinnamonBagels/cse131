@@ -982,7 +982,8 @@ public class AssemblyGenerator {
 				
 				//increment after, so we return l0 to original value.
 				//hacky. might want to change.
-				if(data == "post") {
+				if(data.equals("post")) {
+					generateComment("Post decrement");
 					generateASM(Strings.one_param, Instructions.inc, register);
 				}
 			}
@@ -1006,7 +1007,8 @@ public class AssemblyGenerator {
 				
 				//increment after, so we return l0 to original value.
 				//hacky. might want to change.
-				if(data == "post") {
+				if(data.equals("post")) {
+					generateComment("Post Increment");
 					generateASM(Strings.one_param, Instructions.dec, register);
 				}
 			}

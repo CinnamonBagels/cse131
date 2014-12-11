@@ -229,6 +229,7 @@ foo:
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post Increment */
     dec     %l0
     set         -24, %l1
     add         %fp, %l1, %l1
@@ -256,6 +257,7 @@ foo:
     set         -12, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post Increment */
     dec     %l0
     set         -28, %l1
     add         %fp, %l1, %l1
@@ -343,6 +345,7 @@ foo:
     set         -12, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post Increment */
     dec     %l0
     set         -36, %l1
     add         %fp, %l1, %l1
@@ -404,6 +407,7 @@ foo:
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post Increment */
     dec     %l0
     set         -40, %l1
     add         %fp, %l1, %l1
@@ -577,6 +581,7 @@ foo:
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post decrement */
     inc     %l0
     set         -56, %l1
     add         %fp, %l1, %l1
@@ -604,6 +609,7 @@ foo:
     set         -12, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post decrement */
     inc     %l0
     set         -60, %l1
     add         %fp, %l1, %l1
@@ -691,6 +697,7 @@ foo:
     set         -12, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post decrement */
     inc     %l0
     set         -68, %l1
     add         %fp, %l1, %l1
@@ -752,6 +759,7 @@ foo:
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post decrement */
     inc     %l0
     set         -72, %l1
     add         %fp, %l1, %l1
@@ -925,6 +933,7 @@ foo:
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post Increment */
     dec     %l0
     set         -88, %l1
     add         %fp, %l1, %l1
@@ -952,6 +961,7 @@ foo:
     set         -12, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post decrement */
     inc     %l0
     set         -92, %l1
     add         %fp, %l1, %l1
@@ -1039,6 +1049,7 @@ foo:
     set         -12, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post Increment */
     dec     %l0
     set         -100, %l1
     add         %fp, %l1, %l1
@@ -1100,6 +1111,7 @@ foo:
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
+/* Post decrement */
     inc     %l0
     set         -104, %l1
     add         %fp, %l1, %l1
