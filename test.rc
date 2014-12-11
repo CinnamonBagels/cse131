@@ -1,21 +1,14 @@
-bool rick = true;
-bool ankur = false;
-bool rickAndAnkur;
+int x = 5;
+int y = 10;
+int z = 5000;
 
 function : void main()
 {
-  bool a = true;
-  bool b = a;
-  
-  rickAndAnkur = ankur;
-  ankur = a;
-  rick = b;
-  rickAndAnkur = rick;
-  
-  cout << "rick is: " << rick << endl;
-    cout << "ankur is: " << ankur << endl;
-    cout << "rickAndAnkur is: " << rickAndAnkur << endl;
-  cout << "a is: " << a << endl;
-  cout << "b is: " << b << endl;
+    int sinatra = y % x;
+    int fitzgerald = (z * y - z) % x;
+    int bono = (((x * y * z) + (x * y * z)) % 10) + 5;
 
+    cout << sinatra << endl; // 0
+    cout << fitzgerald << endl; // 0
+    cout << bono << endl; // 5
 }

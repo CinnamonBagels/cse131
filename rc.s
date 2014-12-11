@@ -1,16 +1,11 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     rick,ankur,rickAndAnkur
-rick:           .word        1           
-ankur:          .word        0           
-rickAndAnkur:    .word        0           
+                 .global     x,y,z
+x:              .word        5           
+y:              .word        10          
+z:              .word        5000        
 globalInit_:    .word        0           
-str_0:          .asciz       "rick is: " 
-str_1:          .asciz       "ankur is: "
-str_2:          .asciz       "rickAndAnkur is: "
-str_3:          .asciz       "a is: "    
-str_4:          .asciz       "b is: "    
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -37,210 +32,282 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 7*/
+/* Prepping Arithmetic Calculations by loading */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 7*/
+/* Modding */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .rem
+    nop
+    mov         %o0, %l0
+/* line number 7*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
 /* line number 8*/
-/* setting a = true */
-    set         1, %l0
-    st          %l0, [%fp-8]
-/* line number 8*/
-/* Done. */
-/* line number 10*/
-/* setting b = a */
+/* setting sinatra = Validating int and int as an IntegerType for operator: %...
+ */
     set         -12, %l0
     add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     st          %l2, [%l0]
-/* line number 10*/
+/* line number 8*/
 /* Done. */
-/* line number 10*/
-/* Storing ankur into rickAndAnkur */
-    set         rickAndAnkur, %l0
-    add         %g0, %l0, %l0
-    set         ankur, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
-/* line number 11*/
-/* Storing a into ankur */
-    set         ankur, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
-/* line number 12*/
-/* Storing b into rick */
-    set         rick, %l0
-    add         %g0, %l0, %l0
-    set         -12, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
-/* line number 13*/
-/* Storing rick into rickAndAnkur */
-    set         rickAndAnkur, %l0
-    add         %g0, %l0, %l0
-    set         rick, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
-/* line number 15*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* line number 15*/
-/* Done printing string. */
-/* line number 15*/
-/* Printing bool rick */
-    set         rick, %l1
+/* line number 8*/
+/* Prepping Arithmetic Calculations by loading */
+    set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         _strFmt, %o0
-    cmp         %l0, %g0
-    be      printFalse_0
-    nop
-printTrue_0:
-    set         _boolT, %o1
-    ba      branchEnd_0
-    nop
-printFalse_0:
-    set         _boolF, %o1
-branchEnd_0:
-    call    printf
-    nop
-/* line number 15*/
-/* Done printing bool. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 16*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_1, %o1
-    call    printf
-    nop
-/* line number 16*/
-/* Done printing string. */
-/* line number 16*/
-/* Printing bool ankur */
-    set         ankur, %l1
+    set         y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    set         _strFmt, %o0
-    cmp         %l0, %g0
-    be      printFalse_1
+    ld          [%l1], %l1
+/* line number 8*/
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
     nop
-printTrue_1:
-    set         _boolT, %o1
-    ba      branchEnd_1
-    nop
-printFalse_1:
-    set         _boolF, %o1
-branchEnd_1:
-    call    printf
-    nop
-/* line number 16*/
-/* Done printing bool. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 17*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_2, %o1
-    call    printf
-    nop
-/* line number 17*/
-/* Done printing string. */
-/* line number 17*/
-/* Printing bool rickAndAnkur */
-    set         rickAndAnkur, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    set         _strFmt, %o0
-    cmp         %l0, %g0
-    be      printFalse_2
-    nop
-printTrue_2:
-    set         _boolT, %o1
-    ba      branchEnd_2
-    nop
-printFalse_2:
-    set         _boolF, %o1
-branchEnd_2:
-    call    printf
-    nop
-/* line number 17*/
-/* Done printing bool. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 18*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_3, %o1
-    call    printf
-    nop
-/* line number 18*/
-/* Done printing string. */
-/* line number 18*/
-/* Printing bool a */
-    set         -8, %l1
+    mov         %o0, %l0
+/* line number 8*/
+/* Storing result of Binary Op */
+    set         -16, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 8*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         _strFmt, %o0
-    cmp         %l0, %g0
-    be      printFalse_3
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 8*/
+/* Subtracting */
+    sub         %l0, %l1, %l3
+/* line number 8*/
+/* Storing result of Binary Op */
+    set         -20, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 8*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 8*/
+/* Modding */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .rem
     nop
-printTrue_3:
-    set         _boolT, %o1
-    ba      branchEnd_3
+    mov         %o0, %l0
+/* line number 8*/
+/* Storing result of Binary Op */
+    set         -24, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 9*/
+/* setting fitzgerald = Validating int and int as an IntegerType for operator: %...
+ */
+    set         -28, %l0
+    add         %fp, %l0, %l0
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* line number 9*/
+/* Done. */
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 9*/
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
     nop
-printFalse_3:
-    set         _boolF, %o1
-branchEnd_3:
-    call    printf
+    mov         %o0, %l0
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         -32, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 9*/
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
     nop
-/* line number 18*/
-/* Done printing bool. */
-    set         _endl, %o0
-    call    printf
+    mov         %o0, %l0
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         -36, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 9*/
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
     nop
-/* line number 19*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_4, %o1
-    call    printf
+    mov         %o0, %l0
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         -40, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -40, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 9*/
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
     nop
-/* line number 19*/
-/* Done printing string. */
-/* line number 19*/
-/* Printing bool b */
+    mov         %o0, %l0
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         -44, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 9*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         -48, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -48, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         10, %l1
+/* line number 9*/
+/* Modding */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .rem
+    nop
+    mov         %o0, %l0
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         -52, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -52, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         5, %l1
+/* line number 9*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         -56, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 11*/
+/* setting bono = int + int */
+    set         -60, %l0
+    add         %fp, %l0, %l0
+    set         -56, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* line number 11*/
+/* Done. */
+/* line number 11*/
+/* Printing int sinatra */
+    set         _intFmt, %o0
     set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         _strFmt, %o0
-    cmp         %l0, %g0
-    be      printFalse_4
-    nop
-printTrue_4:
-    set         _boolT, %o1
-    ba      branchEnd_4
-    nop
-printFalse_4:
-    set         _boolF, %o1
-branchEnd_4:
+    ld          [%l1], %o1
     call    printf
     nop
-/* line number 19*/
-/* Done printing bool. */
+/* line number 11*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 12*/
+/* Printing int fitzgerald */
+    set         _intFmt, %o0
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 12*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 13*/
+/* Printing int bono */
+    set         _intFmt, %o0
+    set         -60, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 13*/
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 12) & -8
+SAVE.main = -(92 + 60) & -8
