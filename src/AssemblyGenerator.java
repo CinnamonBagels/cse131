@@ -959,83 +959,83 @@ public class AssemblyGenerator {
 	}
 
 	public void doUnaryOp(UnaryOp op, STO origin, STO result, String data) {
-		// TODO Auto-generated method stub
-		String register = "";
-		boolean isFloat = result.getType().isFloat();
-		if(op.getName().equals("--")) {
-			generateComment("Decrementing");
-			if(!isFloat) {
-				loadVariable(Registers.l0, origin);
-				
-				generateASM(Strings.one_param, Instructions.dec, Registers.l0);
-				
-				register = Registers.l0;
-				
-				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
-				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
-				
-				if(origin.isReference) {
-					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
-				}
-				
-				generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
-				
-				//increment after, so we return l0 to original value.
-				//hacky. might want to change.
-				if(data.equals("post")) {
-					generateComment("Post decrement");
-					generateASM(Strings.one_param, Instructions.inc, register);
-				}
-			}
-		} else if(op.getName().equals("++")) {
-			generateComment("Incrementing");
-			if(!isFloat) {
-				loadVariable(Registers.l0, origin);
-				
-				generateASM(Strings.one_param, Instructions.inc, Registers.l0);
-				
-				register = Registers.l0;
-				
-				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
-				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
-				
-				if(origin.isReference) {
-					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
-				}
-				
-				generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
-				
-				//increment after, so we return l0 to original value.
-				//hacky. might want to change.
-				if(data.equals("post")) {
-					generateComment("Post Increment");
-					generateASM(Strings.one_param, Instructions.dec, register);
-				}
-			}
-		} else if(op.getName().equals("!")) {
-			generateComment("Negating");
-			loadVariable(Registers.l0, origin);
-			
-			generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
-			generateASM(Strings.one_param, Instructions.be, Strings.increment + numNots);
-			generateASM(Strings.nop);
-			generateASM(Strings.label, Strings.decrement + numNots);
-			generateASM(Strings.one_param, Instructions.dec, Registers.l0);
-			generateASM(Strings.two_param, Instructions.ba, Strings.negEnd + numNots);
-			generateASM(Strings.nop);
-			generateASM(Strings.label, Strings.increment + numNots);
-			generateASM(Strings.one_param, Instructions.inc, Registers.l0);
-			generateASM(Strings.label, Strings.negEnd + numNots);
-			
-			numNots++;
-			register = Registers.l0;
-		} else {
-			generateComment("Unary Op broken on " + op.getName() + " " + result.getName());
-		}	
-		
-		generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l1);
-		generateASM(Strings.three_param, Instructions.add, result.base, Registers.l1, Registers.l1);
-		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l1 + "]");
+//		// TODO Auto-generated method stub
+//		String register = "";
+//		boolean isFloat = result.getType().isFloat();
+//		if(op.getName().equals("--")) {
+//			generateComment("Decrementing");
+//			if(!isFloat) {
+//				loadVariable(Registers.l0, origin);
+//				
+//				generateASM(Strings.one_param, Instructions.dec, Registers.l0);
+//				
+//				register = Registers.l0;
+//				
+//				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
+//				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
+//				
+//				if(origin.isReference) {
+//					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
+//				}
+//				
+//				generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
+//				
+//				//increment after, so we return l0 to original value.
+//				//hacky. might want to change.
+//				if(data.equals("post")) {
+//					generateComment("Post decrement");
+//					generateASM(Strings.one_param, Instructions.inc, register);
+//				}
+//			}
+//		} else if(op.getName().equals("++")) {
+//			generateComment("Incrementing");
+//			if(!isFloat) {
+//				loadVariable(Registers.l0, origin);
+//				
+//				generateASM(Strings.one_param, Instructions.inc, Registers.l0);
+//				
+//				register = Registers.l0;
+//				
+//				generateASM(Strings.two_param, Instructions.set, origin.offset, Registers.l2);
+//				generateASM(Strings.three_param, Instructions.add, origin.base, Registers.l2, Registers.l2);
+//				
+//				if(origin.isReference) {
+//					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
+//				}
+//				
+//				generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
+//				
+//				//increment after, so we return l0 to original value.
+//				//hacky. might want to change.
+//				if(data.equals("post")) {
+//					generateComment("Post Increment");
+//					generateASM(Strings.one_param, Instructions.dec, register);
+//				}
+//			}
+//		} else if(op.getName().equals("!")) {
+//			generateComment("Negating");
+//			loadVariable(Registers.l0, origin);
+//			
+//			generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+//			generateASM(Strings.one_param, Instructions.be, Strings.increment + numNots);
+//			generateASM(Strings.nop);
+//			generateASM(Strings.label, Strings.decrement + numNots);
+//			generateASM(Strings.one_param, Instructions.dec, Registers.l0);
+//			generateASM(Strings.two_param, Instructions.ba, Strings.negEnd + numNots);
+//			generateASM(Strings.nop);
+//			generateASM(Strings.label, Strings.increment + numNots);
+//			generateASM(Strings.one_param, Instructions.inc, Registers.l0);
+//			generateASM(Strings.label, Strings.negEnd + numNots);
+//			
+//			numNots++;
+//			register = Registers.l0;
+//		} else {
+//			generateComment("Unary Op broken on " + op.getName() + " " + result.getName());
+//		}	
+//		
+//		generateASM(Strings.two_param, Instructions.set, result.offset, Registers.l1);
+//		generateASM(Strings.three_param, Instructions.add, result.base, Registers.l1, Registers.l1);
+//		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l1 + "]");
 	}
 	
 	public void doReturn(STO returnSTO, FuncSTO func) {
