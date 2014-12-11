@@ -2,16 +2,25 @@
                 .section     ".data"
                 .align 4
                  .global     f1,f2,f3
-f1:             .single      0r0.0       
-f2:             .single      0r0.0       
-f3:             .single      0r0.0       
+float_0:        .single      0r1.0       
+f1:             .single      0r1.0       
+float_1:        .single      0r2.0       
+f2:             .single      0r2.0       
+float_2:        .single      0r3.0       
+f3:             .single      0r3.0       
 globalInit_:    .word        0           
-float_0:        .single      0r5.0       
-float_1:        .single      0r10.0      
-float_2:        .single      0r15.0      
-str_3:          .asciz       "f1 is: "   
-str_4:          .asciz       "f2 is: "   
-str_5:          .asciz       "f3 is: "   
+float_3:        .single      0r5.0       
+float_4:        .single      0r10.0      
+float_5:        .single      0r15.0      
+str_6:          .asciz       "::f1 is: " 
+str_7:          .asciz       "::f2 is: " 
+str_8:          .asciz       "::f3 is: " 
+str_9:          .asciz       "f1 is: "   
+str_10:         .asciz       "f2 is: "   
+str_11:         .asciz       "f3 is: "   
+str_12:         .asciz       "localf1 is: "
+str_13:         .asciz       "localf2 is: "
+str_14:         .asciz       "localf3 is: "
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -44,7 +53,7 @@ globalInit_end:
     add         %fp, %l0, %l0
 /* line number 8*/
 /* setting float */
-    set         float_0, %l1
+    set         float_3, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 8*/
@@ -55,7 +64,7 @@ globalInit_end:
     add         %fp, %l0, %l0
 /* line number 9*/
 /* setting float */
-    set         float_1, %l1
+    set         float_4, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 9*/
@@ -66,91 +75,241 @@ globalInit_end:
     add         %fp, %l0, %l0
 /* line number 11*/
 /* setting float */
-    set         float_2, %l1
+    set         float_5, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 11*/
 /* Done. */
-/* line number 11*/
-/* Storing localf1 into f1 */
-    set         f1, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
 /* line number 12*/
-/* Storing localf2 into f2 */
-    set         f2, %l0
-    add         %g0, %l0, %l0
-    set         -12, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* setting f1 = localf1 */
+    set         -20, %l0
+    add         %fp, %l0, %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 12*/
+/* Done. */
 /* line number 13*/
-/* Storing localf3 into f3 */
-    set         f3, %l0
-    add         %g0, %l0, %l0
-    set         -16, %l2
-    add         %fp, %l2, %l2
+/* setting f2 = localf2 */
+    set         -24, %l0
+    add         %fp, %l0, %l0
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 13*/
+/* Done. */
+/* line number 15*/
+/* setting f3 = localf3 */
+    set         -28, %l0
+    add         %fp, %l0, %l0
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 15*/
+/* Done. */
+/* line number 15*/
+/* Storing f1 into localf1 */
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    set         f1, %l2
+    add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
-/* line number 15*/
+/* line number 16*/
+/* Storing f2 into localf2 */
+    set         -12, %l0
+    add         %fp, %l0, %l0
+    set         f2, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+/* line number 17*/
+/* Storing f3 into localf3 */
+    set         -16, %l0
+    add         %fp, %l0, %l0
+    set         f3, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+/* line number 19*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_6, %o1
     call    printf
     nop
-/* line number 15*/
+/* line number 19*/
 /* Done printing string. */
-/* line number 15*/
+/* line number 19*/
 /* printing float f1 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
-/* line number 15*/
+/* line number 19*/
 /* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 16*/
+/* line number 20*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_7, %o1
     call    printf
     nop
-/* line number 16*/
+/* line number 20*/
 /* Done printing string. */
-/* line number 16*/
+/* line number 20*/
 /* printing float f2 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
-/* line number 16*/
+/* line number 20*/
 /* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 17*/
+/* line number 21*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    set         str_8, %o1
     call    printf
     nop
-/* line number 17*/
+/* line number 21*/
 /* Done printing string. */
-/* line number 17*/
+/* line number 21*/
 /* printing float f3 */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
-/* line number 17*/
+/* line number 21*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 23*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_9, %o1
+    call    printf
+    nop
+/* line number 23*/
+/* Done printing string. */
+/* line number 23*/
+/* printing float f1 */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 23*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 24*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_10, %o1
+    call    printf
+    nop
+/* line number 24*/
+/* Done printing string. */
+/* line number 24*/
+/* printing float f2 */
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 24*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 25*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_11, %o1
+    call    printf
+    nop
+/* line number 25*/
+/* Done printing string. */
+/* line number 25*/
+/* printing float f3 */
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 25*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 27*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_12, %o1
+    call    printf
+    nop
+/* line number 27*/
+/* Done printing string. */
+/* line number 27*/
+/* printing float localf1 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 27*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 28*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_13, %o1
+    call    printf
+    nop
+/* line number 28*/
+/* Done printing string. */
+/* line number 28*/
+/* printing float localf2 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 28*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 29*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_14, %o1
+    call    printf
+    nop
+/* line number 29*/
+/* Done printing string. */
+/* line number 29*/
+/* printing float localf3 */
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 29*/
 /* Done printing float. */
     set         _endl, %o0
     call    printf
@@ -158,4 +317,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 16) & -8
+SAVE.main = -(92 + 28) & -8
