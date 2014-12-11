@@ -231,13 +231,11 @@ public class AssemblyGenerator {
 		}
 		
 		
-		if(sto.isReference || sto.isDereferenced) {
-			System.out.println("this is happening");			
+		if(sto.isReference || sto.isDereferenced) {		
 			//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		
 		if(sto.getType().isInt()){
-			System.out.println(sto.getName());
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
@@ -416,6 +414,9 @@ public class AssemblyGenerator {
 	
 	public void storeVariable(STO dest, STO value) {
 		String dest_register = "";
+		
+		System.out.println("dest is " + dest.getName());
+		System.out.println("value is " + value.getName());
 		
 		if(value.getType().isFloat()) {
 			dest_register += Registers.f1;

@@ -793,7 +793,6 @@ class MyParser extends parser {
 			return _2;
 		}
 		
-		System.out.println(stoDes.isDereferenced);
 		if (!stoDes.isModLValue()) {
 			// Good place to do the assign checks
 			m_nNumErrors++;
@@ -996,8 +995,7 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error15_Receiver,
 					pointer.getType().getName()));
 		}
-		System.out.println(pointer.base);
-		System.out.println(pointer.offset);
+
 		Type dereferenceType = ((PointerType) pointer.getType()).dereference();
 		// not sure if this check is needed...
 		if (dereferenceType == null) {
