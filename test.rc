@@ -83,9 +83,7 @@ function : void foo() {
 }
 
 function : void rec() {
-  static int x = 0;
-
-  ++x;
+  static int x = 6;
 
   cout << "REC: " << x << endl;
 
@@ -98,9 +96,8 @@ function : void rec() {
 }
 
 function : void main() {
-  static int x = 0;
+  static int x = 7;
 
-  ++x;
 
   cout << "REC: " << x << endl;
 

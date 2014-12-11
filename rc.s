@@ -1143,10 +1143,10 @@ rec:
     cmp         %g0, %l1
     bne     staticGuardLabel_rec_x
     nop
-! --storing constant x with value 0.0
+! --storing constant x with value 6.0
     set         rec_x, %l0
     add         %g0, %l0, %l0
-    set         0, %l1
+    set         6, %l1
     st          %l1, [%l0]
     set         staticGuard_rec_x, %l2
     set         1, %l3
@@ -1185,10 +1185,10 @@ less_0:
     set         1, %l3
 lessEnd_0:
 /* Storing result of Comparison Op */
-    set         -12, %l4
+    set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -12, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     cmp         %l0, %g0
@@ -1215,7 +1215,7 @@ endIf_1:
 rec_end:
     ret 
     restore
-SAVE.rec = -(92 + 12) & -8
+SAVE.rec = -(92 + 8) & -8
                 .section     ".text"
                 .align 4
                 .global      main
@@ -1227,10 +1227,10 @@ main:
     cmp         %g0, %l1
     bne     staticGuardLabel_main_x
     nop
-! --storing constant x with value 0.0
+! --storing constant x with value 7.0
     set         main_x, %l0
     add         %g0, %l0, %l0
-    set         0, %l1
+    set         7, %l1
     st          %l1, [%l0]
     set         staticGuard_main_x, %l2
     set         1, %l3
@@ -1269,10 +1269,10 @@ less_1:
     set         1, %l3
 lessEnd_1:
 /* Storing result of Comparison Op */
-    set         -12, %l4
+    set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         -12, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     cmp         %l0, %g0
@@ -1303,4 +1303,4 @@ endIf_3:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 12) & -8
+SAVE.main = -(92 + 8) & -8
