@@ -1428,7 +1428,8 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error7_Exit, expr
 					.getType().getName()));
 		}
-
+		
+		generator.DoExitStmt(expr);
 		return expr;
 	}
 

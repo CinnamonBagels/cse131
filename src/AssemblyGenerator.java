@@ -1071,4 +1071,12 @@ public class AssemblyGenerator {
 		generateASM(Strings.one_param, Instructions.ba, func.offset + Strings.functionEnd);
 		generateASM(Strings.nop);
 	}
+
+	public void DoExitStmt(STO expr) {
+		// TODO Auto-generated method stub
+		loadVariable(Registers.o0, expr);
+		
+		generateASM(Strings.call_op, Strings.exit);
+		generateASM(Strings.nop);
+	}
 }
