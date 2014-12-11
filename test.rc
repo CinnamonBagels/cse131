@@ -51,7 +51,9 @@ function : void foo() {
 
   cout << "ST00: " << x << " " << y << endl;
 
-  cout << "OP00: " << x++ << " " << y-- << endl;
+  cout << "OP00: " << ++x << " " << ++y << endl;
+  cout << "ST01: " << x << " " << y << endl;
+  cout << "OP09: " << x++ << " " << y-- << endl;
 
   bar();
 
