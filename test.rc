@@ -1,49 +1,3 @@
-
-function : int fooI() {
-  cout << "fooI():";
-
-  return 42;
-}
-
-function : float fooF() {
-  cout << "fooF():";
-
-  return 3.14;
-}
-
-function : bool fooB() {
-  cout << "fooB():";
-
-  return true;
-}
-
-function : void fooV() {
-  cout << "fooV()" << endl;
-
-  return;
-}
-
-int g = 1;
-
-function : int fooG() {
-  cout << "fooG()" << endl;
-
-  return g++;
-}
-
-function : void bar() {
-  cout << "bar()" << endl;
-
-  cout << "F0: " << fooI() << " " << fooF() << " " << fooB() << endl;
-  cout << "F1: " << fooF() << " " << fooB() << " " << fooI() << endl;
-  cout << "F2: " << fooB() << " " << fooI() << " " << fooF() << endl;
-  fooV();
-
-  cout << g << endl;
-  cout << fooG() << endl;
-  cout << g << endl;
-}
-
 function : void foo() {
   cout << "foo()" << endl;
 
@@ -81,8 +35,6 @@ function : void foo() {
   cout << "OP11: " << x-- << " " << ++y << endl;
 
   cout << "ST12: " << x << " " << y << endl;
-
-  bar();
 
   exit(5);
   cout << "BAD" << endl;
