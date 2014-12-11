@@ -163,6 +163,7 @@ class MyParser extends parser {
 			return new ErrorSTO("Missing type in delcaration.");
 		}
 		
+		
 		boolean isError = false;
 		
 		
@@ -200,10 +201,15 @@ class MyParser extends parser {
 			}
 			else {
 				//oh god wtf does this do tansen.
-				type = DoSetSubType(t, sto.getType().isPointer() ? sto.getType() : null, sto.getType().isArray() ? sto.getType() : null);
+				type = DoSetSubType(t, 
+					sto.getType().isPointer() ? 
+						sto.getType() : 
+						null, 
+					sto.getType().isArray() ? 
+						sto.getType() : 
+						null);
 			}
 			
-
 			
 			if (m_symtab.accessLocal(idName) != null && currentStruct != null) {
 				
@@ -224,6 +230,7 @@ class MyParser extends parser {
 			if (sto.getType() == null || sto.getType().isVoid()) {
 				sto.setType(type);
 			}
+			
 			
 			if(((STO) lstIDs.get(sto)).getName().equals("Placeholder")) {
 				
@@ -250,9 +257,12 @@ class MyParser extends parser {
 			}
 					
 			//Assembly here
+			// getFunc() == null means global scope
 			if(m_symtab.getFunc() == null || sto.isStatic){
+				
 				sto.base = Registers.g0;
 				sto.offset = (m_symtab.getFunc() != null ? m_symtab.getFunc().getName()+"_" : "") + sto.getName();
+				
 				
 				if(sto.isInitialized && !sto.isStatic){
 					generator.doData(sto, (STO)lstIDs.get(sto));
@@ -276,7 +286,8 @@ class MyParser extends parser {
 					
 					generator.staticerino_end(sto);
 				}
-			}else{
+			}else{ // we're in local now (not static) 
+				
 				//Why is there an extra 4 bytes on stack at beginnign?
 				//have to put it there because need to load floats, cant set them
 				//the 4 bytes are the float buffer thingy.
@@ -293,6 +304,7 @@ class MyParser extends parser {
 //				}
 				
 				if(sto.isInitialized) {
+					//System.out.println(sto.getType().getName() + " " + sto.getType().isPointer());
 					generator.localVarInit(sto, (STO)lstIDs.get(sto));
 				}else{
 					//we dont initialize if inside function.
@@ -454,6 +466,7 @@ class MyParser extends parser {
 		}
 		sto1.setType(type);
 							
+		//System.out.println("declaring variable " + sto1.getName());
 		return sto1;
 	}
 
@@ -772,6 +785,7 @@ class MyParser extends parser {
 			return _2;
 		}
 		
+		System.out.println(stoDes.isDereferenced);
 		if (!stoDes.isModLValue()) {
 			// Good place to do the assign checks
 			m_nNumErrors++;
@@ -959,6 +973,11 @@ class MyParser extends parser {
 	}
 
 	STO DoStarDereference(STO pointer) {
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func == null) {
+			func = main;
+		}
 		if (pointer.isError()) {
 			return pointer;
 		}
@@ -969,7 +988,8 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error15_Receiver,
 					pointer.getType().getName()));
 		}
-
+		System.out.println(pointer.base);
+		System.out.println(pointer.offset);
 		Type dereferenceType = ((PointerType) pointer.getType()).dereference();
 		// not sure if this check is needed...
 		if (dereferenceType == null) {
@@ -979,7 +999,13 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error15_Receiver,
 					pointer.getType().getName()));
 		} else {
-			return new VarSTO("*" + pointer.getName(), dereferenceType);
+			STO rsto = new VarSTO("*" + pointer.getName(), dereferenceType);
+			rsto.isDereferenced = true;
+			rsto.base = Registers.fp;
+			rsto.offset = String.valueOf(-(func.getStackSize() + rsto.getType().getSize()));
+			func.addToStack(rsto.getType().getSize());
+			generator.doDereference(pointer, rsto);
+			return rsto;
 		}
 	}
 
@@ -1514,7 +1540,9 @@ class MyParser extends parser {
 
 			PointerType ptr = new PointerType();
 			ptr.setContainingType(t);
-			return new ExprSTO("&" + sto.getName(), ptr);
+			ExprSTO rsto = new ExprSTO("&" + sto.getName(), ptr);
+			generator.doAddressOf(sto, rsto);
+			return rsto;
 		} // not addressible
 		else {
 			m_nNumErrors++;

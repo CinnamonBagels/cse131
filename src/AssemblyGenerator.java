@@ -222,7 +222,9 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 		
-		if(sto.isReference) {
+		
+		if(sto.isReference || sto.isDereferenced) {
+			//System.out.println("this is happening");			
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		
@@ -312,16 +314,20 @@ public class AssemblyGenerator {
 	public void localVarInit(STO left, STO right) {
 		//checking for automatic int -> float casting
 		if(left.getType().isFloat() && right.getType().isInt()) {
-		} else {
-			generateComment("setting " + left.getName() + " = " + right.getName());
-			generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l0);
-			generateASM(Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
+		} else if (!left.getType().isPointer()){
+			generateComment("setting " + left.getName() + " = " + right.getName());	
 			
 			if(right.isConst()) {
 				if(right.getType().isInt() || right.getType().isBool()) {
-					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l1);
-					generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+					
+					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l0);
+					generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" +Registers.fp + left.offset + "]");
 				} else if(right.getType().isFloat()) {
+					
+					generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l0);
+					generateASM(Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
+					
+					
 					generateComment("setting float");
 					generateASM(Strings.two_param, Instructions.set, right.offset, Registers.l1);
 					//l1 f0, l0
@@ -346,6 +352,32 @@ public class AssemblyGenerator {
 			
 			generateComment("Done.");
 		}
+		//initialized pointers
+		else if(left.getType().isPointer()){
+			//System.out.println("left is a pointer!");
+			Type leftPtrType = ((PointerType)left.getType()).getContainingType();
+			Type rightType = right.getType();
+			
+			if(right.getType().isPointer()){
+				generateASM("/* initializing pointer " + left.getName() + " with the value of " + right.getName() + " */\n");
+//				generateASM(Strings.two_param, Instructions.load, "[" + right.base + right.offset + "]", Registers.o0);
+//				generateASM(Strings.two_param, Instructions.store, Registers.o0, "[" + left.base + left.offset + "]");
+				loadVariable(Registers.o0,right);
+				storeVariable(Registers.o0,left);
+			}
+			else if(right.isConst()){
+				
+				generateASM(Strings.two_param, Instructions.set, ((ConstSTO)right).getValue().toString(), Registers.o0);
+				generateASM(Strings.two_param, Instructions.store, Registers.o0, "[" + left.base + left.offset + "]");
+			}
+			
+			//generateASM(Strings.three_param, Instructions.sub)
+		}
+	}
+	
+	public void doAddressOf(STO sto1, STO sto2){
+		generateASM("/* getting address of " + sto1.getName() + " */\n");
+		generateASM(Strings.three_param, Instructions.add, Registers.fp, sto1.offset, Registers.o0);
 	}
 	
 	public String promoteIntToFloat(STO left, STO right) {
@@ -363,6 +395,11 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
 		
 		return Registers.f1;
+	}
+	
+	public void storeVariable(String register, STO sto){
+		generateComment("Storing value of register " + register + " into " + sto.getName());
+		generateASM(Strings.two_param, Instructions.store, register, "[" + sto.base + sto.offset + "]");
 	}
 	
 	public void storeVariable(STO dest, STO value) {
@@ -411,12 +448,30 @@ public class AssemblyGenerator {
 		} else {
 			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
 			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
-			if(sto.isReference) {
-				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
+			if(sto.isReference || sto.isDereferenced) {
+				//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + sto.offset +"]", Registers.l1);
+				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
 			}
 			
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
 		}
+	}
+	
+	public String basePlusOffset(String base, String offset, boolean negative){
+		return "[" + base + (negative ? offset : "+" + offset.substring(1)) + "]";
+	}
+	
+	public String mem(String register){
+		return "[" + register + "]";
+	}
+	
+	public void doDereference(STO sto, STO dereferencedSTO){
+		generateComment("Dereferencing " + sto.getName());
+		loadVariable(Registers.l0, sto);
+		
+		generateASM(Strings.two_param, Instructions.set, dereferencedSTO.offset, Registers.l1);
+		generateASM(Strings.three_param, Instructions.add, dereferencedSTO.base, Registers.l1, Registers.l1);
+		generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l1 + "]");
 	}
 
 	public void doCoutEndl() {
