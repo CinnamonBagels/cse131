@@ -965,7 +965,7 @@ public class AssemblyGenerator {
 		if(op.getName().equals("--")) {
 			generateComment("Decrementing");
 			if(!isFloat) {
-				loadVariable(Registers.l0, result);
+				loadVariable(Registers.l0, origin);
 				
 				generateASM(Strings.one_param, Instructions.dec, Registers.l0);
 				
