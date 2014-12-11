@@ -1,10 +1,10 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,z,y
+                 .global     x,y,z
 x:              .word        0           
-z:              .word        1           
 y:              .word        0           
+z:              .word        1           
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
