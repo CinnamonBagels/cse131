@@ -45,6 +45,17 @@ staticGuardLabel_main_x:
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %l1, [%l1]
+/* Printing int x */
+    set         _intFmt, %o0
+    set         main_x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
 /* Prepping Comparison Calculations by loading */
     set         main_x, %l1
     add         %g0, %l1, %l1
