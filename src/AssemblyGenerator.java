@@ -147,8 +147,8 @@ public class AssemblyGenerator {
 	}
 	
 	public void flushData(){
+		dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
 		if(dQueue.size() > 0){
-			dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
 			beginData();
 		}else{
 			return;
@@ -685,7 +685,6 @@ public class AssemblyGenerator {
 			this.loadVariable(Registers.l1,  right);
 		}
 		//this is pretty bad
-		System.out.println("evaluteBinary: " + left.getName() + " " + op.getName() + " " + right.getName());
 		if(op.getName().equals("+")) {
 			generateComment("Adding");
 			//both are ints, just add them. fck floats.
