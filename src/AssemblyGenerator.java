@@ -281,7 +281,7 @@ public class AssemblyGenerator {
 			if(csto.getType().isInt()) {
 				register = this.promoteIntToFloat(sto, csto);
 			}
-			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
+			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l1 + "]");
 		}
 	}
 	

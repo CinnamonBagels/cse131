@@ -44,7 +44,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
-    st          %f1, [%l0]
+    st          %f1, [%l1]
 /* line number 7*/
 /* printing float STO.VarSTO@10fd7f6 */
     set         -8, %l1
