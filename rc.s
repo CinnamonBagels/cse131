@@ -93,7 +93,7 @@ arrayInBounds_1:
     set         y, %l1
     add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -8, %l5
+    set         -12, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_1
@@ -111,9 +111,9 @@ arrayOutBounds_1:
 arrayEnd_1:
 /* line number 11*/
 /* setting f = y[3] */
-    set         -8, %l0
+    set         -16, %l0
     add         %fp, %l0, %l0
-    set         -8, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
@@ -121,7 +121,7 @@ arrayEnd_1:
 /* Done. */
 /* line number 11*/
 /* printing float f */
-    set         -8, %l1
+    set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -134,4 +134,4 @@ arrayEnd_1:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 16) & -8

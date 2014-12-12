@@ -913,11 +913,13 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		this.doMove(Registers.o0, Registers.l2);
-		//loading array
+		//address of array
 		generateASM(Strings.two_param, Instructions.set, array.offset, Registers.l1);
 		generateASM(Strings.three_param, Instructions.add, array.base, Registers.l1, Registers.l1);
 		
 		//storing into array
+		
+		//
 		generateASM(Strings.three_param, Instructions.add, Registers.l1, Registers.l2, Registers.l4);
 		generateASM(Strings.two_param, Instructions.set, accessSTO.offset, Registers.l5);
 		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l6);

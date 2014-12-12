@@ -1141,10 +1141,13 @@ class MyParser extends parser {
 					if(m_symtab.getFunc() == null) {
 						ret.offset = String.valueOf(-(main.getStackSize() + ret.getType().getSize()));
 						ret.base = Registers.fp;
+						main.addToStack(ret.getType().getSize());
 					} else {
 						ret.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + ret.getType().getSize()));
 						ret.base = Registers.fp;
+						m_symtab.getFunc().addToStack(ret.getType().getSize());
 					}
+					
 					generator.doArrayDesignator(sto, index, ret);
 					ret.isReference = true;
 					return ret;
