@@ -1,7 +1,11 @@
 function : void main() {
-int x;
-if(true && false){
-  x = 1;
-}
-cout << x << endl;
+  bool x = true;
+  bool y = false;
+  int z = 0;
+
+  if(x || y){
+    z = 1;
+  }
+
+  cout << z << endl;
 }

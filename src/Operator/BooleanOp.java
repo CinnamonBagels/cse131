@@ -41,9 +41,19 @@ public class BooleanOp extends BinaryOp {
 		
 		boolean value = false;
 		if(o.isAndOp()) {
-			value = leftVal && rightVal;
+			//forcing short circuit
+			if(!leftVal){
+				value = false;
+			}else{
+				value = leftVal && rightVal;
+			}
 		} else if(o.isOrOp()) {
-			value = leftVal || rightVal;
+			//forcing short circuit
+			if(leftVal){
+				value = true;
+			}else{
+				value = leftVal || rightVal;
+			}
 		}
 		
 		return new ConstSTO("" + value, new BooleanType());

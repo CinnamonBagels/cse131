@@ -1358,6 +1358,22 @@ class MyParser extends parser {
 		}
 		return sto;
 	}
+	
+	public void DoShortCircuit(STO sto, BinaryOp op, AssemblyGenerator generator){
+		if(sto.isError() || sto.isConst()){
+			return;
+		}		
+		
+		generator.generateComment("Short-circuiting " + op.getName() + " with " + sto.getName());
+		generator.loadVariable(Registers.l1, sto);
+		generator.generateASM(Strings.two_param, Instructions.cmp, Registers.l1, Registers.g0);
+		if(op.getName().equals("||")){
+			generator.generateASM(Strings.one_param,Instructions.bne, "_orOp"+generator.orCount);
+		}else{
+			generator.generateASM(Strings.one_param,Instructions.be,"_andOp"+generator.andCount);
+		}
+		generator.generateASM(Strings.nop);
+	}
 
 	public STO DoComparisonOp(STO _1, ComparisonOp _2, STO _3) {
 		if (_1.isError()) {
