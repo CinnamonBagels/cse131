@@ -515,7 +515,7 @@ public class AssemblyGenerator {
 			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
 			if(sto.isReference || sto.isDereferenced) {
 				//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + sto.offset +"]", Registers.l1);
-				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
+				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
 			}
 			
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
