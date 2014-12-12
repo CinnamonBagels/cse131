@@ -1,19 +1,16 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     fooRec,barRec,foobazRec
-fooRec:         .word        0           
-barRec:         .word        5           
-foobazRec:      .word        0           
-str_0:          .asciz       "breaking out of foobaz recursive call"
-str_1:          .asciz       "recursive foobaz call "
-str_2:          .asciz       "breaking out of bar recursive call"
-str_3:          .asciz       "recursive bar call "
-str_4:          .asciz       "breaking out of foo recursive call"
-str_5:          .asciz       "recursive foo call "
-str_6:          .asciz       "fooRec, in the end, is: "
-str_7:          .asciz       "barRec, in the end, is: "
-str_8:          .asciz       "foobazRec, in the end, is: "
+                 .global     glb1,glb2,glb3
+glb3:           .single      0r66.99     
+float_0:        .single      0r99.44     
+glb1:           .word        0           
+glb2:           .word        9821        
+str_1:          .asciz       " "         
+str_2:          .asciz       " "         
+str_3:          .asciz       " "         
+str_4:          .asciz       " "         
+str_5:          .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -28,290 +25,105 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 
                 .section     ".text"
                 .align 4
-                .global      foobaz
-foobaz:
-    set         SAVE.foobaz, %g1
-    save        %sp, %g1, %sp
-/* line number 7*/
-/* Incrementing */
-    set         foobazRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    inc     %l0
-    set         foobazRec, %l2
-    add         %g0, %l2, %l2
-    st          %l0, [%l2]
-/* line number 7*/
-/* Post Increment */
-    dec     %l0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 8*/
-/* Prepping Comparison Calculations by loading */
-    set         foobazRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    set         52, %l1
-/* line number 8*/
-/* Starting greater than */
-    cmp         %l0, %l1
-    bg      greater_0
-    nop
-    set         0, %l3
-    ba      greaterEnd_0
-    nop
-greater_0:
-    set         1, %l3
-greaterEnd_0:
-/* line number 8*/
-/* Storing result of Comparison Op */
-    set         -12, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_0
-    nop
-if_0:
-/* line number 10*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* line number 10*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      foobaz_end
-    nop
-    ba      endIf_1
-    nop
-else_0:
-endIf_1:
-/* line number 14*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_1, %o1
-    call    printf
-    nop
-/* line number 14*/
-/* Done printing string. */
-/* line number 14*/
-/* Printing int foobazRec */
-    set         _intFmt, %o0
-    set         foobazRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 14*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-    call    foobaz
-    nop
-foobaz_end:
-    ret 
-    restore
-SAVE.foobaz = -(92 + 12) & -8
-                .section     ".text"
-                .align 4
-                .global      bar
-bar:
-    set         SAVE.bar, %g1
-    save        %sp, %g1, %sp
-/* line number 20*/
-/* Incrementing */
-    set         barRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    inc     %l0
-    set         barRec, %l2
-    add         %g0, %l2, %l2
-    st          %l0, [%l2]
-/* line number 20*/
-/* Post Increment */
-    dec     %l0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 22*/
-/* Prepping Comparison Calculations by loading */
-    set         barRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    set         8, %l1
-/* line number 22*/
-/* Starting greater than equal */
-    cmp         %l0, %l1
-    bge     greaterEqual_1
-    nop
-    set         0, %l3
-    ba      greaterEqualEnd_1
-    nop
-greaterEqual_1:
-    set         1, %l3
-greaterEqualEnd_1:
-/* line number 22*/
-/* Storing result of Comparison Op */
-    set         -12, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_2
-    nop
-if_2:
-/* line number 24*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_2, %o1
-    call    printf
-    nop
-/* line number 24*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    call    foobaz
-    nop
-    ba      bar_end
-    nop
-    ba      endIf_3
-    nop
-else_2:
-endIf_3:
-/* line number 29*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_3, %o1
-    call    printf
-    nop
-/* line number 29*/
-/* Done printing string. */
-/* line number 29*/
-/* Printing int barRec */
-    set         _intFmt, %o0
-    set         barRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 29*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-    call    bar
-    nop
-bar_end:
-    ret 
-    restore
-SAVE.bar = -(92 + 12) & -8
-                .section     ".text"
-                .align 4
                 .global      foo
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
-/* line number 35*/
-/* Incrementing */
-    set         fooRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    inc     %l0
-    set         fooRec, %l2
-    add         %g0, %l2, %l2
-    st          %l0, [%l2]
-/* line number 35*/
-/* Post Increment */
-    dec     %l0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 37*/
-/* Prepping Comparison Calculations by loading */
-    set         fooRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    set         10, %l1
-/* line number 37*/
-/* Starting greater than */
-    cmp         %l0, %l1
-    bg      greater_2
-    nop
-    set         0, %l3
-    ba      greaterEnd_2
-    nop
-greater_2:
-    set         1, %l3
-greaterEnd_2:
-/* line number 37*/
-/* Storing result of Comparison Op */
-    set         -12, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_4
-    nop
-if_4:
-/* line number 39*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_4, %o1
-    call    printf
-    nop
-/* line number 39*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    call    bar
-    nop
+/* line number 9*/
+/* Returning value from foo */
+    set         123, %i0
     ba      foo_end
-    nop
-    ba      endIf_5
-    nop
-else_4:
-endIf_5:
-/* line number 44*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_5, %o1
-    call    printf
-    nop
-/* line number 44*/
-/* Done printing string. */
-/* line number 44*/
-/* Printing int fooRec */
-    set         _intFmt, %o0
-    set         fooRec, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 44*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-    call    foo
     nop
 foo_end:
     ret 
     restore
-SAVE.foo = -(92 + 12) & -8
+SAVE.foo = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo2
+foo2:
+    set         SAVE.foo2, %g1
+    save        %sp, %g1, %sp
+/* line number 13*/
+/* Returning value from foo2 */
+    set         0, %i0
+    ba      foo2_end
+    nop
+foo2_end:
+    ret 
+    restore
+SAVE.foo2 = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo3
+foo3:
+    set         SAVE.foo3, %g1
+    save        %sp, %g1, %sp
+/* line number 17*/
+/* Returning value from foo3 */
+    set         1, %i0
+    ba      foo3_end
+    nop
+foo3_end:
+    ret 
+    restore
+SAVE.foo3 = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo4
+foo4:
+    set         SAVE.foo4, %g1
+    save        %sp, %g1, %sp
+/* line number 21*/
+/* Returning value from foo4 */
+    set         float_0, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f0
+    ba      foo4_end
+    nop
+foo4_end:
+    ret 
+    restore
+SAVE.foo4 = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo5
+foo5:
+    set         SAVE.foo5, %g1
+    save        %sp, %g1, %sp
+! --storing constant glb1 with value 1.0
+    set         glb1, %l0
+    add         %g0, %l0, %l0
+    set         glb1, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+/* line number 25*/
+/* Prepping Arithmetic Calculations by loading */
+    set         glb2, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         1, %l1
+/* line number 25*/
+/* Subtracting */
+    sub         %l0, %l1, %l3
+/* line number 25*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 25*/
+/* Storing variable int - int into glb2 */
+    set         glb2, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
+foo5_end:
+    ret 
+    restore
+SAVE.foo5 = -(92 + 8) & -8
                 .section     ".text"
                 .align 4
                 .global      main
@@ -327,86 +139,213 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-! --storing constant fooRec with value 1.0
-    set         fooRec, %l0
-    add         %g0, %l0, %l0
-    set         fooRec, %l0
-    add         %g0, %l0, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-! --storing constant foobazRec with value 50.0
-    set         foobazRec, %l0
-    add         %g0, %l0, %l0
-    set         foobazRec, %l0
-    add         %g0, %l0, %l0
-    set         50, %l1
-    st          %l1, [%l0]
     call    foo
     nop
-/* line number 55*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_6, %o1
-    call    printf
+/* line number 29*/
+/* Saving return value */
+    st          %o0, [%fp+-8]
+/* line number 30*/
+/* setting a = foo() */
+    set         -12, %l0
+    add         %fp, %l0, %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* line number 30*/
+/* Done. */
+    call    foo2
     nop
-/* line number 55*/
-/* Done printing string. */
-/* line number 55*/
-/* Printing int fooRec */
+/* line number 30*/
+/* Saving return value */
+    st          %o0, [%fp+-16]
+/* line number 31*/
+/* setting b = foo2() */
+    set         -20, %l0
+    add         %fp, %l0, %l0
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* line number 31*/
+/* Done. */
+    call    foo3
+    nop
+/* line number 31*/
+/* Saving return value */
+    st          %o0, [%fp+-24]
+/* line number 32*/
+/* setting c = foo3() */
+    set         -28, %l0
+    add         %fp, %l0, %l0
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* line number 32*/
+/* Done. */
+    call    foo4
+    nop
+/* line number 32*/
+/* Saving return value */
+    st          %f0, [%fp+-32]
+/* line number 33*/
+/* setting d = foo4() */
+    set         -36, %l0
+    add         %fp, %l0, %l0
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 33*/
+/* Done. */
+    call    foo5
+    nop
+/* line number 35*/
+/* Printing int a */
     set         _intFmt, %o0
-    set         fooRec, %l1
-    add         %g0, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
-/* line number 55*/
+/* line number 35*/
 /* Done printing int. */
+/* line number 35*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
+    call    printf
+    nop
+/* line number 35*/
+/* Done printing string. */
+/* line number 35*/
+/* Printing bool b */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
+    call    printf
+    nop
+/* line number 35*/
+/* Done printing bool. */
+/* line number 35*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_2, %o1
+    call    printf
+    nop
+/* line number 35*/
+/* Done printing string. */
+/* line number 35*/
+/* Printing bool c */
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_1
+    nop
+printTrue_1:
+    set         _boolT, %o1
+    ba      branchEnd_1
+    nop
+printFalse_1:
+    set         _boolF, %o1
+branchEnd_1:
+    call    printf
+    nop
+/* line number 35*/
+/* Done printing bool. */
+/* line number 35*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_3, %o1
+    call    printf
+    nop
+/* line number 35*/
+/* Done printing string. */
+/* line number 35*/
+/* printing float STO.VarSTO@f30494 */
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 35*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 56*/
-/* printing string */
+/* line number 36*/
+/* Printing bool glb1 */
+    set         glb1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
     set         _strFmt, %o0
-    set         str_7, %o1
+    cmp         %l0, %g0
+    be      printFalse_2
+    nop
+printTrue_2:
+    set         _boolT, %o1
+    ba      branchEnd_2
+    nop
+printFalse_2:
+    set         _boolF, %o1
+branchEnd_2:
     call    printf
     nop
-/* line number 56*/
+/* line number 36*/
+/* Done printing bool. */
+/* line number 36*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_4, %o1
+    call    printf
+    nop
+/* line number 36*/
 /* Done printing string. */
-/* line number 56*/
-/* Printing int barRec */
+/* line number 36*/
+/* Printing int glb2 */
     set         _intFmt, %o0
-    set         barRec, %l1
+    set         glb2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
-/* line number 56*/
+/* line number 36*/
 /* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 57*/
+/* line number 36*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_8, %o1
+    set         str_5, %o1
     call    printf
     nop
-/* line number 57*/
+/* line number 36*/
 /* Done printing string. */
-/* line number 57*/
-/* Printing int foobazRec */
-    set         _intFmt, %o0
-    set         foobazRec, %l1
+/* line number 36*/
+/* printing float STO.VarSTO@5bb966 */
+    set         glb3, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
+    ld          [%l1], %f0
+    call    printFloat
     nop
-/* line number 57*/
-/* Done printing int. */
+/* line number 36*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 36) & -8

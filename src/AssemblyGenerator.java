@@ -1534,6 +1534,7 @@ public class AssemblyGenerator {
 		if(returnSTO.isConst()) {
 			if(func.getReturnType().isFloat()) {
 				if(returnSTO.getType().isFloat()) {
+					assignFloat((ConstSTO) returnSTO);
 					loadVariable(Registers.f0, returnSTO);
 				} else {
 					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) returnSTO).getIntValue()), Registers.f0);

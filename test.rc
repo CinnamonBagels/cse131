@@ -1,58 +1,37 @@
-int fooRec;
-int barRec = 5;
-int foobazRec;
+// function calls to bool, int, float, void functions:
 
-function : void foobaz()
-{
-  foobazRec++;
-  if (foobazRec > 52)
-  {
-    cout << "breaking out of foobaz recursive call" << endl;
-    return;
-  }
-  
-  cout << "recursive foobaz call " << foobazRec << endl;
-  foobaz();
+bool glb1 = false;
+int  glb2 = 9821;
+float glb3 = 66.99;
+
+function : int foo() {
+  return 123;
 }
 
-function : void bar()
-{
-  barRec++;
-
-  if (barRec >= 8)
-  {
-    cout << "breaking out of bar recursive call" << endl;
-    foobaz();
-    return;
-  }
-  
-  cout << "recursive bar call " << barRec << endl;
-  bar();
+function : bool foo2() {
+  return false;
 }
 
-function : void foo()
-{
-  fooRec++;
-
-  if (fooRec > 10)
-  {
-    cout << "breaking out of foo recursive call" << endl;
-    bar();
-    return;
-  }
-  
-  cout << "recursive foo call " << fooRec << endl;
-  foo();
+function : bool foo3() {
+  return true;
 }
 
-function : void main()
-{
-  fooRec = 1;
-  foobazRec = 50;
+function : float foo4() {
+  return 99.44;
+}
+
+function : void foo5() {
+  glb1 = true;
+  glb2 = glb2 - 1;
+}
+
+function: void main() {
+  int a = foo();
+  bool b = foo2();
+  bool c = foo3();
+  float d = foo4();
+  foo5();
   
-  foo();
-  
-  cout << "fooRec, in the end, is: " << fooRec << endl; // 11
-  cout << "barRec, in the end, is: " << barRec << endl; // 8 
-  cout << "foobazRec, in the end, is: " << foobazRec << endl; // 53
+  cout << a << " " << b << " " << c << " " << d << endl;
+  cout << glb1 << " " << glb2 << " " << glb3 << endl;
 }
