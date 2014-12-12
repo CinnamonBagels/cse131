@@ -145,6 +145,18 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 17*/
 /* Done. */
+/* line number 17*/
+/* printing float c */
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 17*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore
