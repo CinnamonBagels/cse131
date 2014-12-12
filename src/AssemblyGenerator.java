@@ -281,7 +281,7 @@ public class AssemblyGenerator {
 			if(csto.getType().isInt()) {
 				register = this.promoteIntToFloat(sto, csto);
 			}
-			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l1 + "]");
+			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
 		}
 	}
 	
@@ -475,15 +475,15 @@ public class AssemblyGenerator {
 		if(value.getType().isFloat()) {
 			dest_register += Registers.f1;
 		} else {
-			dest_register += Registers.l1;
+			dest_register += Registers.l6;
 		}
 		generateComment("Storing " + value.getName() + " into " + dest.getName());
 		//setting destination
-		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l0);
-		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l0, Registers.l0);
+		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l6);
+		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l6, Registers.l6);
 		
 		if(dest.isReference) {
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l6 + "]", Registers.l6);
 		}
 		
 		if(value.isConst() && !value.getType().isFloat()) {
