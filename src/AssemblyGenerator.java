@@ -222,7 +222,7 @@ public class AssemblyGenerator {
 		generateASM("! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
 		//generateASM(Strings.tab + Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 		//generateASM(Strings.tab + Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
-		
+		String register = "";
 		//we'll have to check if in struct later
 		//should make a new method for this.
 		if(!sto.isReference && !sto.isDereferenced){
@@ -239,6 +239,9 @@ public class AssemblyGenerator {
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
+			if(csto.getType().isInt()) {
+				register = this.promoteIntToFloat(sto, csto);
+			}
 			generateASM(Strings.two_param, Instructions.set, csto.offset, Registers.l1);
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f1);
 			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
