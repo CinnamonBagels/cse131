@@ -117,7 +117,6 @@ public class AssemblyGenerator {
 			bssQueue.add(assembleString(Strings.falign, Strings.align));
 			bssInit = true;
 		}
-		
 		bssQueue.add(assembleString(Strings.init, sto.getName() + ":", ".skip", String.valueOf(sto.getType().getSize())));
 		gVars.add(sto.getName());
 		bssQueue.add("\n");
