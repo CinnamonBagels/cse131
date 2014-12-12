@@ -33,36 +33,11 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 6*/
-/* printing float x */
-    set         x, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 6*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 7*/
-/* Printing int y */
-    set         _intFmt, %o0
-    set         y, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 7*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 8*/
 /* Prepping Comparison Calculations by loading */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
-/* line number 8*/
+/* line number 6*/
 /* Starting greater than */
     set         x, %l1
     add         %g0, %l1, %l1
@@ -80,12 +55,16 @@ globalInit_end:
 greater_0:
     set         1, %l3
 greaterEnd_0:
-/* line number 8*/
+/* line number 6*/
 /* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-/* line number 10*/
+    set _intFmt, %o0
+    mov %l3, %o1
+    call printf
+    nop
+/* line number 8*/
 /* setting z = Validating ComparisonOp float and int as a BooleanType for operator: >...
  */
     set         -12, %l0
@@ -94,7 +73,7 @@ greaterEnd_0:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     st          %l2, [%l0]
-/* line number 10*/
+/* line number 8*/
 /* Done. */
 main_end:
     ret 

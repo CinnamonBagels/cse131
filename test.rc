@@ -3,8 +3,6 @@ int y = 5;
 
 function : void main()
 {
-cout << x << endl;
-cout << y << endl;
 bool z = x > y;
 
 }
