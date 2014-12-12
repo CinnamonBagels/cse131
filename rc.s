@@ -1,14 +1,314 @@
+                .section     ".text"
+                .align 4
+                .global      foobaz
+foobaz:
+    set         SAVE.foobaz, %g1
+    save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
+/* line number 7*/
+/* Incrementing */
+    set         foobazRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         foobazRec, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+/* line number 7*/
+/* Post Increment */
+    dec     %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 8*/
+/* Prepping Comparison Calculations by loading */
+    set         foobazRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         52, %l1
+/* line number 8*/
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_0
+    nop
+    set         0, %l3
+    ba      greaterEnd_0
+    nop
+greater_0:
+    set         1, %l3
+greaterEnd_0:
+/* line number 8*/
+/* Storing result of Comparison Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_0
+    nop
+if_0:
+/* line number 10*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
+    call    printf
+    nop
+/* line number 10*/
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
+    ba      foobaz_end
+    nop
+    ba      endIf_1
+    nop
+else_0:
+endIf_1:
+/* line number 14*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
+    call    printf
+    nop
+/* line number 14*/
+/* Done printing string. */
+/* line number 14*/
+/* Printing int foobazRec */
+    set         _intFmt, %o0
+    set         foobazRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 14*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+    call    foobaz
+    nop
+foobaz_end:
+    ret 
+    restore
+SAVE.foobaz = -(92 + 12) & -8
+                .section     ".text"
+                .align 4
+                .global      bar
+bar:
+    set         SAVE.bar, %g1
+    save        %sp, %g1, %sp
+/* line number 20*/
+/* Incrementing */
+    set         barRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         barRec, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+/* line number 20*/
+/* Post Increment */
+    dec     %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 22*/
+/* Prepping Comparison Calculations by loading */
+    set         barRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         8, %l1
+/* line number 22*/
+/* Starting greater than equal */
+    cmp         %l0, %l1
+    bge     greaterEqual_1
+    nop
+    set         0, %l3
+    ba      greaterEqual_1
+    nop
+greaterEqual_1:
+    set         1, %l3
+greaterEqualEnd_1:
+/* line number 22*/
+/* Storing result of Comparison Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_2
+    nop
+if_2:
+/* line number 24*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_2, %o1
+    call    printf
+    nop
+/* line number 24*/
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
+    call    foobaz
+    nop
+    ba      bar_end
+    nop
+    ba      endIf_3
+    nop
+else_2:
+endIf_3:
+/* line number 29*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_3, %o1
+    call    printf
+    nop
+/* line number 29*/
+/* Done printing string. */
+/* line number 29*/
+/* Printing int barRec */
+    set         _intFmt, %o0
+    set         barRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 29*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+    call    bar
+    nop
+bar_end:
+    ret 
+    restore
+SAVE.bar = -(92 + 12) & -8
+                .section     ".text"
+                .align 4
+                .global      foo
+foo:
+    set         SAVE.foo, %g1
+    save        %sp, %g1, %sp
+/* line number 35*/
+/* Incrementing */
+    set         fooRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         fooRec, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+/* line number 35*/
+/* Post Increment */
+    dec     %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 37*/
+/* Prepping Comparison Calculations by loading */
+    set         fooRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         10, %l1
+/* line number 37*/
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_2
+    nop
+    set         0, %l3
+    ba      greaterEnd_2
+    nop
+greater_2:
+    set         1, %l3
+greaterEnd_2:
+/* line number 37*/
+/* Storing result of Comparison Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_4
+    nop
+if_4:
+/* line number 39*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_4, %o1
+    call    printf
+    nop
+/* line number 39*/
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
+    call    bar
+    nop
+    ba      foo_end
+    nop
+    ba      endIf_5
+    nop
+else_4:
+endIf_5:
+/* line number 44*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_5, %o1
+    call    printf
+    nop
+/* line number 44*/
+/* Done printing string. */
+/* line number 44*/
+/* Printing int fooRec */
+    set         _intFmt, %o0
+    set         fooRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 44*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+    call    foo
+    nop
+foo_end:
+    ret 
+    restore
+SAVE.foo = -(92 + 12) & -8
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     i,j
-i:              .word        10          
-j:              .word        0           
-str_0:          .asciz       " "         
-str_1:          .asciz       " "         
-str_2:          .asciz       " "         
-str_3:          .asciz       " "         
-str_4:          .asciz       " "         
+                 .global     fooRec,barRec,foobazRec
+fooRec:         .word        0           
+barRec:         .word        5           
+foobazRec:      .word        0           
+str_0:          .asciz       "breaking out of foobaz recursive call"
+str_1:          .asciz       "recursive foobaz call "
+str_2:          .asciz       "breaking out of bar recursive call"
+str_3:          .asciz       "recursive bar call "
+str_4:          .asciz       "breaking out of foo recursive call"
+str_5:          .asciz       "recursive foo call "
+str_6:          .asciz       "fooRec, in the end, is: "
+str_7:          .asciz       "barRec, in the end, is: "
+str_8:          .asciz       "foobazRec, in the end, is: "
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -23,211 +323,376 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 
                 .section     ".text"
                 .align 4
-                .global      main
-main:
-    set         SAVE.main, %g1
+                .global      foobaz
+foobaz:
+    set         SAVE.foobaz, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-/* line number 4*/
-/* Prepping Arithmetic Calculations by loading */
-    set         i, %l1
+/* line number 7*/
+/* Incrementing */
+    set         foobazRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         -1, %l1
-/* line number 4*/
-/* Multiplying */
-    mov         %l0, %o0
-    mov         %l1, %o1
-    call    .mul
-    nop
-    mov         %o0, %l0
-/* line number 4*/
-/* Storing result of Binary Op */
-    set         -8, %l4
-    add         %fp, %l4, %l4
-    st          %l0, [%l4]
-/* line number 6*/
-/* Storing variable int * int into j */
-    set         j, %l5
-    add         %g0, %l5, %l5
-    set         -8, %l3
-    add         %fp, %l3, %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
-/* line number 8*/
-/* setting k = 20 */
-    set         20, %l0
-    st          %l0, [%fp-8]
-/* line number 8*/
-/* Done. */
-/* line number 8*/
-/* Prepping Arithmetic Calculations by loading */
+    inc     %l0
+    set         foobazRec, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+/* line number 7*/
+/* Post Increment */
+    dec     %l0
     set         -8, %l1
     add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 8*/
+/* Prepping Comparison Calculations by loading */
+    set         foobazRec, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         -1, %l1
+    set         52, %l1
 /* line number 8*/
-/* Multiplying */
-    mov         %l0, %o0
-    mov         %l1, %o1
-    call    .mul
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_0
     nop
-    mov         %o0, %l0
+    set         0, %l3
+    ba      greaterEnd_0
+    nop
+greater_0:
+    set         1, %l3
+greaterEnd_0:
 /* line number 8*/
-/* Storing result of Binary Op */
+/* Storing result of Comparison Op */
     set         -12, %l4
     add         %fp, %l4, %l4
-    st          %l0, [%l4]
-/* line number 8*/
-/* Prepping Arithmetic Calculations by loading */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -1, %l1
-/* line number 8*/
-/* Multiplying */
-    mov         %l0, %o0
-    mov         %l1, %o1
-    call    .mul
-    nop
-    mov         %o0, %l0
-/* line number 8*/
-/* Storing result of Binary Op */
-    set         -16, %l4
-    add         %fp, %l4, %l4
-    st          %l0, [%l4]
-/* line number 8*/
-/* Prepping Arithmetic Calculations by loading */
+    st          %l3, [%l4]
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* line number 8*/
-/* Adding */
-    add         %l0, %l1, %l3
-/* line number 8*/
-/* Storing result of Binary Op */
-    set         -20, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-/* line number 11*/
-/* setting l = int + int */
-    set         -24, %l0
-    add         %fp, %l0, %l0
-    set         -20, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
-    st          %l2, [%l0]
-/* line number 11*/
-/* Done. */
-/* line number 11*/
-/* Printing int i */
-    set         _intFmt, %o0
-    set         i, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
+    cmp         %l0, %g0
+    be      else_0
     nop
-/* line number 11*/
-/* Done printing int. */
-/* line number 11*/
+if_0:
+/* line number 10*/
 /* printing string */
     set         _strFmt, %o0
     set         str_0, %o1
     call    printf
     nop
-/* line number 11*/
+/* line number 10*/
 /* Done printing string. */
-/* line number 11*/
-/* Printing int j */
-    set         _intFmt, %o0
-    set         j, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
+    set         _endl, %o0
     call    printf
     nop
-/* line number 11*/
-/* Done printing int. */
-/* line number 11*/
+    ba      foobaz_end
+    nop
+    ba      endIf_1
+    nop
+else_0:
+endIf_1:
+/* line number 14*/
 /* printing string */
     set         _strFmt, %o0
     set         str_1, %o1
     call    printf
     nop
-/* line number 11*/
+/* line number 14*/
 /* Done printing string. */
-/* line number 11*/
-/* Printing int k */
+/* line number 14*/
+/* Printing int foobazRec */
     set         _intFmt, %o0
-    set         -8, %l1
-    add         %fp, %l1, %l1
+    set         foobazRec, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
-/* line number 11*/
+/* line number 14*/
 /* Done printing int. */
-/* line number 11*/
+    set         _endl, %o0
+    call    printf
+    nop
+    call    foobaz
+    nop
+foobaz_end:
+    ret 
+    restore
+SAVE.foobaz = -(92 + 12) & -8
+                .section     ".text"
+                .align 4
+                .global      bar
+bar:
+    set         SAVE.bar, %g1
+    save        %sp, %g1, %sp
+/* line number 20*/
+/* Incrementing */
+    set         barRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         barRec, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+/* line number 20*/
+/* Post Increment */
+    dec     %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 22*/
+/* Prepping Comparison Calculations by loading */
+    set         barRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         8, %l1
+/* line number 22*/
+/* Starting greater than equal */
+    cmp         %l0, %l1
+    bge     greaterEqual_1
+    nop
+    set         0, %l3
+    ba      greaterEqual_1
+    nop
+greaterEqual_1:
+    set         1, %l3
+greaterEqualEnd_1:
+/* line number 22*/
+/* Storing result of Comparison Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_2
+    nop
+if_2:
+/* line number 24*/
 /* printing string */
     set         _strFmt, %o0
     set         str_2, %o1
     call    printf
     nop
-/* line number 11*/
+/* line number 24*/
 /* Done printing string. */
-/* line number 11*/
-/* Printing int l */
-    set         _intFmt, %o0
-    set         -24, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    set         _endl, %o0
     call    printf
     nop
-/* line number 11*/
-/* Done printing int. */
-/* line number 11*/
+    call    foobaz
+    nop
+    ba      bar_end
+    nop
+    ba      endIf_3
+    nop
+else_2:
+endIf_3:
+/* line number 29*/
 /* printing string */
     set         _strFmt, %o0
     set         str_3, %o1
     call    printf
     nop
-/* line number 11*/
+/* line number 29*/
 /* Done printing string. */
-/* line number 11*/
-/* printf on int */
+/* line number 29*/
+/* Printing int barRec */
     set         _intFmt, %o0
-    set         60, %o1
+    set         barRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
     call    printf
     nop
-
-/* line number 11*/
+/* line number 29*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+    call    bar
+    nop
+bar_end:
+    ret 
+    restore
+SAVE.bar = -(92 + 12) & -8
+                .section     ".text"
+                .align 4
+                .global      foo
+foo:
+    set         SAVE.foo, %g1
+    save        %sp, %g1, %sp
+/* line number 35*/
+/* Incrementing */
+    set         fooRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         fooRec, %l2
+    add         %g0, %l2, %l2
+    st          %l0, [%l2]
+/* line number 35*/
+/* Post Increment */
+    dec     %l0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 37*/
+/* Prepping Comparison Calculations by loading */
+    set         fooRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         10, %l1
+/* line number 37*/
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_2
+    nop
+    set         0, %l3
+    ba      greaterEnd_2
+    nop
+greater_2:
+    set         1, %l3
+greaterEnd_2:
+/* line number 37*/
+/* Storing result of Comparison Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_4
+    nop
+if_4:
+/* line number 39*/
 /* printing string */
     set         _strFmt, %o0
     set         str_4, %o1
     call    printf
     nop
-/* line number 11*/
+/* line number 39*/
 /* Done printing string. */
-/* line number 11*/
-/* printf on int */
-    set         _intFmt, %o0
-    set         -666, %o1
+    set         _endl, %o0
     call    printf
     nop
-
+    call    bar
+    nop
+    ba      foo_end
+    nop
+    ba      endIf_5
+    nop
+else_4:
+endIf_5:
+/* line number 44*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_5, %o1
+    call    printf
+    nop
+/* line number 44*/
+/* Done printing string. */
+/* line number 44*/
+/* Printing int fooRec */
+    set         _intFmt, %o0
+    set         fooRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 44*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+    call    foo
+    nop
+foo_end:
+    ret 
+    restore
+SAVE.foo = -(92 + 12) & -8
+                .section     ".text"
+                .align 4
+                .global      main
+main:
+    set         SAVE.main, %g1
+    save        %sp, %g1, %sp
+! --storing constant fooRec with value 1.0
+    set         fooRec, %l0
+    add         %g0, %l0, %l0
+    set         fooRec, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+! --storing constant foobazRec with value 50.0
+    set         foobazRec, %l0
+    add         %g0, %l0, %l0
+    set         foobazRec, %l0
+    add         %g0, %l0, %l0
+    set         50, %l1
+    st          %l1, [%l0]
+    call    foo
+    nop
+/* line number 55*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_6, %o1
+    call    printf
+    nop
+/* line number 55*/
+/* Done printing string. */
+/* line number 55*/
+/* Printing int fooRec */
+    set         _intFmt, %o0
+    set         fooRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 55*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 56*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_7, %o1
+    call    printf
+    nop
+/* line number 56*/
+/* Done printing string. */
+/* line number 56*/
+/* Printing int barRec */
+    set         _intFmt, %o0
+    set         barRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 56*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 57*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_8, %o1
+    call    printf
+    nop
+/* line number 57*/
+/* Done printing string. */
+/* line number 57*/
+/* Printing int foobazRec */
+    set         _intFmt, %o0
+    set         foobazRec, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 57*/
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 24) & -8
+SAVE.main = -(92 + 4) & -8
