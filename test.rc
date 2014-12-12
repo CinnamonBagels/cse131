@@ -2,6 +2,7 @@ float shakespeare;
 float marlowe;
 float goethe;
 float shelley;
+float b;
 
 function : void main()
 {
