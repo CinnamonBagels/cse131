@@ -1,0 +1,11 @@
+// more advanced local array
+
+function: void main() {
+	
+	int[20] i;
+	
+	i[4] = 123;
+	i[19] = 4;
+	
+	cout << i[i[19]] << endl;
+}

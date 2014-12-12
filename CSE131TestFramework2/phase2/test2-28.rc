@@ -1,0 +1,12 @@
+// basic local array
+
+function: void main() {
+	
+	int[20] i;
+	
+	i[0] = 6969;
+	i[4] = 123;
+	i[19] = -10;
+	
+	cout << i[0] << " " << i[4] << " " << i[19] << endl;
+}

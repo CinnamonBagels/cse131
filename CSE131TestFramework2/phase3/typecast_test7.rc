@@ -1,0 +1,7 @@
+function : void main()
+{
+    int b = 5 + 10 + 99;
+    int *rawr = &b; 
+    float *a = (float *)rawr;
+    cout << *a << endl;
+}

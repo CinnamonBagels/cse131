@@ -1,0 +1,35 @@
+/*Testing function calls with passing in arrays as arguments*/
+
+typedef int[5] ARRTYPE;
+
+function : void foo(ARRTYPE & a)
+{
+  int i = 0;
+  while(i<5)
+  {
+    cout << a[i] << endl;
+    i++;
+  }
+}
+
+function : void main()
+{
+  ARRTYPE array;
+
+  int i = 0, j = 5;
+
+  while(i<5)
+  {
+     array[i++] = j--;
+  }
+
+  /*i = 0;
+  while(i<5)
+  {
+    cout << array[i] << endl;
+    i++;
+  }*/
+
+  foo(array);
+
+}

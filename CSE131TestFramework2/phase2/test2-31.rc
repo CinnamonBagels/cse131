@@ -1,0 +1,13 @@
+// basic global/local bool array access
+
+bool[100] gbarr;
+
+function: void main() {
+	
+	bool[20] lbarr;
+	
+	gbarr[4] = true;
+	lbarr[6] = gbarr[4];
+	
+	cout << gbarr[2] << " " << gbarr[4] << " " << lbarr[6] << endl; //false true true
+}

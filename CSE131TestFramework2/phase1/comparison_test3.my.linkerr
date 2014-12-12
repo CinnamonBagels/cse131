@@ -1,0 +1,24 @@
+rc.s:
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 72: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 72: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 106: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 106: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 140: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 140: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 174: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 174: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 208: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 208: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 239: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 239: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 270: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 270: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 301: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 301: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 332: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 332: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 363: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 363: error: statement syntax
+cc: fbe failed for rc.s
+../input.c:
+../output.s:

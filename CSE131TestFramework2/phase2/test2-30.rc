@@ -1,0 +1,16 @@
+// wicked nasty mixed global/local array access
+
+int[100] j;
+
+function: void main() {
+	
+	int[20] i;
+	
+	i[4] = 16;
+	i[19] = 4;
+	i[0] = 19;
+	i[1] = -99;
+	i[i[i[0]]] = 1; //i[ i[ i[0] = 19] = 4] = 16] or i[16] = 1
+	
+	cout << i[i[i[i[j[i[j[0]]]]]]] << endl; //i[ i[ i[ i[ i[ j[ i[ j[0]=0 ]=19 ]=0 ]=19 ]=4 ]=16 ]=1 ] => -99
+}

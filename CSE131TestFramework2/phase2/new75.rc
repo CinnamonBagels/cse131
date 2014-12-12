@@ -1,0 +1,8 @@
+bool a = true,b = true,c = true,d = true,e = true;
+int f = 5,g = 4,h = 6,i = 7,j = 9;
+float k = 3.33,l = 4.44,m = 5.55,n = 6.66;
+
+function : void main() {
+
+	cout << "main" << c << " " << h << " " << m << "end" <<endl;
+}

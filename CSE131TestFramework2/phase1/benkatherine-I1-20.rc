@@ -1,0 +1,12 @@
+static int x;
+
+static int y = 4;
+static int z = y;
+
+function : void main()
+{
+  static int a;
+  static int b = 4;
+  static int c = a;
+  static int d = b;
+}

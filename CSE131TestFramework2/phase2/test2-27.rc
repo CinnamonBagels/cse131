@@ -1,0 +1,10 @@
+// basic global array
+
+int[20] i;
+
+function: void main() {
+	
+	i[4] = 123;
+	
+	cout << i[4] << endl;
+}

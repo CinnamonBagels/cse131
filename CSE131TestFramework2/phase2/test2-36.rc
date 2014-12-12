@@ -1,0 +1,22 @@
+// multi array assignment
+
+float[100] gfarr;
+int[100] giarr;
+
+function: void main() {
+	
+	int i = 10;
+	
+	float f;
+	
+	float[20] lfarr;
+	int[20] liarr;
+	
+	f = gfarr[i] = lfarr[i] = giarr[i] = liarr[i] = 45; //test local -> global assignments
+	
+	cout << liarr[i] << " " << giarr[i] << " " << lfarr[i] << " " << gfarr[i] << " " << f << endl;
+	
+	f = lfarr[i] = gfarr[i] = liarr[i] = giarr[i] = -20; // test global -> local assignments
+	
+	cout << liarr[i] << " " << giarr[i] << " " << lfarr[i] << " " << gfarr[i] << " " << f << endl;
+}

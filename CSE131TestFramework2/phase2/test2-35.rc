@@ -1,0 +1,20 @@
+// array reference from variable
+
+float[100] gfarr;
+int[100] giarr;
+
+function: void main() {
+	
+	int i = 10;
+	
+	float[20] lfarr;
+	int[20] liarr;
+	
+	liarr[i] = 9;
+	giarr[i] = 19;
+	
+	lfarr[i] = 29;
+	gfarr[i] = 39;
+	
+	cout << liarr[i] << " " << giarr[i] << " " << lfarr[i] << " " << gfarr[i] << endl; //false true true
+}

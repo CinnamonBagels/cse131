@@ -1,0 +1,30 @@
+typedef bool BAT;
+typedef BAT CAT;
+typedef CAT LION;
+
+LION **cub;
+
+LION bad = false;
+LION *good = &bad;
+
+function : LION ** foo(LION ** &param)
+{   
+	param = &good;
+	return param;
+}
+
+function : void main()
+{
+	LION cool = true;
+    LION *lol = &cool;
+	
+	cub = &lol;
+	
+	cout << "cub is: " << **cub << endl; // true
+	
+	LION **hyper = foo(cub);
+	
+	cout << "cub is now: " << **cub << endl; // false
+	cout << "hyper is: " << **hyper << endl; // false;
+    
+}

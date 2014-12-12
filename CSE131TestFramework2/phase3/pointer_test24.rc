@@ -1,0 +1,29 @@
+typedef int GOO;
+typedef GOO *POWER;
+
+POWER kick;
+
+function : int * moby()
+{
+	int a = 4122;
+	int *k = &a;
+	
+	return k;
+}
+
+function : void main()
+{
+	int *b = moby();
+	
+	GOO *punch;
+	
+	cout << "b is: " << *b << endl;
+	
+	new punch;
+	delete punch;
+	
+	punch = moby();
+	
+	cout << "punch is: " << *punch << endl;
+	
+}

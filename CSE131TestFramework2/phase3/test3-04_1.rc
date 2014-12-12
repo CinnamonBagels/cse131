@@ -1,0 +1,41 @@
+// Struct pointers
+
+structdef SOMESTRUCT {
+	int i;
+	int j;
+	int k;
+	
+	function: void printMyVars() {
+		cout << this.i << " " << this.j << " " << this.k << endl;
+	}
+};
+
+
+function: void main() {
+
+	SOMESTRUCT s1, s2, s3;
+	
+	s1.i = 15;
+	s1.j = 20;
+	s1.k = 33;
+	
+	//assuming struct functions work:
+	s1.printMyVars();
+	
+	s2.i = 4;
+	s2.j = 5;
+	s2.k = 9;
+	s2.printMyVars();
+	s1.printMyVars(); //just in case
+	cout << "\nAFTERMULTIASSIGN:\n";
+	
+	//multiple assignment of structs
+	s3 = s2 = s1;
+	
+	s1.printMyVars();
+	s2.printMyVars();
+	s3.printMyVars();
+	
+	
+	
+}

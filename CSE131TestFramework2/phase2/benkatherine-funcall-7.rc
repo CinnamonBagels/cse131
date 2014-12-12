@@ -1,0 +1,15 @@
+function : void foo(int & x, int & y)
+{
+ x = 7;
+ y = 8;
+}
+
+function : void main()
+{
+  int a = 1, b = 2;
+
+  foo(a,b);
+
+  cout << a << b << endl;
+
+}
