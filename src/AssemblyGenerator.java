@@ -384,7 +384,9 @@ public class AssemblyGenerator {
 				generateASM(Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
 				generateASM(Strings.two_param, Instructions.set, right.offset, Registers.l1);
 				generateASM(Strings.three_param, Instructions.add, right.base, Registers.l1, Registers.l1);
-				
+				if(right.isReference || right.isDereferenced) {
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
+				}
 				if(right.getType().isFloat()) {
 					//l1 f0 l0
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);

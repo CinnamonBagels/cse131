@@ -115,6 +115,7 @@ arrayEnd_1:
     add         %fp, %l0, %l0
     set         -12, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 11*/
