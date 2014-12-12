@@ -1,23 +1,12 @@
-function: void main() {
+float f1 = 5.0;
+float f2 = 6.0;
+float f3;
 
-  //the final local constant test:
-  bool b1 = true;
-  bool b2 = false;
-  int i = 2;
-  int k = -5;
-  float f1 = 95.95;
-  float f2 = 1234567.0;
-  float f3 = -0.01;
+function : void main()
+{
+  cout << "f1 is: " << f1 << endl;
+  cout << "f2 is: " << f2 << endl;
   
-  cout << i << " " << k << endl;
-  cout << " " << b1 << " = true, false = " << b2;
-  cout << "\n";
-  cout << f1 << " " << f2 << " " << f3 << endl;
-
-  //printing constants:
-  cout << 2 << " " << -5 << endl;
-  cout << " " << true << " = true, false = " << false;
-  cout << "\n";
-  cout << 95.95 << " " << 1234567.0 << " " << -0.01 << endl;
-
+  f3 = 7.0;
+  cout << "f3 is: " << f3 << endl;
 }
