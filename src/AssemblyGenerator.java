@@ -38,6 +38,8 @@ public class AssemblyGenerator {
 	
 	private List<String> executeBuffer = new Vector<String>();
 	private List<String> staticBuffer = new Vector<String>();
+	private List<String> floatQueue = new Vector<String>();
+	private List<String> stringQueue = new Vector<String>();
 	
 	public AssemblyGenerator(String fileName) {
 		try {
@@ -84,6 +86,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void doData(STO lhs, STO rhs){
+		boolean isFloat = false;
 		//since we're in data... either global or static
 		if(lhs.isGlobal){
 			gVars.add(lhs.offset);
@@ -98,10 +101,12 @@ public class AssemblyGenerator {
 			}else if(lhs.getType().isFloat()){
 				//got this from regi, not sure why though
 				str = assembleString(Strings.init, lhs.offset + ":", ".single", "0r" + Float.toString(csto.getFloatValue()));
+				isFloat = true;
 			}
 		}else{
 			if(lhs.getType().isFloat()){
 				str = assembleString(Strings.init, lhs.offset + ":", ".single", "0r0");
+				isFloat = true;
 			}else{
 				str = assembleString(Strings.init, lhs.offset + ":", ".word", "0");
 			}
@@ -110,7 +115,13 @@ public class AssemblyGenerator {
 			//x .word 0
 			storeVariable(lhs, rhs);
 		}
-		dQueue.add(str);
+		
+		if(isFloat) {
+			floatQueue.add(str);
+		} else {
+			dQueue.add(str);	
+		}
+		
 	}
 	
 	public void doBSS(STO sto){
@@ -173,9 +184,14 @@ public class AssemblyGenerator {
 			write(assembleString(Strings.section, ".global", vars));
 		}
 		
+		for(String str : floatQueue) {
+			write(str);
+		}
+		
 		for(String str : dQueue){
 			write(str);
 		}
+		
 		
 		dQueue.clear();
 	}
@@ -204,7 +220,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.f0);
 		generateASM(Strings.call_op, Strings.printfloat);
 		generateASM(Strings.nop);
-		dQueue.add(assembleString(Strings.init, Strings.assignFloat + stringLits++ + ":", Strings.single, "0r" + str));
+		floatQueue.add(assembleString(Strings.init, Strings.assignFloat + stringLits++ + ":", Strings.single, "0r" + str));
 		
 		generateASM(Strings.newline);
 	}
@@ -653,12 +669,12 @@ public class AssemblyGenerator {
 	}
 
 	public ConstSTO assignFloat(ConstSTO sto) {
-		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + sto.getFloatValue()));
+		this.floatQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + sto.getFloatValue()));
 		return sto;
 	}
 	
 	public void assignFloat(STO des, STO value) {
-		this.dQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + ((ConstSTO) value).getFloatValue()));
+		this.floatQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + ((ConstSTO) value).getFloatValue()));
 		
 	}
 
