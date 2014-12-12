@@ -1,10 +1,13 @@
-function : void main () {
+//unary sign
 
-      float c;
+int i = 10;
+int j = -i;
 
-      c = 5;
-
-      cout << c << endl;
+function: void main() {
+  int k = 20;
+  int l = -k + -k;
+  
+  //cout << k << " " << l << endl;
+  cout << i << " " << j << " " << k << " " << l << " " << 60 << " " << -666 << endl;  // 10 -10 20 -40 60 -666
 
 }
-
