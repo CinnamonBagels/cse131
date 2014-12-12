@@ -1,33 +1,21 @@
-float shakespeare;
-float marlowe;
-float goethe;
-float shelley;
+/*Testing assignment in a global scope*/
 
-function : void main()
+int x;
+int y;
+int z = 10;
+float q = 5;
+const int w = 5;
+
+function: void main()
 {
-    shakespeare = 9000.00;
-    marlowe = 5000.00;
-    goethe = 12000.00;
-    shelley = 7000.00;
-    
-    int twilightSeries = 5000;
-    int reallyReally = 1000;
-    int sucksAlot = 9000;
-    
-    float byron = twilightSeries + (shakespeare - marlowe) - 5.60 * 9.20;
-    float tennyson = (byron - shelley) * 1.0 - reallyReally;
-    float wordsworth = (tennyson - byron) - 9999.50;
-    float lilwayne = (shakespeare - byron + tennyson) * 1.00 + sucksAlot;
-    
-    cout << shakespeare << endl; // 9000
-    cout << marlowe << endl; // 5000
-    cout << goethe << endl; // 12000
-    cout << shelley << endl; // 7000
-    cout << byron << endl; // 8948.00
-    cout << tennyson << endl; // 948.48
-    cout << wordsworth << endl; // -17999.50
-    cout << lilwayne << endl; // 10000.00
-    cout << twilightSeries << endl; // 5000
-    cout << reallyReally << endl; // 1000
-    cout << sucksAlot << endl; // 9000
+int a = x; 
+int b = x+x+z;
+cout<<a<<endl;// should print out 0
+cout<<b<<endl;//should print out 10
+float c = w+q; // there should be a bit promotion
+float d = 5+5+5+5+5;
+cout<<c<<endl; //should print out 10.0
+cout<<d<<endl; //should be 25.00
+cout<<d+c<<endl; //should be 35.00
+
 }
