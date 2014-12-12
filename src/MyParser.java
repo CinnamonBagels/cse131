@@ -1323,6 +1323,7 @@ class MyParser extends parser {
 				} 
 				result.setIsAddressable(false);
 				result.setIsModifiable(false);
+				generator.assignFloat((ConstSTO)result);
 				return result;
 			} else {
 				sto.base = Registers.fp;

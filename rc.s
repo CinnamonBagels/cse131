@@ -13,9 +13,10 @@ float_2:        .single      0r12000.0
 float_3:        .single      0r7000.0    
 float_4:        .single      0r5.6       
 float_5:        .single      0r9.2       
-float_6:        .single      0r1.0       
-float_7:        .single      0r9999.5    
-float_8:        .single      0r1.0       
+float_6:        .single      0r51.52     
+float_7:        .single      0r1.0       
+float_8:        .single      0r9999.5    
+float_9:        .single      0r1.0       
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -181,7 +182,7 @@ globalInit_end:
 /* Storing 1.0 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_6, %l2
+    set         float_7, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -251,7 +252,7 @@ globalInit_end:
 /* Storing 9999.50 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_7, %l2
+    set         float_8, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -317,7 +318,7 @@ globalInit_end:
 /* Storing 1.00 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_8, %l2
+    set         float_9, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
