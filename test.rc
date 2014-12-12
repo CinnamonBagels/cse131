@@ -3,6 +3,17 @@ int y = 5;
 
 function : void main()
 {
-bool z = x > y;
+cout << x > y << endl;
+  if(x>y)
+  {
+    cout << "Katherine ";
+    if(x>y)
+    {
+      cout << "is ";
+    }
+    
+    cout << "a ";
+  }
 
+  cout << "loser" << endl;
 }
