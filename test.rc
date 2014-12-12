@@ -1,10 +1,15 @@
+float shakespeare;
+float marlowe;
 
 
 function : void main()
-{   
+{
+    shakespeare = 9000.00;
+    marlowe = 5000.00;
+    
     int twilightSeries = 5000;
     
-    float byron = twilightSeries - 5.60;
+    float byron = twilightSeries - 5.60 * 9.20;
   
     cout << byron << endl; // 8948.00
 
