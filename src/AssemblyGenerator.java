@@ -1267,7 +1267,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.one_param, Instructions.bge, Strings.greaterEqual + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
-				generateASM(Strings.one_param, Instructions.ba, Strings.greaterEqual + comparisons);
+				generateASM(Strings.one_param, Instructions.ba, Strings.greaterEqualEnd + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.label, Strings.greaterEqual + comparisons);
 				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
@@ -1309,7 +1309,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.one_param, Instructions.fbge, Strings.greaterEqual + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
-				generateASM(Strings.one_param, Instructions.ba, Strings.greaterEqual + comparisons);
+				generateASM(Strings.one_param, Instructions.ba, Strings.greaterEqualEnd + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.label, Strings.greaterEqual + comparisons);
 				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
@@ -1365,7 +1365,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.one_param, Instructions.fbne, Strings.nEqual + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
-				generateASM(Strings.one_param, Instructions.ba, Strings.nEqual + comparisons);
+				generateASM(Strings.one_param, Instructions.ba, Strings.nEqualEnd + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.label, Strings.nEqual + comparisons);
 				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
@@ -1380,7 +1380,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.one_param, Instructions.be, Strings.equal + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
-				generateASM(Strings.one_param, Instructions.ba, Strings.equal + comparisons);
+				generateASM(Strings.one_param, Instructions.ba, Strings.equalEnd + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.label, Strings.equal + comparisons);
 				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
@@ -1421,7 +1421,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.one_param, Instructions.fbe, Strings.equal + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
-				generateASM(Strings.one_param, Instructions.ba, Strings.equal + comparisons);
+				generateASM(Strings.one_param, Instructions.ba, Strings.equalEnd + comparisons);
 				generateASM(Strings.nop);
 				generateASM(Strings.label, Strings.equal + comparisons);
 				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
