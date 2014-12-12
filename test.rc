@@ -11,12 +11,4 @@ function : void main()
   cout << x[2] << endl; // 3
   cout << e << endl; // 3.00
 
-  y[3] = 3.3;
-
-  cout << y[3] << endl; //3.3
-
-  float f = y[3];
-
-  cout << f << endl; //3.3
-
 }
