@@ -721,7 +721,7 @@ public class AssemblyGenerator {
 		}
 		
 		if(left.isConst() && left.getType().isFloat() && (left.base == null || left.offset == null)) {
-			assignFloat((ConstSTO)right);
+			assignFloat((ConstSTO)left);
 		}
 		// TODO Auto-generated method stub
 		boolean leftFloat = left.getType().isFloat();
@@ -1044,7 +1044,7 @@ public class AssemblyGenerator {
 		}
 		
 		if(left.isConst() && left.getType().isFloat() && (left.base == null || left.offset == null)) {
-			assignFloat((ConstSTO)right);
+			assignFloat((ConstSTO)left);
 		}
 		// TODO Auto-generated method stub
 		boolean leftFloat = left.getType().isFloat();
