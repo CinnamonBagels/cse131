@@ -208,6 +208,9 @@ public class AssemblyGenerator {
 	}
 	
 	public void beginFunction(FuncSTO fsto){
+		if(fsto.getName().equals("main")) {
+			this.flushText();
+		}
 		this.currentFunction = fsto;
 		String fname = fsto.getName();
 		generateASM(Strings.section, ".section", "\".text\"");

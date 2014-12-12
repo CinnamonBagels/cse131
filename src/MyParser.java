@@ -22,7 +22,7 @@ class MyParser extends parser {
 	private StructType currentStruct;
 	private int inLoop = 0;
 	public static AssemblyGenerator generator = new AssemblyGenerator("rc.s");
-	public FuncSTO main = null;
+	public FuncSTO main = new FuncSTO("main");
 	public boolean globalInit = false;
 
 	private SymbolTable m_symtab;
@@ -1344,15 +1344,9 @@ class MyParser extends parser {
 				return result;
 			} else {
 				if(m_symtab.getFunc() == null) {
-					if(main != null) {
-						sto.base = Registers.fp;
-						sto.offset = String.valueOf(-(main.getStackSize() + sto.getType().getSize()));
-						main.addToStack(sto.getType().getSize());
-					} else {
-						sto.base = Registers.g0;
-						sto.offset = _1.getName();
-					}
-					
+					sto.base = Registers.fp;
+					sto.offset = String.valueOf(-(main.getStackSize() + sto.getType().getSize()));
+					main.addToStack(sto.getType().getSize());
 				} else {
 					sto.base = Registers.fp;
 					sto.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + sto.getType().getSize()));

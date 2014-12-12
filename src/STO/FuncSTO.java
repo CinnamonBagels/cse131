@@ -21,8 +21,8 @@ public class FuncSTO extends STO
 	public FuncSTO(String strName)
 	{
 		super (strName);
-		setReturnType(null);
 		this.stackSize = 4;
+		this.isReturnReference = false;
                 // You may want to change the isModifiable and isAddressable                      
                 // fields as necessary
 	}
@@ -31,6 +31,7 @@ public class FuncSTO extends STO
 		super(strName, typ);
 		setReturnType(null);
 		this.stackSize = 4;
+		this.isReturnReference = false;
 	}
 	
 	private FunctionPointerType getFunctionPointerType() {
