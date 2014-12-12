@@ -277,8 +277,10 @@ public class AssemblyGenerator {
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
+			System.out.println("this is bad");
 			this.assignFloat(csto);
 			if(csto.getType().isInt()) {
+				System.out.println("this is really bad");
 				register = this.promoteIntToFloat(sto, csto);
 			}
 			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
@@ -448,6 +450,7 @@ public class AssemblyGenerator {
 	}
 	
 	public String promoteIntToFloat(STO left, STO right) {
+		generateComment("promoting");
 		STO tmp = new ExprSTO("promoteCasting", new FloatType());
 		tmp.base = Registers.fp;
 		tmp.offset = "4";
@@ -460,7 +463,7 @@ public class AssemblyGenerator {
 		}
 		
 		generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
-		
+		generateComment("done promoting" );
 		return Registers.f1;
 	}
 	
@@ -475,27 +478,27 @@ public class AssemblyGenerator {
 		if(value.getType().isFloat()) {
 			dest_register += Registers.f1;
 		} else {
-			dest_register += Registers.l6;
+			dest_register += Registers.l4;
 		}
 		generateComment("Storing " + value.getName() + " into " + dest.getName());
 		//setting destination
-		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l6);
-		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l6, Registers.l6);
+		generateASM(Strings.two_param, Instructions.set, dest.offset, dest_register);
+		generateASM(Strings.three_param, Instructions.add, dest.base, dest_register, dest_register);
 		
 		if(dest.isReference) {
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l6 + "]", Registers.l6);
+			generateASM(Strings.two_param, Instructions.load, "[" + dest_register + "]", dest_register);
 		}
 		
 		if(value.isConst() && !value.getType().isFloat()) {
-			generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) value).getIntValue(), dest_register);
+			generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) value).getIntValue(), Registers.l3);
 		} else {
 			//setting value.
-			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l2);
-			generateASM(Strings.three_param, Instructions.add, value.base, Registers.l2, Registers.l2);
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", dest_register);
+			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l3);
+			generateASM(Strings.three_param, Instructions.add, value.base, Registers.l3, Registers.l3);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", dest_register);
 		}
 		
-		generateASM(Strings.two_param, Instructions.store, dest_register, "[" + Registers.l0 + "]");
+		generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + dest_register + "]");
 	}
 	
 	public void storeConvertedVar(STO dest, STO source){
