@@ -271,6 +271,8 @@ class MyParser extends parser {
 				
 				if(sto.isInitialized && !sto.isStatic){
 					generator.doData(sto, (STO)lstIDs.get(sto));
+				} else if(sto.getType().isArray()) {
+					generator.doBSS(sto);
 				} else {
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
 				} 
@@ -309,7 +311,6 @@ class MyParser extends parser {
 //				}
 				
 				if(sto.isInitialized) {
-					System.out.println("DoVarDecl: " + sto.getType().getName() + " " + sto.getName());
 					generator.localVarInit(sto, (STO)lstIDs.get(sto));
 				}else{
 					//we dont initialize if inside function.
@@ -590,10 +591,6 @@ class MyParser extends parser {
 		funcSTO.base = Registers.g0;
 		
 		generator.beginFunction(funcSTO);
-		if(funcSTO.getName().equals("main") && !this.globalInit) {
-			generator.doGlobalInit();
-			globalInit = true;
-		}
 	}
 
 	// ----------------------------------------------------------------

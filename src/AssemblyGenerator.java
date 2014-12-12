@@ -112,7 +112,7 @@ public class AssemblyGenerator {
 	public void doBSS(STO sto){
 		generateASM(Strings.section, ".section", "\".bss\"");
 		generateASM(Strings.falign, Strings.align);
-		generateASM(Strings.init, sto.getName() + ":", ".skip", "4");
+		generateASM(Strings.init, sto.getName() + ":", ".skip", String.valueOf(sto.getType().getSize()));
 		gVars.add(sto.getName());
 		generateASM("\n");
 	}
@@ -211,9 +211,6 @@ public class AssemblyGenerator {
 		generateASM(Strings.label, fname);
 		generateASM(Strings.two_param, "set", "SAVE." + fname, "%g1");
 		generateASM(Strings.three_param, "save", "%sp", "%g1", "%sp");
-		if(fsto.getName().equals("main")) {
-			System.out.println("here");
-		}
 	}
 	
 	public void endFunction(FuncSTO fsto){
@@ -344,7 +341,6 @@ public class AssemblyGenerator {
 	public void localVarInit(STO left, STO right) {
 		//checking for automatic int -> float casting		
 		if(left.getType().isFloat() && right.getType().isInt()) {
-			System.out.println("localVarInit: " + left.getName() + " is a " + left.getType().getName() + " and " + right.getName() + " is a " + right.getType().getName());
 			storeConvertedVar(left,right);
 		} else if (!left.getType().isPointer()){
 			generateComment("setting " + left.getName() + " = " + right.getName());	
@@ -388,7 +384,6 @@ public class AssemblyGenerator {
 		}
 		//initialized pointers
 		else if(left.getType().isPointer()){
-			//System.out.println("left is a pointer!");
 			Type leftPtrType = ((PointerType)left.getType()).getContainingType();
 			Type rightType = right.getType();
 			

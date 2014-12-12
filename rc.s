@@ -1,8 +1,3 @@
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
 ! --globals--
                 .section     ".data"
                 .align 4
@@ -10,7 +5,6 @@
 float_0:        .single      0r4.5       
 a:              .single      0r4.5       
 b:              .word        5           
-globalInit_:    .word        0           
 float_1:        .single      0r3.3       
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -34,6 +28,14 @@ main:
     cmp         %l0, %g0
     bne     globalInit_end
     nop
+                .section     ".bss"
+                .align 4
+x:              .skip        12          
+
+                .section     ".bss"
+                .align 4
+y:              .skip        16          
+
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
