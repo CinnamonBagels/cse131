@@ -15,7 +15,7 @@ cout<<b<<endl;//should print out 10
 float c = w+q; // there should be a bit promotion
 float d = 5+5+5+5+5;
 cout<<c<<endl; //should print out 10.0
-//cout<<d<<endl; //should be 25.00
+cout<<d<<endl; //should be 25.00
 //cout<<d+c<<endl; //should be 35.00
 
 }

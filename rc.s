@@ -7,6 +7,10 @@ y:              .word        0
 z:              .word        10          
 q:              .single      0r5.0       
 globalInit_:    .word        0           
+float_0:        .single      0r10.0      
+float_1:        .single      0r15.0      
+float_2:        .single      0r20.0      
+float_3:        .single      0r25.0      
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -135,7 +139,7 @@ globalInit_end:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %f3, [%l4]
-/* line number 17*/
+/* line number 16*/
 /* setting c = int + float */
     set         -28, %l0
     add         %fp, %l0, %l0
@@ -143,8 +147,26 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
-/* line number 17*/
+/* line number 16*/
 /* Done. */
+/* line number 17*/
+/* Converting int Arithmetic Op to float. */
+/* line number 17*/
+/* Storing Arithmetic Op into promoteCasting */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         25, %l1
+    st          %l1, [%l0]
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+/* line number 17*/
+/* Assigning converted Arithmetic Op to d */
+    set         -32, %l2
+    add         %fp, %l2, %l2
+    ld          [%l2], %l3
+    st          %f1, [%l3]
 /* line number 17*/
 /* printing float c */
     set         -28, %l1
@@ -157,7 +179,19 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 18*/
+/* printing float d */
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 18*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 28) & -8
+SAVE.main = -(92 + 32) & -8
