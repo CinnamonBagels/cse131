@@ -271,6 +271,8 @@ class MyParser extends parser {
 				
 				if(sto.isInitialized && !sto.isStatic){
 					generator.doData(sto, (STO)lstIDs.get(sto));
+				} else if(sto.getType().isArray()) {
+					generator.doBSS(sto);
 				} else {
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
 				} 
@@ -282,6 +284,7 @@ class MyParser extends parser {
 					generator.staticerino(sto);
 					if(sto.isInitialized) {
 						//initialize it
+						generator.isStatic = true;
 						if(((STO)lstIDs.get(sto)).isConst()) {
 							generator.storeConstant(sto, (ConstSTO)lstIDs.get(sto));
 						} else {
@@ -290,6 +293,7 @@ class MyParser extends parser {
 					}
 					
 					generator.staticerino_end(sto);
+					generator.isStatic = false;
 				}
 			}else{ // we're in local now (not static) 
 				//Why is there an extra 4 bytes on stack at beginnign?
@@ -307,7 +311,6 @@ class MyParser extends parser {
 //				}
 				
 				if(sto.isInitialized) {
-					System.out.println("DoVarDecl: " + sto.getType().getName() + " " + sto.getName());
 					generator.localVarInit(sto, (STO)lstIDs.get(sto));
 				}else{
 					//we dont initialize if inside function.
@@ -588,10 +591,6 @@ class MyParser extends parser {
 		funcSTO.base = Registers.g0;
 		
 		generator.beginFunction(funcSTO);
-		if(funcSTO.getName().equals("main") && !this.globalInit) {
-			generator.doGlobalInit();
-			globalInit = true;
-		}
 	}
 
 	// ----------------------------------------------------------------
@@ -599,7 +598,6 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	void DoFuncDecl_2() {
 		FuncSTO func = m_symtab.getFunc();
-		
 		if (func.isError()) {
 		}
 
@@ -618,6 +616,7 @@ class MyParser extends parser {
 		m_symtab.setFunc(null);
 		
 		generator.endFunction(func);
+		generator.inGlobalScope = true;
 	}
 
 	// expression, codeblock, else
