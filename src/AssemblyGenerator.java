@@ -28,10 +28,12 @@ public class AssemblyGenerator {
 	public static final int mainGuard = 5;
 	public int mainCounter = 0;
 	public int lineNumber = 0;
+	public boolean isStatic = false;
 	
 	public FuncSTO currentFunction = null;
 	
 	private List<String> executeBuffer = new Vector<String>();
+	private List<String> staticBuffer = new Vector<String>();
 	
 	public AssemblyGenerator(String fileName) {
 		try {
@@ -57,7 +59,8 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
 		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\""));
 		write(assembleString("\n"));
-		dQueue.add(assembleString(Strings.init, Strings.globalInit, Strings.word, "0"));
+		this.doGlobalInit();
+		
 	}
 	
 	
@@ -122,11 +125,17 @@ public class AssemblyGenerator {
 			
 			write(t);
 			//hacky way of initing the global vars 
-			if(!this.globalVarsInit && ++this.mainCounter > 5) {
+			if(!globalVarsInit && ++this.mainCounter > 5) {
+				this.doGlobalInit();
 				for(int i = 0; i < this.executeBuffer.size(); ++i) {
 					write(executeBuffer.get(i));
 				}
-				globalVarsInit = true;
+				this.globalInitEnd();
+				for(String i : this.staticBuffer) {
+					write(i);
+				}
+				this.globalVarsInit = true;
+				
 			}
 			
 			//this wont work
@@ -203,6 +212,9 @@ public class AssemblyGenerator {
 		generateASM(Strings.label, fname);
 		generateASM(Strings.two_param, "set", "SAVE." + fname, "%g1");
 		generateASM(Strings.three_param, "save", "%sp", "%g1", "%sp");
+		if(fsto.getName().equals("main")) {
+			System.out.println("here");
+		}
 	}
 	
 	public void endFunction(FuncSTO fsto){
@@ -257,8 +269,10 @@ public class AssemblyGenerator {
 		str.append(String.format(temp, (Object[])args));
 		if(!inGlobalScope){
 			tQueue.add(str.toString());
-		}else{
-			executeBuffer.add(str.toString());
+		}else if(isStatic){
+			this.staticBuffer.add(str.toString());
+		} else {
+			this.executeBuffer.add(str.toString());
 		}
 	}
 	
@@ -639,18 +653,18 @@ public class AssemblyGenerator {
 	//do static guard, forgot that we needed this.
 	public void staticerino(STO sto) {
 		dQueue.add(assembleString(Strings.init, Strings.staticGuard + sto.offset + ":", Strings.word, "0"));
-		generateASM(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l0);
-		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l1);
-		generateASM(Strings.two_param, Instructions.cmp, Registers.g0, Registers.l1);
-		generateASM(Strings.one_param, Instructions.bne, Strings.staticGuardLabel + sto.offset);
-		generateASM(Strings.nop);
+		this.staticBuffer.add(assembleString(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l0));
+		this.staticBuffer.add(assembleString(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l1));
+		this.staticBuffer.add(assembleString(Strings.two_param, Instructions.cmp, Registers.g0, Registers.l1));
+		this.staticBuffer.add(assembleString(Strings.one_param, Instructions.bne, Strings.staticGuardLabel + sto.offset));
+		this.staticBuffer.add(assembleString(Strings.nop));
 	}
 	
 	public void staticerino_end(STO sto) {
-		generateASM(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l2);
-		generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
-		generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l2 + "]");
-		generateASM(Strings.label, Strings.staticGuardLabel + sto.offset);
+		this.staticBuffer.add(assembleString(Strings.two_param, Instructions.set, Strings.staticGuard + sto.offset, Registers.l2));
+		this.staticBuffer.add(assembleString(Strings.two_param, Instructions.set, "1", Registers.l3));
+		this.staticBuffer.add(assembleString(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l2 + "]"));
+		this.staticBuffer.add(assembleString(Strings.label, Strings.staticGuardLabel + sto.offset));
 	}
 
 	public void doBinaryOp(STO result) {
@@ -1184,15 +1198,16 @@ public class AssemblyGenerator {
 	public void doGlobalInit() {
 		// TODO Auto-generated method stub
 		dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
-		generateASM(Strings.two_param, Instructions.set, Strings.globalInit, Registers.l0);
-		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
-		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
-		generateASM(Strings.one_param, Instructions.bne, Strings.globalInit + "end");
-		generateASM(Strings.nop);
-
-		generateASM(Strings.two_param, Instructions.set, Strings.globalInit, Registers.l0);
-		generateASM(Strings.two_param, Instructions.set, "1", Registers.l1);
-		generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
-		generateASM(Strings.label, Strings.globalInit + "end");
+		write(assembleString(Strings.two_param, Instructions.set, Strings.globalInit, Registers.l0));
+		write(assembleString(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0));
+		write(assembleString(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0));
+		write(assembleString(Strings.one_param, Instructions.bne, Strings.globalInit + "end"));
+	}
+	
+	public void globalInitEnd() {
+		write(assembleString(Strings.two_param, Instructions.set, Strings.globalInit, Registers.l0));
+		write(assembleString(Strings.two_param, Instructions.set, "1", Registers.l1));
+		write(assembleString(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]"));
+		write(assembleString(Strings.label, Strings.globalInit + "end"));
 	}
 }

@@ -1,6 +1,9 @@
 int x = 4, y = 5;
 
 int z = x + y;
+static int g = 4;
 
 function : void main()
-{}
+{
+  cout << z << endl;
+}
