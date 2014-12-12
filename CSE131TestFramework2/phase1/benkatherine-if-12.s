@@ -4,7 +4,6 @@
                  .global     pass,fail
 pass:           .word        1           
 fail:           .word        0           
-globalInit_:    .word        0           
 str_0:          .asciz       "pass"      
 str_1:          .asciz       "fail"      
 str_2:          .asciz       "pass"      
@@ -13,6 +12,7 @@ str_4:          .asciz       "fail"
 str_5:          .asciz       "fail"      
 str_6:          .asciz       "pass"      
 str_7:          .asciz       "fail"      
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

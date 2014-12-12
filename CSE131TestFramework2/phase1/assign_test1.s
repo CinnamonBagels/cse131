@@ -7,11 +7,11 @@ f1:             .single      0r5.0
 float_1:        .single      0r6.0       
 f2:             .single      0r6.0       
 f3:             .single      0r0.0       
-globalInit_:    .word        0           
 str_2:          .asciz       "f1 is: "   
 str_3:          .asciz       "f2 is: "   
 float_4:        .single      0r7.0       
 str_5:          .asciz       "f3 is: "   
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -79,6 +79,8 @@ globalInit_end:
     call    printf
     nop
 ! --storing constant f3 with value 7.0
+    set         f3, %l0
+    add         %g0, %l0, %l0
     set         f3, %l0
     add         %g0, %l0, %l0
     set         float_4, %l1

@@ -31,9 +31,10 @@ globalInit_end:
 ! --storing constant c with value 1.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
 /* line number 7*/
 /* Printing bool c */
     set         -8, %l1

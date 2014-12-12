@@ -36,6 +36,8 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* setting b = a */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

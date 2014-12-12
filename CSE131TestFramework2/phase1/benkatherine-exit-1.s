@@ -97,6 +97,8 @@ bar:
     st          %l3, [%l4]
 /* line number 15*/
 /* setting c = int + int */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

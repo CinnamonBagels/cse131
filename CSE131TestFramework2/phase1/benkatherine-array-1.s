@@ -3,6 +3,10 @@
                 .align 4
                  .global     x
 globalInit_:    .word        0           
+                .section     ".bss"
+                .align 4
+x:              .skip        12          
+
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -32,8 +36,6 @@ globalInit_end:
 /* line number 5*/
 /* Starting array access */
     set         2, %l0
-    set         x, %l1
-    add         %g0, %l1, %l1
     cmp         %l0, %g0
     bl      arrayOutBounds_0
     nop
@@ -46,6 +48,8 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
+    set         x, %l1
+    add         %g0, %l1, %l1
     add         %l1, %l2, %l4
     set         -8, %l5
     add         %fp, %l5, %l6
@@ -72,8 +76,6 @@ arrayEnd_0:
 /* line number 6*/
 /* Starting array access */
     set         2, %l0
-    set         x, %l1
-    add         %g0, %l1, %l1
     cmp         %l0, %g0
     bl      arrayOutBounds_1
     nop
@@ -86,8 +88,10 @@ arrayInBounds_1:
     call    .mul
     nop
     mov         %o0, %l2
+    set         x, %l1
+    add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -8, %l5
+    set         -12, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_1
@@ -106,9 +110,9 @@ arrayEnd_1:
 /* line number 6*/
 /* Printing int x[2] */
     set         _intFmt, %o0
-    set         -8, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    ld          [%l1], %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -120,4 +124,4 @@ arrayEnd_1:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 12) & -8

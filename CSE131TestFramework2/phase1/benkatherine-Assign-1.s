@@ -35,6 +35,8 @@ main:
 globalInit_end:
 /* line number 12*/
 /* setting a = x */
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2
@@ -75,6 +77,8 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 13*/
 /* setting b = int + int */
+    set         -20, %l0
+    add         %fp, %l0, %l0
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -133,12 +137,31 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 16*/
 /* setting c = int + float */
+    set         -28, %l0
+    add         %fp, %l0, %l0
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 16*/
 /* Done. */
+/* line number 17*/
+/* Converting int Arithmetic Op to float. */
+/* line number 17*/
+/* Storing Arithmetic Op into promoteCasting */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         25, %l1
+    st          %l1, [%l0]
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+/* line number 17*/
+/* Assigning converted Arithmetic Op to d */
+    set         -32, %l2
+    add         %fp, %l2, %l2
+    st          %f1, [%l2]
 /* line number 17*/
 /* printing float c */
     set         -28, %l1

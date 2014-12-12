@@ -37,9 +37,13 @@ globalInit_end:
 ! --storing constant x with value 125.0
     set         x, %l0
     add         %g0, %l0, %l0
+    set         x, %l0
+    add         %g0, %l0, %l0
     set         125, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 30.0
+    set         y, %l0
+    add         %g0, %l0, %l0
     set         y, %l0
     add         %g0, %l0, %l0
     set         30, %l1

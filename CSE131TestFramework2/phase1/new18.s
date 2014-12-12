@@ -5,11 +5,11 @@
 x:              .word        0           
 y:              .word        0           
 z:              .single      0r0.0       
-globalInit_:    .word        0           
 str_0:          .asciz       "main"      
 str_1:          .asciz       " "         
 str_2:          .asciz       " "         
 str_3:          .asciz       "end"       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

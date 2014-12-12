@@ -61,6 +61,8 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 9*/
 /* setting c = int - int */
+    set         -20, %l0
+    add         %fp, %l0, %l0
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -69,6 +71,8 @@ globalInit_end:
 /* Done. */
 /* line number 11*/
 /* setting d = c */
+    set         -24, %l0
+    add         %fp, %l0, %l0
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

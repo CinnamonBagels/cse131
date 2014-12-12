@@ -3,10 +3,10 @@
                 .align 4
                  .global     x
 x:              .word        0           
-globalInit_:    .word        0           
 str_0:          .asciz       "this "     
 str_1:          .asciz       "is "       
 str_2:          .asciz       "a message."
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

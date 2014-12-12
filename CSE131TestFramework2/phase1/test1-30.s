@@ -1,8 +1,8 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-globalInit_:    .word        0           
 str_0:          .asciz       " "         
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -68,6 +68,8 @@ greaterEnd_0:
 /* line number 8*/
 /* setting c = Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+    set         -20, %l0
+    add         %fp, %l0, %l0
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -101,6 +103,8 @@ greaterEnd_1:
 /* line number 10*/
 /* setting d = Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+    set         -28, %l0
+    add         %fp, %l0, %l0
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

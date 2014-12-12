@@ -1,12 +1,12 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-globalInit_:    .word        0           
 str_0:          .asciz       "   ###   ###   ###   ###  ###   ######"
 str_1:          .asciz       "   #### ####    #     # ##      #     "
 str_2:          .asciz       "   ## ### ##    #     ###       ####  "
 str_3:          .asciz       "   ## ##  ##    #     # ##      #     "
 str_4:          .asciz       "   ##  #  ##   ###   ###  ###   ######"
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

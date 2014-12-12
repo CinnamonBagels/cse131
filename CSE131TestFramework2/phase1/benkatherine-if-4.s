@@ -4,11 +4,11 @@
                  .global     x,y
 x:              .word        4           
 y:              .word        5           
-globalInit_:    .word        0           
 str_0:          .asciz       "Katherine "
 str_1:          .asciz       "is "       
 str_2:          .asciz       "a "        
 str_3:          .asciz       "loser"     
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

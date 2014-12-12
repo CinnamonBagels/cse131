@@ -33,6 +33,8 @@ globalInit_end:
 ! --storing constant x with value 7.0
     set         x, %l0
     add         %g0, %l0, %l0
+    set         x, %l0
+    add         %g0, %l0, %l0
     set         7, %l1
     st          %l1, [%l0]
 /* line number 5*/

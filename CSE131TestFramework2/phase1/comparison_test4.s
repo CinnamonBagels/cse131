@@ -6,7 +6,6 @@ luke:           .word        1
 wedge:          .word        0           
 goldFive:       .word        1           
 redFive:        .word        1           
-globalInit_:    .word        0           
 str_0:          .asciz       "luke is true"
 str_1:          .asciz       "wedge is false"
 str_2:          .asciz       "luke is not false"
@@ -17,6 +16,7 @@ str_6:          .asciz       "true is true"
 str_7:          .asciz       "false is false"
 str_8:          .asciz       "true is not false"
 str_9:          .asciz       "false is not true"
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

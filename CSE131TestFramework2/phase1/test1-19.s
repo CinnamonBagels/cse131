@@ -22,7 +22,14 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
 ! --storing constant k with value 3.0
+    set         k, %l0
+    add         %g0, %l0, %l0
     set         k, %l0
     add         %g0, %l0, %l0
     set         3, %l1
@@ -35,11 +42,6 @@ main:
     add         %g0, %l2, %l2
     ld          [%l2], %l1
     st          %l1, [%l0]
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]

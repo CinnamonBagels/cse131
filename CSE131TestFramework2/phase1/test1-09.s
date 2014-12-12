@@ -12,7 +12,6 @@ float_1:        .single      0r7654321.0
 f2:             .single      0r7654321.0 
 float_2:        .single      0r100.01    
 f3:             .single      0r-100.01   
-globalInit_:    .word        0           
 float_3:        .single      0r95.95     
 float_4:        .single      0r1234567.0 
 float_5:        .single      0r0.01      
@@ -34,6 +33,7 @@ float_20:       .single      0r1234567.0
 str_21:         .asciz       " "         
 float_22:       .single      0r0.01      
 float_23:       .single      0r-0.01     
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

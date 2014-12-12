@@ -6,16 +6,17 @@ shakespeare:    .single      0r0.0
 marlowe:        .single      0r0.0       
 goethe:         .single      0r0.0       
 shelley:        .single      0r0.0       
-globalInit_:    .word        0           
 float_0:        .single      0r9000.0    
 float_1:        .single      0r5000.0    
 float_2:        .single      0r12000.0   
 float_3:        .single      0r7000.0    
 float_4:        .single      0r5.6       
 float_5:        .single      0r9.2       
-float_6:        .single      0r1.0       
-float_7:        .single      0r9999.5    
-float_8:        .single      0r1.0       
+float_6:        .single      0r51.52     
+float_7:        .single      0r1.0       
+float_8:        .single      0r9999.5    
+float_9:        .single      0r1.0       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -45,10 +46,14 @@ globalInit_end:
 ! --storing constant shakespeare with value 9000.0
     set         shakespeare, %l0
     add         %g0, %l0, %l0
+    set         shakespeare, %l0
+    add         %g0, %l0, %l0
     set         float_0, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]
 ! --storing constant marlowe with value 5000.0
+    set         marlowe, %l0
+    add         %g0, %l0, %l0
     set         marlowe, %l0
     add         %g0, %l0, %l0
     set         float_1, %l1
@@ -57,10 +62,14 @@ globalInit_end:
 ! --storing constant goethe with value 12000.0
     set         goethe, %l0
     add         %g0, %l0, %l0
+    set         goethe, %l0
+    add         %g0, %l0, %l0
     set         float_2, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]
 ! --storing constant shelley with value 7000.0
+    set         shelley, %l0
+    add         %g0, %l0, %l0
     set         shelley, %l0
     add         %g0, %l0, %l0
     set         float_3, %l1
@@ -131,8 +140,8 @@ globalInit_end:
 /* Storing Arithmetic Op into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         float_6, %l2
+    add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
     set         4, %l1
@@ -146,6 +155,8 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 18*/
 /* setting byron = float - float */
+    set         -32, %l0
+    add         %fp, %l0, %l0
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -179,7 +190,7 @@ globalInit_end:
 /* Storing 1.0 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_6, %l2
+    set         float_7, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -214,6 +225,8 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 19*/
 /* setting tennyson = float - int */
+    set         -48, %l0
+    add         %fp, %l0, %l0
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -247,7 +260,7 @@ globalInit_end:
 /* Storing 9999.50 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_7, %l2
+    set         float_8, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -262,6 +275,8 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 20*/
 /* setting wordsworth = float - float */
+    set         -60, %l0
+    add         %fp, %l0, %l0
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -311,7 +326,7 @@ globalInit_end:
 /* Storing 1.00 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_8, %l2
+    set         float_9, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -346,6 +361,8 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 22*/
 /* setting lilwayne = float + int */
+    set         -80, %l0
+    add         %fp, %l0, %l0
     set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

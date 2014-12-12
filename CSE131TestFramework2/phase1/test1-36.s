@@ -7,12 +7,12 @@ glb2:           .word        9821
 float_0:        .single      0r66.99     
 glb3:           .single      0r66.99     
 float_1:        .single      0r99.44     
-globalInit_:    .word        0           
 str_2:          .asciz       " "         
 str_3:          .asciz       " "         
 str_4:          .asciz       " "         
 str_5:          .asciz       " "         
 str_6:          .asciz       " "         
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -30,6 +30,15 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
 /* line number 9*/
 /* Returning value from foo */
     set         123, %i0
@@ -95,9 +104,10 @@ foo5:
 ! --storing constant glb1 with value 1.0
     set         glb1, %l0
     add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         glb1, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
 /* line number 25*/
 /* Prepping Arithmetic Calculations by loading */
     set         glb2, %l1
@@ -130,15 +140,6 @@ SAVE.foo5 = -(92 + 8) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
     call    foo
     nop
 /* line number 29*/
@@ -146,6 +147,8 @@ globalInit_end:
     st          %o0, [%fp+-8]
 /* line number 30*/
 /* setting a = foo() */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -159,6 +162,8 @@ globalInit_end:
     st          %o0, [%fp+-16]
 /* line number 31*/
 /* setting b = foo2() */
+    set         -20, %l0
+    add         %fp, %l0, %l0
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -172,6 +177,8 @@ globalInit_end:
     st          %o0, [%fp+-24]
 /* line number 32*/
 /* setting c = foo3() */
+    set         -28, %l0
+    add         %fp, %l0, %l0
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -185,6 +192,8 @@ globalInit_end:
     st          %f0, [%fp+-32]
 /* line number 33*/
 /* setting d = foo4() */
+    set         -36, %l0
+    add         %fp, %l0, %l0
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

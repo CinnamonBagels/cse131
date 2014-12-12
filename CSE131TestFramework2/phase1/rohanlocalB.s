@@ -31,6 +31,8 @@ globalInit_end:
 ! --storing constant c with value 1.0
     set         -8, %l0
     add         %fp, %l0, %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 7*/

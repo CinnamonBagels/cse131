@@ -64,6 +64,8 @@ globalInit_end:
     nop
 /* line number 11*/
 /* setting y = x */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2
@@ -72,6 +74,8 @@ globalInit_end:
 /* Done. */
 /* line number 13*/
 /* setting z = x */
+    set         -16, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

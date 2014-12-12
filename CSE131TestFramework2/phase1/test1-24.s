@@ -4,9 +4,9 @@
                  .global     k,l
 k:              .word        30          
 l:              .word        40          
-globalInit_:    .word        0           
 str_0:          .asciz       " * "       
 str_1:          .asciz       " = "       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -55,6 +55,8 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 10*/
 /* setting m = int * int */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

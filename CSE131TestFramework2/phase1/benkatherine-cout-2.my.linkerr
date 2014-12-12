@@ -1,0 +1,8 @@
+rc.s:
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 60: error: can't compute value of an expression involving an external symbol
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 60: error: can't compute value of an expression involving an external symbol
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 67: error: can't compute value of an expression involving an external symbol
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 67: error: can't compute value of an expression involving an external symbol
+cc: fbe failed for rc.s
+../input.c:
+../output.s:

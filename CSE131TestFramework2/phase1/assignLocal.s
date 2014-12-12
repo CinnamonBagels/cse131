@@ -13,7 +13,6 @@ i3:             .word        0
 b1:             .word        0           
 b2:             .word        0           
 b3:             .word        0           
-globalInit_:    .word        0           
 str_2:          .asciz       "f1 is: "   
 str_3:          .asciz       "f2 is: "   
 float_4:        .single      0r7.0       
@@ -24,6 +23,7 @@ str_8:          .asciz       "i3 is: "
 str_9:          .asciz       "b1 is: "   
 str_10:         .asciz       "b2 is: "   
 str_11:         .asciz       "b3 is: "   
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -93,6 +93,8 @@ globalInit_end:
 ! --storing constant f3 with value 7.0
     set         f3, %l0
     add         %g0, %l0, %l0
+    set         f3, %l0
+    add         %g0, %l0, %l0
     set         float_4, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]
@@ -119,9 +121,13 @@ globalInit_end:
 ! --storing constant i1 with value 1.0
     set         i1, %l0
     add         %g0, %l0, %l0
+    set         i1, %l0
+    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant i2 with value 2.0
+    set         i2, %l0
+    add         %g0, %l0, %l0
     set         i2, %l0
     add         %g0, %l0, %l0
     set         2, %l1
@@ -200,15 +206,17 @@ globalInit_end:
 ! --storing constant b1 with value 1.0
     set         b1, %l0
     add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         b1, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
 ! --storing constant b2 with value 0.0
     set         b2, %l0
     add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         b2, %l0
+    add         %g0, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
 /* line number 31*/
 /* Storing b2 into b3 */
     set         b3, %l0

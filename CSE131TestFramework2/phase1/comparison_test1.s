@@ -11,7 +11,6 @@ float_1:        .single      0r30.0
 b:              .single      0r30.0      
 float_2:        .single      0r20.0      
 c:              .single      0r20.0      
-globalInit_:    .word        0           
 str_3:          .asciz       "4 is less than 5"
 str_4:          .asciz       "x is equal to 10"
 str_5:          .asciz       "y is greater than 10"
@@ -21,6 +20,7 @@ str_8:          .asciz       "z is less than or equal to 15"
 str_9:          .asciz       "y is not equal to 13"
 str_10:         .asciz       "a is less than b"
 str_11:         .asciz       "a is less than or equal to c"
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

@@ -1,11 +1,11 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-globalInit_:    .word        0           
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
 main_y:         .word        0           
 staticGuard_main_y:    .word        0           
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -37,12 +37,6 @@ globalInit_end:
     cmp         %g0, %l1
     bne     staticGuardLabel_main_x
     nop
-! --storing constant x with value 1.0
-    set         main_x, %l0
-    add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
     set         staticGuard_main_x, %l2
     set         1, %l3
     st          %l3, [%l2]
@@ -52,16 +46,24 @@ staticGuardLabel_main_x:
     cmp         %g0, %l1
     bne     staticGuardLabel_main_y
     nop
-! --storing constant y with value 0.0
-    set         main_y, %l0
-    add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
     set         staticGuard_main_y, %l2
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_main_y:
+! --storing constant x with value 1.0
+    set         main_x, %l0
+    add         %g0, %l0, %l0
+    set         main_x, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+! --storing constant y with value 0.0
+    set         main_y, %l0
+    add         %g0, %l0, %l0
+    set         main_y, %l0
+    add         %g0, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
 /* line number 6*/
 /* Printing bool x */
     set         main_x, %l1

@@ -6,9 +6,9 @@ x:              .single      0r0.0
 float_0:        .single      0r5.75      
 a:              .single      0r5.75      
 b:              .single      0r0.0       
-globalInit_:    .word        0           
 float_1:        .single      0r5.75      
 float_2:        .single      0r5.75      
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

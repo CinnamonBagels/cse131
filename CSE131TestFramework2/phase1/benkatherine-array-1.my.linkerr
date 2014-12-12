@@ -1,7 +1,3 @@
 rc.s:
 ../input.c:
 ../output.s:
-Undefined			first referenced
- symbol  			    in file
-x                                   rc.o
-ld: fatal: symbol referencing errors
