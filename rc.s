@@ -48,7 +48,6 @@ globalInit_end:
 /* Assigning converted Arithmetic Op to d */
     set         -8, %l2
     add         %fp, %l2, %l2
-    ld          [%l2], %l3
     st          %f1, [%l3]
 /* line number 6*/
 /* printing float d */
