@@ -1655,4 +1655,8 @@ class MyParser extends parser {
 	public STO doNegate(STO sto) {
 		return sto;
 	}
+	
+	public void DoCIN(STO sto){
+		generator.DoCIN(sto);
+	}
 }
