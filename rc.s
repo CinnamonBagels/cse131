@@ -106,79 +106,21 @@ arrayOutBounds_1:
 
     nop
 arrayEnd_1:
-/* line number 11*/
-/* Converting int x[2] to float. */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f1
-    ld          [%l1], %f1
-    fitos       %f1, %f1
-/* line number 11*/
-/* Assigning converted x[2] to e */
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    st          %f1, [%l2]
-/* line number 11*/
-/* Starting array access */
-    set         2, %l0
-    set         x, %l1
-    add         %g0, %l1, %l1
-    cmp         %l0, %g0
-    bl      arrayOutBounds_2
-    nop
-    cmp         %l0, 3
-    bge     arrayOutBounds_2
-    nop
-arrayInBounds_2:
-    mov         %l0, %o0
-    set         4, %o1
-    call    .mul
-    nop
-    mov         %o0, %l2
-    add         %l1, %l2, %l4
-    set         -12, %l5
-    add         %fp, %l5, %l6
-    st          %l4, [%l6]
-    ba      arrayEnd_2
-    nop
-arrayOutBounds_2:
-    set         arrayOutOfBounds, %o0
-    mov         %l0, %o1
-    set         3, %o2
-    call    printf
-    nop
-    set         1, %o0
-    call    exit
-
-    nop
-arrayEnd_2:
-/* line number 11*/
+/* line number 9*/
 /* Printing int x[2] */
     set         _intFmt, %o0
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 12*/
-/* printing float e */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
+    ld          [%l1], %o1
+    ld          [%l1], %o1
+    call    printf
     nop
-/* line number 12*/
-/* Done printing float. */
+/* line number 9*/
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 4) & -8

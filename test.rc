@@ -6,9 +6,6 @@ function : void main()
 {
   x[2] = 3;
 
-  float e = x[2]; 
-
   cout << x[2] << endl; // 3
-  cout << e << endl; // 3.00
 
 }
