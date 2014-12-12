@@ -1,9 +1,11 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x
+                 .global     x,y,z,q
+q:              .single      0r5.0       
 x:              .word        0           
-str_0:          .asciz       "end"       
+y:              .word        0           
+z:              .word        10          
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -31,152 +33,192 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-! --storing constant x with value 4.0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    set         4, %l1
-    st          %l1, [%l0]
-/* line number 4*/
-/* Printing int x */
-    set         _intFmt, %o0
-    set         x, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 4*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-! --storing constant x with value 5.0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    set         5, %l1
-    st          %l1, [%l0]
-/* line number 6*/
-/* setting y = x */
+/* line number 12*/
+/* setting a = x */
     set         -8, %l0
     add         %fp, %l0, %l0
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2
     st          %l2, [%l0]
-/* line number 6*/
+/* line number 12*/
 /* Done. */
-/* line number 6*/
-/* Printing int x */
-    set         _intFmt, %o0
+/* line number 12*/
+/* Prepping Arithmetic Calculations by loading */
     set         x, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 6*/
-/* Done printing int. */
-/* line number 6*/
-/* Printing int y */
+    ld          [%l1], %l0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 12*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 12*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 12*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 12*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 12*/
+/* Storing result of Binary Op */
+    set         -16, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 13*/
+/* setting b = int + int */
+    set         -20, %l0
+    add         %fp, %l0, %l0
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* line number 13*/
+/* Done. */
+/* line number 13*/
+/* Printing int a */
     set         _intFmt, %o0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
-/* line number 6*/
+/* line number 13*/
 /* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 8*/
-/* setting z = 0 */
-    set         0, %l0
-    st          %l0, [%fp-12]
-/* line number 8*/
-/* Done. */
-/* line number 8*/
-/* Storing x into z */
-    set         -12, %l6
+/* line number 14*/
+/* Printing int b */
+    set         _intFmt, %o0
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 14*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 15*/
+/* Prepping Arithmetic Calculations by loading */
+    set         5, %l0
+/* line number 15*/
+/* Adding */
+/* line number 15*/
+/* Storing w into  */
+    set         4, %l6
     add         %fp, %l6, %l6
-    set         x, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %l4
+    set         5, %l3
     st          %l4, [%l6]
-/* line number 8*/
-/* Printing int z */
-    set         _intFmt, %o0
-    set         -12, %l1
+    set         4, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 8*/
-/* Done printing int. */
-! --storing constant z with value 5.0
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    set         5, %l1
-    st          %l1, [%l0]
-/* line number 8*/
-/* Printing int z */
-    set         _intFmt, %o0
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 8*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 9*/
-/* Printing int x */
-    set         _intFmt, %o0
-    set         x, %l1
+    ld          [%l1], %f0
+    set         q, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 9*/
-/* Done printing int. */
-/* line number 9*/
-/* Printing int y */
-    set         _intFmt, %o0
-    set         -8, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fadds       %f0, %f1, %f3
+/* line number 15*/
+/* Storing result of Binary Op */
+    set         -24, %l4
+    add         %fp, %l4, %l4
+    st          %f3, [%l4]
+/* line number 16*/
+/* setting c = int + float */
+    set         -28, %l0
+    add         %fp, %l0, %l0
+    set         -24, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 16*/
+/* Done. */
+/* line number 17*/
+/* Converting int Arithmetic Op to float. */
+/* line number 17*/
+/* promoting */
+/* line number 17*/
+/* Storing Arithmetic Op into promoteCasting */
+    set         4, %l6
+    add         %fp, %l6, %l6
+    set         25, %l3
+    st          %l4, [%l6]
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+/* line number 17*/
+/* done promoting */
+/* line number 17*/
+/* Assigning converted Arithmetic Op to d */
+    set         -32, %l2
+    add         %fp, %l2, %l2
+    st          %f1, [%l2]
+/* line number 17*/
+/* printing float STO.VarSTO@76e8a7 */
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
     nop
-/* line number 9*/
-/* Done printing int. */
+/* line number 17*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 10*/
-/* Printing int y */
-    set         _intFmt, %o0
-    set         -8, %l1
+/* line number 18*/
+/* printing float STO.VarSTO@a45536 */
+    set         -32, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 18*/
+/* Done printing float. */
+    set         _endl, %o0
     call    printf
     nop
-/* line number 10*/
-/* Done printing int. */
-/* line number 10*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
+/* line number 19*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 19*/
+/* Adding */
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fadds       %f0, %f1, %f3
+/* line number 19*/
+/* Storing result of Binary Op */
+    set         -36, %l4
+    add         %fp, %l4, %l4
+    st          %f3, [%l4]
+/* line number 19*/
+/* printing float STO.ExprSTO@d66426 */
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 19*/
+/* Done printing float. */
+    set         _endl, %o0
     call    printf
     nop
-/* line number 10*/
-/* Done printing string. */
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 12) & -8
+SAVE.main = -(92 + 36) & -8
