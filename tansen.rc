@@ -1,4 +1,6 @@
 function : void main() {
 int x = 10;
 float y = x;
+
+float z = 1;
 }

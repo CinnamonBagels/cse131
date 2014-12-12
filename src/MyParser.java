@@ -307,7 +307,7 @@ class MyParser extends parser {
 //				}
 				
 				if(sto.isInitialized) {
-					//System.out.println(sto.getType().getName() + " " + sto.getType().isPointer());
+					System.out.println("DoVarDecl: " + sto.getType().getName() + " " + sto.getName());
 					generator.localVarInit(sto, (STO)lstIDs.get(sto));
 				}else{
 					//we dont initialize if inside function.

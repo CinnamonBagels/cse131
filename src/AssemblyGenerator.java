@@ -324,6 +324,7 @@ public class AssemblyGenerator {
 	public void localVarInit(STO left, STO right) {
 		//checking for automatic int -> float casting		
 		if(left.getType().isFloat() && right.getType().isInt()) {
+			System.out.println("localVarInit: " + left.getName() + " is a " + left.getType().getName() + " and " + right.getName() + " is a " + right.getType().getName());
 			storeConvertedVar(left,right);
 		} else if (!left.getType().isPointer()){
 			generateComment("setting " + left.getName() + " = " + right.getName());	
@@ -416,9 +417,6 @@ public class AssemblyGenerator {
 	public void storeVariable(STO dest, STO value) {
 		String dest_register = "";
 		
-		System.out.println("dest is " + dest.getName());
-		System.out.println("value is " + value.getName());
-		
 		if(value.getType().isFloat()) {
 			dest_register += Registers.f1;
 		} else {
@@ -447,7 +445,6 @@ public class AssemblyGenerator {
 	
 	public void storeConvertedVar(STO dest, STO source){
 		String register = "";
-		System.out.println("localVarInit: " + "source is: " + source.getType().getName() + " " + source.getName() + ", dest is " + dest.getType().getName() + " " + dest.getName());
 		
 		if(source.getType() instanceof IntegerType){
 			generateComment("Converting int " + source.getName() + " to float.");
