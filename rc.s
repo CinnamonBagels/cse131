@@ -49,7 +49,7 @@ globalInit_end:
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
-    fitos       %f0, %f0
+    fitos       %f1, %f1
     fcmps       %f0, %f1
     bg      greater_0
     nop
@@ -92,7 +92,7 @@ if_0:
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
-    fitos       %f0, %f0
+    fitos       %f1, %f1
     fcmps       %f0, %f1
     bg      greater_1
     nop

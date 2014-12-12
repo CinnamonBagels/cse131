@@ -986,6 +986,7 @@ public class AssemblyGenerator {
 		}
 		
 		boolean isBothInt = !leftFloat && !rightFloat;
+		
 		if(!rightFloat) {
 			this.loadVariable(Registers.l1,  right);
 		}
@@ -1028,9 +1029,9 @@ public class AssemblyGenerator {
 				}
 				
 				if(onlyLeftFloat) {
-					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
-				} else if(onlyRightFloat) {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 				
 				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
@@ -1084,9 +1085,9 @@ public class AssemblyGenerator {
 				}
 				
 				if(onlyLeftFloat) {
-					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
-				} else if(onlyRightFloat) {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 				
 				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
@@ -1141,9 +1142,10 @@ public class AssemblyGenerator {
 				}
 				
 				if(onlyLeftFloat) {
-					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
-				} else if(onlyRightFloat) {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				} 
+				if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 				
 				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
@@ -1198,9 +1200,9 @@ public class AssemblyGenerator {
 				}
 				
 				if(onlyLeftFloat) {
-					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
-				} else if(onlyRightFloat) {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 				
 				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
@@ -1254,9 +1256,9 @@ public class AssemblyGenerator {
 				}
 				
 				if(onlyLeftFloat) {
-					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
-				} else if(onlyRightFloat) {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 				
 				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
