@@ -75,6 +75,54 @@ arrayEnd_0:
     ld          [%l0], %l0
     set         3, %l1
     st          %l1, [%l0]
+/* line number 9*/
+/* Starting array access */
+    set         2, %l0
+    cmp         %l0, %g0
+    bl      arrayOutBounds_1
+    nop
+    cmp         %l0, 3
+    bge     arrayOutBounds_1
+    nop
+arrayInBounds_1:
+    mov         %l0, %o0
+    set         4, %o1
+    call    .mul
+    nop
+    mov         %o0, %l2
+    set         x, %l1
+    add         %g0, %l1, %l1
+    add         %l1, %l2, %l4
+    set         -8, %l5
+    add         %fp, %l5, %l6
+    st          %l4, [%l6]
+    ba      arrayEnd_1
+    nop
+arrayOutBounds_1:
+    set         arrayOutOfBounds, %o0
+    mov         %l0, %o1
+    set         3, %o2
+    call    printf
+    nop
+    set         1, %o0
+    call    exit
+
+    nop
+arrayEnd_1:
+/* line number 9*/
+/* Printing int x[2] */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 9*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore
