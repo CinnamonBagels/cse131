@@ -2,4 +2,6 @@ function : void main() {
 int x;
 
 cin >> x;
+
+cout << x << endl;
 }
