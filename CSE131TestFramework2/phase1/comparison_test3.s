@@ -15,7 +15,6 @@ float_3:        .single      0r3.5
 d:              .single      0r3.5       
 float_4:        .single      0r3.0       
 e:              .single      0r3.0       
-globalInit_:    .word        0           
 str_5:          .asciz       "1 is less than 1.5"
 str_6:          .asciz       "1 is greater than 0.5"
 str_7:          .asciz       "3 is less than 3.5"
@@ -32,6 +31,7 @@ float_17:       .single      0r1.5
 str_18:         .asciz       "1.5 is greater than or equal to 1.5"
 float_19:       .single      0r0.5       
 str_20:         .asciz       "0.5 is less than or equal to 0.5"
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

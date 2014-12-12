@@ -1,8 +1,8 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-globalInit_:    .word        0           
 float_0:        .single      0r1.5       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -30,6 +30,8 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant c with value 1.5
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         -8, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1

@@ -8,7 +8,6 @@ float_1:        .single      0r2.0
 f2:             .single      0r2.0       
 float_2:        .single      0r3.0       
 f3:             .single      0r3.0       
-globalInit_:    .word        0           
 float_3:        .single      0r5.0       
 float_4:        .single      0r10.0      
 float_5:        .single      0r15.0      
@@ -21,6 +20,7 @@ str_11:         .asciz       "f3 is: "
 str_12:         .asciz       "localf1 is: "
 str_13:         .asciz       "localf2 is: "
 str_14:         .asciz       "localf3 is: "
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -82,6 +82,8 @@ globalInit_end:
 /* Done. */
 /* line number 12*/
 /* setting f1 = localf1 */
+    set         -20, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -90,6 +92,8 @@ globalInit_end:
 /* Done. */
 /* line number 13*/
 /* setting f2 = localf2 */
+    set         -24, %l0
+    add         %fp, %l0, %l0
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -98,6 +102,8 @@ globalInit_end:
 /* Done. */
 /* line number 15*/
 /* setting f3 = localf3 */
+    set         -28, %l0
+    add         %fp, %l0, %l0
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

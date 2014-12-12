@@ -21,6 +21,15 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
 /* line number 5*/
 /* Incrementing */
     set         counter, %l1
@@ -98,15 +107,6 @@ SAVE.foo = -(92 + 16) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
     call    foo
     nop
 /* line number 17*/
@@ -114,6 +114,8 @@ globalInit_end:
     st          %o0, [%fp+-8]
 /* line number 18*/
 /* setting final = foo() */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -121,6 +123,8 @@ globalInit_end:
 /* line number 18*/
 /* Done. */
 ! --storing constant counter with value 0.0
+    set         counter, %l0
+    add         %g0, %l0, %l0
     set         counter, %l0
     add         %g0, %l0, %l0
     set         0, %l1
@@ -146,6 +150,8 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 20*/
 /* setting doubleFinal = int + int */
+    set         -24, %l0
+    add         %fp, %l0, %l0
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -153,6 +159,8 @@ globalInit_end:
 /* line number 20*/
 /* Done. */
 ! --storing constant counter with value 0.0
+    set         counter, %l0
+    add         %g0, %l0, %l0
     set         counter, %l0
     add         %g0, %l0, %l0
     set         0, %l1
@@ -180,6 +188,8 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 22*/
 /* setting tripleFinal = int + int */
+    set         -36, %l0
+    add         %fp, %l0, %l0
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -187,6 +197,8 @@ globalInit_end:
 /* line number 22*/
 /* Done. */
 ! --storing constant counter with value 0.0
+    set         counter, %l0
+    add         %g0, %l0, %l0
     set         counter, %l0
     add         %g0, %l0, %l0
     set         0, %l1

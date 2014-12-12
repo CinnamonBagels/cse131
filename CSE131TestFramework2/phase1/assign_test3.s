@@ -5,13 +5,13 @@
 f1:             .single      0r0.0       
 f2:             .single      0r0.0       
 f3:             .single      0r0.0       
-globalInit_:    .word        0           
 float_0:        .single      0r5.0       
 float_1:        .single      0r10.0      
 float_2:        .single      0r15.0      
 str_3:          .asciz       "f1 is: "   
 str_4:          .asciz       "f2 is: "   
 str_5:          .asciz       "f3 is: "   
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

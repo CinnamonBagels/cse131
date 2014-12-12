@@ -1,11 +1,11 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-globalInit_:    .word        0           
 str_0:          .asciz       "a before post++ is: "
 str_1:          .asciz       "a after post++ is: "
 str_2:          .asciz       "c should be: "
 str_3:          .asciz       "c should be: "
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

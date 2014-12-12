@@ -16,6 +16,7 @@ public class AssemblyGenerator {
 	public boolean inGlobalScope = true;
 	public List<String> tQueue = new Vector<String>();
 	public List<String> dQueue = new Vector<String>();
+	public List<String> bssQueue = new Vector<String>();
 	public Stack<Integer> ifElseStack = new Stack<Integer>();
 	public int stringLits = 0;
 	public int branches = 0;
@@ -31,6 +32,7 @@ public class AssemblyGenerator {
 	public int mainCounter = 0;
 	public int lineNumber = 0;
 	public boolean isStatic = false;
+	public boolean bssInit = false;
 	
 	public FuncSTO currentFunction = null;
 	
@@ -112,11 +114,14 @@ public class AssemblyGenerator {
 	}
 	
 	public void doBSS(STO sto){
-		generateASM(Strings.section, ".section", "\".bss\"");
-		generateASM(Strings.falign, Strings.align);
-		generateASM(Strings.init, sto.getName() + ":", ".skip", String.valueOf(sto.getType().getSize()));
+		if(!bssInit) {
+			bssQueue.add(assembleString(Strings.section, ".section", "\".bss\""));
+			bssQueue.add(assembleString(Strings.falign, Strings.align));
+			bssInit = true;
+		}
+		bssQueue.add(assembleString(Strings.init, sto.getName() + ":", ".skip", String.valueOf(sto.getType().getSize())));
 		gVars.add(sto.getName());
-		generateASM("\n");
+		bssQueue.add("\n");
 	}
 	
 	public void flushText(){
@@ -150,7 +155,6 @@ public class AssemblyGenerator {
 	
 	public void flushData(){
 		if(dQueue.size() > 0){
-			dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
 			beginData();
 		}else{
 			return;
@@ -206,6 +210,9 @@ public class AssemblyGenerator {
 	}
 	
 	public void beginFunction(FuncSTO fsto){
+		if(fsto.getName().equals("main")) {
+			this.flushText();
+		}
 		this.currentFunction = fsto;
 		String fname = fsto.getName();
 		generateASM(Strings.section, ".section", "\".text\"");
@@ -235,8 +242,8 @@ public class AssemblyGenerator {
 	
 	public void storeConstant(STO sto, ConstSTO csto){
 		generateASM("! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
-		//generateASM(Strings.tab + Strings.two_param, Instructions.set, sto.offset, Registers.l0);
-		//generateASM(Strings.tab + Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 		String register = "";
 		//we'll have to check if in struct later
 		//should make a new method for this.
@@ -247,7 +254,7 @@ public class AssemblyGenerator {
 		
 		
 		if(sto.isReference || sto.isDereferenced) {		
-			//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		
 		if(sto.getType().isInt() || sto.getType().isBool()){
@@ -313,9 +320,13 @@ public class AssemblyGenerator {
 	
 	public void end(){
 		try{
+			dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
 			if(dQueue.size() > 0){
 				flushData();
-			}			
+			}		
+			if(bssQueue.size() > 0) {
+				flushBSS();
+			}
 			write("\n");
 			internalConstants();
 			//flush text
@@ -327,6 +338,13 @@ public class AssemblyGenerator {
 		}
 	}
 	
+	private void flushBSS() {
+		// TODO Auto-generated method stub
+		for(String i : bssQueue) {
+			write(i);
+		}
+	}
+
 	public String assembleString(String temp, String ... args){
 		StringBuilder str = new StringBuilder();
 		str.append(String.format(temp, (Object[])args));
@@ -371,7 +389,9 @@ public class AssemblyGenerator {
 				generateASM(Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
 				generateASM(Strings.two_param, Instructions.set, right.offset, Registers.l1);
 				generateASM(Strings.three_param, Instructions.add, right.base, Registers.l1, Registers.l1);
-				
+				if(right.isReference || right.isDereferenced) {
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
+				}
 				if(right.getType().isFloat()) {
 					//l1 f0 l0
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
@@ -502,7 +522,7 @@ public class AssemblyGenerator {
 			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
 			if(sto.isReference || sto.isDereferenced) {
 				//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + sto.offset +"]", Registers.l1);
-				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
+				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
 			}
 			
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", register);
@@ -687,7 +707,6 @@ public class AssemblyGenerator {
 			this.loadVariable(Registers.l1,  right);
 		}
 		//this is pretty bad
-		System.out.println("evaluteBinary: " + left.getName() + " " + op.getName() + " " + right.getName());
 		if(op.getName().equals("+")) {
 			generateComment("Adding");
 			//both are ints, just add them. fck floats.
@@ -915,10 +934,6 @@ public class AssemblyGenerator {
 		generateComment("Starting array access");
 		loadVariable(Registers.l0, index);
 		
-		generateASM(Strings.two_param, Instructions.set, array.offset, Registers.l1);
-		generateASM(Strings.three_param, Instructions.add, array.base, Registers.l1, Registers.l1);
-		
-		//trying out annuled branch. not sure.
 		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
 		generateASM(Strings.one_param, Instructions.bl, Strings.arrayOutBounds + arrayDecl);
 		generateASM(Strings.nop);
@@ -928,14 +943,21 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		generateASM(Strings.label, Strings.arrayInBounds + arrayDecl);
+		
 		//generateASM(Strings.three_param, Instructions.add, "1", Registers.l0, Registers.l0);
 		this.doMove(Registers.l0, Registers.o0);
-		
 		generateASM(Strings.two_param, Instructions.set, Integer.toString(((ArrayType) array.getType()).getContainingType().getSize()), Registers.o1);
 		generateASM(Strings.call_op, Instructions.mul);
 		generateASM(Strings.nop);
 		
 		this.doMove(Registers.o0, Registers.l2);
+		//address of array
+		generateASM(Strings.two_param, Instructions.set, array.offset, Registers.l1);
+		generateASM(Strings.three_param, Instructions.add, array.base, Registers.l1, Registers.l1);
+		
+		//storing into array
+		
+		//
 		generateASM(Strings.three_param, Instructions.add, Registers.l1, Registers.l2, Registers.l4);
 		generateASM(Strings.two_param, Instructions.set, accessSTO.offset, Registers.l5);
 		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l6);
@@ -1016,7 +1038,45 @@ public class AssemblyGenerator {
 				comparisons++;
 				register = Registers.l3;
 			} else {
-				//handle floats
+				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
+				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
+				STO temp = new ExprSTO("temp", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				//load right
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, left);
+				} else {
+					loadVariable(Registers.f0, left);
+				}
+				
+				//load left
+				if(left.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, right);
+				} else {
+					loadVariable(Registers.f1, right);
+				}
+				
+				if(onlyLeftFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
+				generateASM(Strings.one_param, Instructions.bl, Strings.lessThan + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.lessThanEnd + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.lessThan + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.lessThanEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
 			}
 		} else if(op.getName().equals("<=")) {
 			generateComment("Starting Less than Equal");
@@ -1034,6 +1094,45 @@ public class AssemblyGenerator {
 				register = Registers.l3;
 			} else {
 				//handle floats
+				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
+				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
+				STO temp = new ExprSTO("temp", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				//load right
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, left);
+				} else {
+					loadVariable(Registers.f0, left);
+				}
+				
+				//load left
+				if(left.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, right);
+				} else {
+					loadVariable(Registers.f1, right);
+				}
+				
+				if(onlyLeftFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
+				generateASM(Strings.one_param, Instructions.ble, Strings.lessEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.lessEqualEnd + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.lessEqual + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.lessEqualEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
 			}
 		} else if(op.getName().equals(">")) {
 			generateComment("Starting greater than");
@@ -1051,6 +1150,46 @@ public class AssemblyGenerator {
 				register = Registers.l3;
 			} else {
 				//handle floats
+				//handle floats
+				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
+				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
+				STO temp = new ExprSTO("temp", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				//load right
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, left);
+				} else {
+					loadVariable(Registers.f0, left);
+				}
+				
+				//load left
+				if(left.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, right);
+				} else {
+					loadVariable(Registers.f1, right);
+				}
+				
+				if(onlyLeftFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
+				generateASM(Strings.one_param, Instructions.bg, Strings.greaterThan + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.greaterThanEnd + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.greaterThan + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.greaterThanEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
 			}
 		} else if(op.getName().equals(">=")) {
 			generateComment("Starting greater than equal");
@@ -1068,6 +1207,46 @@ public class AssemblyGenerator {
 				register = Registers.l3;
 			} else {
 				//handle floats
+				//handle floats
+				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
+				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
+				STO temp = new ExprSTO("temp", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				//load right
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, left);
+				} else {
+					loadVariable(Registers.f0, left);
+				}
+				
+				//load left
+				if(left.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, right);
+				} else {
+					loadVariable(Registers.f1, right);
+				}
+				
+				if(onlyLeftFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
+				generateASM(Strings.one_param, Instructions.bge, Strings.greaterEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.greaterEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.greaterEqual + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.greaterEqualEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
 			}
 		} else if(op.getName().equals("!=")) {
 			generateComment("Starting not equal");
@@ -1085,6 +1264,45 @@ public class AssemblyGenerator {
 				register = Registers.l3;
 			} else {
 				//handle floats
+				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
+				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
+				STO temp = new ExprSTO("temp", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				//load right
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, left);
+				} else {
+					loadVariable(Registers.f0, left);
+				}
+				
+				//load left
+				if(left.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, right);
+				} else {
+					loadVariable(Registers.f1, right);
+				}
+				
+				if(onlyLeftFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				}
+				
+				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
+				generateASM(Strings.one_param, Instructions.bne, Strings.nEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.nEqual + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.nEqual + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.nEqualEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
 			}
 		} else {
 			generateComment("whoops, Comparison Operator broke on " + left.getName() + " " + op.getName() + " " + right.getName());

@@ -1,9 +1,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-globalInit_:    .word        0           
 str_0:          .asciz       " * "       
 str_1:          .asciz       " = "       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -64,6 +64,8 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 8*/
 /* setting m = int * int */
+    set         -20, %l0
+    add         %fp, %l0, %l0
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

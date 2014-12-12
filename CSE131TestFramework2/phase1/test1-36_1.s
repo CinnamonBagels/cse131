@@ -5,8 +5,8 @@
 float_0:        .single      0r66.99     
 glb3:           .single      0r66.99     
 float_1:        .single      0r99.44     
-globalInit_:    .word        0           
 str_2:          .asciz       " "         
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -24,6 +24,15 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo4:
     set         SAVE.foo4, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
 /* line number 7*/
 /* Returning value from foo4 */
     set         float_1, %l0
@@ -41,15 +50,6 @@ SAVE.foo4 = -(92 + 4) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
     call    foo4
     nop
 /* line number 10*/
@@ -57,6 +57,8 @@ globalInit_end:
     st          %f0, [%fp+-8]
 /* line number 12*/
 /* setting d = foo4() */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

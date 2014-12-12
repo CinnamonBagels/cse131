@@ -9,7 +9,6 @@ ellington:      .word        0
 mingus:         .word        0           
 monk:           .word        0           
 brubeck:        .word        0           
-globalInit_:    .word        0           
 str_0:          .asciz       "jazzy jazz jazz"
 str_1:          .asciz       "jazzy jazz jazz"
 str_2:          .asciz       "jazzy jazz jazz"
@@ -19,6 +18,7 @@ str_5:          .asciz       "jazzy jazz jazz"
 str_6:          .asciz       "jazzy jazz jazz"
 str_7:          .asciz       "no print"  
 str_8:          .asciz       "jazzy jazz jazz"
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -48,9 +48,13 @@ globalInit_end:
 ! --storing constant davis with value 10.0
     set         davis, %l0
     add         %g0, %l0, %l0
+    set         davis, %l0
+    add         %g0, %l0, %l0
     set         10, %l1
     st          %l1, [%l0]
 ! --storing constant coltrane with value 9.0
+    set         coltrane, %l0
+    add         %g0, %l0, %l0
     set         coltrane, %l0
     add         %g0, %l0, %l0
     set         9, %l1
@@ -58,9 +62,13 @@ globalInit_end:
 ! --storing constant parker with value 8.0
     set         parker, %l0
     add         %g0, %l0, %l0
+    set         parker, %l0
+    add         %g0, %l0, %l0
     set         8, %l1
     st          %l1, [%l0]
 ! --storing constant ellington with value 7.0
+    set         ellington, %l0
+    add         %g0, %l0, %l0
     set         ellington, %l0
     add         %g0, %l0, %l0
     set         7, %l1
@@ -68,14 +76,20 @@ globalInit_end:
 ! --storing constant mingus with value 6.0
     set         mingus, %l0
     add         %g0, %l0, %l0
+    set         mingus, %l0
+    add         %g0, %l0, %l0
     set         6, %l1
     st          %l1, [%l0]
 ! --storing constant monk with value 5.0
     set         monk, %l0
     add         %g0, %l0, %l0
+    set         monk, %l0
+    add         %g0, %l0, %l0
     set         5, %l1
     st          %l1, [%l0]
 ! --storing constant brubeck with value 4.0
+    set         brubeck, %l0
+    add         %g0, %l0, %l0
     set         brubeck, %l0
     add         %g0, %l0, %l0
     set         4, %l1

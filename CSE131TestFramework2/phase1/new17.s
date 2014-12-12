@@ -9,9 +9,9 @@ staticGuard_foo_x:    .word        0
 foo_y:          .word        0           
 staticGuard_foo_y:    .word        0           
 str_0:          .asciz       "foo"       
-globalInit_:    .word        0           
 str_1:          .asciz       "main"      
 str_2:          .asciz       "end"       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -29,17 +29,20 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
     set         staticGuard_foo_x, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
     bne     staticGuardLabel_foo_x
     nop
-! --storing constant x with value 1.0
-    set         foo_x, %l0
-    add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
     set         staticGuard_foo_x, %l2
     set         1, %l3
     st          %l3, [%l2]
@@ -49,16 +52,24 @@ staticGuardLabel_foo_x:
     cmp         %g0, %l1
     bne     staticGuardLabel_foo_y
     nop
-! --storing constant y with value 0.0
-    set         foo_y, %l0
-    add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
     set         staticGuard_foo_y, %l2
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_foo_y:
+! --storing constant x with value 1.0
+    set         foo_x, %l0
+    add         %g0, %l0, %l0
+    set         foo_x, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+! --storing constant y with value 0.0
+    set         foo_y, %l0
+    add         %g0, %l0, %l0
+    set         foo_y, %l0
+    add         %g0, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -167,15 +178,6 @@ SAVE.foo = -(92 + 4) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0

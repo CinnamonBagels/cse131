@@ -3,8 +3,8 @@
                 .align 4
                  .global     x
 x:              .word        99          
-globalInit_:    .word        0           
 str_0:          .asciz       " "         
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

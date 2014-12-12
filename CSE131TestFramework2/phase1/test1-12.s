@@ -1,11 +1,12 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-globalInit_:    .word        0           
 float_0:        .single      0r420.25    
 float_1:        .single      0r662.5     
 float_2:        .single      0r1082.75   
-str_3:          .asciz       "\n"        
+float_3:        .single      0r1082.75   
+str_4:          .asciz       "\n"        
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -52,7 +53,7 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
-    set         float_2, %l0
+    set         float_3, %l0
     ld          [%l0], %f0
     call    printFloat
     nop
@@ -60,7 +61,7 @@ globalInit_end:
 /* line number 11*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* line number 11*/

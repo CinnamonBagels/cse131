@@ -1,10 +1,18 @@
-
-int[3] x;
+float x = 6.0;
+int y = 5;
 
 function : void main()
 {
-  x[2] = 3;
+  if(x>y)
+  {
+    cout << "Katherine ";
+    if(x>y)
+    {
+      cout << "is ";
+    }
+    
+    cout << "a ";
+  }
 
-  float e = x[2]; 
-
+  cout << "loser" << endl;
 }

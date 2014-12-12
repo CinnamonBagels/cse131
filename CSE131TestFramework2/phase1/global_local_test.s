@@ -3,8 +3,8 @@
                 .align 4
                  .global     x
 x:              .word        5           
-globalInit_:    .word        0           
 str_0:          .asciz       " "         
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -33,6 +33,8 @@ main:
 globalInit_end:
 /* line number 4*/
 /* setting y = x */
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2

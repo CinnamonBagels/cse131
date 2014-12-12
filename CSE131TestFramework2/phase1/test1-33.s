@@ -61,6 +61,8 @@ if_1:
 ! --storing constant x with value 10.0
     set         -8, %l0
     add         %fp, %l0, %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         10, %l1
     st          %l1, [%l0]
     ba      endIf_2
@@ -92,6 +94,8 @@ if_4:
     nop
 if_5:
 ! --storing constant x with value 14.0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         -8, %l0
     add         %fp, %l0, %l0
     set         14, %l1

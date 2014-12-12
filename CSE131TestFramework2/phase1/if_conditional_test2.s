@@ -9,7 +9,6 @@ dream4:         .word        3
 dream5:         .word        2           
 dream6:         .word        1           
 winning:        .word        1           
-globalInit_:    .word        0           
 str_0:          .asciz       "First level of Inception"
 str_1:          .asciz       "Second level of Inception"
 str_2:          .asciz       "Third level of Inception"
@@ -30,6 +29,7 @@ str_16:         .asciz       "Fifth level of Inception"
 str_17:         .asciz       "Bonzai!"   
 str_18:         .asciz       "Fifth level of Inception"
 str_19:         .asciz       "Bonzai!"   
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

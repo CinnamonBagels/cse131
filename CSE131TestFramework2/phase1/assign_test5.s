@@ -5,12 +5,12 @@
 rick:           .word        1           
 ankur:          .word        0           
 rickAndAnkur:    .word        0           
-globalInit_:    .word        0           
 str_0:          .asciz       "rick is: " 
 str_1:          .asciz       "ankur is: "
 str_2:          .asciz       "rickAndAnkur is: "
 str_3:          .asciz       "a is: "    
 str_4:          .asciz       "b is: "    
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -45,6 +45,8 @@ globalInit_end:
 /* Done. */
 /* line number 10*/
 /* setting b = a */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2

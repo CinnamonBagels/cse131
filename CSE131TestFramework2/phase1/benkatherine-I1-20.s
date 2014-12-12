@@ -7,7 +7,6 @@ y:              .word        0
 staticGuard_y:    .word        0           
 z:              .word        0           
 staticGuard_z:    .word        0           
-globalInit_:    .word        0           
 main_a:         .word        0           
 staticGuard_main_a:    .word        0           
 main_b:         .word        0           
@@ -16,6 +15,7 @@ main_c:         .word        0
 staticGuard_main_c:    .word        0           
 main_d:         .word        0           
 staticGuard_main_d:    .word        0           
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -33,6 +33,18 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+! --storing constant y with value 4.0
+/* line number 6*/
+/* Storing y into z */
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
     set         staticGuard_x, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
@@ -47,7 +59,8 @@ staticGuardLabel_x:
     cmp         %g0, %l1
     bne     staticGuardLabel_y
     nop
-! --storing constant y with value 4.0
+    set         y, %l0
+    add         %g0, %l0, %l0
     set         y, %l0
     add         %g0, %l0, %l0
     set         4, %l1
@@ -61,8 +74,6 @@ staticGuardLabel_y:
     cmp         %g0, %l1
     bne     staticGuardLabel_z
     nop
-/* line number 6*/
-/* Storing y into z */
     set         z, %l0
     add         %g0, %l0, %l0
     set         y, %l2
@@ -73,15 +84,6 @@ staticGuardLabel_y:
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_z:
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
     set         staticGuard_main_a, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
@@ -96,11 +98,6 @@ staticGuardLabel_main_a:
     cmp         %g0, %l1
     bne     staticGuardLabel_main_b
     nop
-! --storing constant b with value 4.0
-    set         main_b, %l0
-    add         %g0, %l0, %l0
-    set         4, %l1
-    st          %l1, [%l0]
     set         staticGuard_main_b, %l2
     set         1, %l3
     st          %l3, [%l2]
@@ -110,14 +107,6 @@ staticGuardLabel_main_b:
     cmp         %g0, %l1
     bne     staticGuardLabel_main_c
     nop
-/* line number 11*/
-/* Storing a into c */
-    set         main_c, %l0
-    add         %g0, %l0, %l0
-    set         main_a, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
     set         staticGuard_main_c, %l2
     set         1, %l3
     st          %l3, [%l2]
@@ -127,6 +116,25 @@ staticGuardLabel_main_c:
     cmp         %g0, %l1
     bne     staticGuardLabel_main_d
     nop
+    set         staticGuard_main_d, %l2
+    set         1, %l3
+    st          %l3, [%l2]
+staticGuardLabel_main_d:
+! --storing constant b with value 4.0
+    set         main_b, %l0
+    add         %g0, %l0, %l0
+    set         main_b, %l0
+    add         %g0, %l0, %l0
+    set         4, %l1
+    st          %l1, [%l0]
+/* line number 11*/
+/* Storing a into c */
+    set         main_c, %l0
+    add         %g0, %l0, %l0
+    set         main_a, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %l1
+    st          %l1, [%l0]
 /* line number 12*/
 /* Storing b into d */
     set         main_d, %l0
@@ -135,10 +143,6 @@ staticGuardLabel_main_c:
     add         %g0, %l2, %l2
     ld          [%l2], %l1
     st          %l1, [%l0]
-    set         staticGuard_main_d, %l2
-    set         1, %l3
-    st          %l3, [%l2]
-staticGuardLabel_main_d:
 main_end:
     ret 
     restore

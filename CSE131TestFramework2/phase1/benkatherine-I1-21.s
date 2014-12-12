@@ -38,6 +38,8 @@ globalInit_end:
 /* Done. */
 /* line number 8*/
 /* setting y = x */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2

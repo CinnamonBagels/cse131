@@ -5,9 +5,9 @@
 float_0:        .single      0r1.22      
 x:              .single      0r1.22      
 str_1:          .asciz       "foo"       
-globalInit_:    .word        0           
 str_2:          .asciz       "main"      
 str_3:          .asciz       "end"       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -25,6 +25,15 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
 /* line number 5*/
 /* printing string */
     set         _strFmt, %o0
@@ -53,15 +62,6 @@ SAVE.foo = -(92 + 4) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
 /* line number 11*/
 /* printing string */
     set         _strFmt, %o0

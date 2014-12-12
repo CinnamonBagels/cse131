@@ -33,9 +33,10 @@ globalInit_end:
 ! --storing constant a with value 0.0
     set         a, %l0
     add         %g0, %l0, %l0
-    set         null, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         a, %l0
+    add         %g0, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
 /* line number 7*/
 /* setting b = true */
     set         1, %l0

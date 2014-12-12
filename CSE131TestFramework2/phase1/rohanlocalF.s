@@ -31,6 +31,18 @@ globalInit_end:
 ! --storing constant c with value 5.0
     set         -8, %l0
     add         %fp, %l0, %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+/* line number 5*/
+/* Storing 5 into promoteCasting */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         5, %l1
+    st          %l1, [%l0]
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
     set         null, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]

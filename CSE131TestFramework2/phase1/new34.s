@@ -4,9 +4,9 @@
                  .global     x
 float_0:        .single      0r3.33      
 x:              .single      0r3.33      
-globalInit_:    .word        0           
 str_1:          .asciz       "main"      
 str_2:          .asciz       "end"       
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"

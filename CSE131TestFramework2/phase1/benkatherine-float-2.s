@@ -1,11 +1,11 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     y,x
-y:              .single      0r0.0       
+                 .global     x,y
 x:              .single      0r0.0       
-globalInit_:    .word        0           
+y:              .single      0r0.0       
 float_0:        .single      0r94.25     
+globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -33,6 +33,8 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant x with value 94.25
+    set         x, %l0
+    add         %g0, %l0, %l0
     set         x, %l0
     add         %g0, %l0, %l0
     set         float_0, %l1

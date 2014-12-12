@@ -55,6 +55,8 @@ globalInit_end:
 /* line number 8*/
 /* setting sinatra = Validating int and int as an IntegerType for operator: %...
  */
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -120,6 +122,8 @@ globalInit_end:
 /* line number 9*/
 /* setting fitzgerald = Validating int and int as an IntegerType for operator: %...
  */
+    set         -28, %l0
+    add         %fp, %l0, %l0
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
@@ -256,6 +260,8 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 11*/
 /* setting bono = int + int */
+    set         -60, %l0
+    add         %fp, %l0, %l0
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
