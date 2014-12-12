@@ -2,6 +2,7 @@
     ld          [%l0], %l0
     cmp         %l0, %g0
     bne     globalInit_end
+    nop
 ! --globals--
                 .section     ".data"
                 .align 4
@@ -33,6 +34,7 @@ main:
     ld          [%l0], %l0
     cmp         %l0, %g0
     bne     globalInit_end
+    nop
 /* line number 3*/
 /* Prepping Arithmetic Calculations by loading */
     set         x, %l1

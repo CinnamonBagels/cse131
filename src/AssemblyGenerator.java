@@ -1201,6 +1201,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0));
 		write(assembleString(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0));
 		write(assembleString(Strings.one_param, Instructions.bne, Strings.globalInit + "end"));
+		write(Strings.nop);
 	}
 	
 	public void globalInitEnd() {
