@@ -713,6 +713,13 @@ public class AssemblyGenerator {
 	}
 
 	public void evaluateBinary(STO left, STO right, BinaryOp op, STO sto) {
+		if(right.isConst() && right.getType().isFloat() && (right.base == null || right.offset == null)) {
+			assignFloat((ConstSTO)right);
+		}
+		
+		if(left.isConst() && left.getType().isFloat() && (left.base == null || left.offset == null)) {
+			assignFloat((ConstSTO)right);
+		}
 		// TODO Auto-generated method stub
 		boolean leftFloat = left.getType().isFloat();
 		boolean rightFloat = right.getType().isFloat();
