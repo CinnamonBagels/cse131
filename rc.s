@@ -142,6 +142,8 @@ globalInit_end:
     add         %g0, %l0, %l0
     set         50, %l1
     st          %l1, [%l0]
+    call    bar
+    nop
 main_end:
     ret 
     restore

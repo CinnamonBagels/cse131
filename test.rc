@@ -22,6 +22,6 @@ function : void main()
   fooRec = 1;
   foobazRec = 50;
   
-  foo();
+  bar();
   
 }
