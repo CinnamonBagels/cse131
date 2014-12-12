@@ -46,6 +46,11 @@ globalInit_end:
     add         %g0, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
+    call printFloat
+    nop
+    mov %f1, %f0
+    call printFloat
+    nop
     fcmps       %f0, %f1
     bg      greater_0
     nop
@@ -60,10 +65,6 @@ greaterEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set _intFmt, %o0
-    mov %l3, %o1
-    call printf
-    nop
 /* line number 8*/
 /* setting z = Validating ComparisonOp float and int as a BooleanType for operator: >...
  */
