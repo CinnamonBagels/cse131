@@ -33,11 +33,11 @@ globalInit_end:
 /* line number 6*/
 /* promoting */
 /* line number 6*/
-/* Storing Arithmetic Op into promoteCasting */
+/* Storing variable Arithmetic Op into promoteCasting */
     set         4, %l6
     add         %fp, %l6, %l6
     set         25, %l3
-    st          %l4, [%l6]
+    st          %l3, [%l6]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -50,7 +50,7 @@ globalInit_end:
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 6*/
-/* printing float STO.VarSTO@5660d6 */
+/* printing float STO.VarSTO@b7b3f9 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

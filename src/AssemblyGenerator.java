@@ -483,7 +483,7 @@ public class AssemblyGenerator {
 		} else {
 			dest_register += Registers.l6;
 		}
-		generateComment("Storing " + value.getName() + " into " + dest.getName());
+		generateComment("Storing variable " + value.getName() + " into " + dest.getName());
 		//setting destination
 		generateASM(Strings.two_param, Instructions.set, dest.offset, dest_register);
 		generateASM(Strings.three_param, Instructions.add, dest.base, dest_register, dest_register);
@@ -494,14 +494,16 @@ public class AssemblyGenerator {
 		
 		if(value.isConst() && !value.getType().isFloat()) {
 			generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) value).getIntValue(), Registers.l3);
+			generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + dest_register + "]");
+
 		} else {
 			//setting value.
 			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l3);
 			generateASM(Strings.three_param, Instructions.add, value.base, Registers.l3, Registers.l3);
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", Registers.l4);
+			generateASM(Strings.two_param, Instructions.store, Registers.l4, "[" + dest_register + "]");
+
 		}
-		
-		generateASM(Strings.two_param, Instructions.store, Registers.l4, "[" + dest_register + "]");
 	}
 	
 	public void storeConvertedVar(STO dest, STO source){
