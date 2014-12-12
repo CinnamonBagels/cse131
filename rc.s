@@ -50,7 +50,7 @@ globalInit_end:
 /* done promoting */
     st          %f1, [%l0]
 /* line number 7*/
-/* printing float STO.VarSTO@7c3885 */
+/* printing float STO.VarSTO@5660d6 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

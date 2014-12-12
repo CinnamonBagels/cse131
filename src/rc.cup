@@ -972,7 +972,8 @@ Designator ::= T_STAR Designator:_1
 							} else {				
 								//can also do neg reg, reg							
 								ConstSTO newConst = new ConstSTO("-1", new IntegerType());
-								RESULT = ((MyParser) parser).doNegate(_1);
+								RESULT = ((MyParser) parser).DoBinaryOp(_1, new MulOp("*"), newConst);
+								//RESULT = ((MyParser) parser).doNegate(_1);
 							}
 						} else {
 							RESULT = _1;
