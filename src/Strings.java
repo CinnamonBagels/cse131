@@ -79,4 +79,6 @@ public class Strings {
     public static final String negEnd = "negEnd_";
     public static final String functionEnd = "_end";
     public static final String globalInit = "globalInit_";
+    public static final String equal = "equal_";
+    public static final String equalEnd = "equalEnd_";
 }

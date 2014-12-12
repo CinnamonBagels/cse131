@@ -1333,6 +1333,62 @@ public class AssemblyGenerator {
 				comparisons++;
 				register = Registers.l3;
 			}
+		} else if(op.getName().equals("==")) {
+			generateComment("Starting == equal");
+			if(isBothInt) {
+				generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
+				generateASM(Strings.one_param, Instructions.be, Strings.equal + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.equal + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.equal + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.equalEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
+			} else {
+				//handle floats
+				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
+				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
+				STO temp = new ExprSTO("temp", new FloatType());
+				temp.offset = "4";
+				temp.base = Registers.fp;
+				
+				//load right
+				if(left.isConst()) {
+					this.storeVariable(temp, left);
+					this.loadVariable(Registers.f0, left);
+				} else {
+					loadVariable(Registers.f0, left);
+				}
+				
+				//load left
+				if(left.isConst()) {
+					this.storeVariable(temp, right);
+					this.loadVariable(Registers.f1, right);
+				} else {
+					loadVariable(Registers.f1, right);
+				}
+				
+				if(onlyLeftFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
+				} else if(onlyRightFloat) {
+					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+				}
+				
+				generateASM(Strings.two_param, Instructions.fcmps, Registers.f0, Registers.f1);
+				generateASM(Strings.one_param, Instructions.fbe, Strings.equal + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.two_param, Instructions.set, "0", Registers.l3);
+				generateASM(Strings.one_param, Instructions.ba, Strings.equal + comparisons);
+				generateASM(Strings.nop);
+				generateASM(Strings.label, Strings.equal + comparisons);
+				generateASM(Strings.two_param, Instructions.set, "1", Registers.l3);
+				generateASM(Strings.label, Strings.equalEnd + comparisons);
+				comparisons++;
+				register = Registers.l3;
+			}
 		} else {
 			generateComment("whoops, Comparison Operator broke on " + left.getName() + " " + op.getName() + " " + right.getName());
 		}
