@@ -4,11 +4,6 @@
                  .global     i,j
 i:              .word        10          
 j:              .word        0           
-str_0:          .asciz       " "         
-str_1:          .asciz       " "         
-str_2:          .asciz       " "         
-str_3:          .asciz       " "         
-str_4:          .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -120,7 +115,7 @@ globalInit_end:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-/* line number 11*/
+/* line number 10*/
 /* setting l = int + int */
     set         -24, %l0
     add         %fp, %l0, %l0
@@ -128,105 +123,8 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     st          %l2, [%l0]
-/* line number 11*/
+/* line number 10*/
 /* Done. */
-/* line number 11*/
-/* Printing int i */
-    set         _intFmt, %o0
-    set         i, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing int. */
-/* line number 11*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing string. */
-/* line number 11*/
-/* Printing int j */
-    set         _intFmt, %o0
-    set         j, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing int. */
-/* line number 11*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_1, %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing string. */
-/* line number 11*/
-/* Printing int k */
-    set         _intFmt, %o0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing int. */
-/* line number 11*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_2, %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing string. */
-/* line number 11*/
-/* Printing int l */
-    set         _intFmt, %o0
-    set         -24, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing int. */
-/* line number 11*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_3, %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing string. */
-/* line number 11*/
-/* printf on int */
-    set         _intFmt, %o0
-    set         60, %o1
-    call    printf
-    nop
-
-/* line number 11*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_4, %o1
-    call    printf
-    nop
-/* line number 11*/
-/* Done printing string. */
-/* line number 11*/
-/* printf on int */
-    set         _intFmt, %o0
-    set         -666, %o1
-    call    printf
-    nop
-
-    set         _endl, %o0
-    call    printf
-    nop
 main_end:
     ret 
     restore
