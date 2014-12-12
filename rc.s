@@ -121,7 +121,7 @@ globalInit_end:
     set         4, %l0
     add         %fp, %l0, %l0
     set         5, %l3
-    st          %l3, [%l6]
+    st          %l3, [%l0]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -154,7 +154,7 @@ globalInit_end:
     set         4, %l0
     add         %fp, %l0, %l0
     set         25, %l3
-    st          %l3, [%l6]
+    st          %l3, [%l0]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -167,7 +167,7 @@ globalInit_end:
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 17*/
-/* printing float STO.VarSTO@17b6643 */
+/* printing float STO.VarSTO@76e8a7 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -179,7 +179,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 18*/
-/* printing float STO.VarSTO@76e8a7 */
+/* printing float STO.VarSTO@a45536 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
