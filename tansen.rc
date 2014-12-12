@@ -1,6 +1,7 @@
 function : void main() {
-float x = 10.0;
-float y = 10.0;
-float z = x * y;
-cout << z << endl;
+int x;
+if(true && false){
+  x = 1;
+}
+cout << x << endl;
 }
