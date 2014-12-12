@@ -1,5 +1,8 @@
 /*Testing assignment in a global scope*/
 
+int x;
+int y;
+int z = 10;
 float q = 5;
 const int w = 5;
 

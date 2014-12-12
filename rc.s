@@ -1,7 +1,10 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     q
+                 .global     x,y,z,q
+x:              .word        0           
+y:              .word        0           
+z:              .word        10          
 q:              .single      0r5.0       
 globalInit_:    .word        0           
 
@@ -30,12 +33,12 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 8*/
+/* line number 11*/
 /* Prepping Arithmetic Calculations by loading */
     set         5, %l0
-/* line number 8*/
+/* line number 11*/
 /* Adding */
-/* line number 8*/
+/* line number 11*/
 /* Storing w into  */
     set         4, %l0
     add         %fp, %l0, %l0
@@ -49,12 +52,12 @@ globalInit_end:
     ld          [%l1], %f1
     fitos       %f0, %f0
     fadds       %f0, %f1, %f3
-/* line number 8*/
+/* line number 11*/
 /* Storing result of Binary Op */
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %f3, [%l4]
-/* line number 10*/
+/* line number 13*/
 /* setting c = int + float */
     set         -12, %l0
     add         %fp, %l0, %l0
@@ -62,7 +65,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
-/* line number 10*/
+/* line number 13*/
 /* Done. */
 main_end:
     ret 
