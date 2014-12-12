@@ -98,12 +98,12 @@ globalInit_end:
 /* Done. */
 /* line number 8*/
 /* Storing x into z */
-    set         -12, %l4
-    add         %fp, %l4, %l4
+    set         -12, %l6
+    add         %fp, %l6, %l6
     set         x, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %l4
-    st          %l3, [%l4]
+    st          %l4, [%l6]
 /* line number 8*/
 /* Printing int z */
     set         _intFmt, %o0
