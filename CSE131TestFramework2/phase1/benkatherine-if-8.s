@@ -2,9 +2,9 @@
                 .section     ".data"
                 .align 4
                  .global     x,y
-x:              .word        6           
 float_0:        .single      0r5.0       
 y:              .single      0r5.0       
+x:              .word        6           
 str_1:          .asciz       "Katherine "
 str_2:          .asciz       "is "       
 str_3:          .asciz       "a "        

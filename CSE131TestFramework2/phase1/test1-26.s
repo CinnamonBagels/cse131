@@ -4,8 +4,13 @@
                  .global     f1,i,f2
 float_0:        .single      0r5.5       
 f1:             .single      0r5.5       
-i:              .word        12          
 f2:             .single      0r0         
+float_12:       .single      0r191.0     
+float_13:       .single      0r191.0     
+float_15:       .single      0r191.0     
+float_16:       .single      0r1337.0    
+float_17:       .single      0r1337.0    
+i:              .word        12          
 str_1:          .asciz       "global: "  
 str_2:          .asciz       " * "       
 str_3:          .asciz       " = "       
@@ -17,12 +22,7 @@ str_8:          .asciz       " * "
 str_9:          .asciz       " = "       
 str_10:         .asciz       "int const * float const: "
 str_11:         .asciz       " * "       
-float_12:       .single      0r191.0     
-float_13:       .single      0r191.0     
 str_14:         .asciz       " = "       
-float_15:       .single      0r191.0     
-float_16:       .single      0r1337.0    
-float_17:       .single      0r1337.0    
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --

@@ -2,9 +2,9 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z
+z:              .single      0r0.0       
 x:              .word        0           
 y:              .word        0           
-z:              .single      0r0.0       
 str_0:          .asciz       "main"      
 str_1:          .asciz       " "         
 str_2:          .asciz       " "         

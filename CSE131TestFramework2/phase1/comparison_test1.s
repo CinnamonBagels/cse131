@@ -2,15 +2,15 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z,a,b,c
-x:              .word        10          
-y:              .word        12          
-z:              .word        14          
 float_0:        .single      0r20.0      
 a:              .single      0r20.0      
 float_1:        .single      0r30.0      
 b:              .single      0r30.0      
 float_2:        .single      0r20.0      
 c:              .single      0r20.0      
+x:              .word        10          
+y:              .word        12          
+z:              .word        14          
 str_3:          .asciz       "4 is less than 5"
 str_4:          .asciz       "x is equal to 10"
 str_5:          .asciz       "y is greater than 10"

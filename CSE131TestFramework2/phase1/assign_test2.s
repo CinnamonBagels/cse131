@@ -7,6 +7,7 @@ f1:             .single      0r5.0
 float_1:        .single      0r6.0       
 f2:             .single      0r6.0       
 f3:             .single      0r0.0       
+float_4:        .single      0r7.0       
 i1:             .word        0           
 i2:             .word        0           
 i3:             .word        0           
@@ -15,7 +16,6 @@ b2:             .word        0
 b3:             .word        0           
 str_2:          .asciz       "f1 is: "   
 str_3:          .asciz       "f2 is: "   
-float_4:        .single      0r7.0       
 str_5:          .asciz       "f3 is: "   
 str_6:          .asciz       "i1 is: "   
 str_7:          .asciz       "i2 is: "   

@@ -2,10 +2,10 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z,q
+q:              .single      0r5.0       
 x:              .word        0           
 y:              .word        0           
 z:              .word        10          
-q:              .single      0r5.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --

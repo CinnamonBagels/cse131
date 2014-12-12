@@ -112,11 +112,11 @@ SAVE.foo5 = -(92 + 8) & -8
                 .section     ".data"
                 .align 4
                  .global     glb1,glb2,glb3
-glb1:           .word        0           
-glb2:           .word        9821        
 float_0:        .single      0r66.99     
 glb3:           .single      0r66.99     
 float_1:        .single      0r99.44     
+glb1:           .word        0           
+glb2:           .word        9821        
 str_2:          .asciz       " "         
 str_3:          .asciz       " "         
 str_4:          .asciz       " "         

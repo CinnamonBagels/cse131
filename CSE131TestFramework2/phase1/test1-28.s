@@ -2,12 +2,12 @@
                 .section     ".data"
                 .align 4
                  .global     i,j,k
-i:              .word        10          
 float_0:        .single      0r2.0       
 j:              .single      0r2.0       
 k:              .single      0r0         
 float_1:        .single      0r5.0       
 float_2:        .single      0r2.0       
+i:              .word        10          
 str_3:          .asciz       " "         
 str_4:          .asciz       " "         
 str_5:          .asciz       " "         

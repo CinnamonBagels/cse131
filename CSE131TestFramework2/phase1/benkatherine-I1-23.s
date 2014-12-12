@@ -4,8 +4,8 @@
                  .global     a,b,x,y
 float_0:        .single      0r4.5       
 a:              .single      0r4.5       
-b:              .word        5           
 float_1:        .single      0r3.3       
+b:              .word        5           
 globalInit_:    .word        0           
                 .section     ".bss"
                 .align 4

@@ -2,10 +2,6 @@
                 .section     ".data"
                 .align 4
                  .global     i,k,b1,b2,f1,f2,f3
-i:              .word        10          
-k:              .word        -50         
-b1:             .word        0           
-b2:             .word        1           
 float_0:        .single      0r1.0       
 f1:             .single      0r1.0       
 float_1:        .single      0r7654321.0 
@@ -15,6 +11,16 @@ f3:             .single      0r-100.01
 float_3:        .single      0r95.95     
 float_4:        .single      0r1234567.0 
 float_5:        .single      0r0.01      
+float_16:       .single      0r95.95     
+float_17:       .single      0r95.95     
+float_19:       .single      0r1234567.0 
+float_20:       .single      0r1234567.0 
+float_22:       .single      0r0.01      
+float_23:       .single      0r-0.01     
+i:              .word        10          
+k:              .word        -50         
+b1:             .word        0           
+b2:             .word        1           
 str_6:          .asciz       " "         
 str_7:          .asciz       " "         
 str_8:          .asciz       " = true, false = "
@@ -25,14 +31,8 @@ str_12:         .asciz       " "
 str_13:         .asciz       " "         
 str_14:         .asciz       " = true, false = "
 str_15:         .asciz       "\n"        
-float_16:       .single      0r95.95     
-float_17:       .single      0r95.95     
 str_18:         .asciz       " "         
-float_19:       .single      0r1234567.0 
-float_20:       .single      0r1234567.0 
 str_21:         .asciz       " "         
-float_22:       .single      0r0.01      
-float_23:       .single      0r-0.01     
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --

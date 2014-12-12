@@ -76,10 +76,10 @@ SAVE.foo = -(92 + 4) & -8
                  .global     a,b,c
 float_0:        .single      0r5.5       
 a:              .single      0r5.5       
+float_2:        .single      0r5.55      
 b:              .word        3           
 c:              .word        0           
 str_1:          .asciz       "testing"   
-float_2:        .single      0r5.55      
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --

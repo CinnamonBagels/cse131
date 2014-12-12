@@ -2,9 +2,6 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z,a,b,c,d,e
-x:              .word        1           
-y:              .word        2           
-z:              .word        3           
 float_0:        .single      0r1.5       
 a:              .single      0r1.5       
 float_1:        .single      0r0.5       
@@ -15,21 +12,24 @@ float_3:        .single      0r3.5
 d:              .single      0r3.5       
 float_4:        .single      0r3.0       
 e:              .single      0r3.0       
+float_10:       .single      0r3.0       
+float_12:       .single      0r3.5       
+float_13:       .single      0r3.4       
+float_15:       .single      0r3.1       
+float_17:       .single      0r1.5       
+float_19:       .single      0r0.5       
+x:              .word        1           
+y:              .word        2           
+z:              .word        3           
 str_5:          .asciz       "1 is less than 1.5"
 str_6:          .asciz       "1 is greater than 0.5"
 str_7:          .asciz       "3 is less than 3.5"
 str_8:          .asciz       "2 is greater than 1.5"
 str_9:          .asciz       "2.5 is greater than 2"
-float_10:       .single      0r3.0       
 str_11:         .asciz       "3.0 is equal to 3.0"
-float_12:       .single      0r3.5       
-float_13:       .single      0r3.4       
 str_14:         .asciz       "3.5 is greater than 3.4"
-float_15:       .single      0r3.1       
 str_16:         .asciz       "3.1 is greater than 3.0"
-float_17:       .single      0r1.5       
 str_18:         .asciz       "1.5 is greater than or equal to 1.5"
-float_19:       .single      0r0.5       
 str_20:         .asciz       "0.5 is less than or equal to 0.5"
 globalInit_:    .word        0           
 

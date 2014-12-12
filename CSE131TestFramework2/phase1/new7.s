@@ -3,9 +3,9 @@
                 .align 4
 float_0:        .single      0r5.55      
 main_x:         .single      0r0.0       
-staticGuard_main_x:    .word        0           
 float_1:        .single      0r3.12      
 main_y:         .single      0r0.0       
+staticGuard_main_x:    .word        0           
 staticGuard_main_y:    .word        0           
 globalInit_:    .word        0           
 
