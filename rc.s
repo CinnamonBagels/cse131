@@ -73,12 +73,15 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 8*/
-/* printf on int */
+/* Printing int c */
     set         _intFmt, %o0
-    set         5, %o1
+    set         c, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
     call    printf
     nop
-
+/* line number 8*/
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
