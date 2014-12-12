@@ -1,11 +1,11 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,a,b
+                 .global     x,b,a
 x:              .single      0r0.0       
 float_0:        .single      0r5.75      
-a:              .single      0r5.75      
 b:              .single      0r0.0       
+a:              .single      0r5.75      
 float_1:        .single      0r5.75      
 float_2:        .single      0r5.75      
 globalInit_:    .word        0           

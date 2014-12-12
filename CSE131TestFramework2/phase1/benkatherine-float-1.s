@@ -42,15 +42,15 @@ main:
     fadds       %f0, %f1, %f3
 /* line number 5*/
 /* Storing result of Binary Op */
-    set         x, %l4
-    add         %g0, %l4, %l4
+    set         -8, %l4
+    add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 7*/
 /* Storing float + float into z */
     set         z, %l0
     add         %g0, %l0, %l0
-    set         x, %l2
-    add         %g0, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
     set         globalInit_, %l0

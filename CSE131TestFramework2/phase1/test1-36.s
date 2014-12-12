@@ -1,3 +1,113 @@
+                .section     ".text"
+                .align 4
+                .global      foo
+foo:
+    set         SAVE.foo, %g1
+    save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
+/* line number 9*/
+/* Returning value from foo */
+    set         123, %i0
+    ba      foo_end
+    nop
+foo_end:
+    ret 
+    restore
+SAVE.foo = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo2
+foo2:
+    set         SAVE.foo2, %g1
+    save        %sp, %g1, %sp
+/* line number 13*/
+/* Returning value from foo2 */
+    set         0, %i0
+    ba      foo2_end
+    nop
+foo2_end:
+    ret 
+    restore
+SAVE.foo2 = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo3
+foo3:
+    set         SAVE.foo3, %g1
+    save        %sp, %g1, %sp
+/* line number 17*/
+/* Returning value from foo3 */
+    set         1, %i0
+    ba      foo3_end
+    nop
+foo3_end:
+    ret 
+    restore
+SAVE.foo3 = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo4
+foo4:
+    set         SAVE.foo4, %g1
+    save        %sp, %g1, %sp
+/* line number 21*/
+/* Returning value from foo4 */
+    set         float_1, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f0
+    ba      foo4_end
+    nop
+foo4_end:
+    ret 
+    restore
+SAVE.foo4 = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      foo5
+foo5:
+    set         SAVE.foo5, %g1
+    save        %sp, %g1, %sp
+! --storing constant glb1 with value 1.0
+    set         glb1, %l0
+    add         %g0, %l0, %l0
+    set         glb1, %l0
+    add         %g0, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+/* line number 25*/
+/* Prepping Arithmetic Calculations by loading */
+    set         glb2, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         1, %l1
+/* line number 25*/
+/* Subtracting */
+    sub         %l0, %l1, %l3
+/* line number 25*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 25*/
+/* Storing int - int into glb2 */
+    set         glb2, %l0
+    add         %g0, %l0, %l0
+    set         -8, %l2
+    add         %fp, %l2, %l2
+    ld          [%l2], %l1
+    st          %l1, [%l0]
+foo5_end:
+    ret 
+    restore
+SAVE.foo5 = -(92 + 8) & -8
 ! --globals--
                 .section     ".data"
                 .align 4
@@ -30,15 +140,6 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
 /* line number 9*/
 /* Returning value from foo */
     set         123, %i0

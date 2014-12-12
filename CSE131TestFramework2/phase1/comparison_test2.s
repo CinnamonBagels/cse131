@@ -348,11 +348,26 @@ endIf_13:
 /* Prepping Comparison Calculations by loading */
 /* line number 38*/
 /* Starting greater than */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fcmps       %f0, %f1
+    fbg     greater_6
+    nop
+    set         0, %l3
+    ba      greaterEnd_6
+    nop
+greater_6:
+    set         1, %l3
+greaterEnd_6:
 /* line number 38*/
 /* Storing result of Comparison Op */
     set         -36, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -379,11 +394,26 @@ endIf_15:
 /* Prepping Comparison Calculations by loading */
 /* line number 42*/
 /* Starting greater than equal */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         c, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fcmps       %f0, %f1
+    fbge    greaterEqual_7
+    nop
+    set         0, %l3
+    ba      greaterEqual_7
+    nop
+greaterEqual_7:
+    set         1, %l3
+greaterEqualEnd_7:
 /* line number 42*/
 /* Storing result of Comparison Op */
     set         -40, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

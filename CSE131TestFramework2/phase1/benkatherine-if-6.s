@@ -41,11 +41,26 @@ globalInit_end:
 /* Prepping Comparison Calculations by loading */
 /* line number 6*/
 /* Starting Less than */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fcmps       %f0, %f1
+    fbl     less_0
+    nop
+    set         0, %l3
+    ba      lessEnd_0
+    nop
+less_0:
+    set         1, %l3
+lessEnd_0:
 /* line number 6*/
 /* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -65,11 +80,26 @@ if_0:
 /* Prepping Comparison Calculations by loading */
 /* line number 9*/
 /* Starting Less than */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fcmps       %f0, %f1
+    fbl     less_1
+    nop
+    set         0, %l3
+    ba      lessEnd_1
+    nop
+less_1:
+    set         1, %l3
+lessEnd_1:
 /* line number 9*/
 /* Storing result of Comparison Op */
     set         -12, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

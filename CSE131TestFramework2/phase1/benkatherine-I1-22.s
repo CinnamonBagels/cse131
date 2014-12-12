@@ -41,15 +41,15 @@ main:
     add         %l0, %l1, %l3
 /* line number 3*/
 /* Storing result of Binary Op */
-    set         x, %l4
-    add         %g0, %l4, %l4
+    set         -8, %l4
+    add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 5*/
 /* Storing int + int into z */
     set         z, %l0
     add         %g0, %l0, %l0
-    set         x, %l2
-    add         %g0, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     ld          [%l2], %l1
     st          %l1, [%l0]
     set         globalInit_, %l0

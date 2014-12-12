@@ -43,11 +43,27 @@ globalInit_end:
     ld          [%l1], %l0
 /* line number 6*/
 /* Starting greater than */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fcmps       %f0, %f1
+    fbg     greater_0
+    nop
+    set         0, %l3
+    ba      greaterEnd_0
+    nop
+greater_0:
+    set         1, %l3
+greaterEnd_0:
 /* line number 6*/
 /* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -70,11 +86,27 @@ if_0:
     ld          [%l1], %l0
 /* line number 9*/
 /* Starting greater than */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fcmps       %f0, %f1
+    fbg     greater_1
+    nop
+    set         0, %l3
+    ba      greaterEnd_1
+    nop
+greater_1:
+    set         1, %l3
+greaterEnd_1:
 /* line number 9*/
 /* Storing result of Comparison Op */
     set         -12, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

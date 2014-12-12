@@ -30,9 +30,9 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant i with value 1.0
-    set         -20, %l0
+    set         -16, %l0
     add         %fp, %l0, %l0
-    set         -20, %l0
+    set         -16, %l0
     add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
@@ -45,7 +45,7 @@ globalInit_end:
     st          %l1, [%l0]
 /* line number 8*/
 /* Storing k into j */
-    set         -16, %l0
+    set         -20, %l0
     add         %fp, %l0, %l0
     set         -12, %l2
     add         %fp, %l2, %l2
@@ -76,7 +76,7 @@ globalInit_end:
 /* line number 11*/
 /* Printing int i */
     set         _intFmt, %o0
-    set         -20, %l1
+    set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -86,7 +86,7 @@ globalInit_end:
 /* line number 11*/
 /* Printing int j */
     set         _intFmt, %o0
-    set         -16, %l1
+    set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf

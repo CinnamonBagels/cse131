@@ -1,3 +1,19 @@
 rc.s:
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 178: error: redefinition of symbol "foo"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 212: error: redefinition of symbol "printTrue_0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 216: error: redefinition of symbol "printFalse_0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 218: error: redefinition of symbol "branchEnd_0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 232: error: redefinition of symbol "printTrue_1"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 236: error: redefinition of symbol "printFalse_1"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 238: error: redefinition of symbol "branchEnd_1"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 252: error: redefinition of symbol "printTrue_2"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 256: error: redefinition of symbol "printFalse_2"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 258: error: redefinition of symbol "branchEnd_2"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 272: error: redefinition of symbol "printTrue_3"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 276: error: redefinition of symbol "printFalse_3"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 278: error: redefinition of symbol "branchEnd_3"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 293: error: redefinition of symbol "foo_end"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 296: error: redefinition of symbol "SAVE.foo"
+cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

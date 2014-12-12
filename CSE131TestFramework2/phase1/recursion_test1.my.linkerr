@@ -1,3 +1,12 @@
 rc.s:
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 127: error: redefinition of symbol "foo"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 180: error: redefinition of symbol "greater_0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 182: error: redefinition of symbol "greaterEnd_0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 194: error: redefinition of symbol "if_0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 210: error: redefinition of symbol "else_0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 211: error: redefinition of symbol "endIf_1"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 214: error: redefinition of symbol "foo_end"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 217: error: redefinition of symbol "SAVE.foo"
+cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

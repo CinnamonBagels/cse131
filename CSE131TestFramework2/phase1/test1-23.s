@@ -47,15 +47,15 @@ main:
     mov         %o0, %l0
 /* line number 5*/
 /* Storing result of Binary Op */
-    set         k, %l4
-    add         %g0, %l4, %l4
+    set         -8, %l4
+    add         %fp, %l4, %l4
     st          %l0, [%l4]
 /* line number 7*/
 /* Storing int * int into m */
     set         m, %l0
     add         %g0, %l0, %l0
-    set         k, %l2
-    add         %g0, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     ld          [%l2], %l1
     st          %l1, [%l0]
     set         globalInit_, %l0

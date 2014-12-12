@@ -65,11 +65,27 @@ globalInit_end:
     ld          [%l1], %l0
 /* line number 12*/
 /* Starting Less than */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fcmps       %f0, %f1
+    fbl     less_0
+    nop
+    set         0, %l3
+    ba      lessEnd_0
+    nop
+less_0:
+    set         1, %l3
+lessEnd_0:
 /* line number 12*/
 /* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -99,11 +115,27 @@ endIf_1:
     ld          [%l1], %l0
 /* line number 16*/
 /* Starting greater than */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fcmps       %f0, %f1
+    fbg     greater_1
+    nop
+    set         0, %l3
+    ba      greaterEnd_1
+    nop
+greater_1:
+    set         1, %l3
+greaterEnd_1:
 /* line number 16*/
 /* Storing result of Comparison Op */
     set         -12, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -133,11 +165,27 @@ endIf_3:
     ld          [%l1], %l0
 /* line number 20*/
 /* Starting Less than */
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         d, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fcmps       %f0, %f1
+    fbl     less_2
+    nop
+    set         0, %l3
+    ba      lessEnd_2
+    nop
+less_2:
+    set         1, %l3
+lessEnd_2:
 /* line number 20*/
 /* Storing result of Comparison Op */
     set         -16, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -167,11 +215,27 @@ endIf_5:
     ld          [%l1], %l0
 /* line number 24*/
 /* Starting greater than */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fcmps       %f0, %f1
+    fbg     greater_3
+    nop
+    set         0, %l3
+    ba      greaterEnd_3
+    nop
+greater_3:
+    set         1, %l3
+greaterEnd_3:
 /* line number 24*/
 /* Storing result of Comparison Op */
     set         -20, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -201,11 +265,27 @@ endIf_7:
     ld          [%l1], %l1
 /* line number 28*/
 /* Starting greater than */
+    set         c, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+    fcmps       %f0, %f1
+    fbg     greater_4
+    nop
+    set         0, %l3
+    ba      greaterEnd_4
+    nop
+greater_4:
+    set         1, %l3
+greaterEnd_4:
 /* line number 28*/
 /* Storing result of Comparison Op */
     set         -24, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -264,10 +344,41 @@ endIf_11:
 /* line number 36*/
 /* Starting greater than */
 /* line number 36*/
+/* Storing 3.5 into temp */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         float_12, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+    set         float_12, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f0
+/* line number 36*/
+/* Storing 3.4 into temp */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         float_13, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+    set         float_13, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f1
+    fcmps       %f0, %f1
+    fbg     greater_5
+    nop
+    set         0, %l3
+    ba      greaterEnd_5
+    nop
+greater_5:
+    set         1, %l3
+greaterEnd_5:
+/* line number 36*/
 /* Storing result of Comparison Op */
     set         -32, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -295,10 +406,41 @@ endIf_13:
 /* line number 40*/
 /* Starting greater than */
 /* line number 40*/
+/* Storing 3.1 into temp */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         float_15, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+    set         float_15, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f0
+/* line number 40*/
+/* Storing e into temp */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         e, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+    set         e, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fcmps       %f0, %f1
+    fbg     greater_6
+    nop
+    set         0, %l3
+    ba      greaterEnd_6
+    nop
+greater_6:
+    set         1, %l3
+greaterEnd_6:
+/* line number 40*/
 /* Storing result of Comparison Op */
     set         -36, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -325,11 +467,26 @@ endIf_15:
 /* Prepping Comparison Calculations by loading */
 /* line number 44*/
 /* Starting greater than equal */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    set         float_17, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f1
+    fcmps       %f0, %f1
+    fbge    greaterEqual_7
+    nop
+    set         0, %l3
+    ba      greaterEqual_7
+    nop
+greaterEqual_7:
+    set         1, %l3
+greaterEqualEnd_7:
 /* line number 44*/
 /* Storing result of Comparison Op */
     set         -40, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -357,10 +514,41 @@ endIf_17:
 /* line number 48*/
 /* Starting Less than Equal */
 /* line number 48*/
+/* Storing .5 into temp */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         float_19, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+    set         float_19, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f0
+/* line number 48*/
+/* Storing b into temp */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         b, %l2
+    add         %g0, %l2, %l2
+    ld          [%l2], %f1
+    st          %f1, [%l0]
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+    fcmps       %f0, %f1
+    fble    lessEqual_8
+    nop
+    set         0, %l3
+    ba      lessEqualEnd_8
+    nop
+lessEqual_8:
+    set         1, %l3
+lessEqualEnd_8:
+/* line number 48*/
 /* Storing result of Comparison Op */
     set         -44, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

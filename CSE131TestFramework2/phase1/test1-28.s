@@ -53,15 +53,15 @@ main:
     fdivs       %f0, %f1, %f3
 /* line number 5*/
 /* Storing result of Binary Op */
-    set         i, %l4
-    add         %g0, %l4, %l4
+    set         -8, %l4
+    add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 8*/
 /* Storing int / float into k */
     set         k, %l0
     add         %g0, %l0, %l0
-    set         i, %l2
-    add         %g0, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
     set         globalInit_, %l0
