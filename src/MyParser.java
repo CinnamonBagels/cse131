@@ -549,7 +549,6 @@ class MyParser extends parser {
 	// id is func name, type is return type, isReturnReference self explan/
 	// ----------------------------------------------------------------
 	void DoFuncDecl_1(String id, Type t, boolean isReturnReference) {
-		generator.inGlobalScope = false;
 		
 		if (m_symtab.accessLocal(id) != null) {
 			m_nNumErrors++;
@@ -614,7 +613,6 @@ class MyParser extends parser {
 		m_symtab.setFunc(null);
 		
 		generator.endFunction(func);
-		generator.inGlobalScope = true;
 	}
 
 	// expression, codeblock, else
