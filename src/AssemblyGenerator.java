@@ -281,9 +281,6 @@ public class AssemblyGenerator {
 			if(csto.getType().isInt()) {
 				register = this.promoteIntToFloat(sto, csto);
 			}
-			
-			generateASM(Strings.two_param, Instructions.set, csto.offset, Registers.l1);
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f1);
 			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
 		}
 	}
@@ -1036,6 +1033,13 @@ public class AssemblyGenerator {
 	}
 
 	public void evaluateComparison(STO left, ComparisonOp op, STO right, STO result) {
+		if(right.isConst() && right.getType().isFloat() && (right.base == null || right.offset == null)) {
+			assignFloat((ConstSTO)right);
+		}
+		
+		if(left.isConst() && left.getType().isFloat() && (left.base == null || left.offset == null)) {
+			assignFloat((ConstSTO)right);
+		}
 		// TODO Auto-generated method stub
 		boolean leftFloat = left.getType().isFloat();
 		boolean rightFloat = right.getType().isFloat();

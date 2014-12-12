@@ -809,7 +809,6 @@ class MyParser extends parser {
 			if(stoDes.getType().getName().equals(_2.getType().getName())){
 				generator.storeVariable(stoDes, _2);
 			}else{
-				
 				generator.storeConvertedVar(stoDes, _2);
 			}
 		}
