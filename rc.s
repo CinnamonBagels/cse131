@@ -1,10 +1,6 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,y,z
-x:              .word        4           
-y:              .word        5           
-z:              .word        0           
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -23,30 +19,6 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-/* line number 3*/
-/* Prepping Arithmetic Calculations by loading */
-    set         x, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-    set         y, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l1
-/* line number 3*/
-/* Adding */
-    add         %l0, %l1, %l3
-/* line number 3*/
-/* Storing result of Binary Op */
-    set         x, %l4
-    add         %g0, %l4, %l4
-    st          %l3, [%l4]
-/* line number 5*/
-/* Storing int + int into z */
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         x, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
     set         globalInit_, %l0
     ld          [%l0], %l0
     cmp         %l0, %g0
@@ -56,7 +28,34 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+    set         0, %l0
+    cmp         %l0, %g0
+    be      else_0
+    nop
+if_0:
+! --storing constant x with value 1.0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+    ba      endIf_1
+    nop
+else_0:
+endIf_1:
+/* line number 6*/
+/* Printing int x */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 6*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 8) & -8

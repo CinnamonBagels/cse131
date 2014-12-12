@@ -1312,13 +1312,18 @@ class MyParser extends parser {
 			m_nNumErrors++;
 			m_errors.print(sto.getName());
 		} else {
+			
 			if (_1.isConst() && _3.isConst()) {
 				ConstSTO leftOperand = (ConstSTO) _1;
 				ConstSTO rightOperand = (ConstSTO) _3;
+				
+				System.out.println("DoBinaryOp: " + _1.getName() + " and " + _3.getName() + " are constants.");
 
 				// may not be const, cannot make it ConstSTO directly.
 				STO result = _2.evaluateOperand(leftOperand, _2, rightOperand,
 						sto.getType());
+				
+				System.out.println("DoBinaryOp: " + "evaluates to " + result.getName());
 
 				if (result.isError()) {
 					// error
@@ -1329,7 +1334,10 @@ class MyParser extends parser {
 				result.setIsModifiable(false);
 				result.offset = Strings.assignFloat + generator.stringLits;
 				result.base = Registers.g0;
-				generator.assignFloat((ConstSTO)result);
+				
+				if(result.getType().isFloat()){
+					generator.assignFloat((ConstSTO)result);
+				}
 				
 				return result;
 			} else {

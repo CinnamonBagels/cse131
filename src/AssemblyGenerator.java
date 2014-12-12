@@ -676,6 +676,7 @@ public class AssemblyGenerator {
 			this.loadVariable(Registers.l1,  right);
 		}
 		//this is pretty bad
+		System.out.println("evaluteBinary: " + left.getName() + " " + op.getName() + " " + right.getName());
 		if(op.getName().equals("+")) {
 			generateComment("Adding");
 			//both are ints, just add them. fck floats.
