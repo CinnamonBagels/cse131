@@ -16,6 +16,7 @@ public class AssemblyGenerator {
 	public boolean inGlobalScope = true;
 	public List<String> tQueue = new Vector<String>();
 	public List<String> dQueue = new Vector<String>();
+	public List<String> bssQueue = new Vector<String>();
 	public Stack<Integer> ifElseStack = new Stack<Integer>();
 	public int stringLits = 0;
 	public int branches = 0;
@@ -29,6 +30,7 @@ public class AssemblyGenerator {
 	public int mainCounter = 0;
 	public int lineNumber = 0;
 	public boolean isStatic = false;
+	public boolean bssInit = false;
 	
 	public FuncSTO currentFunction = null;
 	
@@ -110,11 +112,15 @@ public class AssemblyGenerator {
 	}
 	
 	public void doBSS(STO sto){
-		generateASM(Strings.section, ".section", "\".bss\"");
-		generateASM(Strings.falign, Strings.align);
-		generateASM(Strings.init, sto.getName() + ":", ".skip", String.valueOf(sto.getType().getSize()));
+		if(!bssInit) {
+			bssQueue.add(assembleString(Strings.section, ".section", "\".bss\""));
+			bssQueue.add(assembleString(Strings.falign, Strings.align));
+			bssInit = true;
+		}
+		
+		bssQueue.add(assembleString(Strings.init, sto.getName() + ":", ".skip", String.valueOf(sto.getType().getSize())));
 		gVars.add(sto.getName());
-		generateASM("\n");
+		bssQueue.add("\n");
 	}
 	
 	public void flushText(){
@@ -313,7 +319,10 @@ public class AssemblyGenerator {
 		try{
 			if(dQueue.size() > 0){
 				flushData();
-			}			
+			}		
+			if(bssQueue.size() > 0) {
+				flushBSS();
+			}
 			write("\n");
 			internalConstants();
 			//flush text
@@ -325,6 +334,13 @@ public class AssemblyGenerator {
 		}
 	}
 	
+	private void flushBSS() {
+		// TODO Auto-generated method stub
+		for(String i : bssQueue) {
+			write(i);
+		}
+	}
+
 	public String assembleString(String temp, String ... args){
 		StringBuilder str = new StringBuilder();
 		str.append(String.format(temp, (Object[])args));

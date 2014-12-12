@@ -4,6 +4,12 @@
                  .global     x,y
 float_0:        .single      0r3.3       
 globalInit_:    .word        0           
+                .section     ".bss"
+                .align 4
+x:              .skip        12          
+
+y:              .skip        16          
+
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -26,14 +32,6 @@ main:
     cmp         %l0, %g0
     bne     globalInit_end
     nop
-                .section     ".bss"
-                .align 4
-x:              .skip        12          
-
-                .section     ".bss"
-                .align 4
-y:              .skip        16          
-
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
