@@ -1,12 +1,10 @@
-float f1 = 5.0;
-float f2 = 6.0;
-float f3;
-
-function : void main()
-{
-  cout << "f1 is: " << f1 << endl;
-  cout << "f2 is: " << f2 << endl;
-  
-  f3 = 7.0;
-  cout << "f3 is: " << f3 << endl;
+int x;
+function : void main() {
+    x = 4;
+    cout << x << endl; //4
+    int y = x = 5;
+    cout << x << y << endl;
+    int z = 0;
+    cout << z = x << z = 5 << endl;
+    cout << x << y << endl;
 }

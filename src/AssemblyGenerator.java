@@ -481,7 +481,7 @@ public class AssemblyGenerator {
 		if(value.getType().isFloat()) {
 			dest_register += Registers.f1;
 		} else {
-			dest_register += Registers.l4;
+			dest_register += Registers.l6;
 		}
 		generateComment("Storing " + value.getName() + " into " + dest.getName());
 		//setting destination
