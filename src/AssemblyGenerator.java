@@ -380,7 +380,7 @@ public class AssemblyGenerator {
 		if(left.getType().isFloat() && right.getType().isInt()) {
 			storeConvertedVar(left,right);
 		} else if (!left.getType().isPointer()){
-			generateComment("setting " + left.getName() + " = " + ((ConstSTO)right).getFloatValue());	
+			generateComment("setting " + left.getName() + " = " + right.getName());	
 			
 			if(right.isConst()) {
 				if(right.getType().isInt() || right.getType().isBool()) {

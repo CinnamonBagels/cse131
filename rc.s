@@ -47,25 +47,25 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 5*/
-/* setting b1 = 1.0 */
+/* setting b1 = true */
     set         1, %l0
     st          %l0, [%fp-8]
 /* line number 5*/
 /* Done. */
 /* line number 6*/
-/* setting b2 = 0.0 */
+/* setting b2 = false */
     set         0, %l0
     st          %l0, [%fp-12]
 /* line number 6*/
 /* Done. */
 /* line number 7*/
-/* setting i = 2.0 */
+/* setting i = 2 */
     set         2, %l0
     st          %l0, [%fp-16]
 /* line number 7*/
 /* Done. */
 /* line number 8*/
-/* setting k = -5.0 */
+/* setting k = 5 */
     set         -5, %l0
     st          %l0, [%fp-20]
 /* line number 8*/
@@ -93,7 +93,7 @@ globalInit_end:
 /* line number 10*/
 /* Done. */
 /* line number 12*/
-/* setting f3 = -0.01 */
+/* setting f3 = .01 */
     set         -32, %l0
     add         %fp, %l0, %l0
 /* line number 12*/
