@@ -1,10 +1,22 @@
 
 int[3] x;
+float[4] y;
 
 function : void main()
 {
   x[2] = 3;
 
   float e = x[2]; 
+
+  cout << x[2] << endl; // 3
+  cout << e << endl; // 3.00
+
+  y[3] = 3.3;
+
+  cout << y[3] << endl; //3.3
+
+  float f = y[3];
+
+  cout << f << endl; //3.3
 
 }
