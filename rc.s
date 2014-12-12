@@ -3,6 +3,7 @@
                 .align 4
                  .global     x
 x:              .word        0           
+str_0:          .asciz       "end"       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -157,6 +158,24 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 10*/
+/* Printing int y */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 10*/
+/* Done printing int. */
+/* line number 10*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
+    call    printf
+    nop
+/* line number 10*/
+/* Done printing string. */
 main_end:
     ret 
     restore

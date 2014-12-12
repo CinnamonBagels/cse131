@@ -7,4 +7,5 @@ function : void main() {
     int z = 0;
     cout << z = x << z = 5 << endl;
     cout << x << y << endl;
+    cout << y << end;
 }
