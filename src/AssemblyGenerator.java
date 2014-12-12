@@ -277,13 +277,16 @@ public class AssemblyGenerator {
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
-			System.out.println("this is bad");
 			this.assignFloat(csto);
 			if(csto.getType().isInt()) {
-				System.out.println("this is really bad");
 				register = this.promoteIntToFloat(sto, csto);
+				generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l0 + "]");
+			} else {
+				generateASM(Strings.two_param, Instructions.set, csto.offset, Registers.l1);
+				generateASM(Strings.three_param, Instructions.add, csto.base, Registers.l1, Registers.l1);
+				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
+				generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
 			}
-			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
 		}
 	}
 	
