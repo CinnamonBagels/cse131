@@ -21,7 +21,9 @@ foo4:
     save        %sp, %g1, %sp
 /* line number 4*/
 /* Returning value from foo4 */
-    set         40, %f0
+    set         40, %l0
+    st          %l0, [%fp - 4]
+    ld          [%fp - 4], %f0
     fitos       %f0, %f0
     ba      foo4_end
     nop
@@ -60,7 +62,7 @@ globalInit_end:
 /* line number 12*/
 /* Done. */
 /* line number 12*/
-/* printing float STO.VarSTO@88df60 */
+/* printing float STO.VarSTO@5bb966 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

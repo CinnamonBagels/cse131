@@ -1537,7 +1537,10 @@ public class AssemblyGenerator {
 					assignFloat((ConstSTO) returnSTO);
 					loadVariable(Registers.f0, returnSTO);
 				} else {
-					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) returnSTO).getIntValue()), Registers.f0);
+					//gotta do that damn stupid float conversion
+					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) returnSTO).getIntValue()), Registers.l0);
+					generateASM(Strings.two_param, Instructions.store, Registers.l0, Strings.floatOffset);
+					generateASM(Strings.two_param, Instructions.load, Strings.floatOffset, Registers.f0);
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 			} else {

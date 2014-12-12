@@ -81,4 +81,5 @@ public class Strings {
     public static final String globalInit = "globalInit_";
     public static final String equal = "equal_";
     public static final String equalEnd = "equalEnd_";
+    public static final String floatOffset = "[%fp - 4]";
 }
