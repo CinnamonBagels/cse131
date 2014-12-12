@@ -700,12 +700,12 @@ public class AssemblyGenerator {
 					this.loadVariable(Registers.f1, right);
 				}
 				
-				//left int right float
+				//left float right int
 				if(leftFloat && !rightFloat) {
 					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
 				}
 				
-				//left flat right int
+				//left int right float
 				if(!leftFloat && rightFloat) {
 					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
@@ -780,12 +780,12 @@ public class AssemblyGenerator {
 					this.loadVariable(Registers.f1, right);
 				}
 				
-				//left int right float
+				//left float right int
 				if(leftFloat && !rightFloat) {
 					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f1, Registers.f1);
 				}
 				
-				//left flat right int
+				//left int right float
 				if(!leftFloat && rightFloat) {
 					this.generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
