@@ -4,7 +4,4 @@ int i = 10;
 int j = -i;
 
 function: void main() {
-  int k = 20;
-  int l = -k + -k;
-
 }
