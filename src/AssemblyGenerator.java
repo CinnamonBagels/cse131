@@ -29,6 +29,8 @@ public class AssemblyGenerator {
 	public int mainCounter = 0;
 	public int lineNumber = 0;
 	
+	public FuncSTO currentFunction = null;
+	
 	private List<String> executeBuffer = new Vector<String>();
 	
 	public AssemblyGenerator(String fileName) {
@@ -193,6 +195,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void beginFunction(FuncSTO fsto){
+		this.currentFunction = fsto;
 		String fname = fsto.getName();
 		generateASM(Strings.section, ".section", "\".text\"");
 		generateASM(Strings.falign, Strings.align);
@@ -203,6 +206,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void endFunction(FuncSTO fsto){
+		this.currentFunction = fsto;
 		String fname = fsto.getName();
 		generateASM(Strings.label, fsto.offset + Strings.functionEnd);
 		generateASM(Strings.ret, "ret");
@@ -400,7 +404,7 @@ public class AssemblyGenerator {
 	public String promoteIntToFloat(STO left, STO right) {
 		STO tmp = new ExprSTO("promoteCasting", new FloatType());
 		tmp.base = Registers.fp;
-		tmp.offset = "" + tmp.getType().getSize();
+		tmp.offset = String.valueOf(-(currentFunction.getStackSize() + tmp.getType().getSize()));
 		
 		if(right.isConst()) {
 			storeVariable(tmp, right);
