@@ -41,14 +41,11 @@ globalInit_end:
 /* Starting greater than */
     set         x, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %f1
     set         y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f1
-    fitos       %f1, %f1
-    call printFloat
-    nop
-    mov %f1, %f0
+    ld          [%l1], %f0
+    fitos       %f0, %f0
     call printFloat
     nop
     fcmps       %f0, %f1
