@@ -1,3 +1,4 @@
+phase1/assignLocal.rc
 phase1/assign_test1.rc
 phase1/assign_test2.rc
 phase1/assign_test3.rc
@@ -125,9 +126,12 @@ phase1/test1-01.rc
 phase1/test1-02.rc
 phase1/test1-03.rc
 phase1/test1-04.rc
+phase1/test1-05.rc
 phase1/test1-06.rc
 phase1/test1-07.rc
 phase1/test1-08.rc
+phase1/test1-09.rc
+phase1/test1-10.rc
 phase1/test1-11.rc
 phase1/test1-12.rc
 phase1/test1-13.rc
@@ -138,7 +142,6 @@ phase1/test1-17.rc
 phase1/test1-18.rc
 phase1/test1-19.rc
 phase1/test1-20.rc
-phase1/test1-21.rc
 phase1/test1-22.rc
 phase1/test1-23.rc
 phase1/test1-24.rc

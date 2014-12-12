@@ -46,7 +46,7 @@ globalInit_end:
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 5*/
-/* printing float c */
+/* printing float STO.VarSTO@10e3816 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -60,8 +60,8 @@ foo4:
     save        %sp, %g1, %sp
 /* line number 21*/
 /* Returning value from foo4 */
-    set         float_1, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f0
     ba      foo4_end
     nop
@@ -112,16 +112,14 @@ SAVE.foo5 = -(92 + 8) & -8
                 .section     ".data"
                 .align 4
                  .global     glb1,glb2,glb3
-float_0:        .single      0r66.99     
 glb3:           .single      0r66.99     
-float_1:        .single      0r99.44     
 glb1:           .word        0           
 glb2:           .word        9821        
+str_0:          .asciz       " "         
+str_1:          .asciz       " "         
 str_2:          .asciz       " "         
 str_3:          .asciz       " "         
 str_4:          .asciz       " "         
-str_5:          .asciz       " "         
-str_6:          .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -187,8 +185,8 @@ foo4:
     save        %sp, %g1, %sp
 /* line number 21*/
 /* Returning value from foo4 */
-    set         float_1, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f0
     ba      foo4_end
     nop
@@ -316,7 +314,7 @@ main:
 /* line number 35*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 35*/
@@ -344,7 +342,7 @@ branchEnd_0:
 /* line number 35*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 35*/
@@ -372,13 +370,13 @@ branchEnd_1:
 /* line number 35*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* line number 35*/
 /* Done printing string. */
 /* line number 35*/
-/* printing float d */
+/* printing float STO.VarSTO@1ef8f5 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -412,7 +410,7 @@ branchEnd_2:
 /* line number 36*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 36*/
@@ -430,13 +428,13 @@ branchEnd_2:
 /* line number 36*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_6, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* line number 36*/
 /* Done printing string. */
 /* line number 36*/
-/* printing float glb3 */
+/* printing float STO.VarSTO@14afef4 */
     set         glb3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

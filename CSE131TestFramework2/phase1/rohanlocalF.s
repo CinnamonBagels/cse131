@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+float_0:        .single      0r5.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -43,11 +44,11 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
-    set         null, %l1
+    set         float_0, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]
 /* line number 7*/
-/* printing float c */
+/* printing float STO.VarSTO@10e3816 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

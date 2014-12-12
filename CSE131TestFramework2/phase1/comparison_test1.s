@@ -2,24 +2,21 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z,a,b,c
-float_0:        .single      0r20.0      
 a:              .single      0r20.0      
-float_1:        .single      0r30.0      
 b:              .single      0r30.0      
-float_2:        .single      0r20.0      
 c:              .single      0r20.0      
 x:              .word        10          
 y:              .word        12          
 z:              .word        14          
-str_3:          .asciz       "4 is less than 5"
-str_4:          .asciz       "x is equal to 10"
-str_5:          .asciz       "y is greater than 10"
-str_6:          .asciz       "y is greater than or equal to 12"
-str_7:          .asciz       "z is less than 15"
-str_8:          .asciz       "z is less than or equal to 15"
-str_9:          .asciz       "y is not equal to 13"
-str_10:         .asciz       "a is less than b"
-str_11:         .asciz       "a is less than or equal to c"
+str_0:          .asciz       "4 is less than 5"
+str_1:          .asciz       "x is equal to 10"
+str_2:          .asciz       "y is greater than 10"
+str_3:          .asciz       "y is greater than or equal to 12"
+str_4:          .asciz       "z is less than 15"
+str_5:          .asciz       "z is less than or equal to 15"
+str_6:          .asciz       "y is not equal to 13"
+str_7:          .asciz       "a is less than b"
+str_8:          .asciz       "a is less than or equal to c"
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -77,7 +74,7 @@ if_0:
 /* line number 12*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 12*/
@@ -112,7 +109,7 @@ if_2:
 /* line number 16*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 16*/
@@ -156,7 +153,7 @@ if_4:
 /* line number 20*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* line number 20*/
@@ -200,7 +197,7 @@ if_6:
 /* line number 24*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_6, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 24*/
@@ -244,7 +241,7 @@ if_8:
 /* line number 28*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_7, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* line number 28*/
@@ -288,7 +285,7 @@ if_10:
 /* line number 32*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_8, %o1
+    set         str_5, %o1
     call    printf
     nop
 /* line number 32*/
@@ -332,7 +329,7 @@ if_12:
 /* line number 36*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_9, %o1
+    set         str_6, %o1
     call    printf
     nop
 /* line number 36*/
@@ -378,7 +375,7 @@ if_14:
 /* line number 40*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_10, %o1
+    set         str_7, %o1
     call    printf
     nop
 /* line number 40*/
@@ -424,7 +421,7 @@ if_16:
 /* line number 44*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_11, %o1
+    set         str_8, %o1
     call    printf
     nop
 /* line number 44*/

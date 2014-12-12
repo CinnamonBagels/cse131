@@ -50,10 +50,9 @@ SAVE.foo = -(92 + 8) & -8
                 .section     ".data"
                 .align 4
                  .global     x
-float_0:        .single      0r6.66      
 x:              .single      0r6.66      
-str_1:          .asciz       "main"      
-str_2:          .asciz       "end"       
+str_0:          .asciz       "main"      
+str_1:          .asciz       "end"       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -114,7 +113,7 @@ main:
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_1, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 15*/
@@ -125,7 +124,7 @@ main:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 15*/
-/* printing float foo() */
+/* printing float STO.VarSTO@1c1e1e7 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -136,7 +135,7 @@ main:
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 15*/

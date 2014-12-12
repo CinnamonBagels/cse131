@@ -15,8 +15,8 @@ foo4:
 globalInit_end:
 /* line number 7*/
 /* Returning value from foo4 */
-    set         float_1, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f0
     ba      foo4_end
     nop
@@ -28,10 +28,8 @@ SAVE.foo4 = -(92 + 4) & -8
                 .section     ".data"
                 .align 4
                  .global     glb3
-float_0:        .single      0r66.99     
 glb3:           .single      0r66.99     
-float_1:        .single      0r99.44     
-str_2:          .asciz       " "         
+str_0:          .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -52,8 +50,8 @@ foo4:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Returning value from foo4 */
-    set         float_1, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f0
     ba      foo4_end
     nop
@@ -83,7 +81,7 @@ main:
 /* line number 12*/
 /* Done. */
 /* line number 12*/
-/* printing float d */
+/* printing float STO.VarSTO@1d62a85 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -94,13 +92,13 @@ main:
 /* line number 12*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float glb3 */
+/* printing float STO.VarSTO@c6c084 */
     set         glb3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

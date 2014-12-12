@@ -1,9 +1,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,y
-x:              .single      0r0.0       
+                 .global     y,x
 y:              .single      0r0.0       
+x:              .single      0r0.0       
 float_0:        .single      0r94.25     
 globalInit_:    .word        0           
 
@@ -89,7 +89,7 @@ globalInit_end:
     ld          [%l2], %f1
     st          %f1, [%l0]
 /* line number 7*/
-/* printing float y */
+/* printing float STO.VarSTO@13fa2d5 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

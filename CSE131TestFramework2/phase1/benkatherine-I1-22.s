@@ -1,9 +1,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,y,z
-x:              .word        4           
+                 .global     y,x,z
 y:              .word        5           
+x:              .word        4           
 z:              .word        0           
 globalInit_:    .word        0           
 

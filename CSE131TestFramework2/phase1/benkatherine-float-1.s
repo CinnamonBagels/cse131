@@ -2,7 +2,6 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z
-float_0:        .single      0r5.5       
 x:              .single      0r5.5       
 y:              .single      0r0.0       
 z:              .single      0r0         
@@ -58,7 +57,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 9*/
-/* printing float z */
+/* printing float STO.VarSTO@96ed8b */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

@@ -2,15 +2,12 @@
                 .section     ".data"
                 .align 4
 float_2:        .single      0r3.33      
-float_3:        .single      0r3.33      
-float_5:        .single      0r4.44      
-float_6:        .single      0r4.44      
-float_8:        .single      0r5.55      
-float_9:        .single      0r5.55      
+float_4:        .single      0r4.44      
+float_6:        .single      0r5.55      
 str_0:          .asciz       " "         
 str_1:          .asciz       " "         
-str_4:          .asciz       " "         
-str_7:          .asciz       " "         
+str_3:          .asciz       " "         
+str_5:          .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -78,7 +75,7 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
-    set         float_3, %l0
+    set         float_2, %l0
     ld          [%l0], %f0
     call    printFloat
     nop
@@ -86,25 +83,25 @@ globalInit_end:
 /* line number 5*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_3, %o1
+    call    printf
+    nop
+/* line number 5*/
+/* Done printing string. */
+    set         float_4, %l0
+    ld          [%l0], %f0
+    call    printFloat
+    nop
+
+/* line number 5*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_5, %o1
     call    printf
     nop
 /* line number 5*/
 /* Done printing string. */
     set         float_6, %l0
-    ld          [%l0], %f0
-    call    printFloat
-    nop
-
-/* line number 5*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_7, %o1
-    call    printf
-    nop
-/* line number 5*/
-/* Done printing string. */
-    set         float_9, %l0
     ld          [%l0], %f0
     call    printFloat
     nop

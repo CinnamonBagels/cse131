@@ -2,9 +2,8 @@
                 .section     ".data"
                 .align 4
                  .global     a,b,x,y
-float_0:        .single      0r4.5       
 a:              .single      0r4.5       
-float_1:        .single      0r3.3       
+float_0:        .single      0r3.3       
 b:              .word        5           
 globalInit_:    .word        0           
                 .section     ".bss"
@@ -68,7 +67,7 @@ globalInit_end:
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 11*/
-/* printing float c */
+/* printing float STO.VarSTO@fbf107 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -80,7 +79,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 12*/
-/* printing float d */
+/* printing float STO.VarSTO@8d116e */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -226,7 +225,7 @@ arrayEnd_2:
     call    printf
     nop
 /* line number 19*/
-/* printing float e */
+/* printing float STO.VarSTO@1737e47 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -275,7 +274,7 @@ arrayEnd_3:
     set         -32, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
-    set         float_1, %l1
+    set         float_0, %l1
     ld          [%l1], %f1
     st          %f1, [%l0]
 /* line number 23*/
@@ -313,7 +312,7 @@ arrayOutBounds_4:
     nop
 arrayEnd_4:
 /* line number 23*/
-/* printing float y[3] */
+/* printing float STO.ExprSTO@1678f0a */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -371,7 +370,7 @@ arrayEnd_5:
 /* line number 27*/
 /* Done. */
 /* line number 27*/
-/* printing float f */
+/* printing float STO.VarSTO@1e00761 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

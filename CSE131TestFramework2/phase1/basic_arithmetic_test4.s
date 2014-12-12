@@ -10,12 +10,10 @@ float_0:        .single      0r9000.0
 float_1:        .single      0r5000.0    
 float_2:        .single      0r12000.0   
 float_3:        .single      0r7000.0    
-float_4:        .single      0r5.6       
-float_5:        .single      0r9.2       
-float_6:        .single      0r51.52     
+float_4:        .single      0r51.52     
+float_5:        .single      0r1.0       
+float_6:        .single      0r9999.5    
 float_7:        .single      0r1.0       
-float_8:        .single      0r9999.5    
-float_9:        .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -140,7 +138,7 @@ globalInit_end:
 /* Storing Arithmetic Op into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_6, %l2
+    set         float_4, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -190,7 +188,7 @@ globalInit_end:
 /* Storing 1.0 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_7, %l2
+    set         float_5, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -260,7 +258,7 @@ globalInit_end:
 /* Storing 9999.50 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_8, %l2
+    set         float_6, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -326,7 +324,7 @@ globalInit_end:
 /* Storing 1.00 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_9, %l2
+    set         float_7, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -370,7 +368,7 @@ globalInit_end:
 /* line number 22*/
 /* Done. */
 /* line number 22*/
-/* printing float shakespeare */
+/* printing float STO.VarSTO@d8f317 */
     set         shakespeare, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -382,7 +380,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 23*/
-/* printing float marlowe */
+/* printing float STO.VarSTO@ea8847 */
     set         marlowe, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -394,7 +392,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 24*/
-/* printing float goethe */
+/* printing float STO.VarSTO@1990d96 */
     set         goethe, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -406,7 +404,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float shelley */
+/* printing float STO.VarSTO@14afef4 */
     set         shelley, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -418,7 +416,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 26*/
-/* printing float byron */
+/* printing float STO.VarSTO@5b04ae */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -430,7 +428,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 27*/
-/* printing float tennyson */
+/* printing float STO.VarSTO@1904b13 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -442,7 +440,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 28*/
-/* printing float wordsworth */
+/* printing float STO.VarSTO@31028a */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -454,7 +452,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 29*/
-/* printing float lilwayne */
+/* printing float STO.VarSTO@19db21f */
     set         -80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -27,7 +27,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 7*/
-/* printing float y */
+/* printing float STO.VarSTO@8d116e */
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %f0
@@ -74,12 +74,10 @@ SAVE.foo = -(92 + 4) & -8
                 .section     ".data"
                 .align 4
                  .global     a,b,c
-float_0:        .single      0r5.5       
 a:              .single      0r5.5       
-float_2:        .single      0r5.55      
 b:              .word        3           
 c:              .word        0           
-str_1:          .asciz       "testing"   
+str_0:          .asciz       "testing"   
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -112,7 +110,7 @@ foo:
     call    printf
     nop
 /* line number 7*/
-/* printing float y */
+/* printing float STO.VarSTO@8d116e */
     set         null, %l1
     add         null, %l1, %l1
     ld          [%l1], %f0
@@ -164,7 +162,7 @@ main:
 /* line number 13*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_1, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 13*/

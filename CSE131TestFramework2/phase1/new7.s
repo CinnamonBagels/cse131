@@ -1,10 +1,10 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-float_0:        .single      0r5.55      
 main_x:         .single      0r0.0       
-float_1:        .single      0r3.12      
+float_0:        .single      0r5.55      
 main_y:         .single      0r0.0       
+float_1:        .single      0r3.12      
 staticGuard_main_x:    .word        0           
 staticGuard_main_y:    .word        0           
 globalInit_:    .word        0           
@@ -69,7 +69,7 @@ staticGuardLabel_main_y:
     ld          [%l1], %f1
     st          %f1, [%l0]
 /* line number 6*/
-/* printing float x */
+/* printing float STO.VarSTO@f4c9c4 */
     set         main_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -81,7 +81,7 @@ staticGuardLabel_main_y:
     call    printf
     nop
 /* line number 6*/
-/* printing float y */
+/* printing float STO.VarSTO@1c1e1e7 */
     set         main_y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

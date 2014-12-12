@@ -2,17 +2,16 @@
                 .section     ".data"
                 .align 4
                  .global     i,j,k
-float_0:        .single      0r2.0       
 j:              .single      0r2.0       
 k:              .single      0r0         
-float_1:        .single      0r5.0       
-float_2:        .single      0r2.0       
+float_0:        .single      0r5.0       
+float_1:        .single      0r2.0       
 i:              .word        10          
+str_2:          .asciz       " "         
 str_3:          .asciz       " "         
 str_4:          .asciz       " "         
 str_5:          .asciz       " "         
 str_6:          .asciz       " "         
-str_7:          .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -80,7 +79,7 @@ globalInit_end:
     add         %fp, %l0, %l0
 /* line number 12*/
 /* setting float */
-    set         float_1, %l1
+    set         float_0, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 12*/
@@ -159,7 +158,7 @@ globalInit_end:
 /* Storing 2.0 into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_2, %l2
+    set         float_1, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
@@ -184,7 +183,7 @@ globalInit_end:
 /* line number 16*/
 /* Done. */
 /* line number 16*/
-/* printing float k */
+/* printing float STO.VarSTO@1f6c2a9 */
     set         k, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -195,13 +194,13 @@ globalInit_end:
 /* line number 16*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float c */
+/* printing float STO.VarSTO@1ea7d34 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -212,7 +211,7 @@ globalInit_end:
 /* line number 16*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 16*/
@@ -230,13 +229,13 @@ globalInit_end:
 /* line number 16*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float e */
+/* printing float STO.VarSTO@1d62a85 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -247,7 +246,7 @@ globalInit_end:
 /* line number 16*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_6, %o1
+    set         str_5, %o1
     call    printf
     nop
 /* line number 16*/
@@ -277,7 +276,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 16*/
-/* printing float int / float */
+/* printing float STO.ExprSTO@181aed0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -288,7 +287,7 @@ globalInit_end:
 /* line number 16*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_7, %o1
+    set         str_6, %o1
     call    printf
     nop
 /* line number 16*/

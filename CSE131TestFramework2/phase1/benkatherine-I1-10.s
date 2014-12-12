@@ -2,7 +2,6 @@
                 .section     ".data"
                 .align 4
                  .global     f,g
-float_0:        .single      0r5.5       
 f:              .single      0r5.5       
 g:              .single      0r0         
 globalInit_:    .word        0           

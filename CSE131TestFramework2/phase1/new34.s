@@ -2,10 +2,9 @@
                 .section     ".data"
                 .align 4
                  .global     x
-float_0:        .single      0r3.33      
 x:              .single      0r3.33      
-str_1:          .asciz       "main"      
-str_2:          .asciz       "end"       
+str_0:          .asciz       "main"      
+str_1:          .asciz       "end"       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -42,13 +41,13 @@ globalInit_end:
 /* line number 6*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_1, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 6*/
 /* Done printing string. */
 /* line number 6*/
-/* printing float x */
+/* printing float STO.VarSTO@6076f4 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -59,7 +58,7 @@ globalInit_end:
 /* line number 6*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 6*/

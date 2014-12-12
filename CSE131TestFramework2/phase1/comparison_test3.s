@@ -2,35 +2,24 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z,a,b,c,d,e
-float_0:        .single      0r1.5       
 a:              .single      0r1.5       
-float_1:        .single      0r0.5       
 b:              .single      0r0.5       
-float_2:        .single      0r2.5       
 c:              .single      0r2.5       
-float_3:        .single      0r3.5       
 d:              .single      0r3.5       
-float_4:        .single      0r3.0       
 e:              .single      0r3.0       
-float_10:       .single      0r3.0       
-float_12:       .single      0r3.5       
-float_13:       .single      0r3.4       
-float_15:       .single      0r3.1       
-float_17:       .single      0r1.5       
-float_19:       .single      0r0.5       
 x:              .word        1           
 y:              .word        2           
 z:              .word        3           
-str_5:          .asciz       "1 is less than 1.5"
-str_6:          .asciz       "1 is greater than 0.5"
-str_7:          .asciz       "3 is less than 3.5"
-str_8:          .asciz       "2 is greater than 1.5"
-str_9:          .asciz       "2.5 is greater than 2"
-str_11:         .asciz       "3.0 is equal to 3.0"
-str_14:         .asciz       "3.5 is greater than 3.4"
-str_16:         .asciz       "3.1 is greater than 3.0"
-str_18:         .asciz       "1.5 is greater than or equal to 1.5"
-str_20:         .asciz       "0.5 is less than or equal to 0.5"
+str_0:          .asciz       "1 is less than 1.5"
+str_1:          .asciz       "1 is greater than 0.5"
+str_2:          .asciz       "3 is less than 3.5"
+str_3:          .asciz       "2 is greater than 1.5"
+str_4:          .asciz       "2.5 is greater than 2"
+str_5:          .asciz       "3.0 is equal to 3.0"
+str_6:          .asciz       "3.5 is greater than 3.4"
+str_7:          .asciz       "3.1 is greater than 3.0"
+str_8:          .asciz       "1.5 is greater than or equal to 1.5"
+str_9:          .asciz       "0.5 is less than or equal to 0.5"
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -96,7 +85,7 @@ if_0:
 /* line number 14*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 14*/
@@ -146,7 +135,7 @@ if_2:
 /* line number 18*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_6, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 18*/
@@ -196,7 +185,7 @@ if_4:
 /* line number 22*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_7, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* line number 22*/
@@ -246,7 +235,7 @@ if_6:
 /* line number 26*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_8, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 26*/
@@ -296,7 +285,7 @@ if_8:
 /* line number 30*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_9, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* line number 30*/
@@ -327,7 +316,7 @@ if_10:
 /* line number 34*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_11, %o1
+    set         str_5, %o1
     call    printf
     nop
 /* line number 34*/
@@ -347,23 +336,23 @@ endIf_11:
 /* Storing 3.5 into temp */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_12, %l2
-    add         %g0, %l2, %l2
+    set         null, %l2
+    add         null, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
-    set         float_12, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f0
 /* line number 36*/
 /* Storing 3.4 into temp */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_13, %l2
-    add         %g0, %l2, %l2
+    set         null, %l2
+    add         null, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
-    set         float_13, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f1
     fcmps       %f0, %f1
     fbg     greater_5
@@ -389,7 +378,7 @@ if_12:
 /* line number 38*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_14, %o1
+    set         str_6, %o1
     call    printf
     nop
 /* line number 38*/
@@ -409,12 +398,12 @@ endIf_13:
 /* Storing 3.1 into temp */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_15, %l2
-    add         %g0, %l2, %l2
+    set         null, %l2
+    add         null, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
-    set         float_15, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f0
 /* line number 40*/
 /* Storing e into temp */
@@ -451,7 +440,7 @@ if_14:
 /* line number 42*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_16, %o1
+    set         str_7, %o1
     call    printf
     nop
 /* line number 42*/
@@ -470,8 +459,8 @@ endIf_15:
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
-    set         float_17, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f1
     fcmps       %f0, %f1
     fbge    greaterEqual_7
@@ -497,7 +486,7 @@ if_16:
 /* line number 46*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_18, %o1
+    set         str_8, %o1
     call    printf
     nop
 /* line number 46*/
@@ -517,12 +506,12 @@ endIf_17:
 /* Storing .5 into temp */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_19, %l2
-    add         %g0, %l2, %l2
+    set         null, %l2
+    add         null, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
-    set         float_19, %l0
-    add         %g0, %l0, %l0
+    set         null, %l0
+    add         null, %l0, %l0
     ld          [%l0], %f0
 /* line number 48*/
 /* Storing b into temp */
@@ -559,7 +548,7 @@ if_18:
 /* line number 50*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_20, %o1
+    set         str_9, %o1
     call    printf
     nop
 /* line number 50*/

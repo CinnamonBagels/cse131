@@ -2,7 +2,6 @@
                 .section     ".data"
                 .align 4
                  .global     x
-float_0:        .single      0r3.33      
 x:              .single      0r3.33      
 globalInit_:    .word        0           
 
@@ -32,7 +31,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 4*/
-/* printing float x */
+/* printing float STO.VarSTO@6076f4 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

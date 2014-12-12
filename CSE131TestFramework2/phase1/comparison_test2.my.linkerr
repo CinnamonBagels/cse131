@@ -1,6 +1,6 @@
 rc.s:
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 60: error: invalid suffix
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 60: error: statement syntax
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 57: error: invalid suffix
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 57: error: statement syntax
 cc: fbe failed for rc.s
 ../input.c:
 ../output.s:
