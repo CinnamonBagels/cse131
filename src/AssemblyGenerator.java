@@ -456,7 +456,7 @@ public class AssemblyGenerator {
 		generateComment("promoting");
 		STO tmp = new ExprSTO("promoteCasting", new FloatType());
 		tmp.base = Registers.fp;
-		tmp.offset = "4";
+		tmp.offset = "-4";
 		
 		if(right.isConst()) {
 			storeVariable(tmp, right);
@@ -485,16 +485,16 @@ public class AssemblyGenerator {
 		}
 		generateComment("Storing variable " + value.getName() + " into " + dest.getName());
 		//setting destination
-		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l0);
-		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l0, Registers.l0);
+		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l5);
+		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l5, Registers.l5);
 		
 		if(dest.isReference) {
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l5 + "]", Registers.l5);
 		}
 		
 		if(value.isConst() && !value.getType().isFloat()) {
 			generateASM(Strings.two_param, Instructions.set, "" + ((ConstSTO) value).getIntValue(), Registers.l3);
-			generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l0 + "]");
+			generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + Registers.l5 + "]");
 		} else {
 			//setting value.
 			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l3);
