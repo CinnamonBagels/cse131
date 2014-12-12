@@ -3,7 +3,13 @@
                 .align 4
 float_0:        .single      0r95.95     
 float_1:        .single      0r1234567.0 
-float_2:        .single      0r0.01      
+float_2:        .single      0r0.01 
+float_13:       .single      0r95.95     
+float_14:       .single      0r95.95     
+float_16:       .single      0r1234567.0 
+float_17:       .single      0r1234567.0      
+float_19:       .single      0r0.01      
+float_20:       .single      0r-0.01       
 str_3:          .asciz       " "         
 str_4:          .asciz       " "         
 str_5:          .asciz       " = true, false = "
@@ -13,15 +19,9 @@ str_8:          .asciz       " "
 str_9:          .asciz       " "         
 str_10:         .asciz       " "         
 str_11:         .asciz       " = true, false = "
-str_12:         .asciz       "\n"        
-float_13:       .single      0r95.95     
-float_14:       .single      0r95.95     
-str_15:         .asciz       " "         
-float_16:       .single      0r1234567.0 
-float_17:       .single      0r1234567.0 
-str_18:         .asciz       " "         
-float_19:       .single      0r0.01      
-float_20:       .single      0r-0.01     
+str_12:         .asciz       "\n"   
+str_15:         .asciz       " "  
+str_18:         .asciz       " "            
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
