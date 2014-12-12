@@ -896,10 +896,6 @@ public class AssemblyGenerator {
 		generateComment("Starting array access");
 		loadVariable(Registers.l0, index);
 		
-		generateASM(Strings.two_param, Instructions.set, array.offset, Registers.l1);
-		generateASM(Strings.three_param, Instructions.add, array.base, Registers.l1, Registers.l1);
-		
-		//trying out annuled branch. not sure.
 		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
 		generateASM(Strings.one_param, Instructions.bl, Strings.arrayOutBounds + arrayDecl);
 		generateASM(Strings.nop);
@@ -909,14 +905,19 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		generateASM(Strings.label, Strings.arrayInBounds + arrayDecl);
+		
 		//generateASM(Strings.three_param, Instructions.add, "1", Registers.l0, Registers.l0);
 		this.doMove(Registers.l0, Registers.o0);
-		
 		generateASM(Strings.two_param, Instructions.set, Integer.toString(((ArrayType) array.getType()).getContainingType().getSize()), Registers.o1);
 		generateASM(Strings.call_op, Instructions.mul);
 		generateASM(Strings.nop);
 		
 		this.doMove(Registers.o0, Registers.l2);
+		//loading array
+		generateASM(Strings.two_param, Instructions.set, array.offset, Registers.l1);
+		generateASM(Strings.three_param, Instructions.add, array.base, Registers.l1, Registers.l1);
+		
+		//storing into array
 		generateASM(Strings.three_param, Instructions.add, Registers.l1, Registers.l2, Registers.l4);
 		generateASM(Strings.two_param, Instructions.set, accessSTO.offset, Registers.l5);
 		generateASM(Strings.three_param, Instructions.add, accessSTO.base, Registers.l5, Registers.l6);

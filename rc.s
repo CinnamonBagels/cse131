@@ -38,8 +38,6 @@ globalInit_end:
 /* line number 7*/
 /* Starting array access */
     set         2, %l0
-    set         x, %l1
-    add         %g0, %l1, %l1
     cmp         %l0, %g0
     bl      arrayOutBounds_0
     nop
@@ -52,6 +50,8 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
+    set         x, %l1
+    add         %g0, %l1, %l1
     add         %l1, %l2, %l4
     set         -8, %l5
     add         %fp, %l5, %l6
