@@ -5,9 +5,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,y,z
-x:              .word        4           
+                 .global     y,x,z
 y:              .word        5           
+x:              .word        4           
 z:              .word        0           
 g:              .word        0           
 staticGuard_g:    .word        0           
@@ -23,10 +23,6 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
                 .section     ".text"
                 .align 4
                 .global      main

@@ -59,7 +59,6 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
 		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\""));
 		write(assembleString("\n"));
-		this.doGlobalInit();
 		
 	}
 	
