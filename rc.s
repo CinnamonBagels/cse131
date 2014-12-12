@@ -70,6 +70,9 @@ arrayOutBounds_0:
     nop
 arrayEnd_0:
 ! --storing constant x[2] with value 3.0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         3, %l1
     st          %l1, [%l0]
 main_end:

@@ -237,8 +237,8 @@ public class AssemblyGenerator {
 	
 	public void storeConstant(STO sto, ConstSTO csto){
 		generateASM("! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
-		//generateASM(Strings.tab + Strings.two_param, Instructions.set, sto.offset, Registers.l0);
-		//generateASM(Strings.tab + Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 		String register = "";
 		//we'll have to check if in struct later
 		//should make a new method for this.
@@ -249,7 +249,7 @@ public class AssemblyGenerator {
 		
 		
 		if(sto.isReference || sto.isDereferenced) {		
-			//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		
 		if(sto.getType().isInt() || sto.getType().isBool()){
