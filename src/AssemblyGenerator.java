@@ -1447,6 +1447,22 @@ public class AssemblyGenerator {
 		generateASM(Strings.one_param, Instructions.ba, func.offset + Strings.functionEnd);
 		generateASM(Strings.nop);
 	}
+	
+	public void DoCIN(STO sto){
+		generateComment("Starting cin");
+		generateASM(Strings.two_param,Instructions.set,sto.offset,Registers.l5);
+		generateASM(Strings.three_param,Instructions.add,sto.base,Registers.l5,Registers.l5);
+		
+		if(!(sto.getType() instanceof FloatType)){
+			generateASM(Strings.call_op, "inputInt");
+			generateASM(Strings.nop);
+			generateASM(Strings.two_param, Instructions.store, Registers.o0, "[" + Registers.l5 + "]");
+		}else{		
+			generateASM(Strings.call_op, "inputFloat");
+			generateASM(Strings.nop);
+			generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l5 + "]");		
+		}
+	}
 
 	public void DoExitStmt(STO expr) {
 		// TODO Auto-generated method stub

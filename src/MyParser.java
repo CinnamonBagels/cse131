@@ -1660,4 +1660,8 @@ class MyParser extends parser {
 		
 		return generator.doNegate(sto, returnSTO);
 	}
+	
+	public void DoCIN(STO sto){
+		generator.DoCIN(sto);
+	}
 }
