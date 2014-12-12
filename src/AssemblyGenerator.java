@@ -152,7 +152,6 @@ public class AssemblyGenerator {
 	}
 	
 	public void flushData(){
-		dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
 		if(dQueue.size() > 0){
 			beginData();
 		}else{
@@ -316,6 +315,7 @@ public class AssemblyGenerator {
 	
 	public void end(){
 		try{
+			dQueue.add(assembleString(Strings.init, Strings.globalInit + ":", Strings.word, "0"));
 			if(dQueue.size() > 0){
 				flushData();
 			}		

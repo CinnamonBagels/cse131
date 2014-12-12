@@ -1,3 +1,8 @@
+! --globals--
+                .section     ".data"
+                .align 4
+                 .global     x,y
+globalInit_:    .word        0           
                 .section     ".bss"
                 .align 4
 x:              .skip        12          
