@@ -3,13 +3,10 @@
                 .align 4
 float_0:        .single      0r95.95     
 float_1:        .single      0r1234567.0 
-float_2:        .single      0r0.01      
+float_2:        .single      0r-0.01     
 float_13:       .single      0r95.95     
-float_14:       .single      0r95.95     
-float_16:       .single      0r1234567.0 
-float_17:       .single      0r1234567.0 
-float_19:       .single      0r0.01      
-float_20:       .single      0r-0.01     
+float_15:       .single      0r1234567.0 
+float_17:       .single      0r-0.01     
 str_3:          .asciz       " "         
 str_4:          .asciz       " "         
 str_5:          .asciz       " = true, false = "
@@ -20,8 +17,8 @@ str_9:          .asciz       " "
 str_10:         .asciz       " "         
 str_11:         .asciz       " = true, false = "
 str_12:         .asciz       "\n"        
-str_15:         .asciz       " "         
-str_18:         .asciz       " "         
+str_14:         .asciz       " "         
+str_16:         .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -50,25 +47,25 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 5*/
-/* setting b1 = true */
+/* setting b1 = 1.0 */
     set         1, %l0
     st          %l0, [%fp-8]
 /* line number 5*/
 /* Done. */
 /* line number 6*/
-/* setting b2 = false */
+/* setting b2 = 0.0 */
     set         0, %l0
     st          %l0, [%fp-12]
 /* line number 6*/
 /* Done. */
 /* line number 7*/
-/* setting i = 2 */
+/* setting i = 2.0 */
     set         2, %l0
     st          %l0, [%fp-16]
 /* line number 7*/
 /* Done. */
 /* line number 8*/
-/* setting k = 5 */
+/* setting k = -5.0 */
     set         -5, %l0
     st          %l0, [%fp-20]
 /* line number 8*/
@@ -96,7 +93,7 @@ globalInit_end:
 /* line number 10*/
 /* Done. */
 /* line number 12*/
-/* setting f3 = .01 */
+/* setting f3 = -0.01 */
     set         -32, %l0
     add         %fp, %l0, %l0
 /* line number 12*/
@@ -202,7 +199,7 @@ branchEnd_1:
 /* line number 14*/
 /* Done printing string. */
 /* line number 15*/
-/* printing float f1 */
+/* printing float STO.VarSTO@17b0998 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -219,7 +216,7 @@ branchEnd_1:
 /* line number 15*/
 /* Done printing string. */
 /* line number 15*/
-/* printing float f2 */
+/* printing float STO.VarSTO@109de5b */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -236,7 +233,7 @@ branchEnd_1:
 /* line number 15*/
 /* Done printing string. */
 /* line number 15*/
-/* printing float f3 */
+/* printing float STO.VarSTO@3257b8 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -306,7 +303,7 @@ branchEnd_1:
     nop
 /* line number 20*/
 /* Done printing string. */
-    set         float_14, %l0
+    set         float_13, %l0
     ld          [%l0], %f0
     call    printFloat
     nop
@@ -314,25 +311,25 @@ branchEnd_1:
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_15, %o1
+    set         str_14, %o1
+    call    printf
+    nop
+/* line number 21*/
+/* Done printing string. */
+    set         float_15, %l0
+    ld          [%l0], %f0
+    call    printFloat
+    nop
+
+/* line number 21*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_16, %o1
     call    printf
     nop
 /* line number 21*/
 /* Done printing string. */
     set         float_17, %l0
-    ld          [%l0], %f0
-    call    printFloat
-    nop
-
-/* line number 21*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_18, %o1
-    call    printf
-    nop
-/* line number 21*/
-/* Done printing string. */
-    set         float_20, %l0
     ld          [%l0], %f0
     call    printFloat
     nop

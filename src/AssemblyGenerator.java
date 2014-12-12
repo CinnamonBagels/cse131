@@ -380,7 +380,7 @@ public class AssemblyGenerator {
 		if(left.getType().isFloat() && right.getType().isInt()) {
 			storeConvertedVar(left,right);
 		} else if (!left.getType().isPointer()){
-			generateComment("setting " + left.getName() + " = " + right.getName());	
+			generateComment("setting " + left.getName() + " = " + ((ConstSTO)right).getFloatValue());	
 			
 			if(right.isConst()) {
 				if(right.getType().isInt() || right.getType().isBool()) {
@@ -388,13 +388,13 @@ public class AssemblyGenerator {
 					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) right).getIntValue()), Registers.l0);
 					generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" +Registers.fp + left.offset + "]");
 				} else if(right.getType().isFloat()) {
-					
+					assignFloat((ConstSTO)right);
 					generateASM(Strings.two_param, Instructions.set, left.offset, Registers.l0);
 					generateASM(Strings.three_param, Instructions.add, left.base, Registers.l0, Registers.l0);
 					
 					
 					generateComment("setting float");
-					generateASM(Strings.two_param, Instructions.set, right.offset, Registers.l1);
+					generateASM(Strings.two_param, Instructions.set, right.offset , Registers.l1);
 					//l1 f0, l0
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f0);
 					generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
@@ -597,7 +597,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void printFloat(STO sto) {
-		generateComment("printing float " + sto.getName());
+		generateComment("printing float " + sto);
 		this.loadVariable(Registers.f0, sto);
 		generateASM(Strings.call_op, Strings.printfloat);
 		generateASM(Strings.nop);
@@ -669,6 +669,8 @@ public class AssemblyGenerator {
 	}
 
 	public ConstSTO assignFloat(ConstSTO sto) {
+		sto.offset = Strings.assignFloat + stringLits;
+		sto.base = Registers.g0;
 		this.floatQueue.add(this.generateString(Strings.init, Strings.assignFloat + this.stringLits++ + ":", Strings.single, "0r" + sto.getFloatValue()));
 		return sto;
 	}
@@ -1474,5 +1476,27 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.two_param, Instructions.set, "1", Registers.l1));
 		write(assembleString(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]"));
 		write(assembleString(Strings.label, Strings.globalInit + "end"));
+	}
+	
+	public STO doNegate(STO sto, STO returnSTO) {
+		generateComment("negating...");
+		String register = "";
+		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		if(sto.getType().isFloat()) {
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0  + "]", Registers.f0);
+			generateASM(Strings.one_param, Instructions.fnegs, Registers.f0);
+			register = Registers.f0;
+		} else {
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0  + "]", Registers.l1);
+			generateASM(Strings.one_param, Instructions.neg, Registers.l1);
+			register = Registers.l1;
+		}
+		
+		generateASM(Strings.two_param, Instructions.set, returnSTO.offset, Registers.l2);
+		generateASM(Strings.three_param, Instructions.add, returnSTO.base, Registers.l2, Registers.l2);
+		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
+		
+		return returnSTO;
 	}
 }
