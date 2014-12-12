@@ -68,7 +68,7 @@ globalInit_end:
 /* Storing Arithmetic Op into  */
     set         4, %l0
     add         %fp, %l0, %l0
-    set         float_5, %l2
+    set         float_4, %l2
     add         %g0, %l2, %l2
     ld          [%l2], %f1
     st          %f1, [%l0]
