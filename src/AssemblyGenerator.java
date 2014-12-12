@@ -404,7 +404,7 @@ public class AssemblyGenerator {
 	public String promoteIntToFloat(STO left, STO right) {
 		STO tmp = new ExprSTO("promoteCasting", new FloatType());
 		tmp.base = Registers.fp;
-		tmp.offset = String.valueOf(-(currentFunction.getStackSize() + tmp.getType().getSize()));
+		tmp.offset = "-4";
 		
 		if(right.isConst()) {
 			storeVariable(tmp, right);

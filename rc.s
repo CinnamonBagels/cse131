@@ -36,11 +36,11 @@ globalInit_end:
 /* Converting int Arithmetic Op to float. */
 /* line number 6*/
 /* Storing Arithmetic Op into promoteCasting */
-    set         -12, %l0
+    set         -4, %l0
     add         %fp, %l0, %l0
     set         25, %l1
     st          %l1, [%l0]
-    set         -12, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
