@@ -5,4 +5,5 @@ int b = 6;
 int c = a+b+b;
 function: void main()
 {
+  cout << 5 << endl;
 }

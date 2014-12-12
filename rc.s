@@ -72,6 +72,16 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 8*/
+/* printf on int */
+    set         _intFmt, %o0
+    set         5, %o1
+    call    printf
+    nop
+
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore
