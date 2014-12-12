@@ -1333,11 +1333,18 @@ class MyParser extends parser {
 				
 				return result;
 			} else {
-				sto.base = Registers.fp;
 				if(m_symtab.getFunc() == null) {
-					sto.offset = String.valueOf(-(main.getStackSize() + sto.getType().getSize()));
-					main.addToStack(sto.getType().getSize());
+					if(main != null) {
+						sto.base = Registers.fp;
+						sto.offset = String.valueOf(-(main.getStackSize() + sto.getType().getSize()));
+						main.addToStack(sto.getType().getSize());
+					} else {
+						sto.base = Registers.g0;
+						sto.offset = _1.getName();
+					}
+					
 				} else {
+					sto.base = Registers.fp;
 					sto.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + sto.getType().getSize()));
 					m_symtab.getFunc().addToStack(sto.getType().getSize());
 				}

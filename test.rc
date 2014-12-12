@@ -1,7 +1,6 @@
-const int w = 5, v = 0;
+int x = 4, y = 5;
 
-int x, y;
+int z = x + y;
 
-int z;
-
-function : void main() {}
+function : void main()
+{}
