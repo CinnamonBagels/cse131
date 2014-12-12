@@ -1327,7 +1327,10 @@ class MyParser extends parser {
 				} 
 				result.setIsAddressable(false);
 				result.setIsModifiable(false);
+				result.offset = Strings.assignFloat + generator.stringLits;
+				result.base = Registers.g0;
 				generator.assignFloat((ConstSTO)result);
+				
 				return result;
 			} else {
 				sto.base = Registers.fp;

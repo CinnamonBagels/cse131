@@ -29,6 +29,8 @@ public class AssemblyGenerator {
 	public int mainCounter = 0;
 	public int lineNumber = 0;
 	
+	public FuncSTO currentFunction = null;
+	
 	private List<String> executeBuffer = new Vector<String>();
 	
 	public AssemblyGenerator(String fileName) {
@@ -193,6 +195,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void beginFunction(FuncSTO fsto){
+		this.currentFunction = fsto;
 		String fname = fsto.getName();
 		generateASM(Strings.section, ".section", "\".text\"");
 		generateASM(Strings.falign, Strings.align);
@@ -203,6 +206,7 @@ public class AssemblyGenerator {
 	}
 	
 	public void endFunction(FuncSTO fsto){
+		this.currentFunction = fsto;
 		String fname = fsto.getName();
 		generateASM(Strings.label, fsto.offset + Strings.functionEnd);
 		generateASM(Strings.ret, "ret");
@@ -222,7 +226,7 @@ public class AssemblyGenerator {
 		generateASM("! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
 		//generateASM(Strings.tab + Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 		//generateASM(Strings.tab + Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
-		
+		String register = "";
 		//we'll have to check if in struct later
 		//should make a new method for this.
 		if(!sto.isReference && !sto.isDereferenced){
@@ -239,6 +243,9 @@ public class AssemblyGenerator {
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
 			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
 		}else{
+			if(csto.getType().isInt()) {
+				register = this.promoteIntToFloat(sto, csto);
+			}
 			generateASM(Strings.two_param, Instructions.set, csto.offset, Registers.l1);
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.f1);
 			generateASM(Strings.two_param, Instructions.store, Registers.f1, "[" + Registers.l0 + "]");
@@ -397,7 +404,7 @@ public class AssemblyGenerator {
 	public String promoteIntToFloat(STO left, STO right) {
 		STO tmp = new ExprSTO("promoteCasting", new FloatType());
 		tmp.base = Registers.fp;
-		tmp.offset = "" + tmp.getType().getSize();
+		tmp.offset = "4";
 		
 		if(right.isConst()) {
 			storeVariable(tmp, right);
@@ -459,9 +466,9 @@ public class AssemblyGenerator {
 		generateComment("Assigning converted " + source.getName() + " to " + dest.getName());
 		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l2);
 		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l2, Registers.l2);
-		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l3);
+		//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l3);
 		
-		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l3 + "]");
+		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
 		
 	}
 
