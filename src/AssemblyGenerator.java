@@ -23,6 +23,8 @@ public class AssemblyGenerator {
 	public int ifElseStmts = 0;
 	public int comparisons = 0;
 	public int numNots = 0;
+	public int andCount = 0;
+	public int orCount = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -866,10 +868,41 @@ public class AssemblyGenerator {
 			generateComment("Xoring");
 			generateASM(Strings.three_param, Instructions.xor, Registers.l0, Registers.l1, Registers.l2);
 			register = Registers.l2;
+		} else if(op.getName().equals("&&")){
+			generateComment("&&-ing");
+			loadVariable(Registers.l2, right);
+			generateASM(Strings.two_param, Instructions.cmp, Registers.l2, Registers.g0);
+			generateASM(Strings.one_param, Instructions.be, "_andOp" + andCount);
+			generateASM(Strings.nop);
+			generateASM(Strings.two_param, Instructions.set, "0", Registers.l2);
+			generateASM(Strings.one_param, Instructions.ba, "_andOp" + (andCount+1));
+			generateASM(Strings.nop);
+			generateASM(Strings.label, "_andOp" + orCount);
+			generateASM(Strings.two_param, Instructions.set, "1", Registers.l2);
+			generateASM(Strings.one_param, Instructions.ba, "_andOp" + (andCount+1));
+			generateASM(Strings.nop);
+			generateASM(Strings.label, "_andOp" +(andCount+1));
+			andCount = andCount + 2;
+			register = Registers.l2;
+		} else if(op.getName().equals("||")){
+			generateComment("||-ing");
+			loadVariable(Registers.l2, right);
+			generateASM(Strings.two_param, Instructions.cmp, Registers.l2, Registers.g0);
+			generateASM(Strings.one_param, Instructions.bne, "_orOp" + orCount);
+			generateASM(Strings.nop);
+			generateASM(Strings.two_param, Instructions.set, "0", Registers.l2);
+			generateASM(Strings.one_param, Instructions.ba, "_orOp" + (orCount+1));
+			generateASM(Strings.nop);
+			generateASM(Strings.label, "_orOp" + orCount);
+			generateASM(Strings.two_param, Instructions.set, "1", Registers.l2);
+			generateASM(Strings.one_param, Instructions.ba, "_orOp" + (orCount+1));
+			generateASM(Strings.nop);
+			generateASM(Strings.label, "_orOp" +(orCount+1));
+			orCount = orCount + 2;
+			register = Registers.l2;
 		} else {
 			generateComment("Whoops, Executing Binary Op broke on " + left.getName() + " " + op.getName() + " " + right.getName());
-		}
-		
+		}		
 		
 		generateComment("Storing result of Binary Op");
 		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l4);

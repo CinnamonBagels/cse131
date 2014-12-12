@@ -20,98 +20,82 @@ main:
     cmp         %l0, %g0
     bne     globalInit_end
     nop
-                .section     ".bss"
-                .align 4
-x:              .skip        12          
-
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 3*/
+/* setting x = true */
+    set         1, %l0
+    st          %l0, [%fp-8]
+/* line number 3*/
+/* Done. */
+/* line number 4*/
+/* setting y = false */
+    set         0, %l0
+    st          %l0, [%fp-12]
+/* line number 4*/
+/* Done. */
 /* line number 6*/
-/* Starting array access */
-    set         2, %l0
-    set         x, %l1
-    add         %g0, %l1, %l1
-    cmp         %l0, %g0
-    bl      arrayOutBounds_0
-    nop
-    cmp         %l0, 3
-    bge     arrayOutBounds_0
-    nop
-arrayInBounds_0:
-    mov         %l0, %o0
-    set         4, %o1
-    call    .mul
-    nop
-    mov         %o0, %l2
-    add         %l1, %l2, %l4
-    set         -8, %l5
-    add         %fp, %l5, %l6
-    st          %l4, [%l6]
-    ba      arrayEnd_0
-    nop
-arrayOutBounds_0:
-    set         arrayOutOfBounds, %o0
-    mov         %l0, %o1
-    set         3, %o2
-    call    printf
-    nop
-    set         1, %o0
-    call    exit
-
-    nop
-arrayEnd_0:
-! --storing constant x[2] with value 3.0
-    set         3, %l1
-    st          %l1, [%l0]
-/* line number 8*/
-/* Starting array access */
-    set         2, %l0
-    set         x, %l1
-    add         %g0, %l1, %l1
-    cmp         %l0, %g0
-    bl      arrayOutBounds_1
-    nop
-    cmp         %l0, 3
-    bge     arrayOutBounds_1
-    nop
-arrayInBounds_1:
-    mov         %l0, %o0
-    set         4, %o1
-    call    .mul
-    nop
-    mov         %o0, %l2
-    add         %l1, %l2, %l4
-    set         -8, %l5
-    add         %fp, %l5, %l6
-    st          %l4, [%l6]
-    ba      arrayEnd_1
-    nop
-arrayOutBounds_1:
-    set         arrayOutOfBounds, %o0
-    mov         %l0, %o1
-    set         3, %o2
-    call    printf
-    nop
-    set         1, %o0
-    call    exit
-
-    nop
-arrayEnd_1:
-/* line number 10*/
-/* Converting int x[2] to float. */
+/* setting z = 0 */
+    set         0, %l0
+    st          %l0, [%fp-16]
+/* line number 6*/
+/* Done. */
+/* line number 6*/
+/* Short-circuiting || with x */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f1
-    ld          [%l1], %f1
-    fitos       %f1, %f1
-/* line number 10*/
-/* Assigning converted x[2] to e */
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    st          %f1, [%l2]
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    bne     _orOp0
+    nop
+/* line number 6*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 6*/
+/* ||-ing */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    bne     _orOp0
+    nop
+    set         0, %l2
+    ba      _orOp1
+    nop
+_orOp0:
+    set         1, %l2
+    ba      _orOp1
+    nop
+_orOp1:
+/* line number 6*/
+/* Storing result of Binary Op */
+    set         -20, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_0
+    nop
+if_0:
+! --storing constant z with value 1.0
+    set         -16, %l0
+    add         %fp, %l0, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+    ba      endIf_1
+    nop
+else_0:
+endIf_1:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 20) & -8
