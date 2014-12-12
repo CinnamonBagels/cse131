@@ -1,7 +1,6 @@
 function : void main() {
-int i;
-int * ptr;
+int x = 10;
+float y = x;
 
-*ptr = 5000;
-i = *ptr;
+float z = 1;
 }
