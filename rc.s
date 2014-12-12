@@ -1,31 +1,11 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,y,z,a,b,c,d,e
-a:              .single      0r1.5       
-b:              .single      0r0.5       
-c:              .single      0r2.5       
-d:              .single      0r3.5       
-e:              .single      0r3.0       
-float_5:        .single      0r3.0       
-float_7:        .single      0r3.4       
-float_8:        .single      0r3.5       
-float_10:       .single      0r3.1       
-float_12:       .single      0r1.5       
-float_14:       .single      0r0.5       
-x:              .word        1           
-y:              .word        2           
-z:              .word        3           
-str_0:          .asciz       "1 is less than 1.5"
-str_1:          .asciz       "1 is greater than 0.5"
-str_2:          .asciz       "3 is less than 3.5"
-str_3:          .asciz       "2 is greater than 1.5"
-str_4:          .asciz       "2.5 is greater than 2"
-str_6:          .asciz       "3.0 is equal to 3.0"
-str_9:          .asciz       "3.5 is greater than 3.4"
-str_11:         .asciz       "3.1 is greater than 3.0"
-str_13:         .asciz       "1.5 is greater than or equal to 1.5"
-str_15:         .asciz       "0.5 is less than or equal to 0.5"
+                 .global     x,y,z,q
+q:              .single      0r5.0       
+x:              .word        0           
+y:              .word        0           
+z:              .word        10          
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -54,534 +34,191 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 12*/
-/* Prepping Comparison Calculations by loading */
+/* setting a = x */
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         x, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l0
+    ld          [%l1], %l2
+    st          %l2, [%l0]
 /* line number 12*/
-/* Starting Less than */
-    set         x, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    set         a, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f1
-    fitos       %f0, %f0
-    fcmps       %f0, %f1
-    fbl     less_0
-    nop
-    set         0, %l3
-    ba      lessEnd_0
-    nop
-less_0:
-    set         1, %l3
-lessEnd_0:
+/* Done. */
 /* line number 12*/
-/* Storing result of Comparison Op */
-    set         -8, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_0
-    nop
-if_0:
-/* line number 14*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* line number 14*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      endIf_1
-    nop
-else_0:
-endIf_1:
-/* line number 16*/
-/* Prepping Comparison Calculations by loading */
+/* Prepping Arithmetic Calculations by loading */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
-/* line number 16*/
-/* Starting greater than */
     set         x, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f1
-    fitos       %f0, %f0
-    fcmps       %f0, %f1
-    fbg     greater_1
-    nop
-    set         0, %l3
-    ba      greaterEnd_1
-    nop
-greater_1:
-    set         1, %l3
-greaterEnd_1:
-/* line number 16*/
-/* Storing result of Comparison Op */
+    ld          [%l1], %l1
+/* line number 12*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 12*/
+/* Storing result of Binary Op */
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 12*/
+/* Prepping Arithmetic Calculations by loading */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_2
-    nop
-if_2:
-/* line number 18*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_1, %o1
-    call    printf
-    nop
-/* line number 18*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      endIf_3
-    nop
-else_2:
-endIf_3:
-/* line number 20*/
-/* Prepping Comparison Calculations by loading */
     set         z, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l0
-/* line number 20*/
-/* Starting Less than */
-    set         z, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    set         d, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f1
-    fitos       %f0, %f0
-    fcmps       %f0, %f1
-    fbl     less_2
-    nop
-    set         0, %l3
-    ba      lessEnd_2
-    nop
-less_2:
-    set         1, %l3
-lessEnd_2:
-/* line number 20*/
-/* Storing result of Comparison Op */
+    ld          [%l1], %l1
+/* line number 12*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 12*/
+/* Storing result of Binary Op */
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 13*/
+/* setting b = int + int */
+    set         -20, %l0
+    add         %fp, %l0, %l0
     set         -16, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_4
-    nop
-if_4:
-/* line number 22*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_2, %o1
+    ld          [%l1], %l2
+    st          %l2, [%l0]
+/* line number 13*/
+/* Done. */
+/* line number 13*/
+/* Printing int a */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
     call    printf
     nop
-/* line number 22*/
-/* Done printing string. */
+/* line number 13*/
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
-    ba      endIf_5
+/* line number 14*/
+/* Printing int b */
+    set         _intFmt, %o0
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
     nop
-else_4:
-endIf_5:
-/* line number 24*/
-/* Prepping Comparison Calculations by loading */
-    set         y, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-/* line number 24*/
-/* Starting greater than */
-    set         y, %l1
-    add         %g0, %l1, %l1
+/* line number 14*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 15*/
+/* Prepping Arithmetic Calculations by loading */
+    set         5, %l0
+/* line number 15*/
+/* Adding */
+/* line number 15*/
+/* Storing variable w into  */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         5, %l3
+    st          %l3, [%l6]
+    set         4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
-    set         a, %l1
+    set         q, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
     fitos       %f0, %f0
-    fcmps       %f0, %f1
-    fbg     greater_3
-    nop
-    set         0, %l3
-    ba      greaterEnd_3
-    nop
-greater_3:
-    set         1, %l3
-greaterEnd_3:
-/* line number 24*/
-/* Storing result of Comparison Op */
-    set         -20, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -20, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_6
-    nop
-if_6:
-/* line number 26*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_3, %o1
-    call    printf
-    nop
-/* line number 26*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      endIf_7
-    nop
-else_6:
-endIf_7:
-/* line number 28*/
-/* Prepping Comparison Calculations by loading */
-    set         y, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l1
-/* line number 28*/
-/* Starting greater than */
-    set         c, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    set         y, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f1
-    fitos       %f1, %f1
-    fcmps       %f0, %f1
-    fbg     greater_4
-    nop
-    set         0, %l3
-    ba      greaterEnd_4
-    nop
-greater_4:
-    set         1, %l3
-greaterEnd_4:
-/* line number 28*/
-/* Storing result of Comparison Op */
+    fadds       %f0, %f1, %f3
+/* line number 15*/
+/* Storing result of Binary Op */
     set         -24, %l4
     add         %fp, %l4, %l4
-    st          %l3, [%l4]
+    st          %f3, [%l4]
+/* line number 16*/
+/* setting c = int + float */
+    set         -28, %l0
+    add         %fp, %l0, %l0
     set         -24, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_8
-    nop
-if_8:
-/* line number 30*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_4, %o1
-    call    printf
-    nop
-/* line number 30*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      endIf_9
-    nop
-else_8:
-endIf_9:
-/* line number 32*/
-/* Prepping Comparison Calculations by loading */
-/* line number 32*/
-/* Starting == equal */
-    set         e, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
-    set         float_5, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
-    fcmps       %f0, %f1
-    fbe     equal_5
-    nop
-    set         0, %l3
-    ba      equal_5
-    nop
-equal_5:
-    set         1, %l3
-equalEnd_5:
-/* line number 32*/
-/* Storing result of Comparison Op */
-    set         -28, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
+    st          %f0, [%l0]
+/* line number 16*/
+/* Done. */
+/* line number 17*/
+/* Converting int Arithmetic Op to float. */
+/* line number 17*/
+/* promoting */
+/* line number 17*/
+/* Storing variable Arithmetic Op into promoteCasting */
+    set         4, %l0
+    add         %fp, %l0, %l0
+    set         25, %l3
+    st          %l3, [%l6]
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+/* line number 17*/
+/* done promoting */
+/* line number 17*/
+/* Assigning converted Arithmetic Op to d */
+    set         -32, %l2
+    add         %fp, %l2, %l2
+    st          %f1, [%l2]
+/* line number 17*/
+/* printing float STO.VarSTO@17b6643 */
     set         -28, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_10
+    ld          [%l1], %f0
+    call    printFloat
     nop
-if_10:
-/* line number 34*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_6, %o1
-    call    printf
-    nop
-/* line number 34*/
-/* Done printing string. */
+/* line number 17*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
-    ba      endIf_11
-    nop
-else_10:
-endIf_11:
-/* line number 36*/
-/* Prepping Comparison Calculations by loading */
-/* line number 36*/
-/* Starting greater than */
-/* line number 36*/
-/* Storing variable 3.5 into temp */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_8, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l0]
-    set         float_8, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
-/* line number 36*/
-/* Storing variable 3.4 into temp */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_7, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l0]
-    set         float_7, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
-    fcmps       %f0, %f1
-    fbg     greater_6
-    nop
-    set         0, %l3
-    ba      greaterEnd_6
-    nop
-greater_6:
-    set         1, %l3
-greaterEnd_6:
-/* line number 36*/
-/* Storing result of Comparison Op */
-    set         -32, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
+/* line number 18*/
+/* printing float STO.VarSTO@76e8a7 */
     set         -32, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_12
+    ld          [%l1], %f0
+    call    printFloat
     nop
-if_12:
-/* line number 38*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_9, %o1
-    call    printf
-    nop
-/* line number 38*/
-/* Done printing string. */
+/* line number 18*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
-    ba      endIf_13
-    nop
-else_12:
-endIf_13:
-/* line number 40*/
-/* Prepping Comparison Calculations by loading */
-/* line number 40*/
-/* Starting greater than */
-/* line number 40*/
-/* Storing variable 3.1 into temp */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_10, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l0]
-    set         float_10, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
-/* line number 40*/
-/* Storing variable e into temp */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         e, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l0]
-    set         e, %l1
-    add         %g0, %l1, %l1
+/* line number 19*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 19*/
+/* Adding */
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    set         -28, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f1
-    fcmps       %f0, %f1
-    fbg     greater_7
-    nop
-    set         0, %l3
-    ba      greaterEnd_7
-    nop
-greater_7:
-    set         1, %l3
-greaterEnd_7:
-/* line number 40*/
-/* Storing result of Comparison Op */
+    fadds       %f0, %f1, %f3
+/* line number 19*/
+/* Storing result of Binary Op */
     set         -36, %l4
     add         %fp, %l4, %l4
-    st          %l3, [%l4]
+    st          %f3, [%l4]
+/* line number 19*/
+/* printing float STO.ExprSTO@d66426 */
     set         -36, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_14
-    nop
-if_14:
-/* line number 42*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_11, %o1
-    call    printf
-    nop
-/* line number 42*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      endIf_15
-    nop
-else_14:
-endIf_15:
-/* line number 44*/
-/* Prepping Comparison Calculations by loading */
-/* line number 44*/
-/* Starting greater than equal */
-    set         a, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
-    set         float_12, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
-    fcmps       %f0, %f1
-    fbge    greaterEqual_8
+    call    printFloat
     nop
-    set         0, %l3
-    ba      greaterEqual_8
-    nop
-greaterEqual_8:
-    set         1, %l3
-greaterEqualEnd_8:
-/* line number 44*/
-/* Storing result of Comparison Op */
-    set         -40, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -40, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_16
-    nop
-if_16:
-/* line number 46*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_13, %o1
-    call    printf
-    nop
-/* line number 46*/
-/* Done printing string. */
+/* line number 19*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
-    ba      endIf_17
-    nop
-else_16:
-endIf_17:
-/* line number 48*/
-/* Prepping Comparison Calculations by loading */
-/* line number 48*/
-/* Starting Less than Equal */
-/* line number 48*/
-/* Storing variable .5 into temp */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_14, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l0]
-    set         float_14, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
-/* line number 48*/
-/* Storing variable b into temp */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         b, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l0]
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f1
-    fcmps       %f0, %f1
-    fble    lessEqual_9
-    nop
-    set         0, %l3
-    ba      lessEqualEnd_9
-    nop
-lessEqual_9:
-    set         1, %l3
-lessEqualEnd_9:
-/* line number 48*/
-/* Storing result of Comparison Op */
-    set         -44, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-    set         -44, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_18
-    nop
-if_18:
-/* line number 50*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_15, %o1
-    call    printf
-    nop
-/* line number 50*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      endIf_19
-    nop
-else_18:
-endIf_19:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 44) & -8
+SAVE.main = -(92 + 36) & -8
