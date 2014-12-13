@@ -278,7 +278,7 @@ public class AssemblyGenerator {
 		String register = "";
 		//we'll have to check if in struct later
 		//should make a new method for this.
-		if(sto.isReference) {
+		if(sto.isVar() && ((VarSTO) sto).isReference || (sto.isReference || sto.isDereferenced)) {
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		}
 		

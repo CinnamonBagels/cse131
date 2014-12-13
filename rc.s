@@ -42,6 +42,7 @@ foo:
 ! --storing constant x with value 2.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         2, %l1
     st          %l1, [%l0]
 /* line number 7*/
