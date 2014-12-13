@@ -273,10 +273,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 		}
 		
-		
-		if(sto.isReference || sto.isDereferenced) {		
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
-		}
+		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		
 		if(sto.getType().isInt() || sto.getType().isBool()){
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
