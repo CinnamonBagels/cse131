@@ -555,7 +555,7 @@ public class AssemblyGenerator {
 	}
 
 	public void loadVariable(String register, STO sto) {
-		
+		generateComment("Loading " + sto.getName() + " to " + register);
 		if(sto.isConst()) {
 			Type type = ((ConstSTO) sto).getType();
 			
@@ -680,10 +680,14 @@ public class AssemblyGenerator {
 		// TODO Auto-generated method stub
 		generateComment("Preparing argument " + argument.getName());
 		
+		argument.base = Registers.fp;
+		argument.offset = "-4";
+		
 		if(parameter != null && parameter.getIsReference()) {
 			//do reference stuff here.
 		} else {
 			if(argument.getType().isFloat() && parameter.getType().isFloat()) {
+				System.out.println("prepareArguments: " + argument.getName() + " " + argument.base + " " + argument.offset);				
 				this.loadVariable("%f" + argCounter, argument);
 			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
 				this.loadVariable("%o" + argCounter, argument);
