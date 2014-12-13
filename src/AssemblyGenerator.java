@@ -1777,4 +1777,9 @@ public class AssemblyGenerator {
 		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + (this.whileStmts - 1));
 		generateASM(Strings.nop);
 	}
+
+	public void doStructDesignatorLoad(STO member) {
+		// TODO Auto-generated method stub
+		
+	}
 }
