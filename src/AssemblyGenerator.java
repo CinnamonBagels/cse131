@@ -31,6 +31,10 @@ public class AssemblyGenerator {
 	public int orCount = 0;
 	public int whileStmts = 0;
 	public int forStmts = 0;
+	public int noWhiles = 0;
+	public int finalWhileStmts = 0;
+	public int finalForStmts = 0;
+	public int noFors = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -1712,12 +1716,14 @@ public class AssemblyGenerator {
 		
 		whileStack.push(whileStmts);
 		loopStack.push(0);
+		finalWhileStmts = whileStmts;
 		whileStmts++;
+		
 		
 	}
 	
 	public void endWhile() {
-		int noWhiles = whileStack.pop();
+		noWhiles = whileStack.pop();
 		
 		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + noWhiles);
 		generateASM(Strings.nop);
@@ -1741,14 +1747,16 @@ public class AssemblyGenerator {
 	
 	public void doWhileBreak() {
 		generateComment("Breaking out of while loop");
-		generateASM(Strings.one_param, Instructions.ba, Strings.whileEnd + (whileStmts - 1));
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileEnd + finalWhileStmts);
 		generateASM(Strings.nop);
+		finalWhileStmts--;
 	}
 	
 	public void doForBreak() {
 		generateComment("breaking out of for loop");
-		generateASM(Strings.one_param, Instructions.ba, Strings.forEnd + (forStmts - 1));
+		generateASM(Strings.one_param, Instructions.ba, Strings.forEnd + finalForStmts);
 		generateASM(Strings.nop);
+		finalForStmts--;
 	}
 
 	public void doContinue() {
@@ -1767,14 +1775,14 @@ public class AssemblyGenerator {
 	private void doForContinue() {
 		// TODO Auto-generated method stub
 		generateComment("Continuing for loop");
-		generateASM(Strings.one_param, Instructions.ba, Strings.forStart + (this.forStmts - 1));
+		generateASM(Strings.one_param, Instructions.ba, Strings.forStart + finalForStmts);
 		generateASM(Strings.nop);
 	}
 
 	private void doWhileContinue() {
 		// TODO Auto-generated method stub
 		generateComment("Continuing while loop");
-		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + (this.whileStmts - 1));
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + finalWhileStmts);
 		generateASM(Strings.nop);
 	}
 

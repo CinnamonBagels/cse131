@@ -150,14 +150,14 @@ while_3:
 whileEnd_3:
 /* line number 20*/
 /* Breaking out of while loop */
-    ba      whileEnd_3
+    ba      whileEnd_2
     nop
     ba      while_2
     nop
 whileEnd_2:
 /* line number 22*/
 /* Breaking out of while loop */
-    ba      whileEnd_3
+    ba      whileEnd_1
     nop
     ba      while_1
     nop
