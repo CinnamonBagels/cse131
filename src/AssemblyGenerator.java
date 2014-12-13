@@ -1628,7 +1628,7 @@ public class AssemblyGenerator {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 			} else {
-				loadVariable(Registers.i0, returnSTO);
+				loadVariable(Registers.o0, returnSTO);
 			}
 		}
 		

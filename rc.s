@@ -26,10 +26,10 @@ foo:
 /* line number 4*/
 /* Returning value from foo */
 /* line number 4*/
-/* Loading x to %i0 */
+/* Loading x to %o0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %o0
     ba      foo_end
     nop
 foo_end:
