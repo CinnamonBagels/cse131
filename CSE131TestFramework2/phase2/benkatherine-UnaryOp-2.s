@@ -186,7 +186,7 @@ globalInit_end:
 /* line number 34*/
 /* Done. */
 /* line number 34*/
-/* printing float STO.VarSTO@1ddbcb1 */
+/* printing float STO.VarSTO@8f337b */
 /* line number 34*/
 /* Loading u to %f0 */
     set         -16, %l1
@@ -200,7 +200,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 35*/
-/* printing float STO.VarSTO@17cd18d */
+/* printing float STO.VarSTO@1a183d2 */
 /* line number 35*/
 /* Loading v to %f0 */
     set         -28, %l1
@@ -214,7 +214,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 36*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@d55a0f */
 /* line number 36*/
 /* Loading w to %f0 */
     set         -36, %l1
@@ -248,7 +248,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 37*/
-/* printing float STO.ExprSTO@d55a0f */
+/* printing float STO.ExprSTO@10bb83e */
 /* line number 37*/
 /* Loading float + float to %f0 */
     set         -40, %l1

@@ -160,7 +160,7 @@ globalInit_end:
 /* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 17*/
-/* printing float STO.VarSTO@132e233 */
+/* printing float STO.VarSTO@1a0c382 */
 /* line number 17*/
 /* Loading foo() to %f0 */
     set         -12, %l1

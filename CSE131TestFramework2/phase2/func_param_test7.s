@@ -106,7 +106,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@a047d3 */
+/* printing float STO.VarSTO@cb741e */
 /* line number 11*/
 /* Loading c to %f0 */
     set         -12, %l1

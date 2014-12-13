@@ -148,7 +148,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 17*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 17*/
 /* Loading z to %f0 */
     set         76, %l1
@@ -230,7 +230,7 @@ globalInit_end:
 /* line number 23*/
 /* Done printing string. */
 /* line number 23*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 23*/
 /* Loading z to %f0 */
     set         76, %l1

@@ -68,7 +68,7 @@ getY:
 /* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 13*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@853e51 */
 /* line number 13*/
 /* Loading getX() to %f0 */
     set         -8, %l1
@@ -131,7 +131,7 @@ globalInit_end:
 /* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 20*/
-/* printing float STO.VarSTO@853e51 */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 20*/
 /* Loading getX() to %f0 */
     set         -8, %l1
@@ -147,7 +147,7 @@ globalInit_end:
 /* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 20*/
-/* printing float STO.VarSTO@1be4050 */
+/* printing float STO.VarSTO@170526a */
 /* line number 20*/
 /* Loading getY() to %f0 */
     set         -12, %l1

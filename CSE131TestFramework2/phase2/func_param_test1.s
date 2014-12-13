@@ -88,7 +88,7 @@ foo:
 /* line number 5*/
 /* Done printing string. */
 /* line number 5*/
-/* printing float STO.VarSTO@a047d3 */
+/* printing float STO.VarSTO@cb741e */
 /* line number 5*/
 /* Loading c to %f0 */
     set         76, %l1
@@ -177,7 +177,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 16*/
-/* printing float STO.VarSTO@853e51 */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 16*/
 /* Loading z to %f0 */
     set         76, %l1

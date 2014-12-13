@@ -123,7 +123,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing string. */
 /* line number 14*/
-/* printing float STO.VarSTO@16c2195 */
+/* printing float STO.VarSTO@10d16b */
 /* line number 14*/
 /* Loading noob to %f0 */
     set         -8, %l1
@@ -169,7 +169,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@853e51 */
 /* line number 17*/
 /* Loading c to %f0 */
     set         -16, %l1
@@ -191,7 +191,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@16c2195 */
+/* printing float STO.VarSTO@10d16b */
 /* line number 19*/
 /* Loading noob to %f0 */
     set         -8, %l1

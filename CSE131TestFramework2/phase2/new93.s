@@ -111,7 +111,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@170526a */
+/* printing float STO.ExprSTO@132e233 */
 /* line number 6*/
 /* Loading Validating UnaryOp b as a FloatType for operator: ++...
  to %f0 */
@@ -140,7 +140,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@132e233 */
+/* printing float STO.ExprSTO@1a0c382 */
 /* line number 6*/
 /* Loading Validating UnaryOp b as a FloatType for operator: ++...
  to %f0 */

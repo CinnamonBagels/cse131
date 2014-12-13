@@ -163,7 +163,7 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 16*/
 /* Loading noob to %f0 */
     set         -8, %l1
@@ -304,7 +304,7 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 24*/
 /* Loading noob to %f0 */
     set         -8, %l1

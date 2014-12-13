@@ -267,7 +267,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 21*/
-/* printing float STO.ExprSTO@110c2e8 */
+/* printing float STO.ExprSTO@69048b */
 /* line number 21*/
 /* Loading Validating UnaryOp x as a FloatType for operator: --...
  to %f0 */
@@ -298,7 +298,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 22*/
-/* printing float STO.ExprSTO@1620d92 */
+/* printing float STO.ExprSTO@67211b */
 /* line number 22*/
 /* Loading Validating UnaryOp x as a FloatType for operator: ++...
  to %f0 */
@@ -347,7 +347,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 24*/
-/* printing float STO.ExprSTO@69048b */
+/* printing float STO.ExprSTO@ae8542 */
 /* line number 24*/
 /* Loading Validating UnaryOp x as a FloatType for operator: --...
  to %f0 */
@@ -362,7 +362,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float STO.VarSTO@10bb83e */
+/* printing float STO.VarSTO@e77ca4 */
 /* line number 25*/
 /* Loading x to %f0 */
     set         -8, %l1

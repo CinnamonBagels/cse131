@@ -61,7 +61,7 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@170526a */
+/* printing float STO.VarSTO@1a0c382 */
 /* line number 9*/
 /* Loading b to %f0 */
     set         72, %l1

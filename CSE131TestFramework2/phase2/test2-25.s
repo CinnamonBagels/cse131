@@ -54,7 +54,7 @@ foo2:
 /* line number 4*/
 /* Done printing string. */
 /* line number 4*/
-/* printing float STO.VarSTO@a047d3 */
+/* printing float STO.VarSTO@cb741e */
 /* line number 4*/
 /* Loading y to %f0 */
     set         72, %l1

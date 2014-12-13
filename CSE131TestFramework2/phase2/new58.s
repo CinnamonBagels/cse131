@@ -61,7 +61,7 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@1330af4 */
+/* printing float STO.VarSTO@1ddbcb1 */
 /* line number 9*/
 /* Loading y to %f0 */
     set         y, %l1
@@ -185,7 +185,7 @@ globalInit_end:
 /* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 15*/
-/* printing float STO.VarSTO@170526a */
+/* printing float STO.VarSTO@1a0c382 */
 /* line number 15*/
 /* Loading foo() to %f0 */
     set         -8, %l1

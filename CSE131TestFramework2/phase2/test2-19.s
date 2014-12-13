@@ -28,7 +28,7 @@ foo:
 /* Storing parameter x */
     st          %f0, [%fp+68]
 /* line number 6*/
-/* printing float STO.VarSTO@10d16b */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 6*/
 /* Loading x to %f0 */
     set         68, %l1
@@ -75,7 +75,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@12c0b3f */
+/* printing float STO.VarSTO@c62333 */
 /* line number 11*/
 /* Loading x to %f0 */
     set         x, %l1

@@ -89,7 +89,7 @@ branchEnd_0:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@132e233 */
+/* printing float STO.VarSTO@170526a */
 /* line number 8*/
 /* Loading z to %f0 */
     set         76, %l1
@@ -218,7 +218,7 @@ branchEnd_1:
 /* line number 18*/
 /* Done printing string. */
 /* line number 18*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@1ddbcb1 */
 /* line number 18*/
 /* Loading z to %f0 */
     set         z, %l1

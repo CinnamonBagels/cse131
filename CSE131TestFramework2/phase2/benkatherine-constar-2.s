@@ -546,7 +546,7 @@ arrayOutBounds_7:
     nop
 arrayEnd_7:
 /* line number 20*/
-/* printing float STO.ExprSTO@15978e7 */
+/* printing float STO.ExprSTO@110c2e8 */
 /* line number 20*/
 /* Loading farray[2] to %f0 */
     set         -80, %l1
@@ -561,7 +561,7 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 22*/
-/* printing float STO.VarSTO@853e51 */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 22*/
 /* Loading x to %f0 */
     set         -16, %l1
@@ -575,7 +575,7 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 24*/
-/* printing float STO.VarSTO@170526a */
+/* printing float STO.VarSTO@132e233 */
 /* line number 24*/
 /* Loading y to %f0 */
     set         -28, %l1
@@ -589,7 +589,7 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 26*/
-/* printing float STO.VarSTO@132e233 */
+/* printing float STO.VarSTO@1a0c382 */
 /* line number 26*/
 /* Loading z to %f0 */
     set         -40, %l1
@@ -603,7 +603,7 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 28*/
-/* printing float STO.VarSTO@1a0c382 */
+/* printing float STO.VarSTO@183bfee */
 /* line number 28*/
 /* Loading a to %f0 */
     set         -52, %l1
@@ -617,7 +617,7 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 30*/
-/* printing float STO.VarSTO@183bfee */
+/* printing float STO.VarSTO@adb165 */
 /* line number 30*/
 /* Loading b to %f0 */
     set         -64, %l1
@@ -631,7 +631,7 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 32*/
-/* printing float STO.VarSTO@adb165 */
+/* printing float STO.VarSTO@15978e7 */
 /* line number 32*/
 /* Loading c to %f0 */
     set         -76, %l1

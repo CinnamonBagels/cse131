@@ -98,7 +98,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 14*/
-/* printing float STO.VarSTO@29626a */
+/* printing float STO.VarSTO@fc4957 */
 /* line number 14*/
 /* Loading a to %f0 */
     set         -8, %l1
@@ -109,7 +109,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing float. */
 /* line number 14*/
-/* printing float STO.VarSTO@fc4957 */
+/* printing float STO.VarSTO@1330af4 */
 /* line number 14*/
 /* Loading b to %f0 */
     set         -12, %l1
@@ -155,7 +155,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 21*/
-/* printing float STO.VarSTO@1330af4 */
+/* printing float STO.VarSTO@14512e */
 /* line number 21*/
 /* Loading c to %f0 */
     set         -16, %l1
@@ -166,7 +166,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing float. */
 /* line number 21*/
-/* printing float STO.VarSTO@14512e */
+/* printing float STO.VarSTO@1ddbcb1 */
 /* line number 21*/
 /* Loading d to %f0 */
     set         -20, %l1
