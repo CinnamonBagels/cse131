@@ -19,8 +19,10 @@ function : void main()
     FOO food1;
     
     food1 = food;
+    food2 = food1;
+
     
-    cout << food1.a << endl;
+    cout << food2.a << endl;
 
 
 }

@@ -4,6 +4,7 @@
 FLOAT_FORCE_1:    .single      0r1.0       
                  .global     food,bed
 float_0:        .single      0r88.43     
+str_1:          .asciz       "food2"     
 globalInit_:    .word        0           
                 .section     ".bss"
                 .align 4
@@ -38,7 +39,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant a with value 88.43
-    set         -12, %l0
+    set         -4, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
@@ -53,17 +54,14 @@ globalInit_end:
     set         12, %o2
     call    memcpy
     nop
-/* line number 23*/
-/* printing float STO.VarSTO@1963b3e */
-/* line number 23*/
-/* Loading a to %f0 */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
+/* line number 25*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
+    call    printf
     nop
-/* line number 23*/
-/* Done printing float. */
+/* line number 25*/
+/* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
