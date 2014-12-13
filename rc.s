@@ -35,7 +35,6 @@ foo:
     add         %fp, %l0, %l0
     ld          [%l0], %l0
     set         float_0, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant y with value 8.0
@@ -43,7 +42,6 @@ foo:
     add         %fp, %l0, %l0
     ld          [%l0], %l0
     set         float_1, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 foo_end:
@@ -100,7 +98,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 14*/
-/* printing float STO.VarSTO@1860038 */
+/* printing float STO.VarSTO@a522a6 */
 /* line number 14*/
 /* Loading a to %f0 */
     set         -8, %l1
@@ -111,7 +109,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing float. */
 /* line number 14*/
-/* printing float STO.VarSTO@787c16 */
+/* printing float STO.VarSTO@1860038 */
 /* line number 14*/
 /* Loading b to %f0 */
     set         -12, %l1
