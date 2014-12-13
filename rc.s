@@ -29,7 +29,7 @@ bar:
     st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter c */
-    st          %i1, [%fp+68]
+    st          %i1, [%fp+72]
 ! --storing constant b with value 777.0
     set         68, %l0
     add         %fp, %l0, %l0
@@ -44,7 +44,7 @@ bar:
     ld          [%l1], %l0
 /* line number 5*/
 /* Loading c to %l1 */
-    set         68, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 5*/
@@ -57,7 +57,7 @@ bar:
     st          %l3, [%l4]
 /* line number 5*/
 /* Storing variable int + int into c */
-    set         68, %l5
+    set         72, %l5
     add         %fp, %l5, %l5
     set         -8, %l3
     add         %fp, %l3, %l3
@@ -78,14 +78,14 @@ foo:
     st          %i0, [%fp+68]
 /* line number 8*/
 /* Storing parameter b */
-    st          %i1, [%fp+68]
+    st          %i1, [%fp+72]
 /* line number 9*/
 /* Preparing argument a */
     set         68, %o0
     add         %fp, %o0, %o0
 /* line number 9*/
 /* Preparing argument b */
-    set         68, %o1
+    set         72, %o1
     add         %fp, %o1, %o1
     call    bar
     nop

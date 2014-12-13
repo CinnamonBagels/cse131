@@ -776,7 +776,7 @@ class MyParser extends parser {
 					sto.base = Registers.fp;
 					//magic number LOL
 					//oh yeah forgot about structs.
-					sto.offset = String.valueOf((68 + 4 * numArgs));
+					sto.offset = String.valueOf((68 + 4 * numArgs++));
 					//TODO Extern
 					generator.storeParameters(sto, i);
 					m_symtab.insert(params.get(i));
