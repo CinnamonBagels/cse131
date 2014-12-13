@@ -2,12 +2,8 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     food
+float_0:        .single      0r3.0       
 globalInit_:    .word        0           
-                .section     ".bss"
-                .align 4
-food:           .skip        4           
-
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -19,6 +15,27 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
+                .section     ".text"
+                .align 4
+                .global      foo
+foo:
+    set         SAVE.foo, %g1
+    save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter x */
+/* line number 4*/
+/* Returning value from foo */
+/* line number 4*/
+/* Loading x to %i0 */
+    set         68, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %i0
+    ba      foo_end
+    nop
+foo_end:
+    ret 
+    restore
+SAVE.foo = -(92 + 4) & -8
                 .section     ".text"
                 .align 4
                 .global      main
@@ -34,7 +51,52 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 8*/
+/* Preparing argument 3.0 */
+! --storing constant temp float with value 3.0
+    set         -4, %l0
+    add         %fp, %l0, %l0
+    set         float_0, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 8*/
+/* Loading 3.0 to %f0 */
+    set         -4, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %f0
+    call    foo
+    nop
+/* line number 8*/
+/* Saving return value */
+    st          %f0, [%fp+-8]
+/* line number 8*/
+/* Preparing argument foo() */
+/* line number 8*/
+/* Loading foo() to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    foo
+    nop
+/* line number 8*/
+/* Saving return value */
+    st          %f0, [%fp+-12]
+/* line number 8*/
+/* printing float STO.VarSTO@631803fb */
+/* line number 8*/
+/* Loading foo() to %f0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 8*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 12) & -8
