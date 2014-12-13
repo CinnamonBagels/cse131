@@ -51,11 +51,23 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 8*/
+/* Preparing argument 3 */
+/* line number 8*/
+/* Loading 3 to %o0 */
+    set         3, %o0
     call    foo
     nop
 /* line number 8*/
 /* Saving return value */
     st          %o0, [%fp+-8]
+/* line number 8*/
+/* Preparing argument foo() */
+/* line number 8*/
+/* Loading foo() to %o0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo
     nop
 /* line number 8*/
