@@ -6,6 +6,4 @@ function : int foo(int x)
 function : void main()
 {
    cout << foo(foo(3)) << endl;
-
 }
-
