@@ -2,15 +2,13 @@
                 .section     ".data"
                 .align 4
                  .global     f1,f2,f3
-float_0:        .single      0r5.0       
 f1:             .single      0r5.0       
-float_1:        .single      0r6.0       
 f2:             .single      0r6.0       
 f3:             .single      0r0.0       
-float_4:        .single      0r7.0       
-str_2:          .asciz       "f1 is: "   
-str_3:          .asciz       "f2 is: "   
-str_5:          .asciz       "f3 is: "   
+float_2:        .single      0r7.0       
+str_0:          .asciz       "f1 is: "   
+str_1:          .asciz       "f2 is: "   
+str_3:          .asciz       "f3 is: "   
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -41,13 +39,13 @@ globalInit_end:
 /* line number 7*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 7*/
 /* Done printing string. */
 /* line number 7*/
-/* printing float f1 */
+/* printing float STO.VarSTO@1d91382 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -61,13 +59,13 @@ globalInit_end:
 /* line number 8*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float f2 */
+/* printing float STO.VarSTO@8d116e */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -83,19 +81,20 @@ globalInit_end:
     add         %g0, %l0, %l0
     set         f3, %l0
     add         %g0, %l0, %l0
-    set         float_4, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         float_2, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 /* line number 11*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float f3 */
+/* printing float STO.VarSTO@1737e47 */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

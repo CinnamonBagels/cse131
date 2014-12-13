@@ -1,0 +1,7 @@
+rc.s:
+../input.c:
+../output.s:
+Undefined			first referenced
+ symbol  			    in file
+_andOp0                             rc.o
+ld: fatal: symbol referencing errors

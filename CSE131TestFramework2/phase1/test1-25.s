@@ -81,7 +81,7 @@ globalInit_end:
 /* line number 10*/
 /* Done. */
 /* line number 10*/
-/* printing float k */
+/* printing float STO.VarSTO@fbf107 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -98,7 +98,7 @@ globalInit_end:
 /* line number 10*/
 /* Done printing string. */
 /* line number 10*/
-/* printing float l */
+/* printing float STO.VarSTO@8d116e */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -115,7 +115,7 @@ globalInit_end:
 /* line number 10*/
 /* Done printing string. */
 /* line number 10*/
-/* printing float m */
+/* printing float STO.VarSTO@1737e47 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

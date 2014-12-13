@@ -2,7 +2,6 @@
                 .section     ".data"
                 .align 4
                  .global     f,g
-float_0:        .single      0r5.5       
 f:              .single      0r5.5       
 g:              .single      0r0         
 globalInit_:    .word        0           
@@ -29,13 +28,13 @@ main:
     bne     globalInit_end
     nop
 /* line number 4*/
-/* Storing f into g */
-    set         g, %l0
-    add         %g0, %l0, %l0
-    set         f, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable f into g */
+    set         g, %l5
+    add         %g0, %l5, %l5
+    set         f, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]

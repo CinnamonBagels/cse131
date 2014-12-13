@@ -1,9 +1,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,y,z
-x:              .word        4           
+                 .global     y,x,z
 y:              .word        5           
+x:              .word        4           
 z:              .word        0           
 globalInit_:    .word        0           
 
@@ -45,13 +45,13 @@ main:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 5*/
-/* Storing int + int into z */
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int + int into z */
+    set         z, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]

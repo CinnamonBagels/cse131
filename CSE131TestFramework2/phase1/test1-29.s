@@ -49,14 +49,14 @@ main:
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 8*/
-/* Storing Validating BitwiseOp int and int as an IntegerType for operator: |...
+/* Storing variable Validating BitwiseOp int and int as an IntegerType for operator: |...
  into k */
-    set         k, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+    set         k, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]

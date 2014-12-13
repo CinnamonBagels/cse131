@@ -33,18 +33,6 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-! --storing constant y with value 4.0
-/* line number 6*/
-/* Storing y into z */
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
     set         staticGuard_x, %l0
     ld          [%l0], %l1
     cmp         %g0, %l1
@@ -74,12 +62,12 @@ staticGuardLabel_y:
     cmp         %g0, %l1
     bne     staticGuardLabel_z
     nop
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         y, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+    set         z, %l5
+    add         %g0, %l5, %l5
+    set         y, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         staticGuard_z, %l2
     set         1, %l3
     st          %l3, [%l2]
@@ -120,6 +108,18 @@ staticGuardLabel_main_c:
     set         1, %l3
     st          %l3, [%l2]
 staticGuardLabel_main_d:
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+! --storing constant y with value 4.0
+/* line number 6*/
+/* Storing variable y into z */
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
 ! --storing constant b with value 4.0
     set         main_b, %l0
     add         %g0, %l0, %l0
@@ -128,21 +128,21 @@ staticGuardLabel_main_d:
     set         4, %l1
     st          %l1, [%l0]
 /* line number 11*/
-/* Storing a into c */
-    set         main_c, %l0
-    add         %g0, %l0, %l0
-    set         main_a, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable a into c */
+    set         main_c, %l5
+    add         %g0, %l5, %l5
+    set         main_a, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 12*/
-/* Storing b into d */
-    set         main_d, %l0
-    add         %g0, %l0, %l0
-    set         main_b, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable b into d */
+    set         main_d, %l5
+    add         %g0, %l5, %l5
+    set         main_b, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 main_end:
     ret 
     restore

@@ -35,13 +35,13 @@ main:
     set         3, %l1
     st          %l1, [%l0]
 /* line number 6*/
-/* Storing k into j */
-    set         j, %l0
-    add         %g0, %l0, %l0
-    set         k, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable k into j */
+    set         j, %l5
+    add         %g0, %l5, %l5
+    set         k, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]

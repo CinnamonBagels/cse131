@@ -1,7 +1,6 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-float_0:        .single      0r5.75      
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --

@@ -72,29 +72,29 @@ globalInit_end:
 /* line number 11*/
 /* Done. */
 /* line number 11*/
-/* Storing localf1 into f1 */
-    set         f1, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable localf1 into f1 */
+    set         f1, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
 /* line number 12*/
-/* Storing localf2 into f2 */
-    set         f2, %l0
-    add         %g0, %l0, %l0
-    set         -12, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable localf2 into f2 */
+    set         f2, %l5
+    add         %g0, %l5, %l5
+    set         -12, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
 /* line number 13*/
-/* Storing localf3 into f3 */
-    set         f3, %l0
-    add         %g0, %l0, %l0
-    set         -16, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable localf3 into f3 */
+    set         f3, %l5
+    add         %g0, %l5, %l5
+    set         -16, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0
@@ -104,7 +104,7 @@ globalInit_end:
 /* line number 15*/
 /* Done printing string. */
 /* line number 15*/
-/* printing float f1 */
+/* printing float STO.VarSTO@838143 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -124,7 +124,7 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float f2 */
+/* printing float STO.VarSTO@fbf107 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -144,7 +144,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float f3 */
+/* printing float STO.VarSTO@8d116e */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

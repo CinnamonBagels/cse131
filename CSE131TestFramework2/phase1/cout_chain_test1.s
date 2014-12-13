@@ -2,20 +2,18 @@
                 .section     ".data"
                 .align 4
                  .global     f1,f2,f3
-float_0:        .single      0r5.0       
 f1:             .single      0r5.0       
-float_1:        .single      0r6.0       
 f2:             .single      0r6.0       
 f3:             .single      0r0         
-str_2:          .asciz       "Hello"     
-str_3:          .asciz       " world"    
-str_4:          .asciz       "To be or not to be "
-str_5:          .asciz       " that is the question"
-str_6:          .asciz       " whether tis nobler to suffer"
-str_7:          .asciz       " the slings and arrows of outrageous"
-str_8:          .asciz       " fortune." 
-str_9:          .asciz       " hi again" 
-str_10:         .asciz       "shakespeare! "
+str_0:          .asciz       "Hello"     
+str_1:          .asciz       " world"    
+str_2:          .asciz       "To be or not to be "
+str_3:          .asciz       " that is the question"
+str_4:          .asciz       " whether tis nobler to suffer"
+str_5:          .asciz       " the slings and arrows of outrageous"
+str_6:          .asciz       " fortune." 
+str_7:          .asciz       " hi again" 
+str_8:          .asciz       "shakespeare! "
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -56,13 +54,13 @@ main:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 5*/
-/* Storing float + float into f3 */
-    set         f3, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable float + float into f3 */
+    set         f3, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
@@ -70,7 +68,7 @@ globalInit_end:
 /* line number 7*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 7*/
@@ -78,7 +76,7 @@ globalInit_end:
 /* line number 7*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 7*/
@@ -86,6 +84,22 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 8*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_2, %o1
+    call    printf
+    nop
+/* line number 8*/
+/* Done printing string. */
+/* line number 8*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_3, %o1
+    call    printf
+    nop
+/* line number 8*/
+/* Done printing string. */
 /* line number 8*/
 /* printing string */
     set         _strFmt, %o0
@@ -110,22 +124,6 @@ globalInit_end:
     nop
 /* line number 8*/
 /* Done printing string. */
-/* line number 8*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_7, %o1
-    call    printf
-    nop
-/* line number 8*/
-/* Done printing string. */
-/* line number 8*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_8, %o1
-    call    printf
-    nop
-/* line number 8*/
-/* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
@@ -146,7 +144,7 @@ globalInit_end:
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_9, %o1
+    set         str_7, %o1
     call    printf
     nop
 /* line number 9*/
@@ -157,7 +155,7 @@ globalInit_end:
 /* line number 10*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_10, %o1
+    set         str_8, %o1
     call    printf
     nop
 /* line number 10*/

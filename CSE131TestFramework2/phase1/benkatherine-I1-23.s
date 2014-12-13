@@ -2,9 +2,8 @@
                 .section     ".data"
                 .align 4
                  .global     a,b,x,y
-float_0:        .single      0r4.5       
 a:              .single      0r4.5       
-float_1:        .single      0r3.3       
+float_0:        .single      0r3.3       
 b:              .word        5           
 globalInit_:    .word        0           
                 .section     ".bss"
@@ -42,15 +41,19 @@ globalInit_end:
 /* line number 9*/
 /* Converting int 4 to float. */
 /* line number 9*/
-/* Storing 4 into promoteCasting */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         4, %l1
-    st          %l1, [%l0]
-    set         4, %l1
+/* promoting */
+/* line number 9*/
+/* Storing variable 4 into promoteCasting */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         4, %l3
+    st          %l3, [%l5]
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
+/* line number 9*/
+/* done promoting */
 /* line number 9*/
 /* Assigning converted 4 to c */
     set         -8, %l2
@@ -58,17 +61,21 @@ globalInit_end:
     st          %f1, [%l2]
 /* line number 11*/
 /* Converting int b to float. */
+/* line number 11*/
+/* promoting */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
+/* line number 11*/
+/* done promoting */
 /* line number 11*/
 /* Assigning converted b to d */
     set         -12, %l2
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 11*/
-/* printing float c */
+/* printing float STO.VarSTO@1d15d1c */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -80,7 +87,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 12*/
-/* printing float d */
+/* printing float STO.VarSTO@380c76 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -167,11 +174,15 @@ arrayOutBounds_1:
 arrayEnd_1:
 /* line number 18*/
 /* Converting int x[2] to float. */
+/* line number 18*/
+/* promoting */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
+/* line number 18*/
+/* done promoting */
 /* line number 18*/
 /* Assigning converted x[2] to e */
     set         -24, %l2
@@ -226,7 +237,7 @@ arrayEnd_2:
     call    printf
     nop
 /* line number 19*/
-/* printing float e */
+/* printing float STO.VarSTO@1ba3afe */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -275,9 +286,10 @@ arrayEnd_3:
     set         -32, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
-    set         float_1, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    set         float_0, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 /* line number 23*/
 /* Starting array access */
     set         3, %l0
@@ -313,7 +325,7 @@ arrayOutBounds_4:
     nop
 arrayEnd_4:
 /* line number 23*/
-/* printing float y[3] */
+/* printing float STO.ExprSTO@176feaf */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -371,7 +383,7 @@ arrayEnd_5:
 /* line number 27*/
 /* Done. */
 /* line number 27*/
-/* printing float f */
+/* printing float STO.VarSTO@14aa453 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

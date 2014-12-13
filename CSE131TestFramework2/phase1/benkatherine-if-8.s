@@ -2,13 +2,12 @@
                 .section     ".data"
                 .align 4
                  .global     x,y
-float_0:        .single      0r5.0       
 y:              .single      0r5.0       
 x:              .word        6           
-str_1:          .asciz       "Katherine "
-str_2:          .asciz       "is "       
-str_3:          .asciz       "a "        
-str_4:          .asciz       "loser"     
+str_0:          .asciz       "Katherine "
+str_1:          .asciz       "is "       
+str_2:          .asciz       "a "        
+str_3:          .asciz       "loser"     
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -74,7 +73,7 @@ if_0:
 /* line number 8*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_1, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 8*/
@@ -117,7 +116,7 @@ if_1:
 /* line number 11*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 11*/
@@ -129,7 +128,7 @@ endIf_2:
 /* line number 14*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* line number 14*/
@@ -141,7 +140,7 @@ endIf_3:
 /* line number 17*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 17*/

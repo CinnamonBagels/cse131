@@ -263,7 +263,6 @@ class MyParser extends parser {
 			//Assembly here
 			// getFunc() == null means global scope
 			
-			
 			if(m_symtab.getFunc() == null || sto.isStatic){
 				sto.base = Registers.g0;
 				sto.offset = (m_symtab.getFunc() != null ? m_symtab.getFunc().getName()+"_" : "") + sto.getName();
@@ -472,7 +471,6 @@ class MyParser extends parser {
 		}
 		sto1.setType(type);
 							
-		//System.out.println("declaring variable " + sto1.getName());
 		return sto1;
 	}
 
@@ -551,7 +549,6 @@ class MyParser extends parser {
 	// id is func name, type is return type, isReturnReference self explan/
 	// ----------------------------------------------------------------
 	void DoFuncDecl_1(String id, Type t, boolean isReturnReference) {
-		generator.inGlobalScope = false;
 		
 		if (m_symtab.accessLocal(id) != null) {
 			m_nNumErrors++;
@@ -616,7 +613,6 @@ class MyParser extends parser {
 		m_symtab.setFunc(null);
 		
 		generator.endFunction(func);
-		generator.inGlobalScope = true;
 	}
 
 	// expression, codeblock, else
@@ -805,14 +801,12 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error3b_Assign, _2
 					.getType().getName(), stoDes.getType().getName()));
 		}
-		
 		if(_2.isConst()) {
 			generator.storeConstant(stoDes, (ConstSTO)_2);
 		} else {
 			if(stoDes.getType().getName().equals(_2.getType().getName())){
 				generator.storeVariable(stoDes, _2);
 			}else{
-				
 				generator.storeConvertedVar(stoDes, _2);
 			}
 		}
@@ -1319,14 +1313,10 @@ class MyParser extends parser {
 				ConstSTO leftOperand = (ConstSTO) _1;
 				ConstSTO rightOperand = (ConstSTO) _3;
 				
-				System.out.println("DoBinaryOp: " + _1.getName() + " and " + _3.getName() + " are constants.");
-
 				// may not be const, cannot make it ConstSTO directly.
 				STO result = _2.evaluateOperand(leftOperand, _2, rightOperand,
 						sto.getType());
 				
-				System.out.println("DoBinaryOp: " + "evaluates to " + result.getName());
-
 				if (result.isError()) {
 					// error
 					m_nNumErrors++;
@@ -1653,7 +1643,19 @@ class MyParser extends parser {
 	//yeah. later
 	
 	public STO doNegate(STO sto) {
-		return sto;
+		STO returnSTO = sto;
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func == null) {
+			func = main;
+		}
+		
+		func.addToStack(returnSTO.getType().getSize());
+		
+		returnSTO.base = Registers.fp;
+		returnSTO.offset = String.valueOf(-func.getStackSize());
+		
+		return generator.doNegate(sto, returnSTO);
 	}
 	
 	public void DoCIN(STO sto){

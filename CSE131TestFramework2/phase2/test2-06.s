@@ -1,0 +1,350 @@
+! --globals--
+                .section     ".data"
+                .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
+str_0:          .asciz       "bad falseFunc!"
+str_1:          .asciz       "bad trueFunc!"
+str_2:          .asciz       "bad, shouldn't reach here!"
+str_3:          .asciz       "good! "    
+globalInit_:    .word        0           
+
+! DEFINING INTERNAL CONSTANTS --
+                .section     ".rodata"
+_endl:          .asciz       "\n"        
+_intFmt:        .asciz       "%d"        
+_strFmt:        .asciz       "%s"        
+_boolT:         .asciz       "true"      
+_boolF:         .asciz       "false"     
+rfmt:           .asciz       "%.21f"     
+arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
+
+                .section     ".text"
+                .align 4
+                .global      falseFunc
+falseFunc:
+    set         SAVE.falseFunc, %g1
+    save        %sp, %g1, %sp
+/* line number 4*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
+    call    printf
+    nop
+/* line number 4*/
+/* Done printing string. */
+/* line number 6*/
+/* Returning value from falseFunc */
+    set         0, %i0
+    ba      falseFunc_end
+    nop
+falseFunc_end:
+    ret 
+    restore
+SAVE.falseFunc = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      trueFunc
+trueFunc:
+    set         SAVE.trueFunc, %g1
+    save        %sp, %g1, %sp
+/* line number 9*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
+    call    printf
+    nop
+/* line number 9*/
+/* Done printing string. */
+/* line number 11*/
+/* Returning value from trueFunc */
+    set         1, %i0
+    ba      trueFunc_end
+    nop
+trueFunc_end:
+    ret 
+    restore
+SAVE.trueFunc = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+                .global      main
+main:
+    set         SAVE.main, %g1
+    save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
+/* line number 17*/
+/* setting x = 1 */
+    set         1, %l0
+    st          %l0, [%fp-8]
+/* line number 17*/
+/* Done. */
+/* line number 17*/
+/* Incrementing */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         -8, %l2
+    add         %fp, %l2, %l2
+    st          %l0, [%l2]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 17*/
+/* Prepping Comparison Calculations by loading */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         1, %l1
+/* line number 17*/
+/* Starting greater than */
+    cmp         %l0, %l1
+    bg      greater_0
+    nop
+    set         0, %l3
+    ba      greaterEnd_0
+    nop
+greater_0:
+    set         1, %l3
+greaterEnd_0:
+/* line number 17*/
+/* Storing result of Comparison Op */
+    set         -16, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 17*/
+/* Prepping Arithmetic Calculations by loading */
+    set         1, %l0
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 17*/
+/* ||-ing */
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    bne     _orOp0
+    nop
+    set         0, %l2
+    ba      _orOp1
+    nop
+_orOp0:
+    set         1, %l2
+    ba      _orOp1
+    nop
+_orOp1:
+/* line number 17*/
+/* Storing result of Binary Op */
+    set         -20, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 17*/
+/* Short-circuiting || with Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    bne     _orOp2
+    nop
+    call    trueFunc
+    nop
+/* line number 17*/
+/* Saving return value */
+    st          %o0, [%fp+-24]
+/* line number 17*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 17*/
+/* ||-ing */
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    bne     _orOp2
+    nop
+    set         0, %l2
+    ba      _orOp3
+    nop
+_orOp2:
+    set         1, %l2
+    ba      _orOp3
+    nop
+_orOp3:
+/* line number 17*/
+/* Storing result of Binary Op */
+    set         -28, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_0
+    nop
+if_0:
+/* line number 18*/
+/* Incrementing */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         -8, %l2
+    add         %fp, %l2, %l2
+    st          %l0, [%l2]
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 18*/
+/* Prepping Comparison Calculations by loading */
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         1, %l1
+/* line number 18*/
+/* Starting Less than */
+    cmp         %l0, %l1
+    bl      less_1
+    nop
+    set         0, %l3
+    ba      lessEnd_1
+    nop
+less_1:
+    set         1, %l3
+lessEnd_1:
+/* line number 18*/
+/* Storing result of Comparison Op */
+    set         -36, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 18*/
+/* Prepping Arithmetic Calculations by loading */
+    set         0, %l0
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 18*/
+/* &&-ing */
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    be      _andOp0
+    nop
+    set         0, %l2
+    ba      _andOp1
+    nop
+_andOp4:
+    set         1, %l2
+    ba      _andOp1
+    nop
+_andOp1:
+/* line number 18*/
+/* Storing result of Binary Op */
+    set         -40, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 18*/
+/* Short-circuiting && with Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ */
+    set         -40, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    be      _andOp2
+    nop
+    call    falseFunc
+    nop
+/* line number 18*/
+/* Saving return value */
+    st          %o0, [%fp+-44]
+/* line number 18*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -40, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 18*/
+/* &&-ing */
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    be      _andOp2
+    nop
+    set         0, %l2
+    ba      _andOp3
+    nop
+_andOp4:
+    set         1, %l2
+    ba      _andOp3
+    nop
+_andOp3:
+/* line number 18*/
+/* Storing result of Binary Op */
+    set         -48, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+    set         -48, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      else_1
+    nop
+if_1:
+/* line number 19*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_2, %o1
+    call    printf
+    nop
+/* line number 19*/
+/* Done printing string. */
+    ba      endIf_2
+    nop
+else_1:
+endIf_2:
+/* line number 21*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_3, %o1
+    call    printf
+    nop
+/* line number 21*/
+/* Done printing string. */
+    ba      endIf_3
+    nop
+else_0:
+endIf_3:
+/* line number 24*/
+/* Printing int x */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 24*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+main_end:
+    ret 
+    restore
+SAVE.main = -(92 + 48) & -8

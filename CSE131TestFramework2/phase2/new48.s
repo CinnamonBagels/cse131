@@ -1,6 +1,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
+str_0:          .asciz       "main"      
+str_1:          .asciz       "end"       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -28,27 +31,54 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 6*/
-/* Starting cin */
-    set         -8, %l5
-    add         %fp, %l5, %l5
-    call    inputInt
-    nop
-    st          %o0, [%l5]
-/* line number 6*/
-/* Printing int x */
-    set         _intFmt, %o0
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+/* line number 9*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
     call    printf
     nop
-/* line number 6*/
-/* Done printing int. */
+/* line number 9*/
+/* Done printing string. */
+/* line number 9*/
+/* printf on int */
+    set         _intFmt, %o0
+    set         4, %o1
+    call    printf
+    nop
+
+/* line number 9*/
+/* printf on int */
+    set         _intFmt, %o0
+    set         2, %o1
+    call    printf
+    nop
+
+/* line number 9*/
+/* printf on int */
+    set         _intFmt, %o0
+    set         3, %o1
+    call    printf
+    nop
+
+/* line number 9*/
+/* printf on int */
+    set         _intFmt, %o0
+    set         8, %o1
+    call    printf
+    nop
+
+/* line number 9*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
+    call    printf
+    nop
+/* line number 9*/
+/* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 4) & -8

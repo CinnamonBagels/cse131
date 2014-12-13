@@ -967,11 +967,13 @@ Designator ::= T_STAR Designator:_1
 							if(_1 instanceof ConstSTO) {
 								ConstSTO newConst = (ConstSTO) _1;
 								newConst.setValue(newConst.getValue() * -1);
+								System.out.print(newConst);
 								RESULT = newConst;
 							} else {				
 								//can also do neg reg, reg							
 								ConstSTO newConst = new ConstSTO("-1", new IntegerType());
 								RESULT = ((MyParser) parser).DoBinaryOp(_1, new MulOp("*"), newConst);
+								//RESULT = ((MyParser) parser).doNegate(_1);
 							}
 						} else {
 							RESULT = _1;
@@ -1042,7 +1044,7 @@ Designator3 ::=     T_LPAREN Expr:_2 T_RPAREN
     |               T_FLOAT_LITERAL:_1
                     {:
                         ConstSTO sto = new ConstSTO (_1, new FloatType(), false, false);
-                        RESULT = ((MyParser) parser).assignFloat(sto);
+                        RESULT = sto;
                     :}
     |               T_STR_LITERAL:_1
                     {:

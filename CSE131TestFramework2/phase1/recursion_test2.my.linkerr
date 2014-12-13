@@ -1,28 +1,3 @@
 rc.s:
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 327: error: redefinition of symbol "foobaz"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 359: error: redefinition of symbol "greater_0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 361: error: redefinition of symbol "greaterEnd_0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 373: error: redefinition of symbol "if_0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 389: error: redefinition of symbol "else_0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 390: error: redefinition of symbol "endIf_1"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 414: error: redefinition of symbol "foobaz_end"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 417: error: redefinition of symbol "SAVE.foobaz"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 421: error: redefinition of symbol "bar"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 453: error: redefinition of symbol "greaterEqual_1"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 455: error: redefinition of symbol "greaterEqualEnd_1"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 467: error: redefinition of symbol "if_2"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 485: error: redefinition of symbol "else_2"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 486: error: redefinition of symbol "endIf_3"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 510: error: redefinition of symbol "bar_end"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 513: error: redefinition of symbol "SAVE.bar"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 517: error: redefinition of symbol "foo"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 549: error: redefinition of symbol "greater_2"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 551: error: redefinition of symbol "greaterEnd_2"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 563: error: redefinition of symbol "if_4"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 581: error: redefinition of symbol "else_4"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 582: error: redefinition of symbol "endIf_5"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 606: error: redefinition of symbol "foo_end"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 609: error: redefinition of symbol "SAVE.foo"
-cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

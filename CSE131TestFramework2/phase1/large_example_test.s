@@ -29,13 +29,13 @@ main:
     bne     globalInit_end
     nop
 /* line number 5*/
-/* Storing x into z */
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         x, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable x into z */
+    set         z, %l5
+    add         %g0, %l5, %l5
+    set         x, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
@@ -62,13 +62,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 8*/
-/* Storing int - int into z */
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int - int into z */
+    set         z, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
     set         z, %l1
@@ -86,13 +86,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 9*/
-/* Storing int + int into z */
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         -12, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int + int into z */
+    set         z, %l5
+    add         %g0, %l5, %l5
+    set         -12, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 10*/
 /* Printing int z */
     set         _intFmt, %o0

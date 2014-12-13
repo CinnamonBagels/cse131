@@ -1,29 +1,3 @@
-                .section     ".text"
-                .align 4
-                .global      foo
-foo:
-    set         SAVE.foo, %g1
-    save        %sp, %g1, %sp
-    set         globalInit_, %l0
-    ld          [%l0], %l0
-    cmp         %l0, %g0
-    bne     globalInit_end
-    nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
-/* line number 5*/
-/* Returning value from foo */
-    set         float_0, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
-    ba      foo_end
-    nop
-foo_end:
-    ret 
-    restore
-SAVE.foo = -(92 + 4) & -8
 ! --globals--
                 .section     ".data"
                 .align 4
@@ -65,6 +39,15 @@ SAVE.foo = -(92 + 4) & -8
 main:
     set         SAVE.main, %g1
     save        %sp, %g1, %sp
+    set         globalInit_, %l0
+    ld          [%l0], %l0
+    cmp         %l0, %g0
+    bne     globalInit_end
+    nop
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -79,7 +62,7 @@ main:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 9*/
-/* printing float foo() */
+/* printing float STO.VarSTO@1904b13 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

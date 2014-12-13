@@ -2,24 +2,21 @@
                 .section     ".data"
                 .align 4
                  .global     x,y,z,a,b,c
-float_0:        .single      0r20.0      
 a:              .single      0r20.0      
-float_1:        .single      0r30.0      
 b:              .single      0r30.0      
-float_2:        .single      0r20.0      
 c:              .single      0r20.0      
 x:              .word        10          
 y:              .word        12          
 z:              .word        14          
-str_3:          .asciz       "5 is equal to 5"
+str_0:          .asciz       "5 is equal to 5"
+str_1:          .asciz       "no print"  
+str_2:          .asciz       "no print"  
+str_3:          .asciz       "y is greater than or equal to 12"
 str_4:          .asciz       "no print"  
-str_5:          .asciz       "no print"  
-str_6:          .asciz       "y is greater than or equal to 12"
+str_5:          .asciz       "z is greater than or equal to 14"
+str_6:          .asciz       "no print"  
 str_7:          .asciz       "no print"  
-str_8:          .asciz       "z is greater than or equal to 14"
-str_9:          .asciz       "no print"  
-str_10:         .asciz       "no print"  
-str_11:         .asciz       "a is greater than or equal to c"
+str_8:          .asciz       "a is greater than or equal to c"
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -52,12 +49,21 @@ globalInit_end:
     set         5, %l0
     set         5, %l1
 /* line number 10*/
-/* whoops, Comparison Operator broke on 5 == 5 */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_0
+    nop
+    set         0, %l3
+    ba      equalEnd_0
+    nop
+equal_0:
+    set         1, %l3
+equalEnd_0:
 /* line number 10*/
 /* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -68,7 +74,7 @@ if_0:
 /* line number 12*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_3, %o1
+    set         str_0, %o1
     call    printf
     nop
 /* line number 12*/
@@ -89,14 +95,14 @@ endIf_1:
 /* line number 14*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_0
+    bne     nEqual_1
     nop
     set         0, %l3
-    ba      nEqual_0
+    ba      nEqualEnd_1
     nop
-nEqual_0:
+nEqual_1:
     set         1, %l3
-nEqualEnd_0:
+nEqualEnd_1:
 /* line number 14*/
 /* Storing result of Comparison Op */
     set         -12, %l4
@@ -112,7 +118,7 @@ if_2:
 /* line number 16*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 16*/
@@ -133,14 +139,14 @@ endIf_3:
 /* line number 18*/
 /* Starting greater than */
     cmp         %l0, %l1
-    bg      greater_1
+    bg      greater_2
     nop
     set         0, %l3
-    ba      greaterEnd_1
+    ba      greaterEnd_2
     nop
-greater_1:
+greater_2:
     set         1, %l3
-greaterEnd_1:
+greaterEnd_2:
 /* line number 18*/
 /* Storing result of Comparison Op */
     set         -16, %l4
@@ -156,7 +162,7 @@ if_4:
 /* line number 20*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* line number 20*/
@@ -177,14 +183,14 @@ endIf_5:
 /* line number 22*/
 /* Starting greater than equal */
     cmp         %l0, %l1
-    bge     greaterEqual_2
+    bge     greaterEqual_3
     nop
     set         0, %l3
-    ba      greaterEqual_2
+    ba      greaterEqualEnd_3
     nop
-greaterEqual_2:
+greaterEqual_3:
     set         1, %l3
-greaterEqualEnd_2:
+greaterEqualEnd_3:
 /* line number 22*/
 /* Storing result of Comparison Op */
     set         -20, %l4
@@ -200,7 +206,7 @@ if_6:
 /* line number 24*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_6, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 24*/
@@ -221,14 +227,14 @@ endIf_7:
 /* line number 26*/
 /* Starting greater than */
     cmp         %l0, %l1
-    bg      greater_3
+    bg      greater_4
     nop
     set         0, %l3
-    ba      greaterEnd_3
+    ba      greaterEnd_4
     nop
-greater_3:
+greater_4:
     set         1, %l3
-greaterEnd_3:
+greaterEnd_4:
 /* line number 26*/
 /* Storing result of Comparison Op */
     set         -24, %l4
@@ -244,7 +250,7 @@ if_8:
 /* line number 28*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_7, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* line number 28*/
@@ -265,14 +271,14 @@ endIf_9:
 /* line number 30*/
 /* Starting greater than equal */
     cmp         %l0, %l1
-    bge     greaterEqual_4
+    bge     greaterEqual_5
     nop
     set         0, %l3
-    ba      greaterEqual_4
+    ba      greaterEqualEnd_5
     nop
-greaterEqual_4:
+greaterEqual_5:
     set         1, %l3
-greaterEqualEnd_4:
+greaterEqualEnd_5:
 /* line number 30*/
 /* Storing result of Comparison Op */
     set         -28, %l4
@@ -288,7 +294,7 @@ if_10:
 /* line number 32*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_8, %o1
+    set         str_5, %o1
     call    printf
     nop
 /* line number 32*/
@@ -309,14 +315,14 @@ endIf_11:
 /* line number 34*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_5
+    bne     nEqual_6
     nop
     set         0, %l3
-    ba      nEqual_5
+    ba      nEqualEnd_6
     nop
-nEqual_5:
+nEqual_6:
     set         1, %l3
-nEqualEnd_5:
+nEqualEnd_6:
 /* line number 34*/
 /* Storing result of Comparison Op */
     set         -32, %l4
@@ -332,7 +338,7 @@ if_12:
 /* line number 36*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_9, %o1
+    set         str_6, %o1
     call    printf
     nop
 /* line number 36*/
@@ -355,14 +361,14 @@ endIf_13:
     add         %g0, %l1, %l1
     ld          [%l1], %f1
     fcmps       %f0, %f1
-    fbg     greater_6
+    fbg     greater_7
     nop
     set         0, %l3
-    ba      greaterEnd_6
+    ba      greaterEnd_7
     nop
-greater_6:
+greater_7:
     set         1, %l3
-greaterEnd_6:
+greaterEnd_7:
 /* line number 38*/
 /* Storing result of Comparison Op */
     set         -36, %l4
@@ -378,7 +384,7 @@ if_14:
 /* line number 40*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_10, %o1
+    set         str_7, %o1
     call    printf
     nop
 /* line number 40*/
@@ -401,14 +407,14 @@ endIf_15:
     add         %g0, %l1, %l1
     ld          [%l1], %f1
     fcmps       %f0, %f1
-    fbge    greaterEqual_7
+    fbge    greaterEqual_8
     nop
     set         0, %l3
-    ba      greaterEqual_7
+    ba      greaterEqualEnd_8
     nop
-greaterEqual_7:
+greaterEqual_8:
     set         1, %l3
-greaterEqualEnd_7:
+greaterEqualEnd_8:
 /* line number 42*/
 /* Storing result of Comparison Op */
     set         -40, %l4
@@ -424,7 +430,7 @@ if_16:
 /* line number 44*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_11, %o1
+    set         str_8, %o1
     call    printf
     nop
 /* line number 44*/

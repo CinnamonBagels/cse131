@@ -91,7 +91,7 @@ branchEnd_0:
 /* line number 7*/
 /* Done printing string. */
 /* line number 7*/
-/* printing float z */
+/* printing float STO.VarSTO@5f62a9 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
