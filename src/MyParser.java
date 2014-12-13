@@ -754,6 +754,7 @@ class MyParser extends parser {
 				STO tsto = new ConstSTO("this", this.currentStruct);
 				m_symtab.insert(tsto);
 				currentStruct.setStructMembers(func);
+				
 			}
 			
 			if (params != null) {
@@ -762,7 +763,7 @@ class MyParser extends parser {
 				for (int i = 0; i < params.size(); i++) {
 					VarSTO sto = (VarSTO)params.get(i);
 					sto.base = Registers.fp;
-					sto.offset = "" + (-8 - 4*numArgs++);
+					sto.offset = "" + (68+ 4*numArgs++);
 					//TODO Extern
 					generator.storeParameters(sto, i);
 					m_symtab.insert(params.get(i));
