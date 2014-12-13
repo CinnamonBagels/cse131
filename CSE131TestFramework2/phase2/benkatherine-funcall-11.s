@@ -58,7 +58,7 @@ globalInit_end:
 /* Loading 3.0 to %f0 */
     set         float_0, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l0
+    ld          [%l0], %f0
     call    foo
     nop
 /* line number 8*/
@@ -77,7 +77,7 @@ globalInit_end:
 /* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 8*/
-/* printing float STO.VarSTO@1330af4 */
+/* printing float STO.VarSTO@fc4957 */
 /* line number 8*/
 /* Loading foo() to %f0 */
     set         -12, %l1

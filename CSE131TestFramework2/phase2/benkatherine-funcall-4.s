@@ -104,14 +104,14 @@ globalInit_end:
 /* Loading 5.0 to %f0 */
     set         float_1, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l0
+    ld          [%l0], %f0
 /* line number 9*/
 /* Preparing argument 6.0 */
 /* line number 9*/
 /* Loading 6.0 to %f1 */
     set         float_2, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l0
+    ld          [%l0], %f1
 /* line number 9*/
 /* Preparing argument a */
 /* line number 9*/

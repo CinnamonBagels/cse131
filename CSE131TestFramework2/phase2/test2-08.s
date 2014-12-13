@@ -8,13 +8,14 @@ float_0:        .single      0r6.7
 float_1:        .single      0r123.0     
 float_2:        .single      0r101.22    
 float_4:        .single      0r9.5       
-float_5:        .single      0r9.5       
+float_5:        .single      0r5.5       
+float_6:        .single      0r9.5       
 gi:             .word        678         
 str_3:          .asciz       " "         
-str_6:          .asciz       " "         
 str_7:          .asciz       " "         
 str_8:          .asciz       " "         
 str_9:          .asciz       " "         
+str_10:         .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -217,7 +218,7 @@ globalInit_end:
 /* line number 17*/
 /* Done. */
 /* line number 17*/
-/* printing float STO.VarSTO@15978e7 */
+/* printing float STO.VarSTO@adb165 */
 /* line number 17*/
 /* Loading lall to %f0 */
     set         -44, %l1
@@ -235,7 +236,45 @@ globalInit_end:
     nop
 /* line number 17*/
 /* Done printing string. */
-    set         float_5, %l0
+/* line number 17*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 17*/
+/* Loading 4 to %l0 */
+    set         4, %l0
+/* line number 17*/
+/* Adding */
+/* line number 17*/
+/* Storing variable 4 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         4, %l3
+    st          %l3, [%l5]
+/* line number 17*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 17*/
+/* Storing variable 5.5 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_5, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 17*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fadds       %f0, %f1, %f3
+/* line number 17*/
+/* Storing result of Binary Op */
+    set         float_4, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
+    set         float_6, %l0
     ld          [%l0], %f0
     call    printFloat
     nop
@@ -304,7 +343,7 @@ branchEnd_0:
 /* line number 18*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_6, %o1
+    set         str_7, %o1
     call    printf
     nop
 /* line number 18*/
@@ -431,7 +470,7 @@ branchEnd_2:
 /* line number 19*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_7, %o1
+    set         str_8, %o1
     call    printf
     nop
 /* line number 19*/
@@ -558,7 +597,7 @@ branchEnd_4:
 /* line number 20*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_8, %o1
+    set         str_9, %o1
     call    printf
     nop
 /* line number 20*/
@@ -685,7 +724,7 @@ branchEnd_6:
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_9, %o1
+    set         str_10, %o1
     call    printf
     nop
 /* line number 21*/

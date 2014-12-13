@@ -88,7 +88,7 @@ globalInit_end:
     call    memcpy
     nop
 /* line number 29*/
-/* printing float STO.VarSTO@16e9494 */
+/* printing float STO.VarSTO@104f889 */
 /* line number 29*/
 /* Loading a to %f0 */
     set         -8, %l1
@@ -102,7 +102,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 30*/
-/* printing float STO.VarSTO@dc93be */
+/* printing float STO.VarSTO@15914f3 */
 /* line number 30*/
 /* Loading b to %f0 */
     set         -12, %l1
@@ -116,7 +116,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 31*/
-/* printing float STO.VarSTO@167e003 */
+/* printing float STO.VarSTO@16e9494 */
 /* line number 31*/
 /* Loading c to %f0 */
     set         -4, %l1

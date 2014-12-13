@@ -27,7 +27,7 @@ foo:
 /* Storing parameter y */
     st          %f1, [%fp+72]
 /* line number 3*/
-/* printing float STO.VarSTO@a047d3 */
+/* printing float STO.VarSTO@cb741e */
 /* line number 3*/
 /* Loading x to %f0 */
     set         68, %l1
@@ -38,7 +38,7 @@ foo:
 /* line number 3*/
 /* Done printing float. */
 /* line number 3*/
-/* printing float STO.VarSTO@cb741e */
+/* printing float STO.VarSTO@1349665 */
 /* line number 3*/
 /* Loading y to %f0 */
     set         72, %l1

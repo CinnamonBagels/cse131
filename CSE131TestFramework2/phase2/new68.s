@@ -74,7 +74,7 @@ globalInit_end:
 /* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 11*/
-/* printing float STO.VarSTO@170526a */
+/* printing float STO.VarSTO@1be4050 */
 /* line number 11*/
 /* Loading foo() to %f0 */
     set         -8, %l1

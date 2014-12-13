@@ -40,6 +40,38 @@ globalInit_end:
 /* line number 4*/
 /* Done printing string. */
 /* line number 4*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading 1 to %l0 */
+    set         1, %l0
+/* line number 4*/
+/* Loading 2 to %l1 */
+    set         2, %l1
+/* line number 4*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 4*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 4*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading Arithmetic Op to %l0 */
+    set         3, %l0
+/* line number 4*/
+/* Loading 3 to %l1 */
+    set         3, %l1
+/* line number 4*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 4*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 4*/
 /* printf on int */
     set         _intFmt, %o0
     set         6, %o1
@@ -60,4 +92,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 12) & -8

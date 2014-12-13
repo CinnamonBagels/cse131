@@ -5,9 +5,11 @@ FLOAT_FORCE_1:    .single      0r1.0
                  .global     x,y
 y:              .single      0r3.0       
 float_0:        .single      0r9.0       
-float_1:        .single      0r9.0       
+float_1:        .single      0r5.0       
 float_2:        .single      0r9.0       
 float_3:        .single      0r9.0       
+float_4:        .single      0r5.0       
+float_5:        .single      0r9.0       
 x:              .word        4           
 globalInit_:    .word        0           
 
@@ -109,7 +111,7 @@ globalInit_end:
 /* line number 28*/
 /* Done. */
 /* line number 28*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@17cd18d */
 /* line number 28*/
 /* Loading c to %f0 */
     set         -12, %l1
@@ -123,7 +125,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 29*/
-/* printing float STO.VarSTO@17cd18d */
+/* printing float STO.VarSTO@1a183d2 */
 /* line number 29*/
 /* Loading d to %f0 */
     set         -20, %l1
@@ -136,19 +138,57 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 31*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 31*/
+/* Loading 4 to %l0 */
+    set         4, %l0
+/* line number 31*/
+/* Adding */
+/* line number 31*/
+/* Storing variable 4 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         4, %l3
+    st          %l3, [%l5]
+/* line number 31*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 31*/
+/* Storing variable 5.0 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_1, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 31*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fadds       %f0, %f1, %f3
+/* line number 31*/
+/* Storing result of Binary Op */
+    set         float_0, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
 /* line number 32*/
 /* setting e = Arithmetic Op */
     set         -24, %l0
     add         %fp, %l0, %l0
 /* line number 32*/
 /* setting float */
-    set         float_1, %l1
+    set         float_2, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 32*/
 /* Done. */
 /* line number 32*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@d55a0f */
 /* line number 32*/
 /* Loading e to %f0 */
     set         -24, %l1
@@ -234,7 +274,7 @@ globalInit_end:
 /* line number 37*/
 /* Done. */
 /* line number 37*/
-/* printing float STO.VarSTO@d55a0f */
+/* printing float STO.VarSTO@10bb83e */
 /* line number 37*/
 /* Loading f to %f0 */
     set         -32, %l1
@@ -248,7 +288,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 38*/
-/* printing float STO.VarSTO@10bb83e */
+/* printing float STO.VarSTO@6d234c */
 /* line number 38*/
 /* Loading g to %f0 */
     set         -40, %l1
@@ -261,19 +301,57 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 40*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 40*/
+/* Loading 4 to %l1 */
+    set         4, %l1
+/* line number 40*/
+/* Adding */
+/* line number 40*/
+/* Storing variable 5.0 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_4, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 40*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 40*/
+/* Storing variable 4 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         4, %l3
+    st          %l3, [%l5]
+/* line number 40*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+    fadds       %f0, %f1, %f3
+/* line number 40*/
+/* Storing result of Binary Op */
+    set         float_3, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
 /* line number 41*/
 /* setting h = Arithmetic Op */
     set         -44, %l0
     add         %fp, %l0, %l0
 /* line number 41*/
 /* setting float */
-    set         float_3, %l1
+    set         float_5, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 41*/
 /* Done. */
 /* line number 41*/
-/* printing float STO.VarSTO@6d234c */
+/* printing float STO.VarSTO@1286c71 */
 /* line number 41*/
 /* Loading h to %f0 */
     set         -44, %l1
