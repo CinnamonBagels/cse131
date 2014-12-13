@@ -1382,11 +1382,10 @@ class MyParser extends parser {
 				result.setIsModifiable(false);
 				result.offset = Strings.assignFloat + generator.stringLits;
 				result.base = Registers.g0;
-				
 				if(result.getType().isFloat()){
 					generator.assignFloat((ConstSTO)result);
 				}
-				
+				generator.evaluateBinary(leftOperand, rightOperand, _2, result);
 				return result;
 			} else {
 				if(m_symtab.getFunc() == null) {
