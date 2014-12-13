@@ -57,6 +57,8 @@ globalInit_end:
     set         -4, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %f0
+    call printFloat
+    nop
     call    foo
     nop
 /* line number 8*/
