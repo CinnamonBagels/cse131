@@ -762,7 +762,6 @@ class MyParser extends parser {
 					sto.base = Registers.fp;
 					sto.offset = "" + (-8 - 4*numArgs++);
 					//TODO Extern
-					//System.out.println(params.get(i).base + params.get(i).offset);
 					
 					m_symtab.insert(params.get(i));
 				}
