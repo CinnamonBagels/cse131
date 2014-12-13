@@ -1,8 +1,3 @@
 rc.s:
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 215: error: invalid register
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 305: error: invalid register
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 395: error: invalid register
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 485: error: invalid register
-cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

@@ -28,6 +28,22 @@ foo:
 /* line number 5*/
 /* Storing parameter x */
     st          %i0, [%fp+68]
+/* line number 6*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 6*/
+/* Loading 2 to %l0 */
+    set         2, %l0
+/* line number 6*/
+/* Loading 1 to %l1 */
+    set         1, %l1
+/* line number 6*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 6*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
 /* line number 7*/
 /* Returning value from foo */
     set         3, %l0
@@ -39,7 +55,7 @@ foo:
 foo_end:
     ret 
     restore
-SAVE.foo = -(92 + 4) & -8
+SAVE.foo = -(92 + 8) & -8
                 .section     ".text"
                 .align 4
                 .global      main

@@ -212,7 +212,8 @@ arrayEnd_3:
 /* Assigning converted liarr[8] to lfarr[1] */
     set         -176, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    ld          [%l2], %l2
+    st          %f1, [%l2]
 /* line number 15*/
 /* Starting array access */
 /* line number 15*/
@@ -302,7 +303,8 @@ arrayEnd_5:
 /* Assigning converted giarr[8] to lfarr[2] */
     set         -184, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    ld          [%l2], %l2
+    st          %f1, [%l2]
 /* line number 17*/
 /* Starting array access */
 /* line number 17*/
@@ -392,7 +394,8 @@ arrayEnd_7:
 /* Assigning converted liarr[8] to gfarr[1] */
     set         -192, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    ld          [%l2], %l2
+    st          %f1, [%l2]
 /* line number 18*/
 /* Starting array access */
 /* line number 18*/
@@ -482,7 +485,8 @@ arrayEnd_9:
 /* Assigning converted giarr[8] to gfarr[2] */
     set         -200, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    ld          [%l2], %l2
+    st          %f1, [%l2]
 /* line number 20*/
 /* Starting array access */
 /* line number 20*/
@@ -520,7 +524,7 @@ arrayOutBounds_10:
     nop
 arrayEnd_10:
 /* line number 20*/
-/* printing float STO.ExprSTO@d55a0f */
+/* printing float STO.ExprSTO@1a183d2 */
 /* line number 20*/
 /* Loading gfarr[1] to %f0 */
     set         -208, %l1
@@ -576,7 +580,7 @@ arrayOutBounds_11:
     nop
 arrayEnd_11:
 /* line number 20*/
-/* printing float STO.ExprSTO@10bb83e */
+/* printing float STO.ExprSTO@d55a0f */
 /* line number 20*/
 /* Loading gfarr[2] to %f0 */
     set         -212, %l1
@@ -632,7 +636,7 @@ arrayOutBounds_12:
     nop
 arrayEnd_12:
 /* line number 20*/
-/* printing float STO.ExprSTO@6d234c */
+/* printing float STO.ExprSTO@10bb83e */
 /* line number 20*/
 /* Loading lfarr[1] to %f0 */
     set         -216, %l1
@@ -688,7 +692,7 @@ arrayOutBounds_13:
     nop
 arrayEnd_13:
 /* line number 20*/
-/* printing float STO.ExprSTO@1286c71 */
+/* printing float STO.ExprSTO@6d234c */
 /* line number 20*/
 /* Loading lfarr[2] to %f0 */
     set         -220, %l1

@@ -35,7 +35,7 @@ foo:
 /* line number 3*/
 /* Done printing string. */
 /* line number 3*/
-/* printing float STO.VarSTO@a047d3 */
+/* printing float STO.VarSTO@cb741e */
 /* line number 3*/
 /* Loading b to %f0 */
     set         68, %l1
@@ -82,7 +82,7 @@ globalInit_end:
 /* Loading 5.50 to %f0 */
     set         float_1, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l0
+    ld          [%l0], %f0
     call    foo
     nop
 /* line number 9*/
@@ -107,7 +107,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@853e51 */
 /* line number 11*/
 /* Loading c to %f0 */
     set         -12, %l1

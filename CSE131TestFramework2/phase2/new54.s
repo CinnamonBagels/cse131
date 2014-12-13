@@ -166,14 +166,14 @@ globalInit_end:
 /* Loading 5.55 to %f0 */
     set         float_4, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l0
+    ld          [%l0], %f0
     call    foo2
     nop
 /* line number 27*/
 /* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 27*/
-/* printing float STO.VarSTO@183bfee */
+/* printing float STO.VarSTO@1a0c382 */
 /* line number 27*/
 /* Loading foo2() to %f0 */
     set         -12, %l1

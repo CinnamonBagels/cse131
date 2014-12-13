@@ -257,7 +257,7 @@ arrayEnd_3:
 /* Assigning converted i to f */
     set         -176, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    st          %f1, [%l2]
 /* line number 21*/
 /* Printing int i */
     set         _intFmt, %o0
@@ -449,7 +449,7 @@ arrayOutBounds_6:
     nop
 arrayEnd_6:
 /* line number 21*/
-/* printing float STO.ExprSTO@adb165 */
+/* printing float STO.ExprSTO@15978e7 */
 /* line number 21*/
 /* Loading lfarr[0] to %f0 */
     set         -204, %l1
@@ -505,7 +505,7 @@ arrayOutBounds_7:
     nop
 arrayEnd_7:
 /* line number 21*/
-/* printing float STO.ExprSTO@15978e7 */
+/* printing float STO.ExprSTO@110c2e8 */
 /* line number 21*/
 /* Loading lfarr[1] to %f0 */
     set         -208, %l1
@@ -525,7 +525,7 @@ arrayEnd_7:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@cab3bf */
+/* printing float STO.VarSTO@1def658 */
 /* line number 21*/
 /* Loading f to %f0 */
     set         -176, %l1

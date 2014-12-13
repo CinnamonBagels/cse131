@@ -1,6 +1,6 @@
 small i: 1
-INCORRECT!small i: 2
-INCORRECT!middle i: 3
-INCORRECT!middle i: 4
-INCORRECT!big i: 5
+small i: 2
+middle i: 3
+middle i: 4
+big i: 5
 End of life: 5

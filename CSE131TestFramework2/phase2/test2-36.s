@@ -235,7 +235,8 @@ arrayEnd_3:
 /* Assigning converted giarr[i] to lfarr[i] */
     set         -180, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    ld          [%l2], %l2
+    st          %f1, [%l2]
 /* line number 15*/
 /* Storing variable lfarr[i] into gfarr[i] */
     set         -176, %l5
@@ -412,7 +413,7 @@ arrayOutBounds_6:
     nop
 arrayEnd_6:
 /* line number 17*/
-/* printing float STO.ExprSTO@10bb83e */
+/* printing float STO.ExprSTO@d55a0f */
 /* line number 17*/
 /* Loading lfarr[i] to %f0 */
     set         -200, %l1
@@ -470,7 +471,7 @@ arrayOutBounds_7:
     nop
 arrayEnd_7:
 /* line number 17*/
-/* printing float STO.ExprSTO@6d234c */
+/* printing float STO.ExprSTO@10bb83e */
 /* line number 17*/
 /* Loading gfarr[i] to %f0 */
     set         -204, %l1
@@ -490,7 +491,7 @@ arrayEnd_7:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@d95bc3 */
+/* printing float STO.VarSTO@1a32902 */
 /* line number 17*/
 /* Loading f to %f0 */
     set         -12, %l1
@@ -688,7 +689,8 @@ arrayEnd_11:
 /* Assigning converted liarr[i] to gfarr[i] */
     set         -212, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    ld          [%l2], %l2
+    st          %f1, [%l2]
 /* line number 19*/
 /* Storing variable gfarr[i] into lfarr[i] */
     set         -208, %l5
@@ -865,7 +867,7 @@ arrayOutBounds_14:
     nop
 arrayEnd_14:
 /* line number 21*/
-/* printing float STO.ExprSTO@1286c71 */
+/* printing float STO.ExprSTO@6d234c */
 /* line number 21*/
 /* Loading lfarr[i] to %f0 */
     set         -232, %l1
@@ -923,7 +925,7 @@ arrayOutBounds_15:
     nop
 arrayEnd_15:
 /* line number 21*/
-/* printing float STO.ExprSTO@e77ca4 */
+/* printing float STO.ExprSTO@1286c71 */
 /* line number 21*/
 /* Loading gfarr[i] to %f0 */
     set         -236, %l1
@@ -943,7 +945,7 @@ arrayEnd_15:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@d95bc3 */
+/* printing float STO.VarSTO@1a32902 */
 /* line number 21*/
 /* Loading f to %f0 */
     set         -12, %l1

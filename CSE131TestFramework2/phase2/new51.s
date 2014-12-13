@@ -40,7 +40,7 @@ getX:
 /* Loading x to %f0 */
     set         float_1, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l0
+    ld          [%l0], %f0
     ba      getX_end
     nop
 getX_end:
@@ -67,7 +67,7 @@ getY:
 /* Loading y to %f0 */
     set         float_3, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %l0
+    ld          [%l0], %f0
     ba      getY_end
     nop
 getY_end:

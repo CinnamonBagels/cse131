@@ -16,7 +16,9 @@ phase2/benkatherine-constar-1.rc
 phase2/benkatherine-constar-2.rc
 phase2/benkatherine-fun-1.rc
 phase2/benkatherine-funcall-10.rc
+phase2/benkatherine-funcall-11.rc
 phase2/benkatherine-funcall-3.rc
+phase2/benkatherine-funcall-4.rc
 phase2/benkatherine-funcall-5.rc
 phase2/benkatherine-funcall_1.rc
 phase2/benkatherine-negop-1.rc
@@ -40,8 +42,10 @@ phase2/benkatherinebitwiseand-1.rc
 phase2/comparison_assign_test1.rc
 phase2/func_param_test1.rc
 phase2/func_param_test10.rc
+phase2/func_param_test11.rc
 phase2/func_param_test6.rc
 phase2/func_param_test7.rc
+phase2/func_param_test8.rc
 phase2/func_param_test9.rc
 phase2/if_else_check1.rc
 phase2/if_else_check2.rc
@@ -56,6 +60,9 @@ phase2/new102.rc
 phase2/new103.rc
 phase2/new104.rc
 phase2/new105.rc
+phase2/new106.rc
+phase2/new107.rc
+phase2/new108.rc
 phase2/new110.rc
 phase2/new111.rc
 phase2/new112.rc
@@ -63,6 +70,8 @@ phase2/new113.rc
 phase2/new114.rc
 phase2/new115.rc
 phase2/new116.rc
+phase2/new117.rc
+phase2/new118.rc
 phase2/new119.rc
 phase2/new120.rc
 phase2/new121.rc
@@ -83,12 +92,18 @@ phase2/new46.rc
 phase2/new47.rc
 phase2/new48.rc
 phase2/new49.rc
+phase2/new50.rc
+phase2/new51.rc
+phase2/new52.rc
 phase2/new53.rc
+phase2/new54.rc
 phase2/new55.rc
 phase2/new56.rc
 phase2/new57.rc
 phase2/new58.rc
+phase2/new59.rc
 phase2/new60.rc
+phase2/new61.rc
 phase2/new62.rc
 phase2/new63.rc
 phase2/new64.rc
@@ -109,6 +124,8 @@ phase2/new79.rc
 phase2/new80.rc
 phase2/new81.rc
 phase2/new82.rc
+phase2/new85.rc
+phase2/new86.rc
 phase2/new87.rc
 phase2/new88.rc
 phase2/new89.rc
@@ -117,6 +134,7 @@ phase2/new93.rc
 phase2/new94.rc
 phase2/new95.rc
 phase2/new96.rc
+phase2/new97.rc
 phase2/new98.rc
 phase2/new99.rc
 phase2/not_op_check1.rc
@@ -140,8 +158,10 @@ phase2/test2-12.rc
 phase2/test2-13.rc
 phase2/test2-14.rc
 phase2/test2-15.rc
+phase2/test2-16.rc
 phase2/test2-17.rc
 phase2/test2-18.rc
+phase2/test2-19.rc
 phase2/test2-20.rc
 phase2/test2-26.rc
 phase2/test2-27.rc
@@ -152,7 +172,9 @@ phase2/test2-30_1.rc
 phase2/test2-31.rc
 phase2/test2-32.rc
 phase2/test2-33.rc
+phase2/test2-34.rc
 phase2/test2-35.rc
+phase2/test2-36.rc
 phase2/test2-36_1.rc
 phase2/test2-36_2.rc
 phase2/while_break_test1.rc

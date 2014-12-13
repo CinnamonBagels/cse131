@@ -188,7 +188,7 @@ arrayOutBounds_2:
     nop
 arrayEnd_2:
 /* line number 12*/
-/* printing float STO.ExprSTO@8f337b */
+/* printing float STO.ExprSTO@1ddbcb1 */
 /* line number 12*/
 /* Loading gfarr[4] to %f0 */
     set         -96, %l1

@@ -141,6 +141,31 @@ globalInit_end:
     cmp         %l1, %g0
     be      andF_0
     nop
+/* line number 34*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 34*/
+/* Loading true to %l0 */
+    set         1, %l0
+/* line number 34*/
+/* Loading true to %l1 */
+    set         1, %l1
+/* line number 34*/
+/* &&-ing */
+    cmp         %l1, %g0
+    bne     andT_0
+    nop
+andF_0:
+    set         0, %l2
+    ba      andEnd_0
+    nop
+andT_0:
+    set         1, %l2
+andEnd_0:
+/* line number 34*/
+/* Storing result of Binary Op */
+    set         -28, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
     set         _strFmt, %o0
     set         _boolT, %o1
     call    printf
@@ -155,8 +180,33 @@ globalInit_end:
 /* Loading false to %l1 */
     set         0, %l1
     cmp         %l1, %g0
-    be      andF_0
+    be      andF_1
     nop
+/* line number 35*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 35*/
+/* Loading false to %l0 */
+    set         0, %l0
+/* line number 35*/
+/* Loading false to %l1 */
+    set         0, %l1
+/* line number 35*/
+/* &&-ing */
+    cmp         %l1, %g0
+    bne     andT_1
+    nop
+andF_1:
+    set         0, %l2
+    ba      andEnd_1
+    nop
+andT_1:
+    set         1, %l2
+andEnd_1:
+/* line number 35*/
+/* Storing result of Binary Op */
+    set         -32, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
     set         _strFmt, %o0
     set         _boolF, %o1
     call    printf
@@ -171,8 +221,33 @@ globalInit_end:
 /* Loading true to %l1 */
     set         1, %l1
     cmp         %l1, %g0
-    be      andF_0
+    be      andF_2
     nop
+/* line number 36*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 36*/
+/* Loading true to %l0 */
+    set         1, %l0
+/* line number 36*/
+/* Loading false to %l1 */
+    set         0, %l1
+/* line number 36*/
+/* &&-ing */
+    cmp         %l1, %g0
+    bne     andT_2
+    nop
+andF_2:
+    set         0, %l2
+    ba      andEnd_2
+    nop
+andT_2:
+    set         1, %l2
+andEnd_2:
+/* line number 36*/
+/* Storing result of Binary Op */
+    set         -36, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
     set         _strFmt, %o0
     set         _boolF, %o1
     call    printf
@@ -187,8 +262,33 @@ globalInit_end:
 /* Loading false to %l1 */
     set         0, %l1
     cmp         %l1, %g0
-    be      andF_0
+    be      andF_3
     nop
+/* line number 37*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 37*/
+/* Loading false to %l0 */
+    set         0, %l0
+/* line number 37*/
+/* Loading true to %l1 */
+    set         1, %l1
+/* line number 37*/
+/* &&-ing */
+    cmp         %l1, %g0
+    bne     andT_3
+    nop
+andF_3:
+    set         0, %l2
+    ba      andEnd_3
+    nop
+andT_3:
+    set         1, %l2
+andEnd_3:
+/* line number 37*/
+/* Storing result of Binary Op */
+    set         -40, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
     set         _strFmt, %o0
     set         _boolF, %o1
     call    printf
@@ -205,7 +305,7 @@ globalInit_end:
     add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_0
+    be      andF_4
     nop
 /* line number 39*/
 /* Prepping Arithmetic Calculations by loading */
@@ -220,18 +320,18 @@ globalInit_end:
 /* line number 39*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_0
+    bne     andT_4
     nop
-andF_0:
+andF_4:
     set         0, %l2
-    ba      andEnd_0
+    ba      andEnd_4
     nop
-andT_0:
+andT_4:
     set         1, %l2
-andEnd_0:
+andEnd_4:
 /* line number 39*/
 /* Storing result of Binary Op */
-    set         -28, %l4
+    set         -44, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 39*/
@@ -240,7 +340,7 @@ andEnd_0:
 /* line number 39*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -28, %l1
+    set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -269,7 +369,7 @@ branchEnd_0:
     add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_1
+    be      andF_5
     nop
 /* line number 40*/
 /* Prepping Arithmetic Calculations by loading */
@@ -284,18 +384,18 @@ branchEnd_0:
 /* line number 40*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_1
+    bne     andT_5
     nop
-andF_1:
+andF_5:
     set         0, %l2
-    ba      andEnd_1
+    ba      andEnd_5
     nop
-andT_1:
+andT_5:
     set         1, %l2
-andEnd_1:
+andEnd_5:
 /* line number 40*/
 /* Storing result of Binary Op */
-    set         -32, %l4
+    set         -48, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 40*/
@@ -304,7 +404,7 @@ andEnd_1:
 /* line number 40*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -32, %l1
+    set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -333,7 +433,7 @@ branchEnd_1:
     add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_2
+    be      andF_6
     nop
 /* line number 41*/
 /* Prepping Arithmetic Calculations by loading */
@@ -350,18 +450,18 @@ branchEnd_1:
 /* line number 41*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_2
+    bne     andT_6
     nop
-andF_2:
+andF_6:
     set         0, %l2
-    ba      andEnd_2
+    ba      andEnd_6
     nop
-andT_2:
+andT_6:
     set         1, %l2
-andEnd_2:
+andEnd_6:
 /* line number 41*/
 /* Storing result of Binary Op */
-    set         -36, %l4
+    set         -52, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 41*/
@@ -370,7 +470,7 @@ andEnd_2:
 /* line number 41*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -36, %l1
+    set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -399,7 +499,7 @@ branchEnd_2:
     add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_3
+    be      andF_7
     nop
 /* line number 42*/
 /* Prepping Arithmetic Calculations by loading */
@@ -416,18 +516,18 @@ branchEnd_2:
 /* line number 42*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_3
+    bne     andT_7
     nop
-andF_3:
+andF_7:
     set         0, %l2
-    ba      andEnd_3
+    ba      andEnd_7
     nop
-andT_3:
+andT_7:
     set         1, %l2
-andEnd_3:
+andEnd_7:
 /* line number 42*/
 /* Storing result of Binary Op */
-    set         -40, %l4
+    set         -56, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 42*/
@@ -436,7 +536,7 @@ andEnd_3:
 /* line number 42*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -40, %l1
+    set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -482,7 +582,7 @@ less_0:
 lessEnd_0:
 /* line number 44*/
 /* Storing result of Comparison Op */
-    set         -44, %l4
+    set         -60, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 44*/
@@ -491,18 +591,18 @@ lessEnd_0:
 /* line number 44*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -44, %l1
+    set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_4
+    be      andF_8
     nop
 /* line number 44*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 44*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l0 */
-    set         -44, %l1
+    set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 44*/
@@ -511,18 +611,18 @@ lessEnd_0:
 /* line number 44*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_4
+    bne     andT_8
     nop
-andF_4:
+andF_8:
     set         0, %l2
-    ba      andEnd_4
+    ba      andEnd_8
     nop
-andT_4:
+andT_8:
     set         1, %l2
-andEnd_4:
+andEnd_8:
 /* line number 44*/
 /* Storing result of Binary Op */
-    set         -48, %l4
+    set         -64, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 44*/
@@ -531,7 +631,7 @@ andEnd_4:
 /* line number 44*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -48, %l1
+    set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -558,7 +658,7 @@ branchEnd_4:
 /* Loading true to %l1 */
     set         1, %l1
     cmp         %l1, %g0
-    be      andF_5
+    be      andF_9
     nop
 /* line number 45*/
 /* Prepping Comparison Calculations by loading */
@@ -585,7 +685,7 @@ less_1:
 lessEnd_1:
 /* line number 45*/
 /* Storing result of Comparison Op */
-    set         -52, %l4
+    set         -68, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 45*/
@@ -596,24 +696,24 @@ lessEnd_1:
 /* line number 45*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -52, %l1
+    set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 45*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_5
+    bne     andT_9
     nop
-andF_5:
+andF_9:
     set         0, %l2
-    ba      andEnd_5
+    ba      andEnd_9
     nop
-andT_5:
+andT_9:
     set         1, %l2
-andEnd_5:
+andEnd_9:
 /* line number 45*/
 /* Storing result of Binary Op */
-    set         -56, %l4
+    set         -72, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 45*/
@@ -622,7 +722,7 @@ andEnd_5:
 /* line number 45*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -56, %l1
+    set         -72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -668,7 +768,7 @@ less_2:
 lessEnd_2:
 /* line number 47*/
 /* Storing result of Comparison Op */
-    set         -60, %l4
+    set         -76, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 47*/
@@ -677,18 +777,18 @@ lessEnd_2:
 /* line number 47*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -60, %l1
+    set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_6
+    be      andF_10
     nop
 /* line number 47*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 47*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l0 */
-    set         -60, %l1
+    set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 47*/
@@ -697,18 +797,18 @@ lessEnd_2:
 /* line number 47*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_6
+    bne     andT_10
     nop
-andF_6:
+andF_10:
     set         0, %l2
-    ba      andEnd_6
+    ba      andEnd_10
     nop
-andT_6:
+andT_10:
     set         1, %l2
-andEnd_6:
+andEnd_10:
 /* line number 47*/
 /* Storing result of Binary Op */
-    set         -64, %l4
+    set         -80, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 47*/
@@ -717,7 +817,7 @@ andEnd_6:
 /* line number 47*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -64, %l1
+    set         -80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -744,7 +844,7 @@ branchEnd_6:
 /* Loading false to %l1 */
     set         0, %l1
     cmp         %l1, %g0
-    be      andF_7
+    be      andF_11
     nop
 /* line number 48*/
 /* Prepping Comparison Calculations by loading */
@@ -771,7 +871,7 @@ less_3:
 lessEnd_3:
 /* line number 48*/
 /* Storing result of Comparison Op */
-    set         -68, %l4
+    set         -84, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 48*/
@@ -782,24 +882,24 @@ lessEnd_3:
 /* line number 48*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -68, %l1
+    set         -84, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 48*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_7
+    bne     andT_11
     nop
-andF_7:
+andF_11:
     set         0, %l2
-    ba      andEnd_7
+    ba      andEnd_11
     nop
-andT_7:
+andT_11:
     set         1, %l2
-andEnd_7:
+andEnd_11:
 /* line number 48*/
 /* Storing result of Binary Op */
-    set         -72, %l4
+    set         -88, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 48*/
@@ -808,7 +908,7 @@ andEnd_7:
 /* line number 48*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -72, %l1
+    set         -88, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -854,7 +954,7 @@ less_4:
 lessEnd_4:
 /* line number 50*/
 /* Storing result of Comparison Op */
-    set         -76, %l4
+    set         -92, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 50*/
@@ -863,11 +963,11 @@ lessEnd_4:
 /* line number 50*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -76, %l1
+    set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_8
+    be      andF_12
     nop
 /* line number 50*/
 /* Prepping Comparison Calculations by loading */
@@ -894,7 +994,7 @@ less_5:
 lessEnd_5:
 /* line number 50*/
 /* Storing result of Comparison Op */
-    set         -80, %l4
+    set         -96, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 50*/
@@ -902,30 +1002,30 @@ lessEnd_5:
 /* line number 50*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l0 */
-    set         -76, %l1
+    set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 50*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -80, %l1
+    set         -96, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 50*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_8
+    bne     andT_12
     nop
-andF_8:
+andF_12:
     set         0, %l2
-    ba      andEnd_8
+    ba      andEnd_12
     nop
-andT_8:
+andT_12:
     set         1, %l2
-andEnd_8:
+andEnd_12:
 /* line number 50*/
 /* Storing result of Binary Op */
-    set         -84, %l4
+    set         -100, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 50*/
@@ -934,7 +1034,7 @@ andEnd_8:
 /* line number 50*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -84, %l1
+    set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -980,7 +1080,7 @@ less_6:
 lessEnd_6:
 /* line number 51*/
 /* Storing result of Comparison Op */
-    set         -88, %l4
+    set         -104, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 51*/
@@ -989,11 +1089,11 @@ lessEnd_6:
 /* line number 51*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -88, %l1
+    set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_9
+    be      andF_13
     nop
 /* line number 51*/
 /* Prepping Comparison Calculations by loading */
@@ -1020,7 +1120,7 @@ less_7:
 lessEnd_7:
 /* line number 51*/
 /* Storing result of Comparison Op */
-    set         -92, %l4
+    set         -108, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 51*/
@@ -1028,30 +1128,30 @@ lessEnd_7:
 /* line number 51*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l0 */
-    set         -88, %l1
+    set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 51*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -92, %l1
+    set         -108, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 51*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_9
+    bne     andT_13
     nop
-andF_9:
+andF_13:
     set         0, %l2
-    ba      andEnd_9
+    ba      andEnd_13
     nop
-andT_9:
+andT_13:
     set         1, %l2
-andEnd_9:
+andEnd_13:
 /* line number 51*/
 /* Storing result of Binary Op */
-    set         -96, %l4
+    set         -112, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 51*/
@@ -1060,7 +1160,7 @@ andEnd_9:
 /* line number 51*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -96, %l1
+    set         -112, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1106,7 +1206,7 @@ less_8:
 lessEnd_8:
 /* line number 52*/
 /* Storing result of Comparison Op */
-    set         -100, %l4
+    set         -116, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 52*/
@@ -1115,11 +1215,11 @@ lessEnd_8:
 /* line number 52*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -100, %l1
+    set         -116, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_10
+    be      andF_14
     nop
 /* line number 52*/
 /* Prepping Comparison Calculations by loading */
@@ -1146,7 +1246,7 @@ less_9:
 lessEnd_9:
 /* line number 52*/
 /* Storing result of Comparison Op */
-    set         -104, %l4
+    set         -120, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 52*/
@@ -1154,30 +1254,30 @@ lessEnd_9:
 /* line number 52*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l0 */
-    set         -100, %l1
+    set         -116, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 52*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -104, %l1
+    set         -120, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 52*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_10
+    bne     andT_14
     nop
-andF_10:
+andF_14:
     set         0, %l2
-    ba      andEnd_10
+    ba      andEnd_14
     nop
-andT_10:
+andT_14:
     set         1, %l2
-andEnd_10:
+andEnd_14:
 /* line number 52*/
 /* Storing result of Binary Op */
-    set         -108, %l4
+    set         -124, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 52*/
@@ -1186,7 +1286,7 @@ andEnd_10:
 /* line number 52*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -108, %l1
+    set         -124, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1232,7 +1332,7 @@ less_10:
 lessEnd_10:
 /* line number 53*/
 /* Storing result of Comparison Op */
-    set         -112, %l4
+    set         -128, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 53*/
@@ -1241,11 +1341,11 @@ lessEnd_10:
 /* line number 53*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -112, %l1
+    set         -128, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_11
+    be      andF_15
     nop
 /* line number 53*/
 /* Prepping Comparison Calculations by loading */
@@ -1272,7 +1372,7 @@ less_11:
 lessEnd_11:
 /* line number 53*/
 /* Storing result of Comparison Op */
-    set         -116, %l4
+    set         -132, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 53*/
@@ -1280,30 +1380,30 @@ lessEnd_11:
 /* line number 53*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l0 */
-    set         -112, %l1
+    set         -128, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 53*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l1 */
-    set         -116, %l1
+    set         -132, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 53*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_11
+    bne     andT_15
     nop
-andF_11:
+andF_15:
     set         0, %l2
-    ba      andEnd_11
+    ba      andEnd_15
     nop
-andT_11:
+andT_15:
     set         1, %l2
-andEnd_11:
+andEnd_15:
 /* line number 53*/
 /* Storing result of Binary Op */
-    set         -120, %l4
+    set         -136, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 53*/
@@ -1312,7 +1412,7 @@ andEnd_11:
 /* line number 53*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -120, %l1
+    set         -136, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1337,49 +1437,49 @@ branchEnd_11:
     nop
 /* line number 55*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-124]
+    st          %o0, [%fp+-140]
 /* line number 55*/
 /* Short-circuiting && with foo1() */
 /* line number 55*/
 /* Loading foo1() to %l1 */
-    set         -124, %l1
+    set         -140, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_12
+    be      andF_16
     nop
     call    foo
     nop
 /* line number 55*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-128]
+    st          %o0, [%fp+-144]
 /* line number 55*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 55*/
 /* Loading foo1() to %l0 */
-    set         -124, %l1
+    set         -140, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 55*/
 /* Loading foo() to %l1 */
-    set         -128, %l1
+    set         -144, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 55*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_12
+    bne     andT_16
     nop
-andF_12:
+andF_16:
     set         0, %l2
-    ba      andEnd_12
+    ba      andEnd_16
     nop
-andT_12:
+andT_16:
     set         1, %l2
-andEnd_12:
+andEnd_16:
 /* line number 55*/
 /* Storing result of Binary Op */
-    set         -132, %l4
+    set         -148, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 55*/
@@ -1388,7 +1488,7 @@ andEnd_12:
 /* line number 55*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -132, %l1
+    set         -148, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1413,49 +1513,49 @@ branchEnd_12:
     nop
 /* line number 56*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-136]
+    st          %o0, [%fp+-152]
 /* line number 56*/
 /* Short-circuiting && with foo() */
 /* line number 56*/
 /* Loading foo() to %l1 */
-    set         -136, %l1
+    set         -152, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_13
+    be      andF_17
     nop
     call    foo1
     nop
 /* line number 56*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-140]
+    st          %o0, [%fp+-156]
 /* line number 56*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 56*/
 /* Loading foo() to %l0 */
-    set         -136, %l1
+    set         -152, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 56*/
 /* Loading foo1() to %l1 */
-    set         -140, %l1
+    set         -156, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 56*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_13
+    bne     andT_17
     nop
-andF_13:
+andF_17:
     set         0, %l2
-    ba      andEnd_13
+    ba      andEnd_17
     nop
-andT_13:
+andT_17:
     set         1, %l2
-andEnd_13:
+andEnd_17:
 /* line number 56*/
 /* Storing result of Binary Op */
-    set         -144, %l4
+    set         -160, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 56*/
@@ -1464,7 +1564,7 @@ andEnd_13:
 /* line number 56*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -144, %l1
+    set         -160, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1489,49 +1589,49 @@ branchEnd_13:
     nop
 /* line number 57*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-148]
+    st          %o0, [%fp+-164]
 /* line number 57*/
 /* Short-circuiting && with foo() */
 /* line number 57*/
 /* Loading foo() to %l1 */
-    set         -148, %l1
+    set         -164, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_14
+    be      andF_18
     nop
     call    foo
     nop
 /* line number 57*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-152]
+    st          %o0, [%fp+-168]
 /* line number 57*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 57*/
 /* Loading foo() to %l0 */
-    set         -148, %l1
+    set         -164, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 57*/
 /* Loading foo() to %l1 */
-    set         -152, %l1
+    set         -168, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 57*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_14
+    bne     andT_18
     nop
-andF_14:
+andF_18:
     set         0, %l2
-    ba      andEnd_14
+    ba      andEnd_18
     nop
-andT_14:
+andT_18:
     set         1, %l2
-andEnd_14:
+andEnd_18:
 /* line number 57*/
 /* Storing result of Binary Op */
-    set         -156, %l4
+    set         -172, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 57*/
@@ -1540,7 +1640,7 @@ andEnd_14:
 /* line number 57*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -156, %l1
+    set         -172, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1565,49 +1665,49 @@ branchEnd_14:
     nop
 /* line number 58*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-160]
+    st          %o0, [%fp+-176]
 /* line number 58*/
 /* Short-circuiting && with foo1() */
 /* line number 58*/
 /* Loading foo1() to %l1 */
-    set         -160, %l1
+    set         -176, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_15
+    be      andF_19
     nop
     call    foo1
     nop
 /* line number 58*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-164]
+    st          %o0, [%fp+-180]
 /* line number 58*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 58*/
 /* Loading foo1() to %l0 */
-    set         -160, %l1
+    set         -176, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 58*/
 /* Loading foo1() to %l1 */
-    set         -164, %l1
+    set         -180, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 58*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_15
+    bne     andT_19
     nop
-andF_15:
+andF_19:
     set         0, %l2
-    ba      andEnd_15
+    ba      andEnd_19
     nop
-andT_15:
+andT_19:
     set         1, %l2
-andEnd_15:
+andEnd_19:
 /* line number 58*/
 /* Storing result of Binary Op */
-    set         -168, %l4
+    set         -184, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 58*/
@@ -1616,7 +1716,7 @@ andEnd_15:
 /* line number 58*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -168, %l1
+    set         -184, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1641,49 +1741,49 @@ branchEnd_15:
     nop
 /* line number 60*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-172]
+    st          %o0, [%fp+-188]
 /* line number 60*/
 /* Short-circuiting && with foo2() */
 /* line number 60*/
 /* Loading foo2() to %l1 */
-    set         -172, %l1
+    set         -188, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_16
+    be      andF_20
     nop
     call    foo
     nop
 /* line number 60*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-176]
+    st          %o0, [%fp+-192]
 /* line number 60*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 60*/
 /* Loading foo2() to %l0 */
-    set         -172, %l1
+    set         -188, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 60*/
 /* Loading foo() to %l1 */
-    set         -176, %l1
+    set         -192, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 60*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_16
+    bne     andT_20
     nop
-andF_16:
+andF_20:
     set         0, %l2
-    ba      andEnd_16
+    ba      andEnd_20
     nop
-andT_16:
+andT_20:
     set         1, %l2
-andEnd_16:
+andEnd_20:
 /* line number 60*/
 /* Storing result of Binary Op */
-    set         -180, %l4
+    set         -196, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 60*/
@@ -1692,7 +1792,7 @@ andEnd_16:
 /* line number 60*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -180, %l1
+    set         -196, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1717,49 +1817,49 @@ branchEnd_16:
     nop
 /* line number 61*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-184]
+    st          %o0, [%fp+-200]
 /* line number 61*/
 /* Short-circuiting && with foo() */
 /* line number 61*/
 /* Loading foo() to %l1 */
-    set         -184, %l1
+    set         -200, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_17
+    be      andF_21
     nop
     call    foo2
     nop
 /* line number 61*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-188]
+    st          %o0, [%fp+-204]
 /* line number 61*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 61*/
 /* Loading foo() to %l0 */
-    set         -184, %l1
+    set         -200, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 61*/
 /* Loading foo2() to %l1 */
-    set         -188, %l1
+    set         -204, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 61*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_17
+    bne     andT_21
     nop
-andF_17:
+andF_21:
     set         0, %l2
-    ba      andEnd_17
+    ba      andEnd_21
     nop
-andT_17:
+andT_21:
     set         1, %l2
-andEnd_17:
+andEnd_21:
 /* line number 61*/
 /* Storing result of Binary Op */
-    set         -192, %l4
+    set         -208, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 61*/
@@ -1768,7 +1868,7 @@ andEnd_17:
 /* line number 61*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -192, %l1
+    set         -208, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1793,49 +1893,49 @@ branchEnd_17:
     nop
 /* line number 62*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-196]
+    st          %o0, [%fp+-212]
 /* line number 62*/
 /* Short-circuiting && with foo1() */
 /* line number 62*/
 /* Loading foo1() to %l1 */
-    set         -196, %l1
+    set         -212, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_18
+    be      andF_22
     nop
     call    foo2
     nop
 /* line number 62*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-200]
+    st          %o0, [%fp+-216]
 /* line number 62*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 62*/
 /* Loading foo1() to %l0 */
-    set         -196, %l1
+    set         -212, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 62*/
 /* Loading foo2() to %l1 */
-    set         -200, %l1
+    set         -216, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 62*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_18
+    bne     andT_22
     nop
-andF_18:
+andF_22:
     set         0, %l2
-    ba      andEnd_18
+    ba      andEnd_22
     nop
-andT_18:
+andT_22:
     set         1, %l2
-andEnd_18:
+andEnd_22:
 /* line number 62*/
 /* Storing result of Binary Op */
-    set         -204, %l4
+    set         -220, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 62*/
@@ -1844,7 +1944,7 @@ andEnd_18:
 /* line number 62*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -204, %l1
+    set         -220, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1869,49 +1969,49 @@ branchEnd_18:
     nop
 /* line number 63*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-208]
+    st          %o0, [%fp+-224]
 /* line number 63*/
 /* Short-circuiting && with foo2() */
 /* line number 63*/
 /* Loading foo2() to %l1 */
-    set         -208, %l1
+    set         -224, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_19
+    be      andF_23
     nop
     call    foo1
     nop
 /* line number 63*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-212]
+    st          %o0, [%fp+-228]
 /* line number 63*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 63*/
 /* Loading foo2() to %l0 */
-    set         -208, %l1
+    set         -224, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 63*/
 /* Loading foo1() to %l1 */
-    set         -212, %l1
+    set         -228, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 63*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_19
+    bne     andT_23
     nop
-andF_19:
+andF_23:
     set         0, %l2
-    ba      andEnd_19
+    ba      andEnd_23
     nop
-andT_19:
+andT_23:
     set         1, %l2
-andEnd_19:
+andEnd_23:
 /* line number 63*/
 /* Storing result of Binary Op */
-    set         -216, %l4
+    set         -232, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 63*/
@@ -1920,7 +2020,7 @@ andEnd_19:
 /* line number 63*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -216, %l1
+    set         -232, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -1945,16 +2045,16 @@ branchEnd_19:
     nop
 /* line number 65*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-220]
+    st          %o0, [%fp+-236]
 /* line number 65*/
 /* Short-circuiting && with foo2() */
 /* line number 65*/
 /* Loading foo2() to %l1 */
-    set         -220, %l1
+    set         -236, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_20
+    be      andF_24
     nop
 /* line number 65*/
 /* Preparing argument true */
@@ -1965,34 +2065,34 @@ branchEnd_19:
     nop
 /* line number 65*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-224]
+    st          %o0, [%fp+-240]
 /* line number 65*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 65*/
 /* Loading foo2() to %l0 */
-    set         -220, %l1
+    set         -236, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 65*/
 /* Loading foo3() to %l1 */
-    set         -224, %l1
+    set         -240, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 65*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_20
+    bne     andT_24
     nop
-andF_20:
+andF_24:
     set         0, %l2
-    ba      andEnd_20
+    ba      andEnd_24
     nop
-andT_20:
+andT_24:
     set         1, %l2
-andEnd_20:
+andEnd_24:
 /* line number 65*/
 /* Storing result of Binary Op */
-    set         -228, %l4
+    set         -244, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 65*/
@@ -2001,7 +2101,7 @@ andEnd_20:
 /* line number 65*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -228, %l1
+    set         -244, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2026,16 +2126,16 @@ branchEnd_20:
     nop
 /* line number 66*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-232]
+    st          %o0, [%fp+-248]
 /* line number 66*/
 /* Short-circuiting && with foo2() */
 /* line number 66*/
 /* Loading foo2() to %l1 */
-    set         -232, %l1
+    set         -248, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_21
+    be      andF_25
     nop
 /* line number 66*/
 /* Preparing argument false */
@@ -2046,34 +2146,34 @@ branchEnd_20:
     nop
 /* line number 66*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-236]
+    st          %o0, [%fp+-252]
 /* line number 66*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 66*/
 /* Loading foo2() to %l0 */
-    set         -232, %l1
+    set         -248, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 66*/
 /* Loading foo3() to %l1 */
-    set         -236, %l1
+    set         -252, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 66*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_21
+    bne     andT_25
     nop
-andF_21:
+andF_25:
     set         0, %l2
-    ba      andEnd_21
+    ba      andEnd_25
     nop
-andT_21:
+andT_25:
     set         1, %l2
-andEnd_21:
+andEnd_25:
 /* line number 66*/
 /* Storing result of Binary Op */
-    set         -240, %l4
+    set         -256, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 66*/
@@ -2082,7 +2182,7 @@ andEnd_21:
 /* line number 66*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -240, %l1
+    set         -256, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2107,16 +2207,16 @@ branchEnd_21:
     nop
 /* line number 67*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-244]
+    st          %o0, [%fp+-260]
 /* line number 67*/
 /* Short-circuiting && with foo2() */
 /* line number 67*/
 /* Loading foo2() to %l1 */
-    set         -244, %l1
+    set         -260, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_22
+    be      andF_26
     nop
 /* line number 67*/
 /* Preparing argument x */
@@ -2129,34 +2229,34 @@ branchEnd_21:
     nop
 /* line number 67*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-248]
+    st          %o0, [%fp+-264]
 /* line number 67*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 67*/
 /* Loading foo2() to %l0 */
-    set         -244, %l1
+    set         -260, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 67*/
 /* Loading foo3() to %l1 */
-    set         -248, %l1
+    set         -264, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 67*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_22
+    bne     andT_26
     nop
-andF_22:
+andF_26:
     set         0, %l2
-    ba      andEnd_22
+    ba      andEnd_26
     nop
-andT_22:
+andT_26:
     set         1, %l2
-andEnd_22:
+andEnd_26:
 /* line number 67*/
 /* Storing result of Binary Op */
-    set         -252, %l4
+    set         -268, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 67*/
@@ -2165,7 +2265,7 @@ andEnd_22:
 /* line number 67*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -252, %l1
+    set         -268, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2190,16 +2290,16 @@ branchEnd_22:
     nop
 /* line number 68*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-256]
+    st          %o0, [%fp+-272]
 /* line number 68*/
 /* Short-circuiting && with foo2() */
 /* line number 68*/
 /* Loading foo2() to %l1 */
-    set         -256, %l1
+    set         -272, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_23
+    be      andF_27
     nop
 /* line number 68*/
 /* Preparing argument y */
@@ -2212,34 +2312,34 @@ branchEnd_22:
     nop
 /* line number 68*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-260]
+    st          %o0, [%fp+-276]
 /* line number 68*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 68*/
 /* Loading foo2() to %l0 */
-    set         -256, %l1
+    set         -272, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 68*/
 /* Loading foo3() to %l1 */
-    set         -260, %l1
+    set         -276, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 68*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_23
+    bne     andT_27
     nop
-andF_23:
+andF_27:
     set         0, %l2
-    ba      andEnd_23
+    ba      andEnd_27
     nop
-andT_23:
+andT_27:
     set         1, %l2
-andEnd_23:
+andEnd_27:
 /* line number 68*/
 /* Storing result of Binary Op */
-    set         -264, %l4
+    set         -280, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 68*/
@@ -2248,7 +2348,7 @@ andEnd_23:
 /* line number 68*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -264, %l1
+    set         -280, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2278,16 +2378,16 @@ branchEnd_23:
     nop
 /* line number 70*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-268]
+    st          %o0, [%fp+-284]
 /* line number 70*/
 /* Short-circuiting && with foo3() */
 /* line number 70*/
 /* Loading foo3() to %l1 */
-    set         -268, %l1
+    set         -284, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_24
+    be      andF_28
     nop
 /* line number 70*/
 /* Preparing argument true */
@@ -2298,34 +2398,34 @@ branchEnd_23:
     nop
 /* line number 70*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-272]
+    st          %o0, [%fp+-288]
 /* line number 70*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 70*/
 /* Loading foo3() to %l0 */
-    set         -268, %l1
+    set         -284, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 70*/
 /* Loading foo3() to %l1 */
-    set         -272, %l1
+    set         -288, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 70*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_24
+    bne     andT_28
     nop
-andF_24:
+andF_28:
     set         0, %l2
-    ba      andEnd_24
+    ba      andEnd_28
     nop
-andT_24:
+andT_28:
     set         1, %l2
-andEnd_24:
+andEnd_28:
 /* line number 70*/
 /* Storing result of Binary Op */
-    set         -276, %l4
+    set         -292, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 70*/
@@ -2334,7 +2434,7 @@ andEnd_24:
 /* line number 70*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -276, %l1
+    set         -292, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2364,16 +2464,16 @@ branchEnd_24:
     nop
 /* line number 71*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-280]
+    st          %o0, [%fp+-296]
 /* line number 71*/
 /* Short-circuiting && with foo3() */
 /* line number 71*/
 /* Loading foo3() to %l1 */
-    set         -280, %l1
+    set         -296, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_25
+    be      andF_29
     nop
 /* line number 71*/
 /* Preparing argument false */
@@ -2384,34 +2484,34 @@ branchEnd_24:
     nop
 /* line number 71*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-284]
+    st          %o0, [%fp+-300]
 /* line number 71*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 71*/
 /* Loading foo3() to %l0 */
-    set         -280, %l1
+    set         -296, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 71*/
 /* Loading foo3() to %l1 */
-    set         -284, %l1
+    set         -300, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 71*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_25
+    bne     andT_29
     nop
-andF_25:
+andF_29:
     set         0, %l2
-    ba      andEnd_25
+    ba      andEnd_29
     nop
-andT_25:
+andT_29:
     set         1, %l2
-andEnd_25:
+andEnd_29:
 /* line number 71*/
 /* Storing result of Binary Op */
-    set         -288, %l4
+    set         -304, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 71*/
@@ -2420,7 +2520,7 @@ andEnd_25:
 /* line number 71*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -288, %l1
+    set         -304, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2450,16 +2550,16 @@ branchEnd_25:
     nop
 /* line number 72*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-292]
+    st          %o0, [%fp+-308]
 /* line number 72*/
 /* Short-circuiting && with foo3() */
 /* line number 72*/
 /* Loading foo3() to %l1 */
-    set         -292, %l1
+    set         -308, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_26
+    be      andF_30
     nop
 /* line number 72*/
 /* Preparing argument false */
@@ -2470,34 +2570,34 @@ branchEnd_25:
     nop
 /* line number 72*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-296]
+    st          %o0, [%fp+-312]
 /* line number 72*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 72*/
 /* Loading foo3() to %l0 */
-    set         -292, %l1
+    set         -308, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 72*/
 /* Loading foo3() to %l1 */
-    set         -296, %l1
+    set         -312, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 72*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_26
+    bne     andT_30
     nop
-andF_26:
+andF_30:
     set         0, %l2
-    ba      andEnd_26
+    ba      andEnd_30
     nop
-andT_26:
+andT_30:
     set         1, %l2
-andEnd_26:
+andEnd_30:
 /* line number 72*/
 /* Storing result of Binary Op */
-    set         -300, %l4
+    set         -316, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 72*/
@@ -2506,7 +2606,7 @@ andEnd_26:
 /* line number 72*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -300, %l1
+    set         -316, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2536,16 +2636,16 @@ branchEnd_26:
     nop
 /* line number 73*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-304]
+    st          %o0, [%fp+-320]
 /* line number 73*/
 /* Short-circuiting && with foo3() */
 /* line number 73*/
 /* Loading foo3() to %l1 */
-    set         -304, %l1
+    set         -320, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_27
+    be      andF_31
     nop
 /* line number 73*/
 /* Preparing argument true */
@@ -2556,34 +2656,34 @@ branchEnd_26:
     nop
 /* line number 73*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-308]
+    st          %o0, [%fp+-324]
 /* line number 73*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 73*/
 /* Loading foo3() to %l0 */
-    set         -304, %l1
+    set         -320, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 73*/
 /* Loading foo3() to %l1 */
-    set         -308, %l1
+    set         -324, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 73*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_27
+    bne     andT_31
     nop
-andF_27:
+andF_31:
     set         0, %l2
-    ba      andEnd_27
+    ba      andEnd_31
     nop
-andT_27:
+andT_31:
     set         1, %l2
-andEnd_27:
+andEnd_31:
 /* line number 73*/
 /* Storing result of Binary Op */
-    set         -312, %l4
+    set         -328, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 73*/
@@ -2592,7 +2692,7 @@ andEnd_27:
 /* line number 73*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -312, %l1
+    set         -328, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2624,16 +2724,16 @@ branchEnd_27:
     nop
 /* line number 75*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-316]
+    st          %o0, [%fp+-332]
 /* line number 75*/
 /* Short-circuiting && with foo3() */
 /* line number 75*/
 /* Loading foo3() to %l1 */
-    set         -316, %l1
+    set         -332, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_28
+    be      andF_32
     nop
 /* line number 75*/
 /* Preparing argument y */
@@ -2646,34 +2746,34 @@ branchEnd_27:
     nop
 /* line number 75*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-320]
+    st          %o0, [%fp+-336]
 /* line number 75*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 75*/
 /* Loading foo3() to %l0 */
-    set         -316, %l1
+    set         -332, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 75*/
 /* Loading foo3() to %l1 */
-    set         -320, %l1
+    set         -336, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 75*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_28
+    bne     andT_32
     nop
-andF_28:
+andF_32:
     set         0, %l2
-    ba      andEnd_28
+    ba      andEnd_32
     nop
-andT_28:
+andT_32:
     set         1, %l2
-andEnd_28:
+andEnd_32:
 /* line number 75*/
 /* Storing result of Binary Op */
-    set         -324, %l4
+    set         -340, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 75*/
@@ -2682,7 +2782,7 @@ andEnd_28:
 /* line number 75*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -324, %l1
+    set         -340, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2714,16 +2814,16 @@ branchEnd_28:
     nop
 /* line number 76*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-328]
+    st          %o0, [%fp+-344]
 /* line number 76*/
 /* Short-circuiting && with foo3() */
 /* line number 76*/
 /* Loading foo3() to %l1 */
-    set         -328, %l1
+    set         -344, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_29
+    be      andF_33
     nop
 /* line number 76*/
 /* Preparing argument x */
@@ -2736,34 +2836,34 @@ branchEnd_28:
     nop
 /* line number 76*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-332]
+    st          %o0, [%fp+-348]
 /* line number 76*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 76*/
 /* Loading foo3() to %l0 */
-    set         -328, %l1
+    set         -344, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 76*/
 /* Loading foo3() to %l1 */
-    set         -332, %l1
+    set         -348, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 76*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_29
+    bne     andT_33
     nop
-andF_29:
+andF_33:
     set         0, %l2
-    ba      andEnd_29
+    ba      andEnd_33
     nop
-andT_29:
+andT_33:
     set         1, %l2
-andEnd_29:
+andEnd_33:
 /* line number 76*/
 /* Storing result of Binary Op */
-    set         -336, %l4
+    set         -352, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 76*/
@@ -2772,7 +2872,7 @@ andEnd_29:
 /* line number 76*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -336, %l1
+    set         -352, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2804,16 +2904,16 @@ branchEnd_29:
     nop
 /* line number 77*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-340]
+    st          %o0, [%fp+-356]
 /* line number 77*/
 /* Short-circuiting && with foo3() */
 /* line number 77*/
 /* Loading foo3() to %l1 */
-    set         -340, %l1
+    set         -356, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_30
+    be      andF_34
     nop
 /* line number 77*/
 /* Preparing argument x */
@@ -2826,34 +2926,34 @@ branchEnd_29:
     nop
 /* line number 77*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-344]
+    st          %o0, [%fp+-360]
 /* line number 77*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 77*/
 /* Loading foo3() to %l0 */
-    set         -340, %l1
+    set         -356, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 77*/
 /* Loading foo3() to %l1 */
-    set         -344, %l1
+    set         -360, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 77*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_30
+    bne     andT_34
     nop
-andF_30:
+andF_34:
     set         0, %l2
-    ba      andEnd_30
+    ba      andEnd_34
     nop
-andT_30:
+andT_34:
     set         1, %l2
-andEnd_30:
+andEnd_34:
 /* line number 77*/
 /* Storing result of Binary Op */
-    set         -348, %l4
+    set         -364, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 77*/
@@ -2862,7 +2962,7 @@ andEnd_30:
 /* line number 77*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -348, %l1
+    set         -364, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2894,16 +2994,16 @@ branchEnd_30:
     nop
 /* line number 78*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-352]
+    st          %o0, [%fp+-368]
 /* line number 78*/
 /* Short-circuiting && with foo3() */
 /* line number 78*/
 /* Loading foo3() to %l1 */
-    set         -352, %l1
+    set         -368, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      andF_31
+    be      andF_35
     nop
 /* line number 78*/
 /* Preparing argument y */
@@ -2916,34 +3016,34 @@ branchEnd_30:
     nop
 /* line number 78*/
 /* Saving return value on to stack */
-    st          %o0, [%fp+-356]
+    st          %o0, [%fp+-372]
 /* line number 78*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 78*/
 /* Loading foo3() to %l0 */
-    set         -352, %l1
+    set         -368, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 78*/
 /* Loading foo3() to %l1 */
-    set         -356, %l1
+    set         -372, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 78*/
 /* &&-ing */
     cmp         %l1, %g0
-    bne     andT_31
+    bne     andT_35
     nop
-andF_31:
+andF_35:
     set         0, %l2
-    ba      andEnd_31
+    ba      andEnd_35
     nop
-andT_31:
+andT_35:
     set         1, %l2
-andEnd_31:
+andEnd_35:
 /* line number 78*/
 /* Storing result of Binary Op */
-    set         -360, %l4
+    set         -376, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 78*/
@@ -2952,7 +3052,7 @@ andEnd_31:
 /* line number 78*/
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -360, %l1
+    set         -376, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -2976,4 +3076,4 @@ branchEnd_31:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 360) & -8
+SAVE.main = -(92 + 376) & -8

@@ -59,7 +59,7 @@ foo:
 /* line number 9*/
 /* Done printing string. */
 /* line number 9*/
-/* printing float STO.VarSTO@14512e */
+/* printing float STO.VarSTO@1ddbcb1 */
 /* line number 9*/
 /* Loading b to %f0 */
     set         -8, %l1
@@ -124,7 +124,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@1be4050 */
+/* printing float STO.VarSTO@170526a */
 /* line number 17*/
 /* Loading c to %f0 */
     set         -12, %l1
@@ -158,7 +158,7 @@ globalInit_end:
 /* Assigning converted bar() to c */
     set         -12, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%f1]
+    st          %f1, [%l2]
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
@@ -168,7 +168,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@1be4050 */
+/* printing float STO.VarSTO@170526a */
 /* line number 21*/
 /* Loading c to %f0 */
     set         -12, %l1

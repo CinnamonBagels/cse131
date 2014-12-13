@@ -5,35 +5,35 @@ FLOAT_FORCE_1:    .single      0r1.0
                  .global     gblf,gvlfConstTimesConst,gblfConstTimesGlobal,gblfTimesConst,gblfTimesGlbl,gblfConstDivConst,gblfConstDivGlobal,gblfDivConst,gblfDivGlbl
 gblf:           .single      0r12.8      
 float_0:        .single      0r29.44     
+float_1:        .single      0r12.8      
+float_2:        .single      0r2.3       
 gvlfConstTimesConst:    .single      0r29.44     
-float_1:        .single      0r2.1       
+float_3:        .single      0r2.1       
 gblfConstTimesGlobal:    .single      0r0         
-float_2:        .single      0r2.2       
+float_4:        .single      0r2.2       
 gblfTimesConst:    .single      0r0         
 gblfTimesGlbl:    .single      0r0         
-float_3:        .single      0r4.0       
+float_5:        .single      0r4.0       
+float_6:        .single      0r20.48     
+float_7:        .single      0r81.92     
 gblfConstDivConst:    .single      0r4.0       
-float_4:        .single      0r81.92     
+float_8:        .single      0r81.92     
 gblfConstDivGlobal:    .single      0r0         
-float_5:        .single      0r1.9       
+float_9:        .single      0r1.9       
 gblfDivConst:    .single      0r0         
 gblfDivGlbl:    .single      0r0         
-float_6:        .single      0r3.5       
-float_7:        .single      0r10.88     
-float_8:        .single      0r10.88     
-float_9:        .single      0r3.0       
-float_10:       .single      0r3.7       
-float_11:       .single      0r3.0       
-float_12:       .single      0r3.0       
-float_13:       .single      0r3.8       
-str_14:         .asciz       " "         
-str_15:         .asciz       " "         
-str_16:         .asciz       " "         
-str_17:         .asciz       " "         
-str_18:         .asciz       " "         
-str_19:         .asciz       " "         
-str_20:         .asciz       " "         
-str_21:         .asciz       " "         
+float_10:       .single      0r3.5       
+float_11:       .single      0r10.88     
+float_12:       .single      0r3.4       
+float_13:       .single      0r3.2       
+float_14:       .single      0r10.88     
+float_15:       .single      0r3.0       
+float_16:       .single      0r3.7       
+float_17:       .single      0r3.0       
+float_18:       .single      0r23.0      
+float_19:       .single      0r69.0      
+float_20:       .single      0r3.0       
+float_21:       .single      0r3.8       
 str_22:         .asciz       " "         
 str_23:         .asciz       " "         
 str_24:         .asciz       " "         
@@ -42,6 +42,14 @@ str_26:         .asciz       " "
 str_27:         .asciz       " "         
 str_28:         .asciz       " "         
 str_29:         .asciz       " "         
+str_30:         .asciz       " "         
+str_31:         .asciz       " "         
+str_32:         .asciz       " "         
+str_33:         .asciz       " "         
+str_34:         .asciz       " "         
+str_35:         .asciz       " "         
+str_36:         .asciz       " "         
+str_37:         .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -65,6 +73,42 @@ main:
     cmp         %l0, %g0
     bne     globalInit_end
     nop
+/* line number 4*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Multiplying */
+/* line number 4*/
+/* Storing variable 2.3 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_2, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 4*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 4*/
+/* Storing variable 12.80 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_1, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 4*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fmuls       %f0, %f1, %f3
+/* line number 4*/
+/* Storing result of Binary Op */
+    set         float_0, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
 /* line number 5*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 5*/
@@ -73,7 +117,7 @@ main:
 /* Storing variable 2.1 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_1, %l3
+    set         float_3, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
@@ -114,7 +158,7 @@ main:
 /* Storing variable 2.2 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_2, %l3
+    set         float_4, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
@@ -165,6 +209,42 @@ main:
     add         %fp, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 9*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Dividing */
+/* line number 9*/
+/* Storing variable 81.92 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_7, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 9*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 9*/
+/* Storing variable 20.48 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_6, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 9*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fdivs       %f0, %f1, %f3
+/* line number 9*/
+/* Storing result of Binary Op */
+    set         float_5, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
 /* line number 10*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 10*/
@@ -173,7 +253,7 @@ main:
 /* Storing variable 81.92 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_4, %l3
+    set         float_8, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
@@ -214,7 +294,7 @@ main:
 /* Storing variable 1.9 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_5, %l3
+    set         float_9, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
@@ -275,18 +355,54 @@ globalInit_end:
     add         %fp, %l0, %l0
 /* line number 17*/
 /* setting float */
-    set         float_6, %l1
+    set         float_10, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 17*/
 /* Done. */
+/* line number 17*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 17*/
+/* Multiplying */
+/* line number 17*/
+/* Storing variable 3.2 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_13, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 17*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 17*/
+/* Storing variable 3.4 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_12, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 17*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fmuls       %f0, %f1, %f3
+/* line number 17*/
+/* Storing result of Binary Op */
+    set         float_11, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
 /* line number 18*/
 /* setting localConstTimesConst = Arithmetic Op */
     set         -12, %l0
     add         %fp, %l0, %l0
 /* line number 18*/
 /* setting float */
-    set         float_8, %l1
+    set         float_14, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 18*/
@@ -299,7 +415,7 @@ globalInit_end:
 /* Storing variable 3.0 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_9, %l3
+    set         float_15, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
@@ -342,7 +458,7 @@ globalInit_end:
 /* Storing variable 3.7 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_10, %l3
+    set         float_16, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
@@ -427,13 +543,49 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 23*/
 /* Done. */
+/* line number 23*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 23*/
+/* Dividing */
+/* line number 23*/
+/* Storing variable 69.0 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_19, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 23*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 23*/
+/* Storing variable 23.0 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_18, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 23*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fdivs       %f0, %f1, %f3
+/* line number 23*/
+/* Storing result of Binary Op */
+    set         float_17, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
 /* line number 24*/
 /* setting localConstDivConst = Arithmetic Op */
     set         -48, %l0
     add         %fp, %l0, %l0
 /* line number 24*/
 /* setting float */
-    set         float_12, %l1
+    set         float_20, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 24*/
@@ -451,7 +603,7 @@ globalInit_end:
 /* Storing variable 3.8 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_13, %l3
+    set         float_21, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
@@ -550,7 +702,7 @@ globalInit_end:
 /* line number 28*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_14, %o1
+    set         str_22, %o1
     call    printf
     nop
 /* line number 28*/
@@ -569,7 +721,7 @@ globalInit_end:
 /* line number 28*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_15, %o1
+    set         str_23, %o1
     call    printf
     nop
 /* line number 28*/
@@ -588,7 +740,7 @@ globalInit_end:
 /* line number 28*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_16, %o1
+    set         str_24, %o1
     call    printf
     nop
 /* line number 28*/
@@ -607,7 +759,7 @@ globalInit_end:
 /* line number 28*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_17, %o1
+    set         str_25, %o1
     call    printf
     nop
 /* line number 28*/
@@ -640,7 +792,7 @@ globalInit_end:
 /* line number 29*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_18, %o1
+    set         str_26, %o1
     call    printf
     nop
 /* line number 29*/
@@ -659,7 +811,7 @@ globalInit_end:
 /* line number 29*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_19, %o1
+    set         str_27, %o1
     call    printf
     nop
 /* line number 29*/
@@ -678,7 +830,7 @@ globalInit_end:
 /* line number 29*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_20, %o1
+    set         str_28, %o1
     call    printf
     nop
 /* line number 29*/
@@ -714,7 +866,7 @@ globalInit_end:
 /* line number 31*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_21, %o1
+    set         str_29, %o1
     call    printf
     nop
 /* line number 31*/
@@ -733,7 +885,7 @@ globalInit_end:
 /* line number 31*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_22, %o1
+    set         str_30, %o1
     call    printf
     nop
 /* line number 31*/
@@ -752,7 +904,7 @@ globalInit_end:
 /* line number 31*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_23, %o1
+    set         str_31, %o1
     call    printf
     nop
 /* line number 31*/
@@ -771,7 +923,7 @@ globalInit_end:
 /* line number 32*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_24, %o1
+    set         str_32, %o1
     call    printf
     nop
 /* line number 32*/
@@ -790,7 +942,7 @@ globalInit_end:
 /* line number 32*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_25, %o1
+    set         str_33, %o1
     call    printf
     nop
 /* line number 32*/
@@ -823,7 +975,7 @@ globalInit_end:
 /* line number 33*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_26, %o1
+    set         str_34, %o1
     call    printf
     nop
 /* line number 33*/
@@ -842,7 +994,7 @@ globalInit_end:
 /* line number 33*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_27, %o1
+    set         str_35, %o1
     call    printf
     nop
 /* line number 33*/
@@ -861,7 +1013,7 @@ globalInit_end:
 /* line number 33*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_28, %o1
+    set         str_36, %o1
     call    printf
     nop
 /* line number 33*/
@@ -880,7 +1032,7 @@ globalInit_end:
 /* line number 33*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_29, %o1
+    set         str_37, %o1
     call    printf
     nop
 /* line number 33*/
