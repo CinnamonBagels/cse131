@@ -1370,9 +1370,9 @@ class MyParser extends parser {
 		generator.loadVariable(Registers.l1, sto);
 		generator.generateASM(Strings.two_param, Instructions.cmp, Registers.l1, Registers.g0);
 		if(op.getName().equals("||")){
-			generator.generateASM(Strings.one_param,Instructions.bne, "_orOp"+generator.orCount);
+			generator.generateASM(Strings.one_param,Instructions.bne, Strings.orT + generator.orCount);
 		}else{
-			generator.generateASM(Strings.one_param,Instructions.be,"_andOp"+generator.andCount);
+			generator.generateASM(Strings.one_param,Instructions.bne,Strings.andT + generator.andCount);
 		}
 		generator.generateASM(Strings.nop);
 	}

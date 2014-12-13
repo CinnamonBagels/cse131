@@ -83,4 +83,11 @@ public class Strings {
     public static final String equalEnd = "equalEnd_";
     public static final String floatOffset = "[%fp - 4]";
     public static final String floatForceOne = "FLOAT_FORCE_1";
+    public static final String andT = "andT_";
+    public static final String andF = "andF_";
+    public static final String orF = "orF_";
+    public static final String orT = "orT_";
+    public static final String andEnd = "andEnd_";
+    public static final String orEnd = "orEnd_";
+    
 }
