@@ -18,6 +18,7 @@ public class AssemblyGenerator {
 	public List<String> dQueue = new Vector<String>();
 	public List<String> bssQueue = new Vector<String>();
 	public Stack<Integer> ifElseStack = new Stack<Integer>();
+	public Stack<Integer> whileStack = new Stack<Integer>();
 	public int stringLits = 0;
 	public int branches = 0;
 	public int arrayDecl = 0;
@@ -26,6 +27,7 @@ public class AssemblyGenerator {
 	public int numNots = 0;
 	public int andCount = 0;
 	public int orCount = 0;
+	public int whileStmts = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -1679,5 +1681,26 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
 		
 		return returnSTO;
+	}
+
+	public void doWhile(STO expr) {
+		// TODO Auto-generated method stub
+		generateASM(Strings.label, Strings.whileStmt + whileStmts);
+		loadVariable(Registers.l0, expr);
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+		generateASM(Strings.one_param, Instructions.be, Strings.whileEnd + whileStmts);
+		generateASM(Strings.nop);
+		
+		whileStack.push(whileStmts);
+		whileStmts++;
+		
+	}
+	
+	public void endWhile() {
+		int noWhiles = whileStack.pop();
+		
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + noWhiles);
+		generateASM(Strings.nop);
+		generateASM(Strings.label, Strings.whileEnd + noWhiles);
 	}
 }

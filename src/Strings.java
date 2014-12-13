@@ -89,5 +89,7 @@ public class Strings {
     public static final String orT = "orT_";
     public static final String andEnd = "andEnd_";
     public static final String orEnd = "orEnd_";
+    public static final String whileStmt = "while_";
+    public static final String whileEnd = "whileEnd_";
     
 }

@@ -2,9 +2,8 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     a,b
-a:              .word        1           
-b:              .word        0           
+                 .global     x
+x:              .word        0           
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -32,64 +31,87 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 7*/
-/* Short-circuiting && with a */
-    set         a, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l1
-    cmp         %l1, %g0
-    be      andF_0
-    nop
-/* line number 7*/
-/* Prepping Arithmetic Calculations by loading */
-    set         a, %l1
+/* line number 5*/
+/* Prepping Comparison Calculations by loading */
+    set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l1
-/* line number 7*/
-/* &&-ing */
-    cmp         %l2, %g0
-    bne     andT_0
+    set         5, %l1
+/* line number 5*/
+/* Starting Less than */
+    cmp         %l0, %l1
+    bl      less_0
     nop
-andF_0:
-    set         0, %l2
-    ba      andEnd_0
+    set         0, %l3
+    ba      lessEnd_0
     nop
-andT_0:
-    set         1, %l2
-andEnd_0:
-/* line number 7*/
-/* Storing result of Binary Op */
+less_0:
+    set         1, %l3
+lessEnd_0:
+/* line number 5*/
+/* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
-    st          %l2, [%l4]
-/* line number 7*/
-/* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- */
+    st          %l3, [%l4]
+while_0:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         _strFmt, %o0
     cmp         %l0, %g0
-    be      printFalse_0
+    be      whileEnd_0
     nop
-printTrue_0:
-    set         _boolT, %o1
-    ba      branchEnd_0
-    nop
-printFalse_0:
-    set         _boolF, %o1
-branchEnd_0:
+/* line number 7*/
+/* Printing int x */
+    set         _intFmt, %o0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
     call    printf
     nop
 /* line number 7*/
-/* Done printing bool. */
+/* Done printing int. */
+/* line number 8*/
+/* Prepping Arithmetic Calculations by loading */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         1, %l1
+/* line number 8*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 8*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 8*/
+/* Storing variable int + int into x */
+    set         x, %l5
+    add         %g0, %l5, %l5
+    set         -12, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
+    ba      while_0
+    nop
+whileEnd_0:
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 12*/
+/* Printing int x */
+    set         _intFmt, %o0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 12*/
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 12) & -8

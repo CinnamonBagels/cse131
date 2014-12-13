@@ -650,7 +650,7 @@ class MyParser extends parser {
 	}
 
 	// expression, codeblock
-	STO DoWhileStmt(STO _1, STO _2) {
+	STO DoWhileStmt(STO _1) {
 		if (_1.isError()) {
 			return _1;
 		}
@@ -666,7 +666,7 @@ class MyParser extends parser {
 		} else {
 			//assembly here?
 		}
-
+		generator.doWhile(_1);
 		return _1;
 	}
 
@@ -1671,5 +1671,9 @@ class MyParser extends parser {
 	
 	public void DoCIN(STO sto){
 		generator.DoCIN(sto);
+	}
+	
+	public void DoWhileEnd() {
+		generator.endWhile();
 	}
 }

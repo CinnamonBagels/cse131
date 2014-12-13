@@ -617,10 +617,14 @@ OptElse ::=         T_ELSE CodeBlock
     ;
 
 
-WhileStmt ::=       T_WHILE Expr:_1 CodeBlock:_2
+WhileStmt ::=       T_WHILE Expr:_1
 					{:
-						((MyParser) parser).DoWhileStmt(_1, (STO)_2);
+						((MyParser) parser).DoWhileStmt(_1);
+					:}
+					CodeBlock 
+					{:
 						((MyParser) parser).DoCloseLoop();
+						((MyParser) parser).DoWhileEnd();
 					:}
     ;
 
