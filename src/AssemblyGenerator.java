@@ -666,6 +666,13 @@ public class AssemblyGenerator {
 		generateComment("Done printing bool.");
 		
 	}
+	
+	public void storeParameters(STO sto, int num){
+		generateComment("Storing parameter " + sto.getName());
+		if(!(sto.getType() instanceof FloatType) && !sto.isReference){
+			//generateASM(Strings.two_param, Instructions.store, "%i" + num, "[" + sto.base + "+" + sto.offset.substring(1)); 
+		}
+	}
 
 	public void prepareArguments(STO argument, VarSTO parameter, int argCounter) {
 		// TODO Auto-generated method stub
@@ -1617,10 +1624,12 @@ public class AssemblyGenerator {
 		generateASM(Strings.three_param,Instructions.add,sto.base,Registers.l5,Registers.l5);
 		
 		if(!(sto.getType() instanceof FloatType)){
+			//cin going to int
 			generateASM(Strings.call_op, "inputInt");
 			generateASM(Strings.nop);
 			generateASM(Strings.two_param, Instructions.store, Registers.o0, "[" + Registers.l5 + "]");
-		}else{		
+		}else{
+			//cin going to float
 			generateASM(Strings.call_op, "inputFloat");
 			generateASM(Strings.nop);
 			generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l5 + "]");		
