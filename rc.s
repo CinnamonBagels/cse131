@@ -2,12 +2,11 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-str_0:          .asciz       "inside foo"
-str_1:          .asciz       "if1"       
-str_2:          .asciz       "if inside" 
-str_3:          .asciz       "else"      
-str_4:          .asciz       "haha1"     
-str_5:          .asciz       "haha2"     
+                 .global     a,b,c,d
+a:              .word        1           
+b:              .word        0           
+c:              .word        0           
+d:              .word        0           
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -22,32 +21,6 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 
                 .section     ".text"
                 .align 4
-                .global      foo
-foo:
-    set         SAVE.foo, %g1
-    save        %sp, %g1, %sp
-/* line number 3*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* line number 3*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 5*/
-/* Returning value from foo */
-    set         1, %i0
-    ba      foo_end
-    nop
-foo_end:
-    ret 
-    restore
-SAVE.foo = -(92 + 4) & -8
-                .section     ".text"
-                .align 4
                 .global      main
 main:
     set         SAVE.main, %g1
@@ -57,44 +30,23 @@ main:
     cmp         %l0, %g0
     bne     globalInit_end
     nop
-    set         globalInit_, %l0
-    set         1, %l1
-    st          %l1, [%l0]
-globalInit_end:
-/* line number 10*/
-/* setting a = true */
-    set         1, %l0
-    st          %l0, [%fp-8]
-/* line number 10*/
-/* Done. */
-/* line number 14*/
-/* setting b = false */
-    set         0, %l0
-    st          %l0, [%fp-12]
-/* line number 14*/
-/* Done. */
-/* line number 14*/
+/* line number 4*/
 /* Short-circuiting && with a */
-    set         -8, %l1
-    add         %fp, %l1, %l1
+    set         a, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
     be      andF_0
     nop
-    call    foo
-    nop
-/* line number 14*/
-/* Saving return value */
-    st          %o0, [%fp+-16]
-/* line number 14*/
+/* line number 4*/
 /* Prepping Arithmetic Calculations by loading */
-    set         -8, %l1
-    add         %fp, %l1, %l1
+    set         a, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         -16, %l1
-    add         %fp, %l1, %l1
+    set         a, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-/* line number 14*/
+/* line number 4*/
 /* &&-ing */
     cmp         %l1, %g0
     bne     andT_0
@@ -106,129 +58,40 @@ andF_0:
 andT_0:
     set         1, %l2
 andEnd_0:
-/* line number 14*/
+/* line number 4*/
 /* Storing result of Binary Op */
-    set         -20, %l4
+    set         -8, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
-    set         -20, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_0
-    nop
-if_0:
-/* line number 16*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_1, %o1
-    call    printf
-    nop
-/* line number 16*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    call    foo
-    nop
-/* line number 17*/
-/* Saving return value */
-    st          %o0, [%fp+-24]
-/* line number 17*/
-/* Short-circuiting && with foo() */
-    set         -24, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    cmp         %l1, %g0
-    be      andF_1
-    nop
-/* line number 17*/
-/* Prepping Arithmetic Calculations by loading */
-    set         -24, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* line number 17*/
-/* &&-ing */
-    cmp         %l1, %g0
-    bne     andT_1
-    nop
-andF_1:
-    set         0, %l2
-    ba      andEnd_1
-    nop
-andT_1:
-    set         1, %l2
-andEnd_1:
-/* line number 17*/
-/* Storing result of Binary Op */
-    set         -28, %l4
-    add         %fp, %l4, %l4
-    st          %l2, [%l4]
-    set         -28, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_1
-    nop
-if_1:
-/* line number 19*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_2, %o1
-    call    printf
-    nop
-/* line number 19*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-    ba      endIf_2
-    nop
-else_1:
-endIf_2:
-    ba      endIf_3
-    nop
-else_0:
-/* line number 24*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_3, %o1
-    call    printf
-    nop
-/* line number 24*/
-/* Done printing string. */
-    set         _endl, %o0
-    call    printf
-    nop
-endIf_3:
-/* line number 27*/
-/* Short-circuiting || with a */
-    set         -8, %l1
-    add         %fp, %l1, %l1
+/* line number 5*/
+/* Storing variable Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ into c */
+    set         c, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
+/* line number 5*/
+/* Short-circuiting || with b */
+    set         b, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
     bne     orT_0
     nop
-    call    foo
-    nop
-/* line number 27*/
-/* Saving return value */
-    st          %o0, [%fp+-32]
-/* line number 27*/
+/* line number 5*/
 /* Prepping Arithmetic Calculations by loading */
-    set         -8, %l1
-    add         %fp, %l1, %l1
+    set         b, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         -32, %l1
-    add         %fp, %l1, %l1
+    set         a, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-/* line number 27*/
+/* line number 5*/
 /* ||-ing */
-    set         -32, %l1
-    add         %fp, %l1, %l1
+    set         a, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_0
@@ -240,58 +103,204 @@ orF_0:
 orT_0:
     set         1, %l2
 orEnd_0:
-/* line number 27*/
+/* line number 5*/
 /* Storing result of Binary Op */
-    set         -36, %l4
+    set         -12, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
-    set         -36, %l1
-    add         %fp, %l1, %l1
+/* line number 7*/
+/* Storing variable Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ into d */
+    set         d, %l5
+    add         %g0, %l5, %l5
+    set         -12, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
+    set         globalInit_, %l0
+    set         1, %l1
+    st          %l1, [%l0]
+globalInit_end:
+/* line number 9*/
+/* Printing bool c */
+    set         c, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_4
-    nop
-if_4:
-/* line number 29*/
-/* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
     call    printf
     nop
-/* line number 29*/
-/* Done printing string. */
+/* line number 9*/
+/* Done printing bool. */
     set         _endl, %o0
     call    printf
     nop
-    ba      endIf_5
+/* line number 10*/
+/* Printing bool d */
+    set         d, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_1
     nop
-else_4:
-endIf_5:
-/* line number 32*/
-/* Short-circuiting || with b */
+printTrue_1:
+    set         _boolT, %o1
+    ba      branchEnd_1
+    nop
+printFalse_1:
+    set         _boolF, %o1
+branchEnd_1:
+    call    printf
+    nop
+/* line number 10*/
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 11*/
+/* Short-circuiting && with a */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    be      andF_1
+    nop
+/* line number 11*/
+/* Prepping Arithmetic Calculations by loading */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 11*/
+/* &&-ing */
+    cmp         %l1, %g0
+    bne     andT_1
+    nop
+andF_1:
+    set         0, %l2
+    ba      andEnd_1
+    nop
+andT_1:
+    set         1, %l2
+andEnd_1:
+/* line number 11*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 11*/
+/* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_2
+    nop
+printTrue_2:
+    set         _boolT, %o1
+    ba      branchEnd_2
+    nop
+printFalse_2:
+    set         _boolF, %o1
+branchEnd_2:
+    call    printf
+    nop
+/* line number 11*/
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 12*/
+/* Short-circuiting && with b */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    be      andF_2
+    nop
+/* line number 12*/
+/* Prepping Arithmetic Calculations by loading */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 12*/
+/* &&-ing */
+    cmp         %l1, %g0
+    bne     andT_2
+    nop
+andF_2:
+    set         0, %l2
+    ba      andEnd_2
+    nop
+andT_2:
+    set         1, %l2
+andEnd_2:
+/* line number 12*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 12*/
+/* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ */
     set         -12, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_3
+    nop
+printTrue_3:
+    set         _boolT, %o1
+    ba      branchEnd_3
+    nop
+printFalse_3:
+    set         _boolF, %o1
+branchEnd_3:
+    call    printf
+    nop
+/* line number 12*/
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 14*/
+/* Short-circuiting || with a */
+    set         a, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
     bne     orT_1
     nop
-    call    foo
-    nop
-/* line number 32*/
-/* Saving return value */
-    st          %o0, [%fp+-40]
-/* line number 32*/
+/* line number 14*/
 /* Prepping Arithmetic Calculations by loading */
-    set         -12, %l1
-    add         %fp, %l1, %l1
+    set         a, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l0
-    set         -40, %l1
-    add         %fp, %l1, %l1
+    set         b, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l1
-/* line number 32*/
+/* line number 14*/
 /* ||-ing */
-    set         -40, %l1
-    add         %fp, %l1, %l1
+    set         b, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_1
@@ -303,34 +312,96 @@ orF_1:
 orT_1:
     set         1, %l2
 orEnd_1:
-/* line number 32*/
+/* line number 14*/
 /* Storing result of Binary Op */
-    set         -44, %l4
+    set         -16, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
-    set         -44, %l1
+/* line number 14*/
+/* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ */
+    set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    cmp         %l0, %g0
-    be      else_6
-    nop
-if_6:
-/* line number 34*/
-/* printing string */
     set         _strFmt, %o0
-    set         str_5, %o1
+    cmp         %l0, %g0
+    be      printFalse_4
+    nop
+printTrue_4:
+    set         _boolT, %o1
+    ba      branchEnd_4
+    nop
+printFalse_4:
+    set         _boolF, %o1
+branchEnd_4:
     call    printf
     nop
-/* line number 34*/
-/* Done printing string. */
+/* line number 14*/
+/* Done printing bool. */
     set         _endl, %o0
     call    printf
     nop
-    ba      endIf_7
+/* line number 15*/
+/* Short-circuiting || with b */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    bne     orT_2
     nop
-else_6:
-endIf_7:
+/* line number 15*/
+/* Prepping Arithmetic Calculations by loading */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l1
+/* line number 15*/
+/* ||-ing */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l1, %g0
+    bne     orT_2
+    nop
+orF_2:
+    set         0, %l2
+    ba      orEnd_2
+    nop
+orT_2:
+    set         1, %l2
+orEnd_2:
+/* line number 15*/
+/* Storing result of Binary Op */
+    set         -20, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 15*/
+/* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_5
+    nop
+printTrue_5:
+    set         _boolT, %o1
+    ba      branchEnd_5
+    nop
+printFalse_5:
+    set         _boolF, %o1
+branchEnd_5:
+    call    printf
+    nop
+/* line number 15*/
+/* Done printing bool. */
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 44) & -8
+SAVE.main = -(92 + 20) & -8
