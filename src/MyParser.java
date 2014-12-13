@@ -1676,4 +1676,8 @@ class MyParser extends parser {
 	public void DoWhileEnd() {
 		generator.endWhile();
 	}
+	
+	public void startWhile() {
+		generator.startWhile();
+	}
 }

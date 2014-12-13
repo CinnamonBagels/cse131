@@ -617,7 +617,15 @@ OptElse ::=         T_ELSE CodeBlock
     ;
 
 
-WhileStmt ::=       T_WHILE Expr:_1
+WhileStmt ::=       T_WHILE
+					{:
+					//we have to split T_WHILE and expr apart because
+					//if you dont, it will print out Expr because it recurses first.
+					//it will print out the logic stuff outside the while loopo
+					//when we want it inside the while loop.
+						((MyParser) parser).startWhile();
+					:}
+					Expr:_1
 					{:
 						((MyParser) parser).DoWhileStmt(_1);
 					:}

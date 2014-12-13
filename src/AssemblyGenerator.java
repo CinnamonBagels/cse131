@@ -1685,7 +1685,6 @@ public class AssemblyGenerator {
 
 	public void doWhile(STO expr) {
 		// TODO Auto-generated method stub
-		generateASM(Strings.label, Strings.whileStmt + whileStmts);
 		loadVariable(Registers.l0, expr);
 		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
 		generateASM(Strings.one_param, Instructions.be, Strings.whileEnd + whileStmts);
@@ -1702,5 +1701,9 @@ public class AssemblyGenerator {
 		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + noWhiles);
 		generateASM(Strings.nop);
 		generateASM(Strings.label, Strings.whileEnd + noWhiles);
+	}
+	
+	public void startWhile() {
+		generateASM(Strings.label, Strings.whileStmt + whileStmts);
 	}
 }
