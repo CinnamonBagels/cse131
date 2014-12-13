@@ -56,7 +56,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 6*/
-/* printing float STO.VarSTO@1e8b957 */
+/* printing float STO.VarSTO@5d75eb */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -82,7 +82,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 7*/
-/* printing float STO.ExprSTO@1e001c8 */
+/* printing float STO.ExprSTO@1e8b957 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -108,7 +108,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@739474 */
+/* printing float STO.ExprSTO@1952be0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

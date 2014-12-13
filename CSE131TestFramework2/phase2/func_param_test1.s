@@ -75,7 +75,7 @@ foo:
 /* line number 5*/
 /* Done printing string. */
 /* line number 5*/
-/* printing float STO.VarSTO@1593225 */
+/* printing float STO.VarSTO@eb46e9 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -149,7 +149,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 16*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@197833e */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

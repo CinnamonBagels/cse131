@@ -93,7 +93,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@197833e */
+/* printing float STO.ExprSTO@29626a */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -117,7 +117,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@29626a */
+/* printing float STO.ExprSTO@fc4957 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -179,7 +179,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 12*/
-/* printing float STO.VarSTO@fc4957 */
+/* printing float STO.VarSTO@1330af4 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

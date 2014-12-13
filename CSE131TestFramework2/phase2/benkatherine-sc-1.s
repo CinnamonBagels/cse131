@@ -90,9 +90,6 @@ andEnd_0:
     ld          [%l1], %l1
 /* line number 5*/
 /* ||-ing */
-    set         a, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_0
     nop
@@ -299,9 +296,6 @@ branchEnd_3:
     ld          [%l1], %l1
 /* line number 14*/
 /* ||-ing */
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_1
     nop
@@ -359,9 +353,6 @@ branchEnd_4:
     ld          [%l1], %l1
 /* line number 15*/
 /* ||-ing */
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_2
     nop

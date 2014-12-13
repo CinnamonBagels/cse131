@@ -127,9 +127,6 @@ greaterEnd_0:
     ld          [%l1], %l1
 /* line number 17*/
 /* ||-ing */
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_0
     nop
@@ -169,9 +166,6 @@ orEnd_0:
     ld          [%l1], %l1
 /* line number 17*/
 /* ||-ing */
-    set         -24, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_1
     nop

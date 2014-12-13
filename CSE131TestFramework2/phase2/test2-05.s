@@ -92,9 +92,6 @@ globalInit_end:
     ld          [%l1], %l1
 /* line number 15*/
 /* ||-ing */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_0
     nop

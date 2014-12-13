@@ -174,7 +174,6 @@ globalInit_end:
     set         1, %l1
 /* line number 39*/
 /* ||-ing */
-    set         1, %l2
     cmp         %l1, %g0
     bne     orT_0
     nop
@@ -230,7 +229,6 @@ branchEnd_0:
     set         0, %l1
 /* line number 40*/
 /* ||-ing */
-    set         0, %l2
     cmp         %l1, %g0
     bne     orT_1
     nop
@@ -288,9 +286,6 @@ branchEnd_1:
     ld          [%l1], %l1
 /* line number 41*/
 /* ||-ing */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_2
     nop
@@ -348,9 +343,6 @@ branchEnd_2:
     ld          [%l1], %l1
 /* line number 42*/
 /* ||-ing */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_3
     nop
@@ -431,7 +423,6 @@ lessEnd_0:
     set         1, %l1
 /* line number 44*/
 /* ||-ing */
-    set         1, %l2
     cmp         %l1, %g0
     bne     orT_4
     nop
@@ -503,9 +494,6 @@ lessEnd_1:
     ld          [%l1], %l1
 /* line number 45*/
 /* ||-ing */
-    set         -52, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_5
     nop
@@ -586,7 +574,6 @@ lessEnd_2:
     set         1, %l1
 /* line number 47*/
 /* ||-ing */
-    set         1, %l2
     cmp         %l1, %g0
     bne     orT_6
     nop
@@ -658,9 +645,6 @@ lessEnd_3:
     ld          [%l1], %l1
 /* line number 48*/
 /* ||-ing */
-    set         -68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_7
     nop
@@ -767,9 +751,6 @@ lessEnd_5:
     ld          [%l1], %l1
 /* line number 50*/
 /* ||-ing */
-    set         -80, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_8
     nop
@@ -876,9 +857,6 @@ lessEnd_7:
     ld          [%l1], %l1
 /* line number 51*/
 /* ||-ing */
-    set         -92, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_9
     nop
@@ -985,9 +963,6 @@ lessEnd_9:
     ld          [%l1], %l1
 /* line number 52*/
 /* ||-ing */
-    set         -104, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_10
     nop
@@ -1094,9 +1069,6 @@ lessEnd_11:
     ld          [%l1], %l1
 /* line number 53*/
 /* ||-ing */
-    set         -116, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_11
     nop
@@ -1164,9 +1136,6 @@ branchEnd_11:
     ld          [%l1], %l1
 /* line number 55*/
 /* ||-ing */
-    set         -128, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_12
     nop
@@ -1234,9 +1203,6 @@ branchEnd_12:
     ld          [%l1], %l1
 /* line number 56*/
 /* ||-ing */
-    set         -140, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_13
     nop
@@ -1304,9 +1270,6 @@ branchEnd_13:
     ld          [%l1], %l1
 /* line number 57*/
 /* ||-ing */
-    set         -152, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_14
     nop
@@ -1374,9 +1337,6 @@ branchEnd_14:
     ld          [%l1], %l1
 /* line number 58*/
 /* ||-ing */
-    set         -164, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_15
     nop
@@ -1444,9 +1404,6 @@ branchEnd_15:
     ld          [%l1], %l1
 /* line number 60*/
 /* ||-ing */
-    set         -176, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_16
     nop
@@ -1514,9 +1471,6 @@ branchEnd_16:
     ld          [%l1], %l1
 /* line number 61*/
 /* ||-ing */
-    set         -188, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_17
     nop
@@ -1584,9 +1538,6 @@ branchEnd_17:
     ld          [%l1], %l1
 /* line number 62*/
 /* ||-ing */
-    set         -200, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_18
     nop
@@ -1654,9 +1605,6 @@ branchEnd_18:
     ld          [%l1], %l1
 /* line number 63*/
 /* ||-ing */
-    set         -212, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_19
     nop
@@ -1724,9 +1672,6 @@ branchEnd_19:
     ld          [%l1], %l1
 /* line number 65*/
 /* ||-ing */
-    set         -224, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_20
     nop
@@ -1794,9 +1739,6 @@ branchEnd_20:
     ld          [%l1], %l1
 /* line number 66*/
 /* ||-ing */
-    set         -236, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_21
     nop
@@ -1864,9 +1806,6 @@ branchEnd_21:
     ld          [%l1], %l1
 /* line number 67*/
 /* ||-ing */
-    set         -248, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_22
     nop
@@ -1934,9 +1873,6 @@ branchEnd_22:
     ld          [%l1], %l1
 /* line number 68*/
 /* ||-ing */
-    set         -260, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_23
     nop
@@ -2004,9 +1940,6 @@ branchEnd_23:
     ld          [%l1], %l1
 /* line number 70*/
 /* ||-ing */
-    set         -272, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_24
     nop
@@ -2074,9 +2007,6 @@ branchEnd_24:
     ld          [%l1], %l1
 /* line number 71*/
 /* ||-ing */
-    set         -284, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_25
     nop
@@ -2144,9 +2074,6 @@ branchEnd_25:
     ld          [%l1], %l1
 /* line number 72*/
 /* ||-ing */
-    set         -296, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_26
     nop
@@ -2214,9 +2141,6 @@ branchEnd_26:
     ld          [%l1], %l1
 /* line number 73*/
 /* ||-ing */
-    set         -308, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_27
     nop
@@ -2284,9 +2208,6 @@ branchEnd_27:
     ld          [%l1], %l1
 /* line number 75*/
 /* ||-ing */
-    set         -320, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_28
     nop
@@ -2354,9 +2275,6 @@ branchEnd_28:
     ld          [%l1], %l1
 /* line number 76*/
 /* ||-ing */
-    set         -332, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_29
     nop
@@ -2424,9 +2342,6 @@ branchEnd_29:
     ld          [%l1], %l1
 /* line number 77*/
 /* ||-ing */
-    set         -344, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_30
     nop
@@ -2494,9 +2409,6 @@ branchEnd_30:
     ld          [%l1], %l1
 /* line number 78*/
 /* ||-ing */
-    set         -356, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_31
     nop

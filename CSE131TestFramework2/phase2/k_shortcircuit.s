@@ -227,9 +227,6 @@ endIf_3:
     ld          [%l1], %l1
 /* line number 27*/
 /* ||-ing */
-    set         -32, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_0
     nop
@@ -290,9 +287,6 @@ endIf_5:
     ld          [%l1], %l1
 /* line number 32*/
 /* ||-ing */
-    set         -40, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l1, %g0
     bne     orT_1
     nop

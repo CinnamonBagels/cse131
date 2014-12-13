@@ -59,7 +59,7 @@ foo:
 /* line number 9*/
 /* Done printing string. */
 /* line number 9*/
-/* printing float STO.VarSTO@596a7a */
+/* printing float STO.VarSTO@5d75eb */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -120,7 +120,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@e9581b */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -160,7 +160,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@e9581b */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
