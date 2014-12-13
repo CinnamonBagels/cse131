@@ -1864,4 +1864,71 @@ public class AssemblyGenerator {
 		this.setAdd(sto, Registers.l0);
 		generateASM(Strings.two_param, Instructions.move, Registers.l0, register);
 	}
+
+	public void doNew(STO s) {
+		// TODO Auto-generated method stub
+		PointerType type = (PointerType) s.getType();
+		int size = type.getContainingType().getSize();
+		String sSize = String.valueOf(size);
+		generateComment("Allocating for new " + s.getName());
+		
+		generateASM(Strings.two_param, Instructions.set, "1", Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, sSize, Registers.o1);
+		generateASM(Strings.call_op, Strings.calloc);
+		generateASM(Strings.nop);
+		
+		//store locally
+		//do we need to load once because pointer? not sure
+		
+		setAdd(s, Registers.l0);
+		
+		generateASM(Strings.two_param, Instructions.store, Registers.o0, "[" + Registers.l0 + "]");
+	}
+	
+	public void doDelete(STO s) {
+		generateComment("Deallocating for delete " + s.getName());
+		
+		setAdd(s, Registers.o0);
+		generateASM(Strings.call_op, Strings.free);
+		generateASM(Strings.nop);
+		
+		//since deleted we probably should fill it with null.
+		storeVariable(s, new ConstSTO("0", new NullPointerType()));
+		
+		//EXTRA CREDIT stuff goes here as well if we want to set everything else that references the object
+		//to null as well. hm.
+	}
+
+	public void doTypeCast(STO typeCast, STO origin) {
+		// TODO Auto-generated method stub
+		Type castedType = typeCast.getType();
+		Type originType = origin.getType();
+		
+		boolean bothInt = !castedType.isFloat() && !originType.isFloat();
+		
+		if(bothInt) {
+			storeVariable(typeCast, origin);
+		} else if(castedType.isFloat() && !originType.isFloat()) {
+			//fitos
+			loadVariable(Registers.f0, origin);
+			
+			generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
+			
+			setAdd(typeCast, Registers.l0);
+			
+			generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
+		} else {
+			//fstoi
+			loadVariable(Registers.f0, origin);
+			
+			generateASM(Strings.two_param, Instructions.fstoi, Registers.f0, Registers.f0);
+			
+			setAdd(typeCast, Registers.l0);
+			
+			generateASM(Strings.two_param, Instructions.store, Registers.f0, "[" + Registers.l0 + "]");
+		}
+		//check for float -> int, int -> float conversions.
+		
+		//otherwise you can just store.
+	}
 }

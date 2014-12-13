@@ -94,5 +94,7 @@ public class Strings {
     public static final String forStart = "for_";
     public static final String forEnd = "forEnd_";
     public static final String memcpy = "memcpy";
+    public static final String calloc = "calloc";
+    public static final String free = "free";
     
 }

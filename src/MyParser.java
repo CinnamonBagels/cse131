@@ -1268,6 +1268,16 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error16_New, s
 					.getType().getName()));
 		}
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func == null) {
+			func = main;
+		}
+		
+		func.addToStack(s.getType().getSize());
+		s.offset = String.valueOf(-(func.getStackSize()));
+		s.base = Registers.fp;
+		generator.doNew(s);
 		return s;
 	}
 
@@ -1284,6 +1294,7 @@ class MyParser extends parser {
 			return new ErrorSTO(Formatter.toString(ErrorMsg.error16_Delete, s
 					.getType().getName()));
 		}
+		generator.doDelete(s);
 		return s;
 	}
 
@@ -1588,8 +1599,14 @@ class MyParser extends parser {
 		if (sto.isError()) {
 			return sto;
 		}
-
-		STO rsto = sto;
+		
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func == null) {
+			func = main;
+		}
+		
+		STO typeCast = sto;
 		// target is okay to cast on
 		if (sto.getType() instanceof BasicType
 				|| sto.getType() instanceof PointerType) {
@@ -1611,10 +1628,16 @@ class MyParser extends parser {
 				}
 				// alias
 				else {
-					rsto = new ExprSTO(sto.getName(), t);
+					typeCast = new ExprSTO(sto.getName(), t);
 					// result of cast is r value
-					rsto.setIsModLValue(false);
-					return rsto;
+					typeCast.setIsModLValue(false);
+					
+					func.addToStack(typeCast.getType().getSize());
+					typeCast.offset = String.valueOf(-(func.getStackSize()));
+					typeCast.base = Registers.fp;
+					
+					generator.doTypeCast(typeCast);
+					return typeCast;
 				}
 			}
 
