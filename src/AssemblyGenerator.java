@@ -1749,6 +1749,7 @@ public class AssemblyGenerator {
 	
 	public void endWhile() {
 		noWhiles = whileStack.pop();
+		loopStack.pop();
 		
 		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + noWhiles);
 		generateASM(Strings.nop);
@@ -1762,7 +1763,7 @@ public class AssemblyGenerator {
 
 	public void doBreak() {
 		// TODO Auto-generated method stub
-		int loop = loopStack.pop();
+		int loop = loopStack.peek();
 		
 		if(loop == 0) {
 			doWhileBreak();
