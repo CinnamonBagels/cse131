@@ -129,13 +129,15 @@ while_0:
     ld          [%l1], %f0
 /* line number 6*/
 /* Storing variable 0 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         0, %l3
     st          %l3, [%l5]
 /* line number 6*/
-/* Loading 0 to %f1 */
-    set         0, %f1
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fitos       %f1, %f1
     fcmps       %f0, %f1
     fbg     greater_0

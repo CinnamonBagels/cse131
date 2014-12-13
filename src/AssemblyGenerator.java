@@ -589,7 +589,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 				generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 				
-				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
+				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 			}
 		} else {
 				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
@@ -1168,13 +1168,13 @@ public class AssemblyGenerator {
 				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
 				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
 				STO temp = new ExprSTO("temp", new FloatType());
-				temp.offset = "4";
+				temp.offset = "-4";
 				temp.base = Registers.fp;
 				
 				//load right
 				if(left.isConst()) {
 					this.storeVariable(temp, left);
-					this.loadVariable(Registers.f0, left);
+					this.loadVariable(Registers.f0, temp);
 				} else {
 					loadVariable(Registers.f0, left);
 				}
@@ -1182,7 +1182,7 @@ public class AssemblyGenerator {
 				//load left
 				if(right.isConst()) {
 					this.storeVariable(temp, right);
-					this.loadVariable(Registers.f1, right);
+					this.loadVariable(Registers.f1, temp);
 				} else {
 					loadVariable(Registers.f1, right);
 				}
@@ -1224,13 +1224,13 @@ public class AssemblyGenerator {
 				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
 				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
 				STO temp = new ExprSTO("temp", new FloatType());
-				temp.offset = "4";
+				temp.offset = "-4";
 				temp.base = Registers.fp;
 				
 				//load right
 				if(left.isConst()) {
 					this.storeVariable(temp, left);
-					this.loadVariable(Registers.f0, left);
+					this.loadVariable(Registers.f0, temp);
 				} else {
 					loadVariable(Registers.f0, left);
 				}
@@ -1238,7 +1238,7 @@ public class AssemblyGenerator {
 				//load left
 				if(right.isConst()) {
 					this.storeVariable(temp, right);
-					this.loadVariable(Registers.f1, right);
+					this.loadVariable(Registers.f1, temp);
 				} else {
 					loadVariable(Registers.f1, right);
 				}
@@ -1281,13 +1281,13 @@ public class AssemblyGenerator {
 				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
 				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
 				STO temp = new ExprSTO("temp", new FloatType());
-				temp.offset = "4";
+				temp.offset = "-4";
 				temp.base = Registers.fp;
 				
 				//load right
 				if(left.isConst()) {
 					this.storeVariable(temp, left);
-					this.loadVariable(Registers.f0, left);
+					this.loadVariable(Registers.f0, temp);
 				} else {
 					loadVariable(Registers.f0, left);
 				}
@@ -1295,7 +1295,7 @@ public class AssemblyGenerator {
 				//load left
 				if(right.isConst()) {
 					this.storeVariable(temp, right);
-					this.loadVariable(Registers.f1, right);
+					this.loadVariable(Registers.f1, temp);
 				} else {
 					loadVariable(Registers.f1, right);
 				}
@@ -1339,13 +1339,13 @@ public class AssemblyGenerator {
 				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
 				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
 				STO temp = new ExprSTO("temp", new FloatType());
-				temp.offset = "4";
+				temp.offset = "-4";
 				temp.base = Registers.fp;
 				
 				//load right
 				if(left.isConst()) {
 					this.storeVariable(temp, left);
-					this.loadVariable(Registers.f0, left);
+					this.loadVariable(Registers.f0, temp);
 				} else {
 					loadVariable(Registers.f0, left);
 				}
@@ -1353,7 +1353,7 @@ public class AssemblyGenerator {
 				//load left
 				if(right.isConst()) {
 					this.storeVariable(temp, right);
-					this.loadVariable(Registers.f1, right);
+					this.loadVariable(Registers.f1, temp);
 				} else {
 					loadVariable(Registers.f1, right);
 				}
@@ -1395,13 +1395,13 @@ public class AssemblyGenerator {
 				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
 				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
 				STO temp = new ExprSTO("temp", new FloatType());
-				temp.offset = "4";
+				temp.offset = "-4";
 				temp.base = Registers.fp;
 				
 				//load right
 				if(left.isConst()) {
 					this.storeVariable(temp, left);
-					this.loadVariable(Registers.f0, left);
+					this.loadVariable(Registers.f0, temp);
 				} else {
 					loadVariable(Registers.f0, left);
 				}
@@ -1409,7 +1409,7 @@ public class AssemblyGenerator {
 				//load left
 				if(right.isConst()) {
 					this.storeVariable(temp, right);
-					this.loadVariable(Registers.f1, right);
+					this.loadVariable(Registers.f1, temp);
 				} else {
 					loadVariable(Registers.f1, right);
 				}
@@ -1451,13 +1451,13 @@ public class AssemblyGenerator {
 				boolean onlyLeftFloat = left.getType().isFloat() && !right.getType().isFloat();
 				boolean onlyRightFloat = !left.getType().isFloat() && right.getType().isFloat();
 				STO temp = new ExprSTO("temp", new FloatType());
-				temp.offset = "4";
+				temp.offset = "-4";
 				temp.base = Registers.fp;
 				
 				//load right
 				if(left.isConst()) {
 					this.storeVariable(temp, left);
-					this.loadVariable(Registers.f0, left);
+					this.loadVariable(Registers.f0, temp);
 				} else {
 					loadVariable(Registers.f0, left);
 				}
@@ -1465,7 +1465,7 @@ public class AssemblyGenerator {
 				//load left
 				if(right.isConst()) {
 					this.storeVariable(temp, right);
-					this.loadVariable(Registers.f1, right);
+					this.loadVariable(Registers.f1, temp);
 				} else {
 					loadVariable(Registers.f1, right);
 				}
