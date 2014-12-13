@@ -1,37 +1,12 @@
-
-structdef FOO {
-    float a, b, c;
-};
-
-structdef BAR {
-    int barA;
-    float barB;
-    bool barC;
-};
-
-FOO food;
-BAR bed;
+function : float foo(float b)
+{
+    cout << "b is: " << b << endl;
+    return b;
+}
 
 function : void main()
 {
-    food.a = 88.43;
-    food.b = 22.31;
-    food.c = 11.55;
+    float c = foo(9);
 
-    FOO food1;
-    FOO food2;
-    FOO food3;
-    
-    food1 = food;
-    food2 = food1;
-    food3 = food2;
-    
-    cout << food2.a << endl;
-    cout << food2.b << endl;
-    cout << food2.c << endl;
-
-
+    cout << "c is: " << c << endl;
 }
-    
-    
-    

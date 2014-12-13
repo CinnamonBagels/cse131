@@ -2,17 +2,9 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     food,bed
-float_0:        .single      0r88.43     
-float_1:        .single      0r22.31     
-float_2:        .single      0r11.55     
+str_0:          .asciz       "b is: "    
+str_1:          .asciz       "c is: "    
 globalInit_:    .word        0           
-                .section     ".bss"
-                .align 4
-food:           .skip        12          
-
-bed:            .skip        12          
-
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -24,6 +16,49 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
+                .section     ".text"
+                .align 4
+                .global      foo
+foo:
+    set         SAVE.foo, %g1
+    save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter b */
+/* line number 3*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
+    call    printf
+    nop
+/* line number 3*/
+/* Done printing string. */
+/* line number 3*/
+/* printing float STO.VarSTO@5eb489 */
+/* line number 3*/
+/* Loading b to %f0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 3*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 5*/
+/* Returning value from foo */
+/* line number 5*/
+/* Loading b to %i0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %i0
+    ba      foo_end
+    nop
+foo_end:
+    ret 
+    restore
+SAVE.foo = -(92 + 4) & -8
                 .section     ".text"
                 .align 4
                 .global      main
@@ -39,92 +74,44 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-! --storing constant a with value 88.43
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    set         float_0, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    st          %f0, [%l0]
-! --storing constant b with value 22.31
-    set         -4, %l0
-    add         %fp, %l0, %l0
-    set         float_1, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    st          %f0, [%l0]
-! --storing constant c with value 11.55
+/* line number 9*/
+/* Preparing argument 9 */
+/* line number 9*/
+/* Loading 9 to %o0 */
+    set         9, %o0
+    call    foo
+    nop
+/* line number 9*/
+/* Saving return value on to stack */
+    st          %f0, [%fp+-8]
+/* line number 11*/
+/* setting c = foo() */
     set         -12, %l0
     add         %fp, %l0, %l0
-    set         float_2, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    st          %f0, [%l0]
-/* line number 25*/
-/* Assigning struct food to food1 */
-    set         food, %o1
-    add         %g0, %o1, %o1
-    set         -16, %o0
-    add         %fp, %o0, %o0
-    set         12, %o2
-    call    memcpy
-    nop
-/* line number 26*/
-/* Assigning struct food1 to food2 */
-    set         -16, %o1
-    add         %fp, %o1, %o1
-    set         -28, %o0
-    add         %fp, %o0, %o0
-    set         12, %o2
-    call    memcpy
-    nop
-/* line number 27*/
-/* Assigning struct food2 to food3 */
-    set         -28, %o1
-    add         %fp, %o1, %o1
-    set         -40, %o0
-    add         %fp, %o0, %o0
-    set         12, %o2
-    call    memcpy
-    nop
-/* line number 29*/
-/* printing float STO.VarSTO@269997 */
-/* line number 29*/
-/* Loading a to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 29*/
-/* Done printing float. */
-    set         _endl, %o0
+    st          %f0, [%l0]
+/* line number 11*/
+/* Done. */
+/* line number 11*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_1, %o1
     call    printf
     nop
-/* line number 30*/
-/* printing float STO.VarSTO@2db19d */
-/* line number 30*/
-/* Loading b to %f0 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 30*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 31*/
-/* printing float STO.VarSTO@1e7c5cb */
-/* line number 31*/
+/* line number 11*/
+/* Done printing string. */
+/* line number 11*/
+/* printing float STO.VarSTO@92dcdb */
+/* line number 11*/
 /* Loading c to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
-/* line number 31*/
+/* line number 11*/
 /* Done printing float. */
     set         _endl, %o0
     call    printf
@@ -132,4 +119,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 40) & -8
+SAVE.main = -(92 + 12) & -8
