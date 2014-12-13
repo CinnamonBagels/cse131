@@ -25,8 +25,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Printing bool x */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0

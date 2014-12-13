@@ -223,9 +223,6 @@ arrayEnd_3:
 ! --storing constant j with value 59.0
     set         -92, %l0
     add         %fp, %l0, %l0
-    set         -92, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         59, %l1
     st          %l1, [%l0]
 /* line number 19*/
@@ -428,7 +425,7 @@ arrayOutBounds_6:
     nop
 arrayEnd_6:
 /* line number 21*/
-/* printing float STO.ExprSTO@16a4aef */
+/* printing float STO.ExprSTO@1cfa4b2 */
     set         -204, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -480,7 +477,7 @@ arrayOutBounds_7:
     nop
 arrayEnd_7:
 /* line number 21*/
-/* printing float STO.ExprSTO@15dbaab */
+/* printing float STO.ExprSTO@145d135 */
     set         -208, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -498,7 +495,7 @@ arrayEnd_7:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@d48785 */
+/* printing float STO.VarSTO@15bd8f */
     set         -176, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

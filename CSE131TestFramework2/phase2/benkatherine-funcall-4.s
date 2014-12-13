@@ -22,27 +22,27 @@ foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
 /* line number 3*/
-/* printing float STO.VarSTO@a0e220 */
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 3*/
-/* Done printing float. */
-/* line number 3*/
-/* printing float STO.VarSTO@5db088 */
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 3*/
-/* Done printing float. */
-/* line number 3*/
 /* printing float STO.VarSTO@f0cda1 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 3*/
+/* Done printing float. */
+/* line number 3*/
+/* printing float STO.VarSTO@14c0cb0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 3*/
+/* Done printing float. */
+/* line number 3*/
+/* printing float STO.VarSTO@1d529be */
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop

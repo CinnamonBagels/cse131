@@ -33,8 +33,8 @@ foo:
 /* line number 3*/
 /* Printing int b */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -45,8 +45,8 @@ foo:
     nop
 /* line number 5*/
 /* Returning value from foo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     fitos       %f0, %f0
     ba      foo_end
@@ -94,7 +94,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@5db088 */
+/* printing float STO.VarSTO@14c0cb0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

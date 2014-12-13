@@ -25,21 +25,15 @@ foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
 ! --storing constant x with value 7.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant y with value 8.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -88,7 +82,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 14*/
-/* printing float STO.VarSTO@1e00761 */
+/* printing float STO.VarSTO@96ed8b */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -97,7 +91,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing float. */
 /* line number 14*/
-/* printing float STO.VarSTO@1048099 */
+/* printing float STO.VarSTO@c55164 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

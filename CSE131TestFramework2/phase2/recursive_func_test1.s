@@ -23,8 +23,8 @@ foo:
 /* line number 2*/
 /* Printing int a */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -36,8 +36,8 @@ foo:
 /* line number 2*/
 /* Printing int b */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -48,8 +48,8 @@ foo:
     nop
 /* line number 3*/
 /* Prepping Comparison Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         0, %l1
 /* line number 3*/
@@ -77,8 +77,8 @@ greaterEnd_0:
 if_0:
 /* line number 4*/
 /* Prepping Arithmetic Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         1, %l1
 /* line number 4*/
@@ -89,8 +89,8 @@ if_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o0
     set         -12, %l1
     add         %fp, %l1, %l1

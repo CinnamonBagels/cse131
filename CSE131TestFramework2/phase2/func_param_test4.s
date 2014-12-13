@@ -28,8 +28,8 @@ color:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Returning value from color */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      color_end
     nop
@@ -44,27 +44,18 @@ foobaz:
     set         SAVE.foobaz, %g1
     save        %sp, %g1, %sp
 ! --storing constant k with value 555.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         555, %l1
     st          %l1, [%l0]
 ! --storing constant l with value 666.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         666, %l1
     st          %l1, [%l0]
 ! --storing constant m with value 777.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -16, %l0
+    add         %fp, %l0, %l0
     set         777, %l1
     st          %l1, [%l0]
 foobaz_end:
@@ -78,11 +69,8 @@ bar:
     set         SAVE.bar, %g1
     save        %sp, %g1, %sp
 ! --storing constant r with value 7.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         7, %l1
     st          %l1, [%l0]
     call    foobaz
@@ -119,11 +107,8 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant y with value 2.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         2, %l1
     st          %l1, [%l0]
 /* line number 32*/
@@ -149,8 +134,8 @@ globalInit_end:
 /* line number 36*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -206,8 +191,8 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    foo
     nop
@@ -222,8 +207,8 @@ globalInit_end:
 /* line number 43*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop

@@ -23,8 +23,8 @@ foo:
 /* line number 3*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -33,8 +33,8 @@ foo:
 /* line number 3*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -43,8 +43,8 @@ foo:
 /* line number 3*/
 /* Printing int z */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop

@@ -31,9 +31,9 @@ foo:
 /* line number 3*/
 /* Done printing string. */
 /* line number 3*/
-/* printing float STO.VarSTO@4651bf */
-    set         null, %l1
-    add         null, %l1, %l1
+/* printing float STO.VarSTO@14c0cb0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -44,8 +44,8 @@ foo:
     nop
 /* line number 5*/
 /* Returning value from foo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     ba      foo_end
     nop
@@ -92,7 +92,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@5db088 */
+/* printing float STO.VarSTO@1a78424 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -336,9 +336,6 @@ else_4:
 ! --storing constant i with value 100.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         100, %l1
     st          %l1, [%l0]
 endIf_11:

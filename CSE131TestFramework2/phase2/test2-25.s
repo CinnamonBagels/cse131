@@ -27,8 +27,8 @@ foo2:
 /* line number 4*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -43,9 +43,9 @@ foo2:
 /* line number 4*/
 /* Done printing string. */
 /* line number 4*/
-/* printing float STO.VarSTO@a0e220 */
-    set         null, %l1
-    add         null, %l1, %l1
+/* printing float STO.VarSTO@f0cda1 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -61,8 +61,8 @@ foo2:
 /* Done printing string. */
 /* line number 4*/
 /* Printing bool z */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -141,17 +141,11 @@ globalInit_end:
 ! --storing constant x with value 0.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         0, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 0.0
     set         -12, %l0
     add         %fp, %l0, %l0
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         float_3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -159,9 +153,6 @@ globalInit_end:
 ! --storing constant b with value 0.0
     set         -16, %l0
     add         %fp, %l0, %l0
-    set         -16, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         0, %l1
     st          %l1, [%l0]
     call    foo

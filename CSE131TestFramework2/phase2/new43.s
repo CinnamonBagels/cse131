@@ -33,9 +33,6 @@ main:
     nop
     set         x, %l0
     add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         3, %l1
     st          %l1, [%l0]
     set         staticGuard_x, %l2
@@ -64,9 +61,6 @@ globalInit_end:
 ! --storing constant x with value 4.0
     set         main_x, %l0
     add         %g0, %l0, %l0
-    set         main_x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         4, %l1
     st          %l1, [%l0]
 /* line number 6*/

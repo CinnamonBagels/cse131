@@ -1,5 +1,3 @@
-phase2/benkatherine-array-5.rc
-phase2/benkatherine-fun-1.rc
 phase2/benkatherine-funcall-10.rc
 phase2/benkatherine-funcall-11.rc
 phase2/benkatherine-funcall-12.rc
@@ -12,10 +10,7 @@ phase2/benkatherine-funcall-6.rc
 phase2/benkatherine-funcall-7.rc
 phase2/benkatherine-funcall-8.rc
 phase2/benkatherine-funcall-9.rc
-phase2/benkatherine-negop-1.rc
-phase2/benkatherine-post-2.rc
 phase2/benkatherine-pre-2.rc
-phase2/benkatherine-returna.rc
 phase2/benkatherine-sc-1.rc
 phase2/benkatherine-while-1.rc
 phase2/benkatherine-while-2.rc
@@ -39,15 +34,10 @@ phase2/func_param_test9.rc
 phase2/if_else_check1.rc
 phase2/if_else_check2.rc
 phase2/if_else_while_test1.rc
-phase2/k_functionparam_1.rc
 phase2/k_shortcircuit.rc
 phase2/k_while_1.rc
 phase2/new100.rc
 phase2/new101.rc
-phase2/new102.rc
-phase2/new103.rc
-phase2/new104.rc
-phase2/new105.rc
 phase2/new106.rc
 phase2/new107.rc
 phase2/new108.rc
@@ -64,12 +54,6 @@ phase2/new120.rc
 phase2/new121.rc
 phase2/new127.rc
 phase2/new129.rc
-phase2/new38.rc
-phase2/new39.rc
-phase2/new40.rc
-phase2/new41.rc
-phase2/new42.rc
-phase2/new43.rc
 phase2/new53.rc
 phase2/new54.rc
 phase2/new55.rc
@@ -91,10 +75,6 @@ phase2/new81.rc
 phase2/new82.rc
 phase2/new85.rc
 phase2/new86.rc
-phase2/new87.rc
-phase2/new88.rc
-phase2/new89.rc
-phase2/new90.rc
 phase2/new93.rc
 phase2/new94.rc
 phase2/new95.rc
@@ -102,7 +82,6 @@ phase2/new96.rc
 phase2/new97.rc
 phase2/new98.rc
 phase2/new99.rc
-phase2/not_op_check1.rc
 phase2/recursive_func_test1.rc
 phase2/rohanArray1.rc
 phase2/shortcircuit_andop_test1.rc
@@ -113,13 +92,11 @@ phase2/struct_assign_test3.rc
 phase2/struct_assign_test5.rc
 phase2/test2-05.rc
 phase2/test2-06.rc
-phase2/test2-11.rc
 phase2/test2-12.rc
 phase2/test2-14.rc
 phase2/test2-15.rc
 phase2/test2-16.rc
 phase2/test2-17.rc
-phase2/test2-18.rc
 phase2/test2-19.rc
 phase2/test2-20.rc
 phase2/test2-21.rc
@@ -130,7 +107,6 @@ phase2/test2-25.rc
 phase2/test2-26.rc
 phase2/test2-34.rc
 phase2/test2-36.rc
-phase2/test2-36_1.rc
 phase2/while_break_test1.rc
 phase2/while_conditional_test1.rc
 phase2/while_conditional_test2.rc

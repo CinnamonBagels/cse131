@@ -57,17 +57,11 @@ globalInit_end:
 ! --storing constant x with value 3.0
     set         main_x, %l0
     add         %g0, %l0, %l0
-    set         main_x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         3, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 4.44
     set         main_y, %l0
     add         %g0, %l0, %l0
-    set         main_y, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -142,14 +136,13 @@ globalInit_end:
     fsubs       %f0, %f1, %f2
     set         main_y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fadds       %f2, %f1, %f0
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@380c76 */
+/* printing float STO.ExprSTO@14aa453 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -167,14 +160,13 @@ globalInit_end:
     fsubs       %f0, %f1, %f2
     set         main_y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fadds       %f2, %f1, %f0
     set         -20, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@1ba3afe */
+/* printing float STO.ExprSTO@16a4aef */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

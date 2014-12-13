@@ -33,8 +33,8 @@ foo:
 /* Done. */
 /* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         -8, %l1
     add         %fp, %l1, %l1
@@ -88,7 +88,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 12*/
-/* printing float STO.VarSTO@1ba3afe */
+/* printing float STO.VarSTO@15dbaab */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

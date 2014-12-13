@@ -27,8 +27,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Returning value from foo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     fitos       %f0, %f0
     ba      foo_end
@@ -66,7 +66,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 11*/
-/* printing float STO.VarSTO@1d15d1c */
+/* printing float STO.VarSTO@14aa453 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -31,9 +31,6 @@ main:
     nop
     set         x, %l0
     add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
     set         staticGuard_x, %l2

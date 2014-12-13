@@ -21,19 +21,13 @@ foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
 ! --storing constant x with value 7.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         7, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 8.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         8, %l1
     st          %l1, [%l0]
 foo_end:

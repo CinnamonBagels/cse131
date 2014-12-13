@@ -84,9 +84,6 @@ lessEnd_0:
 ! --storing constant hola with value 10.0
     set         -12, %l0
     add         %fp, %l0, %l0
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         10, %l1
     st          %l1, [%l0]
 /* line number 10*/

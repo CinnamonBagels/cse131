@@ -135,9 +135,6 @@ endIf_1:
 ! --storing constant y with value 1.0
     set         -12, %l0
     add         %fp, %l0, %l0
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 15*/
@@ -245,9 +242,6 @@ endIf_3:
 ! --storing constant a with value 1.0
     set         -36, %l0
     add         %fp, %l0, %l0
-    set         -36, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 24*/
@@ -343,9 +337,6 @@ branchEnd_1:
 ! --storing constant y with value 1.0
     set         -12, %l0
     add         %fp, %l0, %l0
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 32*/
@@ -389,9 +380,6 @@ _andOp7:
 ! --storing constant z with value 1.0
     set         -32, %l0
     add         %fp, %l0, %l0
-    set         -32, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 32*/
@@ -589,9 +577,6 @@ branchEnd_4:
 ! --storing constant b with value 0.0
     set         -56, %l0
     add         %fp, %l0, %l0
-    set         -56, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         0, %l1
     st          %l1, [%l0]
 /* line number 44*/
@@ -719,9 +704,6 @@ _andOp17:
 ! --storing constant a with value 1.0
     set         -36, %l0
     add         %fp, %l0, %l0
-    set         -36, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 44*/

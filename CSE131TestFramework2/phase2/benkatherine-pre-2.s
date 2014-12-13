@@ -38,7 +38,6 @@ main:
     fadds       %f0, %f1, %f2
     set         a, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     set         -8, %l1
     add         %fp, %l1, %l1
@@ -57,7 +56,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 6*/
-/* printing float STO.VarSTO@1e00761 */
+/* printing float STO.VarSTO@c55164 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -78,13 +77,12 @@ globalInit_end:
     fadds       %f0, %f1, %f2
     set         b, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 7*/
-/* printing float STO.ExprSTO@1048099 */
+/* printing float STO.ExprSTO@6286e3 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -105,13 +103,12 @@ globalInit_end:
     fsubs       %f0, %f1, %f2
     set         b, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     set         -12, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@c55164 */
+/* printing float STO.ExprSTO@1ef8f5 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -35,17 +35,11 @@ globalInit_end:
 ! --storing constant x with value 5.0
     set         x, %l0
     add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         5, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 6.0
     set         y, %l0
     add         %g0, %l0, %l0
-    set         y, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         6, %l1
     st          %l1, [%l0]
 /* line number 8*/

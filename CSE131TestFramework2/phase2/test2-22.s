@@ -28,12 +28,12 @@ foo:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 7*/
 /* Post Increment */
@@ -43,12 +43,12 @@ foo:
     st          %l0, [%l1]
 /* line number 8*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -12, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 8*/
 /* Post Increment */
@@ -68,12 +68,12 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 12*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 12*/
 /* Post Increment */
@@ -83,12 +83,12 @@ foo2:
     st          %l0, [%l1]
 /* line number 13*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -12, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 13*/
 /* Post Increment */

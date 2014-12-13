@@ -42,8 +42,8 @@ foo:
 /* line number 3*/
 /* Printing int r */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -64,19 +64,16 @@ foo:
     call    printf
     nop
 ! --storing constant a with value 351.22
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         float_2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 6*/
 /* Prepping Arithmetic Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         1, %l1
 /* line number 6*/
@@ -89,8 +86,8 @@ foo:
     st          %l3, [%l4]
 /* line number 6*/
 /* Storing variable int + int into r */
-    set         null, %l5
-    add         null, %l5, %l5
+    set         -12, %l5
+    add         %fp, %l5, %l5
     set         -8, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
@@ -151,7 +148,7 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@ae735 */
+/* printing float STO.VarSTO@1ba3afe */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -269,7 +266,7 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@ae735 */
+/* printing float STO.VarSTO@1ba3afe */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

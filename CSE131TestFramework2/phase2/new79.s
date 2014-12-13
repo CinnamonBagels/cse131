@@ -98,13 +98,12 @@ globalInit_end:
     fadds       %f0, %f1, %f2
     set         y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@1ba3afe */
+/* printing float STO.ExprSTO@16a4aef */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -122,13 +121,12 @@ globalInit_end:
     fadds       %f0, %f1, %f2
     set         y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     set         -20, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@176feaf */
+/* printing float STO.ExprSTO@15dbaab */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

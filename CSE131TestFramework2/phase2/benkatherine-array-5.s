@@ -118,7 +118,6 @@ arrayEnd_1:
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -24, %l1
@@ -159,7 +158,7 @@ arrayOutBounds_2:
     nop
 arrayEnd_2:
 /* line number 17*/
-/* printing float STO.ExprSTO@1048099 */
+/* printing float STO.ExprSTO@6286e3 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

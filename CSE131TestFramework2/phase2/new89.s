@@ -34,9 +34,6 @@ main:
     nop
     set         x, %l0
     add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         3, %l1
     st          %l1, [%l0]
     set         staticGuard_x, %l2
@@ -50,9 +47,6 @@ staticGuardLabel_x:
     nop
     set         y, %l0
     add         %g0, %l0, %l0
-    set         y, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -142,14 +136,13 @@ globalInit_end:
     fadds       %f0, %f1, %f2
     set         y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@1ba3afe */
+/* printing float STO.ExprSTO@14aa453 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -167,14 +160,13 @@ globalInit_end:
     fadds       %f0, %f1, %f2
     set         y, %l1
     add         %g0, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -20, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@176feaf */
+/* printing float STO.ExprSTO@16a4aef */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

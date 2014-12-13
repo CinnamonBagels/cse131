@@ -1,13 +1,13 @@
 rc.s:
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 162: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 272: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 370: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 416: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 537: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 624: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 662: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 700: error: redefinition of symbol "_andOp0"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 746: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 159: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 266: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 361: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 404: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 525: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 609: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 647: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 685: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 728: error: redefinition of symbol "_andOp0"
 cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

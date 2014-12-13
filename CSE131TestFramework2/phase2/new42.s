@@ -35,9 +35,6 @@ main:
     nop
     set         x, %l0
     add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -68,9 +65,6 @@ globalInit_end:
 ! --storing constant x with value 4.44
     set         main_x, %l0
     add         %g0, %l0, %l0
-    set         main_x, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -84,7 +78,7 @@ globalInit_end:
 /* line number 6*/
 /* Done printing string. */
 /* line number 6*/
-/* printing float STO.VarSTO@195ddba */
+/* printing float STO.VarSTO@1c46bab */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -93,7 +87,7 @@ globalInit_end:
 /* line number 6*/
 /* Done printing float. */
 /* line number 6*/
-/* printing float STO.VarSTO@191a42 */
+/* printing float STO.VarSTO@380c76 */
     set         main_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

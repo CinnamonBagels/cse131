@@ -27,8 +27,8 @@ boo:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Returning value from boo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     fitos       %f0, %f0
     ba      boo_end
@@ -57,8 +57,8 @@ foo:
 /* line number 12*/
 /* Saving return value */
     st          %f0, [%fp+-12]
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    boo
     nop
@@ -121,7 +121,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 17*/
-/* printing float STO.VarSTO@1ba3afe */
+/* printing float STO.VarSTO@15dbaab */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

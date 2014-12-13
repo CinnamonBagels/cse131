@@ -23,8 +23,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 3*/
 /* Prepping Comparison Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         1, %l1
 /* line number 3*/
@@ -52,8 +52,8 @@ equalEnd_0:
 if_0:
 /* line number 6*/
 /* Returning value from foo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo_end
     nop
@@ -62,8 +62,8 @@ if_0:
 else_0:
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         1, %l1
 /* line number 9*/
@@ -87,8 +87,8 @@ else_0:
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 9*/
 /* Multiplying */
@@ -112,8 +112,8 @@ else_0:
 endIf_1:
 /* line number 12*/
 /* Returning value from foo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo_end
     nop
@@ -211,13 +211,12 @@ globalInit_end:
     fsubs       %f0, %f1, %f2
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     set         -24, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 21*/
-/* printing float STO.ExprSTO@1cfa4b2 */
+/* printing float STO.ExprSTO@47ad40 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -238,13 +237,12 @@ globalInit_end:
     fadds       %f0, %f1, %f2
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     set         -28, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 22*/
-/* printing float STO.ExprSTO@a9fd96 */
+/* printing float STO.ExprSTO@128d900 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -265,7 +263,6 @@ globalInit_end:
     fadds       %f0, %f1, %f2
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -32, %l1
@@ -281,14 +278,13 @@ globalInit_end:
     fsubs       %f0, %f1, %f2
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fadds       %f2, %f1, %f0
     set         -36, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 24*/
-/* printing float STO.ExprSTO@47ad40 */
+/* printing float STO.ExprSTO@be95bf */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -300,7 +296,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float STO.VarSTO@16ad447 */
+/* printing float STO.VarSTO@1904b13 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

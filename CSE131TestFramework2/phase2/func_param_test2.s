@@ -27,8 +27,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 3*/
 /* Prepping Arithmetic Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         1, %l1
 /* line number 3*/
@@ -41,26 +41,20 @@ foo:
     st          %l3, [%l4]
 /* line number 3*/
 /* Storing variable int + int into a */
-    set         null, %l5
-    add         null, %l5, %l5
+    set         -8, %l5
+    add         %fp, %l5, %l5
     set         -8, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
 ! --storing constant b with value 9.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         9, %l1
     st          %l1, [%l0]
 ! --storing constant c with value 44.44
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -16, %l0
+    add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -85,27 +79,18 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant x with value 5.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         5, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 6.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         6, %l1
     st          %l1, [%l0]
 ! --storing constant z with value 22.22
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -16, %l0
+    add         %fp, %l0, %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -113,8 +98,8 @@ globalInit_end:
 /* line number 15*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -126,8 +111,8 @@ globalInit_end:
 /* line number 16*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -137,9 +122,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 17*/
-/* printing float STO.VarSTO@1d15d1c */
-    set         null, %l1
-    add         null, %l1, %l1
+/* printing float STO.VarSTO@1ba3afe */
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -148,14 +133,14 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f2
     call    foo
     nop
@@ -170,8 +155,8 @@ globalInit_end:
 /* line number 21*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -191,8 +176,8 @@ globalInit_end:
 /* line number 22*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -210,9 +195,9 @@ globalInit_end:
 /* line number 23*/
 /* Done printing string. */
 /* line number 23*/
-/* printing float STO.VarSTO@1d15d1c */
-    set         null, %l1
-    add         null, %l1, %l1
+/* printing float STO.VarSTO@1ba3afe */
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
