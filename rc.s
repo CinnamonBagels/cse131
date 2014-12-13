@@ -24,6 +24,7 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter b */
+    st          %f0, [%fp+68]
 /* line number 3*/
 /* printing string */
     set         _strFmt, %o0
@@ -33,7 +34,7 @@ foo:
 /* line number 3*/
 /* Done printing string. */
 /* line number 3*/
-/* printing float STO.VarSTO@a3d3b */
+/* printing float STO.VarSTO@1a6684f */
 /* line number 3*/
 /* Loading b to %f0 */
     set         68, %l1
@@ -116,7 +117,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@1ba6076 */
+/* printing float STO.VarSTO@3a1ec6 */
 /* line number 11*/
 /* Loading c to %f0 */
     set         -12, %l1
