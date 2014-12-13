@@ -513,7 +513,13 @@ public class AssemblyGenerator {
 			generateASM(Strings.two_param, Instructions.set, value.offset, Registers.l3);
 			generateASM(Strings.three_param, Instructions.add, value.base, Registers.l3, Registers.l3);
 			if(value.getType().isFloat()) {
-				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", dest_register);
+				if(value.isReference) {
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", Registers.l3);
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", dest_register);
+				} else {
+					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", dest_register);
+				}
+				
 				generateASM(Strings.two_param, Instructions.store, dest_register, "[" + Registers.l5 + "]");
 			} else {
 				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", Registers.l3);
