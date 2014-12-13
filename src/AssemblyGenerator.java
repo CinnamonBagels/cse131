@@ -680,6 +680,14 @@ public class AssemblyGenerator {
 		// TODO Auto-generated method stub
 		generateComment("Preparing argument " + argument.getName());
 		
+		if(argument.getType().isFloat()) {
+			VarSTO tmp = new VarSTO("temp float", new FloatType());
+			tmp.base = Registers.fp;
+			tmp.offset = "-4";
+			if(argument.isConst()) {
+				this.storeConstant(tmp, (ConstSTO) argument);
+			}
+		}
 		argument.base = Registers.fp;
 		argument.offset = "-4";
 		
@@ -687,7 +695,7 @@ public class AssemblyGenerator {
 			//do reference stuff here.
 		} else {
 			if(argument.getType().isFloat() && parameter.getType().isFloat()) {
-				System.out.println("prepareArguments: " + argument.getName() + " " + argument.base + " " + argument.offset);				
+				System.out.println("prepareArguments: " + argument.getName() + " " + argument.base + " " + argument.offset);
 				this.loadVariable("%f" + argCounter, argument);
 			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
 				this.loadVariable("%o" + argCounter, argument);
@@ -1593,9 +1601,11 @@ public class AssemblyGenerator {
 		if(returnSTO.isConst()) {
 			if(func.getReturnType().isFloat()) {
 				if(returnSTO.getType().isFloat()) {
+					
 					assignFloat((ConstSTO) returnSTO);
 					loadVariable(Registers.f0, returnSTO);
 				} else {
+					
 					//gotta do that damn stupid float conversion
 					generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) returnSTO).getIntValue()), Registers.l0);
 					generateASM(Strings.two_param, Instructions.store, Registers.l0, Strings.floatOffset);
@@ -1604,11 +1614,13 @@ public class AssemblyGenerator {
 				}
 			} else {
 				//can return as is if const int
+				
 				generateASM(Strings.two_param, Instructions.set, String.valueOf(((ConstSTO) returnSTO).getIntValue()), Registers.i0);
 			}
 		} else {
+			
 			if(func.getReturnType().isFloat()) {
-				loadVariable(Registers.f0, returnSTO);
+				loadVariable(Registers.i0, returnSTO);
 				if(!returnSTO.getType().isFloat()) {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}

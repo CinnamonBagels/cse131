@@ -26,7 +26,7 @@ foo:
 /* line number 4*/
 /* Returning value from foo */
 /* line number 4*/
-/* Loading x to %f0 */
+/* Loading x to %i0 */
     set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -71,10 +71,22 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 8*/
-/* printing float STO.VarSTO@631803fb */
+/* Preparing argument foo() */
 /* line number 8*/
 /* Loading foo() to %f0 */
-    set         -8, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    foo
+    nop
+/* line number 8*/
+/* Saving return value */
+    st          %f0, [%fp+-12]
+/* line number 8*/
+/* printing float STO.VarSTO@2c9ced84 */
+/* line number 8*/
+/* Loading foo() to %f0 */
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -87,4 +99,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 12) & -8
