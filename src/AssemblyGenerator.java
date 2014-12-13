@@ -978,7 +978,6 @@ public class AssemblyGenerator {
 			register = Registers.l2;
 		} else if(op.getName().equals("||")){
 			generateComment("||-ing");
-			loadVariable(Registers.l2, right);
 			generateASM(Strings.two_param, Instructions.cmp, Registers.l1, Registers.g0);
 			generateASM(Strings.one_param, Instructions.bne, Strings.orT + orCount);
 			generateASM(Strings.nop);
