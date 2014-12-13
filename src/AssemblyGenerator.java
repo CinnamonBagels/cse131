@@ -1775,14 +1775,14 @@ public class AssemblyGenerator {
 	private void doForContinue() {
 		// TODO Auto-generated method stub
 		generateComment("Continuing for loop");
-		generateASM(Strings.one_param, Instructions.ba, Strings.forStart + (finalForStmts - 1));
+		generateASM(Strings.one_param, Instructions.ba, Strings.forStart + finalForStmts);
 		generateASM(Strings.nop);
 	}
 
 	private void doWhileContinue() {
 		// TODO Auto-generated method stub
 		generateComment("Continuing while loop");
-		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + (finalWhileStmts - 1));
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + finalWhileStmts);
 		generateASM(Strings.nop);
 	}
 
