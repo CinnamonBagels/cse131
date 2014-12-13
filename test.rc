@@ -1,13 +1,12 @@
- int x = 3;
- float y = 4.44;
-
-function : int foo(int a, float b)
+function : void main()
 {
-    cout << a--<< b--;
-    return --a;
-}
-
-function : void main() {
-
-    cout << foo(3,4.44);
+    int[500] a;
+    
+    a[400] = 5;
+    
+    a[499] = 9;
+    
+    int b = 1;
+    
+    a[499+b] = 10; //error
 }
