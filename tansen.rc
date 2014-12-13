@@ -1,9 +1,10 @@
-function : int foo(int x)
+function : float foo(float x)
 {
    return x;
 }
 
 function : void main()
 {
-   cout << foo(foo(3)) << endl;
+   cout << foo(foo(3.0)) << endl;
+
 }
