@@ -1,13 +1,10 @@
+function : void main()
+{
+  int[3] x;
 
-function : float foo4() {
-  return 40;
-}
+  x[1] = 666;
 
+  cout << x[0] = x[1] << endl; //666
+  cout << x[1] << endl; //666
 
-
-function: void main() {
-
-  float d = foo4();
-  
-  cout << d << endl;
 }
