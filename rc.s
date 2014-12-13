@@ -51,21 +51,11 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 8*/
-/* Loading foo to %l0 */
-    set         foo, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
     call    foo
     nop
 /* line number 8*/
 /* Saving return value */
     st          %o0, [%fp+-8]
-/* line number 8*/
-/* Loading foo to %l0 */
-    set         foo, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
     call    foo
     nop
 /* line number 8*/
