@@ -28,19 +28,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 6*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 7*/
 /* Incrementing */
 /* line number 7*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 7*/
@@ -53,11 +53,11 @@ foo:
 /* Incrementing */
 /* line number 8*/
 /* Loading y to %l0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -12, %l2
+    set         72, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 8*/
@@ -78,19 +78,19 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 11*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 11*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 12*/
 /* Incrementing */
 /* line number 12*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 12*/
@@ -103,11 +103,11 @@ foo2:
 /* Incrementing */
 /* line number 13*/
 /* Loading y to %l0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -12, %l2
+    set         72, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 13*/
@@ -170,6 +170,17 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 18*/
+/* Preparing argument x */
+    set         x, %o0
+    add         %g0, %o0, %o0
+/* line number 18*/
+/* Preparing argument y */
+/* line number 18*/
+/* Loading y to %o1 */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
     call    foo
     nop
 /* line number 19*/
@@ -207,6 +218,17 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 20*/
+/* Preparing argument x */
+/* line number 20*/
+/* Loading x to %o0 */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
+/* line number 20*/
+/* Preparing argument y */
+    set         y, %o1
+    add         %g0, %o1, %o1
     call    foo2
     nop
 /* line number 21*/

@@ -4,9 +4,10 @@
 FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y
 y:              .single      0r4.44      
+float_1:        .single      0r4.44      
 x:              .word        3           
 str_0:          .asciz       "main"      
-str_1:          .asciz       "end"       
+str_2:          .asciz       "end"       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -27,18 +28,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 5*/
 /* Storing parameter b */
+    st          %f1, [%fp+72]
 /* line number 6*/
 /* Decrementing */
 /* line number 6*/
 /* Loading a to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     dec     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 6*/
@@ -65,11 +67,11 @@ foo:
 /* Decrementing */
 /* line number 6*/
 /* Loading a to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     dec     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 6*/
@@ -96,13 +98,13 @@ foo:
 /* Decrementing */
 /* line number 6*/
 /* Loading b to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fsubs       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     fadds       %f2, %f1, %f2
@@ -110,7 +112,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@10bb83e */
+/* printing float STO.ExprSTO@132e233 */
 /* line number 6*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
  to %f0 */
@@ -125,13 +127,13 @@ foo:
 /* Decrementing */
 /* line number 6*/
 /* Loading b to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fsubs       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     fadds       %f2, %f1, %f2
@@ -139,7 +141,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@6d234c */
+/* printing float STO.ExprSTO@1a0c382 */
 /* line number 6*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
  to %f0 */
@@ -154,13 +156,13 @@ foo:
 /* Decrementing */
 /* line number 7*/
 /* Loading b to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fsubs       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     set         -24, %l1
@@ -170,10 +172,10 @@ foo:
 /* Returning value from foo */
 /* line number 8*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
- to %i0 */
+ to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo_end
     nop
 foo_end:
@@ -203,13 +205,25 @@ globalInit_end:
     nop
 /* line number 12*/
 /* Done printing string. */
+/* line number 12*/
+/* Preparing argument 3 */
+/* line number 12*/
+/* Loading 3 to %o0 */
+    set         3, %o0
+/* line number 12*/
+/* Preparing argument 4.44 */
+/* line number 12*/
+/* Loading 4.44 to %f1 */
+    set         float_1, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
     call    foo
     nop
 /* line number 12*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 12*/
-/* printing float STO.VarSTO@1286c71 */
+/* printing float STO.VarSTO@183bfee */
 /* line number 12*/
 /* Loading foo() to %f0 */
     set         -8, %l1
@@ -222,7 +236,7 @@ globalInit_end:
 /* line number 12*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_1, %o1
+    set         str_2, %o1
     call    printf
     nop
 /* line number 12*/

@@ -55,41 +55,41 @@ globalInit_end:
 /* line number 13*/
 /* Done. */
 ! --storing constant barA with value 44.0
-    set         4, %l0
-    add         null, %l0, %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         44, %l1
     st          %l1, [%l0]
 ! --storing constant barB with value 99.33
-    set         8, %l0
-    add         null, %l0, %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant barC with value 1.0
-    set         12, %l0
-    add         null, %l0, %l0
+    set         -4, %l0
+    add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant barA with value 55.0
-    set         4, %l0
-    add         null, %l0, %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         55, %l1
     st          %l1, [%l0]
 /* line number 18*/
 /* Storing variable barB into barB */
-    set         8, %l5
-    add         null, %l5, %l5
-    set         8, %l3
-    add         null, %l3, %l3
+    set         -8, %l5
+    add         %fp, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 19*/
 /* Short-circuiting && with barC */
 /* line number 19*/
 /* Loading barC to %l1 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
     be      andF_0
@@ -98,8 +98,8 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 19*/
 /* Loading barC to %l0 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 19*/
 /* Loading false to %l1 */
@@ -124,8 +124,8 @@ andEnd_0:
 /* line number 19*/
 /* Storing variable Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  into barC */
-    set         12, %l5
-    add         null, %l5, %l5
+    set         -4, %l5
+    add         %fp, %l5, %l5
     set         -20, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
@@ -153,8 +153,8 @@ andEnd_0:
     set         _intFmt, %o0
 /* line number 23*/
 /* Loading barA to %o1 */
-    set         4, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -172,11 +172,11 @@ andEnd_0:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@c6fd6e */
+/* printing float STO.VarSTO@16e9494 */
 /* line number 24*/
 /* Loading barB to %f0 */
-    set         8, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -197,8 +197,8 @@ andEnd_0:
 /* Printing bool barC */
 /* line number 25*/
 /* Loading barC to %l0 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -231,8 +231,8 @@ branchEnd_0:
     set         _intFmt, %o0
 /* line number 27*/
 /* Loading barA to %o1 */
-    set         4, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -250,11 +250,11 @@ branchEnd_0:
 /* line number 28*/
 /* Done printing string. */
 /* line number 28*/
-/* printing float STO.VarSTO@c6fd6e */
+/* printing float STO.VarSTO@16e9494 */
 /* line number 28*/
 /* Loading barB to %f0 */
-    set         8, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -275,8 +275,8 @@ branchEnd_0:
 /* Printing bool barC */
 /* line number 29*/
 /* Loading barC to %l0 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -309,8 +309,8 @@ branchEnd_1:
     set         _intFmt, %o0
 /* line number 31*/
 /* Loading barA to %o1 */
-    set         4, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -328,11 +328,11 @@ branchEnd_1:
 /* line number 32*/
 /* Done printing string. */
 /* line number 32*/
-/* printing float STO.VarSTO@c6fd6e */
+/* printing float STO.VarSTO@16e9494 */
 /* line number 32*/
 /* Loading barB to %f0 */
-    set         8, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -353,8 +353,8 @@ branchEnd_1:
 /* Printing bool barC */
 /* line number 33*/
 /* Loading barC to %l0 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0

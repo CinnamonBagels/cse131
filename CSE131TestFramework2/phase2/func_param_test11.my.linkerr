@@ -1,3 +1,5 @@
 rc.s:
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 161: error: invalid register
+cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

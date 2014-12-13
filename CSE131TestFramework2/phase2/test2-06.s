@@ -177,7 +177,7 @@ orEnd_0:
     call    trueFunc
     nop
 /* line number 17*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-24]
 /* line number 17*/
 /* Prepping Arithmetic Calculations by loading */
@@ -311,7 +311,7 @@ andEnd_0:
     call    falseFunc
     nop
 /* line number 18*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-44]
 /* line number 18*/
 /* Prepping Arithmetic Calculations by loading */

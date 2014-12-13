@@ -40,56 +40,59 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant a with value 88.43
-    set         8, %l0
-    add         null, %l0, %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant b with value 22.31
-    set         4, %l0
-    add         null, %l0, %l0
+    set         -12, %l0
+    add         %fp, %l0, %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant c with value 11.55
-    set         12, %l0
-    add         null, %l0, %l0
+    set         -4, %l0
+    add         %fp, %l0, %l0
     set         float_2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 25*/
-/* Storing variable food into food1 */
-    set         -16, %l5
-    add         %fp, %l5, %l5
-    set         food, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
+/* Assigning struct food to food1 */
+    set         food, %o1
+    add         %g0, %o1, %o1
+    set         -16, %o0
+    add         %fp, %o0, %o0
+    set         12, %o2
+    call    memcpy
+    nop
 /* line number 26*/
-/* Storing variable food1 into food2 */
-    set         -28, %l5
-    add         %fp, %l5, %l5
-    set         -16, %l3
-    add         %fp, %l3, %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
+/* Assigning struct food1 to food2 */
+    set         -16, %o1
+    add         %fp, %o1, %o1
+    set         -28, %o0
+    add         %fp, %o0, %o0
+    set         12, %o2
+    call    memcpy
+    nop
 /* line number 27*/
-/* Storing variable food2 into food3 */
-    set         -40, %l5
-    add         %fp, %l5, %l5
-    set         -28, %l3
-    add         %fp, %l3, %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
+/* Assigning struct food2 to food3 */
+    set         -28, %o1
+    add         %fp, %o1, %o1
+    set         -40, %o0
+    add         %fp, %o0, %o0
+    set         12, %o2
+    call    memcpy
+    nop
 /* line number 29*/
-/* printing float STO.VarSTO@c48b77 */
+/* printing float STO.VarSTO@16e9494 */
 /* line number 29*/
 /* Loading a to %f0 */
-    set         8, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -99,11 +102,11 @@ globalInit_end:
     call    printf
     nop
 /* line number 30*/
-/* printing float STO.VarSTO@1a072a6 */
+/* printing float STO.VarSTO@dc93be */
 /* line number 30*/
 /* Loading b to %f0 */
-    set         4, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -113,11 +116,11 @@ globalInit_end:
     call    printf
     nop
 /* line number 31*/
-/* printing float STO.VarSTO@c6fd6e */
+/* printing float STO.VarSTO@167e003 */
 /* line number 31*/
 /* Loading c to %f0 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop

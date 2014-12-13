@@ -2,21 +2,21 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     c,d,a,e,b,g,j,h,i,f,m,l,n,k
-m:              .single      0r5.55      
+                 .global     e,c,a,d,b,j,i,g,f,h,l,m,k,n
 l:              .single      0r4.44      
-n:              .single      0r6.66      
+m:              .single      0r5.55      
 k:              .single      0r3.33      
-c:              .word        1           
-d:              .word        1           
-a:              .word        1           
+n:              .single      0r6.66      
 e:              .word        1           
+c:              .word        1           
+a:              .word        1           
+d:              .word        1           
 b:              .word        1           
-g:              .word        4           
 j:              .word        9           
-h:              .word        6           
 i:              .word        7           
+g:              .word        4           
 f:              .word        5           
+h:              .word        6           
 str_0:          .asciz       "main"      
 str_1:          .asciz       " "         
 str_2:          .asciz       " "         
@@ -107,7 +107,7 @@ branchEnd_0:
 /* line number 7*/
 /* Done printing string. */
 /* line number 7*/
-/* printing float STO.VarSTO@1ddbcb1 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 7*/
 /* Loading m to %f0 */
     set         m, %l1

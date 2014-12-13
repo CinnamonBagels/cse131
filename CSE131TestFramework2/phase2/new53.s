@@ -32,7 +32,7 @@ foo1:
     save        %sp, %g1, %sp
 /* line number 8*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -45,7 +45,7 @@ foo1:
 /* Returning value from foo1 */
 /* line number 11*/
 /* Loading a to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo1_end
@@ -62,6 +62,7 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 14*/
 /* Storing parameter y */
+    st          %f0, [%fp+68]
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0
@@ -73,10 +74,10 @@ foo2:
 /* line number 17*/
 /* Returning value from foo2 */
 /* line number 17*/
-/* Loading y to %i0 */
-    set         -8, %l1
+/* Loading y to %f0 */
+    set         68, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo2_end
     nop
 foo2_end:
@@ -91,7 +92,7 @@ foo3:
     save        %sp, %g1, %sp
 /* line number 20*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
@@ -104,7 +105,7 @@ foo3:
 /* Returning value from foo3 */
 /* line number 23*/
 /* Loading a to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo3_end
@@ -136,10 +137,17 @@ globalInit_end:
     nop
 /* line number 27*/
 /* Done printing string. */
+/* line number 27*/
+/* Preparing argument x */
+/* line number 27*/
+/* Loading x to %o0 */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo1
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 27*/
 /* Printing int foo1() */
@@ -153,13 +161,20 @@ globalInit_end:
     nop
 /* line number 27*/
 /* Done printing int. */
+/* line number 27*/
+/* Preparing argument y */
+/* line number 27*/
+/* Loading y to %f0 */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
     call    foo2
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 27*/
-/* printing float STO.VarSTO@10bb83e */
+/* printing float STO.VarSTO@183bfee */
 /* line number 27*/
 /* Loading foo2() to %f0 */
     set         -12, %l1
@@ -169,10 +184,17 @@ globalInit_end:
     nop
 /* line number 27*/
 /* Done printing float. */
+/* line number 27*/
+/* Preparing argument z */
+/* line number 27*/
+/* Loading z to %o0 */
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 27*/
 /* Printing bool foo3() */
@@ -196,10 +218,17 @@ branchEnd_0:
     nop
 /* line number 27*/
 /* Done printing bool. */
+/* line number 27*/
+/* Preparing argument a */
+/* line number 27*/
+/* Loading a to %o0 */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-20]
 /* line number 27*/
 /* Printing bool foo3() */

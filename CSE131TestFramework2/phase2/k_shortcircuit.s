@@ -86,7 +86,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 14*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 14*/
 /* Prepping Arithmetic Calculations by loading */
@@ -141,7 +141,7 @@ if_0:
     call    foo
     nop
 /* line number 17*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-24]
 /* line number 17*/
 /* Short-circuiting && with foo() */
@@ -235,7 +235,7 @@ endIf_3:
     call    foo
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-32]
 /* line number 27*/
 /* Prepping Arithmetic Calculations by loading */
@@ -304,7 +304,7 @@ endIf_5:
     call    foo
     nop
 /* line number 32*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-40]
 /* line number 32*/
 /* Prepping Arithmetic Calculations by loading */

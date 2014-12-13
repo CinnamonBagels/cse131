@@ -149,7 +149,7 @@ arrayOutBounds_1:
     nop
 arrayEnd_1:
 /* line number 12*/
-/* printing float STO.ExprSTO@eba9b0 */
+/* printing float STO.ExprSTO@17cd18d */
 /* line number 12*/
 /* Loading gfarr[i] to %f0 */
     set         -20, %l1
@@ -169,7 +169,7 @@ arrayEnd_1:
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float STO.VarSTO@aaf2ef */
+/* printing float STO.VarSTO@1a32902 */
 /* line number 12*/
 /* Loading f to %f0 */
     set         -12, %l1

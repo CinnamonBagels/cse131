@@ -4,6 +4,7 @@
 FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y,z,a
 y:              .single      0r4.44      
+float_4:        .single      0r5.55      
 x:              .word        3           
 z:              .word        1           
 a:              .word        0           
@@ -11,7 +12,7 @@ str_0:          .asciz       "foo1"
 str_1:          .asciz       "foo2"      
 str_2:          .asciz       "foo3"      
 str_3:          .asciz       "main"      
-str_4:          .asciz       "end"       
+str_5:          .asciz       "end"       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -32,7 +33,7 @@ foo1:
     save        %sp, %g1, %sp
 /* line number 8*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -45,7 +46,7 @@ foo1:
 /* Returning value from foo1 */
 /* line number 11*/
 /* Loading a to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo1_end
@@ -62,6 +63,7 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 14*/
 /* Storing parameter y */
+    st          %f0, [%fp+68]
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0
@@ -73,10 +75,10 @@ foo2:
 /* line number 17*/
 /* Returning value from foo2 */
 /* line number 17*/
-/* Loading y to %i0 */
-    set         -8, %l1
+/* Loading y to %f0 */
+    set         68, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo2_end
     nop
 foo2_end:
@@ -91,7 +93,7 @@ foo3:
     save        %sp, %g1, %sp
 /* line number 20*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
@@ -104,7 +106,7 @@ foo3:
 /* Returning value from foo3 */
 /* line number 23*/
 /* Loading a to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo3_end
@@ -136,10 +138,15 @@ globalInit_end:
     nop
 /* line number 27*/
 /* Done printing string. */
+/* line number 27*/
+/* Preparing argument 5 */
+/* line number 27*/
+/* Loading 5 to %o0 */
+    set         5, %o0
     call    foo1
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 27*/
 /* Printing int foo1() */
@@ -153,13 +160,20 @@ globalInit_end:
     nop
 /* line number 27*/
 /* Done printing int. */
+/* line number 27*/
+/* Preparing argument 5.55 */
+/* line number 27*/
+/* Loading 5.55 to %f0 */
+    set         float_4, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
     call    foo2
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 27*/
-/* printing float STO.VarSTO@6d234c */
+/* printing float STO.VarSTO@183bfee */
 /* line number 27*/
 /* Loading foo2() to %f0 */
     set         -12, %l1
@@ -169,10 +183,15 @@ globalInit_end:
     nop
 /* line number 27*/
 /* Done printing float. */
+/* line number 27*/
+/* Preparing argument false */
+/* line number 27*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo3
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 27*/
 /* Printing bool foo3() */
@@ -196,10 +215,15 @@ branchEnd_0:
     nop
 /* line number 27*/
 /* Done printing bool. */
+/* line number 27*/
+/* Preparing argument true */
+/* line number 27*/
+/* Loading true to %o0 */
+    set         1, %o0
     call    foo3
     nop
 /* line number 27*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-20]
 /* line number 27*/
 /* Printing bool foo3() */
@@ -226,7 +250,7 @@ branchEnd_1:
 /* line number 27*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_4, %o1
+    set         str_5, %o1
     call    printf
     nop
 /* line number 27*/

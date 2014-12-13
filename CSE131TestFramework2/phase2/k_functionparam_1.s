@@ -25,7 +25,7 @@ foo:
     save        %sp, %g1, %sp
 /* line number 4*/
 /* Storing parameter j */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 5*/
 /* Prepping Comparison Calculations by loading */
 /* line number 5*/
@@ -201,8 +201,8 @@ if_0:
 /* Preparing argument i */
 /* line number 10*/
 /* Loading i to %o0 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
+    set         i, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %o0
     call    foo
     nop
@@ -230,10 +230,15 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant i with value 4.0
-    set         -4, %l0
-    add         %fp, %l0, %l0
+    set         i, %l0
+    add         %g0, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
+/* line number 19*/
+/* Preparing argument 4 */
+/* line number 19*/
+/* Loading 4 to %o0 */
+    set         4, %o0
     call    foo
     nop
 main_end:

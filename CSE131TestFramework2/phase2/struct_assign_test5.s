@@ -75,8 +75,8 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
-    set         292, %l1
-    add         null, %l1, %l1
+    set         -80, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -300, %l5
     add         %fp, %l5, %l6
@@ -117,8 +117,8 @@ arrayInBounds_1:
     call    .mul
     nop
     mov         %o0, %l2
-    set         292, %l1
-    add         null, %l1, %l1
+    set         -80, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -304, %l5
     add         %fp, %l5, %l6
@@ -138,8 +138,8 @@ arrayOutBounds_1:
 arrayEnd_1:
 /* line number 17*/
 /* Storing variable rofl[15] into barC */
-    set         12, %l5
-    add         null, %l5, %l5
+    set         -284, %l5
+    add         %fp, %l5, %l5
     set         -304, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
@@ -162,8 +162,8 @@ arrayInBounds_2:
     call    .mul
     nop
     mov         %o0, %l2
-    set         292, %l1
-    add         null, %l1, %l1
+    set         -80, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -308, %l5
     add         %fp, %l5, %l6
@@ -185,8 +185,8 @@ arrayEnd_2:
 /* Short-circuiting && with barC */
 /* line number 18*/
 /* Loading barC to %l1 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -284, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
     be      andF_0
@@ -195,8 +195,8 @@ arrayEnd_2:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 18*/
 /* Loading barC to %l0 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -284, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 18*/
 /* Loading false to %l1 */
@@ -289,8 +289,8 @@ arrayInBounds_3:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -280, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -324, %l5
     add         %fp, %l5, %l6
@@ -361,8 +361,8 @@ arrayInBounds_4:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -280, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -328, %l5
     add         %fp, %l5, %l6
@@ -433,8 +433,8 @@ arrayInBounds_5:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -280, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -336, %l5
     add         %fp, %l5, %l6
@@ -454,8 +454,8 @@ arrayOutBounds_5:
 arrayEnd_5:
 /* line number 28*/
 /* Storing variable lol[9] into barA */
-    set         4, %l5
-    add         null, %l5, %l5
+    set         -292, %l5
+    add         %fp, %l5, %l5
     set         -336, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
@@ -466,8 +466,8 @@ arrayEnd_5:
     set         _intFmt, %o0
 /* line number 30*/
 /* Loading barA to %o1 */
-    set         4, %l1
-    add         null, %l1, %l1
+    set         -292, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -493,8 +493,8 @@ arrayInBounds_6:
     call    .mul
     nop
     mov         %o0, %l2
-    set         292, %l1
-    add         null, %l1, %l1
+    set         -80, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -340, %l5
     add         %fp, %l5, %l6
@@ -542,8 +542,8 @@ branchEnd_0:
 /* Printing bool barC */
 /* line number 32*/
 /* Loading barC to %l0 */
-    set         12, %l1
-    add         null, %l1, %l1
+    set         -284, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -580,8 +580,8 @@ arrayInBounds_7:
     call    .mul
     nop
     mov         %o0, %l2
-    set         292, %l1
-    add         null, %l1, %l1
+    set         -80, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -344, %l5
     add         %fp, %l5, %l6

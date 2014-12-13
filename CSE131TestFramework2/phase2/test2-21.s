@@ -25,9 +25,9 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 ! --storing constant x with value 4.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
@@ -70,6 +70,10 @@ globalInit_end:
     nop
 /* line number 10*/
 /* Done printing string. */
+/* line number 11*/
+/* Preparing argument x */
+    set         x, %o0
+    add         %g0, %o0, %o0
     call    foo
     nop
 /* line number 12*/

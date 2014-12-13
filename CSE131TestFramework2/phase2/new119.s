@@ -74,12 +74,12 @@ foo3:
     save        %sp, %g1, %sp
 /* line number 21*/
 /* Storing parameter t */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 23*/
 /* Returning value from foo3 */
 /* line number 23*/
 /* Loading t to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo3_end
@@ -762,7 +762,7 @@ branchEnd_7:
     call    foo
     nop
 /* line number 44*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-80]
 /* line number 44*/
 /* Negating */
@@ -814,7 +814,7 @@ branchEnd_8:
     call    foo1
     nop
 /* line number 45*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-88]
 /* line number 45*/
 /* Negating */
@@ -866,7 +866,7 @@ branchEnd_9:
     call    foo2
     nop
 /* line number 46*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-96]
 /* line number 46*/
 /* Negating */
@@ -915,10 +915,15 @@ branchEnd_10:
     set         _endl, %o0
     call    printf
     nop
+/* line number 47*/
+/* Preparing argument true */
+/* line number 47*/
+/* Loading true to %o0 */
+    set         1, %o0
     call    foo3
     nop
 /* line number 47*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-104]
 /* line number 47*/
 /* Negating */
@@ -967,10 +972,15 @@ branchEnd_11:
     set         _endl, %o0
     call    printf
     nop
+/* line number 48*/
+/* Preparing argument false */
+/* line number 48*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo3
     nop
 /* line number 48*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-112]
 /* line number 48*/
 /* Negating */
@@ -1019,10 +1029,17 @@ branchEnd_12:
     set         _endl, %o0
     call    printf
     nop
+/* line number 49*/
+/* Preparing argument x */
+/* line number 49*/
+/* Loading x to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 49*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-120]
 /* line number 49*/
 /* Negating */
@@ -1071,10 +1088,17 @@ branchEnd_13:
     set         _endl, %o0
     call    printf
     nop
+/* line number 50*/
+/* Preparing argument y */
+/* line number 50*/
+/* Loading y to %o0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 50*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-128]
 /* line number 50*/
 /* Negating */
@@ -1123,10 +1147,17 @@ branchEnd_14:
     set         _endl, %o0
     call    printf
     nop
+/* line number 51*/
+/* Preparing argument a */
+/* line number 51*/
+/* Loading a to %o0 */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 51*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-136]
 /* line number 51*/
 /* Negating */
@@ -1175,10 +1206,17 @@ branchEnd_15:
     set         _endl, %o0
     call    printf
     nop
+/* line number 52*/
+/* Preparing argument b */
+/* line number 52*/
+/* Loading b to %o0 */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 52*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-144]
 /* line number 52*/
 /* Negating */
@@ -1227,10 +1265,17 @@ branchEnd_16:
     set         _endl, %o0
     call    printf
     nop
+/* line number 54*/
+/* Preparing argument b */
+/* line number 54*/
+/* Loading b to %o0 */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 54*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-152]
 /* line number 54*/
 /* Negating */
@@ -1264,10 +1309,17 @@ negEnd_21:
     cmp         %l1, %g0
     be      andF_4
     nop
+/* line number 54*/
+/* Preparing argument b */
+/* line number 54*/
+/* Loading b to %o0 */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 54*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-160]
 /* line number 54*/
 /* Negating */
@@ -1347,10 +1399,17 @@ branchEnd_17:
     set         _endl, %o0
     call    printf
     nop
+/* line number 55*/
+/* Preparing argument b */
+/* line number 55*/
+/* Loading b to %o0 */
+    set         b, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 55*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-172]
 /* line number 55*/
 /* Negating */
@@ -1384,10 +1443,17 @@ negEnd_23:
     cmp         %l1, %g0
     be      andF_5
     nop
+/* line number 55*/
+/* Preparing argument a */
+/* line number 55*/
+/* Loading a to %o0 */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 55*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-180]
 /* line number 55*/
 /* Negating */

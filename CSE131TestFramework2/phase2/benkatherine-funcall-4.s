@@ -3,6 +3,8 @@
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r7.0       
+float_1:        .single      0r5.0       
+float_2:        .single      0r6.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -23,15 +25,18 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
+    st          %f0, [%fp+68]
 /* line number 2*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 2*/
 /* Storing parameter z */
+    st          %f2, [%fp+76]
 /* line number 3*/
-/* printing float STO.VarSTO@4cb3a4 */
+/* printing float STO.VarSTO@a047d3 */
 /* line number 3*/
 /* Loading x to %f0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -39,10 +44,10 @@ foo:
 /* line number 3*/
 /* Done printing float. */
 /* line number 3*/
-/* printing float STO.VarSTO@1a5ff38 */
+/* printing float STO.VarSTO@cb741e */
 /* line number 3*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -50,10 +55,10 @@ foo:
 /* line number 3*/
 /* Done printing float. */
 /* line number 3*/
-/* printing float STO.VarSTO@116f2e6 */
+/* printing float STO.VarSTO@1349665 */
 /* line number 3*/
 /* Loading z to %f0 */
-    set         -16, %l1
+    set         76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -93,6 +98,27 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 9*/
 /* Done. */
+/* line number 9*/
+/* Preparing argument 5.0 */
+/* line number 9*/
+/* Loading 5.0 to %f0 */
+    set         float_1, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
+/* line number 9*/
+/* Preparing argument 6.0 */
+/* line number 9*/
+/* Loading 6.0 to %f1 */
+    set         float_2, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
+/* line number 9*/
+/* Preparing argument a */
+/* line number 9*/
+/* Loading a to %f2 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f2
     call    foo
     nop
 main_end:

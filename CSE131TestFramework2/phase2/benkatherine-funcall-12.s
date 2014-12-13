@@ -26,12 +26,12 @@ bar:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter b */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter c */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 ! --storing constant b with value 777.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         777, %l1
     st          %l1, [%l0]
@@ -39,12 +39,12 @@ bar:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 5*/
 /* Loading b to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 5*/
 /* Loading c to %l1 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 5*/
@@ -57,7 +57,7 @@ bar:
     st          %l3, [%l4]
 /* line number 5*/
 /* Storing variable int + int into c */
-    set         -12, %l5
+    set         72, %l5
     add         %fp, %l5, %l5
     set         -8, %l3
     add         %fp, %l3, %l3
@@ -75,14 +75,18 @@ foo:
     save        %sp, %g1, %sp
 /* line number 8*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 8*/
 /* Storing parameter b */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 9*/
 /* Preparing argument a */
+    set         68, %o0
+    add         %fp, %o0, %o0
 /* line number 9*/
 /* Preparing argument b */
+    set         72, %o1
+    add         %fp, %o1, %o1
     call    bar
     nop
 foo_end:
@@ -159,6 +163,14 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 18*/
+/* Preparing argument i */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 18*/
+/* Preparing argument j */
+    set         -12, %o1
+    add         %fp, %o1, %o1
     call    foo
     nop
 /* line number 20*/

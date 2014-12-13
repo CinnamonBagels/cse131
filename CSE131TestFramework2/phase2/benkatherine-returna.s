@@ -28,10 +28,10 @@ foo:
 /* line number 8*/
 /* Returning value from foo */
 /* line number 8*/
-/* Loading x to %i0 */
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     fitos       %f0, %f0
     ba      foo_end
     nop
@@ -57,7 +57,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 11*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 12*/
 /* setting c = foo() */
@@ -70,7 +70,7 @@ globalInit_end:
 /* line number 12*/
 /* Done. */
 /* line number 12*/
-/* printing float STO.VarSTO@41e2aa */
+/* printing float STO.VarSTO@1ddbcb1 */
 /* line number 12*/
 /* Loading c to %f0 */
     set         -12, %l1

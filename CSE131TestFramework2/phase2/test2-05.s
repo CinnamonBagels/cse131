@@ -90,7 +90,7 @@ globalInit_end:
     call    trueFunc
     nop
 /* line number 15*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 15*/
 /* Prepping Arithmetic Calculations by loading */
@@ -140,7 +140,7 @@ if_0:
     call    falseFunc
     nop
 /* line number 16*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 16*/
 /* Prepping Arithmetic Calculations by loading */

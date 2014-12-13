@@ -3,8 +3,9 @@
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r4.44      
+float_2:        .single      0r4.44      
 str_1:          .asciz       "main"      
-str_2:          .asciz       "end"       
+str_3:          .asciz       "end"       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -25,18 +26,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 3*/
 /* Incrementing */
 /* line number 3*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
     set         -8, %l1
@@ -60,11 +62,11 @@ foo:
 /* Incrementing */
 /* line number 3*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
     set         -12, %l1
@@ -88,20 +90,20 @@ foo:
 /* Incrementing */
 /* line number 3*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@116f2e6 */
+/* printing float STO.ExprSTO@cb741e */
 /* line number 3*/
 /* Loading Validating UnaryOp y as a FloatType for operator: ++...
  to %f0 */
@@ -116,20 +118,20 @@ foo:
 /* Incrementing */
 /* line number 3*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     set         -20, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@1a4f43e */
+/* printing float STO.ExprSTO@1349665 */
 /* line number 3*/
 /* Loading Validating UnaryOp y as a FloatType for operator: ++...
  to %f0 */
@@ -144,11 +146,11 @@ foo:
 /* Incrementing */
 /* line number 4*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
     set         -24, %l1
@@ -208,10 +210,22 @@ globalInit_end:
     nop
 /* line number 12*/
 /* Done printing string. */
+/* line number 12*/
+/* Preparing argument 3 */
+/* line number 12*/
+/* Loading 3 to %o0 */
+    set         3, %o0
+/* line number 12*/
+/* Preparing argument 4.44 */
+/* line number 12*/
+/* Loading 4.44 to %f1 */
+    set         float_2, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
     call    foo
     nop
 /* line number 12*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 12*/
 /* Printing int foo() */
@@ -228,7 +242,7 @@ globalInit_end:
 /* line number 12*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_3, %o1
     call    printf
     nop
 /* line number 12*/

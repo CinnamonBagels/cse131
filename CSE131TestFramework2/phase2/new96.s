@@ -27,18 +27,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 5*/
 /* Storing parameter b */
+    st          %f1, [%fp+72]
 /* line number 6*/
 /* Decrementing */
 /* line number 6*/
 /* Loading a to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     dec     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
     set         -8, %l1
@@ -62,11 +63,11 @@ foo:
 /* Decrementing */
 /* line number 6*/
 /* Loading a to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     dec     %l0
-    set         -8, %l2
+    set         68, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
     set         -12, %l1
@@ -90,20 +91,20 @@ foo:
 /* Decrementing */
 /* line number 6*/
 /* Loading b to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fsubs       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@10bb83e */
+/* printing float STO.ExprSTO@132e233 */
 /* line number 6*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
  to %f0 */
@@ -118,20 +119,20 @@ foo:
 /* Decrementing */
 /* line number 6*/
 /* Loading b to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fsubs       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     set         -20, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@6d234c */
+/* printing float STO.ExprSTO@1a0c382 */
 /* line number 6*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
  to %f0 */
@@ -146,13 +147,13 @@ foo:
 /* Decrementing */
 /* line number 7*/
 /* Loading b to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fsubs       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     set         -24, %l1
@@ -162,10 +163,10 @@ foo:
 /* Returning value from foo */
 /* line number 8*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
- to %i0 */
+ to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo_end
     nop
 foo_end:
@@ -195,13 +196,27 @@ globalInit_end:
     nop
 /* line number 14*/
 /* Done printing string. */
+/* line number 14*/
+/* Preparing argument x */
+/* line number 14*/
+/* Loading x to %o0 */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
+/* line number 14*/
+/* Preparing argument y */
+/* line number 14*/
+/* Loading y to %f1 */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
     call    foo
     nop
 /* line number 14*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 14*/
-/* printing float STO.VarSTO@1286c71 */
+/* printing float STO.VarSTO@183bfee */
 /* line number 14*/
 /* Loading foo() to %f0 */
     set         -8, %l1

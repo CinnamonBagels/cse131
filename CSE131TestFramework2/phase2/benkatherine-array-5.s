@@ -166,7 +166,7 @@ arrayOutBounds_2:
     nop
 arrayEnd_2:
 /* line number 17*/
-/* printing float STO.ExprSTO@1881149 */
+/* printing float STO.ExprSTO@1ddbcb1 */
 /* line number 17*/
 /* Loading y[1] to %f0 */
     set         -28, %l1

@@ -22,16 +22,16 @@ foo:
     save        %sp, %g1, %sp
 /* line number 1*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 1*/
 /* Storing parameter b */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 2*/
 /* Printing int a */
     set         _intFmt, %o0
 /* line number 2*/
 /* Loading a to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -46,7 +46,7 @@ foo:
     set         _intFmt, %o0
 /* line number 2*/
 /* Loading b to %o1 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -60,7 +60,7 @@ foo:
 /* Prepping Comparison Calculations by loading */
 /* line number 3*/
 /* Loading b to %l0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 3*/
@@ -96,7 +96,7 @@ if_0:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 4*/
 /* Loading b to %l0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 4*/
@@ -114,20 +114,20 @@ if_0:
 /* Preparing argument a */
 /* line number 4*/
 /* Loading a to %o0 */
-    set         -4, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
 /* line number 4*/
 /* Preparing argument int - int */
 /* line number 4*/
 /* Loading int - int to %o1 */
-    set         -4, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    foo
     nop
 /* line number 4*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 5*/
 /* Returning value from foo */
@@ -171,15 +171,37 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 12*/
+/* Preparing argument 4 */
+/* line number 12*/
+/* Loading 4 to %o0 */
+    set         4, %o0
+/* line number 12*/
+/* Preparing argument 5 */
+/* line number 12*/
+/* Loading 5 to %o1 */
+    set         5, %o1
     call    foo
     nop
 /* line number 12*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
+/* line number 12*/
+/* Preparing argument 10 */
+/* line number 12*/
+/* Loading 10 to %o0 */
+    set         10, %o0
+/* line number 12*/
+/* Preparing argument foo() */
+/* line number 12*/
+/* Loading foo() to %o1 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
     call    foo
     nop
 /* line number 12*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-12]
 /* line number 12*/
 /* Printing int foo() */

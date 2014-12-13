@@ -22,19 +22,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 2*/
 /* Storing parameter z */
-    st          %i2, [%fp+-16]
+    st          %i2, [%fp+76]
 /* line number 3*/
 /* Printing int x */
     set         _intFmt, %o0
 /* line number 3*/
 /* Loading x to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -46,7 +46,7 @@ foo:
     set         _intFmt, %o0
 /* line number 3*/
 /* Loading y to %o1 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -58,7 +58,7 @@ foo:
     set         _intFmt, %o0
 /* line number 3*/
 /* Loading z to %o1 */
-    set         -16, %l1
+    set         76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -93,6 +93,23 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 9*/
 /* Done. */
+/* line number 9*/
+/* Preparing argument 5 */
+/* line number 9*/
+/* Loading 5 to %o0 */
+    set         5, %o0
+/* line number 9*/
+/* Preparing argument 6 */
+/* line number 9*/
+/* Loading 6 to %o1 */
+    set         6, %o1
+/* line number 9*/
+/* Preparing argument a */
+/* line number 9*/
+/* Loading a to %o2 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o2
     call    foo
     nop
 main_end:

@@ -61,8 +61,8 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -8, %l5
     add         %fp, %l5, %l6
@@ -103,8 +103,8 @@ arrayInBounds_1:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -12, %l5
     add         %fp, %l5, %l6
@@ -139,8 +139,8 @@ arrayInBounds_2:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -16, %l5
     add         %fp, %l5, %l6
@@ -185,8 +185,8 @@ arrayInBounds_3:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -20, %l5
     add         %fp, %l5, %l6
@@ -221,8 +221,8 @@ arrayInBounds_4:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -24, %l5
     add         %fp, %l5, %l6
@@ -267,8 +267,8 @@ arrayInBounds_5:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -28, %l5
     add         %fp, %l5, %l6
@@ -319,8 +319,8 @@ arrayInBounds_6:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -32, %l5
     add         %fp, %l5, %l6
@@ -371,8 +371,8 @@ arrayInBounds_7:
     call    .mul
     nop
     mov         %o0, %l2
-    set         212, %l1
-    add         null, %l1, %l1
+    set         -200, %l1
+    add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -36, %l5
     add         %fp, %l5, %l6

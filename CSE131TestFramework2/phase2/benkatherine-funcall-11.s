@@ -2,6 +2,7 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
+float_0:        .single      0r3.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -22,13 +23,14 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
+    st          %f0, [%fp+68]
 /* line number 4*/
 /* Returning value from foo */
 /* line number 4*/
-/* Loading x to %i0 */
-    set         -8, %l1
+/* Loading x to %f0 */
+    set         68, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo_end
     nop
 foo_end:
@@ -50,18 +52,32 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 8*/
+/* Preparing argument 3.0 */
+/* line number 8*/
+/* Loading 3.0 to %f0 */
+    set         float_0, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
     call    foo
     nop
 /* line number 8*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
+/* line number 8*/
+/* Preparing argument foo() */
+/* line number 8*/
+/* Loading foo() to %f0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
     call    foo
     nop
 /* line number 8*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 8*/
-/* printing float STO.VarSTO@fa1b85 */
+/* printing float STO.VarSTO@1330af4 */
 /* line number 8*/
 /* Loading foo() to %f0 */
     set         -12, %l1

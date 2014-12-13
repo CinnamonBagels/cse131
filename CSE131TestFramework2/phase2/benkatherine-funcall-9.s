@@ -28,17 +28,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
+    st          %f0, [%fp+68]
 /* line number 2*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 ! --storing constant x with value 7.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant y with value 8.0
-    set         -12, %l0
+    set         72, %l0
     add         %fp, %l0, %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
@@ -85,10 +87,18 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 12*/
 /* Done. */
+/* line number 12*/
+/* Preparing argument a */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 12*/
+/* Preparing argument b */
+    set         -12, %o1
+    add         %fp, %o1, %o1
     call    foo
     nop
 /* line number 14*/
-/* printing float STO.VarSTO@24cdc7 */
+/* printing float STO.VarSTO@fc4957 */
 /* line number 14*/
 /* Loading a to %f0 */
     set         -8, %l1
@@ -99,7 +109,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing float. */
 /* line number 14*/
-/* printing float STO.VarSTO@41e2aa */
+/* printing float STO.VarSTO@1330af4 */
 /* line number 14*/
 /* Loading b to %f0 */
     set         -12, %l1
@@ -134,10 +144,18 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 19*/
 /* Done. */
+/* line number 19*/
+/* Preparing argument c */
+    set         -16, %o0
+    add         %fp, %o0, %o0
+/* line number 19*/
+/* Preparing argument d */
+    set         -20, %o1
+    add         %fp, %o1, %o1
     call    foo
     nop
 /* line number 21*/
-/* printing float STO.VarSTO@1881149 */
+/* printing float STO.VarSTO@14512e */
 /* line number 21*/
 /* Loading c to %f0 */
     set         -16, %l1
@@ -148,7 +166,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing float. */
 /* line number 21*/
-/* printing float STO.VarSTO@2709da */
+/* printing float STO.VarSTO@1ddbcb1 */
 /* line number 21*/
 /* Loading d to %f0 */
     set         -20, %l1

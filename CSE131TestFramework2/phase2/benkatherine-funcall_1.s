@@ -26,19 +26,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 7*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 7*/
 /* Storing parameter z */
-    st          %i2, [%fp+-16]
+    st          %i2, [%fp+76]
 /* line number 7*/
 /* Storing parameter a */
-    st          %i3, [%fp+-20]
+    st          %i3, [%fp+80]
 /* line number 7*/
 /* Storing parameter b */
-    st          %i4, [%fp+-24]
+    st          %i4, [%fp+84]
 foo_end:
     ret 
     restore
@@ -51,19 +51,19 @@ foobar:
     save        %sp, %g1, %sp
 /* line number 9*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 9*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 9*/
 /* Storing parameter z */
-    st          %i2, [%fp+-16]
+    st          %i2, [%fp+76]
 /* line number 9*/
 /* Storing parameter a */
-    st          %i3, [%fp+-20]
+    st          %i3, [%fp+80]
 /* line number 9*/
 /* Storing parameter b */
-    st          %i4, [%fp+-24]
+    st          %i4, [%fp+84]
 /* line number 10*/
 /* printing string */
     set         _strFmt, %o0
@@ -94,6 +94,29 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 16*/
+/* Preparing argument ab */
+    set         ab, %o0
+    add         %g0, %o0, %o0
+/* line number 16*/
+/* Preparing argument bc */
+    set         bc, %o1
+    add         %g0, %o1, %o1
+/* line number 16*/
+/* Preparing argument 1 */
+/* line number 16*/
+/* Loading 1 to %o2 */
+    set         1, %o2
+/* line number 16*/
+/* Preparing argument 3 */
+/* line number 16*/
+/* Loading 3 to %o3 */
+    set         3, %o3
+/* line number 16*/
+/* Preparing argument 5 */
+/* line number 16*/
+/* Loading 5 to %o4 */
+    set         5, %o4
     call    foobar
     nop
 main_end:

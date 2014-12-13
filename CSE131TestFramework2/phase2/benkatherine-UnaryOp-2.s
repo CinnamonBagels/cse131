@@ -84,7 +84,7 @@ globalInit_end:
 /* Assigning converted 5 to u */
     set         -16, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%l2]
+    st          %f1, [%f1]
 /* line number 31*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 31*/
@@ -186,7 +186,7 @@ globalInit_end:
 /* line number 34*/
 /* Done. */
 /* line number 34*/
-/* printing float STO.VarSTO@f7d5a6 */
+/* printing float STO.VarSTO@8f337b */
 /* line number 34*/
 /* Loading u to %f0 */
     set         -16, %l1
@@ -200,7 +200,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 35*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@1a183d2 */
 /* line number 35*/
 /* Loading v to %f0 */
     set         -28, %l1
@@ -214,7 +214,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 36*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@d55a0f */
 /* line number 36*/
 /* Loading w to %f0 */
     set         -36, %l1
@@ -248,7 +248,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 37*/
-/* printing float STO.ExprSTO@197833e */
+/* printing float STO.ExprSTO@10bb83e */
 /* line number 37*/
 /* Loading float + float to %f0 */
     set         -40, %l1

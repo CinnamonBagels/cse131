@@ -25,12 +25,12 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 6*/
 /* Printing bool x */
 /* line number 6*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -67,6 +67,11 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 10*/
+/* Preparing argument false */
+/* line number 10*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo
     nop
 /* line number 11*/

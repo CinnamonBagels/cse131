@@ -28,19 +28,21 @@ foo:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Storing parameter x */
+    st          %f0, [%fp+68]
 /* line number 6*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 7*/
 /* Incrementing */
 /* line number 7*/
 /* Loading x to %f0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f2
@@ -51,13 +53,13 @@ foo:
 /* Incrementing */
 /* line number 8*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f2
@@ -76,19 +78,21 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 11*/
 /* Storing parameter x */
+    st          %f0, [%fp+68]
 /* line number 11*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 12*/
 /* Incrementing */
 /* line number 12*/
 /* Loading x to %f0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f2
@@ -99,13 +103,13 @@ foo2:
 /* Incrementing */
 /* line number 13*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f2
@@ -132,7 +136,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 17*/
-/* printing float STO.VarSTO@b41dbb */
+/* printing float STO.VarSTO@c62333 */
 /* line number 17*/
 /* Loading x to %f0 */
     set         x, %l1
@@ -151,7 +155,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@853e51 */
 /* line number 17*/
 /* Loading y to %f0 */
     set         y, %l1
@@ -164,10 +168,21 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 18*/
+/* Preparing argument x */
+    set         x, %o0
+    add         %g0, %o0, %o0
+/* line number 18*/
+/* Preparing argument y */
+/* line number 18*/
+/* Loading y to %f1 */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
     call    foo
     nop
 /* line number 19*/
-/* printing float STO.VarSTO@b41dbb */
+/* printing float STO.VarSTO@c62333 */
 /* line number 19*/
 /* Loading x to %f0 */
     set         x, %l1
@@ -186,7 +201,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@853e51 */
 /* line number 19*/
 /* Loading y to %f0 */
     set         y, %l1
@@ -199,10 +214,21 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 20*/
+/* Preparing argument x */
+/* line number 20*/
+/* Loading x to %f0 */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+/* line number 20*/
+/* Preparing argument y */
+    set         y, %o1
+    add         %g0, %o1, %o1
     call    foo2
     nop
 /* line number 21*/
-/* printing float STO.VarSTO@b41dbb */
+/* printing float STO.VarSTO@c62333 */
 /* line number 21*/
 /* Loading x to %f0 */
     set         x, %l1
@@ -221,7 +247,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@853e51 */
 /* line number 21*/
 /* Loading y to %f0 */
     set         y, %l1

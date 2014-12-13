@@ -27,7 +27,7 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 7*/
 /* setting z = 1 */
     set         1, %l0
@@ -38,7 +38,7 @@ foo:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 7*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 7*/
@@ -57,10 +57,10 @@ foo:
 /* line number 8*/
 /* Returning value from foo */
 /* line number 8*/
-/* Loading int + int to %i0 */
+/* Loading int + int to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     fitos       %f0, %f0
     ba      foo_end
     nop
@@ -91,13 +91,18 @@ globalInit_end:
     nop
 /* line number 12*/
 /* Done printing string. */
+/* line number 12*/
+/* Preparing argument 2 */
+/* line number 12*/
+/* Loading 2 to %o0 */
+    set         2, %o0
     call    foo
     nop
 /* line number 12*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 12*/
-/* printing float STO.VarSTO@1286c71 */
+/* printing float STO.VarSTO@1a0c382 */
 /* line number 12*/
 /* Loading foo() to %f0 */
     set         -8, %l1

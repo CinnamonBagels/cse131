@@ -53,7 +53,7 @@ foobar:
     call    foobar
     nop
 /* line number 22*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 23*/
 /* setting a = foobar() */
@@ -96,7 +96,7 @@ globalInit_end:
     call    foobar
     nop
 /* line number 29*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 30*/
 /* setting a = foobar() */
