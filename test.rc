@@ -1,9 +1,26 @@
+const int x = 0;
+static int y = 1;
 
-function: void main()
+function : void main()
 {
 
-   
-   cout << "testing bitwise or" <<endl;
-   cout << 1 | 1 << endl;
-   
+    int x = 0;
+    static int y = 1;
+
+
+    if(::x>=::y)
+    {
+        cout << "GOT YOU!" << endl;
+    }
+
+    if(::x==x)
+    {
+        cout << "YES!" << endl;
+    }
+
+    if(true&&true)
+    {
+        cout << "YES!" << endl;
+    }
+
 }
