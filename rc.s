@@ -14,7 +14,6 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
-
                 .section     ".text"
                 .align 4
                 .global      main
@@ -61,6 +60,9 @@ arrayOutBounds_0:
     set         500, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -101,6 +103,9 @@ arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         500, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -169,6 +174,9 @@ arrayOutBounds_2:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         500, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0

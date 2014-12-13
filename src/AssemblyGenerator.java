@@ -74,7 +74,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.boolt + ":", ".asciz", "\"true\""));
 		write(assembleString(Strings.init, Strings.boolf + ":", ".asciz", "\"false\""));
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
-		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\"" + Strings.newline));
+		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\""));
 		write(assembleString("\n"));
 		
 	}
@@ -1092,6 +1092,8 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, Integer.toString(((ArrayType) array.getType()).getArraySize()), Registers.o2);
 		generateASM(Strings.call_op,Strings.printf);
 		generateASM(Strings.nop);
+		
+		this.doCoutEndl();
 		
 		generateASM(Strings.two_param, Instructions.set, "1", Registers.o0);
 		generateASM(Strings.call_op, Strings.exit);
