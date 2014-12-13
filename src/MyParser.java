@@ -1354,7 +1354,6 @@ class MyParser extends parser {
 					sto.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + sto.getType().getSize()));
 					m_symtab.getFunc().addToStack(sto.getType().getSize());
 				}
-				System.out.println("woah");
 				generator.evaluateBinary(_1, _3, _2, sto);
 			}
 		}
@@ -1372,7 +1371,7 @@ class MyParser extends parser {
 		if(op.getName().equals("||")){
 			generator.generateASM(Strings.one_param,Instructions.bne, Strings.orT + generator.orCount);
 		}else{
-			generator.generateASM(Strings.one_param,Instructions.bne,Strings.andT + generator.andCount);
+			generator.generateASM(Strings.one_param,Instructions.be,Strings.andF + generator.andCount);
 		}
 		generator.generateASM(Strings.nop);
 	}

@@ -38,7 +38,7 @@ globalInit_end:
     add         %g0, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     andT_0
+    be      andF_0
     nop
 /* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
@@ -50,9 +50,6 @@ globalInit_end:
     ld          [%l1], %l1
 /* line number 7*/
 /* &&-ing */
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
     bne     andT_0
     nop
