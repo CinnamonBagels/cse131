@@ -275,7 +275,7 @@ TypedefDecl ::=     T_TYPEDEF Type:_1 IdListUpper:_2 T_SEMI
                     FieldsList T_RBRACE T_SEMI
                     {:
                          ((MyParser) parser).DoBlockClose();
-                         ((MyParser) parser).DoStructdefDecl (_1);
+                         RESULT = ((MyParser) parser).DoStructdefDecl (_1);
                     :}
     ;
 
@@ -528,7 +528,6 @@ IdList ::=          OptModifierList:_3 OptArrayDef:_4 T_ID:_1
                     {:
                     	Hashtable h = new Hashtable();
                         STO sto = (STO) ((MyParser) parser).DoCreateDeclaration(_1, null,  (Type) _3, (Type) _4);
-                        if(_4 != null)
                         h.put(sto, new VarSTO("Placeholder"));
                         RESULT = h;
                     :}
@@ -537,6 +536,7 @@ IdList ::=          OptModifierList:_3 OptArrayDef:_4 T_ID:_1
                         Hashtable h = (Hashtable) _1;
                         STO sto = (STO) ((MyParser) parser).DoCreateDeclaration(_3, null, (Type) _5, (Type) _6);
                         h.put (sto, new VarSTO("Placeholder"));
+                        
                         RESULT = h;
                     :}
     ;

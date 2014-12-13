@@ -166,8 +166,9 @@ class MyParser extends parser {
 		
 		boolean isError = false;
 		
-		
 		Enumeration<STO> e = lstIDs.keys();
+		
+
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
 			String idName = sto.getName();
@@ -250,10 +251,13 @@ class MyParser extends parser {
 				sto.setIsAddressable(true);
 				sto.setIsModifiable(false);
 			}
-
+			if(currentStruct != null) {
+				this.structVarDecl(sto, (STO)lstIDs.get(sto));
+				continue;
+			}
 			m_symtab.insert(sto);
 			if(currentStruct != null && m_symtab.getFunc() == null) {
-				currentStruct.setStructMembers(sto);
+				//currentStruct.setStructMembers(sto);
 			}
 			FuncSTO func = m_symtab.getFunc();
 			if(func == null) {
@@ -270,7 +274,7 @@ class MyParser extends parser {
 				
 				if(sto.isInitialized && !sto.isStatic){
 					generator.doData(sto, (STO)lstIDs.get(sto));
-				} else if(sto.getType().isArray()) {
+				} else if(sto.getType().isArray() || sto.getType().isStruct()) {
 					generator.doBSS(sto);
 				} else {
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));
@@ -322,10 +326,16 @@ class MyParser extends parser {
 			return new ErrorSTO("errored");
 		} else {
 			return null;
+			
 		}
 	}
 
-	// ----------------------------------------------------------------
+	void structVarDecl(STO left, STO right) {
+		left.offset = String.valueOf(currentStruct.getSize() + left.getType().getSize());
+		
+		currentStruct.setStructMembers(left);
+	}
+	// -----------------sto-----------------------------------------------
 	//
 	// ----------------------------------------------------------------
 	void DoIterationVarDecl(STO sto) {
@@ -334,7 +344,7 @@ class MyParser extends parser {
 			m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,
 					sto.getName()));
 		}
-
+		
 		m_symtab.insert(sto);
 		
 		//assembly here?
@@ -453,8 +463,10 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	//
 	// ----------------------------------------------------------------
-	void DoStructdefDecl(String id) {
+	STO DoStructdefDecl(String id) {
+		STO sto = m_symtab.accessGlobal(id);
 		currentStruct = null;
+		return sto;
 	}
 
 	// name, init expr, opt pointer, opt array
@@ -1080,7 +1092,7 @@ class MyParser extends parser {
 			}
 
 		}
-		
+		generator.doStructDesignatorLoad();
 		return member;
 	}
 
