@@ -6,9 +6,9 @@ FLOAT_FORCE_1:    .single      0r1.0
 globalInit_:    .word        0           
                 .section     ".bss"
                 .align 4
-gfarr:          .skip        400         
+gfarr:          .skip        4           
 
-giarr:          .skip        400         
+giarr:          .skip        4           
 
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -39,12 +39,12 @@ globalInit_end:
 /* line number 10*/
 /* Starting array access */
 /* line number 10*/
-/* Loading 8 to %l0 */
-    set         8, %l0
+/* Loading 0 to %l0 */
+    set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
     nop
-    cmp         %l0, 20
+    cmp         %l0, 1
     bge     arrayOutBounds_0
     nop
 arrayInBounds_0:
@@ -53,10 +53,10 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -84, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     add         %l1, %l2, %l4
-    set         -88, %l5
+    set         -12, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_0
@@ -64,7 +64,7 @@ arrayInBounds_0:
 arrayOutBounds_0:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         20, %o2
+    set         1, %o2
     call    printf
     nop
     set         1, %o0
@@ -72,8 +72,8 @@ arrayOutBounds_0:
 
     nop
 arrayEnd_0:
-! --storing constant liarr[8] with value 19.0
-    set         -88, %l0
+! --storing constant liarr[0] with value 19.0
+    set         -12, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
     set         19, %l1
@@ -81,12 +81,12 @@ arrayEnd_0:
 /* line number 12*/
 /* Starting array access */
 /* line number 12*/
-/* Loading 1 to %l0 */
-    set         1, %l0
+/* Loading 0 to %l0 */
+    set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
     nop
-    cmp         %l0, 100
+    cmp         %l0, 1
     bge     arrayOutBounds_1
     nop
 arrayInBounds_1:
@@ -98,7 +98,7 @@ arrayInBounds_1:
     set         gfarr, %l1
     add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -92, %l5
+    set         -16, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_1
@@ -106,7 +106,7 @@ arrayInBounds_1:
 arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         100, %o2
+    set         1, %o2
     call    printf
     nop
     set         1, %o0
@@ -117,12 +117,12 @@ arrayEnd_1:
 /* line number 12*/
 /* Starting array access */
 /* line number 12*/
-/* Loading 8 to %l0 */
-    set         8, %l0
+/* Loading 0 to %l0 */
+    set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
     nop
-    cmp         %l0, 20
+    cmp         %l0, 1
     bge     arrayOutBounds_2
     nop
 arrayInBounds_2:
@@ -131,10 +131,10 @@ arrayInBounds_2:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -84, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     add         %l1, %l2, %l4
-    set         -96, %l5
+    set         -20, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_2
@@ -142,7 +142,7 @@ arrayInBounds_2:
 arrayOutBounds_2:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         20, %o2
+    set         1, %o2
     call    printf
     nop
     set         1, %o0
@@ -151,12 +151,12 @@ arrayOutBounds_2:
     nop
 arrayEnd_2:
 /* line number 12*/
-/* Converting int liarr[8] to float. */
+/* Converting int liarr[0] to float. */
 /* line number 12*/
 /* promoting */
 /* line number 12*/
-/* Loading liarr[8] to %f1 */
-    set         -96, %l1
+/* Loading liarr[0] to %f1 */
+    set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f1
@@ -164,19 +164,20 @@ arrayEnd_2:
 /* line number 12*/
 /* done promoting */
 /* line number 12*/
-/* Assigning converted liarr[8] to gfarr[1] */
-    set         -92, %l2
+/* Assigning converted liarr[0] to gfarr[0] */
+    set         -16, %l2
     add         %fp, %l2, %l2
+    ld          [%l2], %l2
     st          %f1, [%l2]
 /* line number 14*/
 /* Starting array access */
 /* line number 14*/
-/* Loading 1 to %l0 */
-    set         1, %l0
+/* Loading 0 to %l0 */
+    set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
     nop
-    cmp         %l0, 100
+    cmp         %l0, 1
     bge     arrayOutBounds_3
     nop
 arrayInBounds_3:
@@ -188,7 +189,7 @@ arrayInBounds_3:
     set         gfarr, %l1
     add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -100, %l5
+    set         -24, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_3
@@ -196,7 +197,7 @@ arrayInBounds_3:
 arrayOutBounds_3:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         100, %o2
+    set         1, %o2
     call    printf
     nop
     set         1, %o0
@@ -207,8 +208,8 @@ arrayEnd_3:
 /* line number 14*/
 /* printing float STO.ExprSTO@17ec9f7 */
 /* line number 14*/
-/* Loading gfarr[1] to %f0 */
-    set         -100, %l1
+/* Loading gfarr[0] to %f0 */
+    set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
@@ -222,4 +223,4 @@ arrayEnd_3:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 100) & -8
+SAVE.main = -(92 + 24) & -8

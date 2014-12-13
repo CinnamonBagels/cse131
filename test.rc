@@ -1,15 +1,15 @@
 // float array deref assignment from int array
 
-float[100] gfarr;
-int[100] giarr;
+float[1] gfarr;
+int[1] giarr;
 
 function: void main() {
     
-    int[20] liarr;
+    int[1] liarr;
     
-    liarr[8] = 19;
+    liarr[0] = 19;
     
-    gfarr[1] = liarr[8];
+    gfarr[0] = liarr[0];
     
-    cout << gfarr[1] << endl; //false true true
+    cout << gfarr[0] << endl; //false true true
 }
