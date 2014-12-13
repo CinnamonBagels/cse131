@@ -1636,7 +1636,7 @@ class MyParser extends parser {
 					typeCast.offset = String.valueOf(-(func.getStackSize()));
 					typeCast.base = Registers.fp;
 					
-					generator.doTypeCast(typeCast);
+					generator.doTypeCast(typeCast, sto);
 					return typeCast;
 				}
 			}
