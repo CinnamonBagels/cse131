@@ -711,6 +711,7 @@ public class AssemblyGenerator {
 				this.loadVariable("%f" + argCounter, argument);
 			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
 				
+				//TODO This is really bad
 				if(argument.getName().length() > 2 && argument.getName().substring(argument.getName().length()-2, argument.getName().length()).equals("()")){
 					argument.offset = String.valueOf(-8 - 4*argCounter);
 				}
@@ -740,7 +741,7 @@ public class AssemblyGenerator {
 
 	public void saveReturn(STO returnSTO) {
 		// TODO Auto-generated method stub
-		generateComment("Saving return value");
+		generateComment("Saving return value on to stack");
 		String storeString = "[" + returnSTO.base + "+" + returnSTO.offset + "]";
 		if(returnSTO.getType().isFloat()) {
 			generateASM(Strings.two_param, Instructions.store, Registers.f0, storeString);
