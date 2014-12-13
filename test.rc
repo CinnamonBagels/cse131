@@ -1,11 +1,13 @@
 function : void main()
 {
-    int tinafey = 5;
+    int ahoy = 10;
+    int hola = 12;
     
-    while (tinafey < 10)
+    while (ahoy < 15)
     {
         cout << "should be printed 1" << endl;
-        while (true)
+        hola = 10;
+        while (hola < 14)
         {
             cout << "should be printed 2" << endl;
             while (true)
@@ -18,10 +20,14 @@ function : void main()
                 }
                 break;
             }
-            break;
+            hola++;
+            continue;
+            cout << "AGAIN, SHOLD NOT BE PRINTED" << endl;
         }
-        cout << "tinafey counter: " << tinafey << endl;
-        tinafey++;
+        cout << "ahoy counter: " << ahoy << endl;
+        ahoy++;
+        continue;
+        cout << "SHOULD NOT BE PRINTED" << endl;
     }
 
 }

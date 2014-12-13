@@ -6,7 +6,9 @@ str_0:          .asciz       "should be printed 1"
 str_1:          .asciz       "should be printed 2"
 str_2:          .asciz       "should be printed 3"
 str_3:          .asciz       "should be printed 4"
-str_4:          .asciz       "tinafey counter: "
+str_4:          .asciz       "AGAIN, SHOLD NOT BE PRINTED"
+str_5:          .asciz       "ahoy counter: "
+str_6:          .asciz       "SHOULD NOT BE PRINTED"
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -34,24 +36,30 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 5*/
-/* setting tinafey = 5 */
-    set         5, %l0
+/* line number 4*/
+/* setting ahoy = 10 */
+    set         10, %l0
     st          %l0, [%fp-8]
-/* line number 5*/
+/* line number 4*/
+/* Done. */
+/* line number 6*/
+/* setting hola = 12 */
+    set         12, %l0
+    st          %l0, [%fp-12]
+/* line number 6*/
 /* Done. */
 while_0:
-/* line number 5*/
+/* line number 6*/
 /* Prepping Comparison Calculations by loading */
-/* line number 5*/
-/* Loading tinafey to %l0 */
+/* line number 6*/
+/* Loading ahoy to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-/* line number 5*/
-/* Loading 10 to %l1 */
-    set         10, %l1
-/* line number 5*/
+/* line number 6*/
+/* Loading 15 to %l1 */
+    set         15, %l1
+/* line number 6*/
 /* Starting Less than */
     cmp         %l0, %l1
     bl      less_0
@@ -62,133 +70,195 @@ while_0:
 less_0:
     set         1, %l3
 lessEnd_0:
-/* line number 5*/
+/* line number 6*/
 /* Storing result of Comparison Op */
-    set         -12, %l4
+    set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-/* line number 6*/
+/* line number 7*/
 /* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
  to %l0 */
-    set         -12, %l1
+    set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     cmp         %l0, %g0
     be      whileEnd_0
     nop
-/* line number 7*/
+/* line number 8*/
 /* printing string */
     set         _strFmt, %o0
     set         str_0, %o1
     call    printf
     nop
-/* line number 7*/
+/* line number 8*/
 /* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
+! --storing constant hola with value 10.0
+    set         -12, %l0
+    add         %fp, %l0, %l0
+    set         10, %l1
+    st          %l1, [%l0]
 while_1:
-/* line number 9*/
-/* Loading true to %l0 */
-    set         1, %l0
+/* line number 10*/
+/* Prepping Comparison Calculations by loading */
+/* line number 10*/
+/* Loading hola to %l0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+/* line number 10*/
+/* Loading 14 to %l1 */
+    set         14, %l1
+/* line number 10*/
+/* Starting Less than */
+    cmp         %l0, %l1
+    bl      less_1
+    nop
+    set         0, %l3
+    ba      lessEnd_1
+    nop
+less_1:
+    set         1, %l3
+lessEnd_1:
+/* line number 10*/
+/* Storing result of Comparison Op */
+    set         -20, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 11*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
     cmp         %l0, %g0
     be      whileEnd_1
     nop
-/* line number 10*/
+/* line number 12*/
 /* printing string */
     set         _strFmt, %o0
     set         str_1, %o1
     call    printf
     nop
-/* line number 10*/
+/* line number 12*/
 /* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
 while_2:
-/* line number 12*/
+/* line number 14*/
 /* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      whileEnd_2
     nop
-/* line number 13*/
+/* line number 15*/
 /* printing string */
     set         _strFmt, %o0
     set         str_2, %o1
     call    printf
     nop
-/* line number 13*/
+/* line number 15*/
 /* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
 while_3:
-/* line number 15*/
+/* line number 17*/
 /* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      whileEnd_3
     nop
-/* line number 16*/
+/* line number 18*/
 /* printing string */
     set         _strFmt, %o0
     set         str_3, %o1
     call    printf
     nop
-/* line number 16*/
+/* line number 18*/
 /* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 18*/
+/* line number 20*/
 /* Breaking out of while loop */
     ba      whileEnd_3
     nop
     ba      while_3
     nop
 whileEnd_3:
-/* line number 20*/
+/* line number 22*/
 /* Breaking out of while loop */
     ba      whileEnd_2
     nop
     ba      while_2
     nop
 whileEnd_2:
-/* line number 22*/
-/* Breaking out of while loop */
-    ba      whileEnd_1
-    nop
-    ba      while_1
-    nop
-whileEnd_1:
 /* line number 23*/
+/* Incrementing */
+/* line number 23*/
+/* Loading hola to %l0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    inc     %l0
+    set         -12, %l2
+    add         %fp, %l2, %l2
+    st          %l0, [%l2]
+/* line number 23*/
+/* Post Increment */
+    dec     %l0
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l1]
+/* line number 25*/
+/* Continuing while loop */
+    ba      while_3
+    nop
+/* line number 25*/
 /* printing string */
     set         _strFmt, %o0
     set         str_4, %o1
     call    printf
     nop
-/* line number 23*/
+/* line number 25*/
 /* Done printing string. */
-/* line number 23*/
-/* Printing int tinafey */
+    set         _endl, %o0
+    call    printf
+    nop
+    ba      while_1
+    nop
+whileEnd_1:
+/* line number 27*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_5, %o1
+    call    printf
+    nop
+/* line number 27*/
+/* Done printing string. */
+/* line number 27*/
+/* Printing int ahoy */
     set         _intFmt, %o0
-/* line number 23*/
-/* Loading tinafey to %o1 */
+/* line number 27*/
+/* Loading ahoy to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
-/* line number 23*/
+/* line number 27*/
 /* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 24*/
+/* line number 28*/
 /* Incrementing */
-/* line number 24*/
-/* Loading tinafey to %l0 */
+/* line number 28*/
+/* Loading ahoy to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -196,16 +266,31 @@ whileEnd_1:
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
-/* line number 24*/
+/* line number 28*/
 /* Post Increment */
     dec     %l0
-    set         -16, %l1
+    set         -28, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+/* line number 30*/
+/* Continuing while loop */
+    ba      while_3
+    nop
+/* line number 30*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_6, %o1
+    call    printf
+    nop
+/* line number 30*/
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
     ba      while_0
     nop
 whileEnd_0:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 16) & -8
+SAVE.main = -(92 + 28) & -8
