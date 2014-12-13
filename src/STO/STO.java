@@ -18,6 +18,7 @@ public abstract class STO
 	public boolean isInitialized = false;
 	public boolean isReference = false;
 	public boolean isDereferenced = false;
+	public boolean isInStruct = false;
 
 	//----------------------------------------------------------------
 	//

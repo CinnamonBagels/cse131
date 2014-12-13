@@ -1092,7 +1092,30 @@ class MyParser extends parser {
 			}
 
 		}
-		generator.doStructDesignatorLoad(member);
+		if(member.base == null || member.offset == null) {
+			String accessName = member.getName();
+			StructType structType = (StructType) sto.getType();
+			int offset = -sto.getType().getSize();
+			Scope scope = structType.getScope();
+			int accumulator = 0;
+			int totalOffset = 0;
+			
+			for( STO mem : scope.accessAll()) {
+				String memberName = mem.getName();
+				if(accessName.equals(memberName)) {
+					break;
+				}
+				
+				if(mem.isFunc() == false) {
+					accumulator += mem.getType().getSize();
+				}
+				
+			}
+			totalOffset = offset + accumulator;
+			
+			member.base = Registers.fp;
+			member.offset = String.valueOf(totalOffset);
+		}
 		return member;
 	}
 

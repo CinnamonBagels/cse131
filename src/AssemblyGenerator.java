@@ -21,6 +21,7 @@ public class AssemblyGenerator {
 	public Stack<Integer> whileStack = new Stack<Integer>();
 	public Stack<Integer> loopStack = new Stack<Integer>();
 	public Stack<Integer> forStack = new Stack<Integer>();
+	public Stack<String> structMemberStack = new Stack<String>();
 	public int stringLits = 0;
 	public int branches = 0;
 	public int arrayDecl = 0;
@@ -272,8 +273,10 @@ public class AssemblyGenerator {
 	public void storeConstant(STO sto, ConstSTO csto){
 		
 		generateASM("! --storing constant " + sto.getName() + " with value " + csto.getValue() + "\n");
-		generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
-		generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		if(sto.isInStruct == false) {
+			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+		}
 		String register = "";
 		//we'll have to check if in struct later
 		//should make a new method for this.
@@ -493,6 +496,7 @@ public class AssemblyGenerator {
 	public void storeVariable(STO dest, STO value) {
 		
 		String dest_register = "";
+		String final_register = Registers.l0;
 		
 		if(value.getType().isFloat()) {
 			dest_register += Registers.f1;
@@ -501,10 +505,15 @@ public class AssemblyGenerator {
 		}
 		generateComment("Storing variable " + value.getName() + " into " + dest.getName());
 		//setting destination
-		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l5);
-		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l5, Registers.l5);
+		if(dest.isInStruct == false) {
+			generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l5);
+			generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l5, Registers.l5);
+		} else {
+			final_register = Registers.l5;
+		}
+		
 		if(dest.isReference) {
-			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l5 + "]", Registers.l5);
+			generateASM(Strings.two_param, Instructions.load, "[" + final_register + "]", final_register);
 		}
 		
 		if(value.isConst() && !value.getType().isFloat()) {
@@ -528,7 +537,7 @@ public class AssemblyGenerator {
 				if(value.isReference) {
 					generateASM(Strings.two_param, Instructions.load, "[" + Registers.l3 + "]", Registers.l3);
 				}
-				generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + dest_register + "]");
+				generateASM(Strings.two_param, Instructions.store, Registers.l3, "[" + final_register + "]");
 			}
 			
 
@@ -539,7 +548,8 @@ public class AssemblyGenerator {
 	
 	public void storeConvertedVar(STO dest, STO source){
 		
-		String register = "";
+		String register = Registers.f1;
+		String dest_register = Registers.l2;
 		
 		if(source.getType() instanceof IntegerType){
 			generateComment("Converting int " + source.getName() + " to float.");
@@ -550,11 +560,15 @@ public class AssemblyGenerator {
 //		}
 		
 		generateComment("Assigning converted " + source.getName() + " to " + dest.getName());
-		generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l2);
-		generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l2, Registers.l2);
-		//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l3);
+		if(dest.isInStruct == false) {
+			generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l2);
+			generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l2, Registers.l2);
+			dest_register = Registers.l2;
+		} else {
+			dest_register = Registers.l0;
+		}
 		
-		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
+		generateASM(Strings.two_param, Instructions.store, register, "[" + dest_register + "]");
 		
 	}
 
@@ -568,14 +582,19 @@ public class AssemblyGenerator {
 			} else if(type.isFloat()) {
 				//i think we can leave it as a getvalue for now. WRONG
 				//generateASM(Strings.two_param, Instructions.set, "" + sto.offset, register);
-				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
-				generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+				if(sto.isInStruct == false) {
+					generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
+					generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
+				}
 				
 				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
 			}
 		} else {
-			generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
-			generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
+			if(sto.isInStruct == false) {
+				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
+				generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
+			}
+			
 			if(sto.isReference || sto.isDereferenced) {
 				//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + sto.offset +"]", Registers.l1);
 				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
@@ -1785,8 +1804,26 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 	}
 
-	public void doStructDesignatorLoad(STO member) {
+	public void doStructDesignatorLoad(STO struct, STO member, FuncSTO func) {
 		// TODO Auto-generated method stub
+		String accessName = member.getName();
+		StructType structType = (StructType) struct.getType();
+		int offset = Integer.parseInt(struct.offset);
+		Scope scope = structType.getScope();
+		int accumulator = 0;
+		int totalOffset = 0;
 		
+		for( STO mem : scope.accessAll()) {
+			String memberName = mem.getName();
+			if(accessName.equals(memberName)) {
+				break;
+			}
+			
+			if(mem.isFunc() == false) {
+				accumulator += mem.getType().getSize();
+			}
+			
+		}
+		totalOffset = offset + accumulator;
 	}
 }

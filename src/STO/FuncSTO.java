@@ -12,7 +12,7 @@ public class FuncSTO extends STO
 	private Type m_returnType;
 	private boolean isReturnReference;
 	private Vector<VarSTO> params;
-	private int stackSize;
+	public int stackSize;
 	
 	
 	//----------------------------------------------------------------
