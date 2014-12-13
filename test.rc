@@ -1,9 +1,12 @@
-float a = 5.0;
-float b = ++a;
+
 
 function: void main()
 {
-    cout<<b<<endl; //should print out 6
-    cout<<++b<<endl;//should print 7
-    cout<<--b<<endl; //should print 6
+  bool a = false;
+  bool b = true;
+  bool c = false;
+  bool d = true;
+
+  cout << a || (b || c || d) << endl;
+
 }

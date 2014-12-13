@@ -2,9 +2,6 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     a,b
-a:              .single      0r5.0       
-b:              .single      0r0         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -28,98 +25,171 @@ main:
     cmp         %l0, %g0
     bne     globalInit_end
     nop
-/* line number 2*/
-/* Incrementing */
-    set         a, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    set         FLOAT_FORCE_1, %l6
-    ld          [%l6], %f1
-    fadds       %f0, %f1, %f2
-    set         a, %l1
-    add         %g0, %l1, %l1
-    st          %f2, [%l1]
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    st          %f2, [%l1]
-/* line number 4*/
-/* Storing variable Validating UnaryOp a as a FloatType for operator: ++...
- into b */
-    set         b, %l5
-    add         %g0, %l5, %l5
-    set         -8, %l3
-    add         %fp, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
 /* line number 6*/
-/* printing float STO.VarSTO@6d0040 */
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
+/* setting a = false */
+    set         0, %l0
+    st          %l0, [%fp-8]
 /* line number 6*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
+/* Done. */
 /* line number 7*/
-/* Incrementing */
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    set         FLOAT_FORCE_1, %l6
-    ld          [%l6], %f1
-    fadds       %f0, %f1, %f2
-    set         b, %l1
-    add         %g0, %l1, %l1
-    st          %f2, [%l1]
+/* setting b = true */
+    set         1, %l0
+    st          %l0, [%fp-12]
+/* line number 7*/
+/* Done. */
+/* line number 8*/
+/* setting c = false */
+    set         0, %l0
+    st          %l0, [%fp-16]
+/* line number 8*/
+/* Done. */
+/* line number 10*/
+/* setting d = true */
+    set         1, %l0
+    st          %l0, [%fp-20]
+/* line number 10*/
+/* Done. */
+/* line number 10*/
+/* Short-circuiting || with a */
     set         -8, %l1
     add         %fp, %l1, %l1
-    st          %f2, [%l1]
-/* line number 7*/
-/* printing float STO.ExprSTO@2b9406 */
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    bne     _orOp0
+    nop
+/* line number 10*/
+/* Short-circuiting || with b */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    bne     _orOp0
+    nop
+/* line number 10*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 10*/
+/* ||-ing */
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    bne     _orOp0
+    nop
+    set         0, %l2
+    ba      _orOp1
+    nop
+_orOp0:
+    set         1, %l2
+    ba      _orOp1
+    nop
+_orOp1:
+/* line number 10*/
+/* Storing result of Binary Op */
+    set         -24, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 10*/
+/* Short-circuiting || with Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ */
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    cmp         %l1, %g0
+    bne     _orOp2
+    nop
+/* line number 10*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 10*/
+/* ||-ing */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    bne     _orOp2
+    nop
+    set         0, %l2
+    ba      _orOp3
+    nop
+_orOp2:
+    set         1, %l2
+    ba      _orOp3
+    nop
+_orOp3:
+/* line number 10*/
+/* Storing result of Binary Op */
+    set         -28, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 10*/
+/* Prepping Arithmetic Calculations by loading */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
+    ld          [%l1], %l0
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 10*/
+/* ||-ing */
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l2
+    cmp         %l2, %g0
+    bne     _orOp4
     nop
-/* line number 7*/
-/* Done printing float. */
-    set         _endl, %o0
+    set         0, %l2
+    ba      _orOp5
+    nop
+_orOp4:
+    set         1, %l2
+    ba      _orOp5
+    nop
+_orOp5:
+/* line number 10*/
+/* Storing result of Binary Op */
+    set         -32, %l4
+    add         %fp, %l4, %l4
+    st          %l2, [%l4]
+/* line number 10*/
+/* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ */
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         _strFmt, %o0
+    cmp         %l0, %g0
+    be      printFalse_0
+    nop
+printTrue_0:
+    set         _boolT, %o1
+    ba      branchEnd_0
+    nop
+printFalse_0:
+    set         _boolF, %o1
+branchEnd_0:
     call    printf
     nop
-/* line number 8*/
-/* Decrementing */
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    set         FLOAT_FORCE_1, %l6
-    ld          [%l6], %f1
-    fsubs       %f0, %f1, %f2
-    set         b, %l1
-    add         %g0, %l1, %l1
-    st          %f2, [%l1]
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    st          %f2, [%l1]
-/* line number 8*/
-/* printing float STO.ExprSTO@f30494 */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 8*/
-/* Done printing float. */
+/* line number 10*/
+/* Done printing bool. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 12) & -8
+SAVE.main = -(92 + 32) & -8

@@ -781,10 +781,12 @@ Expr ::=         Designator:_1 T_ASSIGN Expr:_2
 
 Expr0 ::=        Expr0:_1 T_OR 
 					{:
+					System.out.println(_1.getName());
 			((MyParser) parser).DoShortCircuit(_1, new OrOp("||"), ((MyParser) parser).generator);
 					:}
 					Expr1:_2
                     {:
+                    System.out.println(_2.getName());
 			RESULT = ((MyParser) parser).DoBinaryOp (_1, new OrOp("||"), _2);
                     :}
     |               Expr1:_1
