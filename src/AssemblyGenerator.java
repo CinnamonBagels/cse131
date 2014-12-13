@@ -964,7 +964,7 @@ public class AssemblyGenerator {
 			register = Registers.l2;
 		} else if(op.getName().equals("&&")){
 			generateComment("&&-ing");
-			generateASM(Strings.two_param, Instructions.cmp, Registers.l2, Registers.g0);
+			generateASM(Strings.two_param, Instructions.cmp, Registers.l1, Registers.g0);
 			generateASM(Strings.one_param, Instructions.bne, Strings.andT + andCount);
 			generateASM(Strings.nop);
 			generateASM(Strings.label, Strings.andF + andCount);
@@ -979,7 +979,7 @@ public class AssemblyGenerator {
 		} else if(op.getName().equals("||")){
 			generateComment("||-ing");
 			loadVariable(Registers.l2, right);
-			generateASM(Strings.two_param, Instructions.cmp, Registers.l2, Registers.g0);
+			generateASM(Strings.two_param, Instructions.cmp, Registers.l1, Registers.g0);
 			generateASM(Strings.one_param, Instructions.bne, Strings.orT + orCount);
 			generateASM(Strings.nop);
 			generateASM(Strings.label, Strings.orF + orCount);
@@ -1733,6 +1733,33 @@ public class AssemblyGenerator {
 	public void doForBreak() {
 		generateComment("breaking out of for loop");
 		generateASM(Strings.one_param, Instructions.ba, Strings.forEnd + (forStmts - 1));
+		generateASM(Strings.nop);
+	}
+
+	public void doContinue() {
+		// TODO Auto-generated method stub
+		int loop = loopStack.peek();
+		
+		if(loop == 0) {
+			doWhileContinue();
+		} else {
+			doForContinue();
+		}
+		
+		
+	}
+
+	private void doForContinue() {
+		// TODO Auto-generated method stub
+		generateComment("Continuing for loop");
+		generateASM(Strings.one_param, Instructions.ba, Strings.forStart + (this.forStmts - 1));
+		generateASM(Strings.nop);
+	}
+
+	private void doWhileContinue() {
+		// TODO Auto-generated method stub
+		generateComment("Continuing while loop");
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + (this.whileStmts - 1));
 		generateASM(Strings.nop);
 	}
 }

@@ -727,6 +727,8 @@ class MyParser extends parser {
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error12_Continue);
 		}
+		
+		generator.doContinue();
 	}
 	
 	public void DoCloseLoop()	 {
