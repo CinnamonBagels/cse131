@@ -2,6 +2,8 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
+<<<<<<< HEAD
+=======
 str_0:          .asciz       "should be printed 1"
 str_1:          .asciz       "should be printed 2"
 str_2:          .asciz       "should be printed 3"
@@ -9,6 +11,7 @@ str_3:          .asciz       "should be printed 4"
 str_4:          .asciz       "AGAIN, SHOLD NOT BE PRINTED"
 str_5:          .asciz       "ahoy counter: "
 str_6:          .asciz       "SHOULD NOT BE PRINTED"
+>>>>>>> 4ea61d9b805ad48bf760eccdf7dba1ec34a20091
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -23,6 +26,31 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 
                 .section     ".text"
                 .align 4
+<<<<<<< HEAD
+                .global      foo
+foo:
+    set         SAVE.foo, %g1
+    save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 4*/
+/* Returning value from foo */
+/* line number 4*/
+/* Loading x to %i0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %i0
+    ba      foo_end
+    nop
+foo_end:
+    ret 
+    restore
+SAVE.foo = -(92 + 4) & -8
+                .section     ".text"
+                .align 4
+=======
+>>>>>>> 4ea61d9b805ad48bf760eccdf7dba1ec34a20091
                 .global      main
 main:
     set         SAVE.main, %g1
@@ -36,6 +64,29 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+<<<<<<< HEAD
+    call    foo
+    nop
+/* line number 8*/
+/* Saving return value */
+    st          %o0, [%fp+-8]
+    call    foo
+    nop
+/* line number 8*/
+/* Saving return value */
+    st          %o0, [%fp+-12]
+/* line number 8*/
+/* Printing int foo() */
+    set         _intFmt, %o0
+/* line number 8*/
+/* Loading foo() to %o1 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 8*/
+=======
 /* line number 4*/
 /* setting ahoy = 10 */
     set         10, %l0
@@ -251,6 +302,7 @@ whileEnd_1:
     call    printf
     nop
 /* line number 27*/
+>>>>>>> 4ea61d9b805ad48bf760eccdf7dba1ec34a20091
 /* Done printing int. */
     set         _endl, %o0
     call    printf
