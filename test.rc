@@ -17,6 +17,7 @@ function : void main()
     food.a = 88.43;
 
     FOO food1;
+    FOO food2;
     
     food1 = food;
     food2 = food1;
