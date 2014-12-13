@@ -807,7 +807,6 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	STO DoAssignExpr(STO stoDes, STO _2) {
-		System.out.println(stoDes.isReference);
 		if(stoDes.isError()) {
 			return stoDes;
 		}

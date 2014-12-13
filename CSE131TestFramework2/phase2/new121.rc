@@ -9,17 +9,17 @@ function : void main()
 
 	
 
-	if(2)
+	if(true)
 	{
 		cout << "YES!" << endl;
 	}
 
-	if(0)
+	if(false)
 	{
 		cout << "GOT YOU!" << endl;
 	}
 
-	if(-10)
+	if(true)
 	{
 		cout << "YES!" << endl;
 	}
@@ -34,47 +34,47 @@ function : void main()
 		cout << "GOT YOU!" << endl;
 	}
 
-	if(x)
+	if(false)
 	{
 		cout << "GOT YOU!" << endl;
 	}
 
-	if(y)
+	if(true)
 	{
 		cout << "YES!" << endl;
 	}
 
-	if(::x)
+	if(false)
 	{
 		cout << "GOT YOU!" << endl;
 	}
 
-	if(::y)
+	if(true)
 	{
 		cout << "YES!" << endl;
 	}
 
-	if(1+3)
+	if(true)
 	{
 		cout << "YES!" << endl;
 	}
 
-	if(3-3)
+	if(false)
 	{
 		cout << "GOT YOU!" << endl;
 	}
 
-	if(x+y)
+	if(true)
 	{
 		cout << "YES!" << endl;
 	}
 
-	if(x+::x)
+	if(false)
 	{
 		cout << "GOT YOU!" << endl;
 	}
 
-	if(::y-y)
+	if(false)
 	{
 		cout << "GOT YOU!" << endl;
 	}
