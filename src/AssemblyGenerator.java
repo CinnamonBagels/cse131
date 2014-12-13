@@ -696,7 +696,7 @@ public class AssemblyGenerator {
 	
 	public void storeParameters(STO sto, int num){
 		generateComment("Storing parameter " + sto.getName());
-		if(!sto.getType().isFloat() || sto.isReference){
+		if(!sto.getType().isFloat() || (sto.isVar() && ((VarSTO)sto).isReference)){
 			//generateASM(Strings.two_param, Instructions.store, "%i" + num, "[" + sto.base + "+" + sto.offset + "]");
 			generateASM(Strings.two_param, Instructions.store, "%i" + num, "[" + sto.base + "+" + sto.offset + "]");
 		} else {

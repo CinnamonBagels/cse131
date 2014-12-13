@@ -26,10 +26,10 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %f0, [%fp+68]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter y */
-    st          %f1, [%fp+72]
+    st          %i1, [%fp+72]
 ! --storing constant x with value 7.0
     set         68, %l0
     add         %fp, %l0, %l0
@@ -96,7 +96,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 14*/
-/* printing float STO.VarSTO@a522a6 */
+/* printing float STO.VarSTO@1860038 */
 /* line number 14*/
 /* Loading a to %f0 */
     set         -8, %l1
@@ -107,7 +107,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing float. */
 /* line number 14*/
-/* printing float STO.VarSTO@1860038 */
+/* printing float STO.VarSTO@787c16 */
 /* line number 14*/
 /* Loading b to %f0 */
     set         -12, %l1
