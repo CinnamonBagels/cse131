@@ -192,7 +192,7 @@ while_3:
 whileEnd_3:
 /* line number 22*/
 /* Breaking out of while loop */
-    ba      whileEnd_1
+    ba      whileEnd_2
     nop
     ba      while_2
     nop
@@ -216,7 +216,7 @@ whileEnd_2:
     st          %l0, [%l1]
 /* line number 25*/
 /* Continuing while loop */
-    ba      while_-1
+    ba      while_1
     nop
 /* line number 25*/
 /* printing string */
@@ -274,7 +274,7 @@ whileEnd_1:
     st          %l0, [%l1]
 /* line number 30*/
 /* Continuing while loop */
-    ba      while_-2
+    ba      while_0
     nop
 /* line number 30*/
 /* printing string */

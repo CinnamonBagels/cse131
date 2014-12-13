@@ -1750,14 +1750,12 @@ public class AssemblyGenerator {
 		generateComment("Breaking out of while loop");
 		generateASM(Strings.one_param, Instructions.ba, Strings.whileEnd + finalWhileStmts);
 		generateASM(Strings.nop);
-		finalWhileStmts--;
 	}
 	
 	public void doForBreak() {
 		generateComment("breaking out of for loop");
 		generateASM(Strings.one_param, Instructions.ba, Strings.forEnd + finalForStmts);
 		generateASM(Strings.nop);
-		finalForStmts--;
 	}
 
 	public void doContinue() {
