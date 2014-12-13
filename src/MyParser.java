@@ -830,7 +830,10 @@ class MyParser extends parser {
 		if(_2.isConst()) {
 			generator.storeConstant(stoDes, (ConstSTO)_2);
 		} else {
-			if(stoDes.getType().getName().equals(_2.getType().getName())){
+			if(stoDes.getType().isStruct() && _2.getType().isStruct()) {
+				generator.storeStruct(stoDes, _2);
+			} 
+			else if(stoDes.getType().getName().equals(_2.getType().getName())){
 				generator.storeVariable(stoDes, _2);
 			}else{
 				generator.storeConvertedVar(stoDes, _2);
