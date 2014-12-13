@@ -28,7 +28,7 @@ foo:
 /* Loading x to %f0 */
     set         68, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     ba      foo_end
     nop
 foo_end:
