@@ -10,6 +10,4 @@ function: void main()
 
   x= 5;
   y= 5;
-  cout<< !(x<y)<<endl; //should print out true
-  cout<< !(x==y)<<endl; //should print out false
 }
