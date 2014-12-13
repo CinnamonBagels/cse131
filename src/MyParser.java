@@ -1354,7 +1354,7 @@ class MyParser extends parser {
 					sto.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + sto.getType().getSize()));
 					m_symtab.getFunc().addToStack(sto.getType().getSize());
 				}
-				
+				System.out.println("woah");
 				generator.evaluateBinary(_1, _3, _2, sto);
 			}
 		}

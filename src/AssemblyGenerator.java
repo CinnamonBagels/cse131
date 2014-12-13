@@ -754,7 +754,7 @@ public class AssemblyGenerator {
 	}
 
 	public void evaluateBinary(STO left, STO right, BinaryOp op, STO sto) {
-		
+		System.out.println(op.getName());
 		if(right.isConst() && right.getType().isFloat() && (right.base == null || right.offset == null)) {
 			assignFloat((ConstSTO)right);
 		}
@@ -957,6 +957,7 @@ public class AssemblyGenerator {
 			generateASM(Strings.three_param, Instructions.xor, Registers.l0, Registers.l1, Registers.l2);
 			register = Registers.l2;
 		} else if(op.getName().equals("&&")){
+			System.out.println("hereing");
 			generateComment("&&-ing");
 			loadVariable(Registers.l2, right);
 			generateASM(Strings.two_param, Instructions.cmp, Registers.l2, Registers.g0);
