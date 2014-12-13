@@ -678,13 +678,17 @@ public class AssemblyGenerator {
 
 	public void prepareArguments(STO argument, VarSTO parameter, int argCounter) {
 		// TODO Auto-generated method stub
-		if(parameter.getIsReference()) {
+		generateComment("Preparing argument " + argument.getName());
+		
+		if(parameter != null && parameter.getIsReference()) {
 			//do reference stuff here.
 		} else {
-			if(argument.getType().isFloat()) {
+			if(argument.getType().isFloat() && parameter.getType().isFloat()) {
 				this.loadVariable("%f" + argCounter, argument);
-			} else {
+			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
 				this.loadVariable("%o" + argCounter, argument);
+			} else {
+				
 			}
 		}
 	}
@@ -699,9 +703,7 @@ public class AssemblyGenerator {
 			loadVariable(Registers.l0, functionBeingExecuted);
 			generateASM(Strings.call_op, Registers.l0);
 		}
-		generateASM(Strings.nop);
-		
-		
+		generateASM(Strings.nop);		
 	}
 
 	public void saveReturn(STO returnSTO) {

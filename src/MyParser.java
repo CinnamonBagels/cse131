@@ -762,7 +762,7 @@ class MyParser extends parser {
 					sto.base = Registers.fp;
 					sto.offset = "" + (-8 - 4*numArgs++);
 					//TODO Extern
-					System.out.println(params.get(i).base + params.get(i).offset);
+					//System.out.println(params.get(i).base + params.get(i).offset);
 					
 					m_symtab.insert(params.get(i));
 				}
@@ -850,7 +850,7 @@ class MyParser extends parser {
 
 		// casting is gets too complicated, just set a variable.
 		FuncSTO funcSTOCast = (FuncSTO) sto;
-
+ 
 		if (funcSTOCast.getParameters().size() != arguments.size()) {
 			m_nNumErrors++;
 			m_errors.print(Formatter.toString(ErrorMsg.error5n_Call,
@@ -971,10 +971,11 @@ class MyParser extends parser {
 		Vector<VarSTO> parameters = function.getParameters();
 		
 		int argCounter = 0;
+
 		for(int i = 0; i < parameters.size(); i++) {
 			generator.prepareArguments(arguments.get(i), parameters.get(i), argCounter++);
 		}
-		
+
 		//fuck need counter
 		generator.executeFunction(functionBeingExecuted);
 		returnSTO.offset = String.valueOf(-(function.getStackSize() + returnSTO.getType().getSize()));

@@ -5,6 +5,6 @@ function : int foo(int x, int y)
 
 function : void main()
 {
-   cout << foo(foo(3,4)) << endl;
+   cout << foo(foo(3,4),foo(1,2)) << endl;
 
 }
