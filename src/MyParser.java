@@ -1386,8 +1386,14 @@ class MyParser extends parser {
 					result.base = Registers.g0;
 					generator.assignFloat((ConstSTO)result);
 				} else {
-					result.offset = String.valueOf(((ConstSTO) result).getIntValue());
-					result.base = Registers.g0;
+					FuncSTO func = m_symtab.getFunc();
+					
+					if(func == null) {
+						func = main;
+					}
+					func.addToStack(result.getType().getSize());
+					result.offset = String.valueOf(-(func.getStackSize()));
+					result.base = Registers.fp;
 				}
 				generator.evaluateBinary(leftOperand, rightOperand, _2, result);
 				return result;

@@ -98,8 +98,8 @@ andT_0:
 andEnd_0:
 /* line number 10*/
 /* Storing result of Binary Op */
-    set         1, %l4
-    add         %g0, %l4, %l4
+    set         -12, %l4
+    add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* line number 11*/
 /* Loading true to %l0 */
@@ -126,4 +126,4 @@ endIf_1:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 12) & -8
