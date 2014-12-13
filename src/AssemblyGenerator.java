@@ -704,7 +704,6 @@ public class AssemblyGenerator {
 			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
 				this.loadVariable("%o" + argCounter, argument);
 			} else {
-				
 			}
 		}
 	}

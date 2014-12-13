@@ -985,7 +985,6 @@ class MyParser extends parser {
 		
 		int argCounter = 0;
 
-		System.out.println(parameters.size());
 		for(int i = 0; i < parameters.size(); i++) {
 			generator.prepareArguments(arguments.get(i), parameters.get(i), argCounter++);
 		}
