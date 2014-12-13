@@ -25,11 +25,16 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 boo:
     set         SAVE.boo, %g1
     save        %sp, %g1, %sp
+/* line number 5*/
+/* Storing parameter y */
+    st          %i0, [%fp+-8]
 /* line number 7*/
 /* Returning value from boo */
+/* line number 7*/
+/* Loading y to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     fitos       %f0, %f0
     ba      boo_end
     nop
@@ -43,6 +48,9 @@ SAVE.boo = -(92 + 4) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 10*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
 /* line number 12*/
 /* setting z = 1 */
     set         1, %l0
@@ -51,7 +59,9 @@ foo:
 /* Done. */
 /* line number 12*/
 /* Preparing argument z */
-    set         -8, %l1
+/* line number 12*/
+/* Loading z to %o0 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    boo
@@ -61,7 +71,9 @@ foo:
     st          %f0, [%fp+-12]
 /* line number 12*/
 /* Preparing argument x */
-    set         -8, %l1
+/* line number 12*/
+/* Loading x to %o0 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    boo
@@ -73,9 +85,13 @@ foo:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 12*/
 /* Adding */
+/* line number 12*/
+/* Loading boo() to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 12*/
+/* Loading boo() to %f1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -87,9 +103,11 @@ foo:
     st          %f3, [%l4]
 /* line number 13*/
 /* Returning value from foo */
+/* line number 13*/
+/* Loading float + float to %i0 */
     set         -20, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     ba      foo_end
     nop
 foo_end:
@@ -125,7 +143,9 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 17*/
-/* printing float STO.VarSTO@29626a */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 17*/
+/* Loading foo() to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

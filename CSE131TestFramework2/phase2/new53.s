@@ -30,6 +30,9 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo1:
     set         SAVE.foo1, %g1
     save        %sp, %g1, %sp
+/* line number 8*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -40,6 +43,8 @@ foo1:
 /* Done printing string. */
 /* line number 11*/
 /* Returning value from foo1 */
+/* line number 11*/
+/* Loading a to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -55,6 +60,8 @@ SAVE.foo1 = -(92 + 4) & -8
 foo2:
     set         SAVE.foo2, %g1
     save        %sp, %g1, %sp
+/* line number 14*/
+/* Storing parameter y */
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0
@@ -65,9 +72,11 @@ foo2:
 /* Done printing string. */
 /* line number 17*/
 /* Returning value from foo2 */
+/* line number 17*/
+/* Loading y to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     ba      foo2_end
     nop
 foo2_end:
@@ -80,6 +89,9 @@ SAVE.foo2 = -(92 + 4) & -8
 foo3:
     set         SAVE.foo3, %g1
     save        %sp, %g1, %sp
+/* line number 20*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
@@ -90,6 +102,8 @@ foo3:
 /* Done printing string. */
 /* line number 23*/
 /* Returning value from foo3 */
+/* line number 23*/
+/* Loading a to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -130,6 +144,8 @@ globalInit_end:
 /* line number 27*/
 /* Printing int foo1() */
     set         _intFmt, %o0
+/* line number 27*/
+/* Loading foo1() to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -143,7 +159,9 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-12]
 /* line number 27*/
-/* printing float STO.VarSTO@29626a */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 27*/
+/* Loading foo2() to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -158,6 +176,8 @@ globalInit_end:
     st          %o0, [%fp+-16]
 /* line number 27*/
 /* Printing bool foo3() */
+/* line number 27*/
+/* Loading foo3() to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -183,6 +203,8 @@ branchEnd_0:
     st          %o0, [%fp+-20]
 /* line number 27*/
 /* Printing bool foo3() */
+/* line number 27*/
+/* Loading foo3() to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

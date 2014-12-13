@@ -55,6 +55,8 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 18*/
 /* Returning value from foo2 */
+/* line number 18*/
+/* Loading a to %i0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %i0
@@ -70,8 +72,13 @@ SAVE.foo2 = -(92 + 4) & -8
 foo3:
     set         SAVE.foo3, %g1
     save        %sp, %g1, %sp
+/* line number 21*/
+/* Storing parameter t */
+    st          %i0, [%fp+-8]
 /* line number 23*/
 /* Returning value from foo3 */
+/* line number 23*/
+/* Loading t to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -126,6 +133,8 @@ globalInit_end:
     nop
 /* line number 33*/
 /* Negating */
+/* line number 33*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -145,6 +154,9 @@ negEnd_0:
 /* line number 33*/
 /* Printing bool Validating UnaryOp a as a BooleanType for operator: !...
  */
+/* line number 33*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -168,6 +180,8 @@ branchEnd_0:
     nop
 /* line number 34*/
 /* Negating */
+/* line number 34*/
+/* Loading b to %l0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -187,6 +201,9 @@ negEnd_1:
 /* line number 34*/
 /* Printing bool Validating UnaryOp b as a BooleanType for operator: !...
  */
+/* line number 34*/
+/* Loading Validating UnaryOp b as a BooleanType for operator: !...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -210,6 +227,8 @@ branchEnd_1:
     nop
 /* line number 35*/
 /* Negating */
+/* line number 35*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -229,6 +248,9 @@ negEnd_2:
 /* line number 35*/
 /* Printing bool Validating UnaryOp x as a BooleanType for operator: !...
  */
+/* line number 35*/
+/* Loading Validating UnaryOp x as a BooleanType for operator: !...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -252,6 +274,8 @@ branchEnd_2:
     nop
 /* line number 36*/
 /* Negating */
+/* line number 36*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -271,6 +295,9 @@ negEnd_3:
 /* line number 36*/
 /* Printing bool Validating UnaryOp y as a BooleanType for operator: !...
  */
+/* line number 36*/
+/* Loading Validating UnaryOp y as a BooleanType for operator: !...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -294,6 +321,8 @@ branchEnd_3:
     nop
 /* line number 38*/
 /* Negating */
+/* line number 38*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -313,6 +342,9 @@ negEnd_4:
 /* line number 38*/
 /* Short-circuiting && with Validating UnaryOp a as a BooleanType for operator: !...
  */
+/* line number 38*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -321,6 +353,8 @@ negEnd_4:
     nop
 /* line number 38*/
 /* Negating */
+/* line number 38*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -339,9 +373,15 @@ negEnd_5:
     st          %l0, [%l1]
 /* line number 38*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 38*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 38*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l1 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -365,6 +405,9 @@ andEnd_0:
 /* line number 38*/
 /* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  */
+/* line number 38*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -388,6 +431,8 @@ branchEnd_4:
     nop
 /* line number 39*/
 /* Negating */
+/* line number 39*/
+/* Loading b to %l0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -407,6 +452,9 @@ negEnd_6:
 /* line number 39*/
 /* Short-circuiting && with Validating UnaryOp b as a BooleanType for operator: !...
  */
+/* line number 39*/
+/* Loading Validating UnaryOp b as a BooleanType for operator: !...
+ to %l1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -415,6 +463,8 @@ negEnd_6:
     nop
 /* line number 39*/
 /* Negating */
+/* line number 39*/
+/* Loading b to %l0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -433,9 +483,15 @@ negEnd_7:
     st          %l0, [%l1]
 /* line number 39*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 39*/
+/* Loading Validating UnaryOp b as a BooleanType for operator: !...
+ to %l0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 39*/
+/* Loading Validating UnaryOp b as a BooleanType for operator: !...
+ to %l1 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -459,6 +515,9 @@ andEnd_1:
 /* line number 39*/
 /* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  */
+/* line number 39*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -482,6 +541,8 @@ branchEnd_5:
     nop
 /* line number 41*/
 /* Negating */
+/* line number 41*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -501,6 +562,9 @@ negEnd_8:
 /* line number 41*/
 /* Short-circuiting && with Validating UnaryOp a as a BooleanType for operator: !...
  */
+/* line number 41*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l1 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -509,6 +573,8 @@ negEnd_8:
     nop
 /* line number 41*/
 /* Negating */
+/* line number 41*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -527,9 +593,15 @@ negEnd_9:
     st          %l0, [%l1]
 /* line number 41*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 41*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l0 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 41*/
+/* Loading Validating UnaryOp x as a BooleanType for operator: !...
+ to %l1 */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -553,6 +625,9 @@ andEnd_2:
 /* line number 41*/
 /* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  */
+/* line number 41*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -576,6 +651,8 @@ branchEnd_6:
     nop
 /* line number 42*/
 /* Negating */
+/* line number 42*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -595,6 +672,9 @@ negEnd_10:
 /* line number 42*/
 /* Short-circuiting && with Validating UnaryOp a as a BooleanType for operator: !...
  */
+/* line number 42*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l1 */
     set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -603,6 +683,8 @@ negEnd_10:
     nop
 /* line number 42*/
 /* Negating */
+/* line number 42*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -621,9 +703,15 @@ negEnd_11:
     st          %l0, [%l1]
 /* line number 42*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 42*/
+/* Loading Validating UnaryOp a as a BooleanType for operator: !...
+ to %l0 */
     set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 42*/
+/* Loading Validating UnaryOp y as a BooleanType for operator: !...
+ to %l1 */
     set         -72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -647,6 +735,9 @@ andEnd_3:
 /* line number 42*/
 /* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  */
+/* line number 42*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -675,6 +766,8 @@ branchEnd_7:
     st          %o0, [%fp+-80]
 /* line number 44*/
 /* Negating */
+/* line number 44*/
+/* Loading foo() to %l0 */
     set         -80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -694,6 +787,9 @@ negEnd_12:
 /* line number 44*/
 /* Printing bool Validating UnaryOp foo() as a BooleanType for operator: !...
  */
+/* line number 44*/
+/* Loading Validating UnaryOp foo() as a BooleanType for operator: !...
+ to %l0 */
     set         -84, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -722,6 +818,8 @@ branchEnd_8:
     st          %o0, [%fp+-88]
 /* line number 45*/
 /* Negating */
+/* line number 45*/
+/* Loading foo1() to %l0 */
     set         -88, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -741,6 +839,9 @@ negEnd_13:
 /* line number 45*/
 /* Printing bool Validating UnaryOp foo1() as a BooleanType for operator: !...
  */
+/* line number 45*/
+/* Loading Validating UnaryOp foo1() as a BooleanType for operator: !...
+ to %l0 */
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -769,6 +870,8 @@ branchEnd_9:
     st          %o0, [%fp+-96]
 /* line number 46*/
 /* Negating */
+/* line number 46*/
+/* Loading foo2() to %l0 */
     set         -96, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -788,6 +891,9 @@ negEnd_14:
 /* line number 46*/
 /* Printing bool Validating UnaryOp foo2() as a BooleanType for operator: !...
  */
+/* line number 46*/
+/* Loading Validating UnaryOp foo2() as a BooleanType for operator: !...
+ to %l0 */
     set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -816,6 +922,8 @@ branchEnd_10:
     st          %o0, [%fp+-104]
 /* line number 47*/
 /* Negating */
+/* line number 47*/
+/* Loading foo3() to %l0 */
     set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -835,6 +943,9 @@ negEnd_15:
 /* line number 47*/
 /* Printing bool Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 47*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -108, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -863,6 +974,8 @@ branchEnd_11:
     st          %o0, [%fp+-112]
 /* line number 48*/
 /* Negating */
+/* line number 48*/
+/* Loading foo3() to %l0 */
     set         -112, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -882,6 +995,9 @@ negEnd_16:
 /* line number 48*/
 /* Printing bool Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 48*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -116, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -910,6 +1026,8 @@ branchEnd_12:
     st          %o0, [%fp+-120]
 /* line number 49*/
 /* Negating */
+/* line number 49*/
+/* Loading foo3() to %l0 */
     set         -120, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -929,6 +1047,9 @@ negEnd_17:
 /* line number 49*/
 /* Printing bool Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 49*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -124, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -957,6 +1078,8 @@ branchEnd_13:
     st          %o0, [%fp+-128]
 /* line number 50*/
 /* Negating */
+/* line number 50*/
+/* Loading foo3() to %l0 */
     set         -128, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -976,6 +1099,9 @@ negEnd_18:
 /* line number 50*/
 /* Printing bool Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 50*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -132, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1004,6 +1130,8 @@ branchEnd_14:
     st          %o0, [%fp+-136]
 /* line number 51*/
 /* Negating */
+/* line number 51*/
+/* Loading foo3() to %l0 */
     set         -136, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1023,6 +1151,9 @@ negEnd_19:
 /* line number 51*/
 /* Printing bool Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 51*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -140, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1051,6 +1182,8 @@ branchEnd_15:
     st          %o0, [%fp+-144]
 /* line number 52*/
 /* Negating */
+/* line number 52*/
+/* Loading foo3() to %l0 */
     set         -144, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1070,6 +1203,9 @@ negEnd_20:
 /* line number 52*/
 /* Printing bool Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 52*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -148, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1098,6 +1234,8 @@ branchEnd_16:
     st          %o0, [%fp+-152]
 /* line number 54*/
 /* Negating */
+/* line number 54*/
+/* Loading foo3() to %l0 */
     set         -152, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1117,6 +1255,9 @@ negEnd_21:
 /* line number 54*/
 /* Short-circuiting && with Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 54*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l1 */
     set         -156, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -1130,6 +1271,8 @@ negEnd_21:
     st          %o0, [%fp+-160]
 /* line number 54*/
 /* Negating */
+/* line number 54*/
+/* Loading foo3() to %l0 */
     set         -160, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1148,9 +1291,15 @@ negEnd_22:
     st          %l0, [%l1]
 /* line number 54*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 54*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -156, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 54*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l1 */
     set         -164, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -1174,6 +1323,9 @@ andEnd_4:
 /* line number 54*/
 /* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  */
+/* line number 54*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -168, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1202,6 +1354,8 @@ branchEnd_17:
     st          %o0, [%fp+-172]
 /* line number 55*/
 /* Negating */
+/* line number 55*/
+/* Loading foo3() to %l0 */
     set         -172, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1221,6 +1375,9 @@ negEnd_23:
 /* line number 55*/
 /* Short-circuiting && with Validating UnaryOp foo3() as a BooleanType for operator: !...
  */
+/* line number 55*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l1 */
     set         -176, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -1234,6 +1391,8 @@ negEnd_23:
     st          %o0, [%fp+-180]
 /* line number 55*/
 /* Negating */
+/* line number 55*/
+/* Loading foo3() to %l0 */
     set         -180, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -1252,9 +1411,15 @@ negEnd_24:
     st          %l0, [%l1]
 /* line number 55*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 55*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l0 */
     set         -176, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 55*/
+/* Loading Validating UnaryOp foo3() as a BooleanType for operator: !...
+ to %l1 */
     set         -184, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -1278,6 +1443,9 @@ andEnd_5:
 /* line number 55*/
 /* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  */
+/* line number 55*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -188, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

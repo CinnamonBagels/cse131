@@ -27,9 +27,11 @@ foo:
     st          %l1, [%l0]
 /* line number 8*/
 /* Returning value from foo */
+/* line number 8*/
+/* Loading x to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     fitos       %f0, %f0
     ba      foo_end
     nop
@@ -68,7 +70,9 @@ globalInit_end:
 /* line number 12*/
 /* Done. */
 /* line number 12*/
-/* printing float STO.VarSTO@1e8b957 */
+/* printing float STO.VarSTO@41e2aa */
+/* line number 12*/
+/* Loading c to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

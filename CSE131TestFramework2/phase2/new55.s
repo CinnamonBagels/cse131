@@ -28,6 +28,17 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 8*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
+/* line number 8*/
+/* Storing parameter b */
+/* line number 8*/
+/* Storing parameter c */
+    st          %i2, [%fp+-16]
+/* line number 8*/
+/* Storing parameter d */
+    st          %i3, [%fp+-20]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -39,6 +50,8 @@ foo:
 /* line number 9*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -47,7 +60,9 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@29626a */
+/* printing float STO.VarSTO@6d234c */
+/* line number 9*/
+/* Loading b to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -57,6 +72,8 @@ foo:
 /* Done printing float. */
 /* line number 9*/
 /* Printing bool c */
+/* line number 9*/
+/* Loading c to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -77,6 +94,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 9*/
 /* Printing bool d */
+/* line number 9*/
+/* Loading d to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -97,6 +116,8 @@ branchEnd_1:
 /* Done printing bool. */
 /* line number 11*/
 /* Returning value from foo */
+/* line number 11*/
+/* Loading a to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -137,6 +158,8 @@ globalInit_end:
 /* line number 15*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 15*/
+/* Loading foo() to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

@@ -24,6 +24,21 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 7*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 7*/
+/* Storing parameter y */
+    st          %i1, [%fp+-12]
+/* line number 7*/
+/* Storing parameter z */
+    st          %i2, [%fp+-16]
+/* line number 7*/
+/* Storing parameter a */
+    st          %i3, [%fp+-20]
+/* line number 7*/
+/* Storing parameter b */
+    st          %i4, [%fp+-24]
 foo_end:
     ret 
     restore
@@ -34,6 +49,21 @@ SAVE.foo = -(92 + 4) & -8
 foobar:
     set         SAVE.foobar, %g1
     save        %sp, %g1, %sp
+/* line number 9*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 9*/
+/* Storing parameter y */
+    st          %i1, [%fp+-12]
+/* line number 9*/
+/* Storing parameter z */
+    st          %i2, [%fp+-16]
+/* line number 9*/
+/* Storing parameter a */
+    st          %i3, [%fp+-20]
+/* line number 9*/
+/* Storing parameter b */
+    st          %i4, [%fp+-24]
 /* line number 10*/
 /* printing string */
     set         _strFmt, %o0

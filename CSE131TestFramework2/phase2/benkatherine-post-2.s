@@ -44,6 +44,8 @@ globalInit_end:
 /* Done. */
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading a to %f0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -68,6 +70,8 @@ globalInit_end:
     st          %f1, [%l5]
 /* line number 9*/
 /* Incrementing */
+/* line number 9*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -83,6 +87,8 @@ globalInit_end:
     st          %f2, [%l1]
 /* line number 10*/
 /* Incrementing */
+/* line number 10*/
+/* Loading a to %f0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -106,7 +112,9 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 11*/
-/* printing float STO.VarSTO@596a7a */
+/* printing float STO.VarSTO@41e2aa */
+/* line number 11*/
+/* Loading b to %f0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -118,7 +126,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 12*/
-/* printing float STO.VarSTO@a46637 */
+/* printing float STO.VarSTO@10c16b7 */
+/* line number 12*/
+/* Loading a to %f0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -130,7 +140,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 13*/
-/* printing float STO.VarSTO@5d75eb */
+/* printing float STO.VarSTO@1881149 */
+/* line number 13*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -143,6 +155,8 @@ globalInit_end:
     nop
 /* line number 14*/
 /* Decrementing */
+/* line number 14*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -157,7 +171,10 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 14*/
-/* printing float STO.ExprSTO@1952be0 */
+/* printing float STO.ExprSTO@eba9b0 */
+/* line number 14*/
+/* Loading Validating UnaryOp c as a FloatType for operator: --...
+ to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -169,7 +186,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 15*/
-/* printing float STO.VarSTO@5d75eb */
+/* printing float STO.VarSTO@1881149 */
+/* line number 15*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

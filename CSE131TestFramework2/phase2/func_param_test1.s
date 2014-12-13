@@ -24,6 +24,14 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
+/* line number 2*/
+/* Storing parameter b */
+    st          %i1, [%fp+-12]
+/* line number 2*/
+/* Storing parameter c */
 /* line number 3*/
 /* printing string */
     set         _strFmt, %o0
@@ -35,6 +43,8 @@ foo:
 /* line number 3*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 3*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -56,6 +66,8 @@ foo:
 /* line number 4*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 4*/
+/* Loading b to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -75,7 +87,9 @@ foo:
 /* line number 5*/
 /* Done printing string. */
 /* line number 5*/
-/* printing float STO.VarSTO@eb46e9 */
+/* printing float STO.VarSTO@1a5ff38 */
+/* line number 5*/
+/* Loading c to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -105,6 +119,14 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 10*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 10*/
+/* Storing parameter y */
+    st          %i1, [%fp+-12]
+/* line number 10*/
+/* Storing parameter z */
 ! --storing constant x with value 5.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -125,6 +147,8 @@ globalInit_end:
 /* line number 14*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 14*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -138,6 +162,8 @@ globalInit_end:
 /* line number 15*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 15*/
+/* Loading y to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -149,7 +175,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 16*/
-/* printing float STO.VarSTO@197833e */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 16*/
+/* Loading z to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -162,17 +190,23 @@ globalInit_end:
     nop
 /* line number 18*/
 /* Preparing argument x */
-    set         -8, %l1
+/* line number 18*/
+/* Loading x to %o0 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
 /* line number 18*/
 /* Preparing argument y */
-    set         -12, %l1
+/* line number 18*/
+/* Loading y to %o1 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
 /* line number 18*/
 /* Preparing argument z */
-    set         -16, %l1
+/* line number 18*/
+/* Loading z to %f2 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f2
     call    foo

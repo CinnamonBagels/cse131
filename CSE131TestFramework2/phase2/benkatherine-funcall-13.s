@@ -24,6 +24,9 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 woo:
     set         SAVE.woo, %g1
     save        %sp, %g1, %sp
+/* line number 4*/
+/* Storing parameter k */
+    st          %i0, [%fp+-8]
 ! --storing constant k with value 999.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -39,6 +42,9 @@ SAVE.woo = -(92 + 4) & -8
 wohoo:
     set         SAVE.wohoo, %g1
     save        %sp, %g1, %sp
+/* line number 8*/
+/* Storing parameter j */
+    st          %i0, [%fp+-8]
 ! --storing constant j with value 9.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -58,6 +64,9 @@ SAVE.wohoo = -(92 + 4) & -8
 woohooo2:
     set         SAVE.woohooo2, %g1
     save        %sp, %g1, %sp
+/* line number 13*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
 /* line number 14*/
 /* Preparing argument a */
     call    wohoo
@@ -81,6 +90,9 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 18*/
+/* Storing parameter y */
+    st          %i0, [%fp+-8]
 ! --storing constant y with value 6.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -97,6 +109,8 @@ globalInit_end:
 /* line number 21*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 21*/
+/* Loading y to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -109,7 +123,9 @@ globalInit_end:
     nop
 /* line number 22*/
 /* Preparing argument y */
-    set         -8, %l1
+/* line number 22*/
+/* Loading y to %o0 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    woohooo2
@@ -125,7 +141,9 @@ globalInit_end:
 /* line number 23*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         -8, %l1
+/* line number 23*/
+/* Loading y to %o1 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf

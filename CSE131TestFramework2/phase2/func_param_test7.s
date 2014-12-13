@@ -22,6 +22,9 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter b */
+    st          %i0, [%fp+-8]
 /* line number 3*/
 /* printing string */
     set         _strFmt, %o0
@@ -33,6 +36,8 @@ foo:
 /* line number 3*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 3*/
+/* Loading b to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -45,9 +50,11 @@ foo:
     nop
 /* line number 5*/
 /* Returning value from foo */
+/* line number 5*/
+/* Loading b to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     fitos       %f0, %f0
     ba      foo_end
     nop
@@ -94,7 +101,9 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@eb46e9 */
+/* printing float STO.VarSTO@116f2e6 */
+/* line number 11*/
+/* Loading c to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

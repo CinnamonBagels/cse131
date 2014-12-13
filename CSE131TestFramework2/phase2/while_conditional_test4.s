@@ -73,9 +73,13 @@ globalInit_end:
 while_0:
 /* line number 16*/
 /* Prepping Comparison Calculations by loading */
+/* line number 16*/
+/* Loading kitty to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 16*/
+/* Loading puppy to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -95,6 +99,9 @@ lessEnd_0:
     set         -32, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 17*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -105,9 +112,13 @@ lessEnd_0:
 /* Prepping Comparison Calculations by loading */
 /* line number 18*/
 /* Starting greater than */
+/* line number 18*/
+/* Loading dog to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 18*/
+/* Loading kitten to %f1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -125,6 +136,9 @@ greaterEnd_1:
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 19*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -135,9 +149,13 @@ if_0:
 while_1:
 /* line number 20*/
 /* Prepping Comparison Calculations by loading */
+/* line number 20*/
+/* Loading unwanted to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 20*/
+/* Loading awesome to %l1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -157,6 +175,9 @@ lessEnd_2:
     set         -40, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 21*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -176,6 +197,8 @@ lessEnd_2:
     nop
 /* line number 23*/
 /* Incrementing */
+/* line number 23*/
+/* Loading unwanted to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -200,9 +223,13 @@ whileEnd_1:
 while_2:
 /* line number 28*/
 /* Prepping Comparison Calculations by loading */
+/* line number 28*/
+/* Loading unwanted to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 28*/
+/* Loading awesome to %l1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -222,6 +249,9 @@ lessEnd_3:
     set         -48, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 29*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -241,9 +271,13 @@ lessEnd_3:
     nop
 /* line number 31*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 31*/
+/* Loading unwanted to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 31*/
+/* Loading 2 to %l1 */
     set         2, %l1
 /* line number 31*/
 /* Adding */
@@ -270,14 +304,20 @@ else_0:
 endIf_1:
 /* line number 36*/
 /* Prepping Comparison Calculations by loading */
+/* line number 36*/
+/* Loading puppy to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 36*/
 /* Starting greater than */
+/* line number 36*/
+/* Loading puppy to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 36*/
+/* Loading kitten to %f1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -296,6 +336,9 @@ greaterEnd_4:
     set         -56, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 37*/
+/* Loading Validating ComparisonOp int and float as a BooleanType for operator: >...
+ to %l0 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -320,6 +363,8 @@ else_2:
 endIf_3:
 /* line number 41*/
 /* Incrementing */
+/* line number 41*/
+/* Loading kitty to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

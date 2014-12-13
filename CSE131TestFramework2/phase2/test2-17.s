@@ -22,9 +22,14 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 5*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
 /* line number 6*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 6*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

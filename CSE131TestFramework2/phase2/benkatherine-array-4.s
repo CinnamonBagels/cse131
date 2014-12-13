@@ -31,6 +31,8 @@ main:
 globalInit_end:
 /* line number 5*/
 /* Starting array access */
+/* line number 5*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -71,6 +73,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 6*/
 /* Starting array access */
+/* line number 6*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -111,6 +115,8 @@ arrayEnd_1:
     st          %l1, [%l0]
 /* line number 8*/
 /* Starting array access */
+/* line number 8*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -145,6 +151,8 @@ arrayOutBounds_2:
 arrayEnd_2:
 /* line number 8*/
 /* Printing bool b[0] */
+/* line number 8*/
+/* Loading b[0] to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -169,6 +177,8 @@ branchEnd_0:
     nop
 /* line number 9*/
 /* Starting array access */
+/* line number 9*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -203,6 +213,8 @@ arrayOutBounds_3:
 arrayEnd_3:
 /* line number 9*/
 /* Printing bool b[1] */
+/* line number 9*/
+/* Loading b[1] to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -227,6 +239,8 @@ branchEnd_1:
     nop
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -261,6 +275,8 @@ arrayOutBounds_4:
 arrayEnd_4:
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -305,6 +321,8 @@ arrayEnd_5:
     st          %l3, [%l5]
 /* line number 11*/
 /* Printing bool b[2] */
+/* line number 11*/
+/* Loading b[2] to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

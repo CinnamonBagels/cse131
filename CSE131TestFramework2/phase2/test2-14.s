@@ -39,9 +39,13 @@ globalInit_end:
 while_0:
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading 2 to %l1 */
     set         2, %l1
 /* line number 7*/
 /* Starting greater than equal */
@@ -59,6 +63,9 @@ greaterEqualEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 7*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >=...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -67,6 +74,8 @@ greaterEqualEnd_0:
     nop
 /* line number 8*/
 /* Decrementing */
+/* line number 8*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -84,6 +93,9 @@ greaterEqualEnd_0:
 /* Printing int Validating UnaryOp i as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading Validating UnaryOp i as a IntegerType for operator: --...
+ to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -104,6 +116,8 @@ greaterEqualEnd_0:
 whileEnd_0:
 /* line number 10*/
 /* Decrementing */
+/* line number 10*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -118,6 +132,9 @@ whileEnd_0:
 /* Printing int Validating UnaryOp i as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
+/* line number 10*/
+/* Loading Validating UnaryOp i as a IntegerType for operator: --...
+ to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

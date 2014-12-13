@@ -73,6 +73,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 6*/
 /* Printing bool x */
+/* line number 6*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -93,6 +95,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 6*/
 /* Printing bool x */
+/* line number 6*/
+/* Loading x to %l0 */
     set         main_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

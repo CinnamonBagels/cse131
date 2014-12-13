@@ -84,9 +84,13 @@ globalInit_end:
 /* Prepping Comparison Calculations by loading */
 /* line number 9*/
 /* Starting greater than */
+/* line number 9*/
+/* Loading twoPointTwo to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 9*/
+/* Loading onePointOne to %f1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -104,6 +108,9 @@ greaterEnd_0:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 9*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -115,9 +122,13 @@ if_0:
 /* Prepping Comparison Calculations by loading */
 /* line number 10*/
 /* Starting Less than */
+/* line number 10*/
+/* Loading twoPointTwo to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 10*/
+/* Loading 3.3 to %f1 */
     set         float_3, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
@@ -135,6 +146,9 @@ lessEnd_1:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 10*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: <...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -146,9 +160,13 @@ if_1:
 /* Prepping Comparison Calculations by loading */
 /* line number 11*/
 /* Starting Less than Equal */
+/* line number 11*/
+/* Loading threePointThree to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 11*/
+/* Loading 4.4 to %f1 */
     set         float_4, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
@@ -166,6 +184,9 @@ lessEqualEnd_2:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 11*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: <=...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -185,6 +206,8 @@ if_2:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 12*/
+/* Loading 4.4 to %f0 */
     set         float_6, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -196,6 +219,8 @@ if_2:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 12*/
+/* Loading 5.5 to %f1 */
     set         float_5, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
@@ -213,6 +238,9 @@ greaterEqualEnd_3:
     set         -32, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 12*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >=...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -247,6 +275,8 @@ endIf_4:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 15*/
+/* Loading 3.3 to %f0 */
     set         float_8, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -258,6 +288,8 @@ endIf_4:
     add         %fp, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 15*/
+/* Loading threePointThree to %f1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -275,6 +307,9 @@ equalEnd_4:
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 15*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: ==...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -318,9 +353,13 @@ endIf_7:
 /* Prepping Comparison Calculations by loading */
 /* line number 21*/
 /* Starting not equal */
+/* line number 21*/
+/* Loading twoPointTwo to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 21*/
+/* Loading threePointThree to %f1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -338,6 +377,9 @@ nEqualEnd_5:
     set         -40, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 21*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: !=...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -369,6 +411,8 @@ endIf_9:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 24*/
+/* Loading 3.3 to %f0 */
     set         float_13, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -380,6 +424,8 @@ endIf_9:
     add         %fp, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 24*/
+/* Loading threePointThree to %f1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -397,6 +443,9 @@ nEqualEnd_6:
     set         -44, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 24*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: !=...
+ to %l0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

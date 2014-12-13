@@ -21,11 +21,18 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
 /* line number 3*/
 /* Prepping Comparison Calculations by loading */
+/* line number 3*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 3*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 3*/
 /* Starting == equal */
@@ -43,6 +50,9 @@ equalEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 4*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: ==...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -52,6 +62,8 @@ equalEnd_0:
 if_0:
 /* line number 6*/
 /* Returning value from foo */
+/* line number 6*/
+/* Loading x to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -62,9 +74,13 @@ if_0:
 else_0:
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 9*/
 /* Subtracting */
@@ -76,7 +92,9 @@ else_0:
     st          %l3, [%l4]
 /* line number 9*/
 /* Preparing argument int - int */
-    set         -12, %l1
+/* line number 9*/
+/* Loading int - int to %o0 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    foo
@@ -86,9 +104,13 @@ else_0:
     st          %o0, [%fp+-16]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading foo() to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -106,6 +128,8 @@ else_0:
     st          %l0, [%l4]
 /* line number 10*/
 /* Returning value from foo */
+/* line number 10*/
+/* Loading int * int to %i0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -114,6 +138,8 @@ else_0:
 endIf_1:
 /* line number 12*/
 /* Returning value from foo */
+/* line number 12*/
+/* Loading x to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -157,6 +183,8 @@ globalInit_end:
 /* line number 17*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading foo() to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -175,6 +203,8 @@ globalInit_end:
 /* line number 18*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 18*/
+/* Loading foo() to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -193,6 +223,8 @@ globalInit_end:
 /* line number 19*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 19*/
+/* Loading foo() to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -205,6 +237,8 @@ globalInit_end:
     nop
 /* line number 21*/
 /* Decrementing */
+/* line number 21*/
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -218,7 +252,10 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 21*/
-/* printing float STO.ExprSTO@17cd18d */
+/* printing float STO.ExprSTO@10d16b */
+/* line number 21*/
+/* Loading Validating UnaryOp x as a FloatType for operator: --...
+ to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -231,6 +268,8 @@ globalInit_end:
     nop
 /* line number 22*/
 /* Incrementing */
+/* line number 22*/
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -244,7 +283,10 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 22*/
-/* printing float STO.ExprSTO@d55a0f */
+/* printing float STO.ExprSTO@853e51 */
+/* line number 22*/
+/* Loading Validating UnaryOp x as a FloatType for operator: ++...
+ to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -257,6 +299,8 @@ globalInit_end:
     nop
 /* line number 23*/
 /* Incrementing */
+/* line number 23*/
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -272,6 +316,8 @@ globalInit_end:
     st          %f2, [%l1]
 /* line number 24*/
 /* Decrementing */
+/* line number 24*/
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -286,7 +332,10 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 24*/
-/* printing float STO.ExprSTO@10bb83e */
+/* printing float STO.ExprSTO@1be4050 */
+/* line number 24*/
+/* Loading Validating UnaryOp x as a FloatType for operator: --...
+ to %f0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -298,7 +347,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float STO.VarSTO@fa1b85 */
+/* printing float STO.VarSTO@197833e */
+/* line number 25*/
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

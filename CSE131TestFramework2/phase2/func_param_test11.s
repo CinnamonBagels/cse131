@@ -59,7 +59,9 @@ foo:
 /* line number 9*/
 /* Done printing string. */
 /* line number 9*/
-/* printing float STO.VarSTO@5d75eb */
+/* printing float STO.VarSTO@41e2aa */
+/* line number 9*/
+/* Loading b to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -72,9 +74,11 @@ foo:
     nop
 /* line number 11*/
 /* Returning value from foo */
+/* line number 11*/
+/* Loading b to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     ba      foo_end
     nop
 foo_end:
@@ -120,7 +124,9 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 17*/
+/* Loading c to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -140,6 +146,8 @@ globalInit_end:
 /* Converting int bar() to float. */
 /* line number 19*/
 /* promoting */
+/* line number 19*/
+/* Loading bar() to %f1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -160,7 +168,9 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 21*/
+/* Loading c to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

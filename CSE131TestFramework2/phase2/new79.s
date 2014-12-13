@@ -44,6 +44,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -58,6 +60,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -67,6 +72,8 @@ globalInit_end:
 /* Done printing int. */
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -81,6 +88,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -90,6 +100,8 @@ globalInit_end:
 /* Done printing int. */
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading y to %f0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -103,7 +115,10 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@197833e */
+/* printing float STO.ExprSTO@10bb83e */
+/* line number 8*/
+/* Loading Validating UnaryOp y as a FloatType for operator: ++...
+ to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -113,6 +128,8 @@ globalInit_end:
 /* Done printing float. */
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading y to %f0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -126,7 +143,10 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@29626a */
+/* printing float STO.ExprSTO@6d234c */
+/* line number 8*/
+/* Loading Validating UnaryOp y as a FloatType for operator: ++...
+ to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

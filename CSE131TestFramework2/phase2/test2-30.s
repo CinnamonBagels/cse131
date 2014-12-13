@@ -36,6 +36,8 @@ main:
 globalInit_end:
 /* line number 9*/
 /* Starting array access */
+/* line number 9*/
+/* Loading 4 to %l0 */
     set         4, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -76,6 +78,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 10*/
 /* Starting array access */
+/* line number 10*/
+/* Loading 19 to %l0 */
     set         19, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -116,6 +120,8 @@ arrayEnd_1:
     st          %l1, [%l0]
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -156,6 +162,8 @@ arrayEnd_2:
     st          %l1, [%l0]
 /* line number 12*/
 /* Starting array access */
+/* line number 12*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -196,6 +204,8 @@ arrayEnd_3:
     st          %l1, [%l0]
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -230,6 +240,8 @@ arrayOutBounds_4:
 arrayEnd_4:
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading i[0] to %l0 */
     set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -267,6 +279,8 @@ arrayOutBounds_5:
 arrayEnd_5:
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading i[i[0]] to %l0 */
     set         -108, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -310,6 +324,8 @@ arrayEnd_6:
     st          %l1, [%l0]
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_7
@@ -344,6 +360,8 @@ arrayOutBounds_7:
 arrayEnd_7:
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading j[0] to %l0 */
     set         -116, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -381,6 +399,8 @@ arrayOutBounds_8:
 arrayEnd_8:
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading i[j[0]] to %l0 */
     set         -120, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -418,6 +438,8 @@ arrayOutBounds_9:
 arrayEnd_9:
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading j[i[j[0]]] to %l0 */
     set         -124, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -455,6 +477,8 @@ arrayOutBounds_10:
 arrayEnd_10:
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading i[j[i[j[0]]]] to %l0 */
     set         -128, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -492,6 +516,8 @@ arrayOutBounds_11:
 arrayEnd_11:
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading i[i[j[i[j[0]]]]] to %l0 */
     set         -132, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -529,6 +555,8 @@ arrayOutBounds_12:
 arrayEnd_12:
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading i[i[i[j[i[j[0]]]]]] to %l0 */
     set         -136, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -567,6 +595,8 @@ arrayEnd_13:
 /* line number 15*/
 /* Printing int i[i[i[i[j[i[j[0]]]]]]] */
     set         _intFmt, %o0
+/* line number 15*/
+/* Loading i[i[i[i[j[i[j[0]]]]]]] to %o1 */
     set         -140, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

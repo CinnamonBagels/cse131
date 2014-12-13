@@ -20,9 +20,17 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 1*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
+/* line number 1*/
+/* Storing parameter b */
+    st          %i1, [%fp+-12]
 /* line number 2*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 2*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -36,6 +44,8 @@ foo:
 /* line number 2*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 2*/
+/* Loading b to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -48,9 +58,13 @@ foo:
     nop
 /* line number 3*/
 /* Prepping Comparison Calculations by loading */
+/* line number 3*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 3*/
+/* Loading 0 to %l1 */
     set         0, %l1
 /* line number 3*/
 /* Starting greater than */
@@ -68,6 +82,9 @@ greaterEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 3*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -77,9 +94,13 @@ greaterEnd_0:
 if_0:
 /* line number 4*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 4*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 4*/
 /* Subtracting */
@@ -91,12 +112,16 @@ if_0:
     st          %l3, [%l4]
 /* line number 4*/
 /* Preparing argument a */
-    set         -8, %l1
+/* line number 4*/
+/* Loading a to %o0 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
 /* line number 4*/
 /* Preparing argument int - int */
-    set         -12, %l1
+/* line number 4*/
+/* Loading int - int to %o1 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    foo
@@ -106,6 +131,8 @@ if_0:
     st          %o0, [%fp+-16]
 /* line number 5*/
 /* Returning value from foo */
+/* line number 5*/
+/* Loading foo() to %i0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -157,6 +184,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading foo() to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

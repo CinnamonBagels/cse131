@@ -39,6 +39,8 @@ main:
 globalInit_end:
 /* line number 6*/
 /* Starting array access */
+/* line number 6*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -81,6 +83,8 @@ arrayEnd_0:
     st          %f0, [%l0]
 /* line number 8*/
 /* Starting array access */
+/* line number 8*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -126,6 +130,8 @@ arrayEnd_1:
 /* Done. */
 /* line number 10*/
 /* Starting array access */
+/* line number 10*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -162,6 +168,8 @@ arrayEnd_2:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 10*/
 /* Adding */
+/* line number 10*/
+/* Loading farray[2] to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -174,6 +182,8 @@ arrayEnd_2:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 10*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -195,6 +205,8 @@ arrayEnd_2:
 /* Done. */
 /* line number 12*/
 /* Starting array access */
+/* line number 12*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -229,9 +241,13 @@ arrayOutBounds_3:
 arrayEnd_3:
 /* line number 12*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 12*/
+/* Loading 7 to %l1 */
     set         7, %l1
 /* line number 12*/
 /* Adding */
+/* line number 12*/
+/* Loading farray[2] to %f0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -242,6 +258,8 @@ arrayEnd_3:
     add         %fp, %l5, %l5
     set         7, %l3
     st          %l3, [%l5]
+/* line number 12*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -264,6 +282,8 @@ arrayEnd_3:
 /* Done. */
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -298,6 +318,8 @@ arrayOutBounds_4:
 arrayEnd_4:
 /* line number 14*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 14*/
+/* Loading 3 to %l0 */
     set         3, %l0
 /* line number 14*/
 /* Adding */
@@ -307,9 +329,13 @@ arrayEnd_4:
     add         %fp, %l5, %l5
     set         3, %l3
     st          %l3, [%l5]
+/* line number 14*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 14*/
+/* Loading farray[2] to %f1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -333,6 +359,8 @@ arrayEnd_4:
 /* Done. */
 /* line number 16*/
 /* Starting array access */
+/* line number 16*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -377,9 +405,13 @@ arrayEnd_5:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 16*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 16*/
+/* Loading farray[2] to %f1 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -402,6 +434,8 @@ arrayEnd_5:
 /* Done. */
 /* line number 18*/
 /* Starting array access */
+/* line number 18*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_6
@@ -436,9 +470,13 @@ arrayOutBounds_6:
 arrayEnd_6:
 /* line number 18*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 18*/
+/* Loading 3 to %l1 */
     set         3, %l1
 /* line number 18*/
 /* Adding */
+/* line number 18*/
+/* Loading farray[2] to %f0 */
     set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -449,6 +487,8 @@ arrayEnd_6:
     add         %fp, %l5, %l5
     set         3, %l3
     st          %l3, [%l5]
+/* line number 18*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -471,6 +511,8 @@ arrayEnd_6:
 /* Done. */
 /* line number 20*/
 /* Starting array access */
+/* line number 20*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_7
@@ -504,7 +546,9 @@ arrayOutBounds_7:
     nop
 arrayEnd_7:
 /* line number 20*/
-/* printing float STO.ExprSTO@1ddbcb1 */
+/* printing float STO.ExprSTO@24de67 */
+/* line number 20*/
+/* Loading farray[2] to %f0 */
     set         -80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -517,7 +561,9 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 22*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@d55a0f */
+/* line number 22*/
+/* Loading x to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -529,7 +575,9 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 24*/
-/* printing float STO.VarSTO@197833e */
+/* printing float STO.VarSTO@6d234c */
+/* line number 24*/
+/* Loading y to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -541,7 +589,9 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 26*/
-/* printing float STO.VarSTO@29626a */
+/* printing float STO.VarSTO@e77ca4 */
+/* line number 26*/
+/* Loading z to %f0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -553,7 +603,9 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 28*/
-/* printing float STO.VarSTO@fc4957 */
+/* printing float STO.VarSTO@1a83205 */
+/* line number 28*/
+/* Loading a to %f0 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -565,7 +617,9 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 30*/
-/* printing float STO.VarSTO@1330af4 */
+/* printing float STO.VarSTO@16c2195 */
+/* line number 30*/
+/* Loading b to %f0 */
     set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -577,7 +631,9 @@ arrayEnd_7:
     call    printf
     nop
 /* line number 32*/
-/* printing float STO.VarSTO@14512e */
+/* printing float STO.VarSTO@10d16b */
+/* line number 32*/
+/* Loading c to %f0 */
     set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

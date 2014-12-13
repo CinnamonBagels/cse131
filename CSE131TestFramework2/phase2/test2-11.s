@@ -57,6 +57,8 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* Negating */
+/* line number 7*/
+/* Loading f to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -86,6 +88,8 @@ negEnd_0:
 /* Done. */
 /* line number 9*/
 /* Printing bool t */
+/* line number 9*/
+/* Loading t to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -114,6 +118,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 9*/
 /* Printing bool f */
+/* line number 9*/
+/* Loading f to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -140,6 +146,8 @@ branchEnd_1:
     nop
 /* line number 9*/
 /* Done printing string. */
+/* line number 12*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_0
@@ -155,6 +163,8 @@ if_0:
 /* Done printing string. */
 /* line number 14*/
 /* Negating */
+/* line number 14*/
+/* Loading f to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -171,6 +181,9 @@ negEnd_1:
     set         -28, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+/* line number 14*/
+/* Loading Validating UnaryOp f as a BooleanType for operator: !...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -188,7 +201,11 @@ if_1:
 /* Done printing string. */
 /* line number 16*/
 /* Prepping Comparison Calculations by loading */
+/* line number 16*/
+/* Loading 5 to %l0 */
     set         5, %l0
+/* line number 16*/
+/* Loading 6 to %l1 */
     set         6, %l1
 /* line number 16*/
 /* Starting greater than */
@@ -208,6 +225,9 @@ greaterEnd_0:
     st          %l3, [%l4]
 /* line number 16*/
 /* Negating */
+/* line number 16*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -224,6 +244,10 @@ negEnd_2:
     set         -36, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+/* line number 16*/
+/* Loading Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: >...
+ as a BooleanType for operator: !...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -241,9 +265,13 @@ if_2:
 /* Done printing string. */
 /* line number 18*/
 /* Prepping Comparison Calculations by loading */
+/* line number 18*/
+/* Loading i to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 18*/
+/* Loading j to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -265,6 +293,9 @@ greaterEnd_1:
     st          %l3, [%l4]
 /* line number 18*/
 /* Negating */
+/* line number 18*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -281,6 +312,10 @@ negEnd_3:
     set         -44, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+/* line number 18*/
+/* Loading Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: >...
+ as a BooleanType for operator: !...
+ to %l0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -296,6 +331,8 @@ if_3:
     nop
 /* line number 19*/
 /* Done printing string. */
+/* line number 20*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_4

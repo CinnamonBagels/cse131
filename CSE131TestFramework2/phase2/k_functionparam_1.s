@@ -23,11 +23,18 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 4*/
+/* Storing parameter j */
+    st          %i0, [%fp+-8]
 /* line number 5*/
 /* Prepping Comparison Calculations by loading */
+/* line number 5*/
+/* Loading i to %l0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 5*/
+/* Loading 0 to %l1 */
     set         0, %l1
 /* line number 5*/
 /* Starting greater than */
@@ -56,6 +63,8 @@ greaterEnd_0:
     st          %l3, [%l5]
 /* line number 5*/
 /* Printing bool b1 */
+/* line number 5*/
+/* Loading b1 to %l0 */
     set         b1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -79,9 +88,13 @@ branchEnd_0:
     nop
 /* line number 6*/
 /* Prepping Comparison Calculations by loading */
+/* line number 6*/
+/* Loading i to %l0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 6*/
+/* Loading 0 to %l1 */
     set         0, %l1
 /* line number 6*/
 /* Starting greater than */
@@ -108,6 +121,8 @@ greaterEnd_1:
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
+/* line number 7*/
+/* Loading b1 to %l0 */
     set         b1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -117,9 +132,13 @@ greaterEnd_1:
 if_0:
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading i to %l0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 8*/
 /* Subtracting */
@@ -140,6 +159,8 @@ if_0:
 /* line number 9*/
 /* Printing int i */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading i to %o1 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -152,9 +173,13 @@ if_0:
     nop
 /* line number 10*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 10*/
+/* Loading i to %l0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 10*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 10*/
 /* Subtracting */
@@ -174,8 +199,10 @@ if_0:
     st          %l3, [%l5]
 /* line number 10*/
 /* Preparing argument i */
-    set         i, %l1
-    add         %g0, %l1, %l1
+/* line number 10*/
+/* Loading i to %o0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    foo
     nop
@@ -203,8 +230,8 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant i with value 4.0
-    set         i, %l0
-    add         %g0, %l0, %l0
+    set         -4, %l0
+    add         %fp, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
     call    foo

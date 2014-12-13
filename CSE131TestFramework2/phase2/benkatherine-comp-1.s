@@ -34,9 +34,13 @@ main:
     nop
 /* line number 4*/
 /* Prepping Comparison Calculations by loading */
+/* line number 4*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 4*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -67,9 +71,13 @@ greaterEnd_0:
     st          %l3, [%l5]
 /* line number 5*/
 /* Prepping Comparison Calculations by loading */
+/* line number 5*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 5*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -100,9 +108,13 @@ lessEnd_1:
     st          %l3, [%l5]
 /* line number 6*/
 /* Prepping Comparison Calculations by loading */
+/* line number 6*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 6*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -133,9 +145,13 @@ greaterEqualEnd_2:
     st          %l3, [%l5]
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -170,9 +186,13 @@ lessEqualEnd_3:
 globalInit_end:
 /* line number 11*/
 /* Prepping Comparison Calculations by loading */
+/* line number 11*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 11*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -205,9 +225,13 @@ greaterEnd_4:
 /* Done. */
 /* line number 12*/
 /* Prepping Comparison Calculations by loading */
+/* line number 12*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 12*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -240,9 +264,13 @@ lessEnd_5:
 /* Done. */
 /* line number 13*/
 /* Prepping Comparison Calculations by loading */
+/* line number 13*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 13*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -275,9 +303,13 @@ greaterEqualEnd_6:
 /* Done. */
 /* line number 14*/
 /* Prepping Comparison Calculations by loading */
+/* line number 14*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 14*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -310,6 +342,8 @@ lessEqualEnd_7:
 /* Done. */
 /* line number 16*/
 /* Printing bool b */
+/* line number 16*/
+/* Loading b to %l0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -333,6 +367,8 @@ branchEnd_0:
     nop
 /* line number 17*/
 /* Printing bool c */
+/* line number 17*/
+/* Loading c to %l0 */
     set         c, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -356,6 +392,8 @@ branchEnd_1:
     nop
 /* line number 18*/
 /* Printing bool d */
+/* line number 18*/
+/* Loading d to %l0 */
     set         d, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -379,6 +417,8 @@ branchEnd_2:
     nop
 /* line number 19*/
 /* Printing bool e */
+/* line number 19*/
+/* Loading e to %l0 */
     set         e, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -402,6 +442,8 @@ branchEnd_3:
     nop
 /* line number 20*/
 /* Printing bool f */
+/* line number 20*/
+/* Loading f to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -425,6 +467,8 @@ branchEnd_4:
     nop
 /* line number 21*/
 /* Printing bool g */
+/* line number 21*/
+/* Loading g to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -448,6 +492,8 @@ branchEnd_5:
     nop
 /* line number 22*/
 /* Printing bool h */
+/* line number 22*/
+/* Loading h to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -471,6 +517,8 @@ branchEnd_6:
     nop
 /* line number 23*/
 /* Printing bool i */
+/* line number 23*/
+/* Loading i to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

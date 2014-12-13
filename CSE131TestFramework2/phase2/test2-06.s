@@ -86,7 +86,17 @@ globalInit_end:
 /* line number 17*/
 /* Done. */
 /* line number 17*/
+/* Short-circuiting || with true */
+/* line number 17*/
+/* Loading true to %l1 */
+    set         1, %l1
+    cmp         %l1, %g0
+    bne     orT_0
+    nop
+/* line number 17*/
 /* Incrementing */
+/* line number 17*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -99,9 +109,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 17*/
 /* Prepping Comparison Calculations by loading */
+/* line number 17*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 17*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 17*/
 /* Starting greater than */
@@ -121,7 +136,12 @@ greaterEnd_0:
     st          %l3, [%l4]
 /* line number 17*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 17*/
+/* Loading true to %l0 */
     set         1, %l0
+/* line number 17*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -145,6 +165,9 @@ orEnd_0:
 /* line number 17*/
 /* Short-circuiting || with Validating BooleanOpbool and bool as a BooleanType for operator: ||...
  */
+/* line number 17*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -158,9 +181,14 @@ orEnd_0:
     st          %o0, [%fp+-24]
 /* line number 17*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 17*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 17*/
+/* Loading trueFunc() to %l1 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -181,6 +209,9 @@ orEnd_1:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 17*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -189,7 +220,17 @@ orEnd_1:
     nop
 if_0:
 /* line number 18*/
+/* Short-circuiting && with false */
+/* line number 18*/
+/* Loading false to %l1 */
+    set         0, %l1
+    cmp         %l1, %g0
+    be      andF_0
+    nop
+/* line number 18*/
 /* Incrementing */
+/* line number 18*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -202,9 +243,14 @@ if_0:
     st          %l0, [%l1]
 /* line number 18*/
 /* Prepping Comparison Calculations by loading */
+/* line number 18*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 18*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 18*/
 /* Starting Less than */
@@ -224,7 +270,12 @@ lessEnd_1:
     st          %l3, [%l4]
 /* line number 18*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 18*/
+/* Loading false to %l0 */
     set         0, %l0
+/* line number 18*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l1 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -248,6 +299,9 @@ andEnd_0:
 /* line number 18*/
 /* Short-circuiting && with Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  */
+/* line number 18*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l1 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -261,9 +315,14 @@ andEnd_0:
     st          %o0, [%fp+-44]
 /* line number 18*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 18*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 18*/
+/* Loading falseFunc() to %l1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -284,6 +343,9 @@ andEnd_1:
     set         -48, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 18*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -318,6 +380,8 @@ endIf_3:
 /* line number 24*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 24*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

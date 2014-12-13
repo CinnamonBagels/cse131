@@ -38,6 +38,8 @@ main:
 globalInit_end:
 /* line number 5*/
 /* Starting array access */
+/* line number 5*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -80,6 +82,8 @@ arrayEnd_0:
     st          %f0, [%l0]
 /* line number 6*/
 /* Starting array access */
+/* line number 6*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -122,6 +126,8 @@ arrayEnd_1:
     st          %f0, [%l0]
 /* line number 8*/
 /* Starting array access */
+/* line number 8*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -155,7 +161,9 @@ arrayOutBounds_2:
     nop
 arrayEnd_2:
 /* line number 8*/
-/* printing float STO.ExprSTO@5d75eb */
+/* printing float STO.ExprSTO@1881149 */
+/* line number 8*/
+/* Loading x[2] to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -169,6 +177,8 @@ arrayEnd_2:
     nop
 /* line number 9*/
 /* Starting array access */
+/* line number 9*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -202,7 +212,9 @@ arrayOutBounds_3:
     nop
 arrayEnd_3:
 /* line number 9*/
-/* printing float STO.ExprSTO@1e8b957 */
+/* printing float STO.ExprSTO@2709da */
+/* line number 9*/
+/* Loading x[3] to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -216,6 +228,8 @@ arrayEnd_3:
     nop
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -250,6 +264,8 @@ arrayOutBounds_4:
 arrayEnd_4:
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -286,10 +302,14 @@ arrayEnd_5:
 /* Prepping Comparison Calculations by loading */
 /* line number 11*/
 /* Starting greater than */
+/* line number 11*/
+/* Loading x[2] to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
+/* line number 11*/
+/* Loading x[3] to %f1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -321,6 +341,8 @@ greaterEnd_0:
 /* Done. */
 /* line number 12*/
 /* Starting array access */
+/* line number 12*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_6
@@ -355,6 +377,8 @@ arrayOutBounds_6:
 arrayEnd_6:
 /* line number 12*/
 /* Starting array access */
+/* line number 12*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_7
@@ -391,10 +415,14 @@ arrayEnd_7:
 /* Prepping Comparison Calculations by loading */
 /* line number 12*/
 /* Starting greater than equal */
+/* line number 12*/
+/* Loading x[2] to %f0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
+/* line number 12*/
+/* Loading x[3] to %f1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -426,6 +454,8 @@ greaterEqualEnd_1:
 /* Done. */
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_8
@@ -460,6 +490,8 @@ arrayOutBounds_8:
 arrayEnd_8:
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_9
@@ -496,10 +528,14 @@ arrayEnd_9:
 /* Prepping Comparison Calculations by loading */
 /* line number 13*/
 /* Starting Less than */
+/* line number 13*/
+/* Loading x[2] to %f0 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
+/* line number 13*/
+/* Loading x[3] to %f1 */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -531,6 +567,8 @@ lessEnd_2:
 /* Done. */
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_10
@@ -565,6 +603,8 @@ arrayOutBounds_10:
 arrayEnd_10:
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_11
@@ -601,10 +641,14 @@ arrayEnd_11:
 /* Prepping Comparison Calculations by loading */
 /* line number 14*/
 /* Starting Less than Equal */
+/* line number 14*/
+/* Loading x[2] to %f0 */
     set         -72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
+/* line number 14*/
+/* Loading x[3] to %f1 */
     set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -636,6 +680,8 @@ lessEqualEnd_3:
 /* Done. */
 /* line number 16*/
 /* Printing bool a */
+/* line number 16*/
+/* Loading a to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -659,6 +705,8 @@ branchEnd_0:
     nop
 /* line number 17*/
 /* Printing bool b */
+/* line number 17*/
+/* Loading b to %l0 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -682,6 +730,8 @@ branchEnd_1:
     nop
 /* line number 18*/
 /* Printing bool c */
+/* line number 18*/
+/* Loading c to %l0 */
     set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -705,6 +755,8 @@ branchEnd_2:
     nop
 /* line number 19*/
 /* Printing bool d */
+/* line number 19*/
+/* Loading d to %l0 */
     set         -84, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -728,6 +780,8 @@ branchEnd_3:
     nop
 /* line number 21*/
 /* Starting array access */
+/* line number 21*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_12
@@ -762,6 +816,8 @@ arrayOutBounds_12:
 arrayEnd_12:
 /* line number 21*/
 /* Starting array access */
+/* line number 21*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_13
@@ -798,10 +854,14 @@ arrayEnd_13:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 21*/
 /* Adding */
+/* line number 21*/
+/* Loading x[2] to %f0 */
     set         -88, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
+/* line number 21*/
+/* Loading x[3] to %f1 */
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -823,7 +883,9 @@ arrayEnd_13:
 /* line number 22*/
 /* Done. */
 /* line number 22*/
-/* printing float STO.VarSTO@1330af4 */
+/* printing float STO.VarSTO@e77ca4 */
+/* line number 22*/
+/* Loading e to %f0 */
     set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

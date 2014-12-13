@@ -20,11 +20,21 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
+/* line number 2*/
+/* Storing parameter b */
+    st          %i1, [%fp+-12]
 /* line number 3*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 3*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 3*/
+/* Loading b to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -38,6 +48,8 @@ foo:
     st          %l3, [%l4]
 /* line number 4*/
 /* Returning value from foo */
+/* line number 4*/
+/* Loading int + int to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -75,7 +87,11 @@ globalInit_end:
     st          %o0, [%fp+-12]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading 4 to %l0 */
     set         4, %l0
+/* line number 9*/
+/* Loading foo() to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -100,6 +116,8 @@ globalInit_end:
 /* line number 11*/
 /* Printing int c */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading c to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

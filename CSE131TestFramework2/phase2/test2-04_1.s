@@ -57,7 +57,9 @@ globalInit_end:
 /* line number 8*/
 /* Done. */
 /* line number 8*/
-/* printing float STO.VarSTO@eba9b0 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 8*/
+/* Loading twoPointTwo to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -74,7 +76,9 @@ globalInit_end:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@be95bf */
+/* printing float STO.VarSTO@41e2aa */
+/* line number 8*/
+/* Loading onePointOne to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -94,9 +98,13 @@ globalInit_end:
 /* Prepping Comparison Calculations by loading */
 /* line number 8*/
 /* Starting greater than */
+/* line number 8*/
+/* Loading twoPointTwo to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 8*/
+/* Loading onePointOne to %f1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -117,6 +125,9 @@ greaterEnd_0:
 /* line number 8*/
 /* Printing bool Validating ComparisonOp float and float as a BooleanType for operator: >...
  */
+/* line number 8*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -139,9 +150,13 @@ branchEnd_0:
 /* Prepping Comparison Calculations by loading */
 /* line number 10*/
 /* Starting greater than */
+/* line number 10*/
+/* Loading twoPointTwo to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 10*/
+/* Loading onePointOne to %f1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -159,6 +174,9 @@ greaterEnd_1:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 10*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

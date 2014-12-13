@@ -23,8 +23,15 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 2*/
+/* Storing parameter y */
 /* line number 3*/
 /* Incrementing */
+/* line number 3*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -39,6 +46,9 @@ foo:
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 3*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -48,6 +58,8 @@ foo:
 /* Done printing int. */
 /* line number 3*/
 /* Incrementing */
+/* line number 3*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -62,6 +74,9 @@ foo:
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 3*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -71,6 +86,8 @@ foo:
 /* Done printing int. */
 /* line number 3*/
 /* Incrementing */
+/* line number 3*/
+/* Loading y to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -84,7 +101,10 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@eb46e9 */
+/* printing float STO.ExprSTO@116f2e6 */
+/* line number 3*/
+/* Loading Validating UnaryOp y as a FloatType for operator: ++...
+ to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -94,6 +114,8 @@ foo:
 /* Done printing float. */
 /* line number 3*/
 /* Incrementing */
+/* line number 3*/
+/* Loading y to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -107,7 +129,10 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@7c9586 */
+/* printing float STO.ExprSTO@1a4f43e */
+/* line number 3*/
+/* Loading Validating UnaryOp y as a FloatType for operator: ++...
+ to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -117,6 +142,8 @@ foo:
 /* Done printing float. */
 /* line number 4*/
 /* Incrementing */
+/* line number 4*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -129,6 +156,9 @@ foo:
     st          %l0, [%l1]
 /* line number 5*/
 /* Returning value from foo */
+/* line number 5*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %i0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -186,6 +216,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading foo() to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

@@ -43,9 +43,13 @@ globalInit_end:
 /* Done. */
 /* line number 4*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading -1 to %l1 */
     set         -1, %l1
 /* line number 4*/
 /* Multiplying */
+/* line number 4*/
+/* Loading f to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -55,6 +59,8 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         -1, %l3
     st          %l3, [%l5]
+/* line number 4*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -82,7 +88,9 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 6*/
-/* printing float STO.VarSTO@5d75eb */
+/* printing float STO.VarSTO@24cdc7 */
+/* line number 6*/
+/* Loading f to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

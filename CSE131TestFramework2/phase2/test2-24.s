@@ -26,8 +26,14 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 6*/
+/* Storing parameter x */
+/* line number 6*/
+/* Storing parameter y */
 /* line number 7*/
 /* Incrementing */
+/* line number 7*/
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -43,6 +49,8 @@ foo:
     st          %f2, [%l1]
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading y to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -66,8 +74,14 @@ SAVE.foo = -(92 + 12) & -8
 foo2:
     set         SAVE.foo2, %g1
     save        %sp, %g1, %sp
+/* line number 11*/
+/* Storing parameter x */
+/* line number 11*/
+/* Storing parameter y */
 /* line number 12*/
 /* Incrementing */
+/* line number 12*/
+/* Loading x to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -83,6 +97,8 @@ foo2:
     st          %f2, [%l1]
 /* line number 13*/
 /* Incrementing */
+/* line number 13*/
+/* Loading y to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -116,7 +132,9 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 17*/
-/* printing float STO.VarSTO@a46637 */
+/* printing float STO.VarSTO@b41dbb */
+/* line number 17*/
+/* Loading x to %f0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -133,7 +151,9 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@eba9b0 */
+/* printing float STO.VarSTO@8f337b */
+/* line number 17*/
+/* Loading y to %f0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -147,7 +167,9 @@ globalInit_end:
     call    foo
     nop
 /* line number 19*/
-/* printing float STO.VarSTO@a46637 */
+/* printing float STO.VarSTO@b41dbb */
+/* line number 19*/
+/* Loading x to %f0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -164,7 +186,9 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@eba9b0 */
+/* printing float STO.VarSTO@8f337b */
+/* line number 19*/
+/* Loading y to %f0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -178,7 +202,9 @@ globalInit_end:
     call    foo2
     nop
 /* line number 21*/
-/* printing float STO.VarSTO@a46637 */
+/* printing float STO.VarSTO@b41dbb */
+/* line number 21*/
+/* Loading x to %f0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -195,7 +221,9 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@eba9b0 */
+/* printing float STO.VarSTO@8f337b */
+/* line number 21*/
+/* Loading y to %f0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

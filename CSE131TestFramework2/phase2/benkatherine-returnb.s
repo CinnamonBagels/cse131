@@ -67,6 +67,8 @@ foobar:
 /* Done. */
 /* line number 25*/
 /* Returning value from foobar */
+/* line number 25*/
+/* Loading a to %i0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -108,6 +110,8 @@ globalInit_end:
 /* Done. */
 /* line number 30*/
 /* Printing bool a */
+/* line number 30*/
+/* Loading a to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

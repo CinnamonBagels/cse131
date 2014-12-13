@@ -34,6 +34,8 @@ main:
 globalInit_end:
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -49,6 +51,8 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 9*/
 /* Incrementing */
+/* line number 9*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -61,9 +65,13 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 11*/
 /* Prepping Comparison Calculations by loading */
+/* line number 11*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 11*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -85,6 +93,9 @@ nEqualEnd_0:
     st          %l3, [%l4]
 /* line number 11*/
 /* Negating */
+/* line number 11*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: !=...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -105,6 +116,10 @@ negEnd_0:
 /* Printing bool Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: !=...
  as a BooleanType for operator: !...
  */
+/* line number 11*/
+/* Loading Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: !=...
+ as a BooleanType for operator: !...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -154,9 +169,13 @@ branchEnd_0:
     st          %l1, [%l0]
 /* line number 17*/
 /* Prepping Comparison Calculations by loading */
+/* line number 17*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 17*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -178,6 +197,9 @@ lessEnd_1:
     st          %l3, [%l4]
 /* line number 17*/
 /* Negating */
+/* line number 17*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -198,6 +220,10 @@ negEnd_1:
 /* Printing bool Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: <...
  as a BooleanType for operator: !...
  */
+/* line number 17*/
+/* Loading Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: <...
+ as a BooleanType for operator: !...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -221,9 +247,13 @@ branchEnd_1:
     nop
 /* line number 18*/
 /* Prepping Comparison Calculations by loading */
+/* line number 18*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 18*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -245,6 +275,9 @@ equalEnd_2:
     st          %l3, [%l4]
 /* line number 18*/
 /* Negating */
+/* line number 18*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: ==...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -265,6 +298,10 @@ negEnd_2:
 /* Printing bool Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: ==...
  as a BooleanType for operator: !...
  */
+/* line number 18*/
+/* Loading Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: ==...
+ as a BooleanType for operator: !...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

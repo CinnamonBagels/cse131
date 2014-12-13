@@ -34,6 +34,8 @@ main:
 globalInit_end:
 /* line number 6*/
 /* Incrementing */
+/* line number 6*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -51,6 +53,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp a as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 6*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: ++...
+ to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -63,6 +68,8 @@ globalInit_end:
     nop
 /* line number 7*/
 /* Incrementing */
+/* line number 7*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -80,6 +87,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp a as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 7*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: ++...
+ to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -93,6 +103,8 @@ globalInit_end:
 /* line number 8*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading a to %o1 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -105,6 +117,8 @@ globalInit_end:
     nop
 /* line number 9*/
 /* Decrementing */
+/* line number 9*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -122,6 +136,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp a as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: --...
+ to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -135,6 +152,8 @@ globalInit_end:
 /* line number 10*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 10*/
+/* Loading a to %o1 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

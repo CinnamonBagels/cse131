@@ -36,6 +36,8 @@ getX:
 /* Done printing string. */
 /* line number 8*/
 /* Returning value from getX */
+/* line number 8*/
+/* Loading x to %f0 */
     set         float_1, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -61,6 +63,8 @@ getY:
 /* Done printing string. */
 /* line number 14*/
 /* Returning value from getY */
+/* line number 14*/
+/* Loading y to %f0 */
     set         float_3, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -102,7 +106,9 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 18*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 18*/
+/* Loading getX() to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -119,7 +125,9 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-12]
 /* line number 18*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@d55a0f */
+/* line number 18*/
+/* Loading getY() to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

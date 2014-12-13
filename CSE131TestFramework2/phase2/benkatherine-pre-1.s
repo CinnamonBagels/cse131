@@ -30,6 +30,8 @@ main:
     nop
 /* line number 2*/
 /* Incrementing */
+/* line number 2*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -61,6 +63,8 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* Incrementing */
+/* line number 7*/
+/* Loading c to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -84,6 +88,8 @@ globalInit_end:
 /* Done. */
 /* line number 9*/
 /* Incrementing */
+/* line number 9*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -98,6 +104,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp a as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: ++...
+ to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -111,6 +120,8 @@ globalInit_end:
 /* line number 11*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading b to %o1 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -123,6 +134,8 @@ globalInit_end:
     nop
 /* line number 12*/
 /* Incrementing */
+/* line number 12*/
+/* Loading b to %l0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -137,6 +150,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp b as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading Validating UnaryOp b as a IntegerType for operator: ++...
+ to %o1 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -150,6 +166,8 @@ globalInit_end:
 /* line number 14*/
 /* Printing int c */
     set         _intFmt, %o0
+/* line number 14*/
+/* Loading c to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -162,6 +180,8 @@ globalInit_end:
     nop
 /* line number 15*/
 /* Incrementing */
+/* line number 15*/
+/* Loading c to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -176,6 +196,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp c as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 15*/
+/* Loading Validating UnaryOp c as a IntegerType for operator: ++...
+ to %o1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -188,6 +211,8 @@ globalInit_end:
     nop
 /* line number 17*/
 /* Incrementing */
+/* line number 17*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -200,9 +225,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 17*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 17*/
+/* Loading c to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 17*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: ++...
+ to %l1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -217,6 +247,8 @@ globalInit_end:
 /* line number 17*/
 /* Printing int int - int */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading int - int to %o1 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -229,6 +261,8 @@ globalInit_end:
     nop
 /* line number 18*/
 /* Incrementing */
+/* line number 18*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -241,9 +275,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 18*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 18*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: ++...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 18*/
+/* Loading c to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -258,6 +297,8 @@ globalInit_end:
 /* line number 18*/
 /* Printing int int - int */
     set         _intFmt, %o0
+/* line number 18*/
+/* Loading int - int to %o1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
