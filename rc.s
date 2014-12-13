@@ -2,6 +2,10 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
+float_0:        .single      0r7.0       
+float_1:        .single      0r8.0       
+float_2:        .single      0r1.0       
+float_3:        .single      0r2.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -22,45 +26,26 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %i0, [%fp+68]
-/* line number 3*/
-/* Printing int x */
-    set         _intFmt, %o0
-/* line number 3*/
-/* Loading x to %o1 */
-    set         68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 3*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-! --storing constant x with value 2.0
+    st          %f0, [%fp+68]
+/* line number 2*/
+/* Storing parameter y */
+    st          %f1, [%fp+72]
+! --storing constant x with value 7.0
     set         68, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
-    set         2, %l1
-    st          %l1, [%l0]
-/* line number 7*/
-/* Printing int x */
-    set         _intFmt, %o0
-/* line number 7*/
-/* Loading x to %o1 */
-    set         68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 7*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
+    set         float_0, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+! --storing constant y with value 8.0
+    set         72, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    set         float_1, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 foo_end:
     ret 
     restore
@@ -80,34 +65,64 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 14*/
-/* setting a = 1 */
-    set         1, %l0
-    st          %l0, [%fp-8]
-/* line number 14*/
+/* line number 10*/
+/* setting a = 1.0 */
+    set         -8, %l0
+    add         %fp, %l0, %l0
+/* line number 10*/
+/* setting float */
+    set         float_2, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 10*/
 /* Done. */
-/* line number 14*/
+/* line number 12*/
+/* setting b = 2.0 */
+    set         -12, %l0
+    add         %fp, %l0, %l0
+/* line number 12*/
+/* setting float */
+    set         float_3, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 12*/
+/* Done. */
+/* line number 12*/
 /* Preparing argument a */
     set         -8, %o0
     add         %fp, %o0, %o0
+/* line number 12*/
+/* Preparing argument b */
+    set         -12, %o1
+    add         %fp, %o1, %o1
     call    foo
     nop
-/* line number 16*/
-/* Printing int a */
-    set         _intFmt, %o0
-/* line number 16*/
-/* Loading a to %o1 */
+/* line number 14*/
+/* printing float STO.VarSTO@1860038 */
+/* line number 14*/
+/* Loading a to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
+    ld          [%l1], %f0
+    call    printFloat
     nop
-/* line number 16*/
-/* Done printing int. */
+/* line number 14*/
+/* Done printing float. */
+/* line number 14*/
+/* printing float STO.VarSTO@787c16 */
+/* line number 14*/
+/* Loading b to %f0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 14*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 8) & -8
+SAVE.main = -(92 + 12) & -8

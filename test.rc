@@ -1,18 +1,16 @@
-function : void foo(int &x)
+function : void foo(float & x, float & y)
 {
-  cout << x << endl;
- 
-  x = 2;
-
-  cout << x << endl;
+ x = 7.0;
+ y = 8.0;
 }
 
 function : void main()
 {
-  int a = 1;
+  float a = 1.0;
+  float b = 2.0;
 
-  foo(a);
+  foo(a,b);
 
- cout << a << endl;
+  cout << a << b << endl;
 
 }
