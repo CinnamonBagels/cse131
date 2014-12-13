@@ -1728,6 +1728,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + noWhiles);
 		generateASM(Strings.nop);
 		generateASM(Strings.label, Strings.whileEnd + noWhiles);
+		finalWhileStmts--;
 	}
 	
 	public void startWhile() {
