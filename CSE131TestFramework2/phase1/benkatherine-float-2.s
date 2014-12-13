@@ -1,9 +1,9 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     y,x
-y:              .single      0r0.0       
+                 .global     x,y
 x:              .single      0r0.0       
+y:              .single      0r0.0       
 float_0:        .single      0r94.25     
 globalInit_:    .word        0           
 
@@ -38,8 +38,9 @@ globalInit_end:
     set         x, %l0
     add         %g0, %l0, %l0
     set         float_0, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 /* line number 6*/
 /* Prepping Arithmetic Calculations by loading */
     set         1, %l1
@@ -49,11 +50,11 @@ globalInit_end:
     add         %g0, %l1, %l1
     ld          [%l1], %f0
 /* line number 6*/
-/* Storing 1 into  */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         1, %l1
-    st          %l1, [%l0]
+/* Storing variable 1 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         1, %l3
+    st          %l3, [%l5]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -81,15 +82,15 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 6*/
-/* Storing float / float into y */
-    set         y, %l0
-    add         %g0, %l0, %l0
-    set         -12, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable float / float into y */
+    set         y, %l5
+    add         %g0, %l5, %l5
+    set         -12, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
 /* line number 7*/
-/* printing float STO.VarSTO@13fa2d5 */
+/* printing float STO.VarSTO@19b7dfa */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

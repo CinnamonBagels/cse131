@@ -1,10 +1,3 @@
 rc.s:
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 67: error: redefinition of symbol "foo1"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 75: error: redefinition of symbol "foo1_end"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 78: error: redefinition of symbol "SAVE.foo1"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 82: error: redefinition of symbol "foo"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 97: error: redefinition of symbol "foo_end"
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 100: error: redefinition of symbol "SAVE.foo"
-cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

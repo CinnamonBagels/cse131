@@ -78,13 +78,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 7*/
-/* Storing int + int into a */
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    set         -24, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int + int into a */
+    set         -8, %l5
+    add         %fp, %l5, %l5
+    set         -24, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 8*/
 /* Incrementing */
     set         -8, %l1
@@ -126,13 +126,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 8*/
-/* Storing int + int into b */
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    set         -36, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int + int into b */
+    set         -12, %l5
+    add         %fp, %l5, %l5
+    set         -36, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 9*/
 /* Incrementing */
     set         -8, %l1
@@ -174,13 +174,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 9*/
-/* Storing int - int into c */
-    set         -16, %l0
-    add         %fp, %l0, %l0
-    set         -48, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int - int into c */
+    set         -16, %l5
+    add         %fp, %l5, %l5
+    set         -48, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 11*/
 /* printing string */
     set         _strFmt, %o0

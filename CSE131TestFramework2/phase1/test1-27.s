@@ -59,13 +59,13 @@ main:
     add         %fp, %l4, %l4
     st          %l0, [%l4]
 /* line number 9*/
-/* Storing int / int into k */
-    set         k, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int / int into k */
+    set         k, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
@@ -306,13 +306,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 19*/
-/* Storing int + int into a */
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    set         -44, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int + int into a */
+    set         -8, %l5
+    add         %fp, %l5, %l5
+    set         -44, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 20*/
 /* Prepping Arithmetic Calculations by loading */
     set         -8, %l1
@@ -332,14 +332,14 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l0, [%l4]
 /* line number 20*/
-/* Storing Validating int and int as an IntegerType for operator: %...
+/* Storing variable Validating int and int as an IntegerType for operator: %...
  into b */
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    set         -48, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+    set         -12, %l5
+    add         %fp, %l5, %l5
+    set         -48, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 ! --storing constant c with value 25.0
     set         -20, %l0
     add         %fp, %l0, %l0
@@ -368,14 +368,14 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l0, [%l4]
 /* line number 22*/
-/* Storing Validating int and int as an IntegerType for operator: %...
+/* Storing variable Validating int and int as an IntegerType for operator: %...
  into d */
-    set         -28, %l0
-    add         %fp, %l0, %l0
-    set         -52, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+    set         -28, %l5
+    add         %fp, %l5, %l5
+    set         -52, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 24*/
 /* Printing int a */
     set         _intFmt, %o0

@@ -97,13 +97,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l0, [%l4]
 /* line number 12*/
-/* Storing int * int into x */
-    set         x, %l0
-    add         %g0, %l0, %l0
-    set         -28, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int * int into x */
+    set         x, %l5
+    add         %g0, %l5, %l5
+    set         -28, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 13*/
 /* Prepping Arithmetic Calculations by loading */
     set         -16, %l1
@@ -141,13 +141,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 13*/
-/* Storing int + int into y */
-    set         y, %l0
-    add         %g0, %l0, %l0
-    set         -36, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int + int into y */
+    set         y, %l5
+    add         %g0, %l5, %l5
+    set         -36, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 14*/
 /* Prepping Arithmetic Calculations by loading */
     set         y, %l1
@@ -237,13 +237,13 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l0, [%l4]
 /* line number 14*/
-/* Storing int * int into z */
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         -56, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int * int into z */
+    set         z, %l5
+    add         %g0, %l5, %l5
+    set         -56, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 16*/
 /* Printing int x */
     set         _intFmt, %o0

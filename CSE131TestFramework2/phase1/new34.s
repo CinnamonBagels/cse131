@@ -47,7 +47,7 @@ globalInit_end:
 /* line number 6*/
 /* Done printing string. */
 /* line number 6*/
-/* printing float STO.VarSTO@6076f4 */
+/* printing float STO.VarSTO@1d91382 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

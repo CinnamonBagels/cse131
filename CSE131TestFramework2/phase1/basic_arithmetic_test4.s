@@ -47,32 +47,36 @@ globalInit_end:
     set         shakespeare, %l0
     add         %g0, %l0, %l0
     set         float_0, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 ! --storing constant marlowe with value 5000.0
     set         marlowe, %l0
     add         %g0, %l0, %l0
     set         marlowe, %l0
     add         %g0, %l0, %l0
     set         float_1, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 ! --storing constant goethe with value 12000.0
     set         goethe, %l0
     add         %g0, %l0, %l0
     set         goethe, %l0
     add         %g0, %l0, %l0
     set         float_2, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 ! --storing constant shelley with value 7000.0
     set         shelley, %l0
     add         %g0, %l0, %l0
     set         shelley, %l0
     add         %g0, %l0, %l0
     set         float_3, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 /* line number 14*/
 /* setting twilightSeries = 5000 */
     set         5000, %l0
@@ -135,13 +139,13 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f0
 /* line number 17*/
-/* Storing Arithmetic Op into  */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_4, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable Arithmetic Op into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_4, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -185,13 +189,13 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f0
 /* line number 18*/
-/* Storing 1.0 into  */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_5, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable 1.0 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_5, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -255,13 +259,13 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f0
 /* line number 19*/
-/* Storing 9999.50 into  */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_6, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable 9999.50 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_6, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -321,13 +325,13 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %f0
 /* line number 20*/
-/* Storing 1.00 into  */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         float_7, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable 1.00 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_7, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -368,7 +372,7 @@ globalInit_end:
 /* line number 22*/
 /* Done. */
 /* line number 22*/
-/* printing float STO.VarSTO@d8f317 */
+/* printing float STO.VarSTO@19b7dfa */
     set         shakespeare, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -380,7 +384,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 23*/
-/* printing float STO.VarSTO@ea8847 */
+/* printing float STO.VarSTO@8d116e */
     set         marlowe, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -392,7 +396,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 24*/
-/* printing float STO.VarSTO@1990d96 */
+/* printing float STO.VarSTO@1737e47 */
     set         goethe, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -404,7 +408,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float STO.VarSTO@14afef4 */
+/* printing float STO.VarSTO@1678f0a */
     set         shelley, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -416,7 +420,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 26*/
-/* printing float STO.VarSTO@5b04ae */
+/* printing float STO.VarSTO@16a4aef */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -428,7 +432,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 27*/
-/* printing float STO.VarSTO@1904b13 */
+/* printing float STO.VarSTO@15dbaab */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -440,7 +444,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 28*/
-/* printing float STO.VarSTO@31028a */
+/* printing float STO.VarSTO@8a3d8f */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -452,7 +456,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 29*/
-/* printing float STO.VarSTO@19db21f */
+/* printing float STO.VarSTO@1cfa4b2 */
     set         -80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

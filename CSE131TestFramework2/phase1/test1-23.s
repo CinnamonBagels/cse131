@@ -51,13 +51,13 @@ main:
     add         %fp, %l4, %l4
     st          %l0, [%l4]
 /* line number 7*/
-/* Storing int * int into m */
-    set         m, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int * int into m */
+    set         m, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]

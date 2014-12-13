@@ -54,37 +54,37 @@ globalInit_end:
 /* line number 10*/
 /* Done. */
 /* line number 10*/
-/* Storing ankur into rickAndAnkur */
-    set         rickAndAnkur, %l0
-    add         %g0, %l0, %l0
-    set         ankur, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable ankur into rickAndAnkur */
+    set         rickAndAnkur, %l5
+    add         %g0, %l5, %l5
+    set         ankur, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 11*/
-/* Storing a into ankur */
-    set         ankur, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable a into ankur */
+    set         ankur, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 12*/
-/* Storing b into rick */
-    set         rick, %l0
-    add         %g0, %l0, %l0
-    set         -12, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable b into rick */
+    set         rick, %l5
+    add         %g0, %l5, %l5
+    set         -12, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 13*/
-/* Storing rick into rickAndAnkur */
-    set         rickAndAnkur, %l0
-    add         %g0, %l0, %l0
-    set         rick, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable rick into rickAndAnkur */
+    set         rickAndAnkur, %l5
+    add         %g0, %l5, %l5
+    set         rick, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 15*/
 /* printing string */
     set         _strFmt, %o0

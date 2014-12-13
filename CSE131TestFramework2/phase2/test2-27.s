@@ -2,8 +2,12 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-float_0:        .single      0r1.0       
+                 .global     i
 globalInit_:    .word        0           
+                .section     ".bss"
+                .align 4
+i:              .skip        80          
+
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
@@ -30,13 +34,13 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 6*/
+/* line number 7*/
 /* Starting array access */
-    set         1, %l0
+    set         4, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
     nop
-    cmp         %l0, 2
+    cmp         %l0, 20
     bge     arrayOutBounds_0
     nop
 arrayInBounds_0:
@@ -45,10 +49,10 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -12, %l1
-    add         %fp, %l1, %l1
+    set         i, %l1
+    add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -16, %l5
+    set         -8, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_0
@@ -56,7 +60,7 @@ arrayInBounds_0:
 arrayOutBounds_0:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         2, %o2
+    set         20, %o2
     call    printf
     nop
     set         1, %o0
@@ -64,21 +68,19 @@ arrayOutBounds_0:
 
     nop
 arrayEnd_0:
-! --storing constant y[1] with value 1.0
-    set         -16, %l0
+! --storing constant i[4] with value 123.0
+    set         -8, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
-    set         float_0, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %f0
-    st          %f0, [%l0]
-/* line number 8*/
+    set         123, %l1
+    st          %l1, [%l0]
+/* line number 9*/
 /* Starting array access */
-    set         1, %l0
+    set         4, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
     nop
-    cmp         %l0, 2
+    cmp         %l0, 20
     bge     arrayOutBounds_1
     nop
 arrayInBounds_1:
@@ -87,10 +89,10 @@ arrayInBounds_1:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -12, %l1
-    add         %fp, %l1, %l1
+    set         i, %l1
+    add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -20, %l5
+    set         -12, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_1
@@ -98,7 +100,7 @@ arrayInBounds_1:
 arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         2, %o2
+    set         20, %o2
     call    printf
     nop
     set         1, %o0
@@ -106,72 +108,21 @@ arrayOutBounds_1:
 
     nop
 arrayEnd_1:
-/* line number 8*/
-/* Incrementing */
-    set         -20, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %f0
-    set         FLOAT_FORCE_1, %l6
-    ld          [%l6], %f1
-    fadds       %f0, %f1, %f2
-    set         -20, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %l1
-    st          %f2, [%l1]
-    fsubs       %f2, %f1, %f0
-    set         -24, %l1
-    add         %fp, %l1, %l1
-    st          %f0, [%l1]
-/* line number 10*/
-/* Starting array access */
-    set         1, %l0
-    cmp         %l0, %g0
-    bl      arrayOutBounds_2
-    nop
-    cmp         %l0, 2
-    bge     arrayOutBounds_2
-    nop
-arrayInBounds_2:
-    mov         %l0, %o0
-    set         4, %o1
-    call    .mul
-    nop
-    mov         %o0, %l2
+/* line number 9*/
+/* Printing int i[4] */
+    set         _intFmt, %o0
     set         -12, %l1
     add         %fp, %l1, %l1
-    add         %l1, %l2, %l4
-    set         -28, %l5
-    add         %fp, %l5, %l6
-    st          %l4, [%l6]
-    ba      arrayEnd_2
-    nop
-arrayOutBounds_2:
-    set         arrayOutOfBounds, %o0
-    mov         %l0, %o1
-    set         2, %o2
+    ld          [%l1], %l1
+    ld          [%l1], %o1
     call    printf
     nop
-    set         1, %o0
-    call    exit
-
-    nop
-arrayEnd_2:
-/* line number 10*/
-/* printing float STO.ExprSTO@d66426 */
-    set         -28, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 10*/
-/* Done printing float. */
+/* line number 9*/
+/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 28) & -8
+SAVE.main = -(92 + 12) & -8

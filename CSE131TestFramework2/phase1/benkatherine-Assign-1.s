@@ -117,11 +117,11 @@ globalInit_end:
 /* line number 15*/
 /* Adding */
 /* line number 15*/
-/* Storing w into  */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         5, %l1
-    st          %l1, [%l0]
+/* Storing variable w into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         5, %l3
+    st          %l3, [%l5]
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -148,22 +148,26 @@ globalInit_end:
 /* line number 17*/
 /* Converting int Arithmetic Op to float. */
 /* line number 17*/
-/* Storing Arithmetic Op into promoteCasting */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         25, %l1
-    st          %l1, [%l0]
-    set         4, %l1
+/* promoting */
+/* line number 17*/
+/* Storing variable Arithmetic Op into promoteCasting */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         25, %l3
+    st          %l3, [%l5]
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
+/* line number 17*/
+/* done promoting */
 /* line number 17*/
 /* Assigning converted Arithmetic Op to d */
     set         -32, %l2
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 17*/
-/* printing float STO.VarSTO@1c1e1e7 */
+/* printing float STO.VarSTO@85b4c5 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -175,7 +179,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 18*/
-/* printing float STO.VarSTO@1d62a85 */
+/* printing float STO.VarSTO@1ef8f5 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -203,7 +207,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 19*/
-/* printing float STO.ExprSTO@181aed0 */
+/* printing float STO.ExprSTO@16ad447 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -49,12 +49,21 @@ globalInit_end:
     set         5, %l0
     set         5, %l1
 /* line number 10*/
-/* whoops, Comparison Operator broke on 5 == 5 */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_0
+    nop
+    set         0, %l3
+    ba      equalEnd_0
+    nop
+equal_0:
+    set         1, %l3
+equalEnd_0:
 /* line number 10*/
 /* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -86,14 +95,14 @@ endIf_1:
 /* line number 14*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_0
+    bne     nEqual_1
     nop
     set         0, %l3
-    ba      nEqual_0
+    ba      nEqualEnd_1
     nop
-nEqual_0:
+nEqual_1:
     set         1, %l3
-nEqualEnd_0:
+nEqualEnd_1:
 /* line number 14*/
 /* Storing result of Comparison Op */
     set         -12, %l4
@@ -130,14 +139,14 @@ endIf_3:
 /* line number 18*/
 /* Starting greater than */
     cmp         %l0, %l1
-    bg      greater_1
+    bg      greater_2
     nop
     set         0, %l3
-    ba      greaterEnd_1
+    ba      greaterEnd_2
     nop
-greater_1:
+greater_2:
     set         1, %l3
-greaterEnd_1:
+greaterEnd_2:
 /* line number 18*/
 /* Storing result of Comparison Op */
     set         -16, %l4
@@ -174,14 +183,14 @@ endIf_5:
 /* line number 22*/
 /* Starting greater than equal */
     cmp         %l0, %l1
-    bge     greaterEqual_2
+    bge     greaterEqual_3
     nop
     set         0, %l3
-    ba      greaterEqual_2
+    ba      greaterEqualEnd_3
     nop
-greaterEqual_2:
+greaterEqual_3:
     set         1, %l3
-greaterEqualEnd_2:
+greaterEqualEnd_3:
 /* line number 22*/
 /* Storing result of Comparison Op */
     set         -20, %l4
@@ -218,14 +227,14 @@ endIf_7:
 /* line number 26*/
 /* Starting greater than */
     cmp         %l0, %l1
-    bg      greater_3
+    bg      greater_4
     nop
     set         0, %l3
-    ba      greaterEnd_3
+    ba      greaterEnd_4
     nop
-greater_3:
+greater_4:
     set         1, %l3
-greaterEnd_3:
+greaterEnd_4:
 /* line number 26*/
 /* Storing result of Comparison Op */
     set         -24, %l4
@@ -262,14 +271,14 @@ endIf_9:
 /* line number 30*/
 /* Starting greater than equal */
     cmp         %l0, %l1
-    bge     greaterEqual_4
+    bge     greaterEqual_5
     nop
     set         0, %l3
-    ba      greaterEqual_4
+    ba      greaterEqualEnd_5
     nop
-greaterEqual_4:
+greaterEqual_5:
     set         1, %l3
-greaterEqualEnd_4:
+greaterEqualEnd_5:
 /* line number 30*/
 /* Storing result of Comparison Op */
     set         -28, %l4
@@ -306,14 +315,14 @@ endIf_11:
 /* line number 34*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_5
+    bne     nEqual_6
     nop
     set         0, %l3
-    ba      nEqual_5
+    ba      nEqualEnd_6
     nop
-nEqual_5:
+nEqual_6:
     set         1, %l3
-nEqualEnd_5:
+nEqualEnd_6:
 /* line number 34*/
 /* Storing result of Comparison Op */
     set         -32, %l4
@@ -352,14 +361,14 @@ endIf_13:
     add         %g0, %l1, %l1
     ld          [%l1], %f1
     fcmps       %f0, %f1
-    fbg     greater_6
+    fbg     greater_7
     nop
     set         0, %l3
-    ba      greaterEnd_6
+    ba      greaterEnd_7
     nop
-greater_6:
+greater_7:
     set         1, %l3
-greaterEnd_6:
+greaterEnd_7:
 /* line number 38*/
 /* Storing result of Comparison Op */
     set         -36, %l4
@@ -398,14 +407,14 @@ endIf_15:
     add         %g0, %l1, %l1
     ld          [%l1], %f1
     fcmps       %f0, %f1
-    fbge    greaterEqual_7
+    fbge    greaterEqual_8
     nop
     set         0, %l3
-    ba      greaterEqual_7
+    ba      greaterEqualEnd_8
     nop
-greaterEqual_7:
+greaterEqual_8:
     set         1, %l3
-greaterEqualEnd_7:
+greaterEqualEnd_8:
 /* line number 42*/
 /* Storing result of Comparison Op */
     set         -40, %l4

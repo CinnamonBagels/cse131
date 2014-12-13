@@ -31,22 +31,26 @@ globalInit_end:
 /* line number 5*/
 /* Converting int 10 to float. */
 /* line number 5*/
-/* Storing 10 into promoteCasting */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         10, %l1
-    st          %l1, [%l0]
-    set         4, %l1
+/* promoting */
+/* line number 5*/
+/* Storing variable 10 into promoteCasting */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         10, %l3
+    st          %l3, [%l5]
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
+/* line number 5*/
+/* done promoting */
 /* line number 5*/
 /* Assigning converted 10 to c */
     set         -8, %l2
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 5*/
-/* printing float STO.VarSTO@10e3816 */
+/* printing float STO.VarSTO@5f62a9 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

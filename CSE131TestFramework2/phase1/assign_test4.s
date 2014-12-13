@@ -108,29 +108,29 @@ globalInit_end:
 /* line number 15*/
 /* Done. */
 /* line number 15*/
-/* Storing f1 into localf1 */
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    set         f1, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable f1 into localf1 */
+    set         -8, %l5
+    add         %fp, %l5, %l5
+    set         f1, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
 /* line number 16*/
-/* Storing f2 into localf2 */
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    set         f2, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable f2 into localf2 */
+    set         -12, %l5
+    add         %fp, %l5, %l5
+    set         f2, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
 /* line number 17*/
-/* Storing f3 into localf3 */
-    set         -16, %l0
-    add         %fp, %l0, %l0
-    set         f3, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable f3 into localf3 */
+    set         -16, %l5
+    add         %fp, %l5, %l5
+    set         f3, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
 /* line number 19*/
 /* printing string */
     set         _strFmt, %o0
@@ -140,7 +140,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@121c7d6 */
+/* printing float STO.VarSTO@1ad4242 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -160,7 +160,7 @@ globalInit_end:
 /* line number 20*/
 /* Done printing string. */
 /* line number 20*/
-/* printing float STO.VarSTO@ea8847 */
+/* printing float STO.VarSTO@fbf107 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -180,7 +180,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@1990d96 */
+/* printing float STO.VarSTO@8d116e */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -200,7 +200,7 @@ globalInit_end:
 /* line number 23*/
 /* Done printing string. */
 /* line number 23*/
-/* printing float STO.VarSTO@19ffd6f */
+/* printing float STO.VarSTO@1048099 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -220,7 +220,7 @@ globalInit_end:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@b799cf */
+/* printing float STO.VarSTO@96ed8b */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -240,7 +240,7 @@ globalInit_end:
 /* line number 25*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@1d317ab */
+/* printing float STO.VarSTO@c55164 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -260,7 +260,7 @@ globalInit_end:
 /* line number 27*/
 /* Done printing string. */
 /* line number 27*/
-/* printing float STO.VarSTO@14afef4 */
+/* printing float STO.VarSTO@1737e47 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -280,7 +280,7 @@ globalInit_end:
 /* line number 28*/
 /* Done printing string. */
 /* line number 28*/
-/* printing float STO.VarSTO@a866a9 */
+/* printing float STO.VarSTO@1678f0a */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -300,7 +300,7 @@ globalInit_end:
 /* line number 29*/
 /* Done printing string. */
 /* line number 29*/
-/* printing float STO.VarSTO@1ebf305 */
+/* printing float STO.VarSTO@1e00761 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

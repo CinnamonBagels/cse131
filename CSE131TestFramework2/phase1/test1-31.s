@@ -166,7 +166,7 @@ branchEnd_1:
     bne     nEqual_2
     nop
     set         0, %l3
-    ba      nEqual_2
+    ba      nEqualEnd_2
     nop
 nEqual_2:
     set         1, %l3
@@ -214,12 +214,21 @@ branchEnd_2:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 9*/
-/* whoops, Comparison Operator broke on ten == ten */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_3
+    nop
+    set         0, %l3
+    ba      equalEnd_3
+    nop
+equal_3:
+    set         1, %l3
+equalEnd_3:
 /* line number 9*/
 /* Storing result of Comparison Op */
     set         -28, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
 /* line number 9*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: ==...
  */
@@ -255,14 +264,14 @@ branchEnd_3:
 /* line number 12*/
 /* Starting greater than */
     cmp         %l0, %l1
-    bg      greater_3
+    bg      greater_4
     nop
     set         0, %l3
-    ba      greaterEnd_3
+    ba      greaterEnd_4
     nop
-greater_3:
+greater_4:
     set         1, %l3
-greaterEnd_3:
+greaterEnd_4:
 /* line number 12*/
 /* Storing result of Comparison Op */
     set         -32, %l4
@@ -308,14 +317,14 @@ branchEnd_4:
 /* line number 12*/
 /* Starting Less than */
     cmp         %l0, %l1
-    bl      less_4
+    bl      less_5
     nop
     set         0, %l3
-    ba      lessEnd_4
+    ba      lessEnd_5
     nop
-less_4:
+less_5:
     set         1, %l3
-lessEnd_4:
+lessEnd_5:
 /* line number 12*/
 /* Storing result of Comparison Op */
     set         -36, %l4
@@ -359,12 +368,21 @@ branchEnd_5:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 12*/
-/* whoops, Comparison Operator broke on twenty == twenty */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_6
+    nop
+    set         0, %l3
+    ba      equalEnd_6
+    nop
+equal_6:
+    set         1, %l3
+equalEnd_6:
 /* line number 12*/
 /* Storing result of Comparison Op */
     set         -40, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
 /* line number 12*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: ==...
  */
@@ -405,14 +423,14 @@ branchEnd_6:
 /* line number 13*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_5
+    bne     nEqual_7
     nop
     set         0, %l3
-    ba      nEqual_5
+    ba      nEqualEnd_7
     nop
-nEqual_5:
+nEqual_7:
     set         1, %l3
-nEqualEnd_5:
+nEqualEnd_7:
 /* line number 13*/
 /* Storing result of Comparison Op */
     set         -44, %l4

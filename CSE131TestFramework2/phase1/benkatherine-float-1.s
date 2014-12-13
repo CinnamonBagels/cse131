@@ -45,19 +45,19 @@ main:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 7*/
-/* Storing float + float into z */
-    set         z, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %f1
-    st          %f1, [%l0]
+/* Storing variable float + float into z */
+    set         z, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
 /* line number 9*/
-/* printing float STO.VarSTO@96ed8b */
+/* printing float STO.VarSTO@19db21f */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

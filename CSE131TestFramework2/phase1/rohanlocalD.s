@@ -29,7 +29,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 5*/
-/* printing float STO.VarSTO@4b1bcd */
+/* printing float STO.VarSTO@f801c4 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

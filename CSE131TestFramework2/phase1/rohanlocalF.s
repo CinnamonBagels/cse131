@@ -35,20 +35,22 @@ globalInit_end:
     set         -8, %l0
     add         %fp, %l0, %l0
 /* line number 5*/
-/* Storing 5 into promoteCasting */
-    set         4, %l0
-    add         %fp, %l0, %l0
-    set         5, %l1
-    st          %l1, [%l0]
-    set         4, %l1
+/* promoting */
+/* line number 5*/
+/* Storing variable 5 into promoteCasting */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         5, %l3
+    st          %l3, [%l5]
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fitos       %f1, %f1
-    set         float_0, %l1
-    ld          [%l1], %f1
+/* line number 5*/
+/* done promoting */
     st          %f1, [%l0]
 /* line number 7*/
-/* printing float STO.VarSTO@10e3816 */
+/* printing float STO.VarSTO@3bed68 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -138,13 +138,13 @@ if_10:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 23*/
-/* Storing int + int into x */
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    set         -24, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int + int into x */
+    set         -8, %l5
+    add         %fp, %l5, %l5
+    set         -24, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     ba      endIf_11
     nop
 else_10:

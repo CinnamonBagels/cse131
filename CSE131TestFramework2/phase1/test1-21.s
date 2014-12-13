@@ -33,22 +33,31 @@ main:
     bne     globalInit_end
     nop
 /* line number 4*/
-/* negating... */
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l1
-    neg     %l1
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    st          %l1, [%l2]
+/* Prepping Arithmetic Calculations by loading */
+    set         i, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %l0
+    set         -1, %l1
+/* line number 4*/
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
+    nop
+    mov         %o0, %l0
+/* line number 4*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
 /* line number 6*/
-/* Storing i into j */
-    set         j, %l0
-    add         %g0, %l0, %l0
-    set         -8, %l2
-    add         %fp, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable int * int into j */
+    set         j, %l5
+    add         %g0, %l5, %l5
+    set         -8, %l3
+    add         %fp, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
     set         globalInit_, %l0
     set         1, %l1
     st          %l1, [%l0]
@@ -60,26 +69,44 @@ globalInit_end:
 /* line number 8*/
 /* Done. */
 /* line number 8*/
-/* negating... */
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l1
-    neg     %l1
-    set         -12, %l2
-    add         %fp, %l2, %l2
-    st          %l1, [%l2]
+/* Prepping Arithmetic Calculations by loading */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -1, %l1
 /* line number 8*/
-/* negating... */
-    set         -16, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l1
-    neg     %l1
-    set         -16, %l2
-    add         %fp, %l2, %l2
-    st          %l1, [%l2]
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
+    nop
+    mov         %o0, %l0
+/* line number 8*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
-    set         -16, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         -1, %l1
+/* line number 8*/
+/* Multiplying */
+    mov         %l0, %o0
+    mov         %l1, %o1
+    call    .mul
+    nop
+    mov         %o0, %l0
+/* line number 8*/
+/* Storing result of Binary Op */
+    set         -16, %l4
+    add         %fp, %l4, %l4
+    st          %l0, [%l4]
+/* line number 8*/
+/* Prepping Arithmetic Calculations by loading */
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         -16, %l1
@@ -106,8 +133,8 @@ globalInit_end:
 /* line number 11*/
 /* Printing int i */
     set         _intFmt, %o0
-    set         -8, %l1
-    add         %fp, %l1, %l1
+    set         i, %l1
+    add         %g0, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -142,7 +169,7 @@ globalInit_end:
 /* line number 11*/
 /* Printing int k */
     set         _intFmt, %o0
-    set         -16, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf

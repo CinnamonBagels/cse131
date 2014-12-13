@@ -50,12 +50,21 @@ globalInit_end:
     ld          [%l1], %l0
     set         1, %l1
 /* line number 8*/
-/* whoops, Comparison Operator broke on luke == true */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_0
+    nop
+    set         0, %l3
+    ba      equalEnd_0
+    nop
+equal_0:
+    set         1, %l3
+equalEnd_0:
 /* line number 8*/
 /* Storing result of Comparison Op */
     set         -8, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -85,12 +94,21 @@ endIf_1:
     ld          [%l1], %l0
     set         0, %l1
 /* line number 12*/
-/* whoops, Comparison Operator broke on wedge == false */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_1
+    nop
+    set         0, %l3
+    ba      equalEnd_1
+    nop
+equal_1:
+    set         1, %l3
+equalEnd_1:
 /* line number 12*/
 /* Storing result of Comparison Op */
     set         -12, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -122,14 +140,14 @@ endIf_3:
 /* line number 16*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_0
+    bne     nEqual_2
     nop
     set         0, %l3
-    ba      nEqual_0
+    ba      nEqualEnd_2
     nop
-nEqual_0:
+nEqual_2:
     set         1, %l3
-nEqualEnd_0:
+nEqualEnd_2:
 /* line number 16*/
 /* Storing result of Comparison Op */
     set         -16, %l4
@@ -166,14 +184,14 @@ endIf_5:
 /* line number 20*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_1
+    bne     nEqual_3
     nop
     set         0, %l3
-    ba      nEqual_1
+    ba      nEqualEnd_3
     nop
-nEqual_1:
+nEqual_3:
     set         1, %l3
-nEqualEnd_1:
+nEqualEnd_3:
 /* line number 20*/
 /* Storing result of Comparison Op */
     set         -20, %l4
@@ -210,12 +228,21 @@ endIf_7:
     add         %g0, %l1, %l1
     ld          [%l1], %l1
 /* line number 24*/
-/* whoops, Comparison Operator broke on luke == redFive */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_4
+    nop
+    set         0, %l3
+    ba      equalEnd_4
+    nop
+equal_4:
+    set         1, %l3
+equalEnd_4:
 /* line number 24*/
 /* Storing result of Comparison Op */
     set         -24, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -249,14 +276,14 @@ endIf_9:
 /* line number 28*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_2
+    bne     nEqual_5
     nop
     set         0, %l3
-    ba      nEqual_2
+    ba      nEqualEnd_5
     nop
-nEqual_2:
+nEqual_5:
     set         1, %l3
-nEqualEnd_2:
+nEqualEnd_5:
 /* line number 28*/
 /* Storing result of Comparison Op */
     set         -28, %l4
@@ -289,12 +316,21 @@ endIf_11:
     set         1, %l0
     set         1, %l1
 /* line number 32*/
-/* whoops, Comparison Operator broke on true == true */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_6
+    nop
+    set         0, %l3
+    ba      equalEnd_6
+    nop
+equal_6:
+    set         1, %l3
+equalEnd_6:
 /* line number 32*/
 /* Storing result of Comparison Op */
     set         -32, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -322,12 +358,21 @@ endIf_13:
     set         0, %l0
     set         0, %l1
 /* line number 36*/
-/* whoops, Comparison Operator broke on false == false */
+/* Starting == equal */
+    cmp         %l0, %l1
+    be      equal_7
+    nop
+    set         0, %l3
+    ba      equalEnd_7
+    nop
+equal_7:
+    set         1, %l3
+equalEnd_7:
 /* line number 36*/
 /* Storing result of Comparison Op */
     set         -36, %l4
     add         %fp, %l4, %l4
-    st          , [%l4]
+    st          %l3, [%l4]
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -357,14 +402,14 @@ endIf_15:
 /* line number 40*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_3
+    bne     nEqual_8
     nop
     set         0, %l3
-    ba      nEqual_3
+    ba      nEqualEnd_8
     nop
-nEqual_3:
+nEqual_8:
     set         1, %l3
-nEqualEnd_3:
+nEqualEnd_8:
 /* line number 40*/
 /* Storing result of Comparison Op */
     set         -40, %l4
@@ -399,14 +444,14 @@ endIf_17:
 /* line number 44*/
 /* Starting not equal */
     cmp         %l0, %l1
-    bne     nEqual_4
+    bne     nEqual_9
     nop
     set         0, %l3
-    ba      nEqual_4
+    ba      nEqualEnd_9
     nop
-nEqual_4:
+nEqual_9:
     set         1, %l3
-nEqualEnd_4:
+nEqualEnd_9:
 /* line number 44*/
 /* Storing result of Comparison Op */
     set         -44, %l4

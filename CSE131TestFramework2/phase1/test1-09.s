@@ -207,7 +207,7 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@16ad447 */
+/* printing float STO.VarSTO@a9fd96 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -224,7 +224,7 @@ branchEnd_1:
 /* line number 25*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@96b555 */
+/* printing float STO.VarSTO@47ad40 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -241,7 +241,7 @@ branchEnd_1:
 /* line number 25*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@1904b13 */
+/* printing float STO.VarSTO@128d900 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

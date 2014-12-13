@@ -57,7 +57,7 @@ globalInit_end:
 /* line number 15*/
 /* Done printing string. */
 /* line number 15*/
-/* printing float STO.VarSTO@c6c084 */
+/* printing float STO.VarSTO@1d91382 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -77,7 +77,7 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@1990d96 */
+/* printing float STO.VarSTO@8d116e */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -94,8 +94,9 @@ globalInit_end:
     set         f3, %l0
     add         %g0, %l0, %l0
     set         float_2, %l1
-    ld          [%l1], %f1
-    st          %f1, [%l0]
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 /* line number 19*/
 /* printing string */
     set         _strFmt, %o0
@@ -105,7 +106,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@14afef4 */
+/* printing float STO.VarSTO@1737e47 */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -131,13 +132,13 @@ globalInit_end:
     set         2, %l1
     st          %l1, [%l0]
 /* line number 23*/
-/* Storing i1 into i3 */
-    set         i3, %l0
-    add         %g0, %l0, %l0
-    set         i1, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable i1 into i3 */
+    set         i3, %l5
+    add         %g0, %l5, %l5
+    set         i1, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 25*/
 /* printing string */
     set         _strFmt, %o0
@@ -216,13 +217,13 @@ globalInit_end:
     set         0, %l1
     st          %l1, [%l0]
 /* line number 31*/
-/* Storing b2 into b3 */
-    set         b3, %l0
-    add         %g0, %l0, %l0
-    set         b2, %l2
-    add         %g0, %l2, %l2
-    ld          [%l2], %l1
-    st          %l1, [%l0]
+/* Storing variable b2 into b3 */
+    set         b3, %l5
+    add         %g0, %l5, %l5
+    set         b2, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %l3
+    st          %l3, [%l5]
 /* line number 33*/
 /* printing string */
     set         _strFmt, %o0

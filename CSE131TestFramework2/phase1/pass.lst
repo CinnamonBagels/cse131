@@ -54,6 +54,10 @@ phase1/benkatherine-if-6.rc
 phase1/benkatherine-if-7.rc
 phase1/benkatherine-if-8.rc
 phase1/benkatherine-if-9.rc
+phase1/comparison_test1.rc
+phase1/comparison_test2.rc
+phase1/comparison_test3.rc
+phase1/comparison_test4.rc
 phase1/cout_chain_test1.rc
 phase1/cout_test1.rc
 phase1/cout_test2.rc
@@ -108,12 +112,14 @@ phase1/other01.rc
 phase1/post_incdec_test1.rc
 phase1/pre_incdec_test1.rc
 phase1/recursion_test1.rc
+phase1/recursion_test2.rc
 phase1/recursion_test3.rc
 phase1/rohanlocalA.rc
 phase1/rohanlocalB.rc
 phase1/rohanlocalC.rc
 phase1/rohanlocalD.rc
 phase1/rohanlocalE.rc
+phase1/rohanlocalF.rc
 phase1/rohanlocalG.rc
 phase1/rohanlocalH.rc
 phase1/rohanlocalI.rc
@@ -142,6 +148,7 @@ phase1/test1-17.rc
 phase1/test1-18.rc
 phase1/test1-19.rc
 phase1/test1-20.rc
+phase1/test1-21.rc
 phase1/test1-22.rc
 phase1/test1-23.rc
 phase1/test1-24.rc
@@ -151,6 +158,7 @@ phase1/test1-27.rc
 phase1/test1-28.rc
 phase1/test1-29.rc
 phase1/test1-30.rc
+phase1/test1-31.rc
 phase1/test1-32.rc
 phase1/test1-33.rc
 phase1/test1-35.rc
