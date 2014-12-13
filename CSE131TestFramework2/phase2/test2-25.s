@@ -43,7 +43,7 @@ foo2:
 /* line number 4*/
 /* Done printing string. */
 /* line number 4*/
-/* printing float STO.VarSTO@1b277f0 */
+/* printing float STO.VarSTO@1bfbe18 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

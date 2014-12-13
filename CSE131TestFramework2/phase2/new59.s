@@ -47,7 +47,7 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@47ad40 */
+/* printing float STO.VarSTO@5d75eb */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -135,7 +135,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 15*/
-/* printing float STO.VarSTO@f7d5a6 */
+/* printing float STO.VarSTO@29626a */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

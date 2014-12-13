@@ -347,7 +347,7 @@ negEnd_5:
     ld          [%l1], %l1
 /* line number 38*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_0
     nop
 andF_0:
@@ -441,7 +441,7 @@ negEnd_7:
     ld          [%l1], %l1
 /* line number 39*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_1
     nop
 andF_1:
@@ -535,7 +535,7 @@ negEnd_9:
     ld          [%l1], %l1
 /* line number 41*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_2
     nop
 andF_2:
@@ -629,7 +629,7 @@ negEnd_11:
     ld          [%l1], %l1
 /* line number 42*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_3
     nop
 andF_3:
@@ -1156,7 +1156,7 @@ negEnd_22:
     ld          [%l1], %l1
 /* line number 54*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_4
     nop
 andF_4:
@@ -1260,7 +1260,7 @@ negEnd_24:
     ld          [%l1], %l1
 /* line number 55*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_5
     nop
 andF_5:

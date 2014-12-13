@@ -80,7 +80,7 @@ globalInit_end:
 /* line number 7*/
 /* Done printing int. */
 /* line number 7*/
-/* printing float STO.VarSTO@a9fd96 */
+/* printing float STO.VarSTO@5d75eb */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

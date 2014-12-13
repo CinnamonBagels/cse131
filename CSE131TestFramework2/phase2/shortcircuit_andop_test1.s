@@ -83,7 +83,7 @@ globalInit_end:
     ld          [%l1], %l1
 /* line number 9*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_0
     nop
 andF_0:
@@ -143,7 +143,7 @@ endIf_1:
     ld          [%l1], %l1
 /* line number 15*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_1
     nop
 andF_1:
@@ -246,7 +246,7 @@ endIf_3:
     ld          [%l1], %l1
 /* line number 24*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_2
     nop
 andF_2:
@@ -337,7 +337,7 @@ branchEnd_1:
     ld          [%l1], %l1
 /* line number 32*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_3
     nop
 andF_3:
@@ -376,7 +376,7 @@ andEnd_3:
     ld          [%l1], %l1
 /* line number 32*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_4
     nop
 andF_4:
@@ -493,7 +493,7 @@ endIf_7:
     ld          [%l1], %l1
 /* line number 40*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_5
     nop
 andF_5:
@@ -573,7 +573,7 @@ branchEnd_4:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_6
     nop
 andF_6:
@@ -607,7 +607,7 @@ andEnd_6:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_7
     nop
 andF_7:
@@ -641,7 +641,7 @@ andEnd_7:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_8
     nop
 andF_8:
@@ -680,7 +680,7 @@ andEnd_8:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_9
     nop
 andF_9:

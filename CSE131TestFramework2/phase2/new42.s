@@ -78,7 +78,7 @@ globalInit_end:
 /* line number 6*/
 /* Done printing string. */
 /* line number 6*/
-/* printing float STO.VarSTO@1cb1d37 */
+/* printing float STO.VarSTO@a46637 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -87,7 +87,7 @@ globalInit_end:
 /* line number 6*/
 /* Done printing float. */
 /* line number 6*/
-/* printing float STO.VarSTO@fa1b85 */
+/* printing float STO.VarSTO@eba9b0 */
     set         main_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

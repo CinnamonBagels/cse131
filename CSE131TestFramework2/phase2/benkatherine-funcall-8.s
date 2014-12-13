@@ -82,7 +82,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 14*/
-/* printing float STO.VarSTO@1cfa4b2 */
+/* printing float STO.VarSTO@596a7a */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -91,7 +91,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing float. */
 /* line number 14*/
-/* printing float STO.VarSTO@145d135 */
+/* printing float STO.VarSTO@5d75eb */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

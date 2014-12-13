@@ -96,7 +96,7 @@ globalInit_end:
     ld          [%l1], %l1
 /* line number 14*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_0
     nop
 andF_0:
@@ -152,7 +152,7 @@ if_0:
     ld          [%l1], %l1
 /* line number 17*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_1
     nop
 andF_1:
@@ -230,7 +230,7 @@ endIf_3:
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_0
     nop
 orF_0:
@@ -293,7 +293,7 @@ endIf_5:
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_1
     nop
 orF_1:

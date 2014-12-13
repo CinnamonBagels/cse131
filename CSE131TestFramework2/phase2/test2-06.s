@@ -130,7 +130,7 @@ greaterEnd_0:
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_0
     nop
 orF_0:
@@ -172,7 +172,7 @@ orEnd_0:
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_1
     nop
 orF_1:
@@ -236,7 +236,7 @@ lessEnd_1:
     ld          [%l1], %l1
 /* line number 18*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_0
     nop
 andF_0:
@@ -275,7 +275,7 @@ andEnd_0:
     ld          [%l1], %l1
 /* line number 18*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_1
     nop
 andF_1:

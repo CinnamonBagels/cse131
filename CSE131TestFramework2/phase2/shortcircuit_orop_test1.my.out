@@ -6,9 +6,10 @@ y's value: false
 3
 x's value: true
 y's value: true
+this should not be printed 1
 x's value: false
 y's value: false
-x's value: false
+x's value: true
 x's value: true
 y's value: true
 4

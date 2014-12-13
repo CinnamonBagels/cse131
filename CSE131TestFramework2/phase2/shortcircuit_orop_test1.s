@@ -78,7 +78,7 @@ globalInit_end:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_0
     nop
 orF_0:
@@ -203,7 +203,7 @@ endIf_1:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_1
     nop
 orF_1:
@@ -302,7 +302,7 @@ endIf_3:
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_2
     nop
 orF_2:
@@ -423,7 +423,7 @@ endIf_5:
 /* line number 29*/
 /* ||-ing */
     set         0, %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_3
     nop
 orF_3:
@@ -465,7 +465,7 @@ orEnd_3:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_4
     nop
 orF_4:
@@ -585,7 +585,7 @@ branchEnd_6:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_5
     nop
 orF_5:
@@ -656,7 +656,7 @@ branchEnd_7:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_6
     nop
 orF_6:
@@ -761,7 +761,7 @@ branchEnd_9:
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_7
     nop
 orF_7:

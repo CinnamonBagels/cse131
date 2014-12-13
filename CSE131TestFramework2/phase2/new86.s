@@ -84,7 +84,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@592bb1 */
+/* printing float STO.ExprSTO@1593225 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -107,7 +107,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@438d57 */
+/* printing float STO.ExprSTO@eb46e9 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

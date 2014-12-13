@@ -82,7 +82,7 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 6*/
-/* printing float STO.VarSTO@145d135 */
+/* printing float STO.VarSTO@be95bf */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

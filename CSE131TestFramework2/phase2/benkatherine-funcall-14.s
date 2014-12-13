@@ -143,21 +143,21 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 21*/
-/* setting i = 0 */
-    set         0, %l0
+/* setting j = 5 */
+    set         5, %l0
     st          %l0, [%fp-28]
 /* line number 21*/
 /* Done. */
 /* line number 21*/
-/* setting j = 5 */
-    set         5, %l0
+/* setting i = 0 */
+    set         0, %l0
     st          %l0, [%fp-32]
 /* line number 21*/
 /* Done. */
 while_1:
 /* line number 21*/
 /* Prepping Comparison Calculations by loading */
-    set         -28, %l1
+    set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         5, %l1
@@ -185,11 +185,11 @@ lessEnd_1:
     nop
 /* line number 23*/
 /* Incrementing */
-    set         -28, %l1
+    set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         -28, %l2
+    set         -32, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 23*/
@@ -236,11 +236,11 @@ arrayOutBounds_1:
 arrayEnd_1:
 /* line number 23*/
 /* Decrementing */
-    set         -32, %l1
+    set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     dec     %l0
-    set         -32, %l2
+    set         -28, %l2
     add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 23*/

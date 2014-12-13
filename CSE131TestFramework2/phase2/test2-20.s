@@ -76,7 +76,7 @@ branchEnd_0:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@f7d5a6 */
+/* printing float STO.VarSTO@197833e */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -178,7 +178,7 @@ branchEnd_1:
 /* line number 18*/
 /* Done printing string. */
 /* line number 18*/
-/* printing float STO.VarSTO@128d900 */
+/* printing float STO.VarSTO@1e8b957 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

@@ -50,14 +50,14 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 11*/
-/* setting b = 2 */
-    set         2, %l0
+/* setting a = 1 */
+    set         1, %l0
     st          %l0, [%fp-8]
 /* line number 11*/
 /* Done. */
 /* line number 11*/
-/* setting a = 1 */
-    set         1, %l0
+/* setting b = 2 */
+    set         2, %l0
     st          %l0, [%fp-12]
 /* line number 11*/
 /* Done. */
@@ -66,7 +66,7 @@ globalInit_end:
 /* line number 13*/
 /* Printing int a */
     set         _intFmt, %o0
-    set         -12, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -76,7 +76,7 @@ globalInit_end:
 /* line number 13*/
 /* Printing int b */
     set         _intFmt, %o0
-    set         -8, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf

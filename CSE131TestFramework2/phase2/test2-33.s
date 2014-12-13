@@ -178,7 +178,7 @@ arrayOutBounds_2:
     nop
 arrayEnd_2:
 /* line number 12*/
-/* printing float STO.ExprSTO@47ad40 */
+/* printing float STO.ExprSTO@1e8b957 */
     set         -96, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -230,7 +230,7 @@ arrayOutBounds_3:
     nop
 arrayEnd_3:
 /* line number 12*/
-/* printing float STO.ExprSTO@1bf502d */
+/* printing float STO.ExprSTO@1e001c8 */
     set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

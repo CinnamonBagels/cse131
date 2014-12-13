@@ -130,7 +130,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-12]
 /* line number 17*/
-/* printing float STO.VarSTO@2709da */
+/* printing float STO.VarSTO@29626a */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

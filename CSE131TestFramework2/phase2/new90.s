@@ -142,7 +142,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@2709da */
+/* printing float STO.ExprSTO@29626a */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -166,7 +166,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@f7d5a6 */
+/* printing float STO.ExprSTO@fc4957 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

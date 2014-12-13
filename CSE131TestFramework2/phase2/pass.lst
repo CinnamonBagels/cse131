@@ -30,6 +30,7 @@ phase2/benkatherine-while-4.rc
 phase2/benkatherine-while-5.rc
 phase2/benkatherine-while-6.rc
 phase2/benkatherine-while-7.rc
+phase2/benkatherine-while-8.rc
 phase2/benkatherinebitwiseOr-1.rc
 phase2/benkatherinebitwiseand-1.rc
 phase2/comparison_assign_test1.rc
@@ -38,6 +39,7 @@ phase2/func_param_test11.rc
 phase2/if_else_while_test1.rc
 phase2/k_cout_1.rc
 phase2/k_functionparam_1.rc
+phase2/k_shortcircuit.rc
 phase2/new100.rc
 phase2/new101.rc
 phase2/new102.rc
@@ -84,6 +86,7 @@ phase2/new90.rc
 phase2/new98.rc
 phase2/new99.rc
 phase2/not_op_check1.rc
+phase2/shortcircuit_andop_test1.rc
 phase2/struct_assign_test4.rc
 phase2/test2-01.rc
 phase2/test2-02.rc
@@ -100,6 +103,7 @@ phase2/test2-13.rc
 phase2/test2-14.rc
 phase2/test2-15.rc
 phase2/test2-18.rc
+phase2/test2-26.rc
 phase2/test2-27.rc
 phase2/test2-28.rc
 phase2/test2-29.rc

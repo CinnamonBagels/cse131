@@ -48,7 +48,7 @@ main:
     ld          [%l1], %l1
 /* line number 4*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_0
     nop
 andF_0:
@@ -93,7 +93,7 @@ andEnd_0:
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_0
     nop
 orF_0:
@@ -185,7 +185,7 @@ branchEnd_1:
     ld          [%l1], %l1
 /* line number 11*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_1
     nop
 andF_1:
@@ -242,7 +242,7 @@ branchEnd_2:
     ld          [%l1], %l1
 /* line number 12*/
 /* &&-ing */
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     andT_2
     nop
 andF_2:
@@ -302,7 +302,7 @@ branchEnd_3:
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_1
     nop
 orF_1:
@@ -362,7 +362,7 @@ branchEnd_4:
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l2
-    cmp         %l2, %g0
+    cmp         %l1, %g0
     bne     orT_2
     nop
 orF_2:
