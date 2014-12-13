@@ -522,7 +522,6 @@ public class AssemblyGenerator {
 		//setting destination
 			generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l5);
 			generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l5, Registers.l5);
-		
 		if(dest.isReference) {
 			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l5 + "]", Registers.l5);
 		}
