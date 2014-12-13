@@ -1,12 +1,17 @@
-//bool a = true;
-//bool b = false;
-int x;
-int y;
+float a = 5.0;
+float b;
 
 function: void main()
 {
-  x++; //x is 0, after this statement is 1
-  ++y; //y is 1 for execution
 
-  x= 5;
+float c = b;
+c = a++; 
+c++;
+b = a++;
+cout<<b<<endl; //should print out 6.0
+cout<<a<<endl; //should print out 7.0
+cout<<c<<endl; //should printout 6.00
+cout<<c--<<endl; //should printout 6.00
+cout<<c<<endl; //should print out 5.00
+
 }

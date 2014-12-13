@@ -268,8 +268,9 @@ public class AssemblyGenerator {
 		String register = "";
 		//we'll have to check if in struct later
 		//should make a new method for this.
-		
-		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+		if(sto.isReference) {
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
+		}
 		
 		if(sto.getType().isInt() || sto.getType().isBool()){
 			generateASM(Strings.two_param, Instructions.set, String.valueOf(csto.getIntValue()), Registers.l1);
