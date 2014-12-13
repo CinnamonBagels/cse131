@@ -764,7 +764,7 @@ class MyParser extends parser {
 					sto.base = Registers.fp;
 					sto.offset = "" + (-8 - 4*numArgs++);
 					//TODO Extern
-					
+					generator.storeParameters(sto, i);
 					m_symtab.insert(params.get(i));
 				}
 			}
