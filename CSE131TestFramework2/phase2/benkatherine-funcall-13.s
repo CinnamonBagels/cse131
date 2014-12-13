@@ -44,6 +44,8 @@ wohoo:
     add         %fp, %l0, %l0
     set         9, %l1
     st          %l1, [%l0]
+/* line number 10*/
+/* Preparing argument j */
     call    woo
     nop
 wohoo_end:
@@ -56,6 +58,8 @@ SAVE.wohoo = -(92 + 4) & -8
 woohooo2:
     set         SAVE.woohooo2, %g1
     save        %sp, %g1, %sp
+/* line number 14*/
+/* Preparing argument a */
     call    wohoo
     nop
 woohooo2_end:
@@ -103,6 +107,8 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 22*/
+/* Preparing argument y */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0

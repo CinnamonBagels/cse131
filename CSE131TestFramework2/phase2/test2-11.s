@@ -38,14 +38,14 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 6*/
-/* setting i = 5 */
-    set         5, %l0
+/* setting j = 6 */
+    set         6, %l0
     st          %l0, [%fp-8]
 /* line number 6*/
 /* Done. */
 /* line number 6*/
-/* setting j = 6 */
-    set         6, %l0
+/* setting i = 5 */
+    set         5, %l0
     st          %l0, [%fp-12]
 /* line number 6*/
 /* Done. */
@@ -241,10 +241,10 @@ if_2:
 /* Done printing string. */
 /* line number 18*/
 /* Prepping Comparison Calculations by loading */
-    set         -8, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         -12, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 18*/

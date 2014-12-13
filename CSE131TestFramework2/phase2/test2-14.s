@@ -36,6 +36,7 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 7*/
 /* Done. */
+while_0:
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -58,6 +59,12 @@ greaterEqualEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
 /* line number 8*/
 /* Decrementing */
     set         -8, %l1
@@ -92,6 +99,9 @@ greaterEqualEnd_0:
     nop
 /* line number 8*/
 /* Done printing string. */
+    ba      while_0
+    nop
+whileEnd_0:
 /* line number 10*/
 /* Decrementing */
     set         -8, %l1

@@ -29,6 +29,7 @@ foo:
     st          %l0, [%fp-8]
 /* line number 3*/
 /* Done. */
+while_0:
 /* line number 3*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -51,6 +52,12 @@ lessEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
 /* line number 4*/
 /* Starting array access */
     set         -8, %l1
@@ -187,6 +194,9 @@ arrayEnd_1:
     set         -28, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_0
+    nop
+whileEnd_0:
 foo_end:
     ret 
     restore
@@ -218,6 +228,7 @@ globalInit_end:
     st          %l0, [%fp-52]
 /* line number 14*/
 /* Done. */
+while_1:
 /* line number 14*/
 /* Prepping Comparison Calculations by loading */
     set         -48, %l1
@@ -240,6 +251,12 @@ lessEnd_1:
     set         -56, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -56, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_1
+    nop
 /* line number 15*/
 /* Starting array access */
     set         -48, %l1
@@ -358,8 +375,12 @@ arrayEnd_3:
     set         -68, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_1
+    nop
+whileEnd_1:
     call    foo
     nop
+while_2:
 /* line number 20*/
 /* Prepping Comparison Calculations by loading */
     set         -52, %l1
@@ -382,6 +403,12 @@ lessEnd_2:
     set         -72, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -72, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_2
+    nop
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
@@ -455,6 +482,9 @@ arrayEnd_4:
     set         -80, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_2
+    nop
+whileEnd_2:
 main_end:
     ret 
     restore

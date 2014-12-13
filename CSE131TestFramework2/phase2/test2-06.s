@@ -131,16 +131,15 @@ greaterEnd_0:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp0
+    bne     orT_0
     nop
+orF_0:
     set         0, %l2
-    ba      _orOp1
+    ba      orEnd_0
     nop
-_orOp0:
+orT_0:
     set         1, %l2
-    ba      _orOp1
-    nop
-_orOp1:
+orEnd_0:
 /* line number 17*/
 /* Storing result of Binary Op */
     set         -20, %l4
@@ -153,7 +152,7 @@ _orOp1:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     _orOp2
+    bne     orT_1
     nop
     call    trueFunc
     nop
@@ -174,16 +173,15 @@ _orOp1:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp2
+    bne     orT_1
     nop
+orF_1:
     set         0, %l2
-    ba      _orOp3
+    ba      orEnd_1
     nop
-_orOp2:
+orT_1:
     set         1, %l2
-    ba      _orOp3
-    nop
-_orOp3:
+orEnd_1:
 /* line number 17*/
 /* Storing result of Binary Op */
     set         -28, %l4
@@ -238,20 +236,16 @@ lessEnd_1:
     ld          [%l1], %l1
 /* line number 18*/
 /* &&-ing */
-    set         -36, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp0
+    bne     andT_0
     nop
+andF_0:
     set         0, %l2
-    ba      _andOp1
+    ba      andEnd_0
     nop
-_andOp4:
+andT_0:
     set         1, %l2
-    ba      _andOp1
-    nop
-_andOp1:
+andEnd_0:
 /* line number 18*/
 /* Storing result of Binary Op */
     set         -40, %l4
@@ -264,7 +258,7 @@ _andOp1:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp2
+    be      andF_1
     nop
     call    falseFunc
     nop
@@ -281,20 +275,16 @@ _andOp1:
     ld          [%l1], %l1
 /* line number 18*/
 /* &&-ing */
-    set         -44, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp2
+    bne     andT_1
     nop
+andF_1:
     set         0, %l2
-    ba      _andOp3
+    ba      andEnd_1
     nop
-_andOp4:
+andT_1:
     set         1, %l2
-    ba      _andOp3
-    nop
-_andOp3:
+andEnd_1:
 /* line number 18*/
 /* Storing result of Binary Op */
     set         -48, %l4

@@ -96,16 +96,15 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp0
+    bne     orT_0
     nop
+orF_0:
     set         0, %l2
-    ba      _orOp1
+    ba      orEnd_0
     nop
-_orOp0:
+orT_0:
     set         1, %l2
-    ba      _orOp1
-    nop
-_orOp1:
+orEnd_0:
 /* line number 15*/
 /* Storing result of Binary Op */
     set         -12, %l4
@@ -131,20 +130,16 @@ if_0:
     ld          [%l1], %l1
 /* line number 16*/
 /* &&-ing */
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp0
+    bne     andT_0
     nop
+andF_0:
     set         0, %l2
-    ba      _andOp1
+    ba      andEnd_0
     nop
-_andOp2:
+andT_0:
     set         1, %l2
-    ba      _andOp1
-    nop
-_andOp1:
+andEnd_0:
 /* line number 16*/
 /* Storing result of Binary Op */
     set         -20, %l4

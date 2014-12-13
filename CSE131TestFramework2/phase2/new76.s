@@ -49,6 +49,8 @@ foo:
     st          %l0, [%fp-8]
 /* line number 12*/
 /* Done. */
+/* line number 12*/
+/* Preparing argument z */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
@@ -57,6 +59,8 @@ foo:
 /* line number 12*/
 /* Saving return value */
     st          %f0, [%fp+-12]
+/* line number 12*/
+/* Preparing argument x */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
@@ -121,7 +125,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 17*/
-/* printing float STO.VarSTO@15dbaab */
+/* printing float STO.VarSTO@f7d5a6 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -41,7 +41,7 @@ main:
     st          %f2, [%l1]
     set         -8, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 4*/
 /* Storing variable Validating UnaryOp a as a FloatType for operator: ++...
  into b */
@@ -56,7 +56,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 6*/
-/* printing float STO.VarSTO@c55164 */
+/* printing float STO.VarSTO@47ad40 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -80,9 +80,9 @@ globalInit_end:
     st          %f2, [%l1]
     set         -8, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 7*/
-/* printing float STO.ExprSTO@6286e3 */
+/* printing float STO.ExprSTO@1bf502d */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -106,9 +106,9 @@ globalInit_end:
     st          %f2, [%l1]
     set         -12, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@1ef8f5 */
+/* printing float STO.ExprSTO@be95bf */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

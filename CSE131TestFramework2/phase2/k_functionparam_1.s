@@ -172,6 +172,8 @@ if_0:
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
+/* line number 10*/
+/* Preparing argument i */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o0

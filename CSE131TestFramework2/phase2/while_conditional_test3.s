@@ -57,6 +57,7 @@ globalInit_end:
     st          %l0, [%fp-20]
 /* line number 9*/
 /* Done. */
+while_0:
 /* line number 9*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -79,6 +80,13 @@ lessEnd_0:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
+while_1:
 /* line number 11*/
 /* Prepping Comparison Calculations by loading */
     set         -12, %l1
@@ -101,6 +109,12 @@ lessEnd_1:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_1
+    nop
 /* line number 13*/
 /* printing string */
     set         _strFmt, %o0
@@ -127,6 +141,7 @@ lessEnd_1:
     set         -32, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+while_2:
 /* line number 15*/
 /* Prepping Comparison Calculations by loading */
     set         -16, %l1
@@ -149,6 +164,12 @@ lessEqualEnd_2:
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_2
+    nop
 /* line number 17*/
 /* printing string */
     set         _strFmt, %o0
@@ -175,6 +196,10 @@ lessEqualEnd_2:
     set         -40, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_2
+    nop
+whileEnd_2:
+while_3:
 /* line number 20*/
 /* Prepping Comparison Calculations by loading */
     set         -20, %l1
@@ -197,6 +222,12 @@ lessEnd_3:
     set         -44, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_3
+    nop
 /* line number 22*/
 /* printing string */
     set         _strFmt, %o0
@@ -223,6 +254,12 @@ lessEnd_3:
     set         -48, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_3
+    nop
+whileEnd_3:
+    ba      while_1
+    nop
+whileEnd_1:
 /* line number 26*/
 /* printing string */
     set         _strFmt, %o0
@@ -249,6 +286,9 @@ lessEnd_3:
     set         -52, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_0
+    nop
+whileEnd_0:
 main_end:
     ret 
     restore

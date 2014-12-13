@@ -71,7 +71,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp0
+    be      andF_0
     nop
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
@@ -83,20 +83,16 @@ globalInit_end:
     ld          [%l1], %l1
 /* line number 9*/
 /* &&-ing */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp0
+    bne     andT_0
     nop
+andF_0:
     set         0, %l2
-    ba      _andOp1
+    ba      andEnd_0
     nop
-_andOp0:
+andT_0:
     set         1, %l2
-    ba      _andOp1
-    nop
-_andOp1:
+andEnd_0:
 /* line number 9*/
 /* Storing result of Binary Op */
     set         -24, %l4
@@ -130,7 +126,7 @@ endIf_1:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp2
+    be      andF_1
     nop
 ! --storing constant y with value 1.0
     set         -12, %l0
@@ -147,20 +143,16 @@ endIf_1:
     ld          [%l1], %l1
 /* line number 15*/
 /* &&-ing */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp2
+    bne     andT_1
     nop
+andF_1:
     set         0, %l2
-    ba      _andOp3
+    ba      andEnd_1
     nop
-_andOp0:
+andT_1:
     set         1, %l2
-    ba      _andOp3
-    nop
-_andOp3:
+andEnd_1:
 /* line number 15*/
 /* Storing result of Binary Op */
     set         -28, %l4
@@ -237,7 +229,7 @@ endIf_3:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp4
+    be      andF_2
     nop
 ! --storing constant a with value 1.0
     set         -36, %l0
@@ -254,20 +246,16 @@ endIf_3:
     ld          [%l1], %l1
 /* line number 24*/
 /* &&-ing */
-    set         -36, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp4
+    bne     andT_2
     nop
+andF_2:
     set         0, %l2
-    ba      _andOp5
+    ba      andEnd_2
     nop
-_andOp0:
+andT_2:
     set         1, %l2
-    ba      _andOp5
-    nop
-_andOp5:
+andEnd_2:
 /* line number 24*/
 /* Storing result of Binary Op */
     set         -40, %l4
@@ -332,7 +320,7 @@ branchEnd_1:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp6
+    be      andF_3
     nop
 ! --storing constant y with value 1.0
     set         -12, %l0
@@ -349,20 +337,16 @@ branchEnd_1:
     ld          [%l1], %l1
 /* line number 32*/
 /* &&-ing */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp6
+    bne     andT_3
     nop
+andF_3:
     set         0, %l2
-    ba      _andOp7
+    ba      andEnd_3
     nop
-_andOp0:
+andT_3:
     set         1, %l2
-    ba      _andOp7
-    nop
-_andOp7:
+andEnd_3:
 /* line number 32*/
 /* Storing result of Binary Op */
     set         -44, %l4
@@ -375,7 +359,7 @@ _andOp7:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp8
+    be      andF_4
     nop
 ! --storing constant z with value 1.0
     set         -32, %l0
@@ -392,20 +376,16 @@ _andOp7:
     ld          [%l1], %l1
 /* line number 32*/
 /* &&-ing */
-    set         -32, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp8
+    bne     andT_4
     nop
+andF_4:
     set         0, %l2
-    ba      _andOp9
+    ba      andEnd_4
     nop
-_andOp0:
+andT_4:
     set         1, %l2
-    ba      _andOp9
-    nop
-_andOp9:
+andEnd_4:
 /* line number 32*/
 /* Storing result of Binary Op */
     set         -48, %l4
@@ -501,7 +481,7 @@ endIf_7:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp10
+    be      andF_5
     nop
 /* line number 40*/
 /* Prepping Arithmetic Calculations by loading */
@@ -513,20 +493,16 @@ endIf_7:
     ld          [%l1], %l1
 /* line number 40*/
 /* &&-ing */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp10
+    bne     andT_5
     nop
+andF_5:
     set         0, %l2
-    ba      _andOp11
+    ba      andEnd_5
     nop
-_andOp0:
+andT_5:
     set         1, %l2
-    ba      _andOp11
-    nop
-_andOp11:
+andEnd_5:
 /* line number 40*/
 /* Storing result of Binary Op */
     set         -52, %l4
@@ -585,7 +561,7 @@ branchEnd_4:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp12
+    be      andF_6
     nop
 /* line number 44*/
 /* Prepping Arithmetic Calculations by loading */
@@ -597,20 +573,16 @@ branchEnd_4:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp12
+    bne     andT_6
     nop
+andF_6:
     set         0, %l2
-    ba      _andOp13
+    ba      andEnd_6
     nop
-_andOp0:
+andT_6:
     set         1, %l2
-    ba      _andOp13
-    nop
-_andOp13:
+andEnd_6:
 /* line number 44*/
 /* Storing result of Binary Op */
     set         -60, %l4
@@ -623,7 +595,7 @@ _andOp13:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp14
+    be      andF_7
     nop
 /* line number 44*/
 /* Prepping Arithmetic Calculations by loading */
@@ -635,20 +607,16 @@ _andOp13:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp14
+    bne     andT_7
     nop
+andF_7:
     set         0, %l2
-    ba      _andOp15
+    ba      andEnd_7
     nop
-_andOp0:
+andT_7:
     set         1, %l2
-    ba      _andOp15
-    nop
-_andOp15:
+andEnd_7:
 /* line number 44*/
 /* Storing result of Binary Op */
     set         -64, %l4
@@ -661,7 +629,7 @@ _andOp15:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp16
+    be      andF_8
     nop
 /* line number 44*/
 /* Prepping Arithmetic Calculations by loading */
@@ -673,20 +641,16 @@ _andOp15:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    set         -32, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp16
+    bne     andT_8
     nop
+andF_8:
     set         0, %l2
-    ba      _andOp17
+    ba      andEnd_8
     nop
-_andOp0:
+andT_8:
     set         1, %l2
-    ba      _andOp17
-    nop
-_andOp17:
+andEnd_8:
 /* line number 44*/
 /* Storing result of Binary Op */
     set         -68, %l4
@@ -699,7 +663,7 @@ _andOp17:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    be      _andOp18
+    be      andF_9
     nop
 ! --storing constant a with value 1.0
     set         -36, %l0
@@ -716,20 +680,16 @@ _andOp17:
     ld          [%l1], %l1
 /* line number 44*/
 /* &&-ing */
-    set         -36, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l2
     cmp         %l2, %g0
-    be      _andOp18
+    bne     andT_9
     nop
+andF_9:
     set         0, %l2
-    ba      _andOp19
+    ba      andEnd_9
     nop
-_andOp0:
+andT_9:
     set         1, %l2
-    ba      _andOp19
-    nop
-_andOp19:
+andEnd_9:
 /* line number 44*/
 /* Storing result of Binary Op */
     set         -72, %l4

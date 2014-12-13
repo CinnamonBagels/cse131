@@ -43,7 +43,7 @@ foo2:
 /* line number 4*/
 /* Done printing string. */
 /* line number 4*/
-/* printing float STO.VarSTO@f0cda1 */
+/* printing float STO.VarSTO@1b277f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -92,6 +92,12 @@ SAVE.foo2 = -(92 + 4) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 8*/
+/* Preparing argument x */
+/* line number 8*/
+/* Preparing argument y */
+/* line number 8*/
+/* Preparing argument z */
     call    foo2
     nop
 foo_end:

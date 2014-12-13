@@ -31,6 +31,7 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+while_0:
 /* line number 5*/
 /* Prepping Comparison Calculations by loading */
     set         x, %l1
@@ -53,6 +54,12 @@ lessEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
 /* line number 7*/
 /* Printing int x */
     set         _intFmt, %o0
@@ -85,6 +92,9 @@ lessEnd_0:
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
+    ba      while_0
+    nop
+whileEnd_0:
     set         _endl, %o0
     call    printf
     nop

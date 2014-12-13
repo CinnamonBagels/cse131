@@ -97,7 +97,7 @@ globalInit_end:
 /* line number 28*/
 /* Done. */
 /* line number 28*/
-/* printing float STO.VarSTO@85b4c5 */
+/* printing float STO.VarSTO@be95bf */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -109,7 +109,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 29*/
-/* printing float STO.VarSTO@1ef8f5 */
+/* printing float STO.VarSTO@596a7a */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -132,7 +132,7 @@ globalInit_end:
 /* line number 32*/
 /* Done. */
 /* line number 32*/
-/* printing float STO.VarSTO@16ad447 */
+/* printing float STO.VarSTO@5d75eb */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -204,7 +204,7 @@ globalInit_end:
 /* line number 37*/
 /* Done. */
 /* line number 37*/
-/* printing float STO.VarSTO@96b555 */
+/* printing float STO.VarSTO@1e8b957 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -216,7 +216,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 38*/
-/* printing float STO.VarSTO@5b04ae */
+/* printing float STO.VarSTO@1e001c8 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -239,7 +239,7 @@ globalInit_end:
 /* line number 41*/
 /* Done. */
 /* line number 41*/
-/* printing float STO.VarSTO@1904b13 */
+/* printing float STO.VarSTO@1952be0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

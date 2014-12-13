@@ -89,9 +89,13 @@ if_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 4*/
+/* Preparing argument a */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
+/* line number 4*/
+/* Preparing argument int - int */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

@@ -31,7 +31,7 @@ foo:
 /* line number 3*/
 /* Done printing string. */
 /* line number 3*/
-/* printing float STO.VarSTO@14c0cb0 */
+/* printing float STO.VarSTO@592bb1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -92,7 +92,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@1a78424 */
+/* printing float STO.VarSTO@f45732 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

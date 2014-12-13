@@ -70,6 +70,7 @@ globalInit_end:
     st          %l0, [%fp-28]
 /* line number 16*/
 /* Done. */
+while_0:
 /* line number 16*/
 /* Prepping Comparison Calculations by loading */
     set         -16, %l1
@@ -94,6 +95,12 @@ lessEnd_0:
     set         -32, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -32, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
 /* line number 18*/
 /* Prepping Comparison Calculations by loading */
 /* line number 18*/
@@ -125,6 +132,7 @@ greaterEnd_1:
     be      else_0
     nop
 if_0:
+while_1:
 /* line number 20*/
 /* Prepping Comparison Calculations by loading */
     set         -24, %l1
@@ -149,6 +157,12 @@ lessEnd_2:
     set         -40, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -40, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_1
+    nop
 /* line number 22*/
 /* printing string */
     set         _strFmt, %o0
@@ -175,11 +189,15 @@ lessEnd_2:
     set         -44, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_1
+    nop
+whileEnd_1:
 ! --storing constant unwanted with value 4.0
     set         -24, %l0
     add         %fp, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
+while_2:
 /* line number 28*/
 /* Prepping Comparison Calculations by loading */
     set         -24, %l1
@@ -204,6 +222,12 @@ lessEnd_3:
     set         -48, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -48, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_2
+    nop
 /* line number 30*/
 /* printing string */
     set         _strFmt, %o0
@@ -237,6 +261,9 @@ lessEnd_3:
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
+    ba      while_2
+    nop
+whileEnd_2:
     ba      endIf_1
     nop
 else_0:
@@ -306,6 +333,9 @@ endIf_3:
     set         -60, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_0
+    nop
+whileEnd_0:
 main_end:
     ret 
     restore

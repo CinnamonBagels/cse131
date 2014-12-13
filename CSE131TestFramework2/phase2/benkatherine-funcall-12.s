@@ -63,6 +63,10 @@ SAVE.bar = -(92 + 8) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 9*/
+/* Preparing argument a */
+/* line number 9*/
+/* Preparing argument b */
     call    bar
     nop
 foo_end:

@@ -21,7 +21,7 @@ foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
 /* line number 3*/
-/* printing float STO.VarSTO@14c0cb0 */
+/* printing float STO.VarSTO@1b277f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -30,7 +30,7 @@ foo:
 /* line number 3*/
 /* Done printing float. */
 /* line number 3*/
-/* printing float STO.VarSTO@1d529be */
+/* printing float STO.VarSTO@1e0338f */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

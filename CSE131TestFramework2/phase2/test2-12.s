@@ -56,10 +56,10 @@ globalInit_end:
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
-    fsubs       %f2, %f1, %f0
+    fsubs       %f2, %f1, %f2
     set         -12, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 8*/
 /* setting f2 = Validating UnaryOp f1 as a FloatType for operator: ++...
  */
@@ -72,7 +72,7 @@ globalInit_end:
 /* line number 8*/
 /* Done. */
 /* line number 8*/
-/* printing float STO.VarSTO@1ba3afe */
+/* printing float STO.VarSTO@24cdc7 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -89,7 +89,7 @@ globalInit_end:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@1048099 */
+/* printing float STO.VarSTO@1cfa4b2 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -118,7 +118,7 @@ globalInit_end:
     st          %f2, [%l1]
     set         -20, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 10*/
 /* Storing variable Validating UnaryOp f1 as a FloatType for operator: ++...
  into f1 */
@@ -141,7 +141,7 @@ globalInit_end:
     st          %f2, [%l1]
     set         -24, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 11*/
 /* Storing variable Validating UnaryOp f2 as a FloatType for operator: --...
  into f2 */
@@ -152,7 +152,7 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 13*/
-/* printing float STO.VarSTO@1ba3afe */
+/* printing float STO.VarSTO@24cdc7 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -179,12 +179,12 @@ globalInit_end:
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
-    fsubs       %f2, %f1, %f0
+    fsubs       %f2, %f1, %f2
     set         -28, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 13*/
-/* printing float STO.ExprSTO@14aa453 */
+/* printing float STO.ExprSTO@1881149 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -201,7 +201,7 @@ globalInit_end:
 /* line number 13*/
 /* Done printing string. */
 /* line number 13*/
-/* printing float STO.VarSTO@1048099 */
+/* printing float STO.VarSTO@1cfa4b2 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

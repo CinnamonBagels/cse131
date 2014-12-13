@@ -57,7 +57,7 @@ globalInit_end:
 /* line number 8*/
 /* Done. */
 /* line number 8*/
-/* printing float STO.VarSTO@380c76 */
+/* printing float STO.VarSTO@fa1b85 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -74,7 +74,7 @@ globalInit_end:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@1048099 */
+/* printing float STO.VarSTO@1cfa4b2 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

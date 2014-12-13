@@ -1,5 +1,3 @@
 rc.s:
-/software/common/solstudio12/prod/bin/fbe: "rc.s", line 263: error: redefinition of symbol "_andOp2"
-cc: fbe failed for rc.s
 ../input.c:
 ../output.s:

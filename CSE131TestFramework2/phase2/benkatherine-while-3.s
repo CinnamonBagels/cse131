@@ -35,6 +35,7 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 4*/
 /* Done. */
+while_0:
 /* line number 4*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -57,6 +58,12 @@ lessEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
 /* line number 6*/
 /* Prepping Arithmetic Calculations by loading */
     set         -8, %l1
@@ -79,6 +86,10 @@ lessEnd_0:
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
+    ba      while_0
+    nop
+whileEnd_0:
+while_1:
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -101,6 +112,12 @@ lessEnd_1:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_1
+    nop
 /* line number 10*/
 /* Prepping Arithmetic Calculations by loading */
     set         -8, %l1
@@ -123,6 +140,9 @@ lessEnd_1:
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
+    ba      while_1
+    nop
+whileEnd_1:
 /* line number 13*/
 /* Printing int y */
     set         _intFmt, %o0

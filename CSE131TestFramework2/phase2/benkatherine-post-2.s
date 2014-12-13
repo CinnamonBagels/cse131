@@ -53,10 +53,10 @@ globalInit_end:
     set         a, %l1
     add         %g0, %l1, %l1
     st          %f2, [%l1]
-    fsubs       %f2, %f1, %f0
+    fsubs       %f2, %f1, %f2
     set         -12, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 8*/
 /* Storing variable Validating UnaryOp a as a FloatType for operator: ++...
  into c */
@@ -77,10 +77,10 @@ globalInit_end:
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
-    fsubs       %f2, %f1, %f0
+    fsubs       %f2, %f1, %f2
     set         -16, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 10*/
 /* Incrementing */
     set         a, %l1
@@ -92,10 +92,10 @@ globalInit_end:
     set         a, %l1
     add         %g0, %l1, %l1
     st          %f2, [%l1]
-    fsubs       %f2, %f1, %f0
+    fsubs       %f2, %f1, %f2
     set         -20, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 10*/
 /* Storing variable Validating UnaryOp a as a FloatType for operator: ++...
  into b */
@@ -106,7 +106,7 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 11*/
-/* printing float STO.VarSTO@c55164 */
+/* printing float STO.VarSTO@145d135 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -118,7 +118,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 12*/
-/* printing float STO.VarSTO@78b4c4 */
+/* printing float STO.VarSTO@1cb1d37 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -130,7 +130,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 13*/
-/* printing float STO.VarSTO@6286e3 */
+/* printing float STO.VarSTO@a9fd96 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -152,12 +152,12 @@ globalInit_end:
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
-    fadds       %f2, %f1, %f0
+    fadds       %f2, %f1, %f2
     set         -24, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 14*/
-/* printing float STO.ExprSTO@16ad447 */
+/* printing float STO.ExprSTO@128d900 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -169,7 +169,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 15*/
-/* printing float STO.VarSTO@6286e3 */
+/* printing float STO.VarSTO@a9fd96 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

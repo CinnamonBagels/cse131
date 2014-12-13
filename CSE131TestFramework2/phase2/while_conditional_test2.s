@@ -43,6 +43,7 @@ globalInit_end:
     st          %l0, [%fp-12]
 /* line number 5*/
 /* Done. */
+while_0:
 /* line number 5*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -65,6 +66,13 @@ lessEnd_0:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
+while_1:
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
     set         -12, %l1
@@ -87,6 +95,12 @@ lessEnd_1:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_1
+    nop
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -113,6 +127,9 @@ lessEnd_1:
     set         -24, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_1
+    nop
+whileEnd_1:
 /* line number 12*/
 /* printing string */
     set         _strFmt, %o0
@@ -139,6 +156,9 @@ lessEnd_1:
     set         -28, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
+    ba      while_0
+    nop
+whileEnd_0:
 main_end:
     ret 
     restore

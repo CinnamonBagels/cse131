@@ -97,6 +97,7 @@ else_2:
     call    printf
     nop
 endIf_3:
+while_0:
 /* line number 21*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -119,6 +120,12 @@ lessEnd_0:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
 /* line number 23*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -157,6 +164,7 @@ if_5:
     nop
 else_5:
 endIf_6:
+while_1:
 /* line number 31*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -179,6 +187,12 @@ lessEqualEnd_2:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_1
+    nop
 /* line number 32*/
 /* Prepping Comparison Calculations by loading */
     set         -8, %l1
@@ -287,6 +301,9 @@ else_7:
     add         %fp, %l1, %l1
     st          %l0, [%l1]
 endIf_8:
+    ba      while_1
+    nop
+whileEnd_1:
     set         1, %l0
     cmp         %l0, %g0
     be      else_9
@@ -339,6 +356,9 @@ else_4:
     set         100, %l1
     st          %l1, [%l0]
 endIf_11:
+    ba      while_0
+    nop
+whileEnd_0:
 /* line number 54*/
 /* printing string */
     set         _strFmt, %o0

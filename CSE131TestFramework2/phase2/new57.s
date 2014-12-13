@@ -47,7 +47,7 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@16a4aef */
+/* printing float STO.VarSTO@f7d5a6 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

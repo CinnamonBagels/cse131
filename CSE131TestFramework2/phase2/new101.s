@@ -133,9 +133,9 @@ globalInit_end:
     st          %f2, [%l1]
     set         -16, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@14aa453 */
+/* printing float STO.ExprSTO@2709da */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -156,9 +156,9 @@ globalInit_end:
     st          %f2, [%l1]
     set         -20, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@16a4aef */
+/* printing float STO.ExprSTO@f7d5a6 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

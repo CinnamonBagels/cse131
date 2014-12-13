@@ -74,6 +74,8 @@ else_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 9*/
+/* Preparing argument int - int */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
@@ -214,9 +216,9 @@ globalInit_end:
     st          %f2, [%l1]
     set         -24, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 21*/
-/* printing float STO.ExprSTO@47ad40 */
+/* printing float STO.ExprSTO@29626a */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -240,9 +242,9 @@ globalInit_end:
     st          %f2, [%l1]
     set         -28, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 22*/
-/* printing float STO.ExprSTO@128d900 */
+/* printing float STO.ExprSTO@1330af4 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -264,10 +266,10 @@ globalInit_end:
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
-    fsubs       %f2, %f1, %f0
+    fsubs       %f2, %f1, %f2
     set         -32, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 24*/
 /* Decrementing */
     set         -8, %l1
@@ -279,12 +281,12 @@ globalInit_end:
     set         -8, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
-    fadds       %f2, %f1, %f0
+    fadds       %f2, %f1, %f2
     set         -36, %l1
     add         %fp, %l1, %l1
-    st          %f0, [%l1]
+    st          %f2, [%l1]
 /* line number 24*/
-/* printing float STO.ExprSTO@be95bf */
+/* printing float STO.ExprSTO@14512e */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -296,7 +298,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float STO.VarSTO@1904b13 */
+/* printing float STO.VarSTO@1e8b957 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

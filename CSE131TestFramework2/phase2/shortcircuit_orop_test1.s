@@ -63,7 +63,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     _orOp0
+    bne     orT_0
     nop
 /* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
@@ -79,16 +79,15 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp0
+    bne     orT_0
     nop
+orF_0:
     set         0, %l2
-    ba      _orOp1
+    ba      orEnd_0
     nop
-_orOp0:
+orT_0:
     set         1, %l2
-    ba      _orOp1
-    nop
-_orOp1:
+orEnd_0:
 /* line number 7*/
 /* Storing result of Binary Op */
     set         -16, %l4
@@ -184,7 +183,7 @@ endIf_1:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     _orOp2
+    bne     orT_1
     nop
 ! --storing constant y with value 1.0
     set         -12, %l0
@@ -205,16 +204,15 @@ endIf_1:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp2
+    bne     orT_1
     nop
+orF_1:
     set         0, %l2
-    ba      _orOp3
+    ba      orEnd_1
     nop
-_orOp2:
+orT_1:
     set         1, %l2
-    ba      _orOp3
-    nop
-_orOp3:
+orEnd_1:
 /* line number 14*/
 /* Storing result of Binary Op */
     set         -20, %l4
@@ -284,7 +282,7 @@ endIf_3:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     _orOp4
+    bne     orT_2
     nop
 ! --storing constant x with value 0.0
     set         -8, %l0
@@ -305,16 +303,15 @@ endIf_3:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp4
+    bne     orT_2
     nop
+orF_2:
     set         0, %l2
-    ba      _orOp5
+    ba      orEnd_2
     nop
-_orOp4:
+orT_2:
     set         1, %l2
-    ba      _orOp5
-    nop
-_orOp5:
+orEnd_2:
 /* line number 21*/
 /* Storing result of Binary Op */
     set         -24, %l4
@@ -415,7 +412,7 @@ endIf_5:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     _orOp6
+    bne     orT_3
     nop
 /* line number 29*/
 /* Prepping Arithmetic Calculations by loading */
@@ -427,16 +424,15 @@ endIf_5:
 /* ||-ing */
     set         0, %l2
     cmp         %l2, %g0
-    bne     _orOp6
+    bne     orT_3
     nop
+orF_3:
     set         0, %l2
-    ba      _orOp7
+    ba      orEnd_3
     nop
-_orOp6:
+orT_3:
     set         1, %l2
-    ba      _orOp7
-    nop
-_orOp7:
+orEnd_3:
 /* line number 29*/
 /* Storing result of Binary Op */
     set         -28, %l4
@@ -449,7 +445,7 @@ _orOp7:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     _orOp8
+    bne     orT_4
     nop
 ! --storing constant y with value 0.0
     set         -12, %l0
@@ -470,16 +466,15 @@ _orOp7:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp8
+    bne     orT_4
     nop
+orF_4:
     set         0, %l2
-    ba      _orOp9
+    ba      orEnd_4
     nop
-_orOp8:
+orT_4:
     set         1, %l2
-    ba      _orOp9
-    nop
-_orOp9:
+orEnd_4:
 /* line number 29*/
 /* Storing result of Binary Op */
     set         -32, %l4
@@ -575,7 +570,7 @@ branchEnd_6:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
-    bne     _orOp10
+    bne     orT_5
     nop
 /* line number 39*/
 /* Prepping Arithmetic Calculations by loading */
@@ -591,16 +586,15 @@ branchEnd_6:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp10
+    bne     orT_5
     nop
+orF_5:
     set         0, %l2
-    ba      _orOp11
+    ba      orEnd_5
     nop
-_orOp10:
+orT_5:
     set         1, %l2
-    ba      _orOp11
-    nop
-_orOp11:
+orEnd_5:
 /* line number 39*/
 /* Storing result of Binary Op */
     set         -36, %l4
@@ -663,16 +657,15 @@ branchEnd_7:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp12
+    bne     orT_6
     nop
+orF_6:
     set         0, %l2
-    ba      _orOp13
+    ba      orEnd_6
     nop
-_orOp12:
+orT_6:
     set         1, %l2
-    ba      _orOp13
-    nop
-_orOp13:
+orEnd_6:
 /* line number 43*/
 /* Storing result of Binary Op */
     set         -40, %l4
@@ -769,16 +762,15 @@ branchEnd_9:
     add         %fp, %l1, %l1
     ld          [%l1], %l2
     cmp         %l2, %g0
-    bne     _orOp14
+    bne     orT_7
     nop
+orF_7:
     set         0, %l2
-    ba      _orOp15
+    ba      orEnd_7
     nop
-_orOp14:
+orT_7:
     set         1, %l2
-    ba      _orOp15
-    nop
-_orOp15:
+orEnd_7:
 /* line number 48*/
 /* Storing result of Binary Op */
     set         -44, %l4

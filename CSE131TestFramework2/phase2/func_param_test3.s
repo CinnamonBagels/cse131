@@ -55,6 +55,12 @@ bar:
     add         %fp, %l0, %l0
     set         7, %l1
     st          %l1, [%l0]
+/* line number 13*/
+/* Preparing argument r */
+/* line number 13*/
+/* Preparing argument s */
+/* line number 13*/
+/* Preparing argument t */
     call    foobaz
     nop
 bar_end:
@@ -67,6 +73,12 @@ SAVE.bar = -(92 + 4) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 18*/
+/* Preparing argument a */
+/* line number 18*/
+/* Preparing argument b */
+/* line number 18*/
+/* Preparing argument c */
     call    bar
     nop
 foo_end:
@@ -138,6 +150,8 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 30*/
+/* Preparing argument y */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
