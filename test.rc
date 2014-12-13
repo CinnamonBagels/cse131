@@ -9,5 +9,4 @@ function: void main()
   ++y; //y is 1 for execution
 
   x= 5;
-  y= 5;
 }

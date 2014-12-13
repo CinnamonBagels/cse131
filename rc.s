@@ -67,14 +67,6 @@ globalInit_end:
     ld          [%l0], %l0
     set         5, %l1
     st          %l1, [%l0]
-! --storing constant y with value 5.0
-    set         y, %l0
-    add         %g0, %l0, %l0
-    set         y, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
-    set         5, %l1
-    st          %l1, [%l0]
 main_end:
     ret 
     restore
