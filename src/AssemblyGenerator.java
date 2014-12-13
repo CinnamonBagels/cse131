@@ -1782,7 +1782,7 @@ public class AssemblyGenerator {
 	private void doWhileContinue() {
 		// TODO Auto-generated method stub
 		generateComment("Continuing while loop");
-		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + (whileStmts - 1));
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + (finalWhileStmts - 1));
 		generateASM(Strings.nop);
 	}
 
