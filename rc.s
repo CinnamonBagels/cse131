@@ -2,10 +2,10 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-str_0:          .asciz       "before calling foo, i is "
-str_1:          .asciz       " and j is" 
-str_2:          .asciz       "after calling foo, i is modified, and is now "
-str_3:          .asciz       " and j is "
+float_0:        .single      0r4.5       
+str_1:          .asciz       "ahha"      
+str_2:          .asciz       "asdfsd"    
+str_3:          .asciz       "1234"      
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -18,81 +18,6 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
-                .section     ".text"
-                .align 4
-                .global      bar
-bar:
-    set         SAVE.bar, %g1
-    save        %sp, %g1, %sp
-/* line number 2*/
-/* Storing parameter b */
-    st          %i0, [%fp+68]
-/* line number 2*/
-/* Storing parameter c */
-    st          %i1, [%fp+72]
-! --storing constant b with value 777.0
-    set         68, %l0
-    add         %fp, %l0, %l0
-    set         777, %l1
-    st          %l1, [%l0]
-/* line number 5*/
-/* Prepping Arithmetic Calculations by loading */
-/* line number 5*/
-/* Loading b to %l0 */
-    set         68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-/* line number 5*/
-/* Loading c to %l1 */
-    set         72, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-/* line number 5*/
-/* Adding */
-    add         %l0, %l1, %l3
-/* line number 5*/
-/* Storing result of Binary Op */
-    set         -8, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-/* line number 5*/
-/* Storing variable int + int into c */
-    set         72, %l5
-    add         %fp, %l5, %l5
-    set         -8, %l3
-    add         %fp, %l3, %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
-bar_end:
-    ret 
-    restore
-SAVE.bar = -(92 + 8) & -8
-                .section     ".text"
-                .align 4
-                .global      foo
-foo:
-    set         SAVE.foo, %g1
-    save        %sp, %g1, %sp
-/* line number 8*/
-/* Storing parameter a */
-    st          %i0, [%fp+68]
-/* line number 8*/
-/* Storing parameter b */
-    st          %i1, [%fp+72]
-/* line number 9*/
-/* Preparing argument a */
-    set         68, %o0
-    add         %fp, %o0, %o0
-/* line number 9*/
-/* Preparing argument b */
-    set         72, %o1
-    add         %fp, %o1, %o1
-    call    bar
-    nop
-foo_end:
-    ret 
-    restore
-SAVE.foo = -(92 + 4) & -8
                 .section     ".text"
                 .align 4
                 .global      main
@@ -108,115 +33,191 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 15*/
-/* setting i = 5 */
-    set         5, %l0
-    st          %l0, [%fp-8]
-/* line number 15*/
+/* line number 4*/
+/* setting y = 4.5 */
+    set         -8, %l0
+    add         %fp, %l0, %l0
+/* line number 4*/
+/* setting float */
+    set         float_0, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 4*/
 /* Done. */
-/* line number 17*/
-/* setting j = 1 */
-    set         1, %l0
-    st          %l0, [%fp-12]
-/* line number 17*/
-/* Done. */
-/* line number 17*/
-/* printing string */
-    set         _strFmt, %o0
-    set         str_0, %o1
-    call    printf
-    nop
-/* line number 17*/
-/* Done printing string. */
-/* line number 17*/
-/* Printing int i */
-    set         _intFmt, %o0
-/* line number 17*/
-/* Loading i to %o1 */
+/* line number 4*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading -1 to %l1 */
+    set         -1, %l1
+/* line number 4*/
+/* Multiplying */
+/* line number 4*/
+/* Loading y to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
+    ld          [%l1], %f0
+/* line number 4*/
+/* Storing variable -1 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         -1, %l3
+    st          %l3, [%l5]
+/* line number 4*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+    fmuls       %f0, %f1, %f3
+/* line number 4*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %f3, [%l4]
+/* line number 4*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading 5 to %l0 */
+    set         5, %l0
+/* line number 4*/
+/* Adding */
+/* line number 4*/
+/* Storing variable 5 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         5, %l3
+    st          %l3, [%l5]
+/* line number 4*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 4*/
+/* Loading float * int to %f1 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fadds       %f0, %f1, %f3
+/* line number 4*/
+/* Storing result of Binary Op */
+    set         -16, %l4
+    add         %fp, %l4, %l4
+    st          %f3, [%l4]
+/* line number 6*/
+/* setting x = int + float */
+    set         -20, %l0
+    add         %fp, %l0, %l0
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 6*/
+/* Done. */
+while_0:
+/* line number 6*/
+/* Prepping Comparison Calculations by loading */
+/* line number 6*/
+/* Loading 0 to %l1 */
+    set         0, %l1
+/* line number 6*/
+/* Starting greater than */
+/* line number 6*/
+/* Loading y to %f0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 6*/
+/* Storing variable 0 into temp */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         0, %l3
+    st          %l3, [%l5]
+/* line number 6*/
+/* Loading 0 to %f1 */
+    set         0, %f1
+    fitos       %f1, %f1
+    fcmps       %f0, %f1
+    fbg     greater_0
     nop
-/* line number 17*/
-/* Done printing int. */
-/* line number 17*/
+    set         0, %l3
+    ba      greaterEnd_0
+    nop
+greater_0:
+    set         1, %l3
+greaterEnd_0:
+/* line number 6*/
+/* Storing result of Comparison Op */
+    set         -24, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 7*/
+/* Loading Validating ComparisonOp float and int as a BooleanType for operator: >...
+ to %l0 */
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    cmp         %l0, %g0
+    be      whileEnd_0
+    nop
+/* line number 8*/
 /* printing string */
     set         _strFmt, %o0
     set         str_1, %o1
     call    printf
     nop
-/* line number 17*/
+/* line number 8*/
 /* Done printing string. */
-/* line number 17*/
-/* Printing int j */
-    set         _intFmt, %o0
-/* line number 17*/
-/* Loading j to %o1 */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 17*/
-/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 18*/
-/* Preparing argument i */
-    set         -8, %o0
-    add         %fp, %o0, %o0
-/* line number 18*/
-/* Preparing argument j */
-    set         -12, %o1
-    add         %fp, %o1, %o1
-    call    foo
+/* line number 9*/
+/* Decrementing */
+/* line number 9*/
+/* Loading y to %f0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    set         FLOAT_FORCE_1, %l6
+    ld          [%l6], %f1
+    fsubs       %f0, %f1, %f2
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    st          %f2, [%l1]
+    fadds       %f2, %f1, %f2
+    set         -28, %l1
+    add         %fp, %l1, %l1
+    st          %f2, [%l1]
+/* line number 11*/
+/* Continuing while loop */
+    ba      while_0
     nop
-/* line number 20*/
+/* line number 11*/
 /* printing string */
     set         _strFmt, %o0
     set         str_2, %o1
     call    printf
     nop
-/* line number 20*/
+/* line number 11*/
 /* Done printing string. */
-/* line number 20*/
-/* Printing int i */
-    set         _intFmt, %o0
-/* line number 20*/
-/* Loading i to %o1 */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    set         _endl, %o0
     call    printf
     nop
-/* line number 20*/
-/* Done printing int. */
-/* line number 20*/
+    ba      while_0
+    nop
+whileEnd_0:
+/* line number 14*/
 /* printing string */
     set         _strFmt, %o0
     set         str_3, %o1
     call    printf
     nop
-/* line number 20*/
+/* line number 14*/
 /* Done printing string. */
-/* line number 20*/
-/* Printing int j */
-    set         _intFmt, %o0
-/* line number 20*/
-/* Loading j to %o1 */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 20*/
-/* Done printing int. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 12) & -8
+SAVE.main = -(92 + 28) & -8

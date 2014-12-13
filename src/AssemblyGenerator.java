@@ -1180,7 +1180,7 @@ public class AssemblyGenerator {
 				}
 				
 				//load left
-				if(left.isConst()) {
+				if(right.isConst()) {
 					this.storeVariable(temp, right);
 					this.loadVariable(Registers.f1, right);
 				} else {
@@ -1236,7 +1236,7 @@ public class AssemblyGenerator {
 				}
 				
 				//load left
-				if(left.isConst()) {
+				if(right.isConst()) {
 					this.storeVariable(temp, right);
 					this.loadVariable(Registers.f1, right);
 				} else {
@@ -1293,7 +1293,7 @@ public class AssemblyGenerator {
 				}
 				
 				//load left
-				if(left.isConst()) {
+				if(right.isConst()) {
 					this.storeVariable(temp, right);
 					this.loadVariable(Registers.f1, right);
 				} else {
@@ -1351,7 +1351,7 @@ public class AssemblyGenerator {
 				}
 				
 				//load left
-				if(left.isConst()) {
+				if(right.isConst()) {
 					this.storeVariable(temp, right);
 					this.loadVariable(Registers.f1, right);
 				} else {
@@ -1407,7 +1407,7 @@ public class AssemblyGenerator {
 				}
 				
 				//load left
-				if(left.isConst()) {
+				if(right.isConst()) {
 					this.storeVariable(temp, right);
 					this.loadVariable(Registers.f1, right);
 				} else {
@@ -1463,7 +1463,7 @@ public class AssemblyGenerator {
 				}
 				
 				//load left
-				if(left.isConst()) {
+				if(right.isConst()) {
 					this.storeVariable(temp, right);
 					this.loadVariable(Registers.f1, right);
 				} else {
