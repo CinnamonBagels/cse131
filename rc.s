@@ -258,7 +258,7 @@ andF_2:
     set         0, %l2
     ba      andEnd_2
     nop
-andT_1:
+andT_2:
     set         1, %l2
 andEnd_2:
 /* line number 12*/

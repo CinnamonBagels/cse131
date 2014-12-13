@@ -966,7 +966,7 @@ public class AssemblyGenerator {
 			generateASM(Strings.two_param, Instructions.set, "0", Registers.l2);
 			generateASM(Strings.one_param, Instructions.ba, Strings.andEnd + andCount);
 			generateASM(Strings.nop);
-			generateASM(Strings.label, Strings.andT + orCount);
+			generateASM(Strings.label, Strings.andT + andCount);
 			generateASM(Strings.two_param, Instructions.set, "1", Registers.l2);
 			generateASM(Strings.label, Strings.andEnd + andCount);
 			andCount++;
