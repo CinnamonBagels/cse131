@@ -1364,7 +1364,7 @@ class MyParser extends parser {
 	}
 	
 	public void DoShortCircuit(STO sto, BinaryOp op, AssemblyGenerator generator){
-		if(sto.isError() || sto.isConst()){
+		if(sto.isError()){
 			return;
 		}		
 		
