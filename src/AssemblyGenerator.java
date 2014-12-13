@@ -572,7 +572,7 @@ public class AssemblyGenerator {
 			generateASM(Strings.two_param, Instructions.set, dest.offset, Registers.l2);
 			generateASM(Strings.three_param, Instructions.add, dest.base, Registers.l2, Registers.l2);
 		
-			if(dest.isReference) {
+			if(dest.isVar() && ((VarSTO) dest).isReference || (dest.isReference || dest.isDereferenced)) {
 				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l2 + "]", Registers.l2);
 			}
 		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
@@ -598,7 +598,7 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
 				generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l1, Registers.l1);
 			
-			if(sto.isReference || sto.isDereferenced) {
+			if(sto.isVar() && ((VarSTO) sto).isReference || (sto.isReference || sto.isDereferenced)) {
 				//generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + sto.offset +"]", Registers.l1);
 				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
 			}

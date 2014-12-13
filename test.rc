@@ -1,12 +1,18 @@
+function : void foo(int &x)
+{
+  cout << x << endl;
+ 
+  x = 2;
+
+  cout << x << endl;
+}
+
 function : void main()
 {
-    int[500] a;
-    
-    a[400] = 5;
-    
-    a[499] = 9;
-    
-    int b = 1;
-    
-    a[499+b] = 10; //error
+  int a = 1;
+
+  foo(a);
+
+ cout << a << endl;
+
 }
