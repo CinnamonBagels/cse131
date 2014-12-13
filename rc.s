@@ -59,7 +59,23 @@ globalInit_end:
     set         -12, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
-/* line number 11*/
+! --storing constant x with value 5.0
+    set         x, %l0
+    add         %g0, %l0, %l0
+    set         x, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
+    set         5, %l1
+    st          %l1, [%l0]
+! --storing constant y with value 5.0
+    set         y, %l0
+    add         %g0, %l0, %l0
+    set         y, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
+    set         5, %l1
+    st          %l1, [%l0]
+/* line number 13*/
 /* Prepping Comparison Calculations by loading */
     set         x, %l1
     add         %g0, %l1, %l1
@@ -67,7 +83,7 @@ globalInit_end:
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
-/* line number 11*/
+/* line number 13*/
 /* Starting Less than */
     cmp         %l0, %l1
     bl      less_0
@@ -78,12 +94,12 @@ globalInit_end:
 less_0:
     set         1, %l3
 lessEnd_0:
-/* line number 11*/
+/* line number 13*/
 /* Storing result of Comparison Op */
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-/* line number 11*/
+/* line number 13*/
 /* Negating */
     set         -16, %l1
     add         %fp, %l1, %l1
@@ -101,7 +117,7 @@ negEnd_0:
     set         -20, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
-/* line number 11*/
+/* line number 13*/
 /* Printing bool Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: <...
  as a BooleanType for operator: !...
  */
@@ -121,12 +137,12 @@ printFalse_0:
 branchEnd_0:
     call    printf
     nop
-/* line number 11*/
+/* line number 13*/
 /* Done printing bool. */
     set         _endl, %o0
     call    printf
     nop
-/* line number 12*/
+/* line number 14*/
 /* Prepping Comparison Calculations by loading */
     set         x, %l1
     add         %g0, %l1, %l1
@@ -134,7 +150,7 @@ branchEnd_0:
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
-/* line number 12*/
+/* line number 14*/
 /* Starting == equal */
     cmp         %l0, %l1
     be      equal_1
@@ -145,12 +161,12 @@ branchEnd_0:
 equal_1:
     set         1, %l3
 equalEnd_1:
-/* line number 12*/
+/* line number 14*/
 /* Storing result of Comparison Op */
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-/* line number 12*/
+/* line number 14*/
 /* Negating */
     set         -24, %l1
     add         %fp, %l1, %l1
@@ -168,7 +184,7 @@ negEnd_1:
     set         -28, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
-/* line number 12*/
+/* line number 14*/
 /* Printing bool Validating UnaryOp Validating ComparisonOp int and int as a BooleanType for operator: ==...
  as a BooleanType for operator: !...
  */
@@ -188,7 +204,7 @@ printFalse_1:
 branchEnd_1:
     call    printf
     nop
-/* line number 12*/
+/* line number 14*/
 /* Done printing bool. */
     set         _endl, %o0
     call    printf
