@@ -704,6 +704,11 @@ public class AssemblyGenerator {
 	}
 
 	public void prepareArguments(STO argument, VarSTO parameter, int argCounter) {
+		
+		if(argument.isConst() && argument.getType().isFloat() && (argument.base == null || argument.offset == null)) {
+			assignFloat((ConstSTO)argument);
+		}
+
 		// TODO Auto-generated method stub
 		boolean bothInt = !argument.getType().isFloat() && !parameter.getType().isFloat();
 		boolean bothFloat = argument.getType().isFloat() && parameter.getType().isFloat();
