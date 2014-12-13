@@ -53,7 +53,7 @@ foo:
 /* Loading b to %i0 */
     set         68, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo_end
     nop
 foo_end:
