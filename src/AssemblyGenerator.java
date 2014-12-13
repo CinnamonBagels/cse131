@@ -718,7 +718,7 @@ public class AssemblyGenerator {
 		generateComment("Preparing argument " + argument.getName());
 		
 		if(parameter.isReference) {
-			if(argument.isReference) {
+			if(!argument.isReference) {
 				this.storeReference(argument, "%o" + argCounter);
 			} else {
 				this.setAdd(argument, "%o" + argCounter);
@@ -1852,7 +1852,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, sto.offset, register);
 		generateASM(Strings.three_param, Instructions.add, sto.base, register, register);
 		
-		if(sto.isDereferenced || sto.isReference) {
+		if((sto.isVar() && ((VarSTO) sto).isReference) || (sto.isDereferenced || sto.isReference)) {
 			generateASM(Strings.two_param, Instructions.load, "[" + register + "]", register);
 		}
 		

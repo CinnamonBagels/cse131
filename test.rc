@@ -1,16 +1,22 @@
-function : void foo(float & x, float & y)
+function: void bar( int &b, int &c)
 {
- x = 7.0;
- y = 8.0;
+
+      b = 777; 
+      c = b+c; //778
 }
-
-function : void main()
+function: void foo( int &a, int &b)
 {
-  float a = 1.0;
-  float b = 2.0;
+      bar(a, b);
+}
+function: void main()
+{
 
-  foo(a,b);
+   int i = 5;
+   int j = 1;
 
-  cout << a << b << endl;
+    cout<<"before calling foo, i is "<<i<< " and j is" <<j<<endl;
+    foo(i, j);  //i is 5, j is 1
+
+    cout<<"after calling foo, i is modified, and is now "<<i<< " and j is "<<j<<endl; //i is 777, j is 778
 
 }
