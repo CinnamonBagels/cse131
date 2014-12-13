@@ -970,7 +970,7 @@ class MyParser extends parser {
 		
 		FunctionPointerType funcExecuted = (FunctionPointerType) functionBeingExecuted.getType();
 		
-		Vector<VarSTO> parameters = function.getParameters();
+		Vector<VarSTO> parameters = funcExecuted.getParameters();
 		
 		int argCounter = 0;
 

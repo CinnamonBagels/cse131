@@ -62,11 +62,19 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 9*/
+/* Preparing argument 3 */
+    set         3, %o0
     call    foo
     nop
 /* line number 9*/
 /* Saving return value */
     st          %o0, [%fp+-8]
+/* line number 9*/
+/* Preparing argument foo() */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo
     nop
 /* line number 9*/
