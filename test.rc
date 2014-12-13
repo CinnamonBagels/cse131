@@ -1,15 +1,25 @@
-int x = 0;
-
 function : void main()
 {
-  while(x < 5)
-  {
-    cout << x;
-    x = x+1;
-  }
+   int x = 0;
+   while(x<5)
+   {
+      if(x == 2)
+      {
+        break;
+      }
 
-cout << endl;
-cout << x << endl;
+      int y = 0;
+      while(y<5)
+      {
+         if(y==2)
+         {
+            break;
+         }
+         y = y + 1;
+      }
+      cout << y << endl;
+      x = x + 1;
+   }
 
-
+   //cout << x << endl;
 }

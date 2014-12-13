@@ -19,6 +19,8 @@ public class AssemblyGenerator {
 	public List<String> bssQueue = new Vector<String>();
 	public Stack<Integer> ifElseStack = new Stack<Integer>();
 	public Stack<Integer> whileStack = new Stack<Integer>();
+	public Stack<Integer> loopStack = new Stack<Integer>();
+	public Stack<Integer> forStack = new Stack<Integer>();
 	public int stringLits = 0;
 	public int branches = 0;
 	public int arrayDecl = 0;
@@ -28,6 +30,7 @@ public class AssemblyGenerator {
 	public int andCount = 0;
 	public int orCount = 0;
 	public int whileStmts = 0;
+	public int forStmts = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -1691,6 +1694,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 		
 		whileStack.push(whileStmts);
+		loopStack.push(0);
 		whileStmts++;
 		
 	}
@@ -1705,5 +1709,28 @@ public class AssemblyGenerator {
 	
 	public void startWhile() {
 		generateASM(Strings.label, Strings.whileStmt + whileStmts);
+	}
+
+	public void doBreak() {
+		// TODO Auto-generated method stub
+		int loop = loopStack.pop();
+		
+		if(loop == 0) {
+			doWhileBreak();
+		} else {
+			doForBreak();
+		}
+	}
+	
+	public void doWhileBreak() {
+		generateComment("Breaking out of while loop");
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileEnd + (whileStmts - 1));
+		generateASM(Strings.nop);
+	}
+	
+	public void doForBreak() {
+		generateComment("breaking out of for loop");
+		generateASM(Strings.one_param, Instructions.ba, Strings.forEnd + (forStmts - 1));
+		generateASM(Strings.nop);
 	}
 }

@@ -718,6 +718,7 @@ class MyParser extends parser {
 			m_nNumErrors++;
 			m_errors.print(ErrorMsg.error12_Break);
 		}
+		generator.doBreak();
 	}
 
 	public void DoContinueStmt() {

@@ -91,5 +91,7 @@ public class Strings {
     public static final String orEnd = "orEnd_";
     public static final String whileStmt = "while_";
     public static final String whileEnd = "whileEnd_";
+    public static final String forStart = "for_";
+    public static final String forEnd = "forEnd_";
     
 }
