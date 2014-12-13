@@ -25,8 +25,8 @@ foo:
 /* line number 6*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop

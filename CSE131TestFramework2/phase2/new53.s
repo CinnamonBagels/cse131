@@ -40,8 +40,8 @@ foo1:
 /* Done printing string. */
 /* line number 11*/
 /* Returning value from foo1 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo1_end
     nop
@@ -65,8 +65,8 @@ foo2:
 /* Done printing string. */
 /* line number 17*/
 /* Returning value from foo2 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     ba      foo2_end
     nop
@@ -90,8 +90,8 @@ foo3:
 /* Done printing string. */
 /* line number 23*/
 /* Returning value from foo3 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo3_end
     nop
@@ -143,7 +143,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-12]
 /* line number 27*/
-/* printing float STO.VarSTO@1ba3afe */
+/* printing float STO.VarSTO@16a4aef */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

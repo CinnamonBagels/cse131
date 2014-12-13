@@ -37,17 +37,11 @@ globalInit_end:
 ! --storing constant puppy with value 5.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         5, %l1
     st          %l1, [%l0]
 ! --storing constant kitten with value 9.0
     set         -12, %l0
     add         %fp, %l0, %l0
-    set         -12, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -55,17 +49,11 @@ globalInit_end:
 ! --storing constant kitty with value 3.0
     set         -16, %l0
     add         %fp, %l0, %l0
-    set         -16, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         3, %l1
     st          %l1, [%l0]
 ! --storing constant dog with value 14.5
     set         -20, %l0
     add         %fp, %l0, %l0
-    set         -20, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -190,9 +178,6 @@ lessEnd_2:
 ! --storing constant unwanted with value 4.0
     set         -24, %l0
     add         %fp, %l0, %l0
-    set         -24, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         4, %l1
     st          %l1, [%l0]
 /* line number 28*/

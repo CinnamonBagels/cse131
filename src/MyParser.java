@@ -650,7 +650,7 @@ class MyParser extends parser {
 	}
 
 	// expression, codeblock
-	STO DoWhileStmt(STO _1, STO _2) {
+	STO DoWhileStmt(STO _1) {
 		if (_1.isError()) {
 			return _1;
 		}
@@ -666,7 +666,7 @@ class MyParser extends parser {
 		} else {
 			//assembly here?
 		}
-
+		generator.doWhile(_1);
 		return _1;
 	}
 
@@ -1355,7 +1355,6 @@ class MyParser extends parser {
 					sto.offset = String.valueOf(-(m_symtab.getFunc().getStackSize() + sto.getType().getSize()));
 					m_symtab.getFunc().addToStack(sto.getType().getSize());
 				}
-				
 				generator.evaluateBinary(_1, _3, _2, sto);
 			}
 		}
@@ -1371,9 +1370,9 @@ class MyParser extends parser {
 		generator.loadVariable(Registers.l1, sto);
 		generator.generateASM(Strings.two_param, Instructions.cmp, Registers.l1, Registers.g0);
 		if(op.getName().equals("||")){
-			generator.generateASM(Strings.one_param,Instructions.bne, "_orOp"+generator.orCount);
+			generator.generateASM(Strings.one_param,Instructions.bne, Strings.orT + generator.orCount);
 		}else{
-			generator.generateASM(Strings.one_param,Instructions.be,"_andOp"+generator.andCount);
+			generator.generateASM(Strings.one_param,Instructions.be,Strings.andF + generator.andCount);
 		}
 		generator.generateASM(Strings.nop);
 	}
@@ -1673,5 +1672,13 @@ class MyParser extends parser {
 	
 	public void DoCIN(STO sto){
 		generator.DoCIN(sto);
+	}
+	
+	public void DoWhileEnd() {
+		generator.endWhile();
+	}
+	
+	public void startWhile() {
+		generator.startWhile();
 	}
 }

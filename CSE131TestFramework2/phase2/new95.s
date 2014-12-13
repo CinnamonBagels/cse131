@@ -27,12 +27,12 @@ foo:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 6*/
 /* Post Increment */
@@ -53,12 +53,12 @@ foo:
 /* Done printing int. */
 /* line number 6*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     inc     %l0
-    set         null, %l2
-    add         null, %l2, %l2
+    set         -8, %l2
+    add         %fp, %l2, %l2
     st          %l0, [%l2]
 /* line number 6*/
 /* Post Increment */
@@ -79,22 +79,21 @@ foo:
 /* Done printing int. */
 /* line number 6*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@380c76 */
+/* printing float STO.ExprSTO@14aa453 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -104,22 +103,21 @@ foo:
 /* Done printing float. */
 /* line number 6*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -20, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@1ba3afe */
+/* printing float STO.ExprSTO@16a4aef */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -129,15 +127,14 @@ foo:
 /* Done printing float. */
 /* line number 7*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     st          %f2, [%l1]
     set         -24, %l1
     add         %fp, %l1, %l1
@@ -182,7 +179,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 14*/
-/* printing float STO.VarSTO@176feaf */
+/* printing float STO.VarSTO@15dbaab */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

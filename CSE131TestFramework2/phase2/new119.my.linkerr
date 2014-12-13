@@ -1,0 +1,9 @@
+rc.s:
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 457: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 555: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 653: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 1184: error: redefinition of symbol "_andOp0"
+/software/common/solstudio12/prod/bin/fbe: "rc.s", line 1292: error: redefinition of symbol "_andOp0"
+cc: fbe failed for rc.s
+../input.c:
+../output.s:

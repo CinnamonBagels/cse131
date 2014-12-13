@@ -119,14 +119,13 @@ globalInit_end:
     fsubs       %f0, %f1, %f2
     set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fadds       %f2, %f1, %f0
     set         -24, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@380c76 */
+/* printing float STO.ExprSTO@16a4aef */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -144,14 +143,13 @@ globalInit_end:
     fsubs       %f0, %f1, %f2
     set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     st          %f2, [%l1]
     fadds       %f2, %f1, %f0
     set         -28, %l1
     add         %fp, %l1, %l1
     st          %f0, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@1ba3afe */
+/* printing float STO.ExprSTO@15dbaab */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

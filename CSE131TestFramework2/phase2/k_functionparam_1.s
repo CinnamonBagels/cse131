@@ -203,9 +203,6 @@ globalInit_end:
 ! --storing constant i with value 4.0
     set         i, %l0
     add         %g0, %l0, %l0
-    set         i, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %l0
     set         4, %l1
     st          %l1, [%l0]
     call    foo

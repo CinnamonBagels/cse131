@@ -23,9 +23,6 @@ foo:
 ! --storing constant x with value 2.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
     set         2, %l1
     st          %l1, [%l0]
 /* line number 8*/
@@ -71,7 +68,7 @@ globalInit_end:
 /* line number 12*/
 /* Done. */
 /* line number 12*/
-/* printing float STO.VarSTO@1e00761 */
+/* printing float STO.VarSTO@c55164 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

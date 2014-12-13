@@ -28,15 +28,14 @@ foo:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -8, %l1
@@ -44,15 +43,14 @@ foo:
     st          %f0, [%l1]
 /* line number 8*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -12, %l1
@@ -70,15 +68,14 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 12*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -8, %l1
@@ -86,15 +83,14 @@ foo2:
     st          %f0, [%l1]
 /* line number 13*/
 /* Incrementing */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
-    ld          [%l1], %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     st          %f2, [%l1]
     fsubs       %f2, %f1, %f0
     set         -12, %l1
@@ -120,7 +116,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 17*/
-/* printing float STO.VarSTO@fe861 */
+/* printing float STO.VarSTO@1c46bab */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -137,7 +133,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@ae735 */
+/* printing float STO.VarSTO@380c76 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -151,7 +147,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 19*/
-/* printing float STO.VarSTO@fe861 */
+/* printing float STO.VarSTO@1c46bab */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -168,7 +164,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@ae735 */
+/* printing float STO.VarSTO@380c76 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -182,7 +178,7 @@ globalInit_end:
     call    foo2
     nop
 /* line number 21*/
-/* printing float STO.VarSTO@fe861 */
+/* printing float STO.VarSTO@1c46bab */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -199,7 +195,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@ae735 */
+/* printing float STO.VarSTO@380c76 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

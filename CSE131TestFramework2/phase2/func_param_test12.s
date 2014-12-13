@@ -38,8 +38,8 @@ foo:
 /* line number 3*/
 /* Printing int r */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -60,19 +60,16 @@ foo:
     call    printf
     nop
 ! --storing constant a with value 351.22
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         float_2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 7*/
 /* Returning value from foo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     fitos       %f0, %f0
     ba      foo_end
@@ -116,7 +113,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing string. */
 /* line number 14*/
-/* printing float STO.VarSTO@19db21f */
+/* printing float STO.VarSTO@1d15d1c */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -151,7 +148,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@ae735 */
+/* printing float STO.VarSTO@1ba3afe */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -171,7 +168,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@19db21f */
+/* printing float STO.VarSTO@1d15d1c */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

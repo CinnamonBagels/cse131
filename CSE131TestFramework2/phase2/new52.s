@@ -66,7 +66,7 @@ getY:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 13*/
-/* printing float STO.VarSTO@380c76 */
+/* printing float STO.VarSTO@176feaf */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -125,7 +125,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 20*/
-/* printing float STO.VarSTO@1ba3afe */
+/* printing float STO.VarSTO@14aa453 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -139,7 +139,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-12]
 /* line number 20*/
-/* printing float STO.VarSTO@176feaf */
+/* printing float STO.VarSTO@16a4aef */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

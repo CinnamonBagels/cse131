@@ -25,11 +25,8 @@ woo:
     set         SAVE.woo, %g1
     save        %sp, %g1, %sp
 ! --storing constant k with value 999.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         999, %l1
     st          %l1, [%l0]
 woo_end:
@@ -43,11 +40,8 @@ wohoo:
     set         SAVE.wohoo, %g1
     save        %sp, %g1, %sp
 ! --storing constant j with value 9.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         9, %l1
     st          %l1, [%l0]
     call    woo
@@ -84,11 +78,8 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant y with value 6.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         6, %l1
     st          %l1, [%l0]
 /* line number 21*/
@@ -102,8 +93,8 @@ globalInit_end:
 /* line number 21*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -112,8 +103,8 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    woohooo2
     nop
@@ -128,8 +119,8 @@ globalInit_end:
 /* line number 23*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop

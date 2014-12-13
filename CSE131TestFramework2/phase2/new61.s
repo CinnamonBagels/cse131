@@ -40,17 +40,17 @@ foo:
 /* line number 9*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@176feaf */
-    set         null, %l1
-    add         null, %l1, %l1
+/* printing float STO.VarSTO@16a4aef */
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -58,8 +58,8 @@ foo:
 /* Done printing float. */
 /* line number 9*/
 /* Printing bool z */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -78,8 +78,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 9*/
 /* Printing bool a */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -20, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -141,7 +141,7 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-12]
 /* line number 15*/
-/* printing float STO.VarSTO@14aa453 */
+/* printing float STO.VarSTO@15dbaab */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

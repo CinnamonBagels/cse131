@@ -22,11 +22,11 @@ foo:
     save        %sp, %g1, %sp
 /* line number 3*/
 /* Prepping Arithmetic Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 3*/
 /* Adding */

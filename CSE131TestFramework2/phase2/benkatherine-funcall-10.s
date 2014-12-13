@@ -22,8 +22,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 4*/
 /* Returning value from foo */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo_end
     nop

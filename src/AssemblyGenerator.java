@@ -18,6 +18,7 @@ public class AssemblyGenerator {
 	public List<String> dQueue = new Vector<String>();
 	public List<String> bssQueue = new Vector<String>();
 	public Stack<Integer> ifElseStack = new Stack<Integer>();
+	public Stack<Integer> whileStack = new Stack<Integer>();
 	public int stringLits = 0;
 	public int branches = 0;
 	public int arrayDecl = 0;
@@ -26,6 +27,7 @@ public class AssemblyGenerator {
 	public int numNots = 0;
 	public int andCount = 0;
 	public int orCount = 0;
+	public int whileStmts = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -756,7 +758,6 @@ public class AssemblyGenerator {
 	}
 
 	public void evaluateBinary(STO left, STO right, BinaryOp op, STO sto) {
-		
 		if(right.isConst() && right.getType().isFloat() && (right.base == null || right.offset == null)) {
 			assignFloat((ConstSTO)right);
 		}
@@ -960,35 +961,32 @@ public class AssemblyGenerator {
 			register = Registers.l2;
 		} else if(op.getName().equals("&&")){
 			generateComment("&&-ing");
-			loadVariable(Registers.l2, right);
 			generateASM(Strings.two_param, Instructions.cmp, Registers.l2, Registers.g0);
-			generateASM(Strings.one_param, Instructions.be, "_andOp" + andCount);
+			generateASM(Strings.one_param, Instructions.bne, Strings.andT + andCount);
 			generateASM(Strings.nop);
+			generateASM(Strings.label, Strings.andF + andCount);
 			generateASM(Strings.two_param, Instructions.set, "0", Registers.l2);
-			generateASM(Strings.one_param, Instructions.ba, "_andOp" + (andCount+1));
+			generateASM(Strings.one_param, Instructions.ba, Strings.andEnd + andCount);
 			generateASM(Strings.nop);
-			generateASM(Strings.label, "_andOp" + orCount);
+			generateASM(Strings.label, Strings.andT + andCount);
 			generateASM(Strings.two_param, Instructions.set, "1", Registers.l2);
-			generateASM(Strings.one_param, Instructions.ba, "_andOp" + (andCount+1));
-			generateASM(Strings.nop);
-			generateASM(Strings.label, "_andOp" +(andCount+1));
-			andCount = andCount + 2;
+			generateASM(Strings.label, Strings.andEnd + andCount);
+			andCount++;
 			register = Registers.l2;
 		} else if(op.getName().equals("||")){
 			generateComment("||-ing");
 			loadVariable(Registers.l2, right);
 			generateASM(Strings.two_param, Instructions.cmp, Registers.l2, Registers.g0);
-			generateASM(Strings.one_param, Instructions.bne, "_orOp" + orCount);
+			generateASM(Strings.one_param, Instructions.bne, Strings.orT + orCount);
 			generateASM(Strings.nop);
+			generateASM(Strings.label, Strings.orF + orCount);
 			generateASM(Strings.two_param, Instructions.set, "0", Registers.l2);
-			generateASM(Strings.one_param, Instructions.ba, "_orOp" + (orCount+1));
+			generateASM(Strings.one_param, Instructions.ba, Strings.orEnd + orCount);
 			generateASM(Strings.nop);
-			generateASM(Strings.label, "_orOp" + orCount);
+			generateASM(Strings.label, Strings.orT + orCount);
 			generateASM(Strings.two_param, Instructions.set, "1", Registers.l2);
-			generateASM(Strings.one_param, Instructions.ba, "_orOp" + (orCount+1));
-			generateASM(Strings.nop);
-			generateASM(Strings.label, "_orOp" +(orCount+1));
-			orCount = orCount + 2;
+			generateASM(Strings.label, Strings.orEnd + orCount);
+			orCount++;
 			register = Registers.l2;
 		} else {
 			generateComment("Whoops, Executing Binary Op broke on " + left.getName() + " " + op.getName() + " " + right.getName());
@@ -1502,10 +1500,10 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.store, Registers.f2, "[" + Registers.l1 + "]");
 				
 				if(data.equals("post")) {
-					generateASM(Strings.three_param, Instructions.fadd, Registers.f2, Registers.f1, Registers.f0);
+					generateASM(Strings.three_param, Instructions.fadd, Registers.f2, Registers.f1, Registers.f2);
 				}
 				
-				register = Registers.f0;
+				register = Registers.f2;
 			}
 		} else if(op.getName().equals("++")) {
 			generateComment("Incrementing");
@@ -1548,10 +1546,10 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.store, Registers.f2, "[" + Registers.l1 + "]");
 				
 				if(data.equals("post")) {
-					generateASM(Strings.three_param, Instructions.fsub, Registers.f2, Registers.f1, Registers.f0);
+					generateASM(Strings.three_param, Instructions.fsub, Registers.f2, Registers.f1, Registers.f2);
 				}
 				
-				register = Registers.f0;
+				register = Registers.f2;
 			}
 		} else if(op.getName().equals("!")) {
 			generateComment("Negating");
@@ -1685,5 +1683,29 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.store, register, "[" + Registers.l2 + "]");
 		
 		return returnSTO;
+	}
+
+	public void doWhile(STO expr) {
+		// TODO Auto-generated method stub
+		loadVariable(Registers.l0, expr);
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+		generateASM(Strings.one_param, Instructions.be, Strings.whileEnd + whileStmts);
+		generateASM(Strings.nop);
+		
+		whileStack.push(whileStmts);
+		whileStmts++;
+		
+	}
+	
+	public void endWhile() {
+		int noWhiles = whileStack.pop();
+		
+		generateASM(Strings.one_param, Instructions.ba, Strings.whileStmt + noWhiles);
+		generateASM(Strings.nop);
+		generateASM(Strings.label, Strings.whileEnd + noWhiles);
+	}
+	
+	public void startWhile() {
+		generateASM(Strings.label, Strings.whileStmt + whileStmts);
 	}
 }

@@ -32,8 +32,8 @@ foo:
 /* line number 8*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -49,8 +49,8 @@ foo:
 /* Done printing string. */
 /* line number 8*/
 /* Printing bool y */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -76,9 +76,9 @@ branchEnd_0:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@380c76 */
-    set         null, %l1
-    add         null, %l1, %l1
+/* printing float STO.VarSTO@14aa453 */
+    set         -16, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -178,7 +178,7 @@ branchEnd_1:
 /* line number 18*/
 /* Done printing string. */
 /* line number 18*/
-/* printing float STO.VarSTO@1048099 */
+/* printing float STO.VarSTO@6286e3 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

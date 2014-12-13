@@ -25,20 +25,17 @@ bar:
     set         SAVE.bar, %g1
     save        %sp, %g1, %sp
 ! --storing constant b with value 777.0
-    set         null, %l0
-    add         null, %l0, %l0
-    set         null, %l0
-    add         null, %l0, %l0
-    ld          [%l0], %l0
+    set         -8, %l0
+    add         %fp, %l0, %l0
     set         777, %l1
     st          %l1, [%l0]
 /* line number 5*/
 /* Prepping Arithmetic Calculations by loading */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -8, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -12, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 5*/
 /* Adding */
@@ -50,8 +47,8 @@ bar:
     st          %l3, [%l4]
 /* line number 5*/
 /* Storing variable int + int into c */
-    set         null, %l5
-    add         null, %l5, %l5
+    set         -12, %l5
+    add         %fp, %l5, %l5
     set         -8, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3

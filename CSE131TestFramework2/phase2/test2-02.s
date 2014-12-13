@@ -90,7 +90,7 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 10*/
-/* printing float STO.VarSTO@191a42 */
+/* printing float STO.VarSTO@380c76 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -131,7 +131,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 10*/
-/* printing float STO.ExprSTO@1d15d1c */
+/* printing float STO.ExprSTO@176feaf */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -148,7 +148,7 @@ globalInit_end:
 /* line number 10*/
 /* Done printing string. */
 /* line number 10*/
-/* printing float STO.VarSTO@191a42 */
+/* printing float STO.VarSTO@380c76 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -160,7 +160,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 12*/
-/* printing float STO.VarSTO@195ddba */
+/* printing float STO.VarSTO@1c46bab */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -201,7 +201,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 12*/
-/* printing float STO.ExprSTO@380c76 */
+/* printing float STO.ExprSTO@14aa453 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -218,7 +218,7 @@ globalInit_end:
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float STO.VarSTO@195ddba */
+/* printing float STO.VarSTO@1c46bab */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -272,7 +272,7 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 17*/
-/* printing float STO.VarSTO@195ddba */
+/* printing float STO.VarSTO@1c46bab */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -313,7 +313,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 17*/
-/* printing float STO.ExprSTO@176feaf */
+/* printing float STO.ExprSTO@15dbaab */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -330,7 +330,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@195ddba */
+/* printing float STO.VarSTO@1c46bab */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

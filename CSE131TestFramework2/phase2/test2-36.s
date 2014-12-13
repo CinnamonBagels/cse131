@@ -392,7 +392,7 @@ arrayOutBounds_6:
     nop
 arrayEnd_6:
 /* line number 17*/
-/* printing float STO.ExprSTO@85b4c5 */
+/* printing float STO.ExprSTO@5b04ae */
     set         -200, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -446,7 +446,7 @@ arrayOutBounds_7:
     nop
 arrayEnd_7:
 /* line number 17*/
-/* printing float STO.ExprSTO@1ef8f5 */
+/* printing float STO.ExprSTO@1904b13 */
     set         -204, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -464,7 +464,7 @@ arrayEnd_7:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@14c0cb0 */
+/* printing float STO.VarSTO@10d3d99 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -817,7 +817,7 @@ arrayOutBounds_14:
     nop
 arrayEnd_14:
 /* line number 21*/
-/* printing float STO.ExprSTO@96b555 */
+/* printing float STO.ExprSTO@19db21f */
     set         -232, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -871,7 +871,7 @@ arrayOutBounds_15:
     nop
 arrayEnd_15:
 /* line number 21*/
-/* printing float STO.ExprSTO@5b04ae */
+/* printing float STO.ExprSTO@191a42 */
     set         -236, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -889,7 +889,7 @@ arrayEnd_15:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@14c0cb0 */
+/* printing float STO.VarSTO@10d3d99 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
