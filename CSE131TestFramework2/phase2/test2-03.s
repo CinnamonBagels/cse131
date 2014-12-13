@@ -77,9 +77,13 @@ main:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 5*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 5*/
+/* Loading gblf to %f1 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -101,6 +105,8 @@ main:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 6*/
 /* Multiplying */
+/* line number 6*/
+/* Loading gblf to %f0 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -112,6 +118,8 @@ main:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 6*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -133,9 +141,13 @@ main:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 7*/
 /* Multiplying */
+/* line number 7*/
+/* Loading gblf to %f0 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 7*/
+/* Loading gblfTimesConst to %f1 */
     set         gblfTimesConst, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -165,9 +177,13 @@ main:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 10*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 10*/
+/* Loading gblf to %f1 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -189,6 +205,8 @@ main:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 11*/
 /* Dividing */
+/* line number 11*/
+/* Loading gblf to %f0 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -200,6 +218,8 @@ main:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 11*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -221,9 +241,13 @@ main:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 12*/
 /* Dividing */
+/* line number 12*/
+/* Loading gblf to %f0 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 12*/
+/* Loading gblfDivConst to %f1 */
     set         gblfDivConst, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -279,9 +303,13 @@ globalInit_end:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 18*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 18*/
+/* Loading localFloat to %f1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -305,6 +333,8 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 19*/
 /* Multiplying */
+/* line number 19*/
+/* Loading localFloat to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -316,6 +346,8 @@ globalInit_end:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 19*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -339,9 +371,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 20*/
 /* Multiplying */
+/* line number 20*/
+/* Loading localFloat to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 20*/
+/* Loading localFloatTimesConst to %f1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -365,9 +401,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 21*/
 /* Multiplying */
+/* line number 21*/
+/* Loading localFloat to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 21*/
+/* Loading gblf to %f1 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -402,6 +442,8 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 24*/
 /* Dividing */
+/* line number 24*/
+/* Loading localFloatTimesConst to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -413,6 +455,8 @@ globalInit_end:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 24*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -436,9 +480,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 25*/
 /* Dividing */
+/* line number 25*/
+/* Loading localFloatDivConst to %f0 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 25*/
+/* Loading localFloat to %f1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -462,9 +510,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 26*/
 /* Dividing */
+/* line number 26*/
+/* Loading localFloatTimesGlobal to %f0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 26*/
+/* Loading gblf to %f1 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -485,7 +537,9 @@ globalInit_end:
 /* line number 28*/
 /* Done. */
 /* line number 28*/
-/* printing float STO.VarSTO@a46637 */
+/* printing float STO.VarSTO@10c16b7 */
+/* line number 28*/
+/* Loading gblf to %f0 */
     set         gblf, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -502,7 +556,9 @@ globalInit_end:
 /* line number 28*/
 /* Done printing string. */
 /* line number 28*/
-/* printing float STO.VarSTO@eba9b0 */
+/* printing float STO.VarSTO@17cd18d */
+/* line number 28*/
+/* Loading gvlfConstTimesConst to %f0 */
     set         gvlfConstTimesConst, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -519,7 +575,9 @@ globalInit_end:
 /* line number 28*/
 /* Done printing string. */
 /* line number 28*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 28*/
+/* Loading gblfConstTimesGlobal to %f0 */
     set         gblfConstTimesGlobal, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -536,7 +594,9 @@ globalInit_end:
 /* line number 28*/
 /* Done printing string. */
 /* line number 28*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@d55a0f */
+/* line number 28*/
+/* Loading gblfTimesConst to %f0 */
     set         gblfTimesConst, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -553,7 +613,9 @@ globalInit_end:
 /* line number 28*/
 /* Done printing string. */
 /* line number 28*/
-/* printing float STO.VarSTO@197833e */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 28*/
+/* Loading gblfTimesGlbl to %f0 */
     set         gblfTimesGlbl, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -565,7 +627,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 29*/
-/* printing float STO.VarSTO@fc4957 */
+/* printing float STO.VarSTO@1286c71 */
+/* line number 29*/
+/* Loading gblfConstDivConst to %f0 */
     set         gblfConstDivConst, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -582,7 +646,9 @@ globalInit_end:
 /* line number 29*/
 /* Done printing string. */
 /* line number 29*/
-/* printing float STO.VarSTO@1330af4 */
+/* printing float STO.VarSTO@e77ca4 */
+/* line number 29*/
+/* Loading gblfConstDivGlobal to %f0 */
     set         gblfConstDivGlobal, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -599,7 +665,9 @@ globalInit_end:
 /* line number 29*/
 /* Done printing string. */
 /* line number 29*/
-/* printing float STO.VarSTO@14512e */
+/* printing float STO.VarSTO@1a83205 */
+/* line number 29*/
+/* Loading gblfDivConst to %f0 */
     set         gblfDivConst, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -616,7 +684,9 @@ globalInit_end:
 /* line number 29*/
 /* Done printing string. */
 /* line number 29*/
-/* printing float STO.VarSTO@1ddbcb1 */
+/* printing float STO.VarSTO@16c2195 */
+/* line number 29*/
+/* Loading gblfDivGlbl to %f0 */
     set         gblfDivGlbl, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -631,7 +701,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 31*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@10d16b */
+/* line number 31*/
+/* Loading localFloat to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -648,7 +720,9 @@ globalInit_end:
 /* line number 31*/
 /* Done printing string. */
 /* line number 31*/
-/* printing float STO.VarSTO@17cd18d */
+/* printing float STO.VarSTO@24de67 */
+/* line number 31*/
+/* Loading localConstTimesConst to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -665,7 +739,9 @@ globalInit_end:
 /* line number 31*/
 /* Done printing string. */
 /* line number 31*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@853e51 */
+/* line number 31*/
+/* Loading localConstTimesLocalFloat to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -682,7 +758,9 @@ globalInit_end:
 /* line number 31*/
 /* Done printing string. */
 /* line number 32*/
-/* printing float STO.VarSTO@d55a0f */
+/* printing float STO.VarSTO@1be4050 */
+/* line number 32*/
+/* Loading localFloatTimesConst to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -699,7 +777,9 @@ globalInit_end:
 /* line number 32*/
 /* Done printing string. */
 /* line number 32*/
-/* printing float STO.VarSTO@10bb83e */
+/* printing float STO.VarSTO@170526a */
+/* line number 32*/
+/* Loading localFloatTimesLocal to %f0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -716,7 +796,9 @@ globalInit_end:
 /* line number 32*/
 /* Done printing string. */
 /* line number 32*/
-/* printing float STO.VarSTO@6d234c */
+/* printing float STO.VarSTO@132e233 */
+/* line number 32*/
+/* Loading localFloatTimesGlobal to %f0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -728,7 +810,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 33*/
-/* printing float STO.VarSTO@1286c71 */
+/* printing float STO.VarSTO@1a0c382 */
+/* line number 33*/
+/* Loading localConstDivConst to %f0 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -745,7 +829,9 @@ globalInit_end:
 /* line number 33*/
 /* Done printing string. */
 /* line number 33*/
-/* printing float STO.VarSTO@e77ca4 */
+/* printing float STO.VarSTO@183bfee */
+/* line number 33*/
+/* Loading localFloatDivConst to %f0 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -762,7 +848,9 @@ globalInit_end:
 /* line number 33*/
 /* Done printing string. */
 /* line number 33*/
-/* printing float STO.VarSTO@1a83205 */
+/* printing float STO.VarSTO@adb165 */
+/* line number 33*/
+/* Loading localFloatDivLocal to %f0 */
     set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -779,7 +867,9 @@ globalInit_end:
 /* line number 33*/
 /* Done printing string. */
 /* line number 33*/
-/* printing float STO.VarSTO@16c2195 */
+/* printing float STO.VarSTO@15978e7 */
+/* line number 33*/
+/* Loading localFloatDivGlobal to %f0 */
     set         -72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

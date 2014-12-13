@@ -59,6 +59,8 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* Short-circuiting || with x */
+/* line number 7*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -67,9 +69,13 @@ globalInit_end:
     nop
 /* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 7*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -90,6 +96,9 @@ orEnd_0:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 8*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -118,6 +127,8 @@ if_0:
 /* Done printing string. */
 /* line number 10*/
 /* Printing bool x */
+/* line number 10*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -149,6 +160,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 11*/
 /* Printing bool y */
+/* line number 11*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -176,6 +189,8 @@ else_0:
 endIf_1:
 /* line number 14*/
 /* Short-circuiting || with x */
+/* line number 14*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -189,9 +204,13 @@ endIf_1:
     st          %l1, [%l0]
 /* line number 14*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 14*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 14*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -212,6 +231,9 @@ orEnd_1:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 15*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -240,6 +262,8 @@ if_2:
 /* Done printing string. */
 /* line number 17*/
 /* Printing bool y */
+/* line number 17*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -272,6 +296,8 @@ endIf_3:
     st          %l1, [%l0]
 /* line number 21*/
 /* Short-circuiting || with y */
+/* line number 21*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -285,9 +311,13 @@ endIf_3:
     st          %l1, [%l0]
 /* line number 21*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 21*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 21*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -308,6 +338,9 @@ orEnd_2:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 22*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -336,6 +369,8 @@ if_4:
 /* Done printing string. */
 /* line number 24*/
 /* Printing bool x */
+/* line number 24*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -367,6 +402,8 @@ branchEnd_3:
 /* Done printing string. */
 /* line number 25*/
 /* Printing bool y */
+/* line number 25*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -399,6 +436,8 @@ endIf_5:
     st          %l1, [%l0]
 /* line number 29*/
 /* Short-circuiting || with x */
+/* line number 29*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -407,9 +446,13 @@ endIf_5:
     nop
 /* line number 29*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 29*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 29*/
+/* Loading false to %l1 */
     set         0, %l1
 /* line number 29*/
 /* ||-ing */
@@ -431,6 +474,9 @@ orEnd_3:
 /* line number 29*/
 /* Short-circuiting || with Validating BooleanOpbool and bool as a BooleanType for operator: ||...
  */
+/* line number 29*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -444,9 +490,14 @@ orEnd_3:
     st          %l1, [%l0]
 /* line number 29*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 29*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 29*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -467,6 +518,9 @@ orEnd_4:
     set         -32, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 30*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -499,6 +553,8 @@ endIf_7:
 /* Done printing string. */
 /* line number 36*/
 /* Printing bool x */
+/* line number 36*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -530,6 +586,8 @@ branchEnd_5:
 /* Done printing string. */
 /* line number 37*/
 /* Printing bool y */
+/* line number 37*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -553,6 +611,8 @@ branchEnd_6:
     nop
 /* line number 39*/
 /* Short-circuiting || with y */
+/* line number 39*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -561,9 +621,13 @@ branchEnd_6:
     nop
 /* line number 39*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 39*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 39*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -603,6 +667,8 @@ orEnd_5:
 /* Done printing string. */
 /* line number 41*/
 /* Printing bool x */
+/* line number 41*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -624,6 +690,14 @@ branchEnd_7:
     set         _endl, %o0
     call    printf
     nop
+/* line number 43*/
+/* Short-circuiting || with true */
+/* line number 43*/
+/* Loading true to %l1 */
+    set         1, %l1
+    cmp         %l1, %g0
+    bne     orT_6
+    nop
 ! --storing constant y with value 1.0
     set         -12, %l0
     add         %fp, %l0, %l0
@@ -631,7 +705,11 @@ branchEnd_7:
     st          %l1, [%l0]
 /* line number 43*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 43*/
+/* Loading true to %l0 */
     set         1, %l0
+/* line number 43*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -671,6 +749,8 @@ orEnd_6:
 /* Done printing string. */
 /* line number 45*/
 /* Printing bool x */
+/* line number 45*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -702,6 +782,8 @@ branchEnd_8:
 /* Done printing string. */
 /* line number 46*/
 /* Printing bool y */
+/* line number 46*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -724,6 +806,14 @@ branchEnd_9:
     call    printf
     nop
 /* line number 48*/
+/* Short-circuiting || with false */
+/* line number 48*/
+/* Loading false to %l1 */
+    set         0, %l1
+    cmp         %l1, %g0
+    bne     orT_7
+    nop
+/* line number 48*/
 /* Storing variable x into y */
     set         -12, %l5
     add         %fp, %l5, %l5
@@ -733,7 +823,11 @@ branchEnd_9:
     st          %l3, [%l5]
 /* line number 48*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 48*/
+/* Loading false to %l0 */
     set         0, %l0
+/* line number 48*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -754,6 +848,9 @@ orEnd_7:
     set         -44, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 49*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -782,6 +879,8 @@ if_8:
 /* Done printing string. */
 /* line number 51*/
 /* Printing bool y */
+/* line number 51*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

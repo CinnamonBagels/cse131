@@ -26,6 +26,12 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 6*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 6*/
+/* Storing parameter y */
+    st          %i1, [%fp+-12]
 ! --storing constant x with value 1.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -46,6 +52,12 @@ SAVE.foo = -(92 + 4) & -8
 foo2:
     set         SAVE.foo2, %g1
     save        %sp, %g1, %sp
+/* line number 11*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 11*/
+/* Storing parameter y */
+    st          %i1, [%fp+-12]
 ! --storing constant x with value 1.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -77,6 +89,8 @@ main:
 globalInit_end:
 /* line number 17*/
 /* Printing bool x */
+/* line number 17*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -105,6 +119,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 17*/
 /* Printing bool y */
+/* line number 17*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -130,6 +146,8 @@ branchEnd_1:
     nop
 /* line number 19*/
 /* Printing bool x */
+/* line number 19*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -158,6 +176,8 @@ branchEnd_2:
 /* Done printing string. */
 /* line number 19*/
 /* Printing bool y */
+/* line number 19*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -183,6 +203,8 @@ branchEnd_3:
     nop
 /* line number 21*/
 /* Printing bool x */
+/* line number 21*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -211,6 +233,8 @@ branchEnd_4:
 /* Done printing string. */
 /* line number 21*/
 /* Printing bool y */
+/* line number 21*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

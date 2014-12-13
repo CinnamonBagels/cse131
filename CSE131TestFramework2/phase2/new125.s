@@ -35,6 +35,8 @@ foo:
     set         _endl, %o0
     call    printf
     nop
+/* line number 5*/
+/* Loading 1 to %o0 */
     set         1, %o0
     call    exit
 

@@ -60,9 +60,13 @@ globalInit_end:
 while_0:
 /* line number 9*/
 /* Prepping Comparison Calculations by loading */
+/* line number 9*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading 5 to %l1 */
     set         5, %l1
 /* line number 9*/
 /* Starting Less than */
@@ -80,6 +84,9 @@ lessEnd_0:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 10*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -89,9 +96,13 @@ lessEnd_0:
 while_1:
 /* line number 11*/
 /* Prepping Comparison Calculations by loading */
+/* line number 11*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 11*/
+/* Loading 15 to %l1 */
     set         15, %l1
 /* line number 11*/
 /* Starting Less than */
@@ -109,6 +120,9 @@ lessEnd_1:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 12*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -128,6 +142,8 @@ lessEnd_1:
     nop
 /* line number 14*/
 /* Incrementing */
+/* line number 14*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -144,9 +160,13 @@ lessEnd_1:
 while_2:
 /* line number 15*/
 /* Prepping Comparison Calculations by loading */
+/* line number 15*/
+/* Loading z to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 15*/
+/* Loading 50 to %l1 */
     set         50, %l1
 /* line number 15*/
 /* Starting Less than Equal */
@@ -164,6 +184,9 @@ lessEqualEnd_2:
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 16*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <=...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -183,6 +206,8 @@ lessEqualEnd_2:
     nop
 /* line number 18*/
 /* Incrementing */
+/* line number 18*/
+/* Loading z to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -202,9 +227,13 @@ whileEnd_2:
 while_3:
 /* line number 20*/
 /* Prepping Comparison Calculations by loading */
+/* line number 20*/
+/* Loading amoeba to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 20*/
+/* Loading 44 to %l1 */
     set         44, %l1
 /* line number 20*/
 /* Starting Less than */
@@ -222,6 +251,9 @@ lessEnd_3:
     set         -44, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 21*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -241,6 +273,8 @@ lessEnd_3:
     nop
 /* line number 23*/
 /* Incrementing */
+/* line number 23*/
+/* Loading amoeba to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -273,6 +307,8 @@ whileEnd_1:
     nop
 /* line number 27*/
 /* Incrementing */
+/* line number 27*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

@@ -90,6 +90,8 @@ globalInit_end:
 /* Done. */
 /* line number 13*/
 /* Short-circuiting || with achilles */
+/* line number 13*/
+/* Loading achilles to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -98,9 +100,13 @@ globalInit_end:
     nop
 /* line number 13*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 13*/
+/* Loading achilles to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 13*/
+/* Loading ajax to %l1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -121,6 +127,9 @@ orEnd_0:
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 14*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -156,6 +165,8 @@ else_0:
 endIf_1:
 /* line number 21*/
 /* Negating */
+/* line number 21*/
+/* Loading achilles to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -175,6 +186,9 @@ negEnd_0:
 /* line number 21*/
 /* Short-circuiting && with Validating UnaryOp achilles as a BooleanType for operator: !...
  */
+/* line number 21*/
+/* Loading Validating UnaryOp achilles as a BooleanType for operator: !...
+ to %l1 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -188,9 +202,14 @@ negEnd_0:
     st          %l1, [%l0]
 /* line number 21*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 21*/
+/* Loading Validating UnaryOp achilles as a BooleanType for operator: !...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 21*/
+/* Loading ajax to %l1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -211,6 +230,9 @@ andEnd_0:
     set         -44, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 22*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -242,6 +264,8 @@ else_2:
 /* Done printing string. */
 /* line number 27*/
 /* Printing bool ajax */
+/* line number 27*/
+/* Loading ajax to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -266,9 +290,13 @@ branchEnd_0:
 while_0:
 /* line number 28*/
 /* Prepping Comparison Calculations by loading */
+/* line number 28*/
+/* Loading homer to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 28*/
+/* Loading 15 to %l1 */
     set         15, %l1
 /* line number 28*/
 /* Starting Less than */
@@ -286,6 +314,9 @@ lessEnd_0:
     set         -48, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 29*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -294,9 +325,13 @@ lessEnd_0:
     nop
 /* line number 30*/
 /* Prepping Comparison Calculations by loading */
+/* line number 30*/
+/* Loading ajax to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 30*/
+/* Loading true to %l1 */
     set         1, %l1
 /* line number 30*/
 /* Starting == equal */
@@ -314,6 +349,9 @@ equalEnd_1:
     set         -52, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 31*/
+/* Loading Validating ComparisonOp bool and bool as a BooleanType for operator: ==...
+ to %l0 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -331,6 +369,8 @@ if_4:
 /* Done printing string. */
 /* line number 32*/
 /* Printing bool ajax */
+/* line number 32*/
+/* Loading ajax to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -355,9 +395,13 @@ branchEnd_1:
 while_1:
 /* line number 33*/
 /* Prepping Comparison Calculations by loading */
+/* line number 33*/
+/* Loading priam to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 33*/
+/* Loading false to %l1 */
     set         0, %l1
 /* line number 33*/
 /* Starting == equal */
@@ -375,6 +419,9 @@ equalEnd_2:
     set         -56, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 34*/
+/* Loading Validating ComparisonOp bool and bool as a BooleanType for operator: ==...
+ to %l0 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -407,9 +454,13 @@ endIf_5:
 /* Prepping Comparison Calculations by loading */
 /* line number 39*/
 /* Starting Less than */
+/* line number 39*/
+/* Loading hector to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 39*/
+/* Loading 5.55 to %f1 */
     set         float_7, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
@@ -427,6 +478,9 @@ lessEnd_3:
     set         -60, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 40*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: <...
+ to %l0 */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -448,9 +502,13 @@ if_6:
 while_2:
 /* line number 42*/
 /* Prepping Comparison Calculations by loading */
+/* line number 42*/
+/* Loading paris to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 42*/
+/* Loading 97 to %l1 */
     set         97, %l1
 /* line number 42*/
 /* Starting greater than */
@@ -468,6 +526,9 @@ greaterEnd_4:
     set         -64, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 43*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -485,6 +546,8 @@ greaterEnd_4:
 /* line number 44*/
 /* Printing int paris */
     set         _intFmt, %o0
+/* line number 44*/
+/* Loading paris to %o1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -497,6 +560,8 @@ greaterEnd_4:
     nop
 /* line number 45*/
 /* Decrementing */
+/* line number 45*/
+/* Loading paris to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -536,6 +601,8 @@ endIf_7:
 /* line number 53*/
 /* Printing int homer */
     set         _intFmt, %o0
+/* line number 53*/
+/* Loading homer to %o1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -548,6 +615,8 @@ endIf_7:
     nop
 /* line number 54*/
 /* Incrementing */
+/* line number 54*/
+/* Loading homer to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

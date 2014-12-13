@@ -26,6 +26,10 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter x */
+/* line number 2*/
+/* Storing parameter y */
 ! --storing constant x with value 7.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -84,7 +88,9 @@ globalInit_end:
     call    foo
     nop
 /* line number 14*/
-/* printing float STO.VarSTO@be95bf */
+/* printing float STO.VarSTO@24cdc7 */
+/* line number 14*/
+/* Loading a to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -93,7 +99,9 @@ globalInit_end:
 /* line number 14*/
 /* Done printing float. */
 /* line number 14*/
-/* printing float STO.VarSTO@596a7a */
+/* printing float STO.VarSTO@41e2aa */
+/* line number 14*/
+/* Loading b to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -129,7 +137,9 @@ globalInit_end:
     call    foo
     nop
 /* line number 21*/
-/* printing float STO.VarSTO@5d75eb */
+/* printing float STO.VarSTO@1881149 */
+/* line number 21*/
+/* Loading c to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -138,7 +148,9 @@ globalInit_end:
 /* line number 21*/
 /* Done printing float. */
 /* line number 21*/
-/* printing float STO.VarSTO@1e8b957 */
+/* printing float STO.VarSTO@2709da */
+/* line number 21*/
+/* Loading d to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

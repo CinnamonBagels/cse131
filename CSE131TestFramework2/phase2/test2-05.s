@@ -79,6 +79,14 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 15*/
+/* Short-circuiting || with true */
+/* line number 15*/
+/* Loading true to %l1 */
+    set         1, %l1
+    cmp         %l1, %g0
+    bne     orT_0
+    nop
     call    trueFunc
     nop
 /* line number 15*/
@@ -86,7 +94,11 @@ globalInit_end:
     st          %o0, [%fp+-8]
 /* line number 15*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 15*/
+/* Loading true to %l0 */
     set         1, %l0
+/* line number 15*/
+/* Loading trueFunc() to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -107,6 +119,9 @@ orEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 15*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: ||...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -114,6 +129,14 @@ orEnd_0:
     be      else_0
     nop
 if_0:
+/* line number 16*/
+/* Short-circuiting && with false */
+/* line number 16*/
+/* Loading false to %l1 */
+    set         0, %l1
+    cmp         %l1, %g0
+    be      andF_0
+    nop
     call    falseFunc
     nop
 /* line number 16*/
@@ -121,7 +144,11 @@ if_0:
     st          %o0, [%fp+-16]
 /* line number 16*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 16*/
+/* Loading false to %l0 */
     set         0, %l0
+/* line number 16*/
+/* Loading falseFunc() to %l1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -142,6 +169,9 @@ andEnd_0:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
+/* line number 16*/
+/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

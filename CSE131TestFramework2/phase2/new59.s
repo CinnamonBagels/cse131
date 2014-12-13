@@ -28,6 +28,17 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 8*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 8*/
+/* Storing parameter y */
+/* line number 8*/
+/* Storing parameter z */
+    st          %i2, [%fp+-16]
+/* line number 8*/
+/* Storing parameter a */
+    st          %i3, [%fp+-20]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -39,6 +50,8 @@ foo:
 /* line number 9*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -47,7 +60,9 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@5d75eb */
+/* printing float STO.VarSTO@1881149 */
+/* line number 9*/
+/* Loading y to %f0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -57,6 +72,8 @@ foo:
 /* Done printing float. */
 /* line number 9*/
 /* Printing bool z */
+/* line number 9*/
+/* Loading z to %l0 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -77,6 +94,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 9*/
 /* Printing bool a */
+/* line number 9*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -97,9 +116,11 @@ branchEnd_1:
 /* Done printing bool. */
 /* line number 11*/
 /* Returning value from foo */
+/* line number 11*/
+/* Loading y to %i0 */
     set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %f0
+    ld          [%l1], %i0
     ba      foo_end
     nop
 foo_end:
@@ -135,7 +156,9 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 15*/
-/* printing float STO.VarSTO@29626a */
+/* printing float STO.VarSTO@6d234c */
+/* line number 15*/
+/* Loading foo() to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

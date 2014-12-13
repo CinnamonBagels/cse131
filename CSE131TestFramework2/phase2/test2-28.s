@@ -33,6 +33,8 @@ main:
 globalInit_end:
 /* line number 7*/
 /* Starting array access */
+/* line number 7*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -73,6 +75,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 8*/
 /* Starting array access */
+/* line number 8*/
+/* Loading 4 to %l0 */
     set         4, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -113,6 +117,8 @@ arrayEnd_1:
     st          %l1, [%l0]
 /* line number 9*/
 /* Starting array access */
+/* line number 9*/
+/* Loading 19 to %l0 */
     set         19, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -153,6 +159,8 @@ arrayEnd_2:
     st          %l1, [%l0]
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -188,6 +196,8 @@ arrayEnd_3:
 /* line number 11*/
 /* Printing int i[0] */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading i[0] to %o1 */
     set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -206,6 +216,8 @@ arrayEnd_3:
 /* Done printing string. */
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 4 to %l0 */
     set         4, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -241,6 +253,8 @@ arrayEnd_4:
 /* line number 11*/
 /* Printing int i[4] */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading i[4] to %o1 */
     set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -259,6 +273,8 @@ arrayEnd_4:
 /* Done printing string. */
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 19 to %l0 */
     set         19, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -294,6 +310,8 @@ arrayEnd_5:
 /* line number 11*/
 /* Printing int i[19] */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading i[19] to %o1 */
     set         -108, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

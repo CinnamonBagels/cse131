@@ -46,9 +46,13 @@ globalInit_end:
 /* Done. */
 /* line number 4*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading -1 to %l1 */
     set         -1, %l1
 /* line number 4*/
 /* Multiplying */
+/* line number 4*/
+/* Loading y to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -58,6 +62,8 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         -1, %l3
     st          %l3, [%l5]
+/* line number 4*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -70,6 +76,8 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 4*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading 5 to %l0 */
     set         5, %l0
 /* line number 4*/
 /* Adding */
@@ -79,9 +87,13 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         5, %l3
     st          %l3, [%l5]
+/* line number 4*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 4*/
+/* Loading float * int to %f1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -105,12 +117,18 @@ globalInit_end:
 while_0:
 /* line number 6*/
 /* Prepping Comparison Calculations by loading */
+/* line number 6*/
+/* Loading 0 to %l1 */
     set         0, %l1
 /* line number 6*/
 /* Starting greater than */
+/* line number 6*/
+/* Loading y to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 6*/
+/* Loading 0 to %f1 */
     set         0, %f1
     fitos       %f1, %f1
     fcmps       %f0, %f1
@@ -127,6 +145,9 @@ greaterEnd_0:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 7*/
+/* Loading Validating ComparisonOp float and int as a BooleanType for operator: >...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -146,6 +167,8 @@ greaterEnd_0:
     nop
 /* line number 9*/
 /* Decrementing */
+/* line number 9*/
+/* Loading y to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

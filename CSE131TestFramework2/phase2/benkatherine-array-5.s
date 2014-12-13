@@ -32,6 +32,8 @@ main:
 globalInit_end:
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -74,6 +76,8 @@ arrayEnd_0:
     st          %f0, [%l0]
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -108,6 +112,8 @@ arrayOutBounds_1:
 arrayEnd_1:
 /* line number 15*/
 /* Incrementing */
+/* line number 15*/
+/* Loading y[1] to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -125,6 +131,8 @@ arrayEnd_1:
     st          %f2, [%l1]
 /* line number 17*/
 /* Starting array access */
+/* line number 17*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -158,7 +166,9 @@ arrayOutBounds_2:
     nop
 arrayEnd_2:
 /* line number 17*/
-/* printing float STO.ExprSTO@1e8b957 */
+/* printing float STO.ExprSTO@1881149 */
+/* line number 17*/
+/* Loading y[1] to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

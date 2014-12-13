@@ -29,6 +29,17 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 8*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 8*/
+/* Storing parameter y */
+/* line number 8*/
+/* Storing parameter z */
+    st          %i2, [%fp+-16]
+/* line number 8*/
+/* Storing parameter a */
+    st          %i3, [%fp+-20]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -40,6 +51,8 @@ foo:
 /* line number 9*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -48,7 +61,9 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@fc4957 */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 9*/
+/* Loading y to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -58,6 +73,8 @@ foo:
 /* Done printing float. */
 /* line number 9*/
 /* Printing bool z */
+/* line number 9*/
+/* Loading z to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -78,6 +95,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 9*/
 /* Printing bool a */
+/* line number 9*/
+/* Loading a to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -98,6 +117,8 @@ branchEnd_1:
 /* Done printing bool. */
 /* line number 11*/
 /* Returning value from foo */
+/* line number 11*/
+/* Loading 5.55 to %f0 */
     set         float_1, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -141,7 +162,9 @@ globalInit_end:
 /* Saving return value */
     st          %f0, [%fp+-12]
 /* line number 15*/
-/* printing float STO.VarSTO@1330af4 */
+/* printing float STO.VarSTO@6d234c */
+/* line number 15*/
+/* Loading foo() to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

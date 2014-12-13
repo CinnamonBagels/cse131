@@ -26,8 +26,13 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 color:
     set         SAVE.color, %g1
     save        %sp, %g1, %sp
+/* line number 4*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
 /* line number 6*/
 /* Returning value from color */
+/* line number 6*/
+/* Loading a to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -43,6 +48,15 @@ SAVE.color = -(92 + 4) & -8
 foobaz:
     set         SAVE.foobaz, %g1
     save        %sp, %g1, %sp
+/* line number 9*/
+/* Storing parameter k */
+    st          %i0, [%fp+-8]
+/* line number 9*/
+/* Storing parameter l */
+    st          %i1, [%fp+-12]
+/* line number 9*/
+/* Storing parameter m */
+    st          %i2, [%fp+-16]
 ! --storing constant k with value 555.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -68,6 +82,15 @@ SAVE.foobaz = -(92 + 4) & -8
 bar:
     set         SAVE.bar, %g1
     save        %sp, %g1, %sp
+/* line number 16*/
+/* Storing parameter r */
+    st          %i0, [%fp+-8]
+/* line number 16*/
+/* Storing parameter s */
+    st          %i1, [%fp+-12]
+/* line number 16*/
+/* Storing parameter t */
+    st          %i2, [%fp+-16]
 ! --storing constant r with value 7.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -91,6 +114,15 @@ SAVE.bar = -(92 + 4) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 22*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
+/* line number 22*/
+/* Storing parameter b */
+    st          %i1, [%fp+-12]
+/* line number 22*/
+/* Storing parameter c */
+    st          %i2, [%fp+-16]
 /* line number 23*/
 /* Preparing argument a */
 /* line number 23*/
@@ -118,6 +150,9 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 26*/
+/* Storing parameter y */
+    st          %i0, [%fp+-8]
 ! --storing constant y with value 2.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -131,6 +166,8 @@ globalInit_end:
 /* Done. */
 /* line number 34*/
 /* Preparing argument 4 */
+/* line number 34*/
+/* Loading 4 to %o0 */
     set         4, %o0
     call    color
     nop
@@ -148,6 +185,8 @@ globalInit_end:
 /* line number 36*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 36*/
+/* Loading y to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -161,6 +200,8 @@ globalInit_end:
 /* line number 37*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 37*/
+/* Loading b to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -174,6 +215,8 @@ globalInit_end:
 /* line number 38*/
 /* Printing int ggg */
     set         _intFmt, %o0
+/* line number 38*/
+/* Loading ggg to %o1 */
     set         ggg, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -195,6 +238,8 @@ globalInit_end:
 /* line number 39*/
 /* Printing int bee */
     set         _intFmt, %o0
+/* line number 39*/
+/* Loading bee to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -207,7 +252,9 @@ globalInit_end:
     nop
 /* line number 41*/
 /* Preparing argument y */
-    set         -8, %l1
+/* line number 41*/
+/* Loading y to %o0 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    foo
@@ -223,7 +270,9 @@ globalInit_end:
 /* line number 43*/
 /* Printing int y */
     set         _intFmt, %o0
-    set         -8, %l1
+/* line number 43*/
+/* Loading y to %o1 */
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -244,6 +293,8 @@ globalInit_end:
 /* line number 44*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 44*/
+/* Loading b to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -265,6 +316,8 @@ globalInit_end:
 /* line number 45*/
 /* Printing int ggg */
     set         _intFmt, %o0
+/* line number 45*/
+/* Loading ggg to %o1 */
     set         ggg, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

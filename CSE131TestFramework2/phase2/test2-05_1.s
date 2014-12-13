@@ -59,6 +59,8 @@ globalInit_end:
 /* line number 10*/
 /* Saving return value */
     st          %o0, [%fp+-8]
+/* line number 10*/
+/* Loading trueFunc() to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

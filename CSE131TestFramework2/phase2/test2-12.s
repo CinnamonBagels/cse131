@@ -47,6 +47,8 @@ globalInit_end:
 /* Done. */
 /* line number 6*/
 /* Incrementing */
+/* line number 6*/
+/* Loading f1 to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -72,7 +74,9 @@ globalInit_end:
 /* line number 8*/
 /* Done. */
 /* line number 8*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@17cd18d */
+/* line number 8*/
+/* Loading f2 to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -89,7 +93,9 @@ globalInit_end:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@596a7a */
+/* printing float STO.VarSTO@fa1b85 */
+/* line number 8*/
+/* Loading f1 to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -107,6 +113,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 10*/
 /* Incrementing */
+/* line number 10*/
+/* Loading f1 to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -130,6 +138,8 @@ globalInit_end:
     st          %f1, [%l5]
 /* line number 11*/
 /* Decrementing */
+/* line number 11*/
+/* Loading f2 to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -152,7 +162,9 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 13*/
-/* printing float STO.VarSTO@e9581b */
+/* printing float STO.VarSTO@17cd18d */
+/* line number 13*/
+/* Loading f2 to %f0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -170,6 +182,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 13*/
 /* Incrementing */
+/* line number 13*/
+/* Loading f1 to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -184,7 +198,10 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 13*/
-/* printing float STO.ExprSTO@29626a */
+/* printing float STO.ExprSTO@d55a0f */
+/* line number 13*/
+/* Loading Validating UnaryOp f1 as a FloatType for operator: ++...
+ to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -201,7 +218,9 @@ globalInit_end:
 /* line number 13*/
 /* Done printing string. */
 /* line number 13*/
-/* printing float STO.VarSTO@596a7a */
+/* printing float STO.VarSTO@fa1b85 */
+/* line number 13*/
+/* Loading f1 to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -20,6 +20,9 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 6*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
 /* line number 8*/
 /* setting i = 0 */
     set         0, %l0
@@ -29,9 +32,13 @@ foo:
 while_0:
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading 5 to %l1 */
     set         5, %l1
 /* line number 8*/
 /* Starting Less than */
@@ -49,6 +56,9 @@ lessEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 9*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -57,6 +67,8 @@ lessEnd_0:
     nop
 /* line number 10*/
 /* Starting array access */
+/* line number 10*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -94,6 +106,8 @@ arrayEnd_0:
 /* line number 10*/
 /* Printing int a[i] */
     set         _intFmt, %o0
+/* line number 10*/
+/* Loading a[i] to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -107,6 +121,8 @@ arrayEnd_0:
     nop
 /* line number 11*/
 /* Incrementing */
+/* line number 11*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -157,9 +173,13 @@ globalInit_end:
 while_1:
 /* line number 21*/
 /* Prepping Comparison Calculations by loading */
+/* line number 21*/
+/* Loading i to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 21*/
+/* Loading 5 to %l1 */
     set         5, %l1
 /* line number 21*/
 /* Starting Less than */
@@ -177,6 +197,9 @@ lessEnd_1:
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 22*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -185,6 +208,8 @@ lessEnd_1:
     nop
 /* line number 23*/
 /* Incrementing */
+/* line number 23*/
+/* Loading i to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -200,6 +225,9 @@ lessEnd_1:
     st          %l0, [%l1]
 /* line number 23*/
 /* Starting array access */
+/* line number 23*/
+/* Loading Validating UnaryOp i as a IntegerType for operator: ++...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -236,6 +264,8 @@ arrayOutBounds_1:
 arrayEnd_1:
 /* line number 23*/
 /* Decrementing */
+/* line number 23*/
+/* Loading j to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

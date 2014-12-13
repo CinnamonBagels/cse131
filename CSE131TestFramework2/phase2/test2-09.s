@@ -34,7 +34,11 @@ main:
 globalInit_end:
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading 5 to %l0 */
     set         5, %l0
+/* line number 7*/
+/* Loading 3 to %l1 */
     set         3, %l1
 /* line number 7*/
 /* Starting greater than */
@@ -61,6 +65,8 @@ greaterEnd_0:
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
+/* line number 7*/
+/* Loading b to %l0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -82,6 +88,8 @@ else_0:
 endIf_1:
 /* line number 10*/
 /* Printing bool b */
+/* line number 10*/
+/* Loading b to %l0 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

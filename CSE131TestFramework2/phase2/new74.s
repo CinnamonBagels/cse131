@@ -2,20 +2,20 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     e,a,d,b,c,j,i,h,g,f,m,n,l,k
-m:              .single      0r0.0       
-n:              .single      0r0.0       
-l:              .single      0r0.0       
+                 .global     b,e,c,d,a,g,j,h,i,f,k,n,m,l
 k:              .single      0r0.0       
-e:              .word        0           
-a:              .word        0           
-d:              .word        0           
+n:              .single      0r0.0       
+m:              .single      0r0.0       
+l:              .single      0r0.0       
 b:              .word        0           
+e:              .word        0           
 c:              .word        0           
-j:              .word        0           
-i:              .word        0           
-h:              .word        0           
+d:              .word        0           
+a:              .word        0           
 g:              .word        0           
+j:              .word        0           
+h:              .word        0           
+i:              .word        0           
 f:              .word        0           
 str_0:          .asciz       "main"      
 str_1:          .asciz       " "         
@@ -58,6 +58,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 7*/
 /* Printing bool c */
+/* line number 7*/
+/* Loading c to %l0 */
     set         c, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -87,6 +89,8 @@ branchEnd_0:
 /* line number 7*/
 /* Printing int h */
     set         _intFmt, %o0
+/* line number 7*/
+/* Loading h to %o1 */
     set         h, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -103,7 +107,9 @@ branchEnd_0:
 /* line number 7*/
 /* Done printing string. */
 /* line number 7*/
-/* printing float STO.VarSTO@1a4f43e */
+/* printing float STO.VarSTO@17df9ec */
+/* line number 7*/
+/* Loading m to %f0 */
     set         m, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

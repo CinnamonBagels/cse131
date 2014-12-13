@@ -22,7 +22,11 @@ foo1:
     save        %sp, %g1, %sp
 /* line number 3*/
 /* Prepping Comparison Calculations by loading */
+/* line number 3*/
+/* Loading 3 to %l0 */
     set         3, %l0
+/* line number 3*/
+/* Loading 0 to %l1 */
     set         0, %l1
 /* line number 3*/
 /* Starting Less than */
@@ -40,6 +44,9 @@ lessEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 4*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -63,7 +70,11 @@ else_0:
 endIf_1:
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading 3 to %l0 */
     set         3, %l0
+/* line number 8*/
+/* Loading 0 to %l1 */
     set         0, %l1
 /* line number 8*/
 /* Starting greater than */
@@ -81,6 +92,9 @@ greaterEnd_1:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 9*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -139,6 +153,8 @@ globalInit_end:
 /* line number 20*/
 /* Printing int foo1() */
     set         _intFmt, %o0
+/* line number 20*/
+/* Loading foo1() to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

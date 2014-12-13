@@ -26,8 +26,16 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 6*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 6*/
+/* Storing parameter y */
+    st          %i1, [%fp+-12]
 /* line number 7*/
 /* Incrementing */
+/* line number 7*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -43,6 +51,8 @@ foo:
     st          %l0, [%l1]
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -66,8 +76,16 @@ SAVE.foo = -(92 + 12) & -8
 foo2:
     set         SAVE.foo2, %g1
     save        %sp, %g1, %sp
+/* line number 11*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 11*/
+/* Storing parameter y */
+    st          %i1, [%fp+-12]
 /* line number 12*/
 /* Incrementing */
+/* line number 12*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -83,6 +101,8 @@ foo2:
     st          %l0, [%l1]
 /* line number 13*/
 /* Incrementing */
+/* line number 13*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -118,6 +138,8 @@ globalInit_end:
 /* line number 17*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -136,6 +158,8 @@ globalInit_end:
 /* line number 17*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading y to %o1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -151,6 +175,8 @@ globalInit_end:
 /* line number 19*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 19*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -169,6 +195,8 @@ globalInit_end:
 /* line number 19*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 19*/
+/* Loading y to %o1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -184,6 +212,8 @@ globalInit_end:
 /* line number 21*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 21*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -202,6 +232,8 @@ globalInit_end:
 /* line number 21*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 21*/
+/* Loading y to %o1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

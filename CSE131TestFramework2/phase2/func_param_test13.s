@@ -31,6 +31,14 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter a */
+/* line number 2*/
+/* Storing parameter r */
+    st          %i1, [%fp+-12]
+/* line number 2*/
+/* Storing parameter k */
+    st          %i2, [%fp+-16]
 /* line number 3*/
 /* printing string */
     set         _strFmt, %o0
@@ -42,6 +50,8 @@ foo:
 /* line number 3*/
 /* Printing int r */
     set         _intFmt, %o0
+/* line number 3*/
+/* Loading r to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -72,9 +82,13 @@ foo:
     st          %f0, [%l0]
 /* line number 6*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 6*/
+/* Loading r to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 6*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 6*/
 /* Adding */
@@ -148,7 +162,9 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 16*/
+/* Loading noob to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -169,6 +185,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 17*/
 /* Printing bool pro */
+/* line number 17*/
+/* Loading pro to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -201,6 +219,8 @@ branchEnd_0:
 /* line number 18*/
 /* Printing int average */
     set         _intFmt, %o0
+/* line number 18*/
+/* Loading average to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -236,6 +256,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 22*/
 /* Printing bool c */
+/* line number 22*/
+/* Loading c to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -266,7 +288,9 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@1d17f01 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 24*/
+/* Loading noob to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -287,6 +311,8 @@ branchEnd_1:
 /* Done printing string. */
 /* line number 25*/
 /* Printing bool pro */
+/* line number 25*/
+/* Loading pro to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -319,6 +345,8 @@ branchEnd_2:
 /* line number 26*/
 /* Printing int average */
     set         _intFmt, %o0
+/* line number 26*/
+/* Loading average to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

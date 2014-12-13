@@ -36,15 +36,21 @@ globalInit_end:
 /* line number 5*/
 /* Done. */
 while_0:
+/* line number 6*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      whileEnd_0
     nop
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading 5 to %l1 */
     set         5, %l1
 /* line number 7*/
 /* Starting Less than */
@@ -62,6 +68,9 @@ lessEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 8*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -71,6 +80,8 @@ lessEnd_0:
 if_0:
 /* line number 9*/
 /* Incrementing */
+/* line number 9*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -102,6 +113,8 @@ whileEnd_0:
 /* line number 18*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 18*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

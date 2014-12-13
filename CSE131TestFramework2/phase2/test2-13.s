@@ -50,6 +50,8 @@ globalInit_end:
     st          %l0, [%fp-12]
 /* line number 8*/
 /* Done. */
+/* line number 8*/
+/* Loading f to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -69,11 +71,15 @@ if_0:
     nop
 else_0:
 endIf_1:
+/* line number 11*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_2
     nop
 if_2:
+/* line number 12*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_3
@@ -90,11 +96,15 @@ if_3:
     ba      endIf_4
     nop
 else_3:
+/* line number 16*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_5
     nop
 if_5:
+/* line number 17*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_6
@@ -111,6 +121,8 @@ if_6:
     ba      endIf_7
     nop
 else_6:
+/* line number 20*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_8
@@ -146,6 +158,8 @@ endIf_4:
     nop
 else_2:
 endIf_11:
+/* line number 30*/
+/* Loading t to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -173,6 +187,8 @@ else_12:
 /* line number 33*/
 /* Done printing string. */
 endIf_13:
+/* line number 36*/
+/* Loading f to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

@@ -44,6 +44,8 @@ globalInit_end:
 /* Done. */
 /* line number 10*/
 /* Starting array access */
+/* line number 10*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -90,6 +92,8 @@ arrayEnd_0:
     add         %fp, %l5, %l5
     set         45, %l3
     st          %l3, [%l5]
+/* line number 10*/
+/* Loading promoteCasting to %f1 */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -108,6 +112,8 @@ arrayEnd_0:
     st          %f1, [%l5]
 /* line number 12*/
 /* Starting array access */
+/* line number 12*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -143,7 +149,9 @@ arrayOutBounds_1:
     nop
 arrayEnd_1:
 /* line number 12*/
-/* printing float STO.ExprSTO@1e001c8 */
+/* printing float STO.ExprSTO@eba9b0 */
+/* line number 12*/
+/* Loading gfarr[i] to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -161,7 +169,9 @@ arrayEnd_1:
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float STO.VarSTO@7c9586 */
+/* printing float STO.VarSTO@aaf2ef */
+/* line number 12*/
+/* Loading f to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -31,6 +31,8 @@ main:
 globalInit_end:
 /* line number 5*/
 /* Starting array access */
+/* line number 5*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -71,6 +73,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 6*/
 /* Starting array access */
+/* line number 6*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -111,6 +115,8 @@ arrayEnd_1:
     st          %l1, [%l0]
 /* line number 7*/
 /* Starting array access */
+/* line number 7*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -151,6 +157,8 @@ arrayEnd_2:
     st          %l1, [%l0]
 /* line number 9*/
 /* Starting array access */
+/* line number 9*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -186,6 +194,8 @@ arrayEnd_3:
 /* line number 9*/
 /* Printing int x[1] */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading x[1] to %o1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -199,6 +209,8 @@ arrayEnd_3:
     nop
 /* line number 10*/
 /* Starting array access */
+/* line number 10*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -234,6 +246,8 @@ arrayEnd_4:
 /* line number 10*/
 /* Printing int x[0] */
     set         _intFmt, %o0
+/* line number 10*/
+/* Loading x[0] to %o1 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -247,6 +261,8 @@ arrayEnd_4:
     nop
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -282,6 +298,8 @@ arrayEnd_5:
 /* line number 11*/
 /* Printing int x[2] */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading x[2] to %o1 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -295,6 +313,8 @@ arrayEnd_5:
     nop
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_6
@@ -341,6 +361,8 @@ arrayEnd_6:
 /* line number 14*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 14*/
+/* Loading a to %o1 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -353,6 +375,8 @@ arrayEnd_6:
     nop
 /* line number 16*/
 /* Starting array access */
+/* line number 16*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_7
@@ -387,6 +411,8 @@ arrayOutBounds_7:
 arrayEnd_7:
 /* line number 16*/
 /* Starting array access */
+/* line number 16*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_8
@@ -421,10 +447,14 @@ arrayOutBounds_8:
 arrayEnd_8:
 /* line number 16*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 16*/
+/* Loading x[1] to %l0 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %l0
+/* line number 16*/
+/* Loading x[0] to %l1 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -450,6 +480,8 @@ arrayEnd_8:
 /* line number 17*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading b to %o1 */
     set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -462,6 +494,8 @@ arrayEnd_8:
     nop
 /* line number 21*/
 /* Starting array access */
+/* line number 21*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_9
@@ -502,6 +536,8 @@ arrayEnd_9:
     st          %l1, [%l0]
 /* line number 22*/
 /* Starting array access */
+/* line number 22*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_10
@@ -542,6 +578,8 @@ arrayEnd_10:
     st          %l1, [%l0]
 /* line number 23*/
 /* Starting array access */
+/* line number 23*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_11
@@ -582,6 +620,8 @@ arrayEnd_11:
     st          %l1, [%l0]
 /* line number 25*/
 /* Starting array access */
+/* line number 25*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_12
@@ -617,6 +657,8 @@ arrayEnd_12:
 /* line number 25*/
 /* Printing int y[0] */
     set         _intFmt, %o0
+/* line number 25*/
+/* Loading y[0] to %o1 */
     set         -92, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -630,6 +672,8 @@ arrayEnd_12:
     nop
 /* line number 26*/
 /* Starting array access */
+/* line number 26*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_13
@@ -665,6 +709,8 @@ arrayEnd_13:
 /* line number 26*/
 /* Printing int y[1] */
     set         _intFmt, %o0
+/* line number 26*/
+/* Loading y[1] to %o1 */
     set         -96, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -678,6 +724,8 @@ arrayEnd_13:
     nop
 /* line number 27*/
 /* Starting array access */
+/* line number 27*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_14
@@ -713,6 +761,8 @@ arrayEnd_14:
 /* line number 27*/
 /* Printing int y[2] */
     set         _intFmt, %o0
+/* line number 27*/
+/* Loading y[2] to %o1 */
     set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -726,6 +776,8 @@ arrayEnd_14:
     nop
 /* line number 29*/
 /* Starting array access */
+/* line number 29*/
+/* Loading 0 to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_15
@@ -760,6 +812,8 @@ arrayOutBounds_15:
 arrayEnd_15:
 /* line number 29*/
 /* Starting array access */
+/* line number 29*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_16
@@ -794,10 +848,14 @@ arrayOutBounds_16:
 arrayEnd_16:
 /* line number 29*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 29*/
+/* Loading y[0] to %l0 */
     set         -104, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %l0
+/* line number 29*/
+/* Loading y[1] to %l1 */
     set         -108, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -813,6 +871,8 @@ arrayEnd_16:
 /* line number 29*/
 /* Printing int int + int */
     set         _intFmt, %o0
+/* line number 29*/
+/* Loading int + int to %o1 */
     set         -112, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

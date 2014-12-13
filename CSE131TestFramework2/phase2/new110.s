@@ -37,7 +37,11 @@ globalInit_end:
 /* Done. */
 /* line number 4*/
 /* Prepping Comparison Calculations by loading */
+/* line number 4*/
+/* Loading 6 to %l0 */
     set         6, %l0
+/* line number 4*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -60,6 +64,9 @@ greaterEnd_0:
 /* line number 4*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 4*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -83,7 +90,11 @@ branchEnd_0:
     nop
 /* line number 5*/
 /* Prepping Comparison Calculations by loading */
+/* line number 5*/
+/* Loading 6 to %l0 */
     set         6, %l0
+/* line number 5*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -106,6 +117,9 @@ greaterEnd_1:
 /* line number 5*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 5*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -129,7 +143,11 @@ branchEnd_1:
     nop
 /* line number 6*/
 /* Prepping Comparison Calculations by loading */
+/* line number 6*/
+/* Loading 6 to %l0 */
     set         6, %l0
+/* line number 6*/
+/* Loading x to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -152,6 +170,9 @@ greaterEnd_2:
 /* line number 6*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 6*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -175,9 +196,13 @@ branchEnd_2:
     nop
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading 6 to %l1 */
     set         6, %l1
 /* line number 7*/
 /* Starting greater than */
@@ -198,6 +223,9 @@ greaterEnd_3:
 /* line number 7*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 7*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -221,7 +249,11 @@ branchEnd_3:
     nop
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading 2 to %l0 */
     set         2, %l0
+/* line number 8*/
+/* Loading 3 to %l1 */
     set         3, %l1
 /* line number 8*/
 /* Starting greater than */
@@ -242,6 +274,9 @@ greaterEnd_4:
 /* line number 8*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 8*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -265,7 +300,11 @@ branchEnd_4:
     nop
 /* line number 9*/
 /* Prepping Comparison Calculations by loading */
+/* line number 9*/
+/* Loading 3 to %l0 */
     set         3, %l0
+/* line number 9*/
+/* Loading 2 to %l1 */
     set         2, %l1
 /* line number 9*/
 /* Starting greater than */
@@ -286,6 +325,9 @@ greaterEnd_5:
 /* line number 9*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 9*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

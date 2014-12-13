@@ -45,6 +45,8 @@ globalInit_end:
 /* line number 8*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

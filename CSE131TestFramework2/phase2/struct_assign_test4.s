@@ -2,12 +2,12 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     lol
+                 .global     bed
 staticGuard_bed:    .word        0           
 globalInit_:    .word        0           
                 .section     ".bss"
                 .align 4
-lol:            .skip        200         
+bed:            .skip        212         
 
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -46,6 +46,8 @@ staticGuardLabel_bed:
 globalInit_end:
 /* line number 12*/
 /* Starting array access */
+/* line number 12*/
+/* Loading 5 to %l0 */
     set         5, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -59,8 +61,8 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -8, %l5
     add         %fp, %l5, %l6
@@ -86,6 +88,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading 7 to %l0 */
     set         7, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -99,8 +103,8 @@ arrayInBounds_1:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -12, %l5
     add         %fp, %l5, %l6
@@ -120,6 +124,8 @@ arrayOutBounds_1:
 arrayEnd_1:
 /* line number 13*/
 /* Starting array access */
+/* line number 13*/
+/* Loading 5 to %l0 */
     set         5, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -133,8 +139,8 @@ arrayInBounds_2:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -16, %l5
     add         %fp, %l5, %l6
@@ -164,6 +170,8 @@ arrayEnd_2:
     st          %l3, [%l5]
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 13 to %l0 */
     set         13, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -177,8 +185,8 @@ arrayInBounds_3:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -20, %l5
     add         %fp, %l5, %l6
@@ -198,6 +206,8 @@ arrayOutBounds_3:
 arrayEnd_3:
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 7 to %l0 */
     set         7, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -211,8 +221,8 @@ arrayInBounds_4:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -24, %l5
     add         %fp, %l5, %l6
@@ -242,6 +252,8 @@ arrayEnd_4:
     st          %l3, [%l5]
 /* line number 16*/
 /* Starting array access */
+/* line number 16*/
+/* Loading 5 to %l0 */
     set         5, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -255,8 +267,8 @@ arrayInBounds_5:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -28, %l5
     add         %fp, %l5, %l6
@@ -277,6 +289,8 @@ arrayEnd_5:
 /* line number 16*/
 /* Printing int lol[5] */
     set         _intFmt, %o0
+/* line number 16*/
+/* Loading lol[5] to %o1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -290,6 +304,8 @@ arrayEnd_5:
     nop
 /* line number 17*/
 /* Starting array access */
+/* line number 17*/
+/* Loading 7 to %l0 */
     set         7, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_6
@@ -303,8 +319,8 @@ arrayInBounds_6:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -32, %l5
     add         %fp, %l5, %l6
@@ -325,6 +341,8 @@ arrayEnd_6:
 /* line number 17*/
 /* Printing int lol[7] */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading lol[7] to %o1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -338,6 +356,8 @@ arrayEnd_6:
     nop
 /* line number 18*/
 /* Starting array access */
+/* line number 18*/
+/* Loading 13 to %l0 */
     set         13, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_7
@@ -351,8 +371,8 @@ arrayInBounds_7:
     call    .mul
     nop
     mov         %o0, %l2
-    set         lol, %l1
-    add         %g0, %l1, %l1
+    set         212, %l1
+    add         null, %l1, %l1
     add         %l1, %l2, %l4
     set         -36, %l5
     add         %fp, %l5, %l6
@@ -373,6 +393,8 @@ arrayEnd_7:
 /* line number 18*/
 /* Printing int lol[13] */
     set         _intFmt, %o0
+/* line number 18*/
+/* Loading lol[13] to %o1 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

@@ -39,6 +39,8 @@ foo:
 /* line number 4*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 4*/
+/* Loading b to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -51,6 +53,8 @@ foo:
     nop
 /* line number 6*/
 /* Returning value from foo */
+/* line number 6*/
+/* Loading b to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -101,6 +105,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int c */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading c to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

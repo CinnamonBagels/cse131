@@ -43,6 +43,8 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 4*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_0
@@ -61,7 +63,11 @@ if_0:
     nop
 /* line number 6*/
 /* Prepping Comparison Calculations by loading */
+/* line number 6*/
+/* Loading 3 to %l0 */
     set         3, %l0
+/* line number 6*/
+/* Loading 0 to %l1 */
     set         0, %l1
 /* line number 6*/
 /* Starting Less than */
@@ -79,6 +85,9 @@ lessEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 7*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -123,6 +132,8 @@ else_1:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 13*/
+/* Loading 5.33 to %f0 */
     set         float_4, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -134,6 +145,8 @@ else_1:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 13*/
+/* Loading 5.32 to %f1 */
     set         float_3, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f1
@@ -151,6 +164,9 @@ greaterEnd_1:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 14*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -160,6 +176,8 @@ greaterEnd_1:
 if_3:
 /* line number 15*/
 /* Prepping Comparison Calculations by loading */
+/* line number 15*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 15*/
 /* Starting Less than */
@@ -171,6 +189,8 @@ if_3:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 15*/
+/* Loading 2.5 to %f0 */
     set         float_5, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -180,6 +200,8 @@ if_3:
     add         %fp, %l5, %l5
     set         1, %l3
     st          %l3, [%l5]
+/* line number 15*/
+/* Loading 1 to %f1 */
     set         1, %f1
     fitos       %f1, %f1
     fcmps       %f0, %f1
@@ -196,6 +218,9 @@ lessEnd_2:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 16*/
+/* Loading Validating ComparisonOp float and int as a BooleanType for operator: <...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -282,6 +307,8 @@ else_0:
     call    printf
     nop
 endIf_7:
+/* line number 38*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_8

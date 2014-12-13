@@ -24,6 +24,12 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 bar:
     set         SAVE.bar, %g1
     save        %sp, %g1, %sp
+/* line number 2*/
+/* Storing parameter b */
+    st          %i0, [%fp+-8]
+/* line number 2*/
+/* Storing parameter c */
+    st          %i1, [%fp+-12]
 ! --storing constant b with value 777.0
     set         -8, %l0
     add         %fp, %l0, %l0
@@ -31,9 +37,13 @@ bar:
     st          %l1, [%l0]
 /* line number 5*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 5*/
+/* Loading b to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 5*/
+/* Loading c to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -63,6 +73,12 @@ SAVE.bar = -(92 + 8) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 8*/
+/* Storing parameter a */
+    st          %i0, [%fp+-8]
+/* line number 8*/
+/* Storing parameter b */
+    st          %i1, [%fp+-12]
 /* line number 9*/
 /* Preparing argument a */
 /* line number 9*/
@@ -111,6 +127,8 @@ globalInit_end:
 /* line number 17*/
 /* Printing int i */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading i to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -129,6 +147,8 @@ globalInit_end:
 /* line number 17*/
 /* Printing int j */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading j to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -152,6 +172,8 @@ globalInit_end:
 /* line number 20*/
 /* Printing int i */
     set         _intFmt, %o0
+/* line number 20*/
+/* Loading i to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -170,6 +192,8 @@ globalInit_end:
 /* line number 20*/
 /* Printing int j */
     set         _intFmt, %o0
+/* line number 20*/
+/* Loading j to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

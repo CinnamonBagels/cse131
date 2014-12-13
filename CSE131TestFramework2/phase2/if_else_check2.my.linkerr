@@ -1,7 +1,3 @@
 rc.s:
 ../input.c:
 ../output.s:
-Undefined			first referenced
- symbol  			    in file
-main                                /software/common/solstudio12/prod/lib/crt1.o
-ld: fatal: symbol referencing errors

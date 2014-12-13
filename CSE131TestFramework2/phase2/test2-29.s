@@ -31,6 +31,8 @@ main:
 globalInit_end:
 /* line number 7*/
 /* Starting array access */
+/* line number 7*/
+/* Loading 4 to %l0 */
     set         4, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -71,6 +73,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 8*/
 /* Starting array access */
+/* line number 8*/
+/* Loading 19 to %l0 */
     set         19, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -111,6 +115,8 @@ arrayEnd_1:
     st          %l1, [%l0]
 /* line number 10*/
 /* Starting array access */
+/* line number 10*/
+/* Loading 19 to %l0 */
     set         19, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -145,6 +151,8 @@ arrayOutBounds_2:
 arrayEnd_2:
 /* line number 10*/
 /* Starting array access */
+/* line number 10*/
+/* Loading i[19] to %l0 */
     set         -96, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -183,6 +191,8 @@ arrayEnd_3:
 /* line number 10*/
 /* Printing int i[i[19]] */
     set         _intFmt, %o0
+/* line number 10*/
+/* Loading i[i[19]] to %o1 */
     set         -100, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

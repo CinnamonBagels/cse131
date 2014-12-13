@@ -41,6 +41,8 @@ main:
 globalInit_end:
 /* line number 11*/
 /* Starting array access */
+/* line number 11*/
+/* Loading 8 to %l0 */
     set         8, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -81,6 +83,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 12*/
 /* Starting array access */
+/* line number 12*/
+/* Loading 8 to %l0 */
     set         8, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -121,6 +125,8 @@ arrayEnd_1:
     st          %l1, [%l0]
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -155,6 +161,8 @@ arrayOutBounds_2:
 arrayEnd_2:
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 8 to %l0 */
     set         8, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -191,6 +199,8 @@ arrayEnd_3:
 /* Converting int liarr[8] to float. */
 /* line number 14*/
 /* promoting */
+/* line number 14*/
+/* Loading liarr[8] to %f1 */
     set         -180, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -205,6 +215,8 @@ arrayEnd_3:
     st          %f1, [%l2]
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -239,6 +251,8 @@ arrayOutBounds_4:
 arrayEnd_4:
 /* line number 15*/
 /* Starting array access */
+/* line number 15*/
+/* Loading 8 to %l0 */
     set         8, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -275,6 +289,8 @@ arrayEnd_5:
 /* Converting int giarr[8] to float. */
 /* line number 15*/
 /* promoting */
+/* line number 15*/
+/* Loading giarr[8] to %f1 */
     set         -188, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -289,6 +305,8 @@ arrayEnd_5:
     st          %f1, [%l2]
 /* line number 17*/
 /* Starting array access */
+/* line number 17*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_6
@@ -323,6 +341,8 @@ arrayOutBounds_6:
 arrayEnd_6:
 /* line number 17*/
 /* Starting array access */
+/* line number 17*/
+/* Loading 8 to %l0 */
     set         8, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_7
@@ -359,6 +379,8 @@ arrayEnd_7:
 /* Converting int liarr[8] to float. */
 /* line number 17*/
 /* promoting */
+/* line number 17*/
+/* Loading liarr[8] to %f1 */
     set         -196, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -373,6 +395,8 @@ arrayEnd_7:
     st          %f1, [%l2]
 /* line number 18*/
 /* Starting array access */
+/* line number 18*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_8
@@ -407,6 +431,8 @@ arrayOutBounds_8:
 arrayEnd_8:
 /* line number 18*/
 /* Starting array access */
+/* line number 18*/
+/* Loading 8 to %l0 */
     set         8, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_9
@@ -443,6 +469,8 @@ arrayEnd_9:
 /* Converting int giarr[8] to float. */
 /* line number 18*/
 /* promoting */
+/* line number 18*/
+/* Loading giarr[8] to %f1 */
     set         -204, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -457,6 +485,8 @@ arrayEnd_9:
     st          %f1, [%l2]
 /* line number 20*/
 /* Starting array access */
+/* line number 20*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_10
@@ -490,7 +520,9 @@ arrayOutBounds_10:
     nop
 arrayEnd_10:
 /* line number 20*/
-/* printing float STO.ExprSTO@1952be0 */
+/* printing float STO.ExprSTO@eba9b0 */
+/* line number 20*/
+/* Loading gfarr[1] to %f0 */
     set         -208, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -509,6 +541,8 @@ arrayEnd_10:
 /* Done printing string. */
 /* line number 20*/
 /* Starting array access */
+/* line number 20*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_11
@@ -542,7 +576,9 @@ arrayOutBounds_11:
     nop
 arrayEnd_11:
 /* line number 20*/
-/* printing float STO.ExprSTO@739474 */
+/* printing float STO.ExprSTO@1d17f01 */
+/* line number 20*/
+/* Loading gfarr[2] to %f0 */
     set         -212, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -561,6 +597,8 @@ arrayEnd_11:
 /* Done printing string. */
 /* line number 20*/
 /* Starting array access */
+/* line number 20*/
+/* Loading 1 to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_12
@@ -594,7 +632,9 @@ arrayOutBounds_12:
     nop
 arrayEnd_12:
 /* line number 20*/
-/* printing float STO.ExprSTO@174be7 */
+/* printing float STO.ExprSTO@e9581b */
+/* line number 20*/
+/* Loading lfarr[1] to %f0 */
     set         -216, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -613,6 +653,8 @@ arrayEnd_12:
 /* Done printing string. */
 /* line number 20*/
 /* Starting array access */
+/* line number 20*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_13
@@ -646,7 +688,9 @@ arrayOutBounds_13:
     nop
 arrayEnd_13:
 /* line number 20*/
-/* printing float STO.ExprSTO@1783d33 */
+/* printing float STO.ExprSTO@197833e */
+/* line number 20*/
+/* Loading lfarr[2] to %f0 */
     set         -220, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

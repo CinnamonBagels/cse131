@@ -33,6 +33,8 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 4*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_0
@@ -64,6 +66,8 @@ else_0:
     call    printf
     nop
 endIf_1:
+/* line number 13*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_2

@@ -44,6 +44,8 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 6*/
 /* Done. */
+/* line number 8*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_0
@@ -69,6 +71,8 @@ else_0:
 /* line number 12*/
 /* Done printing string. */
 endIf_1:
+/* line number 14*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_2
@@ -100,9 +104,13 @@ endIf_3:
 while_0:
 /* line number 21*/
 /* Prepping Comparison Calculations by loading */
+/* line number 21*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 21*/
+/* Loading 14 to %l1 */
     set         14, %l1
 /* line number 21*/
 /* Starting Less than */
@@ -120,6 +128,9 @@ lessEnd_0:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 21*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -128,9 +139,13 @@ lessEnd_0:
     nop
 /* line number 23*/
 /* Prepping Comparison Calculations by loading */
+/* line number 23*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 23*/
+/* Loading 11 to %l1 */
     set         11, %l1
 /* line number 23*/
 /* Starting Less than Equal */
@@ -148,6 +163,9 @@ lessEqualEnd_1:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 23*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <=...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -155,6 +173,8 @@ lessEqualEnd_1:
     be      else_4
     nop
 if_4:
+/* line number 24*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_5
@@ -167,9 +187,13 @@ endIf_6:
 while_1:
 /* line number 31*/
 /* Prepping Comparison Calculations by loading */
+/* line number 31*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 31*/
+/* Loading 10 to %l1 */
     set         10, %l1
 /* line number 31*/
 /* Starting Less than Equal */
@@ -187,6 +211,9 @@ lessEqualEnd_2:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 31*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <=...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -195,9 +222,13 @@ lessEqualEnd_2:
     nop
 /* line number 32*/
 /* Prepping Comparison Calculations by loading */
+/* line number 32*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 32*/
+/* Loading 8 to %l1 */
     set         8, %l1
 /* line number 32*/
 /* Starting greater than */
@@ -215,6 +246,9 @@ greaterEnd_3:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 32*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -224,6 +258,8 @@ greaterEnd_3:
 if_7:
 /* line number 33*/
 /* Incrementing */
+/* line number 33*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -247,9 +283,13 @@ if_7:
 else_7:
 /* line number 37*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 37*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 37*/
+/* Loading 2 to %l1 */
     set         2, %l1
 /* line number 37*/
 /* Adding */
@@ -270,6 +310,8 @@ else_7:
 /* line number 38*/
 /* Printing int j */
     set         _intFmt, %o0
+/* line number 38*/
+/* Loading j to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -287,6 +329,8 @@ else_7:
 /* Done printing string. */
 /* line number 39*/
 /* Incrementing */
+/* line number 39*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -304,6 +348,8 @@ endIf_8:
     ba      while_1
     nop
 whileEnd_1:
+/* line number 43*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_9
@@ -322,6 +368,8 @@ if_9:
 /* Done printing string. */
 /* line number 45*/
 /* Incrementing */
+/* line number 45*/
+/* Loading i to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

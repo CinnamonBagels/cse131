@@ -24,9 +24,19 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo2:
     set         SAVE.foo2, %g1
     save        %sp, %g1, %sp
+/* line number 3*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 3*/
+/* Storing parameter y */
+/* line number 3*/
+/* Storing parameter z */
+    st          %i2, [%fp+-16]
 /* line number 4*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 4*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -43,7 +53,9 @@ foo2:
 /* line number 4*/
 /* Done printing string. */
 /* line number 4*/
-/* printing float STO.VarSTO@1bfbe18 */
+/* printing float STO.VarSTO@4cb3a4 */
+/* line number 4*/
+/* Loading y to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -61,6 +73,8 @@ foo2:
 /* Done printing string. */
 /* line number 4*/
 /* Printing bool z */
+/* line number 4*/
+/* Loading z to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -92,6 +106,14 @@ SAVE.foo2 = -(92 + 4) & -8
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 7*/
+/* Storing parameter x */
+    st          %i0, [%fp+-8]
+/* line number 7*/
+/* Storing parameter y */
+/* line number 7*/
+/* Storing parameter z */
+    st          %i2, [%fp+-16]
 /* line number 8*/
 /* Preparing argument x */
 /* line number 8*/

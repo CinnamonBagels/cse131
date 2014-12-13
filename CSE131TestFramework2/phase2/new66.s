@@ -72,6 +72,8 @@ globalInit_end:
 /* line number 7*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 7*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -80,7 +82,9 @@ globalInit_end:
 /* line number 7*/
 /* Done printing int. */
 /* line number 7*/
-/* printing float STO.VarSTO@5d75eb */
+/* printing float STO.VarSTO@41e2aa */
+/* line number 7*/
+/* Loading y to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -90,6 +94,8 @@ globalInit_end:
 /* Done printing float. */
 /* line number 7*/
 /* Printing bool z */
+/* line number 7*/
+/* Loading z to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -110,6 +116,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 7*/
 /* Printing bool a */
+/* line number 7*/
+/* Loading a to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
