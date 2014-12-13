@@ -1,6 +1,8 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
+float_0:        .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -28,13 +30,13 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 5*/
+/* line number 6*/
 /* Starting array access */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
     nop
-    cmp         %l0, 3
+    cmp         %l0, 2
     bge     arrayOutBounds_0
     nop
 arrayInBounds_0:
@@ -43,10 +45,10 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -16, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     add         %l1, %l2, %l4
-    set         -20, %l5
+    set         -16, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_0
@@ -54,7 +56,7 @@ arrayInBounds_0:
 arrayOutBounds_0:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         3, %o2
+    set         2, %o2
     call    printf
     nop
     set         1, %o0
@@ -62,19 +64,21 @@ arrayOutBounds_0:
 
     nop
 arrayEnd_0:
-! --storing constant x[1] with value 666.0
-    set         -20, %l0
+! --storing constant y[1] with value 1.0
+    set         -16, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %l0
-    set         666, %l1
-    st          %l1, [%l0]
-/* line number 7*/
+    set         float_0, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
+/* line number 8*/
 /* Starting array access */
-    set         0, %l0
+    set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
     nop
-    cmp         %l0, 3
+    cmp         %l0, 2
     bge     arrayOutBounds_1
     nop
 arrayInBounds_1:
@@ -83,10 +87,10 @@ arrayInBounds_1:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -16, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     add         %l1, %l2, %l4
-    set         -24, %l5
+    set         -20, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_1
@@ -94,7 +98,7 @@ arrayInBounds_1:
 arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         3, %o2
+    set         2, %o2
     call    printf
     nop
     set         1, %o0
@@ -102,13 +106,31 @@ arrayOutBounds_1:
 
     nop
 arrayEnd_1:
-/* line number 7*/
+/* line number 8*/
+/* Incrementing */
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    ld          [%l1], %f0
+    set         FLOAT_FORCE_1, %l6
+    ld          [%l6], %f1
+    fadds       %f0, %f1, %f2
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    ld          [%l1], %l1
+    st          %f2, [%l1]
+    fsubs       %f2, %f1, %f0
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    st          %f0, [%l1]
+/* line number 10*/
 /* Starting array access */
     set         1, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
     nop
-    cmp         %l0, 3
+    cmp         %l0, 2
     bge     arrayOutBounds_2
     nop
 arrayInBounds_2:
@@ -117,7 +139,7 @@ arrayInBounds_2:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -16, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -28, %l5
@@ -128,7 +150,7 @@ arrayInBounds_2:
 arrayOutBounds_2:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
-    set         3, %o2
+    set         2, %o2
     call    printf
     nop
     set         1, %o0
@@ -136,79 +158,20 @@ arrayOutBounds_2:
 
     nop
 arrayEnd_2:
-/* line number 7*/
-/* Storing variable x[1] into x[0] */
-    set         -24, %l5
-    add         %fp, %l5, %l5
-    ld          [%l5], %l5
-    set         -28, %l3
-    add         %fp, %l3, %l3
-    ld          [%l3], %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
-/* line number 7*/
-/* Printing int x[0] */
-    set         _intFmt, %o0
-    set         -24, %l1
+/* line number 10*/
+/* printing float STO.ExprSTO@1490eb5 */
+    set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
-    ld          [%l1], %o1
-    call    printf
+    ld          [%l1], %f0
+    call    printFloat
     nop
-/* line number 7*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 8*/
-/* Starting array access */
-    set         1, %l0
-    cmp         %l0, %g0
-    bl      arrayOutBounds_3
-    nop
-    cmp         %l0, 3
-    bge     arrayOutBounds_3
-    nop
-arrayInBounds_3:
-    mov         %l0, %o0
-    set         4, %o1
-    call    .mul
-    nop
-    mov         %o0, %l2
-    set         -16, %l1
-    add         %fp, %l1, %l1
-    add         %l1, %l2, %l4
-    set         -32, %l5
-    add         %fp, %l5, %l6
-    st          %l4, [%l6]
-    ba      arrayEnd_3
-    nop
-arrayOutBounds_3:
-    set         arrayOutOfBounds, %o0
-    mov         %l0, %o1
-    set         3, %o2
-    call    printf
-    nop
-    set         1, %o0
-    call    exit
-
-    nop
-arrayEnd_3:
-/* line number 8*/
-/* Printing int x[1] */
-    set         _intFmt, %o0
-    set         -32, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 8*/
-/* Done printing int. */
+/* line number 10*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 32) & -8
+SAVE.main = -(92 + 28) & -8

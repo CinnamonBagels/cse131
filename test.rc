@@ -1,10 +1,12 @@
 function : void main()
 {
-  int[3] x;
 
-  x[1] = 666;
+   float[2] y;
 
-  cout << x[0] = x[1] << endl; //666
-  cout << x[1] << endl; //666
+   y[1] = 1.0;
+
+   y[1]++;
+
+   cout << y[1] << endl; //2
 
 }
