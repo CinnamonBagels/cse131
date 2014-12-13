@@ -711,16 +711,6 @@ public class AssemblyGenerator {
 		boolean paramFloat = !argument.getType().isFloat() && parameter.getType().isFloat();
 		generateComment("Preparing argument " + argument.getName());
 		
-		if(argument.getType().isFloat()) {
-			VarSTO tmp = new VarSTO("temp float", new FloatType());
-			tmp.base = Registers.fp;
-			tmp.offset = "-4";
-			if(argument.isConst()) {
-				this.storeConstant(tmp, (ConstSTO) argument);
-			}
-		}
-		argument.base = Registers.fp;
-		argument.offset = "-4";
 		if(argument.isReference) {
 			//reference stuff here
 		} else {

@@ -65,7 +65,7 @@ globalInit_end:
 /* Preparing argument foo() */
 /* line number 8*/
 /* Loading foo() to %o0 */
-    set         -4, %l1
+    set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    foo

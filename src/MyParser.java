@@ -974,15 +974,15 @@ class MyParser extends parser {
 		FuncSTO func = m_symtab.getFunc();
 		//fck need to have reference to main.
 		if(m_symtab.getFunc() != null) {
-			executeFunction(func, sto, returnSTO, arguments);
+			returnSTO = (VarSTO) executeFunction(func, sto, returnSTO, arguments);
 		} else {
-			executeFunction(this.main, sto, returnSTO, arguments);
+			returnSTO = (VarSTO) executeFunction(this.main, sto, returnSTO, arguments);
 		}
 		
 		return returnSTO;
 	}
 	
-	public void executeFunction(FuncSTO function, STO functionBeingExecuted, STO returnSTO, Vector<STO> arguments) {
+	public STO executeFunction(FuncSTO function, STO functionBeingExecuted, STO returnSTO, Vector<STO> arguments) {
 		
 		FunctionPointerType funcExecuted = (FunctionPointerType) functionBeingExecuted.getType();
 		
@@ -1004,6 +1004,7 @@ class MyParser extends parser {
 		if(!funcExecuted.getReturnType().isVoid()) {
 			generator.saveReturn(returnSTO);
 		}
+		return returnSTO;
 		
 		
 	}
