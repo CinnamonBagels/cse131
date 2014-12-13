@@ -87,14 +87,12 @@ globalInit_end:
 /* Done. */
 /* line number 12*/
 /* Preparing argument a */
-    set         -8, %l0
-    add %fp, %l0, %l0
-    mov %l0, %o0
+    set         -8, %o0
+    add         %fp, %o0, %o0
 /* line number 12*/
 /* Preparing argument b */
-    set         -12, %l0
-    add %fp, %l0, %l0
-    mov %l0, %o1
+    set         -12, %o1
+    add         %fp, %o1, %o1
     call    foo
     nop
 /* line number 14*/
