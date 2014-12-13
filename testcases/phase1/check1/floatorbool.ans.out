@@ -1,3 +1,0 @@
-Error, "phase1/check1/floatorbool.rc": 
-  Incompatible type float to binary operator ||, equivalent to bool expected.
-Compile: failure.
