@@ -62,6 +62,7 @@ bar:
 /* Storing variable int + int into c */
     set         72, %l5
     add         %fp, %l5, %l5
+    ld          [%l5], %l5
     set         -8, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
