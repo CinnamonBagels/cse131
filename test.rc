@@ -1,37 +1,17 @@
-function : bool foo()
+bool a = true;
+bool b = false;
+
+bool c = a && a;
+bool d = b || a;
+
+function: void main()
 {
-    cout << "inside foo" << endl;
-    return true;
-}
+  cout<<c<<endl; //should print out true
+  cout<<d<<endl; // should print out ture
+  cout<<a&&b<<endl; // should print out false
+  cout<<b&&b<<endl;//should print out false
 
-function : void main()
-{
-    bool a = true;
-    bool b = false;
-
-
-
-    if ( a && foo() )
-    {
-        cout << "if1" << endl;
-        if (foo() && b)
-        {
-            cout << "if inside" << endl;
-        }
-    }
-    else
-    {
-        cout << "else" << endl;
-    }
-    
-    if ( a || foo() )
-    {
-        cout << "haha1" << endl;
-    }
-
-    if ( b || foo() )
-    {
-        cout << "haha2" << endl;
-    }
+  cout<<a||b<<endl; // should print out true
+  cout<<b||b<<endl;//should print out false
 
 }
