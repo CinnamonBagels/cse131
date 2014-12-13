@@ -81,18 +81,12 @@ foo:
     st          %i1, [%fp+68]
 /* line number 9*/
 /* Preparing argument a */
-/* line number 9*/
-/* Loading a to %o0 */
-    set         68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
+    set         68, %o0
+    add         %fp, %o0, %o0
 /* line number 9*/
 /* Preparing argument b */
-/* line number 9*/
-/* Loading b to %o1 */
-    set         68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    set         68, %o1
+    add         %fp, %o1, %o1
     call    bar
     nop
 foo_end:
@@ -171,18 +165,12 @@ globalInit_end:
     nop
 /* line number 18*/
 /* Preparing argument i */
-/* line number 18*/
-/* Loading i to %o0 */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
+    set         -8, %o0
+    add         %fp, %o0, %o0
 /* line number 18*/
 /* Preparing argument j */
-/* line number 18*/
-/* Loading j to %o1 */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    set         -12, %o1
+    add         %fp, %o1, %o1
     call    foo
     nop
 /* line number 20*/

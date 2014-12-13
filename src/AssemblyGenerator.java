@@ -716,8 +716,12 @@ public class AssemblyGenerator {
 		boolean paramFloat = !argument.getType().isFloat() && parameter.getType().isFloat();
 		generateComment("Preparing argument " + argument.getName());
 		
-		if(argument.isReference) {
-			//reference stuff here
+		if(parameter.isReference) {
+			if(argument.isReference) {
+				this.storeReference(argument, "%o" + argCounter);
+			} else {
+				this.setAdd(argument, "%o" + argCounter);
+			}
 		} else {
 			if(bothInt) {
 				loadVariable("%o" + argCounter, argument);
@@ -1849,5 +1853,10 @@ public class AssemblyGenerator {
 		}
 		
 		return register;
+	}
+	
+	public void storeReference(STO sto, String register) {
+		this.setAdd(sto, Registers.l0);
+		generateASM(Strings.two_param, Instructions.move, Registers.l0, register);
 	}
 }

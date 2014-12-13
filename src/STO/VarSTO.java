@@ -8,7 +8,7 @@ import Types.*;
 public class VarSTO extends STO
 {
 	
-	private boolean isReference;
+	public boolean isReference;
 	//----------------------------------------------------------------
 	//
 	//----------------------------------------------------------------
