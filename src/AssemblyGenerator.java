@@ -694,16 +694,14 @@ public class AssemblyGenerator {
 			}
 		}
 		argument.base = Registers.fp;
-		//int o = Integer.parseInt(argument.offset);
-		//o -= 4;
-		//argument.offset = String.valueOf(o);
-		if(argument.offset == null){
-			argument.offset = "-4";
-		}else{
-			int o = Integer.parseInt(argument.offset);
-			o -= 4;
-			argument.offset = String.valueOf(o);
-		}
+		argument.offset = "-4";
+//		if(argument.offset == null){
+//			argument.offset = "-4";
+//		}else{
+//			int o = Integer.parseInt(argument.offset);
+//			o -= 4;
+//			argument.offset = String.valueOf(o);
+//		}
 		
 		if(parameter != null && parameter.getIsReference()) {
 			//do reference stuff here.
@@ -712,6 +710,15 @@ public class AssemblyGenerator {
 				System.out.println("prepareArguments: " + argument.getName() + " " + argument.base + " " + argument.offset);
 				this.loadVariable("%f" + argCounter, argument);
 			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
+				
+				if(argument.getName().length() > 2 && argument.getName().substring(argument.getName().length()-2, argument.getName().length()).equals("()")){
+					argument.offset = String.valueOf(-8 - 4*argCounter);
+				}
+				System.out.println(argument.getType().getName() + " " + argument.getName() + " " + argument.base + " " + argument.offset);
+				System.out.println(argument.isConst());
+				if(argument.getType().isInt()){
+					
+				}
 				this.loadVariable("%o" + argCounter, argument);
 			} else {
 			}
