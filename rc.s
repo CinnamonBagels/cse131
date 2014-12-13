@@ -141,7 +141,6 @@ arrayEnd_2:
     set         -24, %l5
     add         %fp, %l5, %l5
     ld          [%l5], %l5
-    ld          [%l5], %l5
     set         -28, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
