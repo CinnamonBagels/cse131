@@ -556,6 +556,7 @@ class MyParser extends parser {
 		}
 		FuncSTO funcSTO = null;
 		m_returnMissingFlag = true;
+		String base = "";
 		
 		if(currentStruct != null) {
 			if(currentStruct.getScope().access(id) != null) {
@@ -566,6 +567,7 @@ class MyParser extends parser {
 			funcSTO = new FuncSTO(id, new FunctionPointerType(id));
 			funcSTO.setReturnType(t);
 			funcSTO.setIsReturnRefernece(isReturnReference);
+			base = currentStruct.getName() + "_";
 		} else {
 			if(id.equals("main")) {
 				funcSTO = new FuncSTO(id, new FunctionPointerType("main"));
@@ -584,7 +586,7 @@ class MyParser extends parser {
 		m_symtab.setFunc(funcSTO);
 		// get level AFTER you open scope.
 		blockLevel = m_symtab.getLevel();
-		funcSTO.offset = funcSTO.getName();
+		funcSTO.offset = base + funcSTO.getName();
 		funcSTO.base = Registers.g0;
 		
 		generator.beginFunction(funcSTO);
@@ -595,9 +597,9 @@ class MyParser extends parser {
 	// ----------------------------------------------------------------
 	void DoFuncDecl_2() {
 		FuncSTO func = m_symtab.getFunc();
+		
 		if (func.isError()) {
 		}
-
 
 		// TODO LOLOLOLL NEED TO FIX LOLO FUCK IT SHIP IT
 		if (((FunctionPointerType) func.getType()).getReturnType() == null) {
