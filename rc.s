@@ -61,20 +61,30 @@ lessEnd_0:
     be      whileEnd_0
     nop
 /* line number 7*/
+/* Printing int x */
+    set         _intFmt, %o0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 7*/
+/* Done printing int. */
+/* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
     set         1, %l1
-/* line number 7*/
+/* line number 8*/
 /* Adding */
     add         %l0, %l1, %l3
-/* line number 7*/
+/* line number 8*/
 /* Storing result of Binary Op */
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
-/* line number 7*/
+/* line number 8*/
 /* Storing variable int + int into x */
     set         x, %l5
     add         %g0, %l5, %l5
@@ -85,6 +95,22 @@ lessEnd_0:
     ba      while_0
     nop
 whileEnd_0:
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 12*/
+/* Printing int x */
+    set         _intFmt, %o0
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 12*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
 main_end:
     ret 
     restore

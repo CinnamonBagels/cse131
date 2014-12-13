@@ -4,7 +4,12 @@ function : void main()
 {
   while(x < 5)
   {
+    cout << x;
     x = x+1;
   }
+
+cout << endl;
+cout << x << endl;
+
 
 }
