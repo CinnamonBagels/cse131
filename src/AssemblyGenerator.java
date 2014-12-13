@@ -1500,10 +1500,10 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.store, Registers.f2, "[" + Registers.l1 + "]");
 				
 				if(data.equals("post")) {
-					generateASM(Strings.three_param, Instructions.fadd, Registers.f2, Registers.f1, Registers.f0);
+					generateASM(Strings.three_param, Instructions.fadd, Registers.f2, Registers.f1, Registers.f2);
 				}
 				
-				register = Registers.f0;
+				register = Registers.f2;
 			}
 		} else if(op.getName().equals("++")) {
 			generateComment("Incrementing");
@@ -1546,10 +1546,10 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.store, Registers.f2, "[" + Registers.l1 + "]");
 				
 				if(data.equals("post")) {
-					generateASM(Strings.three_param, Instructions.fsub, Registers.f2, Registers.f1, Registers.f0);
+					generateASM(Strings.three_param, Instructions.fsub, Registers.f2, Registers.f1, Registers.f2);
 				}
 				
-				register = Registers.f0;
+				register = Registers.f2;
 			}
 		} else if(op.getName().equals("!")) {
 			generateComment("Negating");
