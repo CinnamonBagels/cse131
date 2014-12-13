@@ -2,6 +2,7 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
+float_0:        .single      0r3.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -28,7 +29,7 @@ foo:
 /* Loading x to %f0 */
     set         68, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo_end
     nop
 foo_end:
@@ -52,20 +53,25 @@ main:
 globalInit_end:
 /* line number 8*/
 /* Preparing argument 3.0 */
+! --storing constant temp float with value 3.0
+    set         -4, %l0
+    add         %fp, %l0, %l0
+    set         float_0, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f0
+    st          %f0, [%l0]
 /* line number 8*/
 /* Loading 3.0 to %f0 */
     set         -4, %l0
     add         %fp, %l0, %l0
     ld          [%l0], %f0
-    call printFloat
-    nop
     call    foo
     nop
 /* line number 8*/
 /* Saving return value */
     st          %f0, [%fp+-8]
 /* line number 8*/
-/* printing float STO.VarSTO@49f8a4fd */
+/* printing float STO.VarSTO@631803fb */
 /* line number 8*/
 /* Loading foo() to %f0 */
     set         -8, %l1
