@@ -43,6 +43,7 @@ foo:
     inc     %l0
     set         68, %l2
     add         %fp, %l2, %l2
+    ld          [%l2], %l2
     st          %l0, [%l2]
 /* line number 7*/
 /* Post Increment */
@@ -111,6 +112,7 @@ foo2:
     inc     %l0
     set         72, %l2
     add         %fp, %l2, %l2
+    ld          [%l2], %l2
     st          %l0, [%l2]
 /* line number 13*/
 /* Post Increment */
