@@ -1651,12 +1651,12 @@ public class AssemblyGenerator {
 		} else {
 			
 			if(func.getReturnType().isFloat()) {
-				loadVariable(Registers.i0, returnSTO);
+				loadVariable(Registers.f0, returnSTO);
 				if(!returnSTO.getType().isFloat()) {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 			} else {
-				loadVariable(Registers.o0, returnSTO);
+				loadVariable(Registers.i0, returnSTO);
 			}
 		}
 		

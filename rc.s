@@ -50,7 +50,7 @@ foo:
 /* line number 5*/
 /* Returning value from foo */
 /* line number 5*/
-/* Loading b to %i0 */
+/* Loading b to %f0 */
     set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
