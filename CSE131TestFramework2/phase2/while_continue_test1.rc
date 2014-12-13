@@ -10,10 +10,10 @@ function : void main()
 		while (hola < 14)
 		{
 			cout << "should be printed 2" << endl;
-			while (1)
+			while (true)
 			{
 				cout << "should be printed 3" << endl;
-				while (1)
+				while (true)
 				{
 					cout << "should be printed 4" << endl;
 					break;
