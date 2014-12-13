@@ -38,7 +38,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant a with value 88.43
-    set         -12, %l0
+    set         -4, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
@@ -46,27 +46,27 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 22*/
 /* Assigning struct food to food1 */
-    set         food, %o0
-    add         %g0, %o0, %o0
-    set         -16, %o1
-    add         %fp, %o1, %o1
+    set         food, %o1
+    add         %g0, %o1, %o1
+    set         -16, %o0
+    add         %fp, %o0, %o0
     set         12, %o2
     call    memcpy
     nop
 /* line number 23*/
 /* Assigning struct food1 to food2 */
-    set         -16, %o0
-    add         %fp, %o0, %o0
-    set         -28, %o1
+    set         -16, %o1
     add         %fp, %o1, %o1
+    set         -28, %o0
+    add         %fp, %o0, %o0
     set         12, %o2
     call    memcpy
     nop
 /* line number 26*/
-/* printing float STO.VarSTO@1963b3e */
+/* printing float STO.VarSTO@b6548 */
 /* line number 26*/
 /* Loading a to %f0 */
-    set         -12, %l1
+    set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
