@@ -23,7 +23,20 @@ foo:
 /* line number 2*/
 /* Storing parameter x */
     st          %i0, [%fp+-8]
-/* line number 4*/
+/* line number 3*/
+/* Printing int x */
+    set         _intFmt, %o0
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+    call    printf
+    nop
+/* line number 3*/
+/* Done printing int. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 5*/
 /* Returning value from foo */
     set         -8, %l1
     add         %fp, %l1, %l1
@@ -51,15 +64,15 @@ main:
 globalInit_end:
     call    foo
     nop
-/* line number 8*/
+/* line number 9*/
 /* Saving return value */
     st          %o0, [%fp+-8]
     call    foo
     nop
-/* line number 8*/
+/* line number 9*/
 /* Saving return value */
     st          %o0, [%fp+-12]
-/* line number 8*/
+/* line number 9*/
 /* Printing int foo() */
     set         _intFmt, %o0
     set         -12, %l1
@@ -67,7 +80,7 @@ globalInit_end:
     ld          [%l1], %o1
     call    printf
     nop
-/* line number 8*/
+/* line number 9*/
 /* Done printing int. */
     set         _endl, %o0
     call    printf

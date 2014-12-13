@@ -1,5 +1,6 @@
 function : int foo(int x)
 {
+   cout << x << endl;
    return x;
 }
 
