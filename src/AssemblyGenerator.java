@@ -1556,7 +1556,7 @@ public class AssemblyGenerator {
 			generateASM(Strings.nop);
 			generateASM(Strings.label, Strings.decrement + numNots);
 			generateASM(Strings.one_param, Instructions.dec, Registers.l0);
-			generateASM(Strings.two_param, Instructions.ba, Strings.negEnd + numNots);
+			generateASM(Strings.one_param, Instructions.ba, Strings.negEnd + numNots);
 			generateASM(Strings.nop);
 			generateASM(Strings.label, Strings.increment + numNots);
 			generateASM(Strings.one_param, Instructions.inc, Registers.l0);
