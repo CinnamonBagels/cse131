@@ -27,17 +27,18 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter b */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 2*/
 /* Storing parameter c */
+    st          %f2, [%fp+76]
 /* line number 3*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 3*/
 /* Loading a to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 3*/
@@ -53,19 +54,19 @@ foo:
     st          %l3, [%l4]
 /* line number 3*/
 /* Storing variable int + int into a */
-    set         -8, %l5
+    set         68, %l5
     add         %fp, %l5, %l5
     set         -8, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
     st          %l3, [%l5]
 ! --storing constant b with value 9.0
-    set         -12, %l0
+    set         72, %l0
     add         %fp, %l0, %l0
     set         9, %l1
     st          %l1, [%l0]
 ! --storing constant c with value 44.44
-    set         -16, %l0
+    set         76, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
@@ -92,24 +93,25 @@ main:
 globalInit_end:
 /* line number 10*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 10*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 10*/
 /* Storing parameter z */
+    st          %f2, [%fp+76]
 ! --storing constant x with value 5.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         5, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 6.0
-    set         -12, %l0
+    set         72, %l0
     add         %fp, %l0, %l0
     set         6, %l1
     st          %l1, [%l0]
 ! --storing constant z with value 22.22
-    set         -16, %l0
+    set         76, %l0
     add         %fp, %l0, %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
@@ -120,7 +122,7 @@ globalInit_end:
     set         _intFmt, %o0
 /* line number 15*/
 /* Loading x to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -135,7 +137,7 @@ globalInit_end:
     set         _intFmt, %o0
 /* line number 16*/
 /* Loading y to %o1 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -146,10 +148,10 @@ globalInit_end:
     call    printf
     nop
 /* line number 17*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 17*/
 /* Loading z to %f0 */
-    set         -16, %l1
+    set         76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -161,25 +163,16 @@ globalInit_end:
     nop
 /* line number 19*/
 /* Preparing argument x */
-/* line number 19*/
-/* Loading x to %o0 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
+    set         68, %o0
+    add         %fp, %o0, %o0
 /* line number 19*/
 /* Preparing argument y */
-/* line number 19*/
-/* Loading y to %o1 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
+    set         72, %o1
+    add         %fp, %o1, %o1
 /* line number 19*/
 /* Preparing argument z */
-/* line number 19*/
-/* Loading z to %f2 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f2
+    set         76, %o2
+    add         %fp, %o2, %o2
     call    foo
     nop
 /* line number 21*/
@@ -195,7 +188,7 @@ globalInit_end:
     set         _intFmt, %o0
 /* line number 21*/
 /* Loading x to %o1 */
-    set         -4, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -218,7 +211,7 @@ globalInit_end:
     set         _intFmt, %o0
 /* line number 22*/
 /* Loading y to %o1 */
-    set         -4, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -237,10 +230,10 @@ globalInit_end:
 /* line number 23*/
 /* Done printing string. */
 /* line number 23*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 23*/
 /* Loading z to %f0 */
-    set         -4, %l1
+    set         76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat

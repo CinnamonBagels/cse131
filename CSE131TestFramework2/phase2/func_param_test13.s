@@ -33,12 +33,13 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter a */
+    st          %f0, [%fp+68]
 /* line number 2*/
 /* Storing parameter r */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 2*/
 /* Storing parameter k */
-    st          %i2, [%fp+-16]
+    st          %i2, [%fp+76]
 /* line number 3*/
 /* printing string */
     set         _strFmt, %o0
@@ -52,7 +53,7 @@ foo:
     set         _intFmt, %o0
 /* line number 3*/
 /* Loading r to %o1 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -74,7 +75,7 @@ foo:
     call    printf
     nop
 ! --storing constant a with value 351.22
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         float_2, %l1
     add         %g0, %l1, %l1
@@ -84,7 +85,7 @@ foo:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 6*/
 /* Loading r to %l0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 6*/
@@ -100,7 +101,7 @@ foo:
     st          %l3, [%l4]
 /* line number 6*/
 /* Storing variable int + int into r */
-    set         -12, %l5
+    set         72, %l5
     add         %fp, %l5, %l5
     set         -8, %l3
     add         %fp, %l3, %l3
@@ -162,7 +163,7 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 16*/
 /* Loading noob to %f0 */
     set         -8, %l1
@@ -231,10 +232,25 @@ branchEnd_0:
     set         _endl, %o0
     call    printf
     nop
+/* line number 20*/
+/* Preparing argument noob */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 20*/
+/* Preparing argument average */
+    set         -16, %o1
+    add         %fp, %o1, %o1
+/* line number 20*/
+/* Preparing argument pro */
+/* line number 20*/
+/* Loading pro to %o2 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o2
     call    foo
     nop
 /* line number 20*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-20]
 /* line number 22*/
 /* setting c = foo() */
@@ -288,7 +304,7 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 24*/
 /* Loading noob to %f0 */
     set         -8, %l1

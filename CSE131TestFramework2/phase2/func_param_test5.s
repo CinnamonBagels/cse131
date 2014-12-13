@@ -26,17 +26,17 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter b */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 ! --storing constant a with value 999.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         999, %l1
     st          %l1, [%l0]
 ! --storing constant b with value 1000.0
-    set         -12, %l0
+    set         72, %l0
     add         %fp, %l0, %l0
     set         1000, %l1
     st          %l1, [%l0]
@@ -117,6 +117,17 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 15*/
+/* Preparing argument thesmiths */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 15*/
+/* Preparing argument theramones */
+/* line number 15*/
+/* Loading theramones to %o1 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
     call    foo
     nop
 /* line number 17*/

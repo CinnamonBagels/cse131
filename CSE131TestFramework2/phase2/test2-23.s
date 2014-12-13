@@ -28,17 +28,17 @@ foo:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 6*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 ! --storing constant x with value 1.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 1.0
-    set         -12, %l0
+    set         72, %l0
     add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
@@ -54,17 +54,17 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 11*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 11*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 ! --storing constant x with value 1.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 1.0
-    set         -12, %l0
+    set         72, %l0
     add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
@@ -142,6 +142,17 @@ branchEnd_1:
     set         _endl, %o0
     call    printf
     nop
+/* line number 18*/
+/* Preparing argument x */
+    set         x, %o0
+    add         %g0, %o0, %o0
+/* line number 18*/
+/* Preparing argument y */
+/* line number 18*/
+/* Loading y to %o1 */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o1
     call    foo
     nop
 /* line number 19*/
@@ -199,6 +210,17 @@ branchEnd_3:
     set         _endl, %o0
     call    printf
     nop
+/* line number 20*/
+/* Preparing argument x */
+/* line number 20*/
+/* Loading x to %o0 */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
+/* line number 20*/
+/* Preparing argument y */
+    set         y, %o1
+    add         %g0, %o1, %o1
     call    foo2
     nop
 /* line number 21*/

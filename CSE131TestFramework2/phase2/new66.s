@@ -82,7 +82,7 @@ globalInit_end:
 /* line number 7*/
 /* Done printing int. */
 /* line number 7*/
-/* printing float STO.VarSTO@41e2aa */
+/* printing float STO.VarSTO@1330af4 */
 /* line number 7*/
 /* Loading y to %f0 */
     set         -12, %l1

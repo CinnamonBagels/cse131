@@ -112,7 +112,7 @@ globalInit_end:
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 11*/
-/* printing float STO.VarSTO@41e2aa */
+/* printing float STO.VarSTO@1330af4 */
 /* line number 11*/
 /* Loading b to %f0 */
     set         b, %l1
@@ -126,7 +126,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 12*/
-/* printing float STO.VarSTO@10c16b7 */
+/* printing float STO.VarSTO@967893 */
 /* line number 12*/
 /* Loading a to %f0 */
     set         a, %l1
@@ -140,7 +140,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 13*/
-/* printing float STO.VarSTO@1881149 */
+/* printing float STO.VarSTO@14512e */
 /* line number 13*/
 /* Loading c to %f0 */
     set         -8, %l1
@@ -171,7 +171,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 14*/
-/* printing float STO.ExprSTO@eba9b0 */
+/* printing float STO.ExprSTO@17cd18d */
 /* line number 14*/
 /* Loading Validating UnaryOp c as a FloatType for operator: --...
  to %f0 */
@@ -186,7 +186,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 15*/
-/* printing float STO.VarSTO@1881149 */
+/* printing float STO.VarSTO@14512e */
 /* line number 15*/
 /* Loading c to %f0 */
     set         -8, %l1

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x
 x:              .word        0           
 globalInit_:    .word        0           
@@ -33,13 +34,13 @@ globalInit_end:
 ! --storing constant x with value 4.0
     set         x, %l0
     add         %g0, %l0, %l0
-    set         x, %l0
-    add         %g0, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
 /* line number 4*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 4*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -51,8 +52,6 @@ globalInit_end:
     call    printf
     nop
 ! --storing constant x with value 5.0
-    set         x, %l0
-    add         %g0, %l0, %l0
     set         x, %l0
     add         %g0, %l0, %l0
     set         5, %l1
@@ -70,6 +69,8 @@ globalInit_end:
 /* line number 6*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 6*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -80,6 +81,8 @@ globalInit_end:
 /* line number 6*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 6*/
+/* Loading y to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -107,6 +110,8 @@ globalInit_end:
 /* line number 8*/
 /* Printing int z */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading z to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -117,13 +122,13 @@ globalInit_end:
 ! --storing constant z with value 5.0
     set         -12, %l0
     add         %fp, %l0, %l0
-    set         -12, %l0
-    add         %fp, %l0, %l0
     set         5, %l1
     st          %l1, [%l0]
 /* line number 8*/
 /* Printing int z */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading z to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -137,6 +142,8 @@ globalInit_end:
 /* line number 9*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading x to %o1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -147,6 +154,8 @@ globalInit_end:
 /* line number 9*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading y to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

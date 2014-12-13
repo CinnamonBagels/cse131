@@ -31,15 +31,16 @@ foo:
     save        %sp, %g1, %sp
 /* line number 8*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 8*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 8*/
 /* Storing parameter z */
-    st          %i2, [%fp+-16]
+    st          %i2, [%fp+76]
 /* line number 8*/
 /* Storing parameter a */
-    st          %i3, [%fp+-20]
+    st          %i3, [%fp+80]
 /* line number 9*/
 /* printing string */
     set         _strFmt, %o0
@@ -53,7 +54,7 @@ foo:
     set         _intFmt, %o0
 /* line number 9*/
 /* Loading x to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -61,10 +62,10 @@ foo:
 /* line number 9*/
 /* Done printing int. */
 /* line number 9*/
-/* printing float STO.VarSTO@10bb83e */
+/* printing float STO.VarSTO@170526a */
 /* line number 9*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -75,7 +76,7 @@ foo:
 /* Printing bool z */
 /* line number 9*/
 /* Loading z to %l0 */
-    set         -16, %l1
+    set         76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -97,7 +98,7 @@ branchEnd_0:
 /* Printing bool a */
 /* line number 9*/
 /* Loading a to %l0 */
-    set         -20, %l1
+    set         80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -121,7 +122,7 @@ branchEnd_1:
 /* Loading 5.55 to %f0 */
     set         float_1, %l0
     add         %g0, %l0, %l0
-    ld          [%l0], %f0
+    ld          [%l0], %l0
     ba      foo_end
     nop
 foo_end:
@@ -151,18 +152,74 @@ globalInit_end:
     nop
 /* line number 15*/
 /* Done printing string. */
+/* line number 15*/
+/* Preparing argument x */
+/* line number 15*/
+/* Loading x to %o0 */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
+/* line number 15*/
+/* Preparing argument y */
+/* line number 15*/
+/* Loading y to %f1 */
+    set         y, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %f1
+/* line number 15*/
+/* Preparing argument z */
+/* line number 15*/
+/* Loading z to %o2 */
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o2
+/* line number 15*/
+/* Preparing argument a */
+/* line number 15*/
+/* Loading a to %o3 */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o3
     call    foo
     nop
 /* line number 15*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
+/* line number 15*/
+/* Preparing argument x */
+/* line number 15*/
+/* Loading x to %o0 */
+    set         x, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o0
+/* line number 15*/
+/* Preparing argument foo() */
+/* line number 15*/
+/* Loading foo() to %f1 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+/* line number 15*/
+/* Preparing argument z */
+/* line number 15*/
+/* Loading z to %o2 */
+    set         z, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o2
+/* line number 15*/
+/* Preparing argument a */
+/* line number 15*/
+/* Loading a to %o3 */
+    set         a, %l1
+    add         %g0, %l1, %l1
+    ld          [%l1], %o3
     call    foo
     nop
 /* line number 15*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 15*/
-/* printing float STO.VarSTO@6d234c */
+/* printing float STO.VarSTO@132e233 */
 /* line number 15*/
 /* Loading foo() to %f0 */
     set         -12, %l1

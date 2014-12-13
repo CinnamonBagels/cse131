@@ -148,7 +148,7 @@ globalInit_end:
     call    foo1
     nop
 /* line number 20*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 20*/
 /* Printing int foo1() */

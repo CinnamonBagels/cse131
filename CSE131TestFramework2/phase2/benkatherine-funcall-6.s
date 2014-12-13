@@ -22,13 +22,13 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 3*/
 /* Printing int x */
     set         _intFmt, %o0
 /* line number 3*/
 /* Loading x to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -39,7 +39,7 @@ foo:
     call    printf
     nop
 ! --storing constant x with value 2.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         2, %l1
     st          %l1, [%l0]
@@ -48,7 +48,7 @@ foo:
     set         _intFmt, %o0
 /* line number 7*/
 /* Loading x to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -83,6 +83,10 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 14*/
 /* Done. */
+/* line number 14*/
+/* Preparing argument a */
+    set         -8, %o0
+    add         %fp, %o0, %o0
     call    foo
     nop
 /* line number 16*/

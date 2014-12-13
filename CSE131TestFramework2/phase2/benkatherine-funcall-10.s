@@ -22,12 +22,12 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 4*/
 /* Returning value from foo */
 /* line number 4*/
 /* Loading x to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo_end
@@ -51,15 +51,27 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 8*/
+/* Preparing argument 3 */
+/* line number 8*/
+/* Loading 3 to %o0 */
+    set         3, %o0
     call    foo
     nop
 /* line number 8*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
+/* line number 8*/
+/* Preparing argument foo() */
+/* line number 8*/
+/* Loading foo() to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo
     nop
 /* line number 8*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-12]
 /* line number 8*/
 /* Printing int foo() */

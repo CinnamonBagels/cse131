@@ -460,10 +460,18 @@ endIf_5:
     add         %fp, %l1, %l1
     ld          [%l1], %f0
 /* line number 39*/
-/* Loading 5.55 to %f1 */
-    set         float_7, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Storing variable 5.55 into temp */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         float_7, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 39*/
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fcmps       %f0, %f1
     fbl     less_3
     nop

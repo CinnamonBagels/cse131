@@ -22,7 +22,7 @@ foo:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 8*/
 /* setting i = 0 */
     set         0, %l0
@@ -84,7 +84,7 @@ arrayInBounds_0:
     call    .mul
     nop
     mov         %o0, %l2
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     add         %l1, %l2, %l4
     set         -16, %l5
@@ -293,6 +293,10 @@ arrayEnd_1:
     ba      while_1
     nop
 whileEnd_1:
+/* line number 33*/
+/* Preparing argument array */
+    set         null, %o0
+    add         null, %o0, %o0
     call    foo
     nop
 main_end:

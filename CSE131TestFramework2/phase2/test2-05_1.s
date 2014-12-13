@@ -57,7 +57,7 @@ globalInit_end:
     call    trueFunc
     nop
 /* line number 10*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 10*/
 /* Loading trueFunc() to %l0 */

@@ -31,18 +31,19 @@ foo:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 7*/
 /* Storing parameter y */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 7*/
 /* Storing parameter z */
+    st          %f2, [%fp+76]
 /* line number 8*/
 /* Printing int x */
     set         _intFmt, %o0
 /* line number 8*/
 /* Loading x to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -61,7 +62,7 @@ foo:
 /* Printing bool y */
 /* line number 8*/
 /* Loading y to %l0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -88,10 +89,10 @@ branchEnd_0:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@10bb83e */
+/* printing float STO.VarSTO@132e233 */
 /* line number 8*/
 /* Loading z to %f0 */
-    set         -16, %l1
+    set         76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -143,6 +144,27 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 16*/
 /* Done. */
+/* line number 16*/
+/* Preparing argument a */
+/* line number 16*/
+/* Loading a to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
+/* line number 16*/
+/* Preparing argument b */
+/* line number 16*/
+/* Loading b to %o1 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
+/* line number 16*/
+/* Preparing argument c */
+/* line number 16*/
+/* Loading c to %f2 */
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f2
     call    foo
     nop
 /* line number 18*/
@@ -196,7 +218,7 @@ branchEnd_1:
 /* line number 18*/
 /* Done printing string. */
 /* line number 18*/
-/* printing float STO.VarSTO@2709da */
+/* printing float STO.VarSTO@8f337b */
 /* line number 18*/
 /* Loading z to %f0 */
     set         z, %l1

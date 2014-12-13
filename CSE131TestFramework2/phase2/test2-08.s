@@ -217,7 +217,7 @@ globalInit_end:
 /* line number 17*/
 /* Done. */
 /* line number 17*/
-/* printing float STO.VarSTO@1a83205 */
+/* printing float STO.VarSTO@adb165 */
 /* line number 17*/
 /* Loading lall to %f0 */
     set         -44, %l1

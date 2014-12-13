@@ -87,30 +87,30 @@ globalInit_end:
 /* Starting greater than */
 /* line number 9*/
 /* Storing variable 1.11 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_3, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 9*/
-/* Loading 1.11 to %f0 */
-    set         float_3, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 9*/
 /* Storing variable 3.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_2, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 9*/
-/* Loading 3.33 to %f1 */
-    set         float_2, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fcmps       %f0, %f1
     fbg     greater_0
     nop
@@ -158,30 +158,30 @@ branchEnd_0:
 /* Starting greater than */
 /* line number 10*/
 /* Storing variable 3.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_5, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 10*/
-/* Loading 3.33 to %f0 */
-    set         float_5, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 10*/
 /* Storing variable 1.11 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_4, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 10*/
-/* Loading 1.11 to %f1 */
-    set         float_4, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fcmps       %f0, %f1
     fbg     greater_1
     nop
@@ -229,25 +229,17 @@ branchEnd_1:
 /* Starting greater than */
 /* line number 11*/
 /* Storing variable 3.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_6, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 11*/
-/* Loading 3.33 to %f0 */
-    set         float_6, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
-/* line number 11*/
-/* Storing variable y into temp */
-    set         4, %l5
-    add         %fp, %l5, %l5
-    set         main_y, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l5]
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 11*/
 /* Loading y to %f1 */
     set         main_y, %l1
@@ -304,10 +296,18 @@ branchEnd_2:
     add         %g0, %l1, %l1
     ld          [%l1], %f0
 /* line number 12*/
-/* Loading 3.33 to %f1 */
-    set         float_7, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Storing variable 3.33 into temp */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         float_7, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 12*/
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fcmps       %f0, %f1
     fbg     greater_3
     nop
@@ -358,26 +358,28 @@ branchEnd_3:
 /* Starting greater than */
 /* line number 13*/
 /* Storing variable x into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         3, %l3
     st          %l3, [%l5]
 /* line number 13*/
-/* Loading x to %f0 */
-    set         3, %f0
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 13*/
 /* Storing variable 3.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_8, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 13*/
-/* Loading 3.33 to %f1 */
-    set         float_8, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fitos       %f0, %f0
     fcmps       %f0, %f1
     fbg     greater_4
@@ -429,26 +431,28 @@ branchEnd_4:
 /* Starting greater than */
 /* line number 14*/
 /* Storing variable 3.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_9, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 14*/
-/* Loading 3.33 to %f0 */
-    set         float_9, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 14*/
 /* Storing variable x into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         3, %l3
     st          %l3, [%l5]
 /* line number 14*/
-/* Loading x to %f1 */
-    set         3, %f1
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fitos       %f1, %f1
     fcmps       %f0, %f1
     fbg     greater_5
@@ -502,25 +506,17 @@ branchEnd_5:
 /* Starting greater than */
 /* line number 15*/
 /* Storing variable 3.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_10, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 15*/
-/* Loading 3.33 to %f0 */
-    set         float_10, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
-/* line number 15*/
-/* Storing variable x into temp */
-    set         4, %l5
-    add         %fp, %l5, %l5
-    set         x, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 15*/
 /* Loading x to %f1 */
     set         x, %l1
@@ -583,10 +579,18 @@ branchEnd_6:
     add         %g0, %l1, %l1
     ld          [%l1], %f0
 /* line number 16*/
-/* Loading 3.33 to %f1 */
-    set         float_11, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Storing variable 3.33 into temp */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         float_11, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 16*/
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fitos       %f0, %f0
     fcmps       %f0, %f1
     fbg     greater_7
@@ -639,10 +643,18 @@ branchEnd_7:
     add         %g0, %l1, %l1
     ld          [%l1], %f0
 /* line number 17*/
-/* Loading 3.33 to %f1 */
-    set         float_12, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Storing variable 3.33 into temp */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         float_12, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 17*/
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fcmps       %f0, %f1
     fbg     greater_8
     nop
@@ -690,25 +702,17 @@ branchEnd_8:
 /* Starting greater than */
 /* line number 18*/
 /* Storing variable 3.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_13, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 18*/
-/* Loading 3.33 to %f0 */
-    set         float_13, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
-/* line number 18*/
-/* Storing variable y into temp */
-    set         4, %l5
-    add         %fp, %l5, %l5
-    set         y, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l5]
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 18*/
 /* Loading y to %f1 */
     set         y, %l1
@@ -874,8 +878,16 @@ branchEnd_11:
     add         %g0, %l1, %l1
     ld          [%l1], %f0
 /* line number 21*/
-/* Loading 3 to %f1 */
-    set         3, %f1
+/* Storing variable 3 into temp */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         3, %l3
+    st          %l3, [%l5]
+/* line number 21*/
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fitos       %f1, %f1
     fcmps       %f0, %f1
     fbg     greater_12
@@ -927,21 +939,15 @@ branchEnd_12:
 /* Starting greater than */
 /* line number 22*/
 /* Storing variable 3 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         3, %l3
     st          %l3, [%l5]
 /* line number 22*/
-/* Loading 3 to %f0 */
-    set         3, %f0
-/* line number 22*/
-/* Storing variable y into temp */
-    set         4, %l5
-    add         %fp, %l5, %l5
-    set         y, %l3
-    add         %g0, %l3, %l3
-    ld          [%l3], %f1
-    st          %f1, [%l5]
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 22*/
 /* Loading y to %f1 */
     set         y, %l1

@@ -29,9 +29,10 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter a */
+    st          %f0, [%fp+68]
 /* line number 2*/
 /* Storing parameter r */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 3*/
 /* printing string */
     set         _strFmt, %o0
@@ -45,7 +46,7 @@ foo:
     set         _intFmt, %o0
 /* line number 3*/
 /* Loading r to %o1 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -67,7 +68,7 @@ foo:
     call    printf
     nop
 ! --storing constant a with value 351.22
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         float_2, %l1
     add         %g0, %l1, %l1
@@ -76,10 +77,10 @@ foo:
 /* line number 7*/
 /* Returning value from foo */
 /* line number 7*/
-/* Loading r to %i0 */
-    set         -12, %l1
+/* Loading r to %f0 */
+    set         72, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     fitos       %f0, %f0
     ba      foo_end
     nop
@@ -122,7 +123,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing string. */
 /* line number 14*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@16c2195 */
 /* line number 14*/
 /* Loading noob to %f0 */
     set         -8, %l1
@@ -135,10 +136,19 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 15*/
+/* Preparing argument noob */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 15*/
+/* Preparing argument 88 */
+/* line number 15*/
+/* Loading 88 to %o1 */
+    set         88, %o1
     call    foo
     nop
 /* line number 15*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-12]
 /* line number 17*/
 /* setting c = foo() */
@@ -159,7 +169,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 17*/
 /* Loading c to %f0 */
     set         -16, %l1
@@ -181,7 +191,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@8f337b */
+/* printing float STO.VarSTO@16c2195 */
 /* line number 19*/
 /* Loading noob to %f0 */
     set         -8, %l1

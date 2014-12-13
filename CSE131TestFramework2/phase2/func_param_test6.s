@@ -22,20 +22,20 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter b */
-    st          %i1, [%fp+-12]
+    st          %i1, [%fp+72]
 /* line number 3*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 3*/
 /* Loading b to %l0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 3*/
 /* Loading b to %l1 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 3*/
@@ -80,10 +80,21 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 9*/
 /* Done. */
+/* line number 9*/
+/* Preparing argument k */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 9*/
+/* Preparing argument k */
+/* line number 9*/
+/* Loading k to %o1 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o1
     call    foo
     nop
 /* line number 9*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-12]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */

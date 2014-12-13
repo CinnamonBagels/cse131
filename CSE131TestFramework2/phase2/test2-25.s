@@ -26,18 +26,19 @@ foo2:
     save        %sp, %g1, %sp
 /* line number 3*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 3*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 3*/
 /* Storing parameter z */
-    st          %i2, [%fp+-16]
+    st          %i2, [%fp+76]
 /* line number 4*/
 /* Printing int x */
     set         _intFmt, %o0
 /* line number 4*/
 /* Loading x to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -53,10 +54,10 @@ foo2:
 /* line number 4*/
 /* Done printing string. */
 /* line number 4*/
-/* printing float STO.VarSTO@4cb3a4 */
+/* printing float STO.VarSTO@a047d3 */
 /* line number 4*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -75,7 +76,7 @@ foo2:
 /* Printing bool z */
 /* line number 4*/
 /* Loading z to %l0 */
-    set         -16, %l1
+    set         76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
@@ -108,18 +109,25 @@ foo:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 7*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 7*/
 /* Storing parameter z */
-    st          %i2, [%fp+-16]
+    st          %i2, [%fp+76]
 /* line number 8*/
 /* Preparing argument x */
+    set         68, %o0
+    add         %fp, %o0, %o0
 /* line number 8*/
 /* Preparing argument y */
+    set         72, %o1
+    add         %fp, %o1, %o1
 /* line number 8*/
 /* Preparing argument z */
+    set         76, %o2
+    add         %fp, %o2, %o2
     call    foo2
     nop
 foo_end:
@@ -164,6 +172,18 @@ globalInit_end:
     st          %l0, [%fp-16]
 /* line number 16*/
 /* Done. */
+/* line number 16*/
+/* Preparing argument x */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 16*/
+/* Preparing argument y */
+    set         -12, %o1
+    add         %fp, %o1, %o1
+/* line number 16*/
+/* Preparing argument b */
+    set         -16, %o2
+    add         %fp, %o2, %o2
     call    foo
     nop
 ! --storing constant x with value 0.0
@@ -183,6 +203,18 @@ globalInit_end:
     add         %fp, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
+/* line number 22*/
+/* Preparing argument x */
+    set         -8, %o0
+    add         %fp, %o0, %o0
+/* line number 22*/
+/* Preparing argument y */
+    set         -12, %o1
+    add         %fp, %o1, %o1
+/* line number 22*/
+/* Preparing argument b */
+    set         -16, %o2
+    add         %fp, %o2, %o2
     call    foo
     nop
 main_end:

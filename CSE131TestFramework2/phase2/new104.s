@@ -154,7 +154,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@d55a0f */
+/* printing float STO.ExprSTO@1be4050 */
 /* line number 8*/
 /* Loading Validating UnaryOp y as a FloatType for operator: --...
  to %f0 */
@@ -183,7 +183,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@10bb83e */
+/* printing float STO.ExprSTO@170526a */
 /* line number 8*/
 /* Loading Validating UnaryOp y as a FloatType for operator: --...
  to %f0 */

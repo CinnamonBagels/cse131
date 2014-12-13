@@ -59,7 +59,7 @@ foo:
 /* line number 9*/
 /* Done printing string. */
 /* line number 9*/
-/* printing float STO.VarSTO@41e2aa */
+/* printing float STO.VarSTO@fc4957 */
 /* line number 9*/
 /* Loading b to %f0 */
     set         -8, %l1
@@ -75,10 +75,10 @@ foo:
 /* line number 11*/
 /* Returning value from foo */
 /* line number 11*/
-/* Loading b to %i0 */
+/* Loading b to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo_end
     nop
 foo_end:
@@ -103,7 +103,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 15*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 17*/
 /* setting c = foo() */
@@ -124,7 +124,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 17*/
 /* Loading c to %f0 */
     set         -12, %l1
@@ -140,7 +140,7 @@ globalInit_end:
     call    bar
     nop
 /* line number 19*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 19*/
 /* Converting int bar() to float. */
@@ -158,7 +158,7 @@ globalInit_end:
 /* Assigning converted bar() to c */
     set         -12, %l2
     add         %fp, %l2, %l2
-    st          %f1, [%l2]
+    st          %f1, [%f1]
 /* line number 21*/
 /* printing string */
     set         _strFmt, %o0
@@ -168,7 +168,7 @@ globalInit_end:
 /* line number 21*/
 /* Done printing string. */
 /* line number 21*/
-/* printing float STO.VarSTO@1a183d2 */
+/* printing float STO.VarSTO@24de67 */
 /* line number 21*/
 /* Loading c to %f0 */
     set         -12, %l1

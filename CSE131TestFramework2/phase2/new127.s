@@ -126,30 +126,30 @@ else_1:
 /* Starting greater than */
 /* line number 13*/
 /* Storing variable 5.33 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_4, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 13*/
-/* Loading 5.33 to %f0 */
-    set         float_4, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 13*/
 /* Storing variable 5.32 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_3, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 13*/
-/* Loading 5.32 to %f1 */
-    set         float_3, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f1
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fcmps       %f0, %f1
     fbg     greater_1
     nop
@@ -183,26 +183,28 @@ if_3:
 /* Starting Less than */
 /* line number 15*/
 /* Storing variable 2.5 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         float_5, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
 /* line number 15*/
-/* Loading 2.5 to %f0 */
-    set         float_5, %l0
-    add         %g0, %l0, %l0
-    ld          [%l0], %f0
+/* Loading temp to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
 /* line number 15*/
 /* Storing variable 1 into temp */
-    set         4, %l5
+    set         -4, %l5
     add         %fp, %l5, %l5
     set         1, %l3
     st          %l3, [%l5]
 /* line number 15*/
-/* Loading 1 to %f1 */
-    set         1, %f1
+/* Loading temp to %f1 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
     fitos       %f1, %f1
     fcmps       %f0, %f1
     fbl     less_2

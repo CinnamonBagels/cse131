@@ -26,9 +26,9 @@ woo:
     save        %sp, %g1, %sp
 /* line number 4*/
 /* Storing parameter k */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 ! --storing constant k with value 999.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         999, %l1
     st          %l1, [%l0]
@@ -44,14 +44,16 @@ wohoo:
     save        %sp, %g1, %sp
 /* line number 8*/
 /* Storing parameter j */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 ! --storing constant j with value 9.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         9, %l1
     st          %l1, [%l0]
 /* line number 10*/
 /* Preparing argument j */
+    set         68, %o0
+    add         %fp, %o0, %o0
     call    woo
     nop
 wohoo_end:
@@ -66,9 +68,11 @@ woohooo2:
     save        %sp, %g1, %sp
 /* line number 13*/
 /* Storing parameter a */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 14*/
 /* Preparing argument a */
+    set         68, %o0
+    add         %fp, %o0, %o0
     call    wohoo
     nop
 woohooo2_end:
@@ -92,9 +96,9 @@ main:
 globalInit_end:
 /* line number 18*/
 /* Storing parameter y */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 ! --storing constant y with value 6.0
-    set         -8, %l0
+    set         68, %l0
     add         %fp, %l0, %l0
     set         6, %l1
     st          %l1, [%l0]
@@ -111,7 +115,7 @@ globalInit_end:
     set         _intFmt, %o0
 /* line number 21*/
 /* Loading y to %o1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -123,11 +127,8 @@ globalInit_end:
     nop
 /* line number 22*/
 /* Preparing argument y */
-/* line number 22*/
-/* Loading y to %o0 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
+    set         68, %o0
+    add         %fp, %o0, %o0
     call    woohooo2
     nop
 /* line number 23*/
@@ -143,7 +144,7 @@ globalInit_end:
     set         _intFmt, %o0
 /* line number 23*/
 /* Loading y to %o1 */
-    set         -4, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf

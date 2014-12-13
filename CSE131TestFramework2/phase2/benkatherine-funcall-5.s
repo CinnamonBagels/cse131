@@ -22,13 +22,15 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
+    st          %f0, [%fp+68]
 /* line number 2*/
 /* Storing parameter y */
+    st          %f1, [%fp+72]
 /* line number 3*/
-/* printing float STO.VarSTO@1a5ff38 */
+/* printing float STO.VarSTO@a047d3 */
 /* line number 3*/
 /* Loading x to %f0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -36,10 +38,10 @@ foo:
 /* line number 3*/
 /* Done printing float. */
 /* line number 3*/
-/* printing float STO.VarSTO@116f2e6 */
+/* printing float STO.VarSTO@cb741e */
 /* line number 3*/
 /* Loading y to %f0 */
-    set         -12, %l1
+    set         72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -74,6 +76,36 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 9*/
 /* Done. */
+/* line number 9*/
+/* Preparing argument 777 */
+/* line number 9*/
+/* promoting */
+/* line number 9*/
+/* Storing variable 777 into promoteCasting */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         777, %l3
+    st          %l3, [%l5]
+/* line number 9*/
+/* Loading promoteCasting to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    fitos       %f0, %f0
+/* line number 9*/
+/* done promoting */
+/* line number 9*/
+/* Preparing argument a */
+/* line number 9*/
+/* promoting */
+/* line number 9*/
+/* Loading a to %f1 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f1, %f1
+/* line number 9*/
+/* done promoting */
     call    foo
     nop
 main_end:

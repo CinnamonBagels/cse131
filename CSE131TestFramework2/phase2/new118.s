@@ -74,12 +74,12 @@ foo3:
     save        %sp, %g1, %sp
 /* line number 21*/
 /* Storing parameter t */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 23*/
 /* Returning value from foo3 */
 /* line number 23*/
 /* Loading t to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo3_end
@@ -1336,7 +1336,7 @@ branchEnd_11:
     call    foo1
     nop
 /* line number 55*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-124]
 /* line number 55*/
 /* Short-circuiting || with foo1() */
@@ -1351,7 +1351,7 @@ branchEnd_11:
     call    foo
     nop
 /* line number 55*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-128]
 /* line number 55*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1412,7 +1412,7 @@ branchEnd_12:
     call    foo
     nop
 /* line number 56*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-136]
 /* line number 56*/
 /* Short-circuiting || with foo() */
@@ -1427,7 +1427,7 @@ branchEnd_12:
     call    foo1
     nop
 /* line number 56*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-140]
 /* line number 56*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1488,7 +1488,7 @@ branchEnd_13:
     call    foo
     nop
 /* line number 57*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-148]
 /* line number 57*/
 /* Short-circuiting || with foo() */
@@ -1503,7 +1503,7 @@ branchEnd_13:
     call    foo
     nop
 /* line number 57*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-152]
 /* line number 57*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1564,7 +1564,7 @@ branchEnd_14:
     call    foo1
     nop
 /* line number 58*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-160]
 /* line number 58*/
 /* Short-circuiting || with foo1() */
@@ -1579,7 +1579,7 @@ branchEnd_14:
     call    foo1
     nop
 /* line number 58*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-164]
 /* line number 58*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1640,7 +1640,7 @@ branchEnd_15:
     call    foo2
     nop
 /* line number 60*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-172]
 /* line number 60*/
 /* Short-circuiting || with foo2() */
@@ -1655,7 +1655,7 @@ branchEnd_15:
     call    foo
     nop
 /* line number 60*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-176]
 /* line number 60*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1716,7 +1716,7 @@ branchEnd_16:
     call    foo
     nop
 /* line number 61*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-184]
 /* line number 61*/
 /* Short-circuiting || with foo() */
@@ -1731,7 +1731,7 @@ branchEnd_16:
     call    foo2
     nop
 /* line number 61*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-188]
 /* line number 61*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1792,7 +1792,7 @@ branchEnd_17:
     call    foo1
     nop
 /* line number 62*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-196]
 /* line number 62*/
 /* Short-circuiting || with foo1() */
@@ -1807,7 +1807,7 @@ branchEnd_17:
     call    foo2
     nop
 /* line number 62*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-200]
 /* line number 62*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1868,7 +1868,7 @@ branchEnd_18:
     call    foo2
     nop
 /* line number 63*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-208]
 /* line number 63*/
 /* Short-circuiting || with foo2() */
@@ -1883,7 +1883,7 @@ branchEnd_18:
     call    foo1
     nop
 /* line number 63*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-212]
 /* line number 63*/
 /* Prepping Arithmetic Calculations by loading */
@@ -1944,7 +1944,7 @@ branchEnd_19:
     call    foo2
     nop
 /* line number 65*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-220]
 /* line number 65*/
 /* Short-circuiting || with foo2() */
@@ -1956,10 +1956,15 @@ branchEnd_19:
     cmp         %l1, %g0
     bne     orT_20
     nop
+/* line number 65*/
+/* Preparing argument true */
+/* line number 65*/
+/* Loading true to %o0 */
+    set         1, %o0
     call    foo3
     nop
 /* line number 65*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-224]
 /* line number 65*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2020,7 +2025,7 @@ branchEnd_20:
     call    foo2
     nop
 /* line number 66*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-232]
 /* line number 66*/
 /* Short-circuiting || with foo2() */
@@ -2032,10 +2037,15 @@ branchEnd_20:
     cmp         %l1, %g0
     bne     orT_21
     nop
+/* line number 66*/
+/* Preparing argument false */
+/* line number 66*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo3
     nop
 /* line number 66*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-236]
 /* line number 66*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2096,7 +2106,7 @@ branchEnd_21:
     call    foo2
     nop
 /* line number 67*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-244]
 /* line number 67*/
 /* Short-circuiting || with foo2() */
@@ -2108,10 +2118,17 @@ branchEnd_21:
     cmp         %l1, %g0
     bne     orT_22
     nop
+/* line number 67*/
+/* Preparing argument x */
+/* line number 67*/
+/* Loading x to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 67*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-248]
 /* line number 67*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2172,7 +2189,7 @@ branchEnd_22:
     call    foo2
     nop
 /* line number 68*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-256]
 /* line number 68*/
 /* Short-circuiting || with foo2() */
@@ -2184,10 +2201,17 @@ branchEnd_22:
     cmp         %l1, %g0
     bne     orT_23
     nop
+/* line number 68*/
+/* Preparing argument y */
+/* line number 68*/
+/* Loading y to %o0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 68*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-260]
 /* line number 68*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2245,10 +2269,15 @@ branchEnd_23:
     set         _endl, %o0
     call    printf
     nop
+/* line number 70*/
+/* Preparing argument true */
+/* line number 70*/
+/* Loading true to %o0 */
+    set         1, %o0
     call    foo3
     nop
 /* line number 70*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-268]
 /* line number 70*/
 /* Short-circuiting || with foo3() */
@@ -2260,10 +2289,15 @@ branchEnd_23:
     cmp         %l1, %g0
     bne     orT_24
     nop
+/* line number 70*/
+/* Preparing argument true */
+/* line number 70*/
+/* Loading true to %o0 */
+    set         1, %o0
     call    foo3
     nop
 /* line number 70*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-272]
 /* line number 70*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2321,10 +2355,15 @@ branchEnd_24:
     set         _endl, %o0
     call    printf
     nop
+/* line number 71*/
+/* Preparing argument false */
+/* line number 71*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo3
     nop
 /* line number 71*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-280]
 /* line number 71*/
 /* Short-circuiting || with foo3() */
@@ -2336,10 +2375,15 @@ branchEnd_24:
     cmp         %l1, %g0
     bne     orT_25
     nop
+/* line number 71*/
+/* Preparing argument false */
+/* line number 71*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo3
     nop
 /* line number 71*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-284]
 /* line number 71*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2397,10 +2441,15 @@ branchEnd_25:
     set         _endl, %o0
     call    printf
     nop
+/* line number 72*/
+/* Preparing argument true */
+/* line number 72*/
+/* Loading true to %o0 */
+    set         1, %o0
     call    foo3
     nop
 /* line number 72*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-292]
 /* line number 72*/
 /* Short-circuiting || with foo3() */
@@ -2412,10 +2461,15 @@ branchEnd_25:
     cmp         %l1, %g0
     bne     orT_26
     nop
+/* line number 72*/
+/* Preparing argument false */
+/* line number 72*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo3
     nop
 /* line number 72*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-296]
 /* line number 72*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2473,10 +2527,15 @@ branchEnd_26:
     set         _endl, %o0
     call    printf
     nop
+/* line number 73*/
+/* Preparing argument false */
+/* line number 73*/
+/* Loading false to %o0 */
+    set         0, %o0
     call    foo3
     nop
 /* line number 73*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-304]
 /* line number 73*/
 /* Short-circuiting || with foo3() */
@@ -2488,10 +2547,15 @@ branchEnd_26:
     cmp         %l1, %g0
     bne     orT_27
     nop
+/* line number 73*/
+/* Preparing argument true */
+/* line number 73*/
+/* Loading true to %o0 */
+    set         1, %o0
     call    foo3
     nop
 /* line number 73*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-308]
 /* line number 73*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2549,10 +2613,17 @@ branchEnd_27:
     set         _endl, %o0
     call    printf
     nop
+/* line number 75*/
+/* Preparing argument x */
+/* line number 75*/
+/* Loading x to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 75*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-316]
 /* line number 75*/
 /* Short-circuiting || with foo3() */
@@ -2564,10 +2635,17 @@ branchEnd_27:
     cmp         %l1, %g0
     bne     orT_28
     nop
+/* line number 75*/
+/* Preparing argument y */
+/* line number 75*/
+/* Loading y to %o0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 75*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-320]
 /* line number 75*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2625,10 +2703,17 @@ branchEnd_28:
     set         _endl, %o0
     call    printf
     nop
+/* line number 76*/
+/* Preparing argument x */
+/* line number 76*/
+/* Loading x to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 76*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-328]
 /* line number 76*/
 /* Short-circuiting || with foo3() */
@@ -2640,10 +2725,17 @@ branchEnd_28:
     cmp         %l1, %g0
     bne     orT_29
     nop
+/* line number 76*/
+/* Preparing argument x */
+/* line number 76*/
+/* Loading x to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 76*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-332]
 /* line number 76*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2701,10 +2793,17 @@ branchEnd_29:
     set         _endl, %o0
     call    printf
     nop
+/* line number 77*/
+/* Preparing argument y */
+/* line number 77*/
+/* Loading y to %o0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 77*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-340]
 /* line number 77*/
 /* Short-circuiting || with foo3() */
@@ -2716,10 +2815,17 @@ branchEnd_29:
     cmp         %l1, %g0
     bne     orT_30
     nop
+/* line number 77*/
+/* Preparing argument x */
+/* line number 77*/
+/* Loading x to %o0 */
+    set         -8, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 77*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-344]
 /* line number 77*/
 /* Prepping Arithmetic Calculations by loading */
@@ -2777,10 +2883,17 @@ branchEnd_30:
     set         _endl, %o0
     call    printf
     nop
+/* line number 78*/
+/* Preparing argument y */
+/* line number 78*/
+/* Loading y to %o0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 78*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-352]
 /* line number 78*/
 /* Short-circuiting || with foo3() */
@@ -2792,10 +2905,17 @@ branchEnd_30:
     cmp         %l1, %g0
     bne     orT_31
     nop
+/* line number 78*/
+/* Preparing argument y */
+/* line number 78*/
+/* Loading y to %o0 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %o0
     call    foo3
     nop
 /* line number 78*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-356]
 /* line number 78*/
 /* Prepping Arithmetic Calculations by loading */

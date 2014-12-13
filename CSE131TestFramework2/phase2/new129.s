@@ -23,12 +23,12 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %i0, [%fp+-8]
+    st          %i0, [%fp+68]
 /* line number 3*/
 /* Prepping Comparison Calculations by loading */
 /* line number 3*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 3*/
@@ -64,7 +64,7 @@ if_0:
 /* Returning value from foo */
 /* line number 6*/
 /* Loading x to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo_end
@@ -76,7 +76,7 @@ else_0:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 9*/
 /* Loading x to %l0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 9*/
@@ -94,13 +94,13 @@ else_0:
 /* Preparing argument int - int */
 /* line number 9*/
 /* Loading int - int to %o0 */
-    set         -4, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o0
     call    foo
     nop
 /* line number 9*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
@@ -111,7 +111,7 @@ else_0:
     ld          [%l1], %l0
 /* line number 9*/
 /* Loading x to %l1 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 9*/
@@ -140,7 +140,7 @@ endIf_1:
 /* Returning value from foo */
 /* line number 12*/
 /* Loading x to %i0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
     ba      foo_end
@@ -175,10 +175,15 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 17*/
 /* Done. */
+/* line number 17*/
+/* Preparing argument 5 */
+/* line number 17*/
+/* Loading 5 to %o0 */
+    set         5, %o0
     call    foo
     nop
 /* line number 17*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-12]
 /* line number 17*/
 /* Printing int foo() */
@@ -195,10 +200,15 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 18*/
+/* Preparing argument 6 */
+/* line number 18*/
+/* Loading 6 to %o0 */
+    set         6, %o0
     call    foo
     nop
 /* line number 18*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 18*/
 /* Printing int foo() */
@@ -215,10 +225,15 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 19*/
+/* Preparing argument 10 */
+/* line number 19*/
+/* Loading 10 to %o0 */
+    set         10, %o0
     call    foo
     nop
 /* line number 19*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-20]
 /* line number 19*/
 /* Printing int foo() */
@@ -252,7 +267,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 21*/
-/* printing float STO.ExprSTO@10d16b */
+/* printing float STO.ExprSTO@110c2e8 */
 /* line number 21*/
 /* Loading Validating UnaryOp x as a FloatType for operator: --...
  to %f0 */
@@ -283,7 +298,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 22*/
-/* printing float STO.ExprSTO@853e51 */
+/* printing float STO.ExprSTO@1620d92 */
 /* line number 22*/
 /* Loading Validating UnaryOp x as a FloatType for operator: ++...
  to %f0 */
@@ -332,7 +347,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 24*/
-/* printing float STO.ExprSTO@1be4050 */
+/* printing float STO.ExprSTO@69048b */
 /* line number 24*/
 /* Loading Validating UnaryOp x as a FloatType for operator: --...
  to %f0 */
@@ -347,7 +362,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float STO.VarSTO@197833e */
+/* printing float STO.VarSTO@10bb83e */
 /* line number 25*/
 /* Loading x to %f0 */
     set         -8, %l1

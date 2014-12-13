@@ -4,7 +4,8 @@
 FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x
 x:              .single      0r99.88     
-str_0:          .asciz       " "         
+float_0:        .single      0r123.45    
+str_1:          .asciz       " "         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -25,11 +26,12 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Storing parameter x */
+    st          %f0, [%fp+68]
 /* line number 6*/
-/* printing float STO.VarSTO@17cd18d */
+/* printing float STO.VarSTO@10d16b */
 /* line number 6*/
 /* Loading x to %f0 */
-    set         -8, %l1
+    set         68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -55,18 +57,25 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 10*/
+/* Preparing argument 123.45 */
+/* line number 10*/
+/* Loading 123.45 to %f0 */
+    set         float_0, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
     call    foo
     nop
 /* line number 11*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_0, %o1
+    set         str_1, %o1
     call    printf
     nop
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@10c16b7 */
+/* printing float STO.VarSTO@12c0b3f */
 /* line number 11*/
 /* Loading x to %f0 */
     set         x, %l1
