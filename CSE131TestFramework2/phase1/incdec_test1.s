@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -42,6 +43,8 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* Incrementing */
+/* line number 7*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -59,6 +62,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp x as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 7*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -71,6 +77,8 @@ globalInit_end:
     nop
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -85,6 +93,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp y as a IntegerType for operator: ++...
  */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading Validating UnaryOp y as a IntegerType for operator: ++...
+ to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -97,6 +108,8 @@ globalInit_end:
     nop
 /* line number 12*/
 /* Incrementing */
+/* line number 12*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -112,9 +125,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 12*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 12*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 12*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -129,6 +147,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int int + int */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading int + int to %o1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -141,6 +161,8 @@ globalInit_end:
     nop
 /* line number 13*/
 /* Incrementing */
+/* line number 13*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -153,9 +175,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 13*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 13*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: ++...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 13*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -170,6 +197,8 @@ globalInit_end:
 /* line number 13*/
 /* Printing int int + int */
     set         _intFmt, %o0
+/* line number 13*/
+/* Loading int + int to %o1 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -182,6 +211,8 @@ globalInit_end:
     nop
 /* line number 17*/
 /* Decrementing */
+/* line number 17*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -199,6 +230,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: --...
+ to %o1 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -211,6 +245,8 @@ globalInit_end:
     nop
 /* line number 18*/
 /* Decrementing */
+/* line number 18*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -225,6 +261,9 @@ globalInit_end:
 /* Printing int Validating UnaryOp x as a IntegerType for operator: --...
  */
     set         _intFmt, %o0
+/* line number 18*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: --...
+ to %o1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -237,6 +276,8 @@ globalInit_end:
     nop
 /* line number 22*/
 /* Decrementing */
+/* line number 22*/
+/* Loading y to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -252,9 +293,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 22*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 22*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 22*/
+/* Loading Validating UnaryOp y as a IntegerType for operator: --...
+ to %l1 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -269,6 +315,8 @@ globalInit_end:
 /* line number 22*/
 /* Printing int int - int */
     set         _intFmt, %o0
+/* line number 22*/
+/* Loading int - int to %o1 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -281,6 +329,8 @@ globalInit_end:
     nop
 /* line number 25*/
 /* Decrementing */
+/* line number 25*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -293,9 +343,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 25*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 25*/
+/* Loading Validating UnaryOp x as a IntegerType for operator: --...
+ to %l0 */
     set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 25*/
+/* Loading y to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -310,6 +365,8 @@ globalInit_end:
 /* line number 25*/
 /* Printing int int - int */
     set         _intFmt, %o0
+/* line number 25*/
+/* Loading int - int to %o1 */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

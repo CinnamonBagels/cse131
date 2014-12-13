@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r4.2       
 globalInit_:    .word        0           
 
@@ -41,7 +42,9 @@ globalInit_end:
 /* line number 4*/
 /* Done. */
 /* line number 4*/
-/* printing float STO.VarSTO@fbf107 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 4*/
+/* Loading a to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

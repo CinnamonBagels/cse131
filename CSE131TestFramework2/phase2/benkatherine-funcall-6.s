@@ -30,6 +30,7 @@ foo:
 /* Loading x to %o1 */
     set         68, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -41,6 +42,7 @@ foo:
 ! --storing constant x with value 2.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         2, %l1
     st          %l1, [%l0]
 /* line number 7*/
@@ -50,6 +52,7 @@ foo:
 /* Loading x to %o1 */
     set         68, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -85,8 +88,9 @@ globalInit_end:
 /* Done. */
 /* line number 14*/
 /* Preparing argument a */
-    set         -8, %o0
-    add         %fp, %o0, %o0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
     call    foo
     nop
 /* line number 16*/

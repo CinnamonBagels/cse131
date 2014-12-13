@@ -33,6 +33,7 @@ foo:
 ! --storing constant a with value 999.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         999, %l1
     st          %l1, [%l0]
 ! --storing constant b with value 1000.0
@@ -119,8 +120,9 @@ globalInit_end:
     nop
 /* line number 15*/
 /* Preparing argument thesmiths */
-    set         -8, %o0
-    add         %fp, %o0, %o0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
 /* line number 15*/
 /* Preparing argument theramones */
 /* line number 15*/

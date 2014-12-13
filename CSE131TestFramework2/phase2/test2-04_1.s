@@ -57,7 +57,7 @@ globalInit_end:
 /* line number 8*/
 /* Done. */
 /* line number 8*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@183bfee */
 /* line number 8*/
 /* Loading twoPointTwo to %f0 */
     set         -12, %l1
@@ -76,7 +76,7 @@ globalInit_end:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@fc4957 */
+/* printing float STO.VarSTO@1a183d2 */
 /* line number 8*/
 /* Loading onePointOne to %f0 */
     set         -8, %l1

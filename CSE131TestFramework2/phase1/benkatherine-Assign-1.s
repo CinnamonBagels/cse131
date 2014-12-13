@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y,z,q
 q:              .single      0r5.0       
 x:              .word        0           
@@ -45,9 +46,13 @@ globalInit_end:
 /* Done. */
 /* line number 12*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 12*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 12*/
+/* Loading x to %l1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -61,9 +66,13 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 12*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 12*/
+/* Loading int + int to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 12*/
+/* Loading z to %l1 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -88,6 +97,8 @@ globalInit_end:
 /* line number 13*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 13*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -101,6 +112,8 @@ globalInit_end:
 /* line number 14*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 14*/
+/* Loading b to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -113,6 +126,8 @@ globalInit_end:
     nop
 /* line number 15*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 15*/
+/* Loading w to %l0 */
     set         5, %l0
 /* line number 15*/
 /* Adding */
@@ -122,9 +137,13 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         5, %l3
     st          %l3, [%l5]
+/* line number 15*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 15*/
+/* Loading q to %f1 */
     set         q, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -145,6 +164,70 @@ globalInit_end:
     st          %f0, [%l0]
 /* line number 16*/
 /* Done. */
+/* line number 16*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 16*/
+/* Loading 5 to %l0 */
+    set         5, %l0
+/* line number 16*/
+/* Loading 5 to %l1 */
+    set         5, %l1
+/* line number 16*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 16*/
+/* Storing result of Binary Op */
+    set         -32, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 16*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 16*/
+/* Loading Arithmetic Op to %l0 */
+    set         10, %l0
+/* line number 16*/
+/* Loading 5 to %l1 */
+    set         5, %l1
+/* line number 16*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 16*/
+/* Storing result of Binary Op */
+    set         -36, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 16*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 16*/
+/* Loading Arithmetic Op to %l0 */
+    set         15, %l0
+/* line number 16*/
+/* Loading 5 to %l1 */
+    set         5, %l1
+/* line number 16*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 16*/
+/* Storing result of Binary Op */
+    set         -40, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 16*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 16*/
+/* Loading Arithmetic Op to %l0 */
+    set         20, %l0
+/* line number 16*/
+/* Loading 5 to %l1 */
+    set         5, %l1
+/* line number 16*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 16*/
+/* Storing result of Binary Op */
+    set         -44, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
 /* line number 17*/
 /* Converting int Arithmetic Op to float. */
 /* line number 17*/
@@ -155,6 +238,8 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         25, %l3
     st          %l3, [%l5]
+/* line number 17*/
+/* Loading promoteCasting to %f1 */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -163,11 +248,13 @@ globalInit_end:
 /* done promoting */
 /* line number 17*/
 /* Assigning converted Arithmetic Op to d */
-    set         -32, %l2
+    set         -48, %l2
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 17*/
-/* printing float STO.VarSTO@85b4c5 */
+/* printing float STO.VarSTO@10d16b */
+/* line number 17*/
+/* Loading c to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -179,8 +266,10 @@ globalInit_end:
     call    printf
     nop
 /* line number 18*/
-/* printing float STO.VarSTO@1ef8f5 */
-    set         -32, %l1
+/* printing float STO.VarSTO@24de67 */
+/* line number 18*/
+/* Loading d to %f0 */
+    set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -194,21 +283,27 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 19*/
 /* Adding */
-    set         -32, %l1
+/* line number 19*/
+/* Loading d to %f0 */
+    set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 19*/
+/* Loading c to %f1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
     fadds       %f0, %f1, %f3
 /* line number 19*/
 /* Storing result of Binary Op */
-    set         -36, %l4
+    set         -52, %l4
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 19*/
-/* printing float STO.ExprSTO@16ad447 */
-    set         -36, %l1
+/* printing float STO.ExprSTO@853e51 */
+/* line number 19*/
+/* Loading float + float to %f0 */
+    set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
@@ -221,4 +316,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 36) & -8
+SAVE.main = -(92 + 52) & -8

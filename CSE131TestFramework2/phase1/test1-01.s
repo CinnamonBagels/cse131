@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -37,6 +38,8 @@ globalInit_end:
 /* line number 4*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 4*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

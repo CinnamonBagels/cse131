@@ -70,6 +70,9 @@ arrayOutBounds_0:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -80,7 +83,6 @@ arrayEnd_0:
     add         %fp, %l0, %l0
     ld          [%l0], %l0
     set         float_0, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 10*/
@@ -112,6 +114,9 @@ arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         20, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -148,6 +153,9 @@ arrayOutBounds_2:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         100, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -196,6 +204,9 @@ arrayOutBounds_3:
     set         20, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -206,7 +217,6 @@ arrayEnd_3:
     add         %fp, %l0, %l0
     ld          [%l0], %l0
     set         float_1, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 13*/
@@ -238,6 +248,9 @@ arrayOutBounds_4:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         100, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -274,6 +287,9 @@ arrayOutBounds_5:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         20, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -322,13 +338,16 @@ arrayOutBounds_6:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_6:
 /* line number 15*/
-/* printing float STO.ExprSTO@1be4050 */
+/* printing float STO.ExprSTO@110c2e8 */
 /* line number 15*/
 /* Loading gfarr[4] to %f0 */
     set         -112, %l1
@@ -378,13 +397,16 @@ arrayOutBounds_7:
     set         20, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_7:
 /* line number 15*/
-/* printing float STO.ExprSTO@170526a */
+/* printing float STO.ExprSTO@16c171f */
 /* line number 15*/
 /* Loading lfarr[6] to %f0 */
     set         -116, %l1
@@ -434,13 +456,16 @@ arrayOutBounds_8:
     set         20, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_8:
 /* line number 15*/
-/* printing float STO.ExprSTO@132e233 */
+/* printing float STO.ExprSTO@1620d92 */
 /* line number 15*/
 /* Loading lfarr[4] to %f0 */
     set         -120, %l1
@@ -490,13 +515,16 @@ arrayOutBounds_9:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_9:
 /* line number 15*/
-/* printing float STO.ExprSTO@1a0c382 */
+/* printing float STO.ExprSTO@69048b */
 /* line number 15*/
 /* Loading gfarr[6] to %f0 */
     set         -124, %l1

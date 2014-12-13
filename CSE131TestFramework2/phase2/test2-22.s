@@ -38,10 +38,12 @@ foo:
 /* Loading x to %l0 */
     set         68, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %l0
     inc     %l0
     set         68, %l2
     add         %fp, %l2, %l2
+    ld          [%l2], %l2
     st          %l0, [%l2]
 /* line number 7*/
 /* Post Increment */
@@ -105,10 +107,12 @@ foo2:
 /* Loading y to %l0 */
     set         72, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %l0
     inc     %l0
     set         72, %l2
     add         %fp, %l2, %l2
+    ld          [%l2], %l2
     st          %l0, [%l2]
 /* line number 13*/
 /* Post Increment */
@@ -172,8 +176,9 @@ globalInit_end:
     nop
 /* line number 18*/
 /* Preparing argument x */
-    set         x, %o0
-    add         %g0, %o0, %o0
+    set         x, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o0
 /* line number 18*/
 /* Preparing argument y */
 /* line number 18*/
@@ -227,8 +232,9 @@ globalInit_end:
     ld          [%l1], %o0
 /* line number 20*/
 /* Preparing argument y */
-    set         y, %o1
-    add         %g0, %o1, %o1
+    set         y, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o1
     call    foo2
     nop
 /* line number 21*/

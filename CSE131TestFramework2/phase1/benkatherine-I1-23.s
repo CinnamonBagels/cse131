@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     a,b,x,y
 a:              .single      0r4.5       
 float_0:        .single      0r3.3       
@@ -48,6 +49,8 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         4, %l3
     st          %l3, [%l5]
+/* line number 9*/
+/* Loading promoteCasting to %f1 */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -63,6 +66,8 @@ globalInit_end:
 /* Converting int b to float. */
 /* line number 11*/
 /* promoting */
+/* line number 11*/
+/* Loading b to %f1 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -75,7 +80,9 @@ globalInit_end:
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 11*/
-/* printing float STO.VarSTO@1d15d1c */
+/* printing float STO.VarSTO@1620d92 */
+/* line number 11*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -87,7 +94,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 12*/
-/* printing float STO.VarSTO@380c76 */
+/* printing float STO.VarSTO@69048b */
+/* line number 12*/
+/* Loading d to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -100,6 +109,8 @@ globalInit_end:
     nop
 /* line number 14*/
 /* Starting array access */
+/* line number 14*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -127,6 +138,9 @@ arrayOutBounds_0:
     set         3, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -140,6 +154,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 16*/
 /* Starting array access */
+/* line number 16*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -167,6 +183,9 @@ arrayOutBounds_1:
     set         3, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -176,6 +195,8 @@ arrayEnd_1:
 /* Converting int x[2] to float. */
 /* line number 18*/
 /* promoting */
+/* line number 18*/
+/* Loading x[2] to %f1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -190,6 +211,8 @@ arrayEnd_1:
     st          %f1, [%l2]
 /* line number 18*/
 /* Starting array access */
+/* line number 18*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_2
@@ -217,6 +240,9 @@ arrayOutBounds_2:
     set         3, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -225,6 +251,8 @@ arrayEnd_2:
 /* line number 18*/
 /* Printing int x[2] */
     set         _intFmt, %o0
+/* line number 18*/
+/* Loading x[2] to %o1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -237,7 +265,9 @@ arrayEnd_2:
     call    printf
     nop
 /* line number 19*/
-/* printing float STO.VarSTO@1ba3afe */
+/* printing float STO.VarSTO@a969e4 */
+/* line number 19*/
+/* Loading e to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -250,6 +280,8 @@ arrayEnd_2:
     nop
 /* line number 21*/
 /* Starting array access */
+/* line number 21*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_3
@@ -277,6 +309,9 @@ arrayOutBounds_3:
     set         4, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -292,6 +327,8 @@ arrayEnd_3:
     st          %f0, [%l0]
 /* line number 23*/
 /* Starting array access */
+/* line number 23*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_4
@@ -319,13 +356,18 @@ arrayOutBounds_4:
     set         4, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_4:
 /* line number 23*/
-/* printing float STO.ExprSTO@176feaf */
+/* printing float STO.ExprSTO@67211b */
+/* line number 23*/
+/* Loading y[3] to %f0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -339,6 +381,8 @@ arrayEnd_4:
     nop
 /* line number 25*/
 /* Starting array access */
+/* line number 25*/
+/* Loading 3 to %l0 */
     set         3, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_5
@@ -366,6 +410,9 @@ arrayOutBounds_5:
     set         4, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -383,7 +430,9 @@ arrayEnd_5:
 /* line number 27*/
 /* Done. */
 /* line number 27*/
-/* printing float STO.VarSTO@14aa453 */
+/* printing float STO.VarSTO@ae8542 */
+/* line number 27*/
+/* Loading f to %f0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

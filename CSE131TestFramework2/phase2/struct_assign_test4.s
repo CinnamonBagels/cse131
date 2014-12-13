@@ -75,6 +75,9 @@ arrayOutBounds_0:
     set         50, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -117,6 +120,9 @@ arrayOutBounds_1:
     set         50, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -151,6 +157,9 @@ arrayOutBounds_2:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         50, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -199,6 +208,9 @@ arrayOutBounds_3:
     set         50, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -233,6 +245,9 @@ arrayOutBounds_4:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         50, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -279,6 +294,9 @@ arrayOutBounds_5:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         50, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -333,6 +351,9 @@ arrayOutBounds_6:
     set         50, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -383,6 +404,9 @@ arrayOutBounds_7:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         50, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0

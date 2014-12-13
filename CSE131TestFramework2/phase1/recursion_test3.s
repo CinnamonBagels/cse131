@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     counter
 counter:        .word        0           
 globalInit_:    .word        0           
@@ -23,6 +24,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Incrementing */
+/* line number 5*/
+/* Loading counter to %l0 */
     set         counter, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -38,9 +41,13 @@ foo:
     st          %l0, [%l1]
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading counter to %l0 */
     set         counter, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading 10 to %l1 */
     set         10, %l1
 /* line number 7*/
 /* Starting Less than */
@@ -58,6 +65,9 @@ lessEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 8*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -68,10 +78,12 @@ if_0:
     call    foo
     nop
 /* line number 9*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 10*/
 /* Returning value from foo */
+/* line number 10*/
+/* Loading foo() to %i0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -83,6 +95,8 @@ else_0:
 endIf_1:
 /* line number 13*/
 /* Returning value from foo */
+/* line number 13*/
+/* Loading counter to %i0 */
     set         counter, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %i0
@@ -110,7 +124,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 17*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 18*/
 /* setting final = foo() */
@@ -125,20 +139,22 @@ globalInit_end:
 ! --storing constant counter with value 0.0
     set         counter, %l0
     add         %g0, %l0, %l0
-    set         counter, %l0
-    add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
     call    foo
     nop
 /* line number 19*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 19*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 19*/
+/* Loading foo() to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 19*/
+/* Loading 10 to %l1 */
     set         10, %l1
 /* line number 19*/
 /* Adding */
@@ -161,20 +177,22 @@ globalInit_end:
 ! --storing constant counter with value 0.0
     set         counter, %l0
     add         %g0, %l0, %l0
-    set         counter, %l0
-    add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
     call    foo
     nop
 /* line number 21*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-28]
 /* line number 21*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 21*/
+/* Loading foo() to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 21*/
+/* Loading doubleFinal to %l1 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -199,13 +217,13 @@ globalInit_end:
 ! --storing constant counter with value 0.0
     set         counter, %l0
     add         %g0, %l0, %l0
-    set         counter, %l0
-    add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
 /* line number 24*/
 /* Printing int counter */
     set         _intFmt, %o0
+/* line number 24*/
+/* Loading counter to %o1 */
     set         counter, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -219,6 +237,8 @@ globalInit_end:
 /* line number 25*/
 /* Printing int final */
     set         _intFmt, %o0
+/* line number 25*/
+/* Loading final to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -232,6 +252,8 @@ globalInit_end:
 /* line number 26*/
 /* Printing int doubleFinal */
     set         _intFmt, %o0
+/* line number 26*/
+/* Loading doubleFinal to %o1 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -245,6 +267,8 @@ globalInit_end:
 /* line number 27*/
 /* Printing int tripleFinal */
     set         _intFmt, %o0
+/* line number 27*/
+/* Loading tripleFinal to %o1 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

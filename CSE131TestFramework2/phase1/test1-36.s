@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     glb1,glb2,glb3
 glb3:           .single      0r66.99     
 float_0:        .single      0r99.44     
@@ -76,6 +77,8 @@ foo4:
     save        %sp, %g1, %sp
 /* line number 21*/
 /* Returning value from foo4 */
+/* line number 21*/
+/* Loading 99.44 to %f0 */
     set         float_0, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -94,15 +97,17 @@ foo5:
 ! --storing constant glb1 with value 1.0
     set         glb1, %l0
     add         %g0, %l0, %l0
-    set         glb1, %l0
-    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 25*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 25*/
+/* Loading glb2 to %l0 */
     set         glb2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 25*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 25*/
 /* Subtracting */
@@ -142,7 +147,7 @@ globalInit_end:
     call    foo
     nop
 /* line number 29*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 30*/
 /* setting a = foo() */
@@ -157,7 +162,7 @@ globalInit_end:
     call    foo2
     nop
 /* line number 30*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-16]
 /* line number 31*/
 /* setting b = foo2() */
@@ -172,7 +177,7 @@ globalInit_end:
     call    foo3
     nop
 /* line number 31*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-24]
 /* line number 32*/
 /* setting c = foo3() */
@@ -187,7 +192,7 @@ globalInit_end:
     call    foo4
     nop
 /* line number 32*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-32]
 /* line number 33*/
 /* setting d = foo4() */
@@ -204,6 +209,8 @@ globalInit_end:
 /* line number 35*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 35*/
+/* Loading a to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -221,6 +228,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 35*/
 /* Printing bool b */
+/* line number 35*/
+/* Loading b to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -249,6 +258,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 35*/
 /* Printing bool c */
+/* line number 35*/
+/* Loading c to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -276,7 +287,9 @@ branchEnd_1:
 /* line number 35*/
 /* Done printing string. */
 /* line number 35*/
-/* printing float STO.VarSTO@176feaf */
+/* printing float STO.VarSTO@ae8542 */
+/* line number 35*/
+/* Loading d to %f0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -289,6 +302,8 @@ branchEnd_1:
     nop
 /* line number 36*/
 /* Printing bool glb1 */
+/* line number 36*/
+/* Loading glb1 to %l0 */
     set         glb1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -318,6 +333,8 @@ branchEnd_2:
 /* line number 36*/
 /* Printing int glb2 */
     set         _intFmt, %o0
+/* line number 36*/
+/* Loading glb2 to %o1 */
     set         glb2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -334,7 +351,9 @@ branchEnd_2:
 /* line number 36*/
 /* Done printing string. */
 /* line number 36*/
-/* printing float STO.VarSTO@1678f0a */
+/* printing float STO.VarSTO@e77ca4 */
+/* line number 36*/
+/* Loading glb3 to %f0 */
     set         glb3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

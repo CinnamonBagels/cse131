@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     i,k,b1,b2,f1,f2,f3
 f1:             .single      0r1.0       
 f2:             .single      0r7654321.0 
@@ -120,6 +121,8 @@ globalInit_end:
 /* line number 22*/
 /* Printing int i */
     set         _intFmt, %o0
+/* line number 22*/
+/* Loading i to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -138,6 +141,8 @@ globalInit_end:
 /* line number 22*/
 /* Printing int k */
     set         _intFmt, %o0
+/* line number 22*/
+/* Loading k to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -158,6 +163,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 23*/
 /* Printing bool b1 */
+/* line number 23*/
+/* Loading b1 to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -186,6 +193,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 23*/
 /* Printing bool b2 */
+/* line number 23*/
+/* Loading b2 to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -213,7 +222,9 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@145d135 */
+/* printing float STO.VarSTO@1f4ea9d */
+/* line number 25*/
+/* Loading f1 to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -230,7 +241,9 @@ branchEnd_1:
 /* line number 25*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@a9fd96 */
+/* printing float STO.VarSTO@571688 */
+/* line number 25*/
+/* Loading f2 to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -247,7 +260,9 @@ branchEnd_1:
 /* line number 25*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@1bf502d */
+/* printing float STO.VarSTO@1884319 */
+/* line number 25*/
+/* Loading f3 to %f0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -261,6 +276,8 @@ branchEnd_1:
 /* line number 27*/
 /* Printing int i */
     set         _intFmt, %o0
+/* line number 27*/
+/* Loading i to %o1 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -279,6 +296,8 @@ branchEnd_1:
 /* line number 27*/
 /* Printing int k */
     set         _intFmt, %o0
+/* line number 27*/
+/* Loading k to %o1 */
     set         k, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -299,6 +318,8 @@ branchEnd_1:
 /* Done printing string. */
 /* line number 28*/
 /* Printing bool b1 */
+/* line number 28*/
+/* Loading b1 to %l0 */
     set         b1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -327,6 +348,8 @@ branchEnd_2:
 /* Done printing string. */
 /* line number 28*/
 /* Printing bool b2 */
+/* line number 28*/
+/* Loading b2 to %l0 */
     set         b2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -354,7 +377,9 @@ branchEnd_3:
 /* line number 29*/
 /* Done printing string. */
 /* line number 30*/
-/* printing float STO.VarSTO@1048099 */
+/* printing float STO.VarSTO@e77ca4 */
+/* line number 30*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -371,7 +396,9 @@ branchEnd_3:
 /* line number 30*/
 /* Done printing string. */
 /* line number 30*/
-/* printing float STO.VarSTO@96ed8b */
+/* printing float STO.VarSTO@1a83205 */
+/* line number 30*/
+/* Loading f2 to %f0 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -388,7 +415,9 @@ branchEnd_3:
 /* line number 30*/
 /* Done printing string. */
 /* line number 30*/
-/* printing float STO.VarSTO@6286e3 */
+/* printing float STO.VarSTO@16c2195 */
+/* line number 30*/
+/* Loading f3 to %f0 */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

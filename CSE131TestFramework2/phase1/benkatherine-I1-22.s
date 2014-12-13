@@ -1,9 +1,10 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     y,x,z
-y:              .word        5           
+FLOAT_FORCE_1:    .single      0r1.0       
+                 .global     x,y,z
 x:              .word        4           
+y:              .word        5           
 z:              .word        0           
 globalInit_:    .word        0           
 
@@ -30,9 +31,13 @@ main:
     nop
 /* line number 3*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 3*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 3*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1

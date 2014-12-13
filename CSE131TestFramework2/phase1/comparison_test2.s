@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y,z,a,b,c
 a:              .single      0r20.0      
 b:              .single      0r30.0      
@@ -46,7 +47,11 @@ main:
 globalInit_end:
 /* line number 10*/
 /* Prepping Comparison Calculations by loading */
+/* line number 10*/
+/* Loading 5 to %l0 */
     set         5, %l0
+/* line number 10*/
+/* Loading 5 to %l1 */
     set         5, %l1
 /* line number 10*/
 /* Starting == equal */
@@ -64,6 +69,9 @@ equalEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 11*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: ==...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -88,9 +96,13 @@ else_0:
 endIf_1:
 /* line number 14*/
 /* Prepping Comparison Calculations by loading */
+/* line number 14*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 14*/
+/* Loading 10 to %l1 */
     set         10, %l1
 /* line number 14*/
 /* Starting not equal */
@@ -108,6 +120,9 @@ nEqualEnd_1:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 15*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: !=...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -132,9 +147,13 @@ else_2:
 endIf_3:
 /* line number 18*/
 /* Prepping Comparison Calculations by loading */
+/* line number 18*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 18*/
+/* Loading 12 to %l1 */
     set         12, %l1
 /* line number 18*/
 /* Starting greater than */
@@ -152,6 +171,9 @@ greaterEnd_2:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 19*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -176,9 +198,13 @@ else_4:
 endIf_5:
 /* line number 22*/
 /* Prepping Comparison Calculations by loading */
+/* line number 22*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 22*/
+/* Loading 12 to %l1 */
     set         12, %l1
 /* line number 22*/
 /* Starting greater than equal */
@@ -196,6 +222,9 @@ greaterEqualEnd_3:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 23*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >=...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -220,9 +249,13 @@ else_6:
 endIf_7:
 /* line number 26*/
 /* Prepping Comparison Calculations by loading */
+/* line number 26*/
+/* Loading z to %l0 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 26*/
+/* Loading 15 to %l1 */
     set         15, %l1
 /* line number 26*/
 /* Starting greater than */
@@ -240,6 +273,9 @@ greaterEnd_4:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 27*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -264,9 +300,13 @@ else_8:
 endIf_9:
 /* line number 30*/
 /* Prepping Comparison Calculations by loading */
+/* line number 30*/
+/* Loading z to %l0 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 30*/
+/* Loading 14 to %l1 */
     set         14, %l1
 /* line number 30*/
 /* Starting greater than equal */
@@ -284,6 +324,9 @@ greaterEqualEnd_5:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 31*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >=...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -308,9 +351,13 @@ else_10:
 endIf_11:
 /* line number 34*/
 /* Prepping Comparison Calculations by loading */
+/* line number 34*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 34*/
+/* Loading 12 to %l1 */
     set         12, %l1
 /* line number 34*/
 /* Starting not equal */
@@ -328,6 +375,9 @@ nEqualEnd_6:
     set         -32, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 35*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: !=...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -354,9 +404,13 @@ endIf_13:
 /* Prepping Comparison Calculations by loading */
 /* line number 38*/
 /* Starting greater than */
+/* line number 38*/
+/* Loading a to %f0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 38*/
+/* Loading b to %f1 */
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -374,6 +428,9 @@ greaterEnd_7:
     set         -36, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 39*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -400,9 +457,13 @@ endIf_15:
 /* Prepping Comparison Calculations by loading */
 /* line number 42*/
 /* Starting greater than equal */
+/* line number 42*/
+/* Loading a to %f0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 42*/
+/* Loading c to %f1 */
     set         c, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -420,6 +481,9 @@ greaterEqualEnd_8:
     set         -40, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 43*/
+/* Loading Validating ComparisonOp float and float as a BooleanType for operator: >=...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

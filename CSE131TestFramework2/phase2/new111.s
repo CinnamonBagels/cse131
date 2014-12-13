@@ -48,7 +48,6 @@ main:
     set         y, %l0
     add         %g0, %l0, %l0
     set         float_0, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
     set         staticGuard_y, %l2
@@ -78,7 +77,6 @@ globalInit_end:
     set         main_y, %l0
     add         %g0, %l0, %l0
     set         float_1, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 9*/

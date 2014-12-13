@@ -35,6 +35,7 @@ foo:
 ! --storing constant x with value 1.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 1.0
@@ -66,6 +67,7 @@ foo2:
 ! --storing constant y with value 1.0
     set         72, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         1, %l1
     st          %l1, [%l0]
 foo2_end:
@@ -144,8 +146,9 @@ branchEnd_1:
     nop
 /* line number 18*/
 /* Preparing argument x */
-    set         x, %o0
-    add         %g0, %o0, %o0
+    set         x, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o0
 /* line number 18*/
 /* Preparing argument y */
 /* line number 18*/
@@ -219,8 +222,9 @@ branchEnd_3:
     ld          [%l1], %o0
 /* line number 20*/
 /* Preparing argument y */
-    set         y, %o1
-    add         %g0, %o1, %o1
+    set         y, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o1
     call    foo2
     nop
 /* line number 21*/

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x
 globalInit_:    .word        0           
                 .section     ".bss"
@@ -35,6 +36,8 @@ main:
 globalInit_end:
 /* line number 5*/
 /* Starting array access */
+/* line number 5*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_0
@@ -62,6 +65,9 @@ arrayOutBounds_0:
     set         3, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -75,6 +81,8 @@ arrayEnd_0:
     st          %l1, [%l0]
 /* line number 6*/
 /* Starting array access */
+/* line number 6*/
+/* Loading 2 to %l0 */
     set         2, %l0
     cmp         %l0, %g0
     bl      arrayOutBounds_1
@@ -102,6 +110,9 @@ arrayOutBounds_1:
     set         3, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -110,6 +121,8 @@ arrayEnd_1:
 /* line number 6*/
 /* Printing int x[2] */
     set         _intFmt, %o0
+/* line number 6*/
+/* Loading x[2] to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1

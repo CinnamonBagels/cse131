@@ -40,24 +40,21 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant a with value 88.43
-    set         -8, %l0
+    set         -4, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant b with value 22.31
-    set         -12, %l0
+    set         -8, %l0
     add         %fp, %l0, %l0
     set         float_1, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant c with value 11.55
-    set         -4, %l0
+    set         -12, %l0
     add         %fp, %l0, %l0
     set         float_2, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 25*/
@@ -88,38 +85,38 @@ globalInit_end:
     call    memcpy
     nop
 /* line number 29*/
-/* printing float STO.VarSTO@104f889 */
+/* printing float STO.VarSTO@a28815 */
 /* line number 29*/
 /* Loading a to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 29*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 30*/
+/* printing float STO.VarSTO@944d4a */
+/* line number 30*/
+/* Loading b to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
-/* line number 29*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 30*/
-/* printing float STO.VarSTO@15914f3 */
-/* line number 30*/
-/* Loading b to %f0 */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
 /* line number 30*/
 /* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
 /* line number 31*/
-/* printing float STO.VarSTO@16e9494 */
+/* printing float STO.VarSTO@5e43ee */
 /* line number 31*/
 /* Loading c to %f0 */
-    set         -4, %l1
+    set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -46,11 +47,15 @@ globalInit_end:
     st          %l0, [%fp-16]
 /* line number 9*/
 /* Done. */
+/* line number 9*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_0
     nop
 if_0:
+/* line number 10*/
+/* Loading t to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -59,8 +64,6 @@ if_0:
     nop
 if_1:
 ! --storing constant x with value 10.0
-    set         -8, %l0
-    add         %fp, %l0, %l0
     set         -8, %l0
     add         %fp, %l0, %l0
     set         10, %l1
@@ -73,6 +76,8 @@ endIf_2:
     nop
 else_0:
 endIf_3:
+/* line number 14*/
+/* Loading t to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -86,6 +91,8 @@ if_4:
     st          %l0, [%fp-20]
 /* line number 16*/
 /* Done. */
+/* line number 16*/
+/* Loading f to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -94,8 +101,6 @@ if_4:
     nop
 if_5:
 ! --storing constant x with value 14.0
-    set         -8, %l0
-    add         %fp, %l0, %l0
     set         -8, %l0
     add         %fp, %l0, %l0
     set         14, %l1
@@ -108,16 +113,22 @@ endIf_6:
     nop
 else_4:
 endIf_7:
+/* line number 20*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_8
     nop
 if_8:
+/* line number 21*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_9
     nop
 if_9:
+/* line number 22*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_10
@@ -125,9 +136,13 @@ if_9:
 if_10:
 /* line number 23*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 23*/
+/* Loading x to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 23*/
+/* Loading 1 to %l1 */
     set         1, %l1
 /* line number 23*/
 /* Adding */
@@ -160,6 +175,8 @@ endIf_13:
 /* line number 28*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 28*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

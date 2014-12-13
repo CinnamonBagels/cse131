@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y
 x:              .word        1           
 y:              .word        0           
@@ -35,6 +36,8 @@ foo:
 /* Done printing string. */
 /* line number 6*/
 /* Printing bool x */
+/* line number 6*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -55,6 +58,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 6*/
 /* Printing bool y */
+/* line number 6*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -78,6 +83,8 @@ branchEnd_1:
     nop
 /* line number 8*/
 /* Returning value from foo */
+/* line number 8*/
+/* Loading x to %i0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %i0
@@ -113,10 +120,12 @@ globalInit_end:
     call    foo
     nop
 /* line number 12*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 12*/
 /* Printing bool foo() */
+/* line number 12*/
+/* Loading foo() to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

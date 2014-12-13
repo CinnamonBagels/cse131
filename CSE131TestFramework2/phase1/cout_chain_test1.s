@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     f1,f2,f3
 f1:             .single      0r5.0       
 f2:             .single      0r6.0       
@@ -41,9 +42,13 @@ main:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 3*/
 /* Adding */
+/* line number 3*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 3*/
+/* Loading f2 to %f1 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1

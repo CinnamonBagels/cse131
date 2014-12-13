@@ -33,7 +33,7 @@ foo:
 /* Storing parameter z */
     st          %f2, [%fp+76]
 /* line number 3*/
-/* printing float STO.VarSTO@a047d3 */
+/* printing float STO.VarSTO@cab3bf */
 /* line number 3*/
 /* Loading x to %f0 */
     set         68, %l1
@@ -44,7 +44,7 @@ foo:
 /* line number 3*/
 /* Done printing float. */
 /* line number 3*/
-/* printing float STO.VarSTO@cb741e */
+/* printing float STO.VarSTO@1def658 */
 /* line number 3*/
 /* Loading y to %f0 */
     set         72, %l1
@@ -55,7 +55,7 @@ foo:
 /* line number 3*/
 /* Done printing float. */
 /* line number 3*/
-/* printing float STO.VarSTO@1349665 */
+/* printing float STO.VarSTO@ff366c */
 /* line number 3*/
 /* Loading z to %f0 */
     set         76, %l1

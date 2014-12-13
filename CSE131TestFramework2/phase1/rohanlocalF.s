@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r5.0       
 globalInit_:    .word        0           
 
@@ -32,8 +33,6 @@ globalInit_end:
 ! --storing constant c with value 5.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
 /* line number 5*/
 /* promoting */
 /* line number 5*/
@@ -42,6 +41,8 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         5, %l3
     st          %l3, [%l5]
+/* line number 5*/
+/* Loading promoteCasting to %f1 */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -50,7 +51,9 @@ globalInit_end:
 /* done promoting */
     st          %f1, [%l0]
 /* line number 7*/
-/* printing float STO.VarSTO@3bed68 */
+/* printing float STO.VarSTO@cab3bf */
+/* line number 7*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 str_0:          .asciz       "   ###   ###   ###   ###  ###   ######"
 str_1:          .asciz       "   #### ####    #     # ##      #     "
 str_2:          .asciz       "   ## ### ##    #     ###       ####  "

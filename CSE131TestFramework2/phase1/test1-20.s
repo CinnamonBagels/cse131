@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     k,j
 k:              .word        3           
 j:              .word        0           
@@ -34,9 +35,13 @@ main:
     nop
 /* line number 4*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 4*/
+/* Loading k to %l0 */
     set         k, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 4*/
+/* Loading 3 to %l1 */
     set         3, %l1
 /* line number 4*/
 /* Adding */
@@ -60,7 +65,11 @@ main:
 globalInit_end:
 /* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 7*/
+/* Loading 3 to %l0 */
     set         3, %l0
+/* line number 7*/
+/* Loading j to %l1 */
     set         j, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -84,7 +93,11 @@ globalInit_end:
 /* Done. */
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading 3 to %l0 */
     set         3, %l0
+/* line number 8*/
+/* Loading l to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -118,9 +131,13 @@ globalInit_end:
 /* Done. */
 /* line number 10*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 10*/
+/* Loading n to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 10*/
+/* Loading 3 to %l1 */
     set         3, %l1
 /* line number 10*/
 /* Adding */
@@ -143,6 +160,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int k */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading k to %o1 */
     set         k, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -161,6 +180,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int j */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading j to %o1 */
     set         j, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -179,6 +200,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int l */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading l to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -197,6 +220,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int m */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading m to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -215,6 +240,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int n */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading n to %o1 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -233,6 +260,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int o */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading o to %o1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 main_x:         .single      0r0.0       
 float_0:        .single      0r5.55      
 main_y:         .single      0r0.0       
@@ -55,8 +56,6 @@ globalInit_end:
 ! --storing constant x with value 5.55
     set         main_x, %l0
     add         %g0, %l0, %l0
-    set         main_x, %l0
-    add         %g0, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -64,14 +63,14 @@ globalInit_end:
 ! --storing constant y with value 3.12
     set         main_y, %l0
     add         %g0, %l0, %l0
-    set         main_y, %l0
-    add         %g0, %l0, %l0
     set         float_1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 6*/
-/* printing float STO.VarSTO@fbf107 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 6*/
+/* Loading x to %f0 */
     set         main_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -83,7 +82,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 6*/
-/* printing float STO.VarSTO@31028a */
+/* printing float STO.VarSTO@183bfee */
+/* line number 6*/
+/* Loading y to %f0 */
     set         main_y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

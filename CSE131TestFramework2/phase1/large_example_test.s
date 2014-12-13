@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y,z
 x:              .word        4           
 y:              .word        0           
@@ -43,13 +44,15 @@ globalInit_end:
 ! --storing constant y with value 11.0
     set         y, %l0
     add         %g0, %l0, %l0
-    set         y, %l0
-    add         %g0, %l0, %l0
     set         11, %l1
     st          %l1, [%l0]
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading c to %l0 */
     set         5, %l0
+/* line number 8*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -71,9 +74,13 @@ globalInit_end:
     st          %l3, [%l5]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading z to %l0 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading x to %l1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -96,6 +103,8 @@ globalInit_end:
 /* line number 10*/
 /* Printing int z */
     set         _intFmt, %o0
+/* line number 10*/
+/* Loading z to %o1 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

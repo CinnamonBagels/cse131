@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     f1,f2,f3
 f1:             .single      0r0.0       
 f2:             .single      0r0.0       
@@ -104,7 +105,9 @@ globalInit_end:
 /* line number 15*/
 /* Done printing string. */
 /* line number 15*/
-/* printing float STO.VarSTO@838143 */
+/* printing float STO.VarSTO@944d4a */
+/* line number 15*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -124,7 +127,9 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@fbf107 */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 16*/
+/* Loading f2 to %f0 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -144,7 +149,9 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@8d116e */
+/* printing float STO.VarSTO@6d234c */
+/* line number 17*/
+/* Loading f3 to %f0 */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

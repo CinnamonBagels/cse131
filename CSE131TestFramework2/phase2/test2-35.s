@@ -80,6 +80,9 @@ arrayOutBounds_0:
     set         20, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -124,6 +127,9 @@ arrayOutBounds_1:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -166,6 +172,9 @@ arrayOutBounds_2:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         20, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -227,6 +236,9 @@ arrayOutBounds_3:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -284,6 +296,9 @@ arrayOutBounds_4:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         20, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -345,6 +360,9 @@ arrayOutBounds_5:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -404,13 +422,16 @@ arrayOutBounds_6:
     set         20, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_6:
 /* line number 19*/
-/* printing float STO.ExprSTO@1a183d2 */
+/* printing float STO.ExprSTO@1a83205 */
 /* line number 19*/
 /* Loading lfarr[i] to %f0 */
     set         -196, %l1
@@ -462,13 +483,16 @@ arrayOutBounds_7:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_7:
 /* line number 19*/
-/* printing float STO.ExprSTO@d55a0f */
+/* printing float STO.ExprSTO@16c2195 */
 /* line number 19*/
 /* Loading gfarr[i] to %f0 */
     set         -200, %l1

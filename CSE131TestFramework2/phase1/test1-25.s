@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r4.0       
 float_1:        .single      0r6.0       
 str_2:          .asciz       " * "       
@@ -58,9 +59,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 8*/
 /* Multiplying */
+/* line number 8*/
+/* Loading k to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 8*/
+/* Loading l to %f1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -81,7 +86,9 @@ globalInit_end:
 /* line number 10*/
 /* Done. */
 /* line number 10*/
-/* printing float STO.VarSTO@fbf107 */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 10*/
+/* Loading k to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -98,7 +105,9 @@ globalInit_end:
 /* line number 10*/
 /* Done printing string. */
 /* line number 10*/
-/* printing float STO.VarSTO@8d116e */
+/* printing float STO.VarSTO@d55a0f */
+/* line number 10*/
+/* Loading l to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -115,7 +124,9 @@ globalInit_end:
 /* line number 10*/
 /* Done printing string. */
 /* line number 10*/
-/* printing float STO.VarSTO@1737e47 */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 10*/
+/* Loading m to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

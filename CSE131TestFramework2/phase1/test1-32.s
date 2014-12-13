@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -34,6 +35,8 @@ globalInit_end:
     st          %l0, [%fp-8]
 /* line number 7*/
 /* Done. */
+/* line number 7*/
+/* Loading true to %l0 */
     set         1, %l0
     cmp         %l0, %g0
     be      else_0
@@ -42,22 +45,20 @@ if_0:
 ! --storing constant x with value 10.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
     set         10, %l1
     st          %l1, [%l0]
     ba      endIf_1
     nop
 else_0:
 endIf_1:
+/* line number 10*/
+/* Loading false to %l0 */
     set         0, %l0
     cmp         %l0, %g0
     be      else_2
     nop
 if_2:
 ! --storing constant x with value 12.0
-    set         -8, %l0
-    add         %fp, %l0, %l0
     set         -8, %l0
     add         %fp, %l0, %l0
     set         12, %l1
@@ -69,6 +70,8 @@ endIf_3:
 /* line number 14*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 14*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     a
 a:              .word        1           
 globalInit_:    .word        0           
@@ -33,8 +34,6 @@ globalInit_end:
 ! --storing constant a with value 0.0
     set         a, %l0
     add         %g0, %l0, %l0
-    set         a, %l0
-    add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
 /* line number 7*/
@@ -45,6 +44,8 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* Printing bool a */
+/* line number 7*/
+/* Loading a to %l0 */
     set         a, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -68,6 +69,8 @@ branchEnd_0:
     nop
 /* line number 8*/
 /* Printing bool b */
+/* line number 8*/
+/* Loading b to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

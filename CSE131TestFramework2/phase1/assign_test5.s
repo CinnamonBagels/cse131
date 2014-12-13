@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     rick,ankur,rickAndAnkur
 rick:           .word        1           
 ankur:          .word        0           
@@ -95,6 +96,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 15*/
 /* Printing bool rick */
+/* line number 15*/
+/* Loading rick to %l0 */
     set         rick, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -126,6 +129,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 16*/
 /* Printing bool ankur */
+/* line number 16*/
+/* Loading ankur to %l0 */
     set         ankur, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -157,6 +162,8 @@ branchEnd_1:
 /* Done printing string. */
 /* line number 17*/
 /* Printing bool rickAndAnkur */
+/* line number 17*/
+/* Loading rickAndAnkur to %l0 */
     set         rickAndAnkur, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -188,6 +195,8 @@ branchEnd_2:
 /* Done printing string. */
 /* line number 18*/
 /* Printing bool a */
+/* line number 18*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -219,6 +228,8 @@ branchEnd_3:
 /* Done printing string. */
 /* line number 19*/
 /* Printing bool b */
+/* line number 19*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

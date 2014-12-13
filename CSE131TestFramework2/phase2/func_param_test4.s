@@ -60,16 +60,19 @@ foobaz:
 ! --storing constant k with value 555.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         555, %l1
     st          %l1, [%l0]
 ! --storing constant l with value 666.0
     set         72, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         666, %l1
     st          %l1, [%l0]
 ! --storing constant m with value 777.0
     set         76, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         777, %l1
     st          %l1, [%l0]
 foobaz_end:
@@ -94,20 +97,27 @@ bar:
 ! --storing constant r with value 7.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         7, %l1
     st          %l1, [%l0]
 /* line number 18*/
 /* Preparing argument r */
-    set         68, %o0
-    add         %fp, %o0, %o0
+    set         68, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o0
 /* line number 18*/
 /* Preparing argument s */
-    set         72, %o1
-    add         %fp, %o1, %o1
+    set         72, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o1
 /* line number 18*/
 /* Preparing argument t */
-    set         76, %o2
-    add         %fp, %o2, %o2
+    set         76, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o2
     call    foobaz
     nop
 bar_end:
@@ -131,16 +141,22 @@ foo:
     st          %i2, [%fp+76]
 /* line number 23*/
 /* Preparing argument a */
-    set         68, %o0
-    add         %fp, %o0, %o0
+    set         68, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o0
 /* line number 23*/
 /* Preparing argument b */
-    set         72, %o1
-    add         %fp, %o1, %o1
+    set         72, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o1
 /* line number 23*/
 /* Preparing argument c */
-    set         76, %o2
-    add         %fp, %o2, %o2
+    set         76, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o2
     call    bar
     nop
 foo_end:
@@ -264,16 +280,19 @@ globalInit_end:
     nop
 /* line number 41*/
 /* Preparing argument y */
-    set         68, %o0
-    add         %fp, %o0, %o0
+    set         68, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
 /* line number 41*/
 /* Preparing argument b */
-    set         -8, %o1
-    add         %fp, %o1, %o1
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o1
 /* line number 41*/
 /* Preparing argument ggg */
-    set         ggg, %o2
-    add         %g0, %o2, %o2
+    set         ggg, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o2
     call    foo
     nop
 /* line number 43*/

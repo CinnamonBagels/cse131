@@ -1,12 +1,14 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     f1,i,f2
 f1:             .single      0r5.5       
 f2:             .single      0r0         
 float_11:       .single      0r191.0     
 float_13:       .single      0r1337.0    
-float_14:       .single      0r1337.0    
+float_14:       .single      0r191.0     
+float_15:       .single      0r1337.0    
 i:              .word        12          
 str_0:          .asciz       "global: "  
 str_1:          .asciz       " * "       
@@ -45,14 +47,20 @@ main:
     nop
 /* line number 5*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 5*/
+/* Loading i to %l0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
 /* line number 5*/
 /* Multiplying */
+/* line number 5*/
+/* Loading i to %f0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 5*/
+/* Loading f1 to %f1 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -77,9 +85,13 @@ main:
 globalInit_end:
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading 5 to %l1 */
     set         5, %l1
 /* line number 9*/
 /* Multiplying */
+/* line number 9*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -89,6 +101,8 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         5, %l3
     st          %l3, [%l5]
+/* line number 9*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -113,9 +127,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 10*/
 /* Multiplying */
+/* line number 10*/
+/* Loading f2 to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 10*/
+/* Loading f2 to %f1 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -144,7 +162,9 @@ globalInit_end:
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float STO.VarSTO@1ad4242 */
+/* printing float STO.VarSTO@e28099 */
+/* line number 12*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -163,6 +183,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int i */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading i to %o1 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -179,7 +201,9 @@ globalInit_end:
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float STO.VarSTO@19db21f */
+/* printing float STO.VarSTO@15978e7 */
+/* line number 12*/
+/* Loading f2 to %f0 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -199,7 +223,9 @@ globalInit_end:
 /* line number 13*/
 /* Done printing string. */
 /* line number 13*/
-/* printing float STO.VarSTO@1ad4242 */
+/* printing float STO.VarSTO@e28099 */
+/* line number 13*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -231,7 +257,9 @@ globalInit_end:
 /* line number 13*/
 /* Done printing string. */
 /* line number 13*/
-/* printing float STO.VarSTO@191a42 */
+/* printing float STO.VarSTO@110c2e8 */
+/* line number 13*/
+/* Loading f2 to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -251,7 +279,9 @@ globalInit_end:
 /* line number 14*/
 /* Done printing string. */
 /* line number 14*/
-/* printing float STO.VarSTO@191a42 */
+/* printing float STO.VarSTO@110c2e8 */
+/* line number 14*/
+/* Loading f2 to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -268,7 +298,9 @@ globalInit_end:
 /* line number 14*/
 /* Done printing string. */
 /* line number 14*/
-/* printing float STO.VarSTO@19db21f */
+/* printing float STO.VarSTO@15978e7 */
+/* line number 14*/
+/* Loading f2 to %f0 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -285,7 +317,9 @@ globalInit_end:
 /* line number 14*/
 /* Done printing string. */
 /* line number 14*/
-/* printing float STO.VarSTO@ae735 */
+/* printing float STO.VarSTO@16c171f */
+/* line number 14*/
+/* Loading f3 to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -332,7 +366,45 @@ globalInit_end:
     nop
 /* line number 15*/
 /* Done printing string. */
-    set         float_14, %l0
+/* line number 15*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 15*/
+/* Loading 7 to %l0 */
+    set         7, %l0
+/* line number 15*/
+/* Multiplying */
+/* line number 15*/
+/* Storing variable 7 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         7, %l3
+    st          %l3, [%l5]
+/* line number 15*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 15*/
+/* Storing variable 191.0 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_14, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 15*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fitos       %f0, %f0
+    fmuls       %f0, %f1, %f3
+/* line number 15*/
+/* Storing result of Binary Op */
+    set         float_13, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
+    set         float_15, %l0
     ld          [%l0], %f0
     call    printFloat
     nop

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r5.75      
 globalInit_:    .word        0           
 

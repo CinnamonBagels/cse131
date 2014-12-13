@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x
 x:              .single      0r3.33      
 str_0:          .asciz       "main"      
@@ -47,7 +48,9 @@ globalInit_end:
 /* line number 6*/
 /* Done printing string. */
 /* line number 6*/
-/* printing float STO.VarSTO@1d91382 */
+/* printing float STO.VarSTO@e28099 */
+/* line number 6*/
+/* Loading x to %f0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

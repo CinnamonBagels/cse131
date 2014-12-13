@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y,z
 x:              .single      0r5.5       
 y:              .single      0r0.0       
@@ -32,9 +33,13 @@ main:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 5*/
 /* Adding */
+/* line number 5*/
+/* Loading x to %f0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 5*/
+/* Loading y to %f1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -57,7 +62,9 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 9*/
-/* printing float STO.VarSTO@19db21f */
+/* printing float STO.VarSTO@15978e7 */
+/* line number 9*/
+/* Loading z to %f0 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

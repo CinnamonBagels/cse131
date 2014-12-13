@@ -1,9 +1,12 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r1082.75   
-float_1:        .single      0r1082.75   
-str_2:          .asciz       "\n"        
+float_1:        .single      0r662.5     
+float_2:        .single      0r420.25    
+float_3:        .single      0r1082.75   
+str_4:          .asciz       "\n"        
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -31,6 +34,38 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 7*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 7*/
+/* Loading 4 to %l0 */
+    set         4, %l0
+/* line number 7*/
+/* Loading c1 to %l1 */
+    set         210, %l1
+/* line number 7*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 7*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 8*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading c1 to %l0 */
+    set         210, %l0
+/* line number 8*/
+/* Loading 210 to %l1 */
+    set         210, %l1
+/* line number 8*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 8*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
 /* line number 8*/
 /* printf on int */
     set         _intFmt, %o0
@@ -51,7 +86,43 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
-    set         float_1, %l0
+/* line number 11*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 11*/
+/* Adding */
+/* line number 11*/
+/* Storing variable r1 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_2, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 11*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 11*/
+/* Storing variable 662.50 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_1, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 11*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fadds       %f0, %f1, %f3
+/* line number 11*/
+/* Storing result of Binary Op */
+    set         float_0, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
+    set         float_3, %l0
     ld          [%l0], %f0
     call    printFloat
     nop
@@ -59,7 +130,7 @@ globalInit_end:
 /* line number 11*/
 /* printing string */
     set         _strFmt, %o0
-    set         str_2, %o1
+    set         str_4, %o1
     call    printf
     nop
 /* line number 11*/
@@ -77,4 +148,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 12) & -8

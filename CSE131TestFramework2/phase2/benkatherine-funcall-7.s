@@ -29,11 +29,13 @@ foo:
 ! --storing constant x with value 7.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         7, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 8.0
     set         72, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         8, %l1
     st          %l1, [%l0]
 foo_end:
@@ -69,12 +71,14 @@ globalInit_end:
 /* Done. */
 /* line number 11*/
 /* Preparing argument a */
-    set         -12, %o0
-    add         %fp, %o0, %o0
+    set         -12, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
 /* line number 11*/
 /* Preparing argument b */
-    set         -8, %o1
-    add         %fp, %o1, %o1
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o1
     call    foo
     nop
 /* line number 13*/

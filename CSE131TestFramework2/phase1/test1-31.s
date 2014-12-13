@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 str_0:          .asciz       " "         
 str_1:          .asciz       " "         
 str_2:          .asciz       " "         
@@ -48,9 +49,13 @@ globalInit_end:
 /* Done. */
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading ten to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading twenty to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -73,6 +78,9 @@ lessEnd_0:
 /* line number 8*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: <...
  */
+/* line number 8*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -101,9 +109,13 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading ten to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading twenty to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -126,6 +138,9 @@ greaterEnd_1:
 /* line number 8*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 8*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -154,9 +169,13 @@ branchEnd_1:
 /* Done printing string. */
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading twenty to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading twenty to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -179,6 +198,9 @@ nEqualEnd_2:
 /* line number 8*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: !=...
  */
+/* line number 8*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: !=...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -207,9 +229,13 @@ branchEnd_2:
 /* Done printing string. */
 /* line number 9*/
 /* Prepping Comparison Calculations by loading */
+/* line number 9*/
+/* Loading ten to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading ten to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -232,6 +258,9 @@ equalEnd_3:
 /* line number 9*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: ==...
  */
+/* line number 9*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: ==...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -255,9 +284,13 @@ branchEnd_3:
     nop
 /* line number 12*/
 /* Prepping Comparison Calculations by loading */
+/* line number 12*/
+/* Loading ten to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 12*/
+/* Loading twenty to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -280,6 +313,9 @@ greaterEnd_4:
 /* line number 12*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: >...
  */
+/* line number 12*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -308,9 +344,13 @@ branchEnd_4:
 /* Done printing string. */
 /* line number 12*/
 /* Prepping Comparison Calculations by loading */
+/* line number 12*/
+/* Loading ten to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 12*/
+/* Loading twenty to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -333,6 +373,9 @@ lessEnd_5:
 /* line number 12*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: <...
  */
+/* line number 12*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: <...
+ to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -361,9 +404,13 @@ branchEnd_5:
 /* Done printing string. */
 /* line number 12*/
 /* Prepping Comparison Calculations by loading */
+/* line number 12*/
+/* Loading twenty to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 12*/
+/* Loading twenty to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -386,6 +433,9 @@ equalEnd_6:
 /* line number 12*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: ==...
  */
+/* line number 12*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: ==...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -414,9 +464,13 @@ branchEnd_6:
 /* Done printing string. */
 /* line number 13*/
 /* Prepping Comparison Calculations by loading */
+/* line number 13*/
+/* Loading ten to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 13*/
+/* Loading ten to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -439,6 +493,9 @@ nEqualEnd_7:
 /* line number 13*/
 /* Printing bool Validating ComparisonOp int and int as a BooleanType for operator: !=...
  */
+/* line number 13*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: !=...
+ to %l0 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

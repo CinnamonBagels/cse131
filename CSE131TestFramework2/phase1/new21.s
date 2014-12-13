@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r3.33      
 str_1:          .asciz       "main"      
 str_2:          .asciz       "end"       
@@ -24,6 +25,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Returning value from foo */
+/* line number 5*/
+/* Loading 3.33 to %f0 */
     set         float_0, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -59,10 +62,12 @@ globalInit_end:
     call    foo
     nop
 /* line number 9*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 9*/
-/* printing float STO.VarSTO@1904b13 */
+/* printing float STO.VarSTO@1a0c382 */
+/* line number 9*/
+/* Loading foo() to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

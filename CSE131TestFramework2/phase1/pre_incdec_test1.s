@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 str_0:          .asciz       "a is: "    
 str_1:          .asciz       "b is: "    
 str_2:          .asciz       "c is: "    
@@ -51,6 +52,8 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* Incrementing */
+/* line number 7*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -63,9 +66,14 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 7*/
+/* Loading Validating UnaryOp b as a IntegerType for operator: ++...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading c to %l1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -87,6 +95,8 @@ globalInit_end:
     st          %l3, [%l5]
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -99,6 +109,8 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 8*/
 /* Incrementing */
+/* line number 8*/
+/* Loading c to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -111,9 +123,15 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: ++...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading Validating UnaryOp c as a IntegerType for operator: ++...
+ to %l1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -135,6 +153,8 @@ globalInit_end:
     st          %l3, [%l5]
 /* line number 9*/
 /* Incrementing */
+/* line number 9*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -147,6 +167,8 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 9*/
 /* Decrementing */
+/* line number 9*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -159,9 +181,15 @@ globalInit_end:
     st          %l0, [%l1]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading Validating UnaryOp a as a IntegerType for operator: ++...
+ to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading Validating UnaryOp b as a IntegerType for operator: --...
+ to %l1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -192,6 +220,8 @@ globalInit_end:
 /* line number 11*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -213,6 +243,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading b to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -234,6 +266,8 @@ globalInit_end:
 /* line number 13*/
 /* Printing int c */
     set         _intFmt, %o0
+/* line number 13*/
+/* Loading c to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

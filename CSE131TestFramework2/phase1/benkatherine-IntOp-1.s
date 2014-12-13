@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     a,b
 a:              .word        4           
 b:              .word        3           
@@ -45,9 +46,13 @@ globalInit_end:
 /* Done. */
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading b to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -80,6 +85,22 @@ globalInit_end:
 /* line number 11*/
 /* Done. */
 /* line number 11*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 11*/
+/* Loading 5 to %l0 */
+    set         5, %l0
+/* line number 11*/
+/* Loading 5 to %l1 */
+    set         5, %l1
+/* line number 11*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 11*/
+/* Storing result of Binary Op */
+    set         -28, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 11*/
 /* printf on int */
     set         _intFmt, %o0
     set         10, %o1
@@ -92,6 +113,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -105,6 +128,8 @@ globalInit_end:
 /* line number 13*/
 /* Printing int b */
     set         _intFmt, %o0
+/* line number 13*/
+/* Loading b to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -117,9 +142,13 @@ globalInit_end:
     nop
 /* line number 14*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 14*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 14*/
+/* Loading b to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -128,13 +157,15 @@ globalInit_end:
     add         %l0, %l1, %l3
 /* line number 14*/
 /* Storing result of Binary Op */
-    set         -28, %l4
+    set         -32, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 14*/
 /* Printing int int + int */
     set         _intFmt, %o0
-    set         -28, %l1
+/* line number 14*/
+/* Loading int + int to %o1 */
+    set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -146,25 +177,13 @@ globalInit_end:
     nop
 /* line number 15*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 15*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
 /* line number 15*/
-/* Subtracting */
-    sub         %l0, %l1, %l3
-/* line number 15*/
-/* Storing result of Binary Op */
-    set         -32, %l4
-    add         %fp, %l4, %l4
-    st          %l3, [%l4]
-/* line number 15*/
-/* Prepping Arithmetic Calculations by loading */
-    set         -32, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
+/* Loading b to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -178,9 +197,13 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 15*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 15*/
+/* Loading int - int to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 15*/
+/* Loading b to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -193,9 +216,31 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* line number 15*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 15*/
+/* Loading int - int to %l0 */
+    set         -40, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+/* line number 15*/
+/* Loading b to %l1 */
+    set         -12, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+/* line number 15*/
+/* Subtracting */
+    sub         %l0, %l1, %l3
+/* line number 15*/
+/* Storing result of Binary Op */
+    set         -44, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 15*/
 /* Printing int int - int */
     set         _intFmt, %o0
-    set         -40, %l1
+/* line number 15*/
+/* Loading int - int to %o1 */
+    set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
@@ -208,6 +253,8 @@ globalInit_end:
 /* line number 16*/
 /* Printing int c */
     set         _intFmt, %o0
+/* line number 16*/
+/* Loading c to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -221,6 +268,8 @@ globalInit_end:
 /* line number 17*/
 /* Printing int d */
     set         _intFmt, %o0
+/* line number 17*/
+/* Loading d to %o1 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -234,4 +283,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 40) & -8
+SAVE.main = -(92 + 44) & -8

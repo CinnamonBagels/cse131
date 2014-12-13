@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 str_0:          .asciz       " "         
 globalInit_:    .word        0           
 
@@ -43,9 +44,13 @@ globalInit_end:
 /* Done. */
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading b to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -78,9 +83,13 @@ greaterEnd_0:
 /* Done. */
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading b to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading a to %l1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -113,6 +122,8 @@ greaterEnd_1:
 /* Done. */
 /* line number 10*/
 /* Printing bool c */
+/* line number 10*/
+/* Loading c to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -141,6 +152,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 10*/
 /* Printing bool d */
+/* line number 10*/
+/* Loading d to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

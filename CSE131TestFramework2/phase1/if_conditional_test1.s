@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     dream1,dream2,dream3,dream4,dream5,dream6,winning
 dream1:         .word        6           
 dream2:         .word        5           
@@ -44,9 +45,13 @@ main:
 globalInit_end:
 /* line number 11*/
 /* Prepping Comparison Calculations by loading */
+/* line number 11*/
+/* Loading dream1 to %l0 */
     set         dream1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 11*/
+/* Loading dream2 to %l1 */
     set         dream2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -66,6 +71,9 @@ greaterEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 12*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -86,9 +94,13 @@ if_0:
     nop
 /* line number 14*/
 /* Prepping Comparison Calculations by loading */
+/* line number 14*/
+/* Loading dream2 to %l0 */
     set         dream2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 14*/
+/* Loading dream3 to %l1 */
     set         dream3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -108,6 +120,9 @@ greaterEnd_1:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 15*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -128,9 +143,13 @@ if_1:
     nop
 /* line number 17*/
 /* Prepping Comparison Calculations by loading */
+/* line number 17*/
+/* Loading dream3 to %l0 */
     set         dream3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 17*/
+/* Loading dream4 to %l1 */
     set         dream4, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -150,6 +169,9 @@ greaterEnd_2:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 18*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -170,9 +192,13 @@ if_2:
     nop
 /* line number 20*/
 /* Prepping Comparison Calculations by loading */
+/* line number 20*/
+/* Loading dream4 to %l0 */
     set         dream4, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 20*/
+/* Loading dream5 to %l1 */
     set         dream5, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -192,6 +218,9 @@ greaterEnd_3:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 21*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -212,9 +241,13 @@ if_3:
     nop
 /* line number 23*/
 /* Prepping Comparison Calculations by loading */
+/* line number 23*/
+/* Loading dream5 to %l0 */
     set         dream5, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 23*/
+/* Loading dream6 to %l1 */
     set         dream6, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -234,6 +267,9 @@ greaterEnd_4:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 24*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -252,6 +288,8 @@ if_4:
     set         _endl, %o0
     call    printf
     nop
+/* line number 27*/
+/* Loading winning to %l0 */
     set         winning, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y,z
 z:              .single      0r0.0       
 x:              .word        0           
@@ -46,6 +47,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 7*/
 /* Printing bool x */
+/* line number 7*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -75,6 +78,8 @@ branchEnd_0:
 /* line number 7*/
 /* Printing int y */
     set         _intFmt, %o0
+/* line number 7*/
+/* Loading y to %o1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -91,7 +96,9 @@ branchEnd_0:
 /* line number 7*/
 /* Done printing string. */
 /* line number 7*/
-/* printing float STO.VarSTO@5f62a9 */
+/* printing float STO.VarSTO@1def658 */
+/* line number 7*/
+/* Loading z to %f0 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

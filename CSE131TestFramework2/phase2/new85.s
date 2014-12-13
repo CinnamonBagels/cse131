@@ -103,7 +103,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@1349665 */
+/* printing float STO.ExprSTO@1def658 */
 /* line number 3*/
 /* Loading Validating UnaryOp y as a FloatType for operator: ++...
  to %f0 */
@@ -131,7 +131,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 3*/
-/* printing float STO.ExprSTO@17df9ec */
+/* printing float STO.ExprSTO@ff366c */
 /* line number 3*/
 /* Loading Validating UnaryOp y as a FloatType for operator: ++...
  to %f0 */
@@ -229,7 +229,7 @@ globalInit_end:
 /* Saving return value on to stack */
     st          %f0, [%fp+-16]
 /* line number 12*/
-/* printing float STO.VarSTO@183bfee */
+/* printing float STO.VarSTO@69048b */
 /* line number 12*/
 /* Loading foo() to %f0 */
     set         -16, %l1

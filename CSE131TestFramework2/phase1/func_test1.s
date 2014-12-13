@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -27,6 +28,8 @@ foo:
 /* Done. */
 /* line number 4*/
 /* Returning value from foo */
+/* line number 4*/
+/* Loading x to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -54,11 +57,13 @@ globalInit_end:
     call    foo
     nop
 /* line number 8*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 8*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading foo() to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

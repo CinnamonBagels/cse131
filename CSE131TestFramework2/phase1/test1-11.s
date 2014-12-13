@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -28,6 +29,22 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 5*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 5*/
+/* Loading 105 to %l0 */
+    set         105, %l0
+/* line number 5*/
+/* Loading 105 to %l1 */
+    set         105, %l1
+/* line number 5*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 5*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
 /* line number 6*/
 /* printf on int */
     set         _intFmt, %o0
@@ -38,6 +55,22 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 7*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 7*/
+/* Loading c1 to %l0 */
+    set         210, %l0
+/* line number 7*/
+/* Loading 210 to %l1 */
+    set         210, %l1
+/* line number 7*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 7*/
+/* Storing result of Binary Op */
+    set         -12, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
 /* line number 7*/
 /* printf on int */
     set         _intFmt, %o0
@@ -51,4 +84,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 12) & -8

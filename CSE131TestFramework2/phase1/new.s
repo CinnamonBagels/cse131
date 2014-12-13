@@ -1,8 +1,10 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     a,b,c
 a:              .single      0r5.5       
+float_1:        .single      0r5.55      
 b:              .word        3           
 c:              .word        0           
 str_0:          .asciz       "testing"   
@@ -24,11 +26,22 @@ arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%
 foo:
     set         SAVE.foo, %g1
     save        %sp, %g1, %sp
+/* line number 5*/
+/* Storing parameter x */
+    st          %i0, [%fp+68]
+/* line number 5*/
+/* Storing parameter y */
+    st          %f1, [%fp+72]
+/* line number 5*/
+/* Storing parameter z */
+    st          %i2, [%fp+76]
 /* line number 7*/
 /* Printing int x */
     set         _intFmt, %o0
-    set         null, %l1
-    add         null, %l1, %l1
+/* line number 7*/
+/* Loading x to %o1 */
+    set         68, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -38,9 +51,11 @@ foo:
     call    printf
     nop
 /* line number 7*/
-/* printing float STO.VarSTO@ae735 */
-    set         null, %l1
-    add         null, %l1, %l1
+/* printing float STO.VarSTO@110c2e8 */
+/* line number 7*/
+/* Loading y to %f0 */
+    set         72, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
@@ -51,8 +66,10 @@ foo:
     nop
 /* line number 7*/
 /* Printing bool z */
-    set         null, %l1
-    add         null, %l1, %l1
+/* line number 7*/
+/* Loading z to %l0 */
+    set         76, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l0
     set         _strFmt, %o0
     cmp         %l0, %g0
@@ -107,13 +124,32 @@ globalInit_end:
     set         _endl, %o0
     call    printf
     nop
+/* line number 13*/
+/* Preparing argument 34 */
+/* line number 13*/
+/* Loading 34 to %o0 */
+    set         34, %o0
+/* line number 13*/
+/* Preparing argument 5.55 */
+/* line number 13*/
+/* Loading 5.55 to %f1 */
+    set         float_1, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %f1
+/* line number 13*/
+/* Preparing argument false */
+/* line number 13*/
+/* Loading false to %o2 */
+    set         0, %o2
     call    foo
     nop
 /* line number 13*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 13*/
 /* Printing bool foo() */
+/* line number 13*/
+/* Loading foo() to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

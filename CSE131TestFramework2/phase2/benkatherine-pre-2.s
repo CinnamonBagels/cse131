@@ -58,7 +58,7 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 6*/
-/* printing float STO.VarSTO@14512e */
+/* printing float STO.VarSTO@1286c71 */
 /* line number 6*/
 /* Loading b to %f0 */
     set         b, %l1
@@ -88,7 +88,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 7*/
-/* printing float STO.ExprSTO@1ddbcb1 */
+/* printing float STO.ExprSTO@e77ca4 */
 /* line number 7*/
 /* Loading Validating UnaryOp b as a FloatType for operator: ++...
  to %f0 */
@@ -119,7 +119,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 8*/
-/* printing float STO.ExprSTO@17cd18d */
+/* printing float STO.ExprSTO@16c2195 */
 /* line number 8*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
  to %f0 */

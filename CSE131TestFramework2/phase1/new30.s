@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x
 x:              .word        1           
 str_0:          .asciz       "main"      
@@ -25,6 +26,8 @@ foo1:
     save        %sp, %g1, %sp
 /* line number 6*/
 /* Returning value from foo1 */
+/* line number 6*/
+/* Loading x to %i0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %i0
@@ -43,10 +46,12 @@ foo:
     call    foo1
     nop
 /* line number 10*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 11*/
 /* Returning value from foo */
+/* line number 11*/
+/* Loading foo1() to %i0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %i0
@@ -82,10 +87,12 @@ globalInit_end:
     call    foo
     nop
 /* line number 15*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 15*/
 /* Printing bool foo() */
+/* line number 15*/
+/* Loading foo() to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

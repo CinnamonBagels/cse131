@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 str_0:          .asciz       "main"      
 str_1:          .asciz       "end"       
 globalInit_:    .word        0           
@@ -56,11 +57,13 @@ globalInit_end:
     call    foo
     nop
 /* line number 9*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 9*/
 /* Printing int foo() */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading foo() to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

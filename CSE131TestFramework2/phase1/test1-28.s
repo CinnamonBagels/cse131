@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     i,j,k
 j:              .single      0r2.0       
 k:              .single      0r0         
@@ -37,14 +38,20 @@ main:
     nop
 /* line number 5*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 5*/
+/* Loading i to %l0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
 /* line number 5*/
 /* Dividing */
+/* line number 5*/
+/* Loading i to %f0 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 5*/
+/* Loading j to %f1 */
     set         j, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -86,14 +93,20 @@ globalInit_end:
 /* Done. */
 /* line number 12*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 12*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 12*/
 /* Dividing */
+/* line number 12*/
+/* Loading a to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 12*/
+/* Loading b to %f1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -116,9 +129,13 @@ globalInit_end:
 /* Done. */
 /* line number 13*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 13*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 13*/
+/* Loading i to %l1 */
     set         i, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -146,11 +163,15 @@ globalInit_end:
 /* Done. */
 /* line number 14*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 14*/
+/* Loading a to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 14*/
 /* Dividing */
+/* line number 14*/
+/* Loading a to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -162,6 +183,8 @@ globalInit_end:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 14*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -183,7 +206,9 @@ globalInit_end:
 /* line number 16*/
 /* Done. */
 /* line number 16*/
-/* printing float STO.VarSTO@1678f0a */
+/* printing float STO.VarSTO@1a83205 */
+/* line number 16*/
+/* Loading k to %f0 */
     set         k, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -200,7 +225,9 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@96ed8b */
+/* printing float STO.VarSTO@24de67 */
+/* line number 16*/
+/* Loading c to %f0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -219,6 +246,8 @@ globalInit_end:
 /* line number 16*/
 /* Printing int d */
     set         _intFmt, %o0
+/* line number 16*/
+/* Loading d to %o1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -235,7 +264,9 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@6286e3 */
+/* printing float STO.VarSTO@1be4050 */
+/* line number 16*/
+/* Loading e to %f0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -253,6 +284,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 16*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 16*/
+/* Loading 30 to %l0 */
     set         30, %l0
 /* line number 16*/
 /* Dividing */
@@ -262,9 +295,13 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         30, %l3
     st          %l3, [%l5]
+/* line number 16*/
+/* Loading  to %f0 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 16*/
+/* Loading b to %f1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -276,7 +313,9 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 16*/
-/* printing float STO.ExprSTO@85b4c5 */
+/* printing float STO.ExprSTO@170526a */
+/* line number 16*/
+/* Loading int / float to %f0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -295,6 +334,8 @@ globalInit_end:
 /* line number 16*/
 /* Printing int a */
     set         _intFmt, %o0
+/* line number 16*/
+/* Loading a to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

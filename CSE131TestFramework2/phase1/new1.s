@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x
 x:              .word        2           
 globalInit_:    .word        0           
@@ -31,6 +32,22 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 5*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 5*/
+/* Loading 3 to %l0 */
+    set         3, %l0
+/* line number 5*/
+/* Loading 1 to %l1 */
+    set         1, %l1
+/* line number 5*/
+/* Adding */
+    add         %l0, %l1, %l3
+/* line number 5*/
+/* Storing result of Binary Op */
+    set         -8, %l4
+    add         %fp, %l4, %l4
+    st          %l3, [%l4]
+/* line number 5*/
 /* printf on int */
     set         _intFmt, %o0
     set         4, %o1
@@ -48,4 +65,4 @@ globalInit_end:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 4) & -8
+SAVE.main = -(92 + 8) & -8

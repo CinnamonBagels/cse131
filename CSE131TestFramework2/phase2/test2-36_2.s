@@ -75,6 +75,9 @@ arrayOutBounds_0:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -143,13 +146,16 @@ arrayOutBounds_1:
     set         100, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_1:
 /* line number 12*/
-/* printing float STO.ExprSTO@17cd18d */
+/* printing float STO.ExprSTO@1286c71 */
 /* line number 12*/
 /* Loading gfarr[i] to %f0 */
     set         -20, %l1
@@ -169,7 +175,7 @@ arrayEnd_1:
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float STO.VarSTO@1a32902 */
+/* printing float STO.VarSTO@ff366c */
 /* line number 12*/
 /* Loading f to %f0 */
     set         -12, %l1

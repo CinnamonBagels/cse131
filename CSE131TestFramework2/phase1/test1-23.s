@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     k,l,m
 k:              .word        3           
 l:              .word        4           
@@ -32,9 +33,13 @@ main:
     nop
 /* line number 5*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 5*/
+/* Loading k to %l0 */
     set         k, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 5*/
+/* Loading l to %l1 */
     set         l, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -65,6 +70,8 @@ globalInit_end:
 /* line number 9*/
 /* Printing int k */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading k to %o1 */
     set         k, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -83,6 +90,8 @@ globalInit_end:
 /* line number 9*/
 /* Printing int l */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading l to %o1 */
     set         l, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -101,6 +110,8 @@ globalInit_end:
 /* line number 9*/
 /* Printing int m */
     set         _intFmt, %o0
+/* line number 9*/
+/* Loading m to %o1 */
     set         m, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

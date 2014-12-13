@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     shakespeare,marlowe,goethe,shelley
 shakespeare:    .single      0r0.0       
 marlowe:        .single      0r0.0       
@@ -11,9 +12,11 @@ float_1:        .single      0r5000.0
 float_2:        .single      0r12000.0   
 float_3:        .single      0r7000.0    
 float_4:        .single      0r51.52     
-float_5:        .single      0r1.0       
-float_6:        .single      0r9999.5    
+float_5:        .single      0r9.2       
+float_6:        .single      0r5.6       
 float_7:        .single      0r1.0       
+float_8:        .single      0r9999.5    
+float_9:        .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -44,15 +47,11 @@ globalInit_end:
 ! --storing constant shakespeare with value 9000.0
     set         shakespeare, %l0
     add         %g0, %l0, %l0
-    set         shakespeare, %l0
-    add         %g0, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant marlowe with value 5000.0
-    set         marlowe, %l0
-    add         %g0, %l0, %l0
     set         marlowe, %l0
     add         %g0, %l0, %l0
     set         float_1, %l1
@@ -62,15 +61,11 @@ globalInit_end:
 ! --storing constant goethe with value 12000.0
     set         goethe, %l0
     add         %g0, %l0, %l0
-    set         goethe, %l0
-    add         %g0, %l0, %l0
     set         float_2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant shelley with value 7000.0
-    set         shelley, %l0
-    add         %g0, %l0, %l0
     set         shelley, %l0
     add         %g0, %l0, %l0
     set         float_3, %l1
@@ -99,9 +94,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 17*/
 /* Subtracting */
+/* line number 17*/
+/* Loading shakespeare to %f0 */
     set         shakespeare, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 17*/
+/* Loading marlowe to %f1 */
     set         marlowe, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -113,14 +112,20 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 17*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 17*/
+/* Loading twilightSeries to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* line number 17*/
 /* Adding */
+/* line number 17*/
+/* Loading twilightSeries to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 17*/
+/* Loading float - float to %f1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -134,7 +139,45 @@ globalInit_end:
 /* line number 17*/
 /* Prepping Arithmetic Calculations by loading */
 /* line number 17*/
+/* Multiplying */
+/* line number 17*/
+/* Storing variable 5.60 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_6, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 17*/
+/* Loading  to %f0 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+/* line number 17*/
+/* Storing variable 9.20 into  */
+    set         4, %l5
+    add         %fp, %l5, %l5
+    set         float_5, %l3
+    add         %g0, %l3, %l3
+    ld          [%l3], %f1
+    st          %f1, [%l5]
+/* line number 17*/
+/* Loading  to %f1 */
+    set         4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f1
+    fmuls       %f0, %f1, %f3
+/* line number 17*/
+/* Storing result of Binary Op */
+    set         float_4, %l4
+    add         %g0, %l4, %l4
+    st          %f3, [%l4]
+/* line number 17*/
+/* Prepping Arithmetic Calculations by loading */
+/* line number 17*/
 /* Subtracting */
+/* line number 17*/
+/* Loading int + float to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -146,6 +189,8 @@ globalInit_end:
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 17*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -169,9 +214,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 18*/
 /* Subtracting */
+/* line number 18*/
+/* Loading byron to %f0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 18*/
+/* Loading shelley to %f1 */
     set         shelley, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -185,6 +234,8 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 18*/
 /* Multiplying */
+/* line number 18*/
+/* Loading float - float to %f0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -192,10 +243,12 @@ globalInit_end:
 /* Storing variable 1.0 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_5, %l3
+    set         float_7, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 18*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -207,14 +260,20 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 18*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 18*/
+/* Loading reallyReally to %l1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 18*/
 /* Subtracting */
+/* line number 18*/
+/* Loading float * float to %f0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 18*/
+/* Loading reallyReally to %f1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -239,9 +298,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 19*/
 /* Subtracting */
+/* line number 19*/
+/* Loading tennyson to %f0 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 19*/
+/* Loading byron to %f1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -255,6 +318,8 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 19*/
 /* Subtracting */
+/* line number 19*/
+/* Loading float - float to %f0 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -262,10 +327,12 @@ globalInit_end:
 /* Storing variable 9999.50 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_6, %l3
+    set         float_8, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 19*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -289,9 +356,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 20*/
 /* Subtracting */
+/* line number 20*/
+/* Loading shakespeare to %f0 */
     set         shakespeare, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 20*/
+/* Loading byron to %f1 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -305,9 +376,13 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 20*/
 /* Adding */
+/* line number 20*/
+/* Loading float - float to %f0 */
     set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 20*/
+/* Loading tennyson to %f1 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -321,6 +396,8 @@ globalInit_end:
 /* Prepping Arithmetic Calculations by loading */
 /* line number 20*/
 /* Multiplying */
+/* line number 20*/
+/* Loading float + float to %f0 */
     set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -328,10 +405,12 @@ globalInit_end:
 /* Storing variable 1.00 into  */
     set         4, %l5
     add         %fp, %l5, %l5
-    set         float_7, %l3
+    set         float_9, %l3
     add         %g0, %l3, %l3
     ld          [%l3], %f1
     st          %f1, [%l5]
+/* line number 20*/
+/* Loading  to %f1 */
     set         4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -343,14 +422,20 @@ globalInit_end:
     st          %f3, [%l4]
 /* line number 20*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 20*/
+/* Loading sucksAlot to %l1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* line number 20*/
 /* Adding */
+/* line number 20*/
+/* Loading float * float to %f0 */
     set         -72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
+/* line number 20*/
+/* Loading sucksAlot to %f1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -372,7 +457,9 @@ globalInit_end:
 /* line number 22*/
 /* Done. */
 /* line number 22*/
-/* printing float STO.VarSTO@19b7dfa */
+/* printing float STO.VarSTO@ea5d87 */
+/* line number 22*/
+/* Loading shakespeare to %f0 */
     set         shakespeare, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -384,7 +471,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 23*/
-/* printing float STO.VarSTO@8d116e */
+/* printing float STO.VarSTO@1a183d2 */
+/* line number 23*/
+/* Loading marlowe to %f0 */
     set         marlowe, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -396,7 +485,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 24*/
-/* printing float STO.VarSTO@1737e47 */
+/* printing float STO.VarSTO@d55a0f */
+/* line number 24*/
+/* Loading goethe to %f0 */
     set         goethe, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -408,7 +499,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 25*/
-/* printing float STO.VarSTO@1678f0a */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 25*/
+/* Loading shelley to %f0 */
     set         shelley, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -420,7 +513,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 26*/
-/* printing float STO.VarSTO@16a4aef */
+/* printing float STO.VarSTO@67211b */
+/* line number 26*/
+/* Loading byron to %f0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -432,7 +527,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 27*/
-/* printing float STO.VarSTO@15dbaab */
+/* printing float STO.VarSTO@ae8542 */
+/* line number 27*/
+/* Loading tennyson to %f0 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -444,7 +541,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 28*/
-/* printing float STO.VarSTO@8a3d8f */
+/* printing float STO.VarSTO@1aec0d1 */
+/* line number 28*/
+/* Loading wordsworth to %f0 */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -456,7 +555,9 @@ globalInit_end:
     call    printf
     nop
 /* line number 29*/
-/* printing float STO.VarSTO@1cfa4b2 */
+/* printing float STO.VarSTO@1f4ea9d */
+/* line number 29*/
+/* Loading lilwayne to %f0 */
     set         -80, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -470,6 +571,8 @@ globalInit_end:
 /* line number 30*/
 /* Printing int twilightSeries */
     set         _intFmt, %o0
+/* line number 30*/
+/* Loading twilightSeries to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -483,6 +586,8 @@ globalInit_end:
 /* line number 31*/
 /* Printing int reallyReally */
     set         _intFmt, %o0
+/* line number 31*/
+/* Loading reallyReally to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -496,6 +601,8 @@ globalInit_end:
 /* line number 32*/
 /* Printing int sucksAlot */
     set         _intFmt, %o0
+/* line number 32*/
+/* Loading sucksAlot to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

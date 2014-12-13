@@ -63,7 +63,6 @@ globalInit_end:
     set         -8, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant barC with value 1.0
@@ -172,7 +171,7 @@ andEnd_0:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@16e9494 */
+/* printing float STO.VarSTO@944d4a */
 /* line number 24*/
 /* Loading barB to %f0 */
     set         -8, %l1
@@ -250,7 +249,7 @@ branchEnd_0:
 /* line number 28*/
 /* Done printing string. */
 /* line number 28*/
-/* printing float STO.VarSTO@16e9494 */
+/* printing float STO.VarSTO@944d4a */
 /* line number 28*/
 /* Loading barB to %f0 */
     set         -8, %l1
@@ -328,7 +327,7 @@ branchEnd_1:
 /* line number 32*/
 /* Done printing string. */
 /* line number 32*/
-/* printing float STO.VarSTO@16e9494 */
+/* printing float STO.VarSTO@944d4a */
 /* line number 32*/
 /* Loading barB to %f0 */
     set         -8, %l1

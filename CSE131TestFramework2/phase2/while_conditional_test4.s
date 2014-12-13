@@ -43,7 +43,6 @@ globalInit_end:
     set         -12, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant kitty with value 3.0
@@ -55,7 +54,6 @@ globalInit_end:
     set         -20, %l0
     add         %fp, %l0, %l0
     set         float_1, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 14*/

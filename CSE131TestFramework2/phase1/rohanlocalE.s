@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 float_0:        .single      0r1.5       
 globalInit_:    .word        0           
 
@@ -32,14 +33,14 @@ globalInit_end:
 ! --storing constant c with value 1.5
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
     set         float_0, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 7*/
-/* printing float STO.VarSTO@f801c4 */
+/* printing float STO.VarSTO@ff366c */
+/* line number 7*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

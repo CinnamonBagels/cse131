@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y
 x:              .word        1           
 y:              .word        0           
@@ -33,6 +34,8 @@ main:
 globalInit_end:
 /* line number 5*/
 /* Printing bool x */
+/* line number 5*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -56,6 +59,8 @@ branchEnd_0:
     nop
 /* line number 5*/
 /* Printing bool y */
+/* line number 5*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

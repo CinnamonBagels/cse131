@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 str_0:          .asciz       "You should see this"
 str_1:          .asciz       ", but not this."
 globalInit_:    .word        0           

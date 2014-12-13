@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     f1,f2,f3,i1,i2,i3,b1,b2,b3
 f1:             .single      0r5.0       
 f2:             .single      0r6.0       
@@ -57,7 +58,9 @@ globalInit_end:
 /* line number 15*/
 /* Done printing string. */
 /* line number 15*/
-/* printing float STO.VarSTO@1d91382 */
+/* printing float STO.VarSTO@618533 */
+/* line number 15*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -77,7 +80,9 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@8d116e */
+/* printing float STO.VarSTO@6d234c */
+/* line number 16*/
+/* Loading f2 to %f0 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -89,8 +94,6 @@ globalInit_end:
     call    printf
     nop
 ! --storing constant f3 with value 7.0
-    set         f3, %l0
-    add         %g0, %l0, %l0
     set         f3, %l0
     add         %g0, %l0, %l0
     set         float_2, %l1
@@ -106,7 +109,9 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@1737e47 */
+/* printing float STO.VarSTO@1286c71 */
+/* line number 19*/
+/* Loading f3 to %f0 */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -120,13 +125,9 @@ globalInit_end:
 ! --storing constant i1 with value 1.0
     set         i1, %l0
     add         %g0, %l0, %l0
-    set         i1, %l0
-    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant i2 with value 2.0
-    set         i2, %l0
-    add         %g0, %l0, %l0
     set         i2, %l0
     add         %g0, %l0, %l0
     set         2, %l1
@@ -150,6 +151,8 @@ globalInit_end:
 /* line number 25*/
 /* Printing int i1 */
     set         _intFmt, %o0
+/* line number 25*/
+/* Loading i1 to %o1 */
     set         i1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -171,6 +174,8 @@ globalInit_end:
 /* line number 26*/
 /* Printing int i2 */
     set         _intFmt, %o0
+/* line number 26*/
+/* Loading i2 to %o1 */
     set         i2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -192,6 +197,8 @@ globalInit_end:
 /* line number 27*/
 /* Printing int i3 */
     set         _intFmt, %o0
+/* line number 27*/
+/* Loading i3 to %o1 */
     set         i3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -205,13 +212,9 @@ globalInit_end:
 ! --storing constant b1 with value 1.0
     set         b1, %l0
     add         %g0, %l0, %l0
-    set         b1, %l0
-    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant b2 with value 0.0
-    set         b2, %l0
-    add         %g0, %l0, %l0
     set         b2, %l0
     add         %g0, %l0, %l0
     set         0, %l1
@@ -234,6 +237,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 33*/
 /* Printing bool b1 */
+/* line number 33*/
+/* Loading b1 to %l0 */
     set         b1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -265,6 +270,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 34*/
 /* Printing bool b2 */
+/* line number 34*/
+/* Loading b2 to %l0 */
     set         b2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -296,6 +303,8 @@ branchEnd_1:
 /* Done printing string. */
 /* line number 35*/
 /* Printing bool b3 */
+/* line number 35*/
+/* Loading b3 to %l0 */
     set         b3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

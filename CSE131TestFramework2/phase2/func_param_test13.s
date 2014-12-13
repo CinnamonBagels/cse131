@@ -33,7 +33,7 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter a */
-    st          %f0, [%fp+68]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter r */
     st          %i1, [%fp+72]
@@ -55,6 +55,7 @@ foo:
 /* Loading r to %o1 */
     set         72, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %o1
     call    printf
     nop
@@ -77,8 +78,8 @@ foo:
 ! --storing constant a with value 351.22
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         float_2, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 6*/
@@ -87,6 +88,7 @@ foo:
 /* Loading r to %l0 */
     set         72, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %l0
 /* line number 6*/
 /* Loading 1 to %l1 */
@@ -103,6 +105,7 @@ foo:
 /* Storing variable int + int into r */
     set         72, %l5
     add         %fp, %l5, %l5
+    ld          [%l5], %l5
     set         -8, %l3
     add         %fp, %l3, %l3
     ld          [%l3], %l3
@@ -163,7 +166,7 @@ globalInit_end:
 /* line number 16*/
 /* Done printing string. */
 /* line number 16*/
-/* printing float STO.VarSTO@170526a */
+/* printing float STO.VarSTO@adb165 */
 /* line number 16*/
 /* Loading noob to %f0 */
     set         -8, %l1
@@ -234,12 +237,14 @@ branchEnd_0:
     nop
 /* line number 20*/
 /* Preparing argument noob */
-    set         -8, %o0
-    add         %fp, %o0, %o0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
 /* line number 20*/
 /* Preparing argument average */
-    set         -16, %o1
-    add         %fp, %o1, %o1
+    set         -16, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o1
 /* line number 20*/
 /* Preparing argument pro */
 /* line number 20*/
@@ -304,7 +309,7 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 24*/
-/* printing float STO.VarSTO@170526a */
+/* printing float STO.VarSTO@adb165 */
 /* line number 24*/
 /* Loading noob to %f0 */
     set         -8, %l1

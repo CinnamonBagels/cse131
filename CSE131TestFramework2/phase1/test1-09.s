@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     i,k,b1,b2,f1,f2,f3
 f1:             .single      0r1.0       
 f2:             .single      0r7654321.0 
@@ -114,6 +115,8 @@ globalInit_end:
 /* line number 22*/
 /* Printing int i */
     set         _intFmt, %o0
+/* line number 22*/
+/* Loading i to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -132,6 +135,8 @@ globalInit_end:
 /* line number 22*/
 /* Printing int k */
     set         _intFmt, %o0
+/* line number 22*/
+/* Loading k to %o1 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -152,6 +157,8 @@ globalInit_end:
 /* Done printing string. */
 /* line number 23*/
 /* Printing bool b1 */
+/* line number 23*/
+/* Loading b1 to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -180,6 +187,8 @@ branchEnd_0:
 /* Done printing string. */
 /* line number 23*/
 /* Printing bool b2 */
+/* line number 23*/
+/* Loading b2 to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -207,7 +216,9 @@ branchEnd_1:
 /* line number 24*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@a9fd96 */
+/* printing float STO.VarSTO@571688 */
+/* line number 25*/
+/* Loading f1 to %f0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -224,7 +235,9 @@ branchEnd_1:
 /* line number 25*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@47ad40 */
+/* printing float STO.VarSTO@1884319 */
+/* line number 25*/
+/* Loading f2 to %f0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -241,7 +254,9 @@ branchEnd_1:
 /* line number 25*/
 /* Done printing string. */
 /* line number 25*/
-/* printing float STO.VarSTO@128d900 */
+/* printing float STO.VarSTO@ed41f8 */
+/* line number 25*/
+/* Loading f3 to %f0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

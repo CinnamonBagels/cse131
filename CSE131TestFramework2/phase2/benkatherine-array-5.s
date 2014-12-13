@@ -61,6 +61,9 @@ arrayOutBounds_0:
     set         2, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -71,7 +74,6 @@ arrayEnd_0:
     add         %fp, %l0, %l0
     ld          [%l0], %l0
     set         float_0, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 15*/
@@ -103,6 +105,9 @@ arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         2, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -160,13 +165,16 @@ arrayOutBounds_2:
     set         2, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
     nop
 arrayEnd_2:
 /* line number 17*/
-/* printing float STO.ExprSTO@1ddbcb1 */
+/* printing float STO.ExprSTO@6d234c */
 /* line number 17*/
 /* Loading y[1] to %f0 */
     set         -28, %l1

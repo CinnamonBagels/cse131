@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y
 x:              .word        0           
 y:              .word        1           
@@ -50,13 +51,9 @@ staticGuardLabel_foo_y:
 ! --storing constant x with value 1.0
     set         foo_x, %l0
     add         %g0, %l0, %l0
-    set         foo_x, %l0
-    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 0.0
-    set         foo_y, %l0
-    add         %g0, %l0, %l0
     set         foo_y, %l0
     add         %g0, %l0, %l0
     set         0, %l1
@@ -71,6 +68,8 @@ staticGuardLabel_foo_y:
 /* Done printing string. */
 /* line number 9*/
 /* Printing bool x */
+/* line number 9*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -91,6 +90,8 @@ branchEnd_0:
 /* Done printing bool. */
 /* line number 9*/
 /* Printing bool y */
+/* line number 9*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -111,6 +112,8 @@ branchEnd_1:
 /* Done printing bool. */
 /* line number 9*/
 /* Printing bool x */
+/* line number 9*/
+/* Loading x to %l0 */
     set         foo_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -131,6 +134,8 @@ branchEnd_2:
 /* Done printing bool. */
 /* line number 9*/
 /* Printing bool y */
+/* line number 9*/
+/* Loading y to %l0 */
     set         foo_y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -154,6 +159,8 @@ branchEnd_3:
     nop
 /* line number 11*/
 /* Returning value from foo */
+/* line number 11*/
+/* Loading x to %i0 */
     set         foo_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %i0
@@ -189,10 +196,12 @@ globalInit_end:
     call    foo
     nop
 /* line number 15*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %o0, [%fp+-8]
 /* line number 15*/
 /* Printing bool foo() */
+/* line number 15*/
+/* Loading foo() to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

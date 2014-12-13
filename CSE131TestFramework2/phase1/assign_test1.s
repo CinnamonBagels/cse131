@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     f1,f2,f3
 f1:             .single      0r5.0       
 f2:             .single      0r6.0       
@@ -45,7 +46,9 @@ globalInit_end:
 /* line number 7*/
 /* Done printing string. */
 /* line number 7*/
-/* printing float STO.VarSTO@1d91382 */
+/* printing float STO.VarSTO@68bd43 */
+/* line number 7*/
+/* Loading f1 to %f0 */
     set         f1, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -65,7 +68,9 @@ globalInit_end:
 /* line number 8*/
 /* Done printing string. */
 /* line number 8*/
-/* printing float STO.VarSTO@8d116e */
+/* printing float STO.VarSTO@10bb83e */
+/* line number 8*/
+/* Loading f2 to %f0 */
     set         f2, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
@@ -77,8 +82,6 @@ globalInit_end:
     call    printf
     nop
 ! --storing constant f3 with value 7.0
-    set         f3, %l0
-    add         %g0, %l0, %l0
     set         f3, %l0
     add         %g0, %l0, %l0
     set         float_2, %l1
@@ -94,7 +97,9 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@1737e47 */
+/* printing float STO.VarSTO@6d234c */
+/* line number 11*/
+/* Loading f3 to %f0 */
     set         f3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 main_x:         .word        0           
 staticGuard_main_x:    .word        0           
 main_y:         .word        0           
@@ -53,19 +54,17 @@ globalInit_end:
 ! --storing constant x with value 1.0
     set         main_x, %l0
     add         %g0, %l0, %l0
-    set         main_x, %l0
-    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant y with value 0.0
-    set         main_y, %l0
-    add         %g0, %l0, %l0
     set         main_y, %l0
     add         %g0, %l0, %l0
     set         0, %l1
     st          %l1, [%l0]
 /* line number 6*/
 /* Printing bool x */
+/* line number 6*/
+/* Loading x to %l0 */
     set         main_x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -89,6 +88,8 @@ branchEnd_0:
     nop
 /* line number 6*/
 /* Printing bool y */
+/* line number 6*/
+/* Loading y to %l0 */
     set         main_y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

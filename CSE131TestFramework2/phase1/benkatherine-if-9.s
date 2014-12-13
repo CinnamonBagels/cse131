@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y
 x:              .single      0r6.0       
 y:              .word        5           
@@ -37,14 +38,20 @@ main:
 globalInit_end:
 /* line number 6*/
 /* Prepping Comparison Calculations by loading */
+/* line number 6*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
 /* line number 6*/
 /* Starting Less than */
+/* line number 6*/
+/* Loading x to %f0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 6*/
+/* Loading y to %f1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -63,6 +70,9 @@ lessEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 7*/
+/* Loading Validating ComparisonOp float and int as a BooleanType for operator: <...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -80,14 +90,20 @@ if_0:
 /* Done printing string. */
 /* line number 9*/
 /* Prepping Comparison Calculations by loading */
+/* line number 9*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
 /* line number 9*/
 /* Starting Less than */
+/* line number 9*/
+/* Loading x to %f0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0
+/* line number 9*/
+/* Loading y to %f1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f1
@@ -106,6 +122,9 @@ lessEnd_1:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 10*/
+/* Loading Validating ComparisonOp float and int as a BooleanType for operator: <...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

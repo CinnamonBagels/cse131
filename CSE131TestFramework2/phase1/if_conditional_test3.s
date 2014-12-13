@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     davis,coltrane,parker,ellington,mingus,monk,brubeck
 davis:          .word        0           
 coltrane:       .word        0           
@@ -48,13 +49,9 @@ globalInit_end:
 ! --storing constant davis with value 10.0
     set         davis, %l0
     add         %g0, %l0, %l0
-    set         davis, %l0
-    add         %g0, %l0, %l0
     set         10, %l1
     st          %l1, [%l0]
 ! --storing constant coltrane with value 9.0
-    set         coltrane, %l0
-    add         %g0, %l0, %l0
     set         coltrane, %l0
     add         %g0, %l0, %l0
     set         9, %l1
@@ -62,13 +59,9 @@ globalInit_end:
 ! --storing constant parker with value 8.0
     set         parker, %l0
     add         %g0, %l0, %l0
-    set         parker, %l0
-    add         %g0, %l0, %l0
     set         8, %l1
     st          %l1, [%l0]
 ! --storing constant ellington with value 7.0
-    set         ellington, %l0
-    add         %g0, %l0, %l0
     set         ellington, %l0
     add         %g0, %l0, %l0
     set         7, %l1
@@ -76,13 +69,9 @@ globalInit_end:
 ! --storing constant mingus with value 6.0
     set         mingus, %l0
     add         %g0, %l0, %l0
-    set         mingus, %l0
-    add         %g0, %l0, %l0
     set         6, %l1
     st          %l1, [%l0]
 ! --storing constant monk with value 5.0
-    set         monk, %l0
-    add         %g0, %l0, %l0
     set         monk, %l0
     add         %g0, %l0, %l0
     set         5, %l1
@@ -90,15 +79,17 @@ globalInit_end:
 ! --storing constant brubeck with value 4.0
     set         brubeck, %l0
     add         %g0, %l0, %l0
-    set         brubeck, %l0
-    add         %g0, %l0, %l0
     set         4, %l1
     st          %l1, [%l0]
 /* line number 19*/
 /* Prepping Comparison Calculations by loading */
+/* line number 19*/
+/* Loading davis to %l0 */
     set         davis, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 19*/
+/* Loading brubeck to %l1 */
     set         brubeck, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -118,6 +109,9 @@ greaterEnd_0:
     set         -8, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 20*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -138,9 +132,13 @@ if_0:
     nop
 /* line number 22*/
 /* Prepping Comparison Calculations by loading */
+/* line number 22*/
+/* Loading coltrane to %l0 */
     set         coltrane, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 22*/
+/* Loading parker to %l1 */
     set         parker, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -160,6 +158,9 @@ greaterEnd_1:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 23*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -184,9 +185,13 @@ else_1:
 endIf_2:
 /* line number 26*/
 /* Prepping Comparison Calculations by loading */
+/* line number 26*/
+/* Loading parker to %l0 */
     set         parker, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 26*/
+/* Loading ellington to %l1 */
     set         ellington, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -206,6 +211,9 @@ greaterEnd_2:
     set         -16, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 27*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -226,9 +234,13 @@ if_3:
     nop
 /* line number 29*/
 /* Prepping Comparison Calculations by loading */
+/* line number 29*/
+/* Loading ellington to %l0 */
     set         ellington, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 29*/
+/* Loading mingus to %l1 */
     set         mingus, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -248,6 +260,9 @@ greaterEnd_3:
     set         -20, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 30*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -268,9 +283,13 @@ if_4:
     nop
 /* line number 32*/
 /* Prepping Comparison Calculations by loading */
+/* line number 32*/
+/* Loading mingus to %l0 */
     set         mingus, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 32*/
+/* Loading ellington to %l1 */
     set         ellington, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -290,6 +309,9 @@ greaterEnd_4:
     set         -24, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 33*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -24, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -325,9 +347,13 @@ endIf_6:
     nop
 /* line number 37*/
 /* Prepping Comparison Calculations by loading */
+/* line number 37*/
+/* Loading monk to %l0 */
     set         monk, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 37*/
+/* Loading brubeck to %l1 */
     set         brubeck, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -347,6 +373,9 @@ greaterEnd_5:
     set         -28, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 38*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -371,9 +400,13 @@ else_7:
 endIf_8:
 /* line number 41*/
 /* Prepping Comparison Calculations by loading */
+/* line number 41*/
+/* Loading brubeck to %l0 */
     set         brubeck, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 41*/
+/* Loading monk to %l1 */
     set         monk, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -393,6 +426,9 @@ greaterEnd_6:
     set         -32, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 42*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

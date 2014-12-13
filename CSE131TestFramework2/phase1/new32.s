@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x
 x:              .word        3           
 str_0:          .asciz       "main"      
@@ -49,6 +50,8 @@ globalInit_end:
 /* line number 8*/
 /* Printing int x */
     set         _intFmt, %o0
+/* line number 8*/
+/* Loading x to %o1 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1

@@ -29,6 +29,7 @@ foo:
 ! --storing constant x with value 4.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         4, %l1
     st          %l1, [%l0]
 foo_end:
@@ -72,8 +73,9 @@ globalInit_end:
 /* Done printing string. */
 /* line number 11*/
 /* Preparing argument x */
-    set         x, %o0
-    add         %g0, %o0, %o0
+    set         x, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o0
     call    foo
     nop
 /* line number 12*/

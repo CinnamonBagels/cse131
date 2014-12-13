@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     glb3
 glb3:           .single      0r66.99     
 float_0:        .single      0r99.44     
@@ -25,6 +26,8 @@ foo4:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Returning value from foo4 */
+/* line number 7*/
+/* Loading 99.44 to %f0 */
     set         float_0, %l0
     add         %g0, %l0, %l0
     ld          [%l0], %f0
@@ -52,7 +55,7 @@ globalInit_end:
     call    foo4
     nop
 /* line number 10*/
-/* Saving return value */
+/* Saving return value on to stack */
     st          %f0, [%fp+-8]
 /* line number 12*/
 /* setting d = foo4() */
@@ -65,7 +68,9 @@ globalInit_end:
 /* line number 12*/
 /* Done. */
 /* line number 12*/
-/* printing float STO.VarSTO@31028a */
+/* printing float STO.VarSTO@183bfee */
+/* line number 12*/
+/* Loading d to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
@@ -82,7 +87,9 @@ globalInit_end:
 /* line number 12*/
 /* Done printing string. */
 /* line number 12*/
-/* printing float STO.VarSTO@1d91382 */
+/* printing float STO.VarSTO@e28099 */
+/* line number 12*/
+/* Loading glb3 to %f0 */
     set         glb3, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %f0

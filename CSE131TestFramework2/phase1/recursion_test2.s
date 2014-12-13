@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     fooRec,barRec,foobazRec
 fooRec:         .word        0           
 barRec:         .word        5           
@@ -34,6 +35,8 @@ foobaz:
     save        %sp, %g1, %sp
 /* line number 7*/
 /* Incrementing */
+/* line number 7*/
+/* Loading foobazRec to %l0 */
     set         foobazRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -49,9 +52,13 @@ foobaz:
     st          %l0, [%l1]
 /* line number 8*/
 /* Prepping Comparison Calculations by loading */
+/* line number 8*/
+/* Loading foobazRec to %l0 */
     set         foobazRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading 52 to %l1 */
     set         52, %l1
 /* line number 8*/
 /* Starting greater than */
@@ -69,6 +76,9 @@ greaterEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 9*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -104,6 +114,8 @@ endIf_1:
 /* line number 14*/
 /* Printing int foobazRec */
     set         _intFmt, %o0
+/* line number 14*/
+/* Loading foobazRec to %o1 */
     set         foobazRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -128,6 +140,8 @@ bar:
     save        %sp, %g1, %sp
 /* line number 20*/
 /* Incrementing */
+/* line number 20*/
+/* Loading barRec to %l0 */
     set         barRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -143,9 +157,13 @@ bar:
     st          %l0, [%l1]
 /* line number 22*/
 /* Prepping Comparison Calculations by loading */
+/* line number 22*/
+/* Loading barRec to %l0 */
     set         barRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 22*/
+/* Loading 8 to %l1 */
     set         8, %l1
 /* line number 22*/
 /* Starting greater than equal */
@@ -163,6 +181,9 @@ greaterEqualEnd_1:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 23*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >=...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -200,6 +221,8 @@ endIf_3:
 /* line number 29*/
 /* Printing int barRec */
     set         _intFmt, %o0
+/* line number 29*/
+/* Loading barRec to %o1 */
     set         barRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -224,6 +247,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 35*/
 /* Incrementing */
+/* line number 35*/
+/* Loading fooRec to %l0 */
     set         fooRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -239,9 +264,13 @@ foo:
     st          %l0, [%l1]
 /* line number 37*/
 /* Prepping Comparison Calculations by loading */
+/* line number 37*/
+/* Loading fooRec to %l0 */
     set         fooRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 37*/
+/* Loading 10 to %l1 */
     set         10, %l1
 /* line number 37*/
 /* Starting greater than */
@@ -259,6 +288,9 @@ greaterEnd_2:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 38*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -296,6 +328,8 @@ endIf_5:
 /* line number 44*/
 /* Printing int fooRec */
     set         _intFmt, %o0
+/* line number 44*/
+/* Loading fooRec to %o1 */
     set         fooRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -330,13 +364,9 @@ globalInit_end:
 ! --storing constant fooRec with value 1.0
     set         fooRec, %l0
     add         %g0, %l0, %l0
-    set         fooRec, %l0
-    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 ! --storing constant foobazRec with value 50.0
-    set         foobazRec, %l0
-    add         %g0, %l0, %l0
     set         foobazRec, %l0
     add         %g0, %l0, %l0
     set         50, %l1
@@ -354,6 +384,8 @@ globalInit_end:
 /* line number 55*/
 /* Printing int fooRec */
     set         _intFmt, %o0
+/* line number 55*/
+/* Loading fooRec to %o1 */
     set         fooRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -375,6 +407,8 @@ globalInit_end:
 /* line number 56*/
 /* Printing int barRec */
     set         _intFmt, %o0
+/* line number 56*/
+/* Loading barRec to %o1 */
     set         barRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -396,6 +430,8 @@ globalInit_end:
 /* line number 57*/
 /* Printing int foobazRec */
     set         _intFmt, %o0
+/* line number 57*/
+/* Loading foobazRec to %o1 */
     set         foobazRec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

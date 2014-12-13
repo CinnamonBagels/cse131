@@ -82,8 +82,9 @@ globalInit_end:
 /* Done. */
 /* line number 9*/
 /* Preparing argument k */
-    set         -8, %o0
-    add         %fp, %o0, %o0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
 /* line number 9*/
 /* Preparing argument k */
 /* line number 9*/

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -31,12 +32,12 @@ globalInit_end:
 ! --storing constant c with value 1.0
     set         -8, %l0
     add         %fp, %l0, %l0
-    set         -8, %l0
-    add         %fp, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
 /* line number 7*/
 /* Printing bool c */
+/* line number 7*/
+/* Loading c to %l0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0

@@ -101,6 +101,9 @@ arrayOutBounds_0:
     set         10, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -176,6 +179,9 @@ arrayOutBounds_1:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         10, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0
@@ -319,6 +325,9 @@ arrayOutBounds_2:
     set         10, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -374,6 +383,9 @@ arrayOutBounds_3:
     set         10, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -417,8 +429,9 @@ arrayEnd_3:
 whileEnd_1:
 /* line number 19*/
 /* Preparing argument b */
-    set         null, %o0
-    add         null, %o0, %o0
+    set         null, %l0
+    add         null, %l0, %l0
+    mov         %l0, %o0
     call    foo
     nop
 while_2:
@@ -496,6 +509,9 @@ arrayOutBounds_4:
     set         arrayOutOfBounds, %o0
     mov         %l0, %o1
     set         10, %o2
+    call    printf
+    nop
+    set         _endl, %o0
     call    printf
     nop
     set         1, %o0

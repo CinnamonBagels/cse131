@@ -96,12 +96,14 @@ main:
 globalInit_end:
 /* line number 16*/
 /* Preparing argument ab */
-    set         ab, %o0
-    add         %g0, %o0, %o0
+    set         ab, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o0
 /* line number 16*/
 /* Preparing argument bc */
-    set         bc, %o1
-    add         %g0, %o1, %o1
+    set         bc, %l0
+    add         %g0, %l0, %l0
+    mov         %l0, %o1
 /* line number 16*/
 /* Preparing argument 1 */
 /* line number 16*/

@@ -98,6 +98,9 @@ arrayOutBounds_0:
     set         5, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -257,6 +260,9 @@ arrayOutBounds_1:
     set         5, %o2
     call    printf
     nop
+    set         _endl, %o0
+    call    printf
+    nop
     set         1, %o0
     call    exit
 
@@ -295,8 +301,9 @@ arrayEnd_1:
 whileEnd_1:
 /* line number 33*/
 /* Preparing argument array */
-    set         null, %o0
-    add         null, %o0, %o0
+    set         null, %l0
+    add         null, %l0, %l0
+    mov         %l0, %o0
     call    foo
     nop
 main_end:

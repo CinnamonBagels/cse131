@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     pass,fail
 pass:           .word        1           
 fail:           .word        0           
@@ -39,6 +40,8 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
+/* line number 7*/
+/* Loading pass to %l0 */
     set         pass, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -57,6 +60,8 @@ if_0:
     set         _endl, %o0
     call    printf
     nop
+/* line number 11*/
+/* Loading fail to %l0 */
     set         fail, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -93,6 +98,8 @@ endIf_2:
     ba      endIf_3
     nop
 else_0:
+/* line number 22*/
+/* Loading pass to %l0 */
     set         pass, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -127,6 +134,8 @@ else_4:
     nop
 endIf_5:
 endIf_3:
+/* line number 32*/
+/* Loading fail to %l0 */
     set         fail, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -148,6 +157,8 @@ if_6:
     ba      endIf_7
     nop
 else_6:
+/* line number 38*/
+/* Loading pass to %l0 */
     set         pass, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0

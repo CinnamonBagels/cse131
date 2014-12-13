@@ -29,7 +29,7 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter a */
-    st          %f0, [%fp+68]
+    st          %i0, [%fp+68]
 /* line number 2*/
 /* Storing parameter r */
     st          %i1, [%fp+72]
@@ -70,8 +70,8 @@ foo:
 ! --storing constant a with value 351.22
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         float_2, %l1
-    add         %g0, %l1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 /* line number 7*/
@@ -123,7 +123,7 @@ globalInit_end:
 /* line number 14*/
 /* Done printing string. */
 /* line number 14*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@183bfee */
 /* line number 14*/
 /* Loading noob to %f0 */
     set         -8, %l1
@@ -138,8 +138,9 @@ globalInit_end:
     nop
 /* line number 15*/
 /* Preparing argument noob */
-    set         -8, %o0
-    add         %fp, %o0, %o0
+    set         -8, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
 /* line number 15*/
 /* Preparing argument 88 */
 /* line number 15*/
@@ -169,7 +170,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@1be4050 */
+/* printing float STO.VarSTO@15978e7 */
 /* line number 17*/
 /* Loading c to %f0 */
     set         -16, %l1
@@ -191,7 +192,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@24de67 */
+/* printing float STO.VarSTO@183bfee */
 /* line number 19*/
 /* Loading noob to %f0 */
     set         -8, %l1

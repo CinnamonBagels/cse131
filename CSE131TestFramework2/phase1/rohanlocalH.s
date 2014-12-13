@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -38,6 +39,8 @@ globalInit_end:
     add         %fp, %l5, %l5
     set         10, %l3
     st          %l3, [%l5]
+/* line number 5*/
+/* Loading promoteCasting to %f1 */
     set         -4, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f1
@@ -50,7 +53,9 @@ globalInit_end:
     add         %fp, %l2, %l2
     st          %f1, [%l2]
 /* line number 5*/
-/* printing float STO.VarSTO@5f62a9 */
+/* printing float STO.VarSTO@1def658 */
+/* line number 5*/
+/* Loading c to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0

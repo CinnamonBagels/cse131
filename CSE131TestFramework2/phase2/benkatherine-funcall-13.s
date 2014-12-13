@@ -30,6 +30,7 @@ woo:
 ! --storing constant k with value 999.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         999, %l1
     st          %l1, [%l0]
 woo_end:
@@ -48,12 +49,15 @@ wohoo:
 ! --storing constant j with value 9.0
     set         68, %l0
     add         %fp, %l0, %l0
+    ld          [%l0], %l0
     set         9, %l1
     st          %l1, [%l0]
 /* line number 10*/
 /* Preparing argument j */
-    set         68, %o0
-    add         %fp, %o0, %o0
+    set         68, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o0
     call    woo
     nop
 wohoo_end:
@@ -71,8 +75,10 @@ woohooo2:
     st          %i0, [%fp+68]
 /* line number 14*/
 /* Preparing argument a */
-    set         68, %o0
-    add         %fp, %o0, %o0
+    set         68, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %o0
     call    wohoo
     nop
 woohooo2_end:
@@ -127,8 +133,9 @@ globalInit_end:
     nop
 /* line number 22*/
 /* Preparing argument y */
-    set         68, %o0
-    add         %fp, %o0, %o0
+    set         68, %l0
+    add         %fp, %l0, %l0
+    mov         %l0, %o0
     call    woohooo2
     nop
 /* line number 23*/

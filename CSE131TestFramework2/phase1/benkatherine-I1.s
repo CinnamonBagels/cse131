@@ -1,9 +1,10 @@
 ! --globals--
                 .section     ".data"
                 .align 4
-                 .global     x,y,z
-x:              .word        0           
+FLOAT_FORCE_1:    .single      0r1.0       
+                 .global     y,x,z
 y:              .word        0           
+x:              .word        0           
 z:              .word        0           
 globalInit_:    .word        0           
 

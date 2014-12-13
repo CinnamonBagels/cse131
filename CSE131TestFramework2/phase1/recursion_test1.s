@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     rec
 rec:            .word        0           
 str_0:          .asciz       "recursive foo call "
@@ -26,6 +27,8 @@ foo:
     save        %sp, %g1, %sp
 /* line number 5*/
 /* Incrementing */
+/* line number 5*/
+/* Loading rec to %l0 */
     set         rec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
@@ -50,6 +53,8 @@ foo:
 /* line number 6*/
 /* Printing int rec */
     set         _intFmt, %o0
+/* line number 6*/
+/* Loading rec to %o1 */
     set         rec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1
@@ -62,9 +67,13 @@ foo:
     nop
 /* line number 7*/
 /* Prepping Comparison Calculations by loading */
+/* line number 7*/
+/* Loading rec to %l0 */
     set         rec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading 10 to %l1 */
     set         10, %l1
 /* line number 7*/
 /* Starting greater than */
@@ -82,6 +91,9 @@ greaterEnd_0:
     set         -12, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
+/* line number 8*/
+/* Loading Validating ComparisonOp int and int as a BooleanType for operator: >...
+ to %l0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
@@ -130,8 +142,6 @@ globalInit_end:
 ! --storing constant rec with value 1.0
     set         rec, %l0
     add         %g0, %l0, %l0
-    set         rec, %l0
-    add         %g0, %l0, %l0
     set         1, %l1
     st          %l1, [%l0]
     call    foo
@@ -147,6 +157,8 @@ globalInit_end:
 /* line number 22*/
 /* Printing int rec */
     set         _intFmt, %o0
+/* line number 22*/
+/* Loading rec to %o1 */
     set         rec, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %o1

@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
 x:              .word        0           
 staticGuard_x:    .word        0           
 y:              .word        0           
@@ -47,8 +48,6 @@ staticGuardLabel_x:
     cmp         %g0, %l1
     bne     staticGuardLabel_y
     nop
-    set         y, %l0
-    add         %g0, %l0, %l0
     set         y, %l0
     add         %g0, %l0, %l0
     set         4, %l1
@@ -121,8 +120,6 @@ staticGuardLabel_main_d:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant b with value 4.0
-    set         main_b, %l0
-    add         %g0, %l0, %l0
     set         main_b, %l0
     add         %g0, %l0, %l0
     set         4, %l1

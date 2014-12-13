@@ -1,6 +1,7 @@
 ! --globals--
                 .section     ".data"
                 .align 4
+FLOAT_FORCE_1:    .single      0r1.0       
                  .global     x,y,z
 x:              .word        5           
 y:              .word        10          
@@ -34,9 +35,13 @@ main:
 globalInit_end:
 /* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 7*/
+/* Loading y to %l0 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 7*/
+/* Loading x to %l1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -65,9 +70,13 @@ globalInit_end:
 /* Done. */
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading z to %l0 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -85,9 +94,13 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading int * int to %l0 */
     set         -16, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading z to %l1 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -101,9 +114,13 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 8*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 8*/
+/* Loading int - int to %l0 */
     set         -20, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 8*/
+/* Loading x to %l1 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -132,9 +149,13 @@ globalInit_end:
 /* Done. */
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -152,9 +173,13 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading int * int to %l0 */
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading z to %l1 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -172,9 +197,13 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading x to %l0 */
     set         x, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading y to %l1 */
     set         y, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -192,9 +221,13 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading int * int to %l0 */
     set         -40, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading z to %l1 */
     set         z, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l1
@@ -212,9 +245,13 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading int * int to %l0 */
     set         -36, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading int * int to %l1 */
     set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
@@ -228,9 +265,13 @@ globalInit_end:
     st          %l3, [%l4]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading int + int to %l0 */
     set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading 10 to %l1 */
     set         10, %l1
 /* line number 9*/
 /* Modding */
@@ -246,9 +287,14 @@ globalInit_end:
     st          %l0, [%l4]
 /* line number 9*/
 /* Prepping Arithmetic Calculations by loading */
+/* line number 9*/
+/* Loading Validating int and int as an IntegerType for operator: %...
+ to %l0 */
     set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+/* line number 9*/
+/* Loading 5 to %l1 */
     set         5, %l1
 /* line number 9*/
 /* Adding */
@@ -271,6 +317,8 @@ globalInit_end:
 /* line number 11*/
 /* Printing int sinatra */
     set         _intFmt, %o0
+/* line number 11*/
+/* Loading sinatra to %o1 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -284,6 +332,8 @@ globalInit_end:
 /* line number 12*/
 /* Printing int fitzgerald */
     set         _intFmt, %o0
+/* line number 12*/
+/* Loading fitzgerald to %o1 */
     set         -28, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
@@ -297,6 +347,8 @@ globalInit_end:
 /* line number 13*/
 /* Printing int bono */
     set         _intFmt, %o0
+/* line number 13*/
+/* Loading bono to %o1 */
     set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %o1
