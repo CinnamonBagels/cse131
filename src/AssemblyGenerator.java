@@ -695,7 +695,8 @@ public class AssemblyGenerator {
 	public void storeParameters(STO sto, int num){
 		generateComment("Storing parameter " + sto.getName());
 		if(!(sto.getType() instanceof FloatType) && !sto.isReference){
-			generateASM(Strings.two_param, Instructions.store, "%i" + num, "[" + sto.base + "+" + sto.offset + "]"); 
+			//generateASM(Strings.two_param, Instructions.store, "%i" + num, "[" + sto.base + "+" + sto.offset + "]");
+			generateASM(Strings.two_param, Instructions.store, "%i" + num, "[" + sto.base + "+" + sto.offset + "]");
 		}
 	}
 
@@ -713,6 +714,13 @@ public class AssemblyGenerator {
 		}
 		argument.base = Registers.fp;
 		argument.offset = "-4";
+//		if(argument.offset == null){
+//			argument.offset = "-4";
+//		}else{
+//			int o = Integer.parseInt(argument.offset);
+//			o -= 4;
+//			argument.offset = String.valueOf(o);
+//		}
 		
 		if(parameter != null && parameter.getIsReference()) {
 			//do reference stuff here.
@@ -721,9 +729,18 @@ public class AssemblyGenerator {
 				System.out.println("prepareArguments: " + argument.getName() + " " + argument.base + " " + argument.offset);
 				this.loadVariable("%f" + argCounter, argument);
 			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
+				
+				//TODO This is really bad
+				if(argument.getName().length() > 2 && argument.getName().substring(argument.getName().length()-2, argument.getName().length()).equals("()")){
+					argument.offset = String.valueOf(-8 - 4*argCounter);
+				}
+				System.out.println(argument.getType().getName() + " " + argument.getName() + " " + argument.base + " " + argument.offset);
+				System.out.println(argument.isConst());
+				if(argument.getType().isInt()){
+					
+				}
 				this.loadVariable("%o" + argCounter, argument);
 			} else {
-				
 			}
 		}
 	}
@@ -743,7 +760,7 @@ public class AssemblyGenerator {
 
 	public void saveReturn(STO returnSTO) {
 		// TODO Auto-generated method stub
-		generateComment("Saving return value");
+		generateComment("Saving return value on to stack");
 		String storeString = "[" + returnSTO.base + "+" + returnSTO.offset + "]";
 		if(returnSTO.getType().isFloat()) {
 			generateASM(Strings.two_param, Instructions.store, Registers.f0, storeString);
@@ -1623,8 +1640,7 @@ public class AssemblyGenerator {
 		
 		if(returnSTO.isConst()) {
 			if(func.getReturnType().isFloat()) {
-				if(returnSTO.getType().isFloat()) {
-					
+				if(returnSTO.getType().isFloat()) {					
 					assignFloat((ConstSTO) returnSTO);
 					loadVariable(Registers.f0, returnSTO);
 				} else {
@@ -1648,7 +1664,7 @@ public class AssemblyGenerator {
 					generateASM(Strings.two_param, Instructions.fitos, Registers.f0, Registers.f0);
 				}
 			} else {
-				loadVariable(Registers.i0, returnSTO);
+				loadVariable(Registers.o0, returnSTO);
 			}
 		}
 		
