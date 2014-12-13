@@ -1,3 +1,0 @@
-Error, "phase1/check1/boolGTbool.rc": 
-  Incompatible type bool to binary operator >, numeric expected.
-Compile: failure.

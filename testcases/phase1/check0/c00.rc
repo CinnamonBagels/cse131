@@ -1,7 +1,0 @@
-int myX;
-function : void foo() {
-	int x;
-	int y = ::myX;
-	int i = 5 + ::x;
-	
-}

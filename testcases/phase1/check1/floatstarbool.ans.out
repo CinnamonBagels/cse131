@@ -1,3 +1,0 @@
-Error, "phase1/check1/floatstarbool.rc": 
-  Incompatible type bool to binary operator *, numeric expected.
-Compile: failure.

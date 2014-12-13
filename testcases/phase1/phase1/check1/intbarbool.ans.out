@@ -1,3 +1,0 @@
-Error, "phase1/check1/intbarbool.rc": 
-  Incompatible type bool to binary operator |, equivalent to int expected.
-Compile: failure.
