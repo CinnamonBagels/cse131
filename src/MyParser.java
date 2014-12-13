@@ -742,19 +742,29 @@ class MyParser extends parser {
 			m_nNumErrors++;
 			m_errors.print("internal: DoFormalParams says no proc" + "!");
 		} else {
-
+			int numArgs = 0;
+			
+			if (currentStruct != null) {
+				//TODO structs
+				STO tsto = new ConstSTO("this", this.currentStruct);
+				m_symtab.insert(tsto);
+				currentStruct.setStructMembers(func);
+			}
+			
 			if (params != null) {
 				func.setParameters(params);
 				// add parameters to the function's local scope...
 				for (int i = 0; i < params.size(); i++) {
+					VarSTO sto = (VarSTO)params.get(i);
+					sto.base = Registers.fp;
+					sto.offset = "" + (-8 - 4*numArgs++);
+					//TODO Extern
+					System.out.println(params.get(i).base + params.get(i).offset);
+					
 					m_symtab.insert(params.get(i));
 				}
 			}
-
-			if (currentStruct != null) {
-				m_symtab.insert(new ConstSTO("this", this.currentStruct));
-				currentStruct.setStructMembers(func);
-			}
+			
 		}
 
 		// insert parameters here
