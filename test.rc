@@ -1,21 +1,13 @@
-// float array deref assignment from int array
+ int x = 3;
+ float y = 4.44;
 
-float[100] gfarr;
-int[100] giarr;
+function : int foo(int a, float b)
+{
+    cout << a--<< b--;
+    return --a;
+}
 
-function: void main() {
-    
-    float[20] lfarr;
-    int[20] liarr;
-    
-    liarr[8] = 19;
-    giarr[8] = 29;
-    
-    lfarr[1] = liarr[8];
-    lfarr[2] = giarr[8];
-    
-    gfarr[1] = liarr[8];
-    gfarr[2] = giarr[8];
-    
-    cout << gfarr[1] << " " << gfarr[2] << " " << lfarr[1] << " " <<lfarr[2] << endl; //false true true
+function : void main() {
+
+    cout << foo(3,4.44);
 }
