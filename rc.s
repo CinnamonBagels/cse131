@@ -22,25 +22,11 @@ foo:
     save        %sp, %g1, %sp
 /* line number 2*/
 /* Storing parameter x */
-    st          %i0, [%fp+68]
-/* line number 3*/
-/* Printing int x */
-    set         _intFmt, %o0
-    set         68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 3*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 5*/
+/* line number 4*/
 /* Returning value from foo */
     set         68, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %i0
+    ld          [%l1], %f0
     ba      foo_end
     nop
 foo_end:
@@ -62,34 +48,35 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 9*/
-/* Preparing argument 3 */
-    set         3, %o0
+/* line number 8*/
+/* Preparing argument 3.0 */
+    set         null, %l0
+    add         null, %l0, %l0
+    ld          [%l0], %f0
     call    foo
     nop
-/* line number 9*/
+/* line number 8*/
 /* Saving return value */
-    st          %o0, [%fp+-8]
-/* line number 9*/
+    st          %f0, [%fp+-8]
+/* line number 8*/
 /* Preparing argument foo() */
     set         -8, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o0
+    ld          [%l1], %f0
     call    foo
     nop
-/* line number 9*/
+/* line number 8*/
 /* Saving return value */
-    st          %o0, [%fp+-12]
-/* line number 9*/
-/* Printing int foo() */
-    set         _intFmt, %o0
+    st          %f0, [%fp+-12]
+/* line number 8*/
+/* printing float STO.VarSTO@7eab48a7 */
     set         -12, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
+    ld          [%l1], %f0
+    call    printFloat
     nop
-/* line number 9*/
-/* Done printing int. */
+/* line number 8*/
+/* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
