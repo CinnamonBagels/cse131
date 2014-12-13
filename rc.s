@@ -18,6 +18,7 @@ _boolF:         .asciz       "false"
 rfmt:           .asciz       "%.21f"     
 arrayOutOfBounds:    .asciz       "Index value of %d is outside legal range [0,%d)."
 
+
                 .section     ".text"
                 .align 4
                 .global      foo
@@ -79,7 +80,7 @@ foo:
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* line number 6*/
-/* printing float STO.ExprSTO@1a8773c */
+/* printing float STO.ExprSTO@1b33a0e */
 /* line number 6*/
 /* Loading Validating UnaryOp b as a FloatType for operator: --...
  to %f0 */
