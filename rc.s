@@ -33,7 +33,7 @@ foo:
 /* line number 3*/
 /* Done printing string. */
 /* line number 3*/
-/* printing float STO.VarSTO@5eb489 */
+/* printing float STO.VarSTO@1e1be92 */
 /* line number 3*/
 /* Loading b to %f0 */
     set         -8, %l1
@@ -77,8 +77,21 @@ globalInit_end:
 /* line number 9*/
 /* Preparing argument 9 */
 /* line number 9*/
-/* Loading 9 to %o0 */
-    set         9, %o0
+/* promoting */
+/* line number 9*/
+/* Storing variable 9 into promoteCasting */
+    set         -4, %l5
+    add         %fp, %l5, %l5
+    set         9, %l3
+    st          %l3, [%l5]
+/* line number 9*/
+/* Loading promoteCasting to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    fitos       %f0, %f0
+/* line number 9*/
+/* done promoting */
     call    foo
     nop
 /* line number 9*/
@@ -103,7 +116,7 @@ globalInit_end:
 /* line number 11*/
 /* Done printing string. */
 /* line number 11*/
-/* printing float STO.VarSTO@92dcdb */
+/* printing float STO.VarSTO@a3d3b */
 /* line number 11*/
 /* Loading c to %f0 */
     set         -12, %l1

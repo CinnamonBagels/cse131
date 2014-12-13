@@ -484,6 +484,24 @@ public class AssemblyGenerator {
 		return Registers.f1;
 	}
 	
+	public String promoteIntToFloat(STO left, STO right, String register) {
+		generateComment("promoting");
+		STO tmp = new ExprSTO("promoteCasting", new FloatType());
+		tmp.base = Registers.fp;
+		tmp.offset = "-4";
+		
+		if(right.isConst()) {
+			storeVariable(tmp, right);
+			loadVariable(register, tmp);
+		} else {
+			loadVariable(register, right);
+		}
+		
+		generateASM(Strings.two_param, Instructions.fitos, register, register);
+		generateComment("done promoting" );
+		return register;
+	}
+	
 	public void storeVariable(String register, STO sto){
 		
 		generateComment("Storing value of register " + register + " into " + sto.getName());
@@ -685,6 +703,10 @@ public class AssemblyGenerator {
 
 	public void prepareArguments(STO argument, VarSTO parameter, int argCounter) {
 		// TODO Auto-generated method stub
+		boolean bothInt = !argument.getType().isFloat() && !parameter.getType().isFloat();
+		boolean bothFloat = argument.getType().isFloat() && parameter.getType().isFloat();
+		boolean argFloat = argument.getType().isFloat() && !parameter.getType().isFloat();
+		boolean paramFloat = !argument.getType().isFloat() && parameter.getType().isFloat();
 		generateComment("Preparing argument " + argument.getName());
 		
 		if(argument.getType().isFloat()) {
@@ -697,33 +719,18 @@ public class AssemblyGenerator {
 		}
 		argument.base = Registers.fp;
 		argument.offset = "-4";
-//		if(argument.offset == null){
-//			argument.offset = "-4";
-//		}else{
-//			int o = Integer.parseInt(argument.offset);
-//			o -= 4;
-//			argument.offset = String.valueOf(o);
-//		}
-		
-		if(parameter != null && parameter.getIsReference()) {
-			//do reference stuff here.
+		if(argument.isReference) {
+			//reference stuff here
 		} else {
-			if(argument.getType().isFloat() && parameter.getType().isFloat()) {
-				System.out.println("prepareArguments: " + argument.getName() + " " + argument.base + " " + argument.offset);
-				this.loadVariable("%f" + argCounter, argument);
-			} else if (!(argument.getType().isFloat() && parameter.getType().isFloat())){
-				
-				//TODO This is really bad
-				if(argument.getName().length() > 2 && argument.getName().substring(argument.getName().length()-2, argument.getName().length()).equals("()")){
-					argument.offset = String.valueOf(-8 - 4*argCounter);
-				}
-				System.out.println(argument.getType().getName() + " " + argument.getName() + " " + argument.base + " " + argument.offset);
-				System.out.println(argument.isConst());
-				if(argument.getType().isInt()){
-					
-				}
-				this.loadVariable("%o" + argCounter, argument);
+			if(bothInt) {
+				loadVariable("%o" + argCounter, argument);
 			} else {
+				if(bothFloat) {
+					//
+					loadVariable("%f" + argCounter, argument);
+				} else {
+					this.promoteIntToFloat(parameter, argument, "%f" + argCounter);
+				}
 			}
 		}
 	}
