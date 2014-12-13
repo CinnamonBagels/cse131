@@ -1,10 +1,9 @@
 
-
-function : void main()
+function: void main()
 {
 
    
-
-   cout << false && true << endl;  //false
+   cout << "testing bitwise or" <<endl;
+   cout << 1 | 1 << endl;
    
 }

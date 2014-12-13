@@ -2,6 +2,7 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
+str_0:          .asciz       "testing bitwise or"
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -29,41 +30,37 @@ main:
     set         1, %l1
     st          %l1, [%l0]
 globalInit_end:
-/* line number 8*/
-/* Short-circuiting && with false */
-/* line number 8*/
-/* Loading false to %l1 */
-    set         0, %l1
-    cmp         %l1, %g0
-    be      andF_0
+/* line number 6*/
+/* printing string */
+    set         _strFmt, %o0
+    set         str_0, %o1
+    call    printf
     nop
-/* line number 8*/
+/* line number 6*/
+/* Done printing string. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 7*/
 /* Prepping Arithmetic Calculations by loading */
-/* line number 8*/
-/* Loading false to %l0 */
-    set         0, %l0
-/* line number 8*/
-/* Loading true to %l1 */
+/* line number 7*/
+/* Loading 1 to %l0 */
+    set         1, %l0
+/* line number 7*/
+/* Loading 1 to %l1 */
     set         1, %l1
-/* line number 8*/
-/* &&-ing */
-    cmp         %l1, %g0
-    bne     andT_0
-    nop
-andF_0:
-    set         0, %l2
-    ba      andEnd_0
-    nop
-andT_0:
-    set         1, %l2
-andEnd_0:
-/* line number 8*/
+/* line number 7*/
+/* Oring */
+    or          %l0, %l1, %l2
+/* line number 7*/
 /* Storing result of Binary Op */
-    set         float_0, %l4
+    set         1, %l4
     add         %g0, %l4, %l4
     st          %l2, [%l4]
-    set         _strFmt, %o0
-    set         _boolF, %o1
+/* line number 7*/
+/* printf on int */
+    set         _intFmt, %o0
+    set         1, %o1
     call    printf
     nop
 
