@@ -1049,24 +1049,8 @@ class MyParser extends parser {
 	}
 
 	STO DoArrowDereference(STO pointer, String id) {
-		if (pointer.isError()) {
-			return pointer;
-		}
-
-		if (pointer.getType() instanceof PointerType) {
-			if (((PointerType) pointer.getType()).getContainingType() instanceof StructType) {
-				Type dereferenceType = ((PointerType) pointer.getType())
-						.dereference();
-				return DoDesignator2_Dot(new VarSTO(pointer.getName(),
-						dereferenceType), id);
-			}
-		}
-		// not pointer, or struct.
-		m_nNumErrors++;
-		m_errors.print(Formatter.toString(ErrorMsg.error15_ReceiverArrow,
-				pointer.getType().getName()));
-		return new ErrorSTO(Formatter.toString(ErrorMsg.error15_ReceiverArrow,
-				pointer.getType().getName()));
+		STO b = DoStarDereference(pointer);
+		return this.DoDesignator2_Dot(b, id);
 	}
 
 	// ----------------------------------------------------------------
