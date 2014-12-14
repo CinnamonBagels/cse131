@@ -60,28 +60,28 @@ globalInit_end:
 /* line number 25*/
 /* Assigning struct food to food1 */
     set         12, %o2
-    set         -16, %o1
-    add         %fp, %o1, %o1
-    set         food, %o0
-    add         %g0, %o0, %o0
+    set         -16, %o0
+    add         %fp, %o0, %o0
+    set         food, %o1
+    add         %g0, %o1, %o1
     call    memmove
     nop
 /* line number 26*/
 /* Assigning struct food1 to food2 */
     set         12, %o2
-    set         -28, %o1
-    add         %fp, %o1, %o1
-    set         -16, %o0
+    set         -28, %o0
     add         %fp, %o0, %o0
+    set         -16, %o1
+    add         %fp, %o1, %o1
     call    memmove
     nop
 /* line number 27*/
 /* Assigning struct food2 to food3 */
     set         12, %o2
-    set         -40, %o1
-    add         %fp, %o1, %o1
-    set         -28, %o0
+    set         -40, %o0
     add         %fp, %o0, %o0
+    set         -28, %o1
+    add         %fp, %o1, %o1
     call    memmove
     nop
 /* line number 29*/
