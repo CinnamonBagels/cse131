@@ -76,6 +76,11 @@ globalInit_end:
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+    ld          [%l0], %l0
+    set         -16, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    st          %l0, [%l1]
 /* line number 6*/
 /* Printing int *b */
     set         _intFmt, %o0
@@ -99,6 +104,11 @@ globalInit_end:
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+    ld          [%l0], %l0
+    set         -20, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    st          %l0, [%l1]
 ! --storing constant *b with value 10.0
     set         -20, %l0
     add         %fp, %l0, %l0
@@ -127,6 +137,11 @@ globalInit_end:
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+    ld          [%l0], %l0
+    set         -24, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    st          %l0, [%l1]
 /* line number 9*/
 /* Printing int *b */
     set         _intFmt, %o0
@@ -165,6 +180,11 @@ globalInit_end:
     set         -32, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
+    ld          [%l0], %l0
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    st          %l0, [%l1]
 /* line number 11*/
 /* Dereferencing *c */
 /* line number 11*/
@@ -173,6 +193,11 @@ globalInit_end:
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %l0
+    ld          [%l0], %l0
+    set         -40, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    st          %l0, [%l1]
 ! --storing constant **c with value 12.0
     set         -40, %l0
     add         %fp, %l0, %l0
@@ -201,6 +226,11 @@ globalInit_end:
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
+    ld          [%l0], %l0
+    set         -44, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l1
+    st          %l0, [%l1]
 /* line number 13*/
 /* Printing int *b */
     set         _intFmt, %o0
