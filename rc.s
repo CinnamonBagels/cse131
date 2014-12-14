@@ -87,7 +87,6 @@ globalInit_end:
 /* Loading *b to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
-    ld          [%l1], %l1
     ld          [%l1], %o1
     call    printf
     nop
