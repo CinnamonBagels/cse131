@@ -176,6 +176,8 @@ class MyParser extends parser {
 			if (sto.isError()) {
 				continue;
 			}
+			
+			//recursive struct def
 			if(currentStruct != null) {	
 				if (sto.getName() == currentStruct.getName()) {
 					m_nNumErrors++;

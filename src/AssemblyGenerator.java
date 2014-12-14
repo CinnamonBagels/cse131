@@ -1508,11 +1508,17 @@ public class AssemblyGenerator {
 		String register = "";
 		boolean isFloat = result.getType().isFloat();
 		if(op.getName().equals("--")) {
-			generateComment("Decrementing");
+			generateComment("Decrementing " + origin.getType().getName() + " " + origin.getName());
 			if(!isFloat) {
 				loadVariable(Registers.l0, origin);
 				
-				generateASM(Strings.one_param, Instructions.dec, Registers.l0);
+				//dec by 4 if pointer, 1 otherwise
+				if(origin.getType().isPointer()){
+					generateASM(Strings.two_param, Instructions.set, "4", Registers.l6);
+					generateASM(Strings.three_param, Instructions.sub, Registers.l0, Registers.l6, Registers.l0);
+				}else{
+					generateASM(Strings.one_param, Instructions.dec, Registers.l0);
+				}
 				
 				register = Registers.l0;
 				
@@ -1529,7 +1535,11 @@ public class AssemblyGenerator {
 				//hacky. might want to change.
 				if(data.equals("post")) {
 					generateComment("Post decrement");
-					generateASM(Strings.one_param, Instructions.inc, register);
+					if(origin.getType().isPointer()){
+						generateASM(Strings.three_param, Instructions.add, Registers.l0, Registers.l6, Registers.l0);
+					}else{
+						generateASM(Strings.one_param, Instructions.inc, register);
+					}
 				}
 			} else {
 				loadVariable(Registers.f0, origin);
@@ -1558,7 +1568,13 @@ public class AssemblyGenerator {
 			if(!isFloat) {
 				loadVariable(Registers.l0, origin);
 				
-				generateASM(Strings.one_param, Instructions.inc, Registers.l0);
+				//inc by 4 if pointer, 1 otherwise
+				if(origin.getType().isPointer()){
+					generateASM(Strings.two_param, Instructions.set, "4", Registers.l6);
+					generateASM(Strings.three_param, Instructions.add, Registers.l0, Registers.l6, Registers.l0);
+				}else{				
+					generateASM(Strings.one_param, Instructions.inc, Registers.l0);
+				}
 				
 				register = Registers.l0;
 				
@@ -1575,7 +1591,11 @@ public class AssemblyGenerator {
 				//hacky. might want to change.
 				if(data.equals("post")) {
 					generateComment("Post Increment");
-					generateASM(Strings.one_param, Instructions.dec, register);
+					if(origin.getType().isPointer()){
+						generateASM(Strings.three_param, Instructions.sub, Registers.l0, Registers.l6, Registers.l0);
+					}else{
+						generateASM(Strings.one_param, Instructions.dec, register);
+					}
 				}
 			} else {
 				loadVariable(Registers.f0, origin);
@@ -1841,11 +1861,17 @@ public class AssemblyGenerator {
 	public void storeStruct(STO dest, STO origin) {
 		// TODO Auto-generated method stub
 		generateComment("Assigning struct " + origin.getName() + " to " + dest.getName());
-		setAdd(origin, Registers.o1);
-		setAdd(dest, Registers.o0);
 		generateASM(Strings.two_param, Instructions.set, String.valueOf(dest.getType().getSize()), Registers.o2);
-		generateASM(Strings.call_op, Strings.memcpy);
+		setAdd(dest, Registers.o0);
+		setAdd(origin, Registers.o1);
+		generateASM(Strings.call_op, Strings.memmove);
 		generateASM(Strings.nop);
+		
+//		setAdd(origin, Registers.o1);
+//		setAdd(dest, Registers.o0);
+//		generateASM(Strings.two_param, Instructions.set, String.valueOf(dest.getType().getSize()), Registers.o2);
+//		generateASM(Strings.call_op, Strings.memcpy);
+//		generateASM(Strings.nop);
 	}
 	
 	public String setAdd(STO sto, String register) {
