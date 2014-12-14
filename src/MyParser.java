@@ -1627,7 +1627,9 @@ class MyParser extends parser {
 					}
 				}
 				return csto;
-			} else if(sto.getType().isPointer()) {
+			} else if(sto.getType() instanceof PointerType) {
+				
+			} else if( t instanceof PointerType) {
 				
 			}
 			// alias
