@@ -55,35 +55,17 @@ globalInit_end:
     ld          [%l3], %l3
     st          %l3, [%l5]
 /* line number 5*/
-/* Printing int a */
-    set         _intFmt, %o0
-/* line number 5*/
-/* Loading a to %o1 */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o1
-    call    printf
-    nop
-/* line number 5*/
-/* Done printing int. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 6*/
 /* Dereferencing b */
-/* line number 6*/
-/* Loading b to %l0 */
-    set         b, %l1
-    add         %g0, %l1, %l1
-    ld          [%l1], %l0
-
+    set         b, %l0
+    add         %g0, %l0, %l0
+    ld          [%l0], %l0
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
-/* line number 6*/
+/* line number 5*/
 /* Printing int *b */
     set         _intFmt, %o0
-/* line number 6*/
+/* line number 5*/
 /* Loading *b to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
@@ -91,7 +73,7 @@ globalInit_end:
     ld          [%l1], %o1
     call    printf
     nop
-/* line number 6*/
+/* line number 5*/
 /* Done printing int. */
     set         _endl, %o0
     call    printf

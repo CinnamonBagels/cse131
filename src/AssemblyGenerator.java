@@ -594,7 +594,6 @@ public class AssemblyGenerator {
 				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l0);
 				generateASM(Strings.three_param, Instructions.add, sto.base, Registers.l0, Registers.l0);
 				
-				generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", register);
 			}
 		} else {
 				generateASM(Strings.two_param, Instructions.set, sto.offset, Registers.l1);
@@ -620,7 +619,7 @@ public class AssemblyGenerator {
 	
 	public void doDereference(STO sto, STO dereferencedSTO){
 		generateComment("Dereferencing " + sto.getName());
-		loadVariable(Registers.l0, sto);
+		setAdd(sto, Registers.l0);
 		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		setAdd(dereferencedSTO, Registers.l1);
 		
