@@ -276,7 +276,7 @@ class MyParser extends parser {
 				
 				if(sto.isInitialized && !sto.isStatic){
 					generator.doData(sto, (STO)lstIDs.get(sto));
-				} else if(sto.getType().isArray() || sto.getType().isStruct()) {
+				} else if(sto.getType().isArray() || sto.getType().isStruct() || sto.getType().isPointer()) {
 					generator.doBSS(sto);
 				} else {
 					generator.doData(sto, new ConstSTO("0", new IntegerType(), 0.0));

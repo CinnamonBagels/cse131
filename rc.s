@@ -4,6 +4,10 @@
 FLOAT_FORCE_1:    .single      0r1.0       
                  .global     b
 globalInit_:    .word        0           
+                .section     ".bss"
+                .align 4
+b:              .skip        4           
+
 
 ! DEFINING INTERNAL CONSTANTS --
                 .section     ".rodata"
