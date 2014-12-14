@@ -1607,15 +1607,17 @@ class MyParser extends parser {
 			if (t instanceof BasicType || t instanceof PointerType) {
 				// const
 				if (sto.isConst()) {
-					ConstSTO csto = new ConstSTO(sto.getName(), t);
+					//cant assign new const yet.
+					ConstSTO csto = null;
 					// casting float as int?
 					if (t instanceof IntegerType
 							&& sto.getType() instanceof FloatType) {
-						csto.setValue(((ConstSTO) sto).getIntValue());
+						csto = new ConstSTO(String.valueOf(((ConstSTO) sto).getIntValue()), t);
 					}
 					// no truncation cast
 					else {
-						csto.setValue(((ConstSTO) sto).getValue());
+						csto = new ConstSTO(String.valueOf(((ConstSTO) sto).getValue()), t);
+						assignFloat(csto);
 					}
 					return csto;
 				}
