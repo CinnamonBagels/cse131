@@ -1655,7 +1655,12 @@ public class AssemblyGenerator {
 		//check if reference
 		//if(refernece) {}
 		
-		if(returnSTO.isConst()) {
+		if(func.getIsReturnRefernece()) {
+			storeReference(returnSTO, Registers.i0);
+			generateASM(Strings.one_param, Instructions.ba, func.offset + "end");
+			generateASM(Strings.nop);
+		}
+		else if(returnSTO.isConst()) {
 			if(func.getReturnType().isFloat()) {
 				if(returnSTO.getType().isFloat()) {					
 					assignFloat((ConstSTO) returnSTO);
@@ -1689,6 +1694,11 @@ public class AssemblyGenerator {
 		generateASM(Strings.nop);
 	}
 	
+	private void returnReference(STO returnSTO, String i0) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	public void DoCIN(STO sto){
 		generateComment("Starting cin");
 		generateASM(Strings.two_param,Instructions.set,sto.offset,Registers.l5);
