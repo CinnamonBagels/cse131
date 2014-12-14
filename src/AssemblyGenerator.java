@@ -1862,8 +1862,8 @@ public class AssemblyGenerator {
 		// TODO Auto-generated method stub
 		generateComment("Assigning struct " + origin.getName() + " to " + dest.getName());
 		generateASM(Strings.two_param, Instructions.set, String.valueOf(dest.getType().getSize()), Registers.o2);
-		setAdd(dest, Registers.o0);
-		setAdd(origin, Registers.o1);
+		setAdd(dest, Registers.o1);
+		setAdd(origin, Registers.o0);
 		generateASM(Strings.call_op, Strings.memmove);
 		generateASM(Strings.nop);
 		

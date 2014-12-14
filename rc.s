@@ -40,112 +40,70 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 ! --storing constant a with value 5.0
-    set         -4, %l0
+    set         -8, %l0
     add         %fp, %l0, %l0
     set         float_0, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant b with value 6.0
-    set         -8, %l0
+    set         -12, %l0
     add         %fp, %l0, %l0
     set         float_1, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
 ! --storing constant c with value 7.0
-    set         -12, %l0
+    set         -4, %l0
     add         %fp, %l0, %l0
     set         float_2, %l1
     ld          [%l1], %f0
     st          %f0, [%l0]
-/* line number 20*/
-/* printing float STO.VarSTO@59c8e80d */
-/* line number 20*/
+/* line number 23*/
+/* Assigning struct food to food1 */
+    set         12, %o2
+    set         -16, %o1
+    add         %fp, %o1, %o1
+    set         food, %o0
+    add         %g0, %o0, %o0
+    call    memmove
+    nop
+/* line number 25*/
+/* printing float STO.VarSTO@1961581 */
+/* line number 25*/
 /* Loading a to %f0 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 20*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 21*/
-/* printing float STO.VarSTO@14fadb88 */
-/* line number 21*/
-/* Loading b to %f0 */
     set         -8, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
-/* line number 21*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 22*/
-/* printing float STO.VarSTO@6162c87a */
-/* line number 22*/
-/* Loading c to %f0 */
-    set         -12, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 22*/
+/* line number 25*/
 /* Done printing float. */
     set         _endl, %o0
     call    printf
     nop
 /* line number 26*/
-/* Assigning struct food to food1 */
-    set         12, %o2
-    set         -16, %o0
-    add         %fp, %o0, %o0
-    set         food, %o1
-    add         %g0, %o1, %o1
-    call    memmove
-    nop
-/* line number 28*/
-/* printing float STO.VarSTO@59c8e80d */
-/* line number 28*/
-/* Loading a to %f0 */
-    set         -4, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 28*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 29*/
-/* printing float STO.VarSTO@14fadb88 */
-/* line number 29*/
+/* printing float STO.VarSTO@5ddb6e */
+/* line number 26*/
 /* Loading b to %f0 */
-    set         -8, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %f0
-    call    printFloat
-    nop
-/* line number 29*/
-/* Done printing float. */
-    set         _endl, %o0
-    call    printf
-    nop
-/* line number 30*/
-/* printing float STO.VarSTO@6162c87a */
-/* line number 30*/
-/* Loading c to %f0 */
     set         -12, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %f0
     call    printFloat
     nop
-/* line number 30*/
+/* line number 26*/
+/* Done printing float. */
+    set         _endl, %o0
+    call    printf
+    nop
+/* line number 27*/
+/* printing float STO.VarSTO@1f1235b */
+/* line number 27*/
+/* Loading c to %f0 */
+    set         -4, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %f0
+    call    printFloat
+    nop
+/* line number 27*/
 /* Done printing float. */
     set         _endl, %o0
     call    printf

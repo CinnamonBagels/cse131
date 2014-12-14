@@ -1,22 +1,33 @@
-// mixed pass local + global int by ref
 
-int x = 10;
-int y = 20;
+structdef FOO {
+    float a, b, c;
+};
 
-function: void foo (int & x, int y) {
-    x++;
-    y++;
+structdef BAR {
+    int barA;
+    float barB;
+    bool barC;
+};
+
+FOO food;
+BAR bed;
+
+function : void main()
+{
+    food.a = 5.00;
+    food.b = 6.00;
+    food.c = 7.00;
+
+    FOO food1;
+    
+    food1 = food;
+    
+    cout << food1.a << endl;
+    cout << food1.b << endl;
+    cout << food1.c << endl;
+
+
 }
-
-function: void foo2 (int x, int & y) {
-    x++;
-    y++;
-}
-
-function: void main() {
-    cout << x << " " << y << endl;
-    foo(x,y);
-    cout << x << " " << y << endl;
-    foo2(x,y);
-    cout << x << " " << y << endl;
-}
+    
+    
+    
