@@ -1039,11 +1039,11 @@ class MyParser extends parser {
 					pointer.getType().getName()));
 		} else {
 			STO rsto = new VarSTO("*" + pointer.getName(), dereferenceType);
-			rsto.isDereferenced = true;
 			rsto.base = Registers.fp;
 			rsto.offset = String.valueOf(-(func.getStackSize() + rsto.getType().getSize()));
 			func.addToStack(rsto.getType().getSize());
 			generator.doDereference(pointer, rsto);
+			rsto.isDereferenced = true;
 			return rsto;
 		}
 	}
