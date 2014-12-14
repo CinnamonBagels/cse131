@@ -2,9 +2,9 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
-                 .global     i,j,ip
-i:              .word        0           
+                 .global     j,i,ip
 j:              .word        0           
+i:              .word        0           
 ip:             .word        0           
 str_0:          .asciz       "i is: "    
 str_1:          .asciz       "value of ip is: "

@@ -144,18 +144,18 @@ globalInit_end:
 /* line number 33*/
 /* Assigning struct s1 to s2 */
     set         12, %o2
-    set         -16, %o0
+    set         -28, %o0
     add         %fp, %o0, %o0
-    set         -28, %o1
+    set         -40, %o1
     add         %fp, %o1, %o1
     call    memcpy
     nop
 /* line number 33*/
 /* Assigning struct s2 to s3 */
     set         12, %o2
-    set         -40, %o0
+    set         -16, %o0
     add         %fp, %o0, %o0
-    set         -16, %o1
+    set         -28, %o1
     add         %fp, %o1, %o1
     call    memcpy
     nop

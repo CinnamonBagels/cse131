@@ -277,7 +277,7 @@ branchEnd_0:
     add         %fp, %l1, %l1
     st          %l0, [%l1]
 /* line number 38*/
-/* printing float STO.VarSTO@a28815 */
+/* printing float STO.VarSTO@944d4a */
 /* line number 38*/
 /* Loading bow to %f0 */
     set         -44, %l1
@@ -491,7 +491,7 @@ branchEnd_1:
     add         %fp, %l1, %l1
     st          %l0, [%l1]
 /* line number 45*/
-/* printing float STO.VarSTO@a28815 */
+/* printing float STO.VarSTO@944d4a */
 /* line number 45*/
 /* Loading bow to %f0 */
     set         -44, %l1

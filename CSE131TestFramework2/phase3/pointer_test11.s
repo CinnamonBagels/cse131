@@ -149,7 +149,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 20*/
-/* printing float STO.ExprSTO@a969e4 */
+/* printing float STO.ExprSTO@67211b */
 /* line number 20*/
 /* Loading float - float to %f0 */
     set         -52, %l1

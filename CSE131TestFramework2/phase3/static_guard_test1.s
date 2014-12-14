@@ -142,7 +142,7 @@ if_0:
     call    printf
     nop
 /* line number 9*/
-/* printing float STO.VarSTO@d90727 */
+/* printing float STO.VarSTO@64a871 */
 /* line number 9*/
 /* Loading z to %f0 */
     set         main_z, %l1

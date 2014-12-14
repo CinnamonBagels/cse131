@@ -204,7 +204,7 @@ globalInit_end:
 /* line number 17*/
 /* Done. */
 /* line number 17*/
-/* printing float STO.VarSTO@16c171f */
+/* printing float STO.VarSTO@69048b */
 /* line number 17*/
 /* Loading jf to %f0 */
     set         -60, %l1
@@ -223,7 +223,7 @@ globalInit_end:
 /* line number 17*/
 /* Done printing string. */
 /* line number 17*/
-/* printing float STO.VarSTO@1620d92 */
+/* printing float STO.VarSTO@a969e4 */
 /* line number 17*/
 /* Loading kf to %f0 */
     set         -68, %l1

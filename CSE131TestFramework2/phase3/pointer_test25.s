@@ -51,12 +51,12 @@ moby:
     st          %f2, [%l1]
 /* line number 11*/
 /* Returning value from moby */
-/* line number 11*/
-/* Loading a to %f0 */
-    set         68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %f0
+    set         68, %l0
+    add         %fp, %l0, %l0
+    ld          [%l0], %l0
+    mov         %l0, %i0
+    ba      mobyend
+    nop
     ba      moby_end
     nop
 moby_end:
@@ -120,7 +120,7 @@ globalInit_end:
 /* line number 19*/
 /* Done printing string. */
 /* line number 19*/
-/* printing float STO.VarSTO@10bb83e */
+/* printing float STO.VarSTO@6d234c */
 /* line number 19*/
 /* Loading dick to %f0 */
     set         -8, %l1

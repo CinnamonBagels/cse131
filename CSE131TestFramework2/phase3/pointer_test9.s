@@ -283,7 +283,7 @@ branchEnd_0:
     add         %fp, %l1, %l1
     st          %l0, [%l1]
 /* line number 38*/
-/* printing float STO.VarSTO@a28815 */
+/* printing float STO.VarSTO@5e43ee */
 /* line number 38*/
 /* Loading bow to %f0 */
     set         -44, %l1
@@ -582,7 +582,7 @@ branchEnd_1:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 45*/
-/* printing float STO.ExprSTO@f2e328 */
+/* printing float STO.ExprSTO@f1cdfb */
 /* line number 45*/
 /* Loading float - float to %f0 */
     set         -472, %l1
@@ -846,7 +846,7 @@ arrayEnd_3:
     add         %fp, %l1, %l1
     st          %l0, [%l1]
 /* line number 55*/
-/* printing float STO.VarSTO@121784f */
+/* printing float STO.VarSTO@f30862 */
 /* line number 55*/
 /* Loading mustache to %f0 */
     set         -24, %l1
@@ -915,7 +915,7 @@ arrayOutBounds_4:
     nop
 arrayEnd_4:
 /* line number 56*/
-/* printing float STO.ExprSTO@1f6c18 */
+/* printing float STO.ExprSTO@10a59d2 */
 /* line number 56*/
 /* Loading pants[2] to %f0 */
     set         -696, %l1

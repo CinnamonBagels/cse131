@@ -125,7 +125,7 @@ globalInit_end:
     add         %fp, %l1, %l1
     st          %l0, [%l1]
 /* line number 7*/
-/* printing float STO.VarSTO@1a0c382 */
+/* printing float STO.VarSTO@183bfee */
 /* line number 7*/
 /* Loading *&*&*a to %f0 */
     set         -52, %l1

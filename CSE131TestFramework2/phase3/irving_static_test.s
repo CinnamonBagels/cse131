@@ -414,7 +414,7 @@ globalInit_end:
     call    printf
     nop
 /* line number 41*/
-/* printing float STO.VarSTO@132e233 */
+/* printing float STO.VarSTO@1a0c382 */
 /* line number 41*/
 /* Loading z to %f0 */
     set         main_z, %l1

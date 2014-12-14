@@ -389,7 +389,7 @@ globalInit_end:
     add         %fp, %l4, %l4
     st          %f3, [%l4]
 /* line number 30*/
-/* printing float STO.ExprSTO@a969e4 */
+/* printing float STO.ExprSTO@ae8542 */
 /* line number 30*/
 /* Loading int + float to %f0 */
     set         -112, %l1

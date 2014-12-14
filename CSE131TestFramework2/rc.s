@@ -2,6 +2,7 @@
                 .section     ".data"
                 .align 4
 FLOAT_FORCE_1:    .single      0r1.0       
+str_0:          .asciz       "a"         
 globalInit_:    .word        0           
 
 ! DEFINING INTERNAL CONSTANTS --
@@ -95,205 +96,18 @@ globalInit_end:
 /* line number 9*/
 /* Storing value of register %o0 into rawr3 */
     st          %o0, [%fp-40]
-/* line number 9*/
-/* Storing variable rawr3 into rawr3 */
-    set         -44, %l5
-    add         %fp, %l5, %l5
-    set         -40, %l3
-    add         %fp, %l3, %l3
-    ld          [%l3], %l3
-    st          %l3, [%l5]
-/* initializing pointer a with the value of rawr3 */
 /* line number 11*/
-/* Loading rawr3 to %o0 */
-    set         -44, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %o0
-/* line number 11*/
-/* Storing value of register %o0 into a */
-    st          %o0, [%fp-48]
-/* line number 11*/
-/* Dereferencing a */
-    set         -48, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
-    set         -52, %l1
-    add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 11*/
-/* Dereferencing *a */
-    set         -52, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
-    ld          [%l0], %l0
-    set         -56, %l1
-    add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 11*/
-/* Dereferencing **a */
-    set         -56, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
-    ld          [%l0], %l0
-    set         -60, %l1
-    add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 11*/
-/* Dereferencing ***a */
-    set         -60, %l0
-    add         %fp, %l0, %l0
-    ld          [%l0], %l0
-    ld          [%l0], %l0
-    set         -64, %l1
-    add         %fp, %l1, %l1
-    st          %l0, [%l1]
-/* line number 11*/
-/* Short-circuiting && with ****a */
-/* line number 11*/
-/* Loading ****a to %l1 */
-    set         -64, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %l1
-    cmp         %l1, %g0
-    be      andF_0
-    nop
-/* line number 11*/
-/* Prepping Arithmetic Calculations by loading */
-/* line number 11*/
-/* Loading ****a to %l0 */
-    set         -64, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    ld          [%l1], %l0
-/* line number 11*/
-/* Loading true to %l1 */
-    set         1, %l1
-/* line number 11*/
-/* &&-ing */
-    cmp         %l1, %g0
-    bne     andT_0
-    nop
-andF_0:
-    set         0, %l2
-    ba      andEnd_0
-    nop
-andT_0:
-    set         1, %l2
-andEnd_0:
-/* line number 11*/
-/* Storing result of Binary Op */
-    set         -68, %l4
-    add         %fp, %l4, %l4
-    st          %l2, [%l4]
-/* line number 11*/
-/* Short-circuiting && with Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- */
-/* line number 11*/
-/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- to %l1 */
-    set         -68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    cmp         %l1, %g0
-    be      andF_1
-    nop
-/* line number 11*/
-/* Prepping Arithmetic Calculations by loading */
-/* line number 11*/
-/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- to %l0 */
-    set         -68, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-/* line number 11*/
-/* Loading true to %l1 */
-    set         1, %l1
-/* line number 11*/
-/* &&-ing */
-    cmp         %l1, %g0
-    bne     andT_1
-    nop
-andF_1:
-    set         0, %l2
-    ba      andEnd_1
-    nop
-andT_1:
-    set         1, %l2
-andEnd_1:
-/* line number 11*/
-/* Storing result of Binary Op */
-    set         -72, %l4
-    add         %fp, %l4, %l4
-    st          %l2, [%l4]
-/* line number 11*/
-/* Short-circuiting && with Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- */
-/* line number 11*/
-/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- to %l1 */
-    set         -72, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l1
-    cmp         %l1, %g0
-    be      andF_2
-    nop
-/* line number 11*/
-/* Prepping Arithmetic Calculations by loading */
-/* line number 11*/
-/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- to %l0 */
-    set         -72, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
-/* line number 11*/
-/* Loading false to %l1 */
-    set         0, %l1
-/* line number 11*/
-/* &&-ing */
-    cmp         %l1, %g0
-    bne     andT_2
-    nop
-andF_2:
-    set         0, %l2
-    ba      andEnd_2
-    nop
-andT_2:
-    set         1, %l2
-andEnd_2:
-/* line number 11*/
-/* Storing result of Binary Op */
-    set         -76, %l4
-    add         %fp, %l4, %l4
-    st          %l2, [%l4]
-/* line number 11*/
-/* Printing bool Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- */
-/* line number 11*/
-/* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
- to %l0 */
-    set         -76, %l1
-    add         %fp, %l1, %l1
-    ld          [%l1], %l0
+/* printing string */
     set         _strFmt, %o0
-    cmp         %l0, %g0
-    be      printFalse_0
-    nop
-printTrue_0:
-    set         _boolT, %o1
-    ba      branchEnd_0
-    nop
-printFalse_0:
-    set         _boolF, %o1
-branchEnd_0:
+    set         str_0, %o1
     call    printf
     nop
 /* line number 11*/
-/* Done printing bool. */
+/* Done printing string. */
     set         _endl, %o0
     call    printf
     nop
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 76) & -8
+SAVE.main = -(92 + 40) & -8
