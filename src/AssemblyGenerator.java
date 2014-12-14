@@ -36,6 +36,7 @@ public class AssemblyGenerator {
 	public int finalWhileStmts = 0;
 	public int finalForStmts = 0;
 	public int noFors = 0;
+	public int numNulls = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -75,6 +76,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.boolf + ":", ".asciz", "\"false\""));
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
 		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\""));
+		write(assembleString(Strings.increment, "nullptrexception", Strings.asciz, "\"" + "Attempt to dereference NULL pointer." + "\""));
 		write(assembleString("\n"));
 		
 	}
@@ -620,10 +622,34 @@ public class AssemblyGenerator {
 	public void doDereference(STO sto, STO dereferencedSTO){
 		generateComment("Dereferencing " + sto.getName());
 		setAdd(sto, Registers.l0);
+		
 		generateASM(Strings.two_param, Instructions.load, "[" + Registers.l0 + "]", Registers.l0);
 		setAdd(dereferencedSTO, Registers.l1);
-		
+		//checking to see if nullpointer
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.g0);
+		generateASM(Strings.one_param, Instructions.be, Strings.nullptr + numNulls);
+		generateASM(Strings.nop);
+		//everything okay, store dereference.
+		generateASM(Strings.label, Strings.successDeref + numNulls);
 		generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l1 + "]");
+		generateASM(Strings.one_param, Instructions.ba, Strings.nullptrEnd + numNulls);
+		generateASM(Strings.nop);
+		
+		//here we get into big trouble, nullpinter
+		generateASM(Strings.label, Strings.nullptr + numNulls);
+		generateASM(Strings.two_param, Instructions.set, Strings.strfmt, Registers.o0);
+		generateASM(Strings.two_param, Instructions.set, "nullptrexception", Registers.o1);
+		generateASM(Strings.call_op, Strings.printf);
+		generateASM(Strings.nop);
+		
+		this.doCoutEndl();
+		
+		generateASM(Strings.two_param, Instructions.set, "1", Registers.o0);
+		generateASM(Strings.call_op, Strings.exit);
+		generateASM(Strings.nop);
+		generateASM(Strings.label, Strings.nullptrEnd + numNulls);
+		
+		numNulls++;
 	}
 
 	public void doCoutEndl() {

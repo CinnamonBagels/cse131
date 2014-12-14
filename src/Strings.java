@@ -97,5 +97,8 @@ public class Strings {
     public static final String memmove = "memmove";
     public static final String calloc = "calloc";
     public static final String free = "free";
+    public static final String nullptr = "nullptr_";
+    public static final String successDeref = "deref_";
+    public static final String nullptrEnd = "nullptrEnd_";
     
 }
