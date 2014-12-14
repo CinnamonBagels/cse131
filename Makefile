@@ -29,4 +29,4 @@ clean:
 
 CC=cc
 compile:
-	$(CC) rc.s input.c output.s $LINKOBJ
+	$(CC) rc.s input.c output.s $(LINKOBJ)
