@@ -1,35 +1,14 @@
-
-structdef FOO {
-    float a, b, c;
-};
-
-structdef BAR {
-    int barA;
-    float barB;
-    bool barC;
-};
-
-FOO food;
-BAR bed;
-
-function : void main()
-{
-    food.a = 5.00;
-    food.b = 6.00;
-    food.c = 7.00;
-
-    FOO food1;
-    
-    food1 = food;
-    
-    cout << food1.a << endl;
-    cout << food1.b << endl;
-    cout << food1.c << endl;
-
-
+int * b; 
+function : void main(){
+    int a = 5;
+    b = &a;
+    cout << a << endl; // 5
+    cout << *b << endl; // 5
+    *b = 10; 
+    cout << a << endl; // 10
+    cout << *b << endl; // 10
+    int ** c = &b;
+    **c = 12;
+    cout << a << endl; //12
+    cout << *b << endl; //12
 }
-    
-    
-    
-
-    

@@ -333,7 +333,8 @@ class MyParser extends parser {
 	}
 
 	void structVarDecl(STO left, STO right) {
-		left.offset = String.valueOf(currentStruct.getSize() + left.getType().getSize());
+		left.offset = String.valueOf(currentStruct.getSize());
+		System.out.println(left.getName() + " " + left.offset);
 		
 		currentStruct.setStructMembers(left);
 	}
@@ -1072,6 +1073,12 @@ class MyParser extends parser {
 	//
 	// ----------------------------------------------------------------
 	STO DoDesignator2_Dot(STO sto, String strID) {
+		
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func == null) {
+			func = main;
+		}
 		if (sto.isError()) {
 			return sto;
 		}
@@ -1119,7 +1126,7 @@ class MyParser extends parser {
 				}
 				
 			}
-			totalOffset = offset + accumulator;
+			totalOffset = offset + Integer.parseInt(member.offset);
 			
 			member.base = Registers.fp;
 			member.offset = String.valueOf(totalOffset);
@@ -1663,6 +1670,17 @@ class MyParser extends parser {
 			PointerType ptr = new PointerType();
 			ptr.setContainingType(t);
 			ExprSTO rsto = new ExprSTO("&" + sto.getName(), ptr);
+			rsto.setIsModifiable(false);
+			rsto.setIsAddressable(false);
+			FuncSTO func = m_symtab.getFunc();
+			
+			if(func == null) {
+				func = main;
+			}
+			
+			func.addToStack(rsto.getType().getSize());
+			rsto.base = Registers.fp;
+			rsto.offset = String.valueOf(-func.getStackSize());
 			generator.doAddressOf(sto, rsto);
 			return rsto;
 		} // not addressible

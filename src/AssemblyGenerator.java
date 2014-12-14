@@ -461,7 +461,10 @@ public class AssemblyGenerator {
 	public void doAddressOf(STO sto1, STO sto2){
 		
 		generateASM("/* getting address of " + sto1.getName() + " */\n");
-		generateASM(Strings.three_param, Instructions.add, Registers.fp, sto1.offset, Registers.o0);
+		setAdd(sto1, Registers.l0);
+		setAdd(sto2, Registers.l1);
+		//generateASM(Strings.three_param, Instructions.add, Registers.fp, sto1.offset, Registers.l0);
+		generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l1 + "]");
 		
 	}
 	
@@ -1855,7 +1858,7 @@ public class AssemblyGenerator {
 			}
 			
 		}
-		totalOffset = offset + accumulator;
+		totalOffset = offset + Integer.parseInt(member.offset);
 	}
 
 	public void storeStruct(STO dest, STO origin) {
@@ -1864,7 +1867,7 @@ public class AssemblyGenerator {
 		generateASM(Strings.two_param, Instructions.set, String.valueOf(dest.getType().getSize()), Registers.o2);
 		setAdd(dest, Registers.o0);
 		setAdd(origin, Registers.o1);
-		generateASM(Strings.call_op, Strings.memmove);
+		generateASM(Strings.call_op, Strings.memcpy);
 		generateASM(Strings.nop);
 		
 //		setAdd(origin, Registers.o1);
