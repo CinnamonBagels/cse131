@@ -1601,41 +1601,48 @@ class MyParser extends parser {
 		
 		STO typeCast = sto;
 		// target is okay to cast on
-		if (sto.getType() instanceof BasicType
-				|| sto.getType() instanceof PointerType) {
+		if (sto.getType().isBool() || sto.getType().isFloat() || sto.getType().isInt()) {
 			// cast type is okay
-			if (t instanceof BasicType || t instanceof PointerType) {
-				// const
-				if (sto.isConst()) {
-					//cant assign new const yet.
-					ConstSTO csto = null;
-					// casting float as int?
-					if (t instanceof IntegerType
-							&& sto.getType() instanceof FloatType) {
-						csto = new ConstSTO(String.valueOf(((ConstSTO) sto).getIntValue()), t);
+			// const
+			if (sto.isConst()) {
+				//cant assign new const yet.
+				ConstSTO csto = null;
+				// casting float as int?
+				if (t instanceof IntegerType && sto.getType() instanceof FloatType) {
+					csto = new ConstSTO(String.valueOf(((ConstSTO) sto).getIntValue()), t);
+				} else if(t instanceof FloatType && sto.getType().isInt()){
+					csto = new ConstSTO(String.valueOf(((ConstSTO) sto).getValue()), t);
+					assignFloat(csto);
+				} else if(t instanceof BooleanType) {
+					if(((ConstSTO) sto).getIntValue() == 0) {
+						csto = new ConstSTO("false", t);
+					} else {
+						csto = new ConstSTO("true", t);
 					}
-					// no truncation cast
-					else {
-						csto = new ConstSTO(String.valueOf(((ConstSTO) sto).getValue()), t);
-						assignFloat(csto);
+				} else if(sto.getType().isBool()) {
+					if(t.isInt()) {
+						csto = new ConstSTO("1", t);
+					} else if(t.isFloat()) {
+						csto = new ConstSTO("1.0", t);
 					}
-					return csto;
 				}
-				// alias
-				else {
-					typeCast = new ExprSTO(sto.getName(), t);
-					// result of cast is r value
-					typeCast.setIsModLValue(false);
-					
-					func.addToStack(typeCast.getType().getSize());
-					typeCast.offset = String.valueOf(-(func.getStackSize()));
-					typeCast.base = Registers.fp;
-					
-					generator.doTypeCast(typeCast, sto);
-					return typeCast;
-				}
+				return csto;
+			} else if(sto.getType().isPointer()) {
+				
 			}
-
+			// alias
+			else {
+				typeCast = new ExprSTO(sto.getName(), t);
+				// result of cast is r value
+				typeCast.setIsModLValue(false);
+				
+				func.addToStack(typeCast.getType().getSize());
+				typeCast.offset = String.valueOf(-(func.getStackSize()));
+				typeCast.base = Registers.fp;
+				
+				generator.doTypeCast(typeCast, sto);
+				return typeCast;
+			}
 		}
 
 		// invalid cast

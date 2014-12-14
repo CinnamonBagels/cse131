@@ -13,7 +13,7 @@ public class IntegerType extends NumericType{
 		super(str, 4);
 	}
 	public boolean isAssignableTo(Type t) {
-		return t instanceof IntegerType || t instanceof FloatType;
+		return t instanceof IntegerType || t instanceof FloatType || t instanceof BooleanType;
 	}
 	
 	public boolean isEquivalentTo(Type t) {

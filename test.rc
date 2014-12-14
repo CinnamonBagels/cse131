@@ -1,6 +1,6 @@
 function : void main()
 {
-    const float a = 5.00;
+    const bool a = true;
     
     int b = (int)a;
     

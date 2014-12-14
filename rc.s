@@ -30,8 +30,8 @@ main:
     st          %l1, [%l0]
 globalInit_end:
 /* line number 7*/
-/* setting b = 5 */
-    set         5, %l0
+/* setting b = 1 */
+    set         1, %l0
     st          %l0, [%fp-8]
 /* line number 7*/
 /* Done. */

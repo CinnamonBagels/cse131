@@ -10,7 +10,7 @@ public class BooleanType extends Type{
 	}
 	
 	public boolean isAssignableTo(Type t) {
-		return t instanceof BooleanType;
+		return t instanceof BooleanType || t instanceof IntegerType || t instanceof FloatType;
 	}
 	
 	public boolean isEquivalentTo(Type t) {
