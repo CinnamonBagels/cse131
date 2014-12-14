@@ -76,7 +76,7 @@ globalInit_end:
     set         b, %l1
     add         %g0, %l1, %l1
     ld          [%l1], %l0
-    ld          [%l0], %l0
+
     set         -16, %l1
     add         %fp, %l1, %l1
     st          %l0, [%l1]
@@ -87,6 +87,7 @@ globalInit_end:
 /* Loading *b to %o1 */
     set         -16, %l1
     add         %fp, %l1, %l1
+    ld          [%l1], %l1
     ld          [%l1], %o1
     call    printf
     nop
