@@ -36,7 +36,7 @@ output:
     save        %sp, %g1, %sp
 /* Storing parameter val */
     st          %i0, [%fp+68]
-/* printing float STO.VarSTO@1ce669e */
+/* printing float STO.VarSTO@b05acd */
 /* Loading val to %f0 */
     set         68, %l1
     add         %fp, %l1, %l1
@@ -243,27 +243,47 @@ arrayEnd_2:
     call    inputFloat
     nop
     st          %f0, [%l5]
+/* doing foreach */
+    set         -36, %l0
+    add         %fp, %l0, %l0
+    set         0, %l1
+    st          %l1, [%l0]
+for_1:
+/* Loading f_0 to %l0 */
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    set         12, %l1
+    cmp         %l0, %l1
+    be      forEnd_1
+    nop
+    set         arr, %l1
+    add         %g0, %l1, %l1
+    add         %l1, %l0, %l1
+    set         -32, %l2
+    add         %fp, %l2, %l2
+    ld          [%l1], %l2
 /* Incrementing */
 /* Loading f to %f0 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
     set         FLOAT_FORCE_1, %l6
     ld          [%l6], %f1
     fadds       %f0, %f1, %f2
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     st          %f2, [%l1]
-    set         -32, %l1
+    set         -40, %l1
     add         %fp, %l1, %l1
     st          %f2, [%l1]
 /* Prepping Comparison Calculations by loading */
 /* Starting greater than equal */
 /* Loading f to %f0 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
 /* Storing variable 2.99 into temp */
@@ -287,14 +307,14 @@ greaterEqual_1:
     set         1, %l3
 greaterEqualEnd_1:
 /* Storing result of Comparison Op */
-    set         -36, %l4
+    set         -44, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* Short-circuiting && with Validating ComparisonOp float and float as a BooleanType for operator: >=...
  */
 /* Loading Validating ComparisonOp float and float as a BooleanType for operator: >=...
  to %l1 */
-    set         -36, %l1
+    set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
@@ -303,8 +323,8 @@ greaterEqualEnd_1:
 /* Prepping Comparison Calculations by loading */
 /* Starting Less than Equal */
 /* Loading f to %f0 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
 /* Storing variable 3.01 into temp */
@@ -328,18 +348,18 @@ lessEqual_2:
     set         1, %l3
 lessEqualEnd_2:
 /* Storing result of Comparison Op */
-    set         -40, %l4
+    set         -48, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* Prepping Arithmetic Calculations by loading */
 /* Loading Validating ComparisonOp float and float as a BooleanType for operator: >=...
  to %l0 */
-    set         -36, %l1
+    set         -44, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* Loading Validating ComparisonOp float and float as a BooleanType for operator: <=...
  to %l1 */
-    set         -40, %l1
+    set         -48, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* &&-ing */
@@ -354,12 +374,12 @@ andT_0:
     set         1, %l2
 andEnd_0:
 /* Storing result of Binary Op */
-    set         -44, %l4
+    set         -52, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -44, %l1
+    set         -52, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     cmp         %l0, %g0
@@ -375,8 +395,8 @@ if_0:
     set         _endl, %o0
     call    printf
     nop
-/* Continuing while loop */
-    ba      while_0
+/* Continuing for loop */
+    ba      for_1
     nop
     ba      endIf_1
     nop
@@ -385,8 +405,8 @@ endIf_1:
 /* Prepping Comparison Calculations by loading */
 /* Starting greater than equal */
 /* Loading f to %f0 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
 /* Storing variable 18.99 into temp */
@@ -410,14 +430,14 @@ greaterEqual_3:
     set         1, %l3
 greaterEqualEnd_3:
 /* Storing result of Comparison Op */
-    set         -48, %l4
+    set         -56, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* Short-circuiting && with Validating ComparisonOp float and float as a BooleanType for operator: >=...
  */
 /* Loading Validating ComparisonOp float and float as a BooleanType for operator: >=...
  to %l1 */
-    set         -48, %l1
+    set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     cmp         %l1, %g0
@@ -426,8 +446,8 @@ greaterEqualEnd_3:
 /* Prepping Comparison Calculations by loading */
 /* Starting Less than Equal */
 /* Loading f to %f0 */
-    set         null, %l1
-    add         null, %l1, %l1
+    set         -32, %l1
+    add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
 /* Storing variable 19.01 into temp */
@@ -451,18 +471,18 @@ lessEqual_4:
     set         1, %l3
 lessEqualEnd_4:
 /* Storing result of Comparison Op */
-    set         -52, %l4
+    set         -60, %l4
     add         %fp, %l4, %l4
     st          %l3, [%l4]
 /* Prepping Arithmetic Calculations by loading */
 /* Loading Validating ComparisonOp float and float as a BooleanType for operator: >=...
  to %l0 */
-    set         -48, %l1
+    set         -56, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
 /* Loading Validating ComparisonOp float and float as a BooleanType for operator: <=...
  to %l1 */
-    set         -52, %l1
+    set         -60, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
 /* &&-ing */
@@ -477,12 +497,12 @@ andT_1:
     set         1, %l2
 andEnd_1:
 /* Storing result of Binary Op */
-    set         -56, %l4
+    set         -64, %l4
     add         %fp, %l4, %l4
     st          %l2, [%l4]
 /* Loading Validating BooleanOpbool and bool as a BooleanType for operator: &&...
  to %l0 */
-    set         -56, %l1
+    set         -64, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l0
     cmp         %l0, %g0
@@ -498,20 +518,31 @@ if_2:
     set         _endl, %o0
     call    printf
     nop
-/* Breaking out of while loop */
-    ba      whileEnd_0
+/* breaking out of for loop */
+    ba      forEnd_1
     nop
     ba      endIf_3
     nop
 else_2:
 endIf_3:
 /* Preparing argument f */
-    set         null, %l0
-    add         null, %l0, %l0
+    set         -32, %l0
+    add         %fp, %l0, %l0
     ld          [%l0], %l0
     mov         %l0, %o0
     call    output
     nop
+/* Loading f_0 to %l0 */
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    ld          [%l1], %l0
+    add         %l0, 4, %l0
+    set         -36, %l1
+    add         %fp, %l1, %l1
+    st          %l0, [%l5]
+    ba      for_1
+    nop
+forEnd_1:
 /* Starting array access */
 /* Loading 0 to %l0 */
     set         0, %l0
@@ -530,7 +561,7 @@ arrayInBounds_3:
     set         arr, %l1
     add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -60, %l5
+    set         -68, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_3
@@ -549,9 +580,9 @@ arrayOutBounds_3:
 
     nop
 arrayEnd_3:
-/* printing float STO.ExprSTO@118fa47 */
+/* printing float STO.ExprSTO@1777b1 */
 /* Loading arr[0] to %f0 */
-    set         -60, %l1
+    set         -68, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
@@ -582,7 +613,7 @@ arrayInBounds_4:
     set         arr, %l1
     add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -64, %l5
+    set         -72, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_4
@@ -601,9 +632,9 @@ arrayOutBounds_4:
 
     nop
 arrayEnd_4:
-/* printing float STO.ExprSTO@d75415 */
+/* printing float STO.ExprSTO@b3319f */
 /* Loading arr[1] to %f0 */
-    set         -64, %l1
+    set         -72, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
@@ -634,7 +665,7 @@ arrayInBounds_5:
     set         arr, %l1
     add         %g0, %l1, %l1
     add         %l1, %l2, %l4
-    set         -68, %l5
+    set         -76, %l5
     add         %fp, %l5, %l6
     st          %l4, [%l6]
     ba      arrayEnd_5
@@ -653,9 +684,9 @@ arrayOutBounds_5:
 
     nop
 arrayEnd_5:
-/* printing float STO.ExprSTO@d16fc1 */
+/* printing float STO.ExprSTO@7ecd78 */
 /* Loading arr[2] to %f0 */
-    set         -68, %l1
+    set         -76, %l1
     add         %fp, %l1, %l1
     ld          [%l1], %l1
     ld          [%l1], %f0
@@ -671,4 +702,4 @@ whileEnd_0:
 main_end:
     ret 
     restore
-SAVE.main = -(92 + 68) & -8
+SAVE.main = -(92 + 76) & -8

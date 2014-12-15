@@ -37,6 +37,7 @@ public class AssemblyGenerator {
 	public int finalForStmts = 0;
 	public int noFors = 0;
 	public int numNulls = 0;
+	public int forEachIteration = 0;
 	public boolean globalVarsInit = false;
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
@@ -1987,5 +1988,67 @@ public class AssemblyGenerator {
 		//check for float -> int, int -> float conversions.
 		
 		//otherwise you can just store.
+	}
+
+	public void doForEach(STO id, STO list, STO iteration) {
+		generateComment("doing foreach");
+		// TODO Auto-generated method stub
+		forStmts++;
+		//store the iteration so we can reference it in the loop
+		generateASM(Strings.two_param, Instructions.set, iteration.offset, Registers.l0);
+		generateASM(Strings.three_param, Instructions.add, iteration.base, Registers.l0, Registers.l0);
+		generateASM(Strings.two_param, Instructions.set, "0", Registers.l1);
+		generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l0 + "]");
+		
+		generateASM(Strings.label, Strings.forStart + forStmts);
+		
+		//same premise as while loop
+		
+		forStack.push(forStmts);
+		finalForStmts = forStmts;
+		this.loopStack.push(1);
+		
+		//load the iteration
+		loadVariable(Registers.l0, iteration);
+		
+		
+		//should do bounds checking here.
+		generateASM(Strings.two_param, Instructions.set, String.valueOf(list.getType().getSize()), Registers.l1);
+		generateASM(Strings.two_param, Instructions.cmp, Registers.l0, Registers.l1);
+		generateASM(Strings.one_param, Instructions.be, Strings.forEnd + forStmts);
+		generateASM(Strings.nop);
+		
+		//in bounds so OK
+		setAdd(list, Registers.l1);
+		
+		//load the array so we can get the iteration.
+		generateASM(Strings.three_param, Instructions.add, Registers.l1, Registers.l0, Registers.l1);
+		generateASM(Strings.two_param, Instructions.set, id.offset, Registers.l2);
+		generateASM(Strings.three_param, Instructions.add, id.base, Registers.l2, Registers.l2);
+
+//might have to load 
+		if((id.isVar() && ((VarSTO) id).isReference) || (id.isReference || id.isDereferenced)) {
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l2);
+		} else {
+			generateASM(Strings.two_param, Instructions.load, "[" + Registers.l1 + "]", Registers.l1);
+			generateASM(Strings.two_param, Instructions.store, Registers.l1, "[" + Registers.l1 + "]");
+		}	
+	}
+	
+	public void endForEachStmt(STO id, STO list, STO iteration) {
+		int noFors = forStack.pop();
+		loopStack.pop();
+		
+		loadVariable(Registers.l0, iteration);
+		
+		generateASM(Strings.three_param, Instructions.add, Registers.l0, String.valueOf(id.getType().getSize()), Registers.l0);
+		generateASM(Strings.two_param, Instructions.set, iteration.offset, Registers.l1);
+		generateASM(Strings.three_param, Instructions.add, iteration.base, Registers.l1, Registers.l1);
+		generateASM(Strings.two_param, Instructions.store, Registers.l0, "[" + Registers.l5 + "]");
+		generateASM(Strings.one_param, Instructions.ba, Strings.forStart + noFors);
+		generateASM(Strings.nop);
+		generateASM(Strings.label, Strings.forEnd + noFors);
+		finalForStmts--;
+		
 	}
 }

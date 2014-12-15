@@ -651,6 +651,7 @@ ForeachStmt ::=     T_FOREACH T_LPAREN IterationVarDecl:_1 T_COLON Expr:_2 T_RPA
                     :}
                     CodeBlock
                     {:
+                    	((MyParser) parser).doEndForLoop(_1, _2);
                 		((MyParser) parser).DoCloseLoop();
                         ((MyParser) parser).DoBlockClose();
                     :}

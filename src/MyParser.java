@@ -24,6 +24,7 @@ class MyParser extends parser {
 	public static AssemblyGenerator generator = new AssemblyGenerator("rc.s");
 	public FuncSTO main = new FuncSTO("main");
 	public boolean globalInit = false;
+	public Stack<STO> forStack = new Stack<STO>();
 
 	private SymbolTable m_symtab;
 
@@ -171,6 +172,7 @@ class MyParser extends parser {
 		while (e.hasMoreElements()) {
 			STO sto = e.nextElement();
 			String idName = sto.getName();
+			System.out.println(idName);
 			
 			if (sto.isError()) {
 				continue;
@@ -346,7 +348,15 @@ class MyParser extends parser {
 			m_errors.print(Formatter.toString(ErrorMsg.redeclared_id,
 					sto.getName()));
 		}
+		FuncSTO func = m_symtab.getFunc();
 		
+		if(func == null) {
+			func = main;
+		}
+		
+		func.addToStack(sto.getType().getSize());
+		sto.base = Registers.fp;
+		sto.offset = String.valueOf(-func.getStackSize());
 		m_symtab.insert(sto);
 		
 		//assembly here?
@@ -685,6 +695,8 @@ class MyParser extends parser {
 	}
 
 	STO DoForeachStmt(STO id, STO list) {
+		System.out.println(id.getName());
+		System.out.println(id.offset + " " + id.base);
 		if(id.isError()) {
 			return id;
 		}
@@ -720,10 +732,21 @@ class MyParser extends parser {
 				}
 			}
 		}	
-
+		FuncSTO func = m_symtab.getFunc();
+		
+		if(func == null) {
+			func = main;
+		}
 		// i dont htink i finished this.
 		ArrayType arrayType = (ArrayType) list.getType();
-		return null;
+		STO iteration = new VarSTO(id.getName() + "_" + generator.forEachIteration, new IntegerType());
+		func.addToStack(iteration.getType().getSize());
+		iteration.offset = String.valueOf(-func.getStackSize());
+		iteration.base = Registers.fp;
+		generator.doForEach(id, list, iteration);
+		//pretty sure this is the only way to reference the iteration in foreachend
+		forStack.push(iteration);
+		return iteration;
 	}
 
 	public void DoBreakStmt() {
@@ -1769,5 +1792,14 @@ class MyParser extends parser {
 	
 	public void startWhile() {
 		generator.startWhile();
+	}
+	
+	public void doEndForLoop(STO _1, STO _2) {
+		STO iteration = forStack.pop();
+		
+		//id, list, iteration
+		generator.endForEachStmt(_1, _2, iteration);
+		
+		
 	}
 }

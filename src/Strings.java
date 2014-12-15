@@ -100,5 +100,7 @@ public class Strings {
     public static final String nullptr = "nullptr_";
     public static final String successDeref = "deref_";
     public static final String nullptrEnd = "nullptrEnd_";
+    public static final String foreach = "foreach_";
+    public static final String foreachEnd = "foreachEnd_";
     
 }
