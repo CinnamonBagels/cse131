@@ -72,7 +72,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.boolf + ":", ".asciz", "\"false\""));
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
 		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\""));
-		write(assembleString(Strings.init, "nullptrexception", Strings.asciz, "\"" + "Attempt to dereference NULL pointer." + "\""));
+		write(assembleString(Strings.init, "nullptrexception:", Strings.asciz, "\"" + "Attempt to dereference NULL pointer." + "\""));
 		write(assembleString("\n"));
 		
 	}
