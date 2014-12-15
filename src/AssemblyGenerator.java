@@ -41,7 +41,6 @@ public class AssemblyGenerator {
 	public boolean staticVarsInit = false;
 	public static final int mainGuard = 5;
 	public int mainCounter = 0;
-	public int lineNumber = 0;
 	public boolean isStatic = false;
 	public boolean bssInit = false; 
 	
@@ -62,9 +61,6 @@ public class AssemblyGenerator {
 		}
 	}
 	
-	public void setLineNumber(int line) {
-		this.lineNumber = line;
-	}
 	public void internalConstants(){
 		// from slides
 		write("! DEFINING INTERNAL CONSTANTS --\n");
@@ -76,7 +72,7 @@ public class AssemblyGenerator {
 		write(assembleString(Strings.init, Strings.boolf + ":", ".asciz", "\"false\""));
 		write(assembleString(Strings.init, Strings.rfmt + ":", Strings.asciz, Strings.floatFormat));
 		write(assembleString(Strings.init, "arrayOutOfBounds:", Strings.asciz, "\"" + "Index value of %d is outside legal range [0,%d)." + "\""));
-		write(assembleString(Strings.increment, "nullptrexception", Strings.asciz, "\"" + "Attempt to dereference NULL pointer." + "\""));
+		write(assembleString(Strings.init, "nullptrexception", Strings.asciz, "\"" + "Attempt to dereference NULL pointer." + "\""));
 		write(assembleString("\n"));
 		
 	}
@@ -330,17 +326,14 @@ public class AssemblyGenerator {
 		str.append(s);
 		str.append(" */\n");
 		if(!inGlobalScope) {
-			tQueue.add("/* line number " + this.lineNumber + "*/\n");
 			tQueue.add(str.toString());
 		} else {
-			executeBuffer.add("/* line number " + this.lineNumber + "*/\n");
 			executeBuffer.add(str.toString());
 		}
 	}
 	
 	public void write(String str){
 		try{
-			System.out.println(str);
 			fileWriter.write(str);
 		}
 		catch(IOException e){
